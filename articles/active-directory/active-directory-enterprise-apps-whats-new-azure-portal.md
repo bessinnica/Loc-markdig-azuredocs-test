@@ -57,14 +57,14 @@ In addition to adding pre-integrated applications from the gallery, all the cust
 1. If you’ve got an application running already and just want to integrate it into Azure AD for single-sign on or provisioning, choose the **Deploy an existing application** option. Pick a name for your application, click **Add**.
 2. That's it! Instead of needing to know all the details about your application up front, you can now set up how your new application works by navigating through the left menu and configuring the application to your liking at any time.
 
-  ![Adding an existing application with one click](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
+   ![Adding an existing application with one click](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
  
 ### Developing new applications
 
 1. If you’re developing a new application, there's an easy way for you to get to the Application Registry right from the gallery:
 2. Click on the **add your own** option from the Application Gallery, select the **develop an existing application** choice, and you’ll see a quick link right to the application add experience.
 
-  ![Adding a newly-developed application in a few clicks](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
+   ![Adding a newly-developed application in a few clicks](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
 
 >[!NOTE]
@@ -145,7 +145,7 @@ After you’ve added lots of new applications, maybe you want to allow your user
 1. To get started, you can select the **Self-service** option from the application’s left navigation menu and set the **Allow users to request access to this application?** option to ‘**Yes**’. 
 2. This will enable you to configure who is allowed to approve access to this application, and which group self-service users will be added. In addition, if the application is configured for password single-sign on, you’ll also see another option which lets you optionally allow those approvers to manage the passwords assigned to the application.
 
-##Feedback
+## Feedback
 
 We hope you like using the improved Azure AD experience. Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We’re excited about building cool new stuff every day, and use your guidance to shape and define what we build next.
 

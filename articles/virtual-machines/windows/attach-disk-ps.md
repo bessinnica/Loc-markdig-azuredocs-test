@@ -86,7 +86,7 @@ After you add an empty disk, you need to initialize it. To initialize the disk, 
     $fileName = "script-file-name"
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
-		
+        
 The script file can contain something like this code to initialize the disks:
 
 ```azurepowershell-interactive
@@ -102,7 +102,7 @@ The script file can contain something like this code to initialize the disks:
         Initialize-Disk -PartitionStyle MBR -PassThru |
         New-Partition -UseMaximumSize -DriveLetter $driveLetter |
         Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
-	$count++
+    $count++
     }
 ```
 

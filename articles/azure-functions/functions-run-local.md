@@ -69,7 +69,7 @@ sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
 ```
 
 ## Run Azure Functions Core Tools
- 
+
 Azure Functions Core Tools adds the following command aliases:
 * **func**
 * **azfun**
@@ -123,6 +123,7 @@ The file local.settings.json stores app settings, connection strings, and settin
   }
 }
 ```
+
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
@@ -141,7 +142,7 @@ Settings in the local.settings.json file are only used by Functions tools when r
 When no valid storage connection string is set for **AzureWebJobsStorage**, the following error message is shown:  
 
 >Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
-  
+
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
 ### Configure app settings
@@ -159,6 +160,7 @@ To set a value for connection strings, you can do one of the following options:
     Both commands require you to first sign-in to Azure.
 
 <a name="create-func"></a>
+
 ## Create a function
 
 To create a function, run the following command:
@@ -186,6 +188,7 @@ To create a queue-triggered function, run:
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
 <a name="start"></a>
+
 ## Run functions locally
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
@@ -196,16 +199,17 @@ func host start
 
 `func host start` supports the following options:
 
-| Option     | Description                            |
-| ------------ | -------------------------------------- |
-|**`--port -p`** | The local port to listen on. Default value: 7071. |
-| **`--debug <type>`** | The options are `VSCode` and `VS`. |
-| **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
-| **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
-| **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
-| **`--useHttps`** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
-| **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
+
+|                       Option                       |                                                                        Description                                                                        |
+|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      <strong><code>--port -p</code></strong>       |                                                     The local port to listen on. Default value: 7071.                                                     |
+| <strong><code>--debug &lt;type&gt;</code></strong> |                                                            The options are `VSCode` and `VS`.                                                             |
+|        <strong><code>--cors</code></strong>        |                                                  A comma-separated list of CORS origins, with no spaces.                                                  |
+|  <strong><code>--nodeDebugPort -n</code></strong>  |                                     The port for the node debugger to use. Default: A value from launch.json or 5858.                                     |
+|   <strong><code>--debugLevel -d</code></strong>    |                                      The console trace level (off, verbose, info, warning, or error). Default: Info.                                      |
+|     <strong><code>--timeout -t</code></strong>     |                                       The timeout for the Functions host to start, in seconds. Default: 20 seconds.                                       |
+|      <strong><code>--useHttps</code></strong>      |     Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.      |
+|   <strong><code>--pause-on-error</code></strong>   | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE). |
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
@@ -325,14 +329,14 @@ This command publishes to an existing function app in Azure. An error occurs whe
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
->[!IMPORTANT]  
+> [!IMPORTANT]
 > When you create a function app in Azure, it uses version 1.x of the Function runtime by default. To make the function app use version 2.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
-Use the following Azure CLI code to add this setting to your function app: 
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings FUNCTIONS_EXTENSION_VERSION=beta   
-```
+> Use the following Azure CLI code to add this setting to your function app: 
+> ```azurecli-interactive
+> az functionapp config appsettings set --name <function_app> \
+> --resource-group myResourceGroup \
+> --settings FUNCTIONS_EXTENSION_VERSION=beta   
+> ```
 
 ## Next steps
 

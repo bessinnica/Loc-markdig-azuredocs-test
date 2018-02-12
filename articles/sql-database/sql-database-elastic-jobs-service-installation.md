@@ -84,13 +84,13 @@ The parameters provided on this sample invocation can be modified for your desir
 </tr>
     <tr>
     <td>ServiceVmSize</td>
-    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of A0/A1/A2/A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of A0/A1/A2/A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see <a href="sql-database-elastic-jobs-overview.md#components-and-pricing" data-raw-source="[Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing)">Elastic Database jobs components and pricing</a>.</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Provides the service level objective for a Standard edition. This parameter defaults to S0. Parameter values of S0/S1/S2/S3/S4/S6/S9/S12 are accepted which cause the Azure SQL Database to use the respective SLO. For more information on SQL Database SLOs, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Provides the service level objective for a Standard edition. This parameter defaults to S0. Parameter values of S0/S1/S2/S3/S4/S6/S9/S12 are accepted which cause the Azure SQL Database to use the respective SLO. For more information on SQL Database SLOs, see <a href="sql-database-elastic-jobs-overview.md#components-and-pricing" data-raw-source="[Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing)">Elastic Database jobs components and pricing</a>.</td>
 </tr>
 
 </tr>
@@ -127,7 +127,7 @@ To update the VM size of an installation, run the following script with paramete
 
   <tr>
     <td>ResourceGroupName</td>
-    <td>Identifies the Azure resource group name used when the Elastic Database job components were initially installed. This parameter defaults to “__ElasticDatabaseJob”. Since it is not recommended to change this value, you shouldn't have to specify this parameter.</td>
+    <td>Identifies the Azure resource group name used when the Elastic Database job components were initially installed. This parameter defaults to “__ElasticDatabaseJob”. Since it is not recommended to change this value, you shouldn&#39;t have to specify this parameter.</td>
     </tr>
 </tr>
 
@@ -142,7 +142,7 @@ To update the VM size of an installation, run the following script with paramete
 
     <tr>
     <td>ServiceVmSize</td>
-    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of A0/A1/A2/A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of A0/A1/A2/A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see <a href="sql-database-elastic-jobs-overview.md#components-and-pricing" data-raw-source="[Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing)">Elastic Database jobs components and pricing</a>.</td>
 </tr>
 
 </table>

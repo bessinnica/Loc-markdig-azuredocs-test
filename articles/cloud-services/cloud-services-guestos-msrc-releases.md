@@ -21,6 +21,7 @@ ms.author: raiye
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
 ## January Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Windows Security only |2.70, 3.57, 4.50 |January 3, 2018 |
@@ -33,6 +34,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 ## December Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Windows 10 Security updates |4.49, 5.14 |December 12, 2017 |
@@ -45,6 +47,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4049068] |December Timezone update |2.69, 3.56, 4.49 |December 12, 2017 |
 
 ## November Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Windows 10 updates |5.13 |November 14, 2017 |
@@ -59,6 +62,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [3191564] |Update for Windows Management Framework 5.1  |4.48 |November 14, 2017 |
 
 ## October Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Windows 10 updates |5.12 |October 10, 2017 |
@@ -73,6 +77,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4040981] |September .NET non-security rollup |4.47 |September 12, 2017 |
 
 ## September Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Windows 10 updates |5.11 |September 12, 2017 |
@@ -85,6 +90,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4034681] |August non-security rollup |4.46 |August 8, 2017 |
 
 ## August Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Windows 10 updates |5.10 |August 8, 2017 |
@@ -99,6 +105,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-07 | [4025336] |July non-security rollup |4.45 |July 11, 2017 |
 
 ## July Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Windows 10 updates |5.9 |July 11, 2017 |
@@ -113,6 +120,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4022726] |June non-security rollup |4.44 |June 13, 2017 |
 
 ## June Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |WS 2016 OS Quality Improvements |5.8 |May 9, 2017 |
@@ -141,6 +149,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4014512] |May .NET non-security rollup |4.43 |May 9, 2017 |
 
 ## May Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |WS 2016 OS Quality Improvements |5.7 | May 9, 2017 |
@@ -169,6 +178,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4013418] |Servicing Stack Update |5.7 | March 14, 2017 |
 
 ## April Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |WS 2016 OS Quality Improvements | 5.6 | April 11, 2017 |
@@ -189,6 +199,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-04 |  [4012216]  |March 2017 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.41 | April 11, 2017 |
 
 ## March Guest OS
+
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Improvements and fixes | 5.5 | March 14, 2017 |
@@ -203,37 +214,40 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |  [3211320] |Servicing stack update for Windows 10 Version 1607 and Windows Server 2016: January 24, 2017 |5.5 |March 14, 2017 |
 
 ## January Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Security update for Local Security Authority Subsystem Service |2.59 |Jan 10, 2017 |
 
 ## December Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Cumulative Security Update for Internet Explorer |2.58, 3.46, 4.39 |Dec 13, 2016 |
 | MS16-145 |[3204062] |Cumulative Security Update for Microsoft Edge |5.4 |Dec 13, 2016 |
-| MS16-146 |[3204066]	|Security Update for Microsoft Graphics Component|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
-| MS16-147 |[3204063]	|Security Update for Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
-| MS16-149 |[3205655]	|Security Update for Microsoft Windows|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
-| MS16-150 |[3205642]	|Security Update for Secure Kernel Mode |5.4 |Dec 13, 2016 |
-| MS16-151 |[3205651]	|Security Update for Kernel-Mode Drivers|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
-| MS16-152 |[3199709]	|Security Update for Windows Kernel |5.4 |Dec 13, 2016 |
+| MS16-146 |[3204066]   |Security Update for Microsoft Graphics Component|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-147 |[3204063]   |Security Update for Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-149 |[3205655]   |Security Update for Microsoft Windows|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-150 |[3205642]   |Security Update for Secure Kernel Mode |5.4 |Dec 13, 2016 |
+| MS16-151 |[3205651]   |Security Update for Kernel-Mode Drivers|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-152 |[3199709]   |Security Update for Windows Kernel |5.4 |Dec 13, 2016 |
 | MS16-153 |[3207328] |Security Update for Common Log File System Driver|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
-| MS16-155 |[3205640]	|Security Update for .NET Framework |5.4 |Dec 13, 2016 |
+| MS16-155 |[3205640]   |Security Update for .NET Framework |5.4 |Dec 13, 2016 |
 | N/A |[3197868] |November 2016 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.58 |Dec 13, 2016 |
 | N/A |[3197877] |November 2016 Security Monthly Quality Rollup for Windows Server 2012 |3.46 |Dec 13, 2016 |
 | N/A |[3197874] |November 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.39 |Dec 13, 2016 |
 
 ## November Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Cumulative Security Update for Microsoft Edge |5.3 |Nov 8, 2016 |
 | MS16-130 |[3199172] |Security Update for Microsoft Windows |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
-| MS16-131 |[3199151]	|Security Update for Microsoft Video Control |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-131 |[3199151]   |Security Update for Microsoft Video Control |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-132 |[3199120] |Security Update for Microsoft Component |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-134 |[3193706] |Security Update for Common Log File System Driver |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-135 |[3199135] |Security Update for Kernel-Mode Drivers |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
-| MS16-137 |[3199173]	|Security Update for Windows Authentication Methods |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-137 |[3199173]   |Security Update for Windows Authentication Methods |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-138 |[3199647] |Security Update to Microsoft Virtual Hard Drive |5.3, 4.38, 3.45 |Nov 8, 2016 |
 | MS16-139 |[3199720] |Security Update for Windows Kernel |2.57 |Nov 8.2016 |
 | MS16-140 |[3193479] |Security Update For Boot Manager |5.3, 4.38, 3.45 |Nov 8, 2016 |
@@ -250,6 +264,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3197954] |Cumulative Update for Windows 10 Version 1607 and Windows Server 2016: October 27, 2016 |5.3 |Nov 8, 2016 |
 
 ## October Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Cumulative Security Update for Internet Explorer |4.37, 3.44, 2.56 |Oct 11, 2016 |
@@ -265,6 +280,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3194798] |Cumulative update for Windows 10 Version 1607 and Windows Server 2016 |5.2 |Oct 11, 2016 |
 
 ## September Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Cumulative Security Update for Internet Explorer |4.36, 3.43, 2.55 |Sept 13, 2016 |
@@ -282,6 +298,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3179574] |August 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.36 |Sept 13, 2016 |
 
 ## August Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Cumulative Security Update for Internet Explorer |4.35, 3.42, 2.54 |Aug 9, 2016 |
@@ -296,6 +313,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3172614] |July 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.35 |Aug 9, 2016 |
 
 ## July Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Cumulative Security Update for Internet Explorer |4.34, 3.41, 2.53 |July 12, 2016 |
@@ -312,6 +330,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3139923] |Windows installer (MSI) repair doesn't work when MSI package is installed on an HTTP share in Windows |4.34 |July 12, 2016 |
 
 ## June Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Security Update for .NET Framework to Address Security Feature Bypass |4.33, 3.40, 2.52 |June 14, 2016 |
@@ -339,6 +358,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3153731] |May 2016 DST update for Azerbaijan, Chile, Haiti, and Morocco in Windows |4.33, 3.40, 2.52 |June 14, 2016 |
 
 ## May Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Cumulative Security Update for Internet Explorer |4.32, 3.39, 2.51 |May 10, 2016 |
@@ -357,6 +377,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[Disable RC4] | Microsoft security advisory: Update for disabling RC4  |4.32, 3.39, 2.51 |May 10, 2016 |
 
 ## April Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Cumulative Security Update for Internet Explorer |4.31, 3.38, 2.50 |April 12, 2016 |
@@ -368,6 +389,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-048 |[3148528] |Security Update for CSRSS |4.31, 3.38 |April 12, 2016 |
 
 ## March Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Cumulative Security Update for Internet Explorer |4.30, 3.37, 2.49 |March 8, 2016 |
@@ -381,6 +403,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-034 |[3143145] |Security Updates for Kernel-Mode Driver to address Elevation of Privilege |4.30, 3.37, 2.49 |March 8, 2016 |
 
 ## February Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Cumulative Security Update for Internet Explorer |4.29, 3.36, 2.48 |February 9, 2016 |
@@ -396,6 +419,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Re-Release - MS15-128 |[3104503] |Security Updates for Microsoft Graphics Component to Address Remote Code Execution |4.29, 3.36, 2.48 |February 9, 2016 |
 
 ## January Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Cumulative Security Update for Internet Explorer |4.28, 3.35, 2.47 |January 12, 2016 |
@@ -409,6 +433,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Microsoft Security Advisory |[2736233] |Updates for ActiveX Kill Bits |4.28, 3.35, 2.47 |January 12, 2016 |
 
 ## December Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Cumulative Security Update for Internet Explorer |4.27, 3.34, 2.46 |December 8, 2015 |
@@ -421,6 +446,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-135 |[3119075] |Security Update for Windows Kernel Mode Drivers to Address Elevation of Privilege |4.27, 3.34, 2.46 |December 8, 2015 |
 
 ## November Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Cumulative Security Update for Internet Explorer |4.26, 3.33, 2.45 |November 10, 2015 |
@@ -435,6 +461,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Microsoft Security Advisory |[3097966] |Inadvertently disclosed Digital Certificates Could Allow spoofing |4.26, 3.33, 2.45 |November 10, 2015 |
 
 ## October Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Cumulative Security Update for Internet Explorer |4.25, 3.32, 2.44 |October 13, 2015 |
@@ -444,6 +471,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Microsoft Security Advisory |[3092627] |September 2015 update to fix Windows or application freezes after you install security update 3076895 |4.25, 3.32, 2.44 |October 13, 2015 |
 
 ## September Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Security Update for Internet Explorer |4.24, 3.31, 2.43 |September 8, 2015 |
@@ -456,6 +484,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-105 |[3091287] |Vulnerability in Windows Hyper-V Could Allow Security Feature Bypass |4.24 |September 8, 2015 |
 
 ## August Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Cumulative Security Update for Internet Explorer |4.23, 3.30, 2.42 |August 11, 2015 |
@@ -468,6 +497,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-090 |[3076949] |Vulnerability in WebDAV Could Allow Information Disclosure |4.23, 3.30, 2.42 |August 11, 2015 |
 
 ## July Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Cumulative Security Update for Internet Explorer |4.22, 3.29, 2.41 |July 14, 2015 |
@@ -485,6 +515,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | NA |[3057154] |Update to Restrict Use of DES Encryption |4.22, 3.29, 2.41 |July 14, 2015 |
 
 ## June Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Cumulative Security Update for Internet Explorer |4.21, 3.28, 2.40 |June 9, 2015 |
@@ -495,6 +526,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-063 |[3063858] |Vulnerability in Windows Kernel Could Allow Elevation of Privilege |4.21, 3.28, 2.40 |June 9, 2015 |
 
 ## May Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Cumulative Security Update for Internet Explorer |4.20, 3.27, 2.39 |May 12, 2015 |
@@ -518,11 +550,13 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | NA |[3045755] |Update to Improve PKU2U Authentication |4.20, 3.27, 2.39 |Apr 17, 2015 |
 
 ## April Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |Vulnerability in HTTP.sys could allow remote code execution |4.19, 3.26, 2.38 |Apr 17, 2015 |
 
 ## March Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Cumulative Security Update for Internet Explorer |4.18, 3.25, 2.37 |N/A |
@@ -543,6 +577,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 >
 
 ## February Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Security Update for Internet Explorer |4.17, 3.24, 2.36 |N/A |
@@ -554,6 +589,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3004375] |Update to Improve Windows Command Line Auditing<p/>**Note**: This is installed but the registry key to enable it is turned off |4.17, 3.24, 2.36 |N/A |
 
 ## January Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Vulnerability in Windows AppCompatCache could allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
@@ -570,6 +606,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 ## December Guest OS
+
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | N/A |[3013776] |System freezes when you use a domain account to start an application |4.15, 3.22, 2.34 |Jan 13 2015 |

@@ -47,6 +47,7 @@ Finally, once you've fixed any build errors, you can make changes to your applic
 
 <a name="ListOfChangesV1"></a>
 
+
 ### List of breaking changes in version 1.1
 The following list is ordered by the likelihood that the change will affect your application code.
 
@@ -94,6 +95,7 @@ You can change it to this to fix any build errors:
     }
 
 <a name="OperationMethodChanges"></a>
+
 
 #### Operation method changes
 Each operation in the Azure Search .NET SDK is exposed as a set of method overloads for synchronous and asynchronous callers. The signatures and factoring of these method overloads has changed in version 1.1.
@@ -321,6 +323,7 @@ The operation group interface names have all changed to be consistent with their
 This change is unlikely to affect your code unless you created mocks of these interfaces for test purposes.
 
 <a name="BugFixesV1"></a>
+
 
 ### Bug fixes in version 1.1
 There was a bug in older versions of the Azure Search .NET SDK relating to serialization of custom model classes. The bug could occur if you created a custom model class with a property of a non-nullable value type.

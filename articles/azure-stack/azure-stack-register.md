@@ -143,37 +143,37 @@ If you are registering Azure Stack in a disconnected environment, you need to ge
 ### Connect to Azure and register
 Run the steps for this procedure on a machine that can connect to Azure.
 
-  1. [Download the latest PowerShell modules that correspond to registration from GitHub](azure-stack-powershell-download.md).  
+1. [Download the latest PowerShell modules that correspond to registration from GitHub](azure-stack-powershell-download.md).  
 
-  2. From the "AzureStack-Tools-master" directory that is created in the preceding step, navigate to the "Registration" folder and import the ".\RegisterWithAzure.psm1" module:  
+2. From the "AzureStack-Tools-master" directory that is created in the preceding step, navigate to the "Registration" folder and import the ".\RegisterWithAzure.psm1" module:  
 
-     ```powershell
-     Import-Module .\RegisterWithAzure.psm1
-     ```
+   ```powershell
+   Import-Module .\RegisterWithAzure.psm1
+   ```
 
-  3. Copy [RegisterWithAzure.psm1](https://go.microsoft.com/fwlink/?linkid=842959) to a folder, like *C:\Temp*.
+3. Copy [RegisterWithAzure.psm1](https://go.microsoft.com/fwlink/?linkid=842959) to a folder, like *C:\Temp*.
 
-  4. Start PowerShell ISE as an Administrator and then import the RegisterWithAzure module.  
+4. Start PowerShell ISE as an Administrator and then import the RegisterWithAzure module.  
 
-  5. Ensure you are logged into the correct Azure PowerShell context that you want to use to register your Azure Stack environment:  
+5. Ensure you are logged into the correct Azure PowerShell context that you want to use to register your Azure Stack environment:  
 
-     ```Powershell
-        Set-AzureRmContext -SubscriptionId $YourAzureSubscriptionId   
-     ```
-  6. Specify the registration token to register with Azure:
+   ```Powershell
+      Set-AzureRmContext -SubscriptionId $YourAzureSubscriptionId   
+   ```
+6. Specify the registration token to register with Azure:
 
-     ```Powershell  
-       $registrationToken = "*Your Registration Token*"
-       Register-AzsEnvironment -RegistrationToken $registrationToken  
-     ```
-    Optionally, you can use the Get-Content cmdlet to point to a file that contains your registration token:
+   ```Powershell  
+     $registrationToken = "*Your Registration Token*"
+     Register-AzsEnvironment -RegistrationToken $registrationToken  
+   ```
+   Optionally, you can use the Get-Content cmdlet to point to a file that contains your registration token:
 
-    ```Powershell  
-       $registrationToken = Get-Content -Path 'C:\Temp\<Registration Token File>'
-       Register-AzsEnvironment -RegistrationToken $registrationToken  
-    ```
-> [!NOTE]  
-> Save the registration resource name or the registration token for future reference.
+   ```Powershell  
+     $registrationToken = Get-Content -Path 'C:\Temp\<Registration Token File>'
+     Register-AzsEnvironment -RegistrationToken $registrationToken  
+   ```
+   > [!NOTE]  
+   > Save the registration resource name or the registration token for future reference.
 
 ### Remove a registered resource
 If you want to remove the registration resource, then you must use UnRegister-AzsEnvironment and pass in either the registration resource name or the registration token you used for Register-AzsEnvironment.

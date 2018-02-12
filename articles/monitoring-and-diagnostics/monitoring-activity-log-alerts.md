@@ -23,7 +23,7 @@ ms.author: johnkem
 Activity log alerts are alerts that activate when a new activity log event occurs that matches the conditions specified in the alert. They are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events.
 
 > [!NOTE]
-
+> 
 >  [Alerts (Preview)](monitoring-overview-unified-alerts.md) currently offers an enhanced experience in creating and managing activity logs.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 Typically, you create activity log alerts to receive notifications when:
@@ -84,7 +84,7 @@ To learn more about service health notifications, see [Receive activity log aler
 
 8. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
 
-9.	Define a list of actions by providing the action’s:
+9.  Define a list of actions by providing the action’s:
 
     a. **Name**: Enter the action’s name, alias, or identifier.
 
@@ -92,7 +92,7 @@ To learn more about service health notifications, see [Receive activity log aler
 
     c. **Details**: Based on the action type, enter a phone number, email address, or webhook URI.
 
-10.	Select **OK** to create the alert.
+10. Select **OK** to create the alert.
 
 The alert takes a few minutes to fully propagate and then become active. It triggers when new events match the alert's criteria.
 

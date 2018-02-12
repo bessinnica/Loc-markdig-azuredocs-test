@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a VM with a static public IP address - Azure Resource Manager template | Microsoft Docs
 description: Learn how to create a VM with a static public IP address using an Azure Resource Manager template.
 services: virtual-network
@@ -47,10 +47,10 @@ The following section shows the definition of the public IP resource, based on t
   "name": "[variables('webVMSetting').pipName]",
   "location": "[variables('location')]",
   "properties": {
-	"publicIPAllocationMethod": "Static"
+    "publicIPAllocationMethod": "Static"
   },
   "tags": {
-	"displayName": "PublicIPAddress - Web"
+    "displayName": "PublicIPAddress - Web"
   }
 },
 ```
@@ -61,33 +61,33 @@ The following section shows the association of the public IP address with a netw
 
 ```json
   {
-	"apiVersion": "2015-06-15",
-	"type": "Microsoft.Network/networkInterfaces",
-	"name": "[variables('webVMSetting').nicName]",
-	"location": "[variables('location')]",
-	"tags": {
-	"displayName": "NetworkInterface - Web"
-	},
-	"dependsOn": [
-	  "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
-	  "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-	],
-	"properties": {
-	  "ipConfigurations": [
-		{
-		  "name": "ipconfig1",
-		  "properties": {
-		  "privateIPAllocationMethod": "Static",
-		  "privateIPAddress": "[variables('webVMSetting').ipAddress]",
-		  "publicIPAddress": {
-		  "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
-		  },
-		  "subnet": {
-		    "id": "[variables('frontEndSubnetRef')]"
-		  }
-		}
-	  }
-	]
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Network/networkInterfaces",
+    "name": "[variables('webVMSetting').nicName]",
+    "location": "[variables('location')]",
+    "tags": {
+    "displayName": "NetworkInterface - Web"
+    },
+    "dependsOn": [
+      "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
+      "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+    ],
+    "properties": {
+      "ipConfigurations": [
+        {
+          "name": "ipconfig1",
+          "properties": {
+          "privateIPAllocationMethod": "Static",
+          "privateIPAddress": "[variables('webVMSetting').ipAddress]",
+          "publicIPAddress": {
+          "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
+          },
+          "subnet": {
+            "id": "[variables('frontEndSubnetRef')]"
+          }
+        }
+      }
+    ]
   }
 },
 ```
@@ -117,9 +117,9 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 1. If you have never used Azure PowerShell, complete the steps in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) article.
 2. In a PowerShell console, run the `New-AzureRmResourceGroup` cmdlet to create a new resource group, if necessary. If you already have a resource group created, go to step 3.
 
-	```powershell
-	New-AzureRmResourceGroup -Name PIPTEST -Location westus
-	```
+    ```powershell
+    New-AzureRmResourceGroup -Name PIPTEST -Location westus
+    ```
 
     Expected output:
    
@@ -131,11 +131,11 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
 3. In a PowerShell console, run the `New-AzureRmResourceGroupDeployment` cmdlet to deploy the template.
 
-	```powershell
-	New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
-		-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json `
-		-TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
-	```
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
+        -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json `
+        -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
+    ```
 
     Expected output:
    
@@ -170,22 +170,22 @@ To deploy the template by using the Azure CLI, complete the following steps:
 1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article to install and configure it.
 2. Run the `azure config mode` command to switch to Resource Manager mode, as shown below.
 
-	```azurecli
-	azure config mode arm
-	```
+    ```azurecli
+    azure config mode arm
+    ```
 
-	The expected output for the command above:
+    The expected output for the command above:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
 3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), select its content, and save it to a file in your computer. For this example, the parameters are saved to a file named *parameters.json*. Change the parameter values within the file if desired, but at a minimum, it's recommended that you change the value for the adminPassword parameter to a unique, complex password.
 4. Run the `azure group deployment create` cmd to deploy the new VNet by using the template and parameter files you downloaded and modified above. In the command below, replace <path> with the path you saved the file to. 
 
-	```azurecli
-	azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
-	```
+    ```azurecli
+    azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
+    ```
 
-	Expected output (lists parameter values used):
+    Expected output (lists parameter values used):
 
         info:    Executing command group create
         + Getting resource group PIPTEST2

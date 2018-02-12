@@ -35,9 +35,9 @@ The core elements of the *B2C_1A_base policy* are claim types, claims transforma
 
 This claims schemas is divided into three sections:
 
-1.	A first section that lists the minimum claims that are required for the user journeys to work properly.
-2.	A second section that lists the claims required for query string parameters and other special parameters to be passed to other claims providers, especially login.microsoftonline.com for authentication. **Please do not modify these claims**.
-3.	And eventually a third section that lists any additional, optional claims that can be collected from the user, stored in the directory and sent in tokens during sign in. New claims type to be collected from the user and/or sent in the token can be added in this section.
+1.  A first section that lists the minimum claims that are required for the user journeys to work properly.
+2.  A second section that lists the claims required for query string parameters and other special parameters to be passed to other claims providers, especially login.microsoftonline.com for authentication. **Please do not modify these claims**.
+3.  And eventually a third section that lists any additional, optional claims that can be collected from the user, stored in the directory and sent in tokens during sign in. New claims type to be collected from the user and/or sent in the token can be added in this section.
 
 > [!IMPORTANT]
 > The claims schema contains restrictions on certain claims such as passwords and usernames. The Trust Framework (TF) policy treats Azure AD as any other claims provider and all its restrictions are modelled in the premium policy. A policy could be modified to add more restrictions, or use another claims provider for credential storage which will have its own restrictions.
@@ -208,10 +208,12 @@ Currently, no technical profiles are defined for the **Trustframework Policy Eng
 
 This section depicts the user journeys already declared in the *B2C_1A_base* policy. These user journeys are susceptible to be further referenced, overridden, and/or extended as needed in your own policies as well as in the *B2C_1A_base_extensions* policy.
 
-| User journey | Description |
-|--------------|-------------|
-| *SignUp* | |
-| *SignIn* | |
-| *SignUpOrSignIn* | |
-| *EditProfile* | |
-| *PasswordReset* | |
+
+|      User journey       | Description |
+|-------------------------|-------------|
+|     <em>SignUp</em>     |             |
+|     <em>SignIn</em>     |             |
+| <em>SignUpOrSignIn</em> |             |
+|  <em>EditProfile</em>   |             |
+| <em>PasswordReset</em>  |             |
+

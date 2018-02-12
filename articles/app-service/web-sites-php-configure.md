@@ -30,38 +30,38 @@ PHP 5.6 and PHP 7.0 versions are also available, but not enabled by default. To 
 
 ### Azure Portal
 1. Browse to your web app in the [Azure Portal](https://portal.azure.com) and click on the **Settings** button.
-   
+
     ![Web App Settings][settings-button]
 2. From the **Settings** blade select **Application Settings** and choose the new PHP version.
-   
+
     ![Application Settings][application-settings]
 3. Click the **Save** button at the top of the **Web app settings** blade.
-   
+
     ![Save configuration settings][save-button]
 
 ### Azure PowerShell (Windows)
 1. Open Azure PowerShell, and login to your account:
-   
+
         PS C:\> Login-AzureRmAccount
 2. Set the PHP version for the web app.
-   
+
         PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
 3. The PHP version is now set. You can confirm these settings:
-   
+
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
 To use the Azure Command-Line Interface, you must have **Node.js** installed on your computer.
 
 1. Open Terminal, and login to your account.
-   
+
         azure login
 2. Set the PHP version for the web app.
-   
+
         azure site set --php-version {5.5 | 5.6 | 7.0} {app-name}
 
 3. The PHP version is now set. You can confirm these settings:
-   
+
         azure site show {app-name}
 
 > [!NOTE] 
@@ -79,11 +79,11 @@ For any built-in PHP runtime, you can change any of the configuration options by
 ### Changing PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL configuration settings
 1. Add a [.user.ini] file to your root directory.
 2. Add configuration settings to the `.user.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to turn the `display_errors` setting on and set `upload_max_filesize` setting to 10M, your `.user.ini` file would contain this text:
-   
+
         ; Example Settings
         display_errors=On
         upload_max_filesize=10M
-   
+
         ; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
         ; log_errors=On
 3. Deploy your web app.
@@ -95,7 +95,7 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 1. Add an App Setting to your Web App with the key `PHP_INI_SCAN_DIR` and value `d:\home\site\ini`
 2. Create an `settings.ini` file using Kudu Console (http://&lt;site-name&gt;.scm.azurewebsite.net) in the `d:\home\site\ini` directory.
 3. Add configuration settings to the `settings.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to point the `curl.cainfo` setting to a `*.crt` file and set 'wincache.maxfilesize' setting to 512K, your `settings.ini` file would contain this text:
-   
+
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
         wincache.maxfilesize=512
@@ -110,7 +110,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 3. Add an App Setting to your Web App with the key `PHP_INI_SCAN_DIR` and value `d:\home\site\ini`
 4. Create an `ini` file in `d:\home\site\ini` called `extensions.ini`.
 5. Add configuration settings to the `extensions.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to enable the MongoDB and XDebug extensions, your `extensions.ini` file would contain this text:
-   
+
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll
         zend_extension=d:\home\site\ext\php_xdebug.dll
@@ -121,14 +121,14 @@ As noted in the previous section, the best way to see the default PHP version, i
 2. Put `.dll` extension files in the `bin` directory (for example, `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP and are VC9 and non-thread-safe (nts) compatible.
 3. Deploy your web app.
 4. Browse to your web app in the Azure Portal and click on the **Settings** button.
-   
+
     ![Web App Settings][settings-button]
 5. From the **Settings** blade select **Application Settings** and scroll to the **App settings** section.
 6. In the **App settings** section, create a **PHP_EXTENSIONS** key. The value for this key would be a path relative to website root: **bin\your-ext-file**.
-   
+
     ![Enable extension in app settings][php-extensions]
 7. Click the **Save** button at the top of the **Web app settings** blade.
-   
+
     ![Save configuration settings][save-button]
 
 Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To enable multiple extensions, include a comma-separated list of `.dll` files for the app setting value.
@@ -142,16 +142,17 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 4. Add a `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
 5. Deploy your web app.
 6. Browse to your web app in the Azure Portal and click on the **Settings** button.
-   
+
     ![Web App Settings][settings-button]
 7. From the **Settings** blade select **Application Settings** and scroll to the **Handler mappings** section. Add `*.php` to the Extension field and add the path to the `php-cgi.exe` executable. If you put your PHP runtime in the `bin` directory in the root of you application, the path will be `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-   
+
     ![Specify handler in hander mappings][handler-mappings]
 8. Click the **Save** button at the top of the **Web app settings** blade.
-   
+
     ![Save configuration settings][save-button]
 
 <a name="composer" />
+
 
 ## How to: Enable Composer automation in Azure
 By default, App Service doesn't do anything with composer.json, if you have one in your PHP
@@ -164,18 +165,18 @@ processing during `git push` by enabling the Composer extension.
 > 
 
 1. In your PHP web app's blade in the [Azure portal](https://portal.azure.com), click **Tools** > **Extensions**.
-   
+
     ![Azure Portal settings blade to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-settings.png)
 2. Click **Add**, then click **Composer**.
-   
+
     ![Add Composer extension to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-add.png)
 3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
-   
+
     The **Installed extensions** blade will now show the Composer extension.  
     ![Accept legal terms to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-view.png)
 4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
    is installing dependencies defined in composer.json.
-   
+
     ![Git deployment with Composer automation in Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
 ## Next steps

@@ -32,21 +32,21 @@ The workflow you implement by following the instructions in this tutorial contai
 ![Workflow diagram][img-workflow-diagram]
 
 1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in a log4j file. Each log4j file consists of a line of fields that contains a [LOG LEVEL] field that shows the type and the severity, for example:
-   
+
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
-   
+
     The Hive script output is similar to:
-   
+
         [DEBUG] 434
         [ERROR] 3
         [FATAL] 1
         [INFO]  96
         [TRACE] 816
         [WARN]  4
-   
+
     For more information about Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
 2. A Sqoop action exports the HiveQL output to a table in an Azure SQL database. For more information about Sqoop, see [Use Hadoop Sqoop with HDInsight][hdinsight-use-sqoop].
 
@@ -59,10 +59,9 @@ The workflow you implement by following the instructions in this tutorial contai
 Before you begin this tutorial, you must have the following item:
 
 * **A workstation with Azure PowerShell**. 
-  
+
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-  
 
 ## Define Oozie workflow and the related HiveQL script
 Oozie workflows definitions are written in hPDL (a XML Process Definition Language). The default workflow file name is *workflow.xml*. The following is the workflow file you use in this tutorial.
@@ -170,27 +169,27 @@ The workflow definition file (workflow.xml in this tutorial) passes these values
 Both the workflow file and the HiveQL file are stored in a blob container.  The PowerShell script you use later in this tutorial copies both files to the default Storage account. 
 
 ## Submit Oozie jobs using PowerShell
-Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).
+Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the <strong>Invoke-RestMethod</strong> cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).
 
 The PowerShell script in this section performs the following steps:
 
 1. Connect to Azure.
 2. Create an Azure resource group. For more information, see [Use Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. These are used by the Sqoop action in the workflow.
-   
+
     The table name is *log4jLogCount*.
 4. Create an HDInsight cluster used to run Oozie jobs.
-   
+
     To examine the cluster, you can use the Azure portal or Azure PowerShell.
 5. Copy the oozie workflow file and the HiveQL script file to the default file system.
-   
+
     Both files are stored in a public Blob container.
-   
+
    * Copy the HiveQL script (useoozie.hql) to Azure Storage (wasb:///tutorials/useoozie/useoozie.hql).
    * Copy workflow.xml to wasb:///tutorials/useoozie/workflow.xml.
    * Copy the data file (/example/data/sample.log) to wasb:///tutorials/useoozie/data/sample.log.
 6. Submit an Oozie job.
-   
+
     To examine the OOzie job results, use Visual Studio or other tools to connect to the Azure SQL Database.
 
 Here is the script.  You can run the script from Windows PowerShell ISE. You only need to configure the first 7 variables.

@@ -34,8 +34,8 @@ ms.author: ddove
      PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 2. Execute the .\UninstallElasticDatabaseJobs.ps1 PowerShell script.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x<em>\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x</em>\tools>.\UninstallElasticDatabaseJobs.ps1
 
 Or simply, execute the following script, assuming default values where used on installation of the components:
 

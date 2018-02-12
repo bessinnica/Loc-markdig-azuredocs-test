@@ -62,33 +62,33 @@ In this section, you use the Azure portal, specifically the Data Factory UI, to 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. Log in to the [Azure portal](https://portal.azure.com/).    
 3. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
-   
-   ![New->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
-3. In the **New data factory** page, enter **MyAzureSsisDataFactory** for the **name**. 
-      
-     ![New data factory page](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
- 
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
-  
-       `Data factory name “MyAzureSsisDataFactory” is not available`
-3. Select your Azure **subscription** in which you want to create the data factory. 
-4. For the **Resource Group**, do one of the following steps:
-     
-      - Select **Use existing**, and select an existing resource group from the drop-down list. 
-      - Select **Create new**, and enter the name of a resource group.   
-         
-      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
-6. Select **Pin to dashboard**.     
-7. Click **Create**.
-8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-	![deploying data factory tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
-   
-   ![Data factory home page](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab. 
+   ![New->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
+4. In the **New data factory** page, enter **MyAzureSsisDataFactory** for the **name**. 
+
+     ![New data factory page](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+
+   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+
+       `Data factory name “MyAzureSsisDataFactory” is not available`
+5. Select your Azure **subscription** in which you want to create the data factory. 
+6. For the **Resource Group**, do one of the following steps:
+
+   - Select **Use existing**, and select an existing resource group from the drop-down list. 
+   - Select **Create new**, and enter the name of a resource group.   
+
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+7. Select **V2 (Preview)** for the **version**.
+8. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
+9. Select **Pin to dashboard**.     
+10. Click **Create**.
+11. On the dashboard, you see the following tile with status: **Deploying data factory**. 
+
+     ![deploying data factory tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+12. After the creation is complete, you see the **Data Factory** page as shown in the image.
+
+    ![Data factory home page](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+13. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab. 
 
 ### Provision an Azure SSIS integration runtime
 
@@ -188,7 +188,6 @@ $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0
 # Specify information about your classic or Azure Resource Manager virtual network (VNet). 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
-
 ```
 ### Log in and select subscription
 Add the following code the script to log in and select your Azure subscription: 
@@ -406,45 +405,45 @@ In this section, you use an Azure Resource Manager template to create an Azure-S
 
     ```json
     {
-    	"contentVersion": "1.0.0.0",
-    	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    	"parameters": {},
-    	"variables": {},
-    	"resources": [{
-    		"name": "<Specify a name for your data factory>",
-    		"apiVersion": "2017-09-01-preview",
-    		"type": "Microsoft.DataFactory/factories",
-    		"location": "East US",
-    		"properties": {},
-    		"resources": [{
-    			"type": "integrationruntimes",
-    			"name": "<Specify a name for the Azure SSIS IR>",
-    			"dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
-    			"apiVersion": "2017-09-01-preview",
-    			"properties": {
-    				"type": "Managed",
-    				"typeProperties": {
-    					"computeProperties": {
-    						"location": "East US",
-    						"nodeSize": "Standard_D1_v2",
-    						"numberOfNodes": 1,
-    						"maxParallelExecutionsPerNode": 1
-    					},
-    					"ssisProperties": {
-    						"catalogInfo": {
-    							"catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
-    							"catalogAdminUserName": "<Azure SQL user",
-    							"catalogAdminPassword": {
-    								"type": "SecureString",
-    								"value": "<Azure SQL Password>"
-    							},
-    							"catalogPricingTier": "Basic"
-    						}
-    					}
-    				}
-    			}
-    		}]
-    	}]
+        "contentVersion": "1.0.0.0",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "parameters": {},
+        "variables": {},
+        "resources": [{
+            "name": "<Specify a name for your data factory>",
+            "apiVersion": "2017-09-01-preview",
+            "type": "Microsoft.DataFactory/factories",
+            "location": "East US",
+            "properties": {},
+            "resources": [{
+                "type": "integrationruntimes",
+                "name": "<Specify a name for the Azure SSIS IR>",
+                "dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "Managed",
+                    "typeProperties": {
+                        "computeProperties": {
+                            "location": "East US",
+                            "nodeSize": "Standard_D1_v2",
+                            "numberOfNodes": 1,
+                            "maxParallelExecutionsPerNode": 1
+                        },
+                        "ssisProperties": {
+                            "catalogInfo": {
+                                "catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+                                "catalogAdminUserName": "<Azure SQL user",
+                                "catalogAdminPassword": {
+                                    "type": "SecureString",
+                                    "value": "<Azure SQL Password>"
+                                },
+                                "catalogPricingTier": "Basic"
+                            }
+                        }
+                    }
+                }
+            }]
+        }]
     }
     ```
 2. To deploy the Resource Manager template, run the New-AzureRmResourceGroupDeployment command as shown in the following exmaple. In this example, ADFTutorialResourceGroup is the name of the resource group. ADFTutorialARM.json is the file that contains JSON definition for the data factory and the Azure-SSIS IR. 

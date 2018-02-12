@@ -46,39 +46,39 @@ This solution deploys a reference architecture for an IaaS web application with 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
 * **Azure Virtual Machines**
-	- (1) Management/bastion (Windows Server 2016 Datacenter)
-	- (2) Active Directory domain controller (Windows Server 2016 Datacenter)
-	- (2) SQL Server cluster node (SQL Server 2016 on Windows Server 2012 R2)
-	- (1) SQL Server witness (Windows Server 2016 Datacenter)
-	- (2) Web/IIS (Windows Server 2016 Datacenter)
+    - (1) Management/bastion (Windows Server 2016 Datacenter)
+    - (2) Active Directory domain controller (Windows Server 2016 Datacenter)
+    - (2) SQL Server cluster node (SQL Server 2016 on Windows Server 2012 R2)
+    - (1) SQL Server witness (Windows Server 2016 Datacenter)
+    - (2) Web/IIS (Windows Server 2016 Datacenter)
 * **Availability Sets**
-	- (1) Active Directory domain controllers
-	- (1) SQL cluster nodes and witness
-	- (1) Web/IIS
+    - (1) Active Directory domain controllers
+    - (1) SQL cluster nodes and witness
+    - (1) Web/IIS
 * **Azure Virtual Network**
-	- (1) /16 virtual networks
-	- (5) /24 subnets
-	- DNS settings are set to both domain controllers
+    - (1) /16 virtual networks
+    - (5) /24 subnets
+    - DNS settings are set to both domain controllers
 * **Azure Load Balancer**
-	- (1) SQL load balancer
+    - (1) SQL load balancer
 * **Azure Application Gateway**
-	- (1) WAF Application Gateway enabled
- 	  - Firewall Mode: Prevention
-	  - Rule set: OWASP 3.0
- 	  - Listener: Port 443
+    - (1) WAF Application Gateway enabled
+      - Firewall Mode: Prevention
+      - Rule set: OWASP 3.0
+      - Listener: Port 443
 * **Azure Storage**
-	- (7) Geo-redundant storage accounts
+    - (7) Geo-redundant storage accounts
 * **Azure Backup**
-	- (1) Recovery Services vault
+    - (1) Recovery Services vault
 * **Azure Key Vault**
-	- (1) Key Vault
+    - (1) Key Vault
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
 * **Azure Automation**
-	- (1) Automation account
+    - (1) Automation account
 * **Operations Management Suite**
-	- (1) OMS workspace
+    - (1) OMS workspace
 
 ## Deployment architecture
 
@@ -137,9 +137,9 @@ Azure Disk Encryption is used to encrypted Windows IaaS virtual machine disks. [
 
 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) provides extensive logging of system and user activity as well as system health. 
 
-- **Activity Logs:**  [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription.
+- **Activity Logs:**  [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription.
 - **Diagnostic Logs:**  [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by every resource. These logs include Windows event system logs, Azure storage logs, Key Vault audit logs, and Application Gateway access and firewall logs.
-- **Log Archiving:**  Azure activity logs and diagnostic logs can be connected to Azure Log Analytics for processing, storing, and dashboarding. Retention is user-configurable up to 730 day to meet organization-specific retention requirements.
+- **Log Archiving:**  Azure activity logs and diagnostic logs can be connected to Azure Log Analytics for processing, storing, and dashboarding. Retention is user-configurable up to 730 day to meet organization-specific retention requirements.
 
 ### Secrets management
 
@@ -223,7 +223,7 @@ This Azure Security and Compliance Blueprint Automation is comprised of JSON con
 
 3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**.
 
-	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
+    [![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
 ## Disclaimer
 

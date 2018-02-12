@@ -38,7 +38,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
             .builder\
             .appName("PythonWordCount")\
             .getOrCreate()
-    		
+            
         lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
         counts = lines.flatMap(lambda x: x.split(' ')) \
             .map(lambda x: (x, 1)) \
@@ -48,7 +48,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
         spark.stop()
     
     if __name__ == "__main__":
-    	main()
+        main()
     ```
 2. Replace **&lt;storageAccountName&gt;** with the name of your Azure Storage account. Then, save the file. 
 3. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist. 

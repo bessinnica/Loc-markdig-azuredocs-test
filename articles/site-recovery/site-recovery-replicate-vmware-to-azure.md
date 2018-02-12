@@ -58,10 +58,10 @@ When replicating VMware virtual machines:
 
 7. Select the Azure Storage account you want to use for replicating data. 
 
-    > [!NOTE]
-
-    >   * You can select a premium or standard storage account. If you select a premium account, you need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
-    >   * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account by using Resource Manager, click **Create new**. If you want to create a storage account by using the classic model, do that in the Azure portal.
+   > [!NOTE]
+   > 
+   >   * You can select a premium or standard storage account. If you select a premium account, you need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
+   >   * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account by using Resource Manager, click **Create new**. If you want to create a storage account by using the classic model, do that in the Azure portal.
 
 8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network by using Resource Manager, click **Create new**. If you want to create a network by using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable, and then click **OK**.
 
@@ -78,7 +78,7 @@ When replicating VMware virtual machines:
 13. Enable **Multi-VM consistency** if you want to gather machines into a replication group. Specify a name for the group, and then click **OK**. 
 
     > [!NOTE]
-
+    > 
     >    * Machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
     >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Use only if machines are running the same workload and you need consistency.
 

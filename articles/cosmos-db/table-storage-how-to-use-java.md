@@ -19,6 +19,7 @@ ms.author: mimig
 ---
 # How to use Azure Table storage from Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview

@@ -140,14 +140,14 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
     ```bash
     kubectl create -f ./go-web.yaml --record
     ```
-### Step 2: Configure Jenkins system
-1. Click **Manage Jenkins** > **Configure System**.
-2. Under **GitHub**, select **Add GitHub Server**.
-3. Leave **API URL** as default.
-4. Under **Credentials**, add a Jenkins credential using **Secret text**. We recommend using GitHub personal access tokens, which are configured in your GitHub user account settings. More details on this [here.](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
-5. Click **Test connection** to ensure this is configured correctly.
-6. Under **Global Properties**, add an environment variable `DOCKER_HUB` and provide your Docker Hub password. (This is useful in this demo, but a production scenario would require a more secure approach.)
-7. Save.
+   ### Step 2: Configure Jenkins system
+4. Click **Manage Jenkins** > **Configure System**.
+5. Under **GitHub**, select **Add GitHub Server**.
+6. Leave **API URL** as default.
+7. Under **Credentials**, add a Jenkins credential using **Secret text**. We recommend using GitHub personal access tokens, which are configured in your GitHub user account settings. More details on this [here.](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
+8. Click **Test connection** to ensure this is configured correctly.
+9. Under **Global Properties**, add an environment variable `DOCKER_HUB` and provide your Docker Hub password. (This is useful in this demo, but a production scenario would require a more secure approach.)
+10. Save.
 
 ![Jenkins GitHub access](./media/container-service-kubernetes-jenkins/jenkins-github-access.png)
 

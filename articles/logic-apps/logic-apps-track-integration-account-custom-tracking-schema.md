@@ -56,7 +56,6 @@ This topic provides custom code that you can use in the layers outside of your l
             }
          ]
       }
-
 ````
 
 | Property | Type | Description |

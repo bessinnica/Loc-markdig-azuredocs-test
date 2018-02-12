@@ -58,8 +58,8 @@ When the user installs your solution [another method](operations-management-suit
 
 A sample parameter is shown below.  
 
-	"startTime": {
-		"type": "string",
+    "startTime": {
+        "type": "string",
         "metadata": {
             "description": "Enter time for starting VMs by resource group.",
             "control": "datetime",
@@ -126,7 +126,7 @@ Following is the structure of the standard parameters that you can copy and past
                 "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
             }
         }
-	}
+    }
 
 
 You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('workspaceName')**
@@ -149,13 +149,13 @@ You refer to variable values through the solution with the syntax **variables('v
 You can also define complex variables that multiple sets of values.  These are particularly useful in management solutions where you are defining multiple properties for different types of resources.  For example, you could restructure the solution variables shown above to the following.
 
     "variables": {
-	    "Solution": {
-	      "Version": "1.1",
-	      "Publisher": "Contoso",
-	      "Name": "My Solution"
-	    },
-	    "LogAnalyticsApiVersion": "2015-11-01-preview",
-	    "AutomationApiVersion": "2015-10-31"
+        "Solution": {
+          "Version": "1.1",
+          "Publisher": "Contoso",
+          "Name": "My Solution"
+        },
+        "LogAnalyticsApiVersion": "2015-11-01-preview",
+        "AutomationApiVersion": "2015-10-31"
     },
 
 In this case, you refer to variable values through the solution with the syntax **variables('variable name').property**.  For example, to access the Solution Name variable, you would use **variables('Solution').Name**.
@@ -182,15 +182,15 @@ Each solution requires a resource entry in the **resources** element that define
       "type": "Microsoft.OperationsManagement/solutions",
       "apiVersion": "[variables('LogAnalyticsApiVersion')]",
       "dependsOn": [
-		<list-of-resources>
+        <list-of-resources>
       ],
       "properties": {
         "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
-			<list-of-referenced-resources>
+            <list-of-referenced-resources>
         ],
         "containedResources": [
-			<list-of-contained-resources>
+            <list-of-contained-resources>
         ]
       },
       "plan": {

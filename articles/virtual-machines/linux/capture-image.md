@@ -46,14 +46,15 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
 
 1. Connect to your Linux VM using an SSH client.
 2. In the SSH window, type the following command:
-   
+
     ```bash
     sudo waagent -deprovision+user
     ```
-<br>
+   <br>
+
    > [!NOTE]
    > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The *+user* parameter also removes the last provisioned user account. If you want to keep account credentials in the VM, just use *-deprovision* to leave the user account in place.
- 
+
 3. Type **y** to continue. You can add the **-force** parameter to avoid this confirmation step.
 4. After the command completes, type **exit**. This step closes the SSH client.
 
@@ -61,29 +62,29 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
 Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
 1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli//azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
-   
+
     ```azurecli
     az vm deallocate \
-	  --resource-group myResourceGroup \
-	  --name myVM
+      --resource-group myResourceGroup \
+      --name myVM
     ```
 
 2. Mark the VM as generalized with [az vm generalize](/cli//azure/vm#generalize). The following example marks the the VM named *myVM* in the resource group named *myResourceGroup* as generalized:
-   
+
     ```azurecli
     az vm generalize \
-	  --resource-group myResourceGroup \
-	  --name myVM
+      --resource-group myResourceGroup \
+      --name myVM
     ```
 
 3. Now create an image of the VM resource with [az image create](/cli/azure/image#az_image_create). The following example creates an image named *myImage* in the resource group named *myResourceGroup* using the VM resource named *myVM*:
-   
+
     ```azurecli
     az image create \
-	  --resource-group myResourceGroup \
-	  --name myImage --source myVM
+      --resource-group myResourceGroup \
+      --name myImage --source myVM
     ```
-   
+
    > [!NOTE]
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
 

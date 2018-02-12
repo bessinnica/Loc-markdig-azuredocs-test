@@ -1,4 +1,3 @@
-
 ---
 title: Azure Backup agent FAQ | Microsoft Docs
 description: 'Answers to common questions about: how the Azure backup agent works, backup and retention limits.'

@@ -31,7 +31,7 @@ To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication 
 2. Click the **Form-Based** tab.
 3. Click **Add**.
 
-   <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
+   <center><img src="./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png" alt="Setup"/></center>
 
 4. To detect username, password, and domain variables automatically, enter the login URL (like https://sso.contoso.com/adfs/ls) within the Auto-Configure Form-Based Website dialog box and click **OK**.
 5. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked.
@@ -39,8 +39,9 @@ To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication 
 7. In the Add Form-Based Website dialog box, enter the URL to the AD FS login page in the Submit URL field (like https://sso.contoso.com/adfs/ls) and enter an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
 8. Set the Request format to **POST or GET**.
 9. Enter the Username variable (ctl00$ContentPlaceHolder1$UsernameTextBox) and Password variable (ctl00$ContentPlaceHolder1$PasswordTextBox). If your form-based login page displays a domain textbox, enter the Domain variable as well. To find the names of the input boxes on the login page, go to the login page in a web browser, right-click on the page and select **View Source**.
-10. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked.
-    <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/manual.png)</center>
+10. Check the <strong>Require Azure Multi-Factor Authentication user match</strong> box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked.
+
+    <center><img src="./media/multi-factor-authentication-get-started-adfs-adfs2/manual.png" alt="Setup"/></center>
 11. Click **Advanced…** to review advanced settings. Settings that you can configure include:
 
     - Select a custom denial page file
@@ -62,13 +63,13 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 1. Click the **Directory Integration** icon.
 2. On the Settings tab, select the **Use specific LDAP configuration** radio button.
 
-   <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
+   <center><img src="./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png" alt="Setup"/></center>
 
 3. Click **Edit**.
 4. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller. Descriptions of the fields are included in the Azure Multi-Factor Authentication Server help file.
 5. Test the LDAP connection by clicking the **Test** button.
 
-   <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png)</center>
+   <center><img src="./media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png" alt="Setup"/></center>
 
 6. If the LDAP connection test was successful, click **OK**.
 
@@ -80,7 +81,7 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 
 Ensure that users have been imported from Active Directory into the Server. See the [Trusted IPs section](#trusted-ips) if you would like to whitelist internal IP addresses so that two-step verification is not required when signing in to the website from those locations.
 
-<center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
+<center><img src="./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png" alt="Setup"/></center>
 
 ## AD FS 2.0 Direct without a proxy
 You can secure AD FS when the AD FS proxy is not used. Install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps:
@@ -93,7 +94,7 @@ You can secure AD FS when the AD FS proxy is not used. Install the Azure Multi-F
 6. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked.
 7. Check the cookie cache box if desired.
 
-   <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
+   <center><img src="./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png" alt="Setup"/></center>
 
 8. Click **OK**.
 9. Click the **Native Module** tab and select the server, the website (like “Default Web Site”), or the AD FS application (like “ls” under “adfs”) to enable the IIS plug-in at the desired level.
@@ -112,4 +113,4 @@ Trusted IPs allow users to bypass Azure Multi-Factor Authentication for website 
 3. When the Add Trusted IPs dialog box appears, select one of the **Single IP**, **IP range**, or **Subnet** radio buttons.
 4. Enter the IP address, range of IP addresses, or subnet that should be whitelisted. If entering a subnet, select the appropriate Netmask and click the **OK** button. The trusted IP has now been added.
 
-<center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
+<center><img src="./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png" alt="Setup"/></center>

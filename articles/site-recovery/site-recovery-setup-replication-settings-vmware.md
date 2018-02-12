@@ -26,18 +26,18 @@ ms.author: sutalasi
 2. Select **Replication policies** under **For VMware and Physical machines**.
 3. Select **+Replication policy**.
 
-  	![Create replication policy](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+    ![Create replication policy](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Enter the policy name.
 
 5. In **RPO threshold**, specify the RPO limit. Alerts will be generated when continuous replication exceeds this limit.
 6. In **Recovery point retention**, specify (in hours) the duration of the retention window for each recovery point. Protected machines can be recovered to any point within a retention window.
 
-	> [!NOTE]
-	> Up to 24 hours of retention is supported for machines replicated to premium storage. Up to 72 hours of retention is supported for machines replicated to standard storage.
+    > [!NOTE]
+    > Up to 24 hours of retention is supported for machines replicated to premium storage. Up to 72 hours of retention is supported for machines replicated to standard storage.
 
-	> [!NOTE]
-	> A replication policy for failback is automatically created.
+    > [!NOTE]
+    > A replication policy for failback is automatically created.
 
 7. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points that contain application-consistent snapshots will be created.
 
@@ -73,13 +73,13 @@ ms.author: sutalasi
 3. Select the configuration server from the list of servers.
 4. Click **OK**. The configuration server should be dissociated in one to two minutes.
 
-	> [!NOTE]
-	> You cannot dissociate a configuration server if there is at least one replicated item using the policy. Make sure there are no replicated items using the policy before you dissociate the configuration server.
+    > [!NOTE]
+    > You cannot dissociate a configuration server if there is at least one replicated item using the policy. Make sure there are no replicated items using the policy before you dissociate the configuration server.
 
 ## Delete a replication policy
 
 1. Choose the replication policy that you want to delete.
 2. Click **Delete**. The policy should be deleted in 30 to 60 seconds.
 
-	> [!NOTE]
-	> You cannot delete a replication policy if it has at least one configuration server associated to it. Make sure there are no replicated items using the policy and delete all the associated configuration servers before you delete the policy.
+    > [!NOTE]
+    > You cannot delete a replication policy if it has at least one configuration server associated to it. Make sure there are no replicated items using the policy and delete all the associated configuration servers before you delete the policy.

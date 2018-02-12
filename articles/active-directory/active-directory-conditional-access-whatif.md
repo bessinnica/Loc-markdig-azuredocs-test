@@ -30,7 +30,7 @@ This article explains how you can use this tool to test your conditional access 
 
 The **conditional access what if policy tool** allows you to understand the impact of your conditional access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied conditional access policies but also [classic policies](active-directory-conditional-access-migration.md#classic-policies) if they exist.    
 
-The what if tools also provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
+The what if tools also provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.  
 
 ## How it works
 

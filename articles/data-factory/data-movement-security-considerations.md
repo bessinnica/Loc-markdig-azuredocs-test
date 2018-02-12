@@ -34,10 +34,10 @@ Even though Data Factory is available in only **East US**, **East US 2**, and **
 Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) and processing of data using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using SDKs and Azure Monitor.
 
 Data movement using Azure Data Factory has been **certified** for:
--	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
--	[ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--	[ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--	[CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
+-   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
 If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -47,7 +47,7 @@ In this article, we review security considerations in the following two data mov
 - **Hybrid scenario**- In this scenario, either your source or destination is behind a firewall or inside an on-premises corporate network or the data store is in a private network/ virtual network (most often the source) and is not publicly accessible. Database servers hosted on virtual machines also fall under this scenario.
 
 ## Cloud scenarios
-###Securing data store credentials
+### Securing data store credentials
 - Store encrypted credentials in Azure Data Factory managed store.
 
    Azure Data Factory protects your data store credentials by **encrypting** them by using **certificates managed by Microsoft**. These certificates are rotated every **two years** (which includes renewal of certificate and migration of credentials). These encrypted credentials are securely stored in an **Azure Storage managed by Azure Data Factory management services**. For more information about Azure Storage security, refer [Azure Storage Security Overview](../security/security-storage-overview.md).
@@ -111,7 +111,7 @@ By default, PowerShell uses the port **8050** on the machine with self-hosted in
 
 ![HTTPS port for the gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
- 
+
 
 
 ### Encryption in transit
@@ -119,7 +119,7 @@ All data transfers are via secure channel **HTTPS** and **TLS over TCP** to prev
 
 You can also use [IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) or [Express Route](../expressroute/expressroute-introduction.md) to further secure the communication channel between your on-premises network and Azure.
 
-Virtual network is a logical representation of your network in the cloud. You can connect an on-premises network to your Azure virtual network (VNet) by setting up IPSec VPN (site-to-site) or Express Route (Private Peering)		
+Virtual network is a logical representation of your network in the cloud. You can connect an on-premises network to your Azure virtual network (VNet) by setting up IPSec VPN (site-to-site) or Express Route (Private Peering)     
 
 The following table summarizes the network and self-hosted integration runtime configuration recommendations based on different combinations of source and destination locations for hybrid data movement.
 
@@ -141,7 +141,7 @@ The following images show the usage of self-hosted integration runtime for movin
 
 ### Firewall configurations and whitelisting IP address (self-hosted integration runtime)
 
-#### Firewall requirements for on-premises/private network	
+#### Firewall requirements for on-premises/private network  
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the self-hosted integration runtime is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.
@@ -181,11 +181,12 @@ The following cloud data stores require whitelisting of IP address of the self-h
 **Question:** Can the self-hosted integration runtime be shared across different data factories?
 **Answer:** We do not support this feature yet. We are actively working on it.
 
-**Question:** What are the port requirements for the self-hosted integration runtime to work?
-**Answer:** The self-hosted integration runtime makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for self-hosted integration runtime to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
+<strong>Question:</strong> What are the port requirements for the self-hosted integration runtime to work?
+
+<strong>Answer:</strong> The self-hosted integration runtime makes HTTP-based connections to open internet. The <strong>outbound ports 443 and 80</strong> must be opened for self-hosted integration runtime to make this connection. Open <strong>Inbound Port 8050</strong> only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open <strong>1433</strong> port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
 
 
 ## Next steps
 For information about performance of copy activity, see [Copy activity performance and tuning guide](copy-activity-performance.md).
 
- 
+

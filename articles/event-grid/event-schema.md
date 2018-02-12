@@ -13,7 +13,7 @@ ms.author: babanisa
 
 # Azure Event Grid event schema
 
-This article describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object. The properties are common to all events from any publisher. The data object contains properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
+This article describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object. The properties are common to all events from any publisher. The data object contains properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
 
 Events are sent to Azure Event Grid in an array, which can contain multiple event objects. If there is only a single event, the array has a length of 1. The array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB.
 
@@ -69,7 +69,7 @@ For example, the schema published for an Azure Blob storage event is:
   }
 ]
 ```
- 
+ 
 ## Event properties
 
 All events contain the same following top-level data:

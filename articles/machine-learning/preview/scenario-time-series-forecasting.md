@@ -65,11 +65,11 @@ This scenario details the construction of a machine learning energy demand forec
 ## Create a new Workbench project
 
 Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Energy Demand Time Series Forecasting" and select the template
-5.	Click **Create**
+1.  Open Azure Machine Learning Workbench
+2.  On the **Projects** page, click the **+** sign and select **New Project**
+3.  In the **Create New Project** pane, fill in the information for your new project
+4.  In the **Search Project Templates** search box, type "Energy Demand Time Series Forecasting" and select the template
+5.  Click **Create**
 
 
 ## Data description
@@ -80,8 +80,8 @@ Two datasets are provided with this sample and are downloaded using the `1-data-
 
 | timeStamp | demand |
 | --- | --- |
-| 2012-01-01 00:00:00 |	4937.5 |
-| 2012-01-01 01:00:00 |	4752.1 |
+| 2012-01-01 00:00:00 | 4937.5 |
+| 2012-01-01 01:00:00 | 4752.1 |
 | 2012-01-01 02:00:00 | 4542.6 |
 | 2012-01-01 03:00:00 | 4357.7 |
 
@@ -91,7 +91,7 @@ Demand values are in megawatt-hours (MWh). Below is a chart of energy demand ove
 
 **nyc_weather.csv** contains hourly weather values for New York City over the years 2012-2017:
 
-| timeStamp	| precip | temp
+| timeStamp | precip | temp
 | --- | --- | --- |
 | 2012-01-01 00:00:00 | 0.0 | 46.13 |
 | 2012-01-01 01:00:00 | 0.01 | 45.89 |

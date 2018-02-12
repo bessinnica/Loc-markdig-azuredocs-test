@@ -105,13 +105,13 @@ Unfortunately there is no easy fix on this one. You have to perform the followin
 After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
 1. Shutdown the app
 2. Delete the following file:
-  ```
-  # on Windows
-  %appdata%\AmlWorkbench\AmlWb.settings
+   ```
+   # on Windows
+   %appdata%\AmlWorkbench\AmlWb.settings
 
-  # on macOS
-  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
-  ```
+   # on macOS
+   ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+   ```
 3. Restart the app.
 
 ## Can't delete Experimentation Account
@@ -205,7 +205,7 @@ $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
 # Update Disc Size
 $ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
-    
+
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM
 ```
@@ -268,5 +268,4 @@ $ docker rmi <image_id>
 
 # delete all unussed Docker images 
 $ docker system prune -a
-
 ```

@@ -31,10 +31,10 @@ This quick start guide, uses the following [Flask example](https://github.com/Az
 - If you don’t already have Visual Studio Code installed, you can quickly install [VS Code](https://code.visualstudio.com/Download) for your platform (Windows, Mac, Linux).
 
 - Be sure to add Python Language support by installing one of the popular Python extensions.
-    1. Select an extension.
-    2. Install the extension by typing `ext install` into the Command Palette `Ctrl+Shift+P`.
+  1. Select an extension.
+  2. Install the extension by typing `ext install` into the Command Palette `Ctrl+Shift+P`.
 
-    The examples in this document use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
+     The examples in this document use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
 
 ## Clone the sample application
 
@@ -78,7 +78,7 @@ Let's take a quick review of what's happening in the app. Open the **app.py** fi
     title = "TODO with Flask"
     heading = "ToDo Reminder"
     ```
-    
+
 ## Run the web app
 
 1. Make sure the Azure Cosmos DB Emulator is running.
@@ -130,6 +130,7 @@ If you don't want to create a fork of this repo, you can also click the deploy t
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
 <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
 
 > [!NOTE]
 > If you plan to store your code in Github or other source control options, please be sure to remove your connection strings from the code. They can be set with application settings for the web app instead.

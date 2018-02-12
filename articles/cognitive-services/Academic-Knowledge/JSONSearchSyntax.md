@@ -81,14 +81,14 @@ graph. For the last node of a path, the default action is to stop and return. A 
         /* -- Entity type query */
         "type": "cell_type",
         /* -- Property existance query */
-	    "has" : "property_key_4",
+        "has" : "property_key_4",
         /* -- Logical operators */
         /* ---- Note that, by default the operators are combined with AND semantics */
-		
-	    /* -- OR operator */
-	    "or": {
-	      /* Query operators... */
-	    },
+        
+        /* -- OR operator */
+        "or": {
+          /* Query operators... */
+        },
         /* -- NOT operator */
         "not": {
             /* Query operators... */

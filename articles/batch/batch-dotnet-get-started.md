@@ -31,6 +31,7 @@ Learn the basics of [Azure Batch][azure_batch] and the [Batch .NET][net_api] lib
 
 ![Batch solution workflow (basic)][11]<br/>
 
+
 ## Prerequisites
 This article assumes that you have a working knowledge of C# and Visual Studio. It also assumes that you're able to satisfy the account creation requirements that are specified below for Azure and the Batch and Storage services.
 
@@ -64,6 +65,7 @@ The *DotNetTutorial* code sample is a Visual Studio solution that consists of tw
 The following diagram illustrates the primary operations that are performed by the client application, *DotNetTutorial*, and the application that is executed by the tasks, *TaskApplication*. This basic workflow is typical of many compute solutions that are created with Batch. While it does not demonstrate every feature available in the Batch service, nearly every Batch scenario includes portions of this workflow.
 
 ![Batch example workflow][8]<br/>
+
 
 [**Step 1.**](#step-1-create-storage-containers) Create **containers** in Azure Blob Storage.<br/>
 [**Step 2.**](#step-2-upload-task-application-and-data-files) Upload task application files and input files to containers.<br/>
@@ -109,6 +111,7 @@ You can find your Batch and Storage account credentials within the account blade
 ![Batch credentials in the portal][9]
 ![Storage credentials in the portal][10]<br/>
 
+
 Now that you've updated the project with your credentials, right-click the solution in Solution Explorer and click **Build Solution**. Confirm the restoration of any NuGet packages, if you're prompted.
 
 > [!TIP]
@@ -123,6 +126,7 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 ## Step 1: Create Storage containers
 ![Create containers in Azure Storage][1]
 <br/>
+
 
 Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *DotNetTutorial* client application does is create three containers in [Azure Blob Storage](../storage/common/storage-introduction.md):
 
@@ -191,6 +195,7 @@ Once the containers have been created, the application can now upload the files 
 ## Step 2: Upload task application and data files
 ![Upload task application and input (data) files to containers][2]
 <br/>
+
 
 In the file upload operation, *DotNetTutorial* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
 
@@ -289,6 +294,7 @@ Shared access signatures are strings which—when included as part of a URL—pr
 ## Step 3: Create Batch pool
 ![Create a Batch pool][3]
 <br/>
+
 
 A Batch **pool** is a collection of compute nodes (virtual machines) on which Batch executes a job's tasks.
 
@@ -389,6 +395,7 @@ Also notable in the code snippet above is the use of two environment variables i
 ## Step 4: Create Batch job
 ![Create Batch job][4]<br/>
 
+
 A Batch **job** is a collection of tasks, and is associated with a pool of compute nodes. The tasks in a job execute on the associated pool's compute nodes.
 
 You can use a job not only for organizing and tracking tasks in related workloads, but also for imposing certain constraints--such as the maximum runtime for the job (and by extension, its tasks) as well as job priority in relation to other jobs in the Batch account. In this example, however, the job is associated only with the pool that was created in step #3. No additional properties are configured.
@@ -419,7 +426,7 @@ Now that a job has been created, tasks are added to perform the work.
 
 Batch **tasks** are the individual units of work that execute on the compute nodes. A task has a command line and runs the scripts or executables that you specify in that command line.
 
-To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured by using a command-line property and [ResourceFiles][net_task_resourcefiles] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the *DotNetTutorial* sample project, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
+To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured by using a command-line property and [ResourceFiles][net_task_resourcefiles] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the <em>DotNetTutorial</em> sample project, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
 
 ```csharp
 private static async Task<List<CloudTask>> AddTasksAsync(
@@ -514,7 +521,7 @@ There are many approaches to monitoring task execution. DotNetTutorial shows a s
 
 1. **ODATADetailLevel**: Specifying [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of a job's tasks) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of status monitoring within your Batch applications.
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit. Then it terminates the job.
-3. **TerminateJobAsync**: Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) marks that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release.md).
+3. <strong>TerminateJobAsync</strong>: Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) marks that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release.md).
 
 The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
 
@@ -602,6 +609,7 @@ private static async Task<bool> MonitorTasks(
 
 ## Step 7: Download task output
 ![Download task output from Storage][7]<br/>
+
 
 Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `DownloadBlobsFromContainerAsync` in *DotNetTutorial*'s `Program.cs`:
 

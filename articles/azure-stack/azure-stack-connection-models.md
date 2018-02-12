@@ -26,7 +26,7 @@ If you decide to purchase an integrated system, your original equipment manufact
 ## Choose an Azure Stack deployment connection model
 You can choose to deploy Azure Stack either connected to the internet (and to Azure) or disconnected. To get the most benefit from Azure Stack, including hybrid scenarios between Azure Stack and Azure, you'd want to deploy connected to Azure. This choice defines which options are available for your identity store (Azure Active Directory or Active Directory Federation Services) and billing model (Pay as you use-based billing or capacity-based billing) as summarized in the following diagram and table: 
 
-![Azure Stack deployment and billing scenarios](media/azure-stack-connection-models/azure-stack-scenarios.png)	
+![Azure Stack deployment and billing scenarios](media/azure-stack-connection-models/azure-stack-scenarios.png)  
   
 > [!IMPORTANT]
 > This is a key decision point! Choosing Active Directory Federation Services (AD FS) or Azure Active Directory (Azure AD) is a one-time decision that you must make at deployment time. You can’t change this later without re-deploying the entire system.  

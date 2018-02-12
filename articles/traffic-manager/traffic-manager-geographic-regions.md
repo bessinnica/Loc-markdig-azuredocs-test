@@ -1,4 +1,4 @@
-﻿---
+---
 title: Country/Region hierarchy used by Azure Traffic Manager Geographic routing type| Microsoft Docs
 description: This article lists Country/Region hierarchy used by Azure Traffic Manager Geographic routing type
 services: traffic-manager
@@ -19,673 +19,673 @@ ms.author: kumud
 
 # Country/Region hierarchy used by Azure Traffic Manager for geographic traffic routing method
 
-This article lists the countries and regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+This article lists the countries and regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
-	- GEO-EU(Europe)
+    - GEO-EU(Europe)
 
-		- AD(Andorra)
+        - AD(Andorra)
 
-		- AL(Albania)
+        - AL(Albania)
 
-		- AT(Austria)
+        - AT(Austria)
 
-		- AX(Åland Islands)
+        - AX(Åland Islands)
 
-		- BA(Bosnia and Herzegovina)
+        - BA(Bosnia and Herzegovina)
 
-		- BE(Belgium)
+        - BE(Belgium)
 
-		- BG(Bulgaria)
+        - BG(Bulgaria)
 
-		- BY(Belarus)
+        - BY(Belarus)
 
-		- CH(Switzerland)
+        - CH(Switzerland)
 
-		- CY(Cyprus)
+        - CY(Cyprus)
 
-		- CZ(Czech Republic)
+        - CZ(Czech Republic)
 
-		- DE(Germany)
+        - DE(Germany)
 
-		- DK(Denmark)
+        - DK(Denmark)
 
-		- EE(Estonia)
+        - EE(Estonia)
 
-		- ES(Spain)
+        - ES(Spain)
 
-		- FI(Finland)
+        - FI(Finland)
 
-		- FO(Faroe Islands)
+        - FO(Faroe Islands)
 
-		- FR(France)
+        - FR(France)
 
-		- GB(United Kingdom)
+        - GB(United Kingdom)
 
-		- GG(Guernsey)
+        - GG(Guernsey)
 
-		- GI(Gibraltar)
+        - GI(Gibraltar)
 
-		- GR(Greece)
+        - GR(Greece)
 
-		- HR(Croatia)
+        - HR(Croatia)
 
-		- HU(Hungary)
+        - HU(Hungary)
 
-		- IE(Ireland)
+        - IE(Ireland)
 
-		- IM(Isle of Man)
+        - IM(Isle of Man)
 
-		- IS(Iceland)
+        - IS(Iceland)
 
-		- IT(Italy)
+        - IT(Italy)
 
-		- JE(Jersey)
+        - JE(Jersey)
 
-		- LI(Liechtenstein)
+        - LI(Liechtenstein)
 
-		- LT(Lithuania)
+        - LT(Lithuania)
 
-		- LU(Luxembourg)
+        - LU(Luxembourg)
 
-		- LV(Latvia)
+        - LV(Latvia)
 
-		- MC(Monaco)
+        - MC(Monaco)
 
-		- MD(Moldova)
+        - MD(Moldova)
 
-		- ME(Montenegro)
+        - ME(Montenegro)
 
-		- MK(Macedonia, FYRO)
+        - MK(Macedonia, FYRO)
 
-		- MT(Malta)
+        - MT(Malta)
 
-		- NL(Netherlands)
+        - NL(Netherlands)
 
-		- NO(Norway)
+        - NO(Norway)
 
-		- PL(Poland)
+        - PL(Poland)
 
-		- PT(Portugal)
+        - PT(Portugal)
 
-		- RO(Romania)
+        - RO(Romania)
 
-		- RS(Serbia)
+        - RS(Serbia)
 
-		- RU(Russia)
+        - RU(Russia)
 
-		- SE(Sweden)
+        - SE(Sweden)
 
-		- SI(Slovenia)
+        - SI(Slovenia)
 
-		- SJ(Svalbard)
+        - SJ(Svalbard)
 
-		- SK(Slovakia)
+        - SK(Slovakia)
 
-		- SM(San Marino)
+        - SM(San Marino)
 
-		- UA(Ukraine)
+        - UA(Ukraine)
 
-		- VA(Vatican City)
+        - VA(Vatican City)
 
-		- XJ(Jan Mayen)
+        - XJ(Jan Mayen)
 
-		- XK(Kosovo)
+        - XK(Kosovo)
 
-	- GEO-ME(Middle East)
+    - GEO-ME(Middle East)
 
-		- AE(United Arab Emirates)
+        - AE(United Arab Emirates)
 
-		- BH(Bahrain)
+        - BH(Bahrain)
 
-		- IL(Israel)
+        - IL(Israel)
 
-		- IQ(Iraq)
+        - IQ(Iraq)
 
-		- IR(Iran)
+        - IR(Iran)
 
-		- JO(Jordan)
+        - JO(Jordan)
 
-		- KW(Kuwait)
+        - KW(Kuwait)
 
-		- LB(Lebanon)
+        - LB(Lebanon)
 
-		- OM(Oman)
+        - OM(Oman)
 
-		- PS(Palestinian Authority)
+        - PS(Palestinian Authority)
 
-		- QA(Qatar)
+        - QA(Qatar)
 
-		- SY(Syria)
+        - SY(Syria)
 
-		- SA(Saudi Arabia)
+        - SA(Saudi Arabia)
 
-		- TR(Turkey)
+        - TR(Turkey)
 
-		- YE(Yemen)
+        - YE(Yemen)
 
-	- GEO-NA(North America / Central America / Caribbean)
+    - GEO-NA(North America / Central America / Caribbean)
 
-		- AG(Antigua and Barbuda)
+        - AG(Antigua and Barbuda)
 
-		- AI(Anguilla)
+        - AI(Anguilla)
 
-		- AW(Aruba)
+        - AW(Aruba)
 
-		- BB(Barbados)
+        - BB(Barbados)
 
-		- BL(Saint Barthélemy)
+        - BL(Saint Barthélemy)
 
-		- BM(Bermuda)
+        - BM(Bermuda)
 
-		- BQ(Bonaire)
+        - BQ(Bonaire)
 
-		- BS(Bahamas)
+        - BS(Bahamas)
 
-		- BZ(Belize)
+        - BZ(Belize)
 
-		- CA(Canada)
+        - CA(Canada)
 
-			- CA-AB(Alberta)
+            - CA-AB(Alberta)
 
-			- CA-BC(British Columbia)
+            - CA-BC(British Columbia)
 
-			- CA-MB(Manitoba)
+            - CA-MB(Manitoba)
 
-			- CA-NB(New Brunswick)
+            - CA-NB(New Brunswick)
 
-			- CA-NL(Newfoundland and Labrador)
+            - CA-NL(Newfoundland and Labrador)
 
-			- CA-NS(Nova Scotia)
+            - CA-NS(Nova Scotia)
 
-			- CA-NT(Northwest Territories)
+            - CA-NT(Northwest Territories)
 
-			- CA-NU(Nunavut)
+            - CA-NU(Nunavut)
 
-			- CA-ON(Ontario)
+            - CA-ON(Ontario)
 
-			- CA-PE(Prince Edward Island)
+            - CA-PE(Prince Edward Island)
 
-			- CA-QC(Québec)
+            - CA-QC(Québec)
 
-			- CA-SK(Saskatchewan)
+            - CA-SK(Saskatchewan)
 
-			- CA-YT(Yukon Territory)
+            - CA-YT(Yukon Territory)
 
-		- CR(Costa Rica)
+        - CR(Costa Rica)
 
-		- CU(Cuba)
+        - CU(Cuba)
 
-		- CW(CuraÃ§ao)
+        - CW(CuraÃ§ao)
 
-		- DM(Dominica)
+        - DM(Dominica)
 
-		- DO(Dominican Republic)
+        - DO(Dominican Republic)
 
-		- GD(Grenada)
+        - GD(Grenada)
 
-		- GL(Greenland)
+        - GL(Greenland)
 
-		- GP(Guadeloupe)
+        - GP(Guadeloupe)
 
-		- GT(Guatemala)
+        - GT(Guatemala)
 
-		- HN(Honduras)
+        - HN(Honduras)
 
-		- HT(Haiti)
+        - HT(Haiti)
 
-		- JM(Jamaica)
+        - JM(Jamaica)
 
-		- KN(Saint Kitts and Nevis)
+        - KN(Saint Kitts and Nevis)
 
-		- KY(Cayman Islands)
+        - KY(Cayman Islands)
 
-		- LC(Saint Lucia)
+        - LC(Saint Lucia)
 
-		- MF(Saint Martin)
+        - MF(Saint Martin)
 
-		- MQ(Martinique)
+        - MQ(Martinique)
 
-		- MS(Montserrat)
+        - MS(Montserrat)
 
-		- MX(Mexico)
+        - MX(Mexico)
 
-		- NI(Nicaragua)
+        - NI(Nicaragua)
 
-		- PA(Panama)
+        - PA(Panama)
 
-		- PM(Saint Pierre and Miquelon)
+        - PM(Saint Pierre and Miquelon)
 
-		- PR(Puerto Rico)
+        - PR(Puerto Rico)
 
-		- SV(El Salvador)
+        - SV(El Salvador)
 
-		- SX(Sint Maarten)
+        - SX(Sint Maarten)
 
-		- TC(Turks and Caicos Islands)
+        - TC(Turks and Caicos Islands)
 
-		- TT(Trinidad and Tobago)
+        - TT(Trinidad and Tobago)
 
-		- UM(U.S. Outlying Islands)
+        - UM(U.S. Outlying Islands)
 
-		- US(United States)
+        - US(United States)
 
-			- US-AK(Alaska)
+            - US-AK(Alaska)
 
-			- US-AL(Alabama)
+            - US-AL(Alabama)
 
-			- US-AR(Arkansas)
+            - US-AR(Arkansas)
 
-			- US-AZ(Arizona)
+            - US-AZ(Arizona)
 
-			- US-CA(California)
+            - US-CA(California)
 
-			- US-CO(Colorado)
+            - US-CO(Colorado)
 
-			- US-CT(Connecticut)
+            - US-CT(Connecticut)
 
-			- US-DC(District of Columbia)
+            - US-DC(District of Columbia)
 
-			- US-DE(Delaware)
+            - US-DE(Delaware)
 
-			- US-FL(Florida)
+            - US-FL(Florida)
 
-			- US-GA(Georgia)
+            - US-GA(Georgia)
 
-			- US-HI(Hawaii)
+            - US-HI(Hawaii)
 
-			- US-IA(Iowa)
+            - US-IA(Iowa)
 
-			- US-ID(Idaho)
+            - US-ID(Idaho)
 
-			- US-IL(Illinois)
+            - US-IL(Illinois)
 
-			- US-IN(Indiana)
+            - US-IN(Indiana)
 
-			- US-KS(Kansas)
+            - US-KS(Kansas)
 
-			- US-KY(Kentucky)
+            - US-KY(Kentucky)
 
-			- US-LA(Louisiana)
+            - US-LA(Louisiana)
 
-			- US-MA(Massachusetts)
+            - US-MA(Massachusetts)
 
-			- US-MD(Maryland)
+            - US-MD(Maryland)
 
-			- US-ME(Maine)
+            - US-ME(Maine)
 
-			- US-MI(Michigan)
+            - US-MI(Michigan)
 
-			- US-MN(Minnesota)
+            - US-MN(Minnesota)
 
-			- US-MO(Missouri)
+            - US-MO(Missouri)
 
-			- US-MS(Mississippi)
+            - US-MS(Mississippi)
 
-			- US-MT(Montana)
+            - US-MT(Montana)
 
-			- US-NC(North Carolina)
+            - US-NC(North Carolina)
 
-			- US-ND(North Dakota)
+            - US-ND(North Dakota)
 
-			- US-NE(Nebraska)
+            - US-NE(Nebraska)
 
-			- US-NH(New Hampshire)
+            - US-NH(New Hampshire)
 
-			- US-NJ(New Jersey)
+            - US-NJ(New Jersey)
 
-			- US-NM(New Mexico)
+            - US-NM(New Mexico)
 
-			- US-NV(Nevada)
+            - US-NV(Nevada)
 
-			- US-NY(New York)
+            - US-NY(New York)
 
-			- US-OH(Ohio)
+            - US-OH(Ohio)
 
-			- US-OK(Oklahoma)
+            - US-OK(Oklahoma)
 
-			- US-OR(Oregon)
+            - US-OR(Oregon)
 
-			- US-PA(Pennsylvania)
+            - US-PA(Pennsylvania)
 
-			- US-RI(Rhode Island)
+            - US-RI(Rhode Island)
 
-			- US-SC(South Carolina)
+            - US-SC(South Carolina)
 
-			- US-SD(South Dakota)
+            - US-SD(South Dakota)
 
-			- US-TN(Tennessee)
+            - US-TN(Tennessee)
 
-			- US-TX(Texas)
+            - US-TX(Texas)
 
-			- US-UT(Utah)
+            - US-UT(Utah)
 
-			- US-VA(Virginia)
+            - US-VA(Virginia)
 
-			- US-VT(Vermont)
+            - US-VT(Vermont)
 
-			- US-WA(Washington)
+            - US-WA(Washington)
 
-			- US-WI(Wisconsin)
+            - US-WI(Wisconsin)
 
-			- US-WV(West Virginia)
+            - US-WV(West Virginia)
 
-			- US-WY(Wyoming)
+            - US-WY(Wyoming)
 
-		- VC(Saint Vincent and the Grenadines)
+        - VC(Saint Vincent and the Grenadines)
 
-		- VG(British Virgin Islands)
+        - VG(British Virgin Islands)
 
-		- VI(U.S. Virgin Islands)
+        - VI(U.S. Virgin Islands)
 
-		- XE(Sint Eustatius)
+        - XE(Sint Eustatius)
 
-		- XS(Saba)
+        - XS(Saba)
 
-	- GEO-AS(Asia)
+    - GEO-AS(Asia)
 
-		- AF(Afghanistan)
+        - AF(Afghanistan)
 
-		- AM(Armenia)
+        - AM(Armenia)
 
-		- AZ(Azerbaijan)
+        - AZ(Azerbaijan)
 
-		- BD(Bangladesh)
+        - BD(Bangladesh)
 
-		- BN(Brunei)
+        - BN(Brunei)
 
-		- BT(Bhutan)
+        - BT(Bhutan)
 
-		- CC(Cocos (Keeling) Islands)
+        - CC(Cocos (Keeling) Islands)
 
-		- CN(China)
+        - CN(China)
 
-		- CX(Christmas Island)
+        - CX(Christmas Island)
 
-		- GE(Georgia)
+        - GE(Georgia)
 
-		- HK(Hong Kong SAR)
+        - HK(Hong Kong SAR)
 
-		- ID(Indonesia)
+        - ID(Indonesia)
 
-		- IN(India)
+        - IN(India)
 
-		- IO(British Indian Ocean Territory)
+        - IO(British Indian Ocean Territory)
 
-		- JP(Japan)
+        - JP(Japan)
 
-		- KG(Kyrgyzstan)
+        - KG(Kyrgyzstan)
 
-		- KH(Cambodia)
+        - KH(Cambodia)
 
-		- KP(North Korea)
+        - KP(North Korea)
 
-		- KR(Korea)
+        - KR(Korea)
 
-		- KZ(Kazakhstan)
+        - KZ(Kazakhstan)
 
-		- LA(Laos)
+        - LA(Laos)
 
-		- LK(Sri Lanka)
+        - LK(Sri Lanka)
 
-		- MM(Myanmar)
+        - MM(Myanmar)
 
-		- MN(Mongolia)
+        - MN(Mongolia)
 
-		- MO(Macao SAR)
+        - MO(Macao SAR)
 
-		- MV(Maldives)
+        - MV(Maldives)
 
-		- MY(Malaysia)
+        - MY(Malaysia)
 
-		- NP(Nepal)
+        - NP(Nepal)
 
-		- PH(Philippines)
+        - PH(Philippines)
 
-		- PK(Pakistan)
+        - PK(Pakistan)
 
-		- SG(Singapore)
+        - SG(Singapore)
 
-		- TH(Thailand)
+        - TH(Thailand)
 
-		- TJ(Tajikistan)
+        - TJ(Tajikistan)
 
-		- TL(Timor_Leste)
+        - TL(Timor_Leste)
 
-		- TM(Turkmenistan)
+        - TM(Turkmenistan)
 
-		- TW(Taiwan)
+        - TW(Taiwan)
 
-		- UZ(Uzbekistan)
+        - UZ(Uzbekistan)
 
-		- VN(Vietnam)
+        - VN(Vietnam)
 
-	- GEO-AF(Africa)
+    - GEO-AF(Africa)
 
-		- AO(Angola)
+        - AO(Angola)
 
-		- BF(Burkina Faso)
+        - BF(Burkina Faso)
 
-		- BI(Burundi)
+        - BI(Burundi)
 
-		- BJ(Benin)
+        - BJ(Benin)
 
-		- BV(Bouvet Island)
+        - BV(Bouvet Island)
 
-		- BW(Botswana)
+        - BW(Botswana)
 
-		- CD(Congo (DRC))
+        - CD(Congo (DRC))
 
-		- CF(Central African Republic)
+        - CF(Central African Republic)
 
-		- CG(Congo)
+        - CG(Congo)
 
-		- CI(Côte d’Ivoire)
+        - CI(Côte d’Ivoire)
 
-		- CM(Cameroon)
+        - CM(Cameroon)
 
-		- CV(Cabo Verde)
+        - CV(Cabo Verde)
 
-		- DJ(Djibouti)
+        - DJ(Djibouti)
 
-		- DZ(Algeria)
+        - DZ(Algeria)
 
-		- EG(Egypt)
+        - EG(Egypt)
 
-		- ER(Eritrea)
+        - ER(Eritrea)
 
-		- ET(Ethiopia)
+        - ET(Ethiopia)
 
-		- GA(Gabon)
+        - GA(Gabon)
 
-		- GH(Ghana)
+        - GH(Ghana)
 
-		- GM(Gambia)
+        - GM(Gambia)
 
-		- GN(Guinea)
+        - GN(Guinea)
 
-		- GQ(Equatorial Guinea)
+        - GQ(Equatorial Guinea)
 
-		- GW(Guinea_Bissau)
+        - GW(Guinea_Bissau)
 
-		- KE(Kenya)
+        - KE(Kenya)
 
-		- KM(Comoros)
+        - KM(Comoros)
 
-		- LR(Liberia)
+        - LR(Liberia)
 
-		- LS(Lesotho)
+        - LS(Lesotho)
 
-		- LY(Libya)
+        - LY(Libya)
 
-		- MA(Morocco)
+        - MA(Morocco)
 
-		- MG(Madagascar)
+        - MG(Madagascar)
 
-		- ML(Mali)
+        - ML(Mali)
 
-		- MR(Mauritania)
+        - MR(Mauritania)
 
-		- MU(Mauritius)
+        - MU(Mauritius)
 
-		- MW(Malawi)
+        - MW(Malawi)
 
-		- MZ(Mozambique)
+        - MZ(Mozambique)
 
-		- NA(Namibia)
+        - NA(Namibia)
 
-		- NE(Niger)
+        - NE(Niger)
 
-		- NG(Nigeria)
+        - NG(Nigeria)
 
-		- RE(Réunion)
+        - RE(Réunion)
 
-		- RW(Rwanda)
+        - RW(Rwanda)
 
-		- SC(Seychelles)
+        - SC(Seychelles)
 
-		- SD(Sudan)
+        - SD(Sudan)
 
-		- SH(St Helena, Ascension, Tristan da Cunha)
+        - SH(St Helena, Ascension, Tristan da Cunha)
 
-		- SL(Sierra Leone)
+        - SL(Sierra Leone)
 
-		- SN(Senegal)
+        - SN(Senegal)
 
-		- SO(Somalia)
+        - SO(Somalia)
 
-		- SS(South Sudan)
+        - SS(South Sudan)
 
-		- ST(São Tomé and Príncipe)
+        - ST(São Tomé and Príncipe)
 
-		- SZ(Swaziland)
+        - SZ(Swaziland)
 
-		- TD(Chad)
+        - TD(Chad)
 
-		- TF(French Southern Territories)
+        - TF(French Southern Territories)
 
-		- TG(Togo)
+        - TG(Togo)
 
-		- TN(Tunisia)
+        - TN(Tunisia)
 
-		- TZ(Tanzania)
+        - TZ(Tanzania)
 
-		- UG(Uganda)
+        - UG(Uganda)
 
-		- YT(Mayotte)
+        - YT(Mayotte)
 
-		- ZA(South Africa)
+        - ZA(South Africa)
 
-		- ZM(Zambia)
+        - ZM(Zambia)
 
-		- ZW(Zimbabwe)
+        - ZW(Zimbabwe)
 
-	- GEO-AN(Antarctica)
+    - GEO-AN(Antarctica)
 
-		- AQ(Antarctica)
+        - AQ(Antarctica)
 
-	- GEO-SA(South America)
+    - GEO-SA(South America)
 
-		- AR(Argentina)
+        - AR(Argentina)
 
-		- BO(Bolivia)
+        - BO(Bolivia)
 
-		- BR(Brazil)
+        - BR(Brazil)
 
-		- CL(Chile)
+        - CL(Chile)
 
-		- CO(Colombia)
+        - CO(Colombia)
 
-		- EC(Ecuador)
+        - EC(Ecuador)
 
-		- FK(Falkland Islands)
+        - FK(Falkland Islands)
 
-		- GF(French Guiana)
+        - GF(French Guiana)
 
-		- GS(South Georgia and South Sandwich Islands)
+        - GS(South Georgia and South Sandwich Islands)
 
-		- GY(Guyana)
+        - GY(Guyana)
 
-		- PE(Peru)
+        - PE(Peru)
 
-		- PY(Paraguay)
+        - PY(Paraguay)
 
-		- SR(Suriname)
+        - SR(Suriname)
 
-		- UY(Uruguay)
+        - UY(Uruguay)
 
-		- VE(Venezuela)
+        - VE(Venezuela)
 
-	- GEO-AP(Australia / Pacific)
+    - GEO-AP(Australia / Pacific)
 
-		- AS(American Samoa)
+        - AS(American Samoa)
 
-		- AU(Australia)
+        - AU(Australia)
 
-			- AU-ACT(Australian Capital Territory)
+            - AU-ACT(Australian Capital Territory)
 
-			- AU-NSW(New South Wales)
+            - AU-NSW(New South Wales)
 
-			- AU-NT(Northern Territory)
+            - AU-NT(Northern Territory)
 
-			- AU-QLD(Queensland)
+            - AU-QLD(Queensland)
 
-			- AU-SA(South Australia)
+            - AU-SA(South Australia)
 
-			- AU-TAS(Tasmania)
+            - AU-TAS(Tasmania)
 
-			- AU-VIC(Victoria)
+            - AU-VIC(Victoria)
 
-			- AU-WA(Western Australia)
+            - AU-WA(Western Australia)
 
-		- CK(Cook Islands)
+        - CK(Cook Islands)
 
-		- FJ(Fiji)
+        - FJ(Fiji)
 
-		- FM(Micronesia)
+        - FM(Micronesia)
 
-		- GU(Guam)
+        - GU(Guam)
 
-		- HM(Heard Island and McDonald Islands)
+        - HM(Heard Island and McDonald Islands)
 
-		- KI(Kiribati)
+        - KI(Kiribati)
 
-		- MH(Marshall Islands)
+        - MH(Marshall Islands)
 
-		- MP(Northern Mariana Islands)
+        - MP(Northern Mariana Islands)
 
-		- NC(New Caledonia)
+        - NC(New Caledonia)
 
-		- NF(Norfolk Island)
+        - NF(Norfolk Island)
 
-		- NR(Nauru)
+        - NR(Nauru)
 
-		- NU(Niue)
+        - NU(Niue)
 
-		- NZ(New Zealand)
+        - NZ(New Zealand)
 
-		- PF(French Polynesia)
+        - PF(French Polynesia)
 
-		- PG(Papua New Guinea)
+        - PG(Papua New Guinea)
 
-		- PN(Pitcairn Islands)
+        - PN(Pitcairn Islands)
 
-		- PW(Palau)
+        - PW(Palau)
 
-		- SB(Solomon Islands)
+        - SB(Solomon Islands)
 
-		- TK(Tokelau)
+        - TK(Tokelau)
 
-		- TO(Tonga)
+        - TO(Tonga)
 
-		- TV(Tuvalu)
+        - TV(Tuvalu)
 
-		- VU(Vanuatu)
+        - VU(Vanuatu)
 
-		- WF(Wallis and Futuna)
+        - WF(Wallis and Futuna)
 
-		- WS(Samoa)
+        - WS(Samoa)
 
 ## Next steps
 

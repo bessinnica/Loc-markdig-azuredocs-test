@@ -143,13 +143,13 @@ On this page, you configure for all reference attributes which partition (object
 
 If you use **DN is anchor**, then you must use the same object type as the one you are referring from. You cannot reference another object type.
 
->[!NOTE]
-Starting in the March 2017 update there is now an option for "*" When this option is chosen then all possible member types will be imported.
+> [!NOTE]
+> Starting in the March 2017 update there is now an option for "*" When this option is chosen then all possible member types will be imported.
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
->[!IMPORTANT]
- As of May 2017 the “*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
+> [!IMPORTANT]
+>  As of May 2017 the “<em>” aka **any option</em>* has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 
@@ -230,8 +230,8 @@ Generic SQL Connector support Full and Delta Import using these methods:
 **Table/View**  
 To import multi-valued attributes for an object, you have to provide the table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table. If there are more than one multi-valued table in the data source, you can  use union to a single view.
 
->[!IMPORTANT]
-The Generic SQL management agent can work only with one multi-valued table. Do not put into Name of Multi-Valued table/views more than one name of table. It is the limitation of Generic SQL.
+> [!IMPORTANT]
+> The Generic SQL management agent can work only with one multi-valued table. Do not put into Name of Multi-Valued table/views more than one name of table. It is the limitation of Generic SQL.
 
 
 Example: You want to import the Employee object and all its multi-valued attributes. There are two tables, named Employee (main table) and Department (multi-valued).
@@ -247,7 +247,7 @@ Do the following:
 
 * If you have much data, it is recommended to implement pagination with your Stored Procedures.
 * For your Stored Procedure to support pagination, you need to provide Start Index and End Index. See: [Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndex and @EndIndex are replaced at execution time with respective page size value configured on **Configure Step** page. For example, when the connector retrieves first page and the page size is set 500, in such situation @StartIndex would be 1 and @EndIndex 500. These values increase when connector retrieves subsequent pages and change the @StartIndex & @EndIndex value.
+* @StartIndex and @EndIndex are replaced at execution time with respective page size value configured on <strong>Configure Step</strong> page. For example, when the connector retrieves first page and the page size is set 500, in such situation @StartIndex would be 1 and @EndIndex 500. These values increase when connector retrieves subsequent pages and change the @StartIndex & @EndIndex value.
 * To execute parameterized Stored Procedure, provide the parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
 * Generic SQL connector also supports Import operation from Linked Servers in Microsoft SQL Server. If information should be retrieved from a Table in Linked server, then Table should be provided in the format: `[ServerName].[Database].[Schema].[TableName]`
 * Generic SQL Connector supports only those objects that have similar structure (both alias name and data type) between run steps information and schema detection. If the selected object from schema and provided information at run step is different, then SQL Connector is unable to support this type of scenarios.

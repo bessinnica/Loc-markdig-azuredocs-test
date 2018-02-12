@@ -47,8 +47,8 @@ Unmonitored manual mode needs manual intervention after every upgrade on an upda
 Default services within Service Fabric application can be upgraded during the upgrade process of an application. Default services are defined in the [application manifest](service-fabric-application-and-service-manifests.md). The standard rules of upgrading default services are:
 
 1. Default services in the new [application manifest](service-fabric-application-and-service-manifests.md) that do not exist in the cluster are created.
-> [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) needs to be set to true to enable the following rules. This feature is supported from v5.5.
+   > [!TIP]
+   > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) needs to be set to true to enable the following rules. This feature is supported from v5.5.
 
 2. Default services existing in both previous [application manifest](service-fabric-application-and-service-manifests.md) and new version are updated. Service descriptions in the new version would overwrite those already in the cluster. Application upgrade would rollback automatically upon updating default service failure.
 3. Default services in the previous [application manifest](service-fabric-application-and-service-manifests.md) but not in the new version are deleted. **Note that this deleting default services can not be reverted.**

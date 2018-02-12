@@ -86,7 +86,7 @@ In this example, set these properties to run your workflow every week.
    you can select specific times for the recurrence. 
 
    * If you select "Week", you can select specific days of the week too.
-   
+
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
    For example, suppose that today is Monday, September 4, 2017. 
@@ -107,7 +107,7 @@ In this example, set these properties to run your workflow every week.
    > [!NOTE]
    > The trigger shows a preview for your specified recurrence 
    > only when you select "Day" or "Week" as the frequency.
-   
+
 6. Now build your remaining workflow with actions or flow control statements. 
 For more actions that you can add, see [Connectors](../connectors/apis-list.md). 
 
@@ -163,6 +163,7 @@ Here is an example recurrence trigger definition:
 
 <a name="example-recurrences"></a>
 
+
 **Q:** What are other example recurrence schedules? </br>
 **A:** Here are more examples:
 
@@ -193,6 +194,7 @@ Here is an example recurrence trigger definition:
 
 <a name="start-time"></a>
 
+
 **Q:** What are the ways that I can use the start date and time? </br>
 **A:** Here are some patterns that show how you can control recurrence with the 
 start date and time, and how the Logic Apps engine executes these recurrences:
@@ -216,10 +218,11 @@ discards past run times, and uses the next future start time for the first run.
 After that first run, future runs are based on the schedule calculated from the start time. 
 Here's how this recurrence looks:
 
-| Start time | First run time | Future run times | 
-| ---------- | ------------ | ---------- | 
-| 2017-09-**07** at 2:00 PM | 2017-09-**09** at 2:00 PM | 2017-09-**11** at 2:00 PM </br>2017-09-**13** at 2:00 PM </br>2017-09-**15** at 2:00 PM </br>and so on...
-||||| 
+
+|               Start time               |             First run time             |                                                                 Future run times                                                                 |
+|----------------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2017-09-<strong>07</strong> at 2:00 PM | 2017-09-<strong>09</strong> at 2:00 PM | 2017-09-<strong>11</strong> at 2:00 PM </br>2017-09-<strong>13</strong> at 2:00 PM </br>2017-09-<strong>15</strong> at 2:00 PM </br>and so on... |
+|                                        |                                        |                                                                                                                                                  |
 
 So for this scenario, no matter how far in the past you specify the start time, 
 for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, 

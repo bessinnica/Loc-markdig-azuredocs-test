@@ -34,7 +34,7 @@ The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnosti
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 > [!NOTE]
-
+> 
 >  [Alerts (Preview)](monitoring-overview-unified-alerts.md) currently offers an enhanced experience in creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 
@@ -117,10 +117,10 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 
     ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In the blade that appears, you can select:  
-  * regions for which you would like to export events
-  * the Storage Account to which you would like to save events
-  * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
-  * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+   * regions for which you would like to export events
+   * the Storage Account to which you would like to save events
+   * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
+   * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 
      ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.

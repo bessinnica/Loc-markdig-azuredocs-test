@@ -69,7 +69,7 @@ If you are using an installed Azure CLI, log in to your Azure subscription with 
 ```azurecli
 az login 
 ``` 
-   
+
 ## Add the Azure Cosmos DB module
 
 If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
@@ -142,6 +142,7 @@ DB/databaseAccounts/<cosmosdb-name>",
 In this step, you connect your MEAN.js sample application to an Azure Cosmos DB database you just created, using a MongoDB connection string. 
 
 <a name="devconfig"></a>
+
 ## Configure the connection string in your Node.js application
 
 In your MEAN.js repository, open `config/env/local-development.js`.

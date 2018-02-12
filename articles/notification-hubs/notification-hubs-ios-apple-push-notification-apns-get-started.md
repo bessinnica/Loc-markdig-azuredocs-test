@@ -43,7 +43,7 @@ This tutorial requires the following:
 * Latest version of [Xcode]
 * An iOS 10 (or later version)-capable device
 * [Apple Developer Program](https://developer.apple.com/programs/) membership.
-  
+
   > [!NOTE]
   > Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of the iOS Simulator.
   > 
@@ -75,15 +75,15 @@ You have now configured your notification hub with APNS, and you have the connec
 
 ## Connect your iOS app to Notification Hubs
 1. In Xcode, create a new iOS project and select the **Single View Application** template.
-   
+
     ![Xcode - Single View Application][8]
-    
+
 2. When setting the options for your new project, make sure to use the same **Product Name** and **Organization Identifier** that you used when you set the bundle identifier in the Apple Developer portal.
-   
+
     ![Xcode - project options][11]
-    
+
 3. Under Project Navigator, click your project name, click the **General** tab, and find **Signing**. Make sure you select the appropriate Team for your Apple Developer account. XCode should automatically pull down the Provisioning Profile you created previously based on your bundle identifier.
-   
+
     If you don't see the new provisioning profile that you created in Xcode, try refreshing the profiles for your signing identity. Click **Xcode** on the menu bar, click **Preferences**, click the **Account** tab, click the **View Details** button, click your signing identity, and then click the refresh button in the bottom-right corner.
 
     ![Xcode - provisioning profile][9]
@@ -91,7 +91,7 @@ You have now configured your notification hub with APNS, and you have the connec
 4. Select the **Capabilities** tab and make sure to enable Push Notifications
 
     ![Xcode - push capabilities][12]
-   
+
 5. Download the [Windows Azure Messaging Framework] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
 
     ![Unzip Azure SDK][10]
@@ -101,13 +101,13 @@ You have now configured your notification hub with APNS, and you have the connec
     ```obj-c
         #ifndef HubInfo_h
         #define HubInfo_h
-   
+
             #define HUBNAME @"<Enter the name of your hub>"
             #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
-   
+
         #endif /* HubInfo_h */
     ```
-    
+
 7. Open your **AppDelegate.h** file add the following import directives:
 
     ```obj-c
@@ -120,18 +120,18 @@ You have now configured your notification hub with APNS, and you have the connec
     ```obj-c
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
             UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
-   
+
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     ```
-   
+
 9. In the same file, add the following methods:
 
     ```obj-c
          - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
            SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
                                         notificationHubPath:HUBNAME];
-   
+
             [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
                if (error != nil) {
                    NSLog(@"Error registering for notifications: %@", error);
@@ -141,7 +141,7 @@ You have now configured your notification hub with APNS, and you have the connec
               }
           }];
          }
-   
+
         -(void)MessageBox:(NSString *) title message:(NSString *)messageText
         {
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
@@ -170,17 +170,16 @@ You can test receiving notifications in your app with the *Test Send* option in 
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-
 ## Checking if your app can receive push notifications
 To test push notifications on iOS, you must deploy the app to a physical iOS device. You cannot send Apple push notifications by using the iOS Simulator.
 
 1. Run the app and verify that registration succeeds, and then press **OK**.
-   
+
     ![iOS App Push Notification Registration Test][33]
 2. Next you will send a test push notification from the [Azure portal], as described above. 
 
 3. The push notification is sent to all devices that are registered to receive the notifications from the particular Notification Hub.
-   
+
     ![iOS App Push Notification Receive Test][35]
 
 ## Next steps

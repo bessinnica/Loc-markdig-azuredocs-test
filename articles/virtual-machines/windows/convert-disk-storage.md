@@ -64,12 +64,12 @@ $vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName
 # For disks that belong to the selected VM, convert to premium storage
 foreach ($disk in $vmDisks)
 {
-	if ($disk.ManagedBy -eq $vm.Id)
-	{
-		$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
-		Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-		-DiskName $disk.Name
-	}
+    if ($disk.ManagedBy -eq $vm.Id)
+    {
+        $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
+        Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+        -DiskName $disk.Name
+    }
 }
 
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName

@@ -6,6 +6,7 @@ Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing th
 
 Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 <br/>
+
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
 ### Simple and scalable VM deployment
@@ -55,14 +56,14 @@ Here are the disk sizes available for a premium managed disk:
 
 | **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 Here are the disk sizes available for a standard managed disk:
 
 | **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
@@ -139,6 +140,6 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Operational guidance
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
+* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
 
 * [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)

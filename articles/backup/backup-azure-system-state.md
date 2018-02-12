@@ -34,6 +34,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
+
     If there are recovery services vaults in the subscription, the vaults are listed.
 3. On the **Recovery Services vaults** menu, click **Add**.
 
@@ -53,7 +54,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
     Or
     * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
 
-  For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 
@@ -62,6 +63,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
     It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, click **Refresh**.
 
     ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
+
 
     Once you see your vault in the list of Recovery Services vaults, you are ready to set the storage redundancy.
 
@@ -132,9 +134,9 @@ Now that you've created a vault, configure it for backing up Windows System Stat
     The vault credentials download to your Downloads folder. After the vault credentials finish downloading, you see a pop-up asking if you want to open or save the credentials. Click **Save**. If you accidentally click **Open**, let the dialog that attempts to open the vault credentials, fail. You cannot open the vault credentials. Proceed to the next step. The vault credentials are in the Downloads folder.   
 
     ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent. 
->
+   > [!NOTE]
+   > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent. 
+   >
 
 ## Install and register the agent
 

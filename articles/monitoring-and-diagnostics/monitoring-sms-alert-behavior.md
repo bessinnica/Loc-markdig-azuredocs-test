@@ -31,7 +31,7 @@ This article covers the behavior of the SMS alerts and the response actions the 
 ### Receiving an SMS Alert
 An SMS receiver, who is configured as part of an action group, will receive an SMS when an alert fires. The SMS will carry the following information:
 * Shortname of the action group this alert was sent to
-- Title of the alert
+* Title of the alert
 
 ### Unsubscribing from SMS alerts for one action group
 A user can unsubscribe from SMS for alerts for one action group by responding to the short code 29873 with the keywords: “DISABLE &lt;Shortname of action group&gt;”.

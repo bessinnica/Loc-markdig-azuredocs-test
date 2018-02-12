@@ -95,6 +95,7 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -103,14 +104,14 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
                     <div class="cardText">
                         <h3>Languages</h3>
                         <p><a href="/azure/cloud-services/schema-csdef-file">.csdef XML Schema</a></p>
-						<p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe Schema</a></p>
-						<p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole Schema</a></p>
-						<p><a href="/azure/cloud-services/schema-csdef-workerrole">WorkerRole Schema</a></p>
-						<p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">NetworkTrafficRules Schema</a></p>
-						<p><a href="/azure/cloud-services/schema-cscfg-file">.cscfg XML Schema</a></p>
-						<p><a href="/azure/cloud-services/schema-cscfg-role">Role Schema</a></p>
-						<p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">NetworkConfiguration Schema</a></p>
-					</div>
+                        <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-workerrole">WorkerRole Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">NetworkTrafficRules Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-file">.cscfg XML Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-role">Role Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">NetworkConfiguration Schema</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,3 +129,4 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
         </div>
     </li>
 </ul>
+

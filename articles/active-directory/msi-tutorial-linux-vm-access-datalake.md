@@ -18,7 +18,7 @@ ms.author: skwan
 
 # Use Managed Service Identity for a Linux VM to access Azure Data Lake Store
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use Managed Service Identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Azure automatically manages identities that you create through MSI. You can use MSI to authenticate to services that support Azure Active Directory (Azure AD) authentication, without needing to insert credentials into your code. 
 
@@ -99,7 +99,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 
 1. In the portal, browse to your Linux VM. In **Overview**, select **Connect**.  
 2. Connect to the VM by using the SSH client of your choice. 
-3. In the terminal window, by using cURL, make a request to the local MSI endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is "https://datalake.azure.net/".  It's important to include the trailing slash in the resource identifier.
+3. In the terminal window, by using cURL, make a request to the local MSI endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is "<https://datalake.azure.net/>".  It's important to include the trailing slash in the resource identifier.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   

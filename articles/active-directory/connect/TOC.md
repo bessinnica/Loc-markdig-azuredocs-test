@@ -112,7 +112,7 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
-##[DirSync Deprecation](active-directory-aadconnect-dirsync-deprecated.md)
+## [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
+## [DirSync Deprecation](active-directory-aadconnect-dirsync-deprecated.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 

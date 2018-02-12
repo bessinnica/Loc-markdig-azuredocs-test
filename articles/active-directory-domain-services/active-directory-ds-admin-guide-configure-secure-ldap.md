@@ -33,6 +33,7 @@ To perform the tasks listed in this article, you need:
 
 <br>
 
+
 ### Requirements for the secure LDAP certificate
 Acquire a valid certificate per the following guidelines, before you enable secure LDAP. You encounter failures if you try to enable secure LDAP for your managed domain with an invalid/incorrect certificate.
 
@@ -43,6 +44,7 @@ Acquire a valid certificate per the following guidelines, before you enable secu
 5. **Certificate purpose** - The certificate must be valid for SSL server authentication.
 
 <br>
+
 
 ## Task 1 - obtain a certificate for secure LDAP
 The first task involves obtaining a certificate used for secure LDAP access to the managed domain. You have two options:

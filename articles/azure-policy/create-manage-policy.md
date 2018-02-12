@@ -76,11 +76,11 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
 
-    Here's what the json should look like. Paste your revised code into the Azure portal.
+     Here's what the json should look like. Paste your revised code into the Azure portal.
 
-    ```json
-{
-    "policyRule": {
+     ```json
+     {
+     "policyRule": {
       "if": {
         "allOf": [
           {
@@ -96,13 +96,13 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
       "then": {
         "effect": "deny"
       }
-    }
-}
-    ```
+     }
+     }
+     ```
 
-    The value of the *field property* in the policy rule must be one of the following: Name, Type, Location, Tags, or an alias. For example, `"Microsoft.Compute/VirtualMachines/Size"`.
+     The value of the *field property* in the policy rule must be one of the following: Name, Type, Location, Tags, or an alias. For example, `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    To view more samples of json code, read the [Templates for Azure Policy](json-samples.md) article.
+     To view more samples of json code, read the [Templates for Azure Policy](json-samples.md) article.
 
 4. Select **Save**.
 
@@ -113,7 +113,6 @@ To create a policy definition, use the following example:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
-
 ```
 Include a request body similar to the following example:
 

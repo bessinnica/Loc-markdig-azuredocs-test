@@ -169,8 +169,8 @@ This article builds on the template you created in [Create and deploy your first
 
 10. Select the **storageName** variable. Add the right bracket. The following example shows the outputs section:
 
-   ```json
-   "outputs": { 
+    ```json
+    "outputs": { 
        "groupLocation": {
          "type": "string",
          "value": "[resourceGroup().location]"
@@ -179,8 +179,8 @@ This article builds on the template you created in [Create and deploy your first
          "type": "string",
          "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
        }
-   }
-   ```
+    }
+    ```
 
 The final template is:
 

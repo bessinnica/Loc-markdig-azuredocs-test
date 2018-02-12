@@ -62,13 +62,14 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 
 ## Caffe
 
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Linux     |
-| How is it configured / installed on the DSVM?  | Caffe is installed in `/opt/caffe`.    |
-| Links to Samples      | Samples are included in `/opt/caffe/examples`.      |
-| Related Tools on the DSVM      | Caffe2      |
+|                                               |                                                |
+|-----------------------------------------------|------------------------------------------------|
+|                  What is it?                  |            Deep learning framework             |
+|            Supported DSVM Editions            |                     Linux                      |
+| How is it configured / installed on the DSVM? |      Caffe is installed in `/opt/caffe`.       |
+|               Links to Samples                | Samples are included in `/opt/caffe/examples`. |
+|           Related Tools on the DSVM           |                     Caffe2                     |
+
 ### How to use / run it?  
 
 Use X2Go to log in to your VM, then start a new terminal and enter
@@ -140,11 +141,12 @@ Then open a browser and connect to `http://localhost:54321`.
 
 ## NVIDIA DIGITS
 
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Deep learning system from NVIDIA for rapidly training deep learning models      |
-| Supported DSVM Editions      | Linux     |
-| How is it configured / installed on the DSVM?  | DIGITS is installed in `/dsvm/tools/DIGITS` and is available a service called _digits_.   |
+|                                               |                                                                                                |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+|                  What is it?                  |           Deep learning system from NVIDIA for rapidly training deep learning models           |
+|            Supported DSVM Editions            |                                             Linux                                              |
+| How is it configured / installed on the DSVM? | DIGITS is installed in `/dsvm/tools/DIGITS` and is available a service called <em>digits</em>. |
+
 ### How to use / run it?  
 
 Log in to the VM with X2Go. At a terminal, start the service:

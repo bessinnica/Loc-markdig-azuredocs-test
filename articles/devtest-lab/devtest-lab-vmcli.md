@@ -122,3 +122,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+

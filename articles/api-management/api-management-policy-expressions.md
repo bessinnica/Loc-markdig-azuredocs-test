@@ -18,60 +18,60 @@ ms.author: apimpm
 ---
 # API Management policy expressions
 Policy expressions syntax is C# 6.0. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.  
-  
+
 > [!TIP]
 >  For more information about policy expressions, see the [Policy Expressions](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
->   
+> 
 >  For demonstrations of configuring policies using policy expressions, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). This video contains the following policy expression demonstrations:  
->   
->  -   10:30 - See how to supply context information to your backend service. Use the [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) and [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) policies to supply this information. At 12:10, there is a demo of calling an operation in the developer portal where you can see these policies at work.  
-> -   13:50 - See how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize access to operations based on token claims. Fast forward to 15:00 to see how the policies are configured in the policy editor. At 18:50, see a demonstration of calling an operation from the developer portal both with, and without, the required authorization token.  
-> -   21:00 - Use an [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace to see how policies are evaluated and the results of those evaluations.  
-> -   25:25 - See how to use expressions with the [Get from cache](api-management-caching-policies.md#GetFromCache) and [Store to cache](api-management-caching-policies.md#StoreToCache) policies to configure API Management response caching. Set a duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.  
-> -   34:30 - See how to perform content filtering. Remove data elements from the response received from the backend using the [Control flow](api-management-advanced-policies.md#choose) and [Set body](api-management-transformation-policies.md#SetBody) policies. Start  at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.  
-> -   To download the policy statements used in this video, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) github repo.  
-  
-  
+> 
+> - 10:30 - See how to supply context information to your backend service. Use the [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) and [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) policies to supply this information. At 12:10, there is a demo of calling an operation in the developer portal where you can see these policies at work.  
+>   -   13:50 - See how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize access to operations based on token claims. Fast forward to 15:00 to see how the policies are configured in the policy editor. At 18:50, see a demonstration of calling an operation from the developer portal both with, and without, the required authorization token.  
+>   -   21:00 - Use an [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace to see how policies are evaluated and the results of those evaluations.  
+>   -   25:25 - See how to use expressions with the [Get from cache](api-management-caching-policies.md#GetFromCache) and [Store to cache](api-management-caching-policies.md#StoreToCache) policies to configure API Management response caching. Set a duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.  
+>   -   34:30 - See how to perform content filtering. Remove data elements from the response received from the backend using the [Control flow](api-management-advanced-policies.md#choose) and [Set body](api-management-transformation-policies.md#SetBody) policies. Start  at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.  
+>   -   To download the policy statements used in this video, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) github repo.  
+
+
 ##  <a name="Syntax"></a> Syntax  
  Single statement expressions are enclosed in `@(expression)`, where `expression` is a well-formed C# expression statement.  
-  
+
  Multi-statement expressions are enclosed in `@{expression}`. All code paths within multi-statement expressions must end with a `return` statement.  
-  
+
 ##  <a name="PolicyExpressionsExamples"></a> Examples  
-  
+
 ```  
 @(true)  
-  
+
 @((1+1).ToString())  
-  
+
 @("Hi There".Length)  
-  
+
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
-  
+
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
-  
-@{   
-  string value;   
-  if (context.Request.Headers.TryGetValue("Authorization", out value))   
-  {   
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
-  }   
-  else   
-  {   
-    return null;  
+
+@{   
+  string value;   
+  if (context.Request.Headers.TryGetValue("Authorization", out value))   
+  {   
+    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
+  }   
+  else   
+  {   
+    return null;  
   }  
 }  
 ```  
-  
+
 ##  <a name="PolicyExpressionsUsage"></a> Usage  
  Expressions can be used as attribute values or text values in any API Management [policies](api-management-policies.md) (unless the policy reference specifies otherwise).  
-  
+
 > [!IMPORTANT]
 >  When you use policy expressions, there is only limited verification of the policy expressions when the policy is defined. Expressions are executed by the gateway at run-time, any exceptions generated by policy expressions result in a runtime error.  
-  
+
 ##  <a name="CLRTypes"></a> .NET Framework types allowed in policy expressions  
  The following table lists the .NET Framework types and their members that are allowed in policy expressions.  
-  
+
 |CLR type|Supported methods|  
 |--------------|-----------------------|  
 |Newtonsoft.Json.Linq.Extensions|All methods are supported|  
@@ -162,10 +162,10 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 |System.Xml.Linq.XProcessingInstruction|All methods are supported|  
 |System.Xml.Linq.XText|All methods are supported|  
 |System.Xml.XmlNodeType|All|  
-  
+
 ##  <a name="ContextVariables"></a> Context variable  
  A variable named `context` is implicitly available in every policy [expression](api-management-policy-expressions.md#Syntax). Its members provide information pertinent to the `\request`. All of the `context` members are read-only.  
-  
+
 |Context Variable|Allowed methods, properties, and parameter values|  
 |----------------------|-------------------------------------------------------|  
 |context|Api: IApi<br /><br /> Deployment<br /><br /> Elapsed: TimeSpan - time interval between the value of Timestamp and current time<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Request<br /><br /> RequestId: Guid - unique request identifier<br /><br /> Response<br /><br /> Subscription<br /><br /> Timestamp: DateTime - point in time when request was received<br /><br /> Tracing: bool - indicates if tracing is on or off <br /><br /> User<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
@@ -204,13 +204,14 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 
 ## Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
-## Next steps
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
+> 
+> 
+> ## Next steps
 
 For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
 + [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)	
++ [Policy samples](policy-samples.md)   

@@ -64,32 +64,32 @@ Set the values that are needed to connect using the **Service principal** authen
         <configuration>
         ...
             <appSettings>
-				<add key="AMSAADTenantDomain" value="tenant"/>
-				<add key="AMSRESTAPIEndpoint" value="endpoint"/>
-				<add key="AMSClientId" value="id"/>
-				<add key="AMSClientSecret" value="secret"/>
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
         </configuration>
 7. Add the **System.Configuration** reference to your project.
 7. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code:
-		   
-		using System;
-		using System.Configuration;
-		using System.IO;
-		using Microsoft.WindowsAzure.MediaServices.Client;
-		using System.Threading;
-		using System.Collections.Generic;
-		using System.Linq;
+           
+        using System;
+        using System.Configuration;
+        using System.IO;
+        using Microsoft.WindowsAzure.MediaServices.Client;
+        using System.Threading;
+        using System.Collections.Generic;
+        using System.Linq;
 
 At this point, you are ready to start developing a Media Services application.    
 
 ## Example
 
 Here is a small example that connects to the AMS API and lists all available Media Processors.
-	
-	class Program
-	{
-	    // Read values from the App.config file.
+    
+    class Program
+    {
+        // Read values from the App.config file.
 
         private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AMSAADTenantDomain"];
@@ -99,10 +99,10 @@ Here is a small example that connects to the AMS API and lists all available Med
             ConfigurationManager.AppSettings["AMSClientId"];
         private static readonly string _AMSClientSecret =
             ConfigurationManager.AppSettings["AMSClientSecret"];
-	
-	    private static CloudMediaContext _context = null;
-	    static void Main(string[] args)
-	    {
+    
+        private static CloudMediaContext _context = null;
+        static void Main(string[] args)
+        {
             AzureAdTokenCredentials tokenCredentials = 
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
@@ -111,16 +111,16 @@ Here is a small example that connects to the AMS API and lists all available Med
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-	
-	        // List all available Media Processors
-	        foreach (var mp in _context.MediaProcessors)
-	        {
-	            Console.WriteLine(mp.Name);
-	        }
-	
-	    }
+    
+            // List all available Media Processors
+            foreach (var mp in _context.MediaProcessors)
+            {
+                Console.WriteLine(mp.Name);
+            }
+    
+        }
 
-##Next steps
+## Next steps
 
 Now [you can connect to the AMS API](media-services-use-aad-auth-to-access-ams-api.md) and start [developing](media-services-dotnet-get-started.md).
 

@@ -35,29 +35,34 @@ During failback, it is recommended to deploy process server in Azure if there is
 1. In the Vault > **Site Recovery Infrastructure** (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines" heading), select the configuration server.
 2. In the Configuration Server details page that opens click "+ Process server"
 
-  ![Add process server gallery](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps.png)
+   ![Add process server gallery](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps.png)
 
-3.  On the **Add process server** page, select the following values
+3. On the **Add process server** page, select the following values
 
-  ![Add process server gallery item](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps-page-1.png)
-|**Field Name**|**Value**|
-|-|-|
-|Choose where you want to deploy your process server|Select the value **Deploy a failback process server in Azure** |
-|Subscription|Select the Azure Subscription where you failed over the virtual machines|
-|Resource Group|You can create a Resource Group to deploy this process server or choose to deploy the process server in an existing Resource Group|
-|Location|Select the Azure Data Center into which the virtual machines where failed over into|
-|Azure Network|Select the Azure Virtual Network(VNet) that the virtual machines where failed over into. If you failed over virtual machines into multiple Azure VNets, then you need a process server deployed per VNet|
+   ![Add process server gallery item](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps-page-1.png)
+
+   |             <strong>Field Name</strong>             |                                                                                          <strong>Value</strong>                                                                                          |
+   |-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Choose where you want to deploy your process server |                                                               Select the value <strong>Deploy a failback process server in Azure</strong>                                                                |
+   |                    Subscription                     |                                                                 Select the Azure Subscription where you failed over the virtual machines                                                                 |
+   |                   Resource Group                    |                                    You can create a Resource Group to deploy this process server or choose to deploy the process server in an existing Resource Group                                    |
+   |                      Location                       |                                                           Select the Azure Data Center into which the virtual machines where failed over into                                                            |
+   |                    Azure Network                    | Select the Azure Virtual Network(VNet) that the virtual machines where failed over into. If you failed over virtual machines into multiple Azure VNets, then you need a process server deployed per VNet |
+
 
 4. Fill in the rest of the properties for the process server
 
-  ![Add process server summary](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps-page-2.png)
-|**Field Name**|**Value**|
-|-|-|
-|Server Name|Display name & Host name for your process server virtual machine|
-| User Name|A user name that becomes an Administrator on that virtual machine|
-|Storage Account|Name of the Storage Account where the virtual machine's virtual disk's are placed|
-|Subnet|The subnet of the Azure VNet to which the virtual machine is connected|
-| IP Address|IP Address that you would like the process server to assume once it boots up|
+   ![Add process server summary](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps-page-2.png)
+
+   | <strong>Field Name</strong> |                              <strong>Value</strong>                               |
+   |-----------------------------|-----------------------------------------------------------------------------------|
+   |         Server Name         |         Display name & Host name for your process server virtual machine          |
+   |          User Name          |         A user name that becomes an Administrator on that virtual machine         |
+   |       Storage Account       | Name of the Storage Account where the virtual machine's virtual disk's are placed |
+   |           Subnet            |      The subnet of the Azure VNet to which the virtual machine is connected       |
+   |         IP Address          |   IP Address that you would like the process server to assume once it boots up    |
+
+
 5. Click the OK button to start deploying the process server virtual machine.
 
 > [!NOTE]
@@ -74,3 +79,4 @@ During failback, it is recommended to deploy process server in Azure if there is
 ## Unregistering the process server (running in Azure) from a Configuration Server (running on-premises)
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
+

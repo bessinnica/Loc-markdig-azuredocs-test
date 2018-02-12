@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-You cannot initialise and use a variable in the same DECLARE statement. To illustrate the point the example below is **not** allowed as @p1 is both initialized and used in the same DECLARE statement. This will result in an error.
+You cannot initialise and use a variable in the same DECLARE statement. To illustrate the point the example below is <strong>not</strong> allowed as @"p1" is both initialized and used in the same DECLARE statement. This will result in an error.
 
 ```sql
 DECLARE @p1 int = 0

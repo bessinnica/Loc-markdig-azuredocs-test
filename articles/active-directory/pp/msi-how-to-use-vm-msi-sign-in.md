@@ -18,7 +18,8 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Sign in using a VM user-assigned Managed Service Identity (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+
 This article provides CLI script examples for sign-in using a user-assigned MSI service principal, and guidance on important topics such as error handling.
 
 ## Prerequisites
@@ -49,13 +50,13 @@ The following script demonstrates how to:
 
     ```azurecli
     az login --msi –u <MSI ID>
-   
+
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation
     ```
 
     Example responses:
-   
+
     ```bash
     user@vmLinux:~$ az login --msi -u /subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName
     [
@@ -85,7 +86,7 @@ See [Azure services that support Azure AD authentication](msi-overview.md#azure-
 
 The following responses may indicate that the MSI has not been correctly configured:
 
-- CLI: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
+- CLI: <em>MSI: Failed to retrieve a token from '<http://localhost:50342/oauth2/token>' with an error of 'HTTPConnectionPool(host='localhost', port=50342)</em> 
 
 If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 

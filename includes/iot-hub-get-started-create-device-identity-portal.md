@@ -4,11 +4,11 @@ In this section, you use the [Azure portal][lnk-azure-portal] to create a device
 
 1. Make sure you are signed in to the [Azure portal][lnk-azure-portal].
 
-1. In the Jumpbar, click **All resources** and find your IoT hub resource.
+2. In the Jumpbar, click **All resources** and find your IoT hub resource.
 
     ![Navigate to your Iot hub][img-find-iothub]
 
-1. When your IoT hub resource is opened, click the **Device Explorer** tool, and then click **Add** at the top. Provide the name for your new device, such as **myDeviceId**, and click **Save**.
+3. When your IoT hub resource is opened, click the **Device Explorer** tool, and then click **Add** at the top. Provide the name for your new device, such as **myDeviceId**, and click **Save**.
 
     ![Create device identity in portal][img-create-device]
 
@@ -16,7 +16,8 @@ In this section, you use the [Azure portal][lnk-azure-portal] to create a device
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. In the **Device Explorer**'s device list, click the newly created device and make note of the **Connection string---primary key**. 
+
+4. In the **Device Explorer**'s device list, click the newly created device and make note of the **Connection string---primary key**. 
 
     ![Device connection string][img-connection-string]
 

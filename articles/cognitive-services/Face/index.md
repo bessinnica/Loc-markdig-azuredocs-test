@@ -65,14 +65,18 @@ ms.author: carolz
 </div>
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
+
 <p>Develop applications using the Face API:</p>
+
 <ol>
     <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">C&#35; Tutorial</a></li>
     <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Java for Android Tutorial</a></li>
     <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial">Python Tutorial</a></li>
 </ol>
 
+
 <h2 style="margin-top: 36px">Reference</h2>
+
 <ul class="panelContent cardsD">
     <li>
         <div class="cardSize">
@@ -102,4 +106,6 @@ ms.author: carolz
         </div>
     </li>
 </ul>
+
 </div>
+

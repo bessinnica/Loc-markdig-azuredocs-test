@@ -21,6 +21,7 @@ If you want to avoid seeing profanity in the translation (regardless of the pres
 The TranslateArray method takes an “options” parameter, which contains the new element “ProfanityAction”. The accepted values of ProfanityAction are “NoAction”, “Marked” and “Deleted”.
 
 ## Accepted values of ProfanityAction and examples
+
 |ProfanityAction value | Action | Example: Source - Japanese | Example: Target - English|
 | :---|:---|:---|:---|
 | NoAction | Default. Same as not setting the option. Profanity passes from source to target. | 彼はジャッカスです。 | He is a jackass. |

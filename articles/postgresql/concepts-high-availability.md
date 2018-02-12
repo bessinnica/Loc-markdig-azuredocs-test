@@ -29,4 +29,4 @@ Similar to the HA model, when an Azure Database for PostgreSQL is scaled up or d
 During the scale operation, an interruption to the database connections occurs. The client applications are disconnected, and open uncommitted transactions are canceled. Once the client application retries the connection, or makes a new connection, the gateway directs the connection to the newly sized instance. 
 
 ## Next steps
-- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md)
+- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md)

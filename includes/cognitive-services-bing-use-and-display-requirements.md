@@ -51,37 +51,37 @@ The only exception to the internet search experience requirement is for URL disc
 
 - Transferred responses must:
     - Consist of content that is unmodified from the content of the responses displayed to the transferring user (formatting changes are permissible);
-    -	Not include any data in metadata form;
-    -	For responses from the Bing Web, Image, News, and Video APIs, display language indicating the response was obtained through an internet search experience powered by Bing (for example, "Powered by Bing," "Learn more about this image on Bing," or using the Bing logo);
-    -	For responses from the Bing Custom Search API, display language indicating the response was obtained through an internet search experience (for example, "Learn more about this search result”);
-    -	Prominently display the full query used to generate the response; and
-    -	Include a prominent link or similar attribution to the underlying source of the response, either directly or through the search engine (bing.com, m.bing.com or your custom search service, as applicable).
--	You may not automate the transfer of responses. A transfer must be initiated by a user action clearly evidencing an intent to transfer a response.
--	You may only enable a user to transfer responses that were displayed in response to the transferring user's query.
+    -   Not include any data in metadata form;
+    -   For responses from the Bing Web, Image, News, and Video APIs, display language indicating the response was obtained through an internet search experience powered by Bing (for example, "Powered by Bing," "Learn more about this image on Bing," or using the Bing logo);
+    -   For responses from the Bing Custom Search API, display language indicating the response was obtained through an internet search experience (for example, "Learn more about this search result”);
+    -   Prominently display the full query used to generate the response; and
+    -   Include a prominent link or similar attribution to the underlying source of the response, either directly or through the search engine (bing.com, m.bing.com or your custom search service, as applicable).
+-   You may not automate the transfer of responses. A transfer must be initiated by a user action clearly evidencing an intent to transfer a response.
+-   You may only enable a user to transfer responses that were displayed in response to the transferring user's query.
 
 **E. Continuity of service.** You must not copy, store or cache any data from Search API responses. However, to enable continuity of service access and data rendering, you may retain results solely under the following conditions:
 
 **Device.** You may enable an end user to retain results on a device for the lesser of (i) 24 hours from the time of the query or (ii) until an end user submits another query for updated results, provided that retained results may be used only:
 
--	to enable the end user to access results previously returned to that end user on that device (for example, in case of service interruption); or
--	to store results returned for your proactive query personalized in anticipation of the end user's needs based on that end user's signals (for example, in case of anticipated service interruption).
+-   to enable the end user to access results previously returned to that end user on that device (for example, in case of service interruption); or
+-   to store results returned for your proactive query personalized in anticipation of the end user's needs based on that end user's signals (for example, in case of anticipated service interruption).
 
 **Server.** You may retain results specific to a single end user securely on a server you control and display the retained results only:
 
--	to enable the end user to access a historical report of results previously returned to that user in your solution, provided that the results may not be (i) retained for more than 21 days from the time of the end user's initial query and (ii) displayed in response to an end user's new or repeated query; or
--	to store results returned for your proactive query personalized in anticipation of an end user's needs based on that end user's signals for the lesser of (i) 24 hours from the time of the query or (ii) until an end user submits another query for updated results.
+-   to enable the end user to access a historical report of results previously returned to that user in your solution, provided that the results may not be (i) retained for more than 21 days from the time of the end user's initial query and (ii) displayed in response to an end user's new or repeated query; or
+-   to store results returned for your proactive query personalized in anticipation of an end user's needs based on that end user's signals for the lesser of (i) 24 hours from the time of the query or (ii) until an end user submits another query for updated results.
 
 Whenever retained, results for a specific user cannot be commingled with results for another user, i.e., the results of each user must be retained and delivered separately.
 
 **General.** For all presentation of retained results, you must:
 
--	include a clear, visible notice of the time the query was sent,
--	present the user a button or similar means to re-query and obtain updated results, 
--	retain the Bing branding in the presentation of the results, and
--	delete (and refresh with a new query if needed) the stored results within the timeframes specified.
+-   include a clear, visible notice of the time the query was sent,
+-   present the user a button or similar means to re-query and obtain updated results, 
+-   retain the Bing branding in the presentation of the results, and
+-   delete (and refresh with a new query if needed) the stored results within the timeframes specified.
 
 **F. Non-display URL discovery.** You may only use search responses in a non-internet search experience for the sole purpose of discovering URLs of sources of information responsive to a query from your user or customer. You may copy such URLs in a report or similar response you provide (i) only to that user or customer, in response to that query and (ii) which includes significant additional valuable content relevant to the query. The requirements in sections 3A through 3E of these use and display requirements do not apply to this non-display use, except: 
 
--	You shall not cache, copy or store any data or content from, or derived from, the search response, other than the limited URL copying described above;
--	You must ensure your use of data (including the URLs) received from the Search APIs does not violate any applicable laws or third-party rights; and
--	You shall not use the data (including the URLs) received from the Search APIs as part of any search index or machine learning or similar algorithmic activity to create train, evaluate, or improve services which you or third parties may offer.
+-   You shall not cache, copy or store any data or content from, or derived from, the search response, other than the limited URL copying described above;
+-   You must ensure your use of data (including the URLs) received from the Search APIs does not violate any applicable laws or third-party rights; and
+-   You shall not use the data (including the URLs) received from the Search APIs as part of any search index or machine learning or similar algorithmic activity to create train, evaluate, or improve services which you or third parties may offer.

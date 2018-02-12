@@ -55,17 +55,17 @@ Navigate to the directory that contains the sample HTML. Open the *index.html* f
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
 
 ![Empty web app page](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 13, done.

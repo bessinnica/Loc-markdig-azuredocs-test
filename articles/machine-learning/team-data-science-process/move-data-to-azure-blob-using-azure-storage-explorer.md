@@ -39,6 +39,7 @@ This document assumes that you have an Azure subscription, a storage account, an
 
 <a id="explorer"></a>
 
+
 ## Use Azure Storage Explorer
 The following steps document how to upload/download data using Azure Storage Explorer. 
 

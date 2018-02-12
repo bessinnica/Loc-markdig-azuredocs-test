@@ -58,19 +58,19 @@ To configure the integration of Sequr into Azure AD, you need to add Sequr from 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Sequr**, select **Sequr** from result panel then click **Add** button to add the application.
 
-	![Sequr in the results list](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_addfromgallery.png)
+    ![Sequr in the results list](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,59 +96,59 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Sequr** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_samlbase.png)
 
 3. On the **Sequr Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Sequr Domain and URLs single sign-on information](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_url.png)
+    ![Sequr Domain and URLs single sign-on information](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_url.png)
 
     In the **Identifier** textbox, type the URL: `https://login.sequr.io`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Sequr Domain and URLs single sign-on information](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_url1.png)
+    ![Sequr Domain and URLs single sign-on information](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_url1.png)
 
     a. In the **Sign-on URL** textbox, type the URL: `https://login.sequr.io`
 
-	b. In the **Relay State** textbox, you will get this value, which is explained later in the tutorial.
-	 
+    b. In the **Relay State** textbox, you will get this value, which is explained later in the tutorial.
+     
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-sequr-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-sequr-tutorial/tutorial_general_400.png)
+    
 7. On the **Sequr Configuration** section, click **Configure Sequr** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_configure.png)
+    ![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_configure.png)
 
 8. In a different web browser window, log in to your Sequr company site as an administrator.
 
 9. Click on the **Integrations** from the left navigation panel.
 
-	![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/configure1.png)
+    ![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/configure1.png)
 
 10. Scroll down to the **Single Sign-On** section and click **Manage**.
 
-	![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/configure2.png)
+    ![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/configure2.png)
 
 11. In the **Manage Single Sign-On** section, perform the following steps:
 
-	![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/configure3.png)
+    ![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/configure3.png)
 
-	a. In the **Identity Provider Single Sign-On URL** textbox, paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal.
+    a. In the **Identity Provider Single Sign-On URL** textbox, paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal.
 
-	b. Drag and drop the **Certificate** file, which you have downloaded from the Azure portal or manually enter the content of the certificate.
+    b. Drag and drop the **Certificate** file, which you have downloaded from the Azure portal or manually enter the content of the certificate.
 
-	c. After saving the configuration, the relay state value will be generated. Copy the **relay state** value and paste it in the **Relay State** textbox of **Sequr Domain and URLs** section in the Azure portal.
+    c. After saving the configuration, the relay state value will be generated. Copy the **relay state** value and paste it in the **Relay State** textbox of **Sequr Domain and URLs** section in the Azure portal.
 
-	d. Click **Save**.
+    d. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -187,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Sequr test user
 
-In this section, you create a user called Britta Simon in Sequr. Work with [Sequr Client support team](mailto:support@sequr.io) to add the users in the Sequr platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Sequr. Work with [Sequr Client support team](mailto:support@sequr.io) to add the users in the Sequr platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -199,32 +199,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Sequr**.
 
-	![The Sequr link in the Applications list](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_app.png)  
+    ![The Sequr link in the Applications list](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Sequr tile in the Access Panel, you should get automatically signed-on to your Sequr application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

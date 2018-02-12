@@ -40,12 +40,12 @@ Create an HDInsight Spark cluster using an [Azure Resource Manager template](../
 
     ![Create HDInsight Spark cluster using an Azure Resource Manager template](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Create Spark cluster in HDInsight using an Azure Resource Manager template")
 
-	* **Subscription**: Select your Azure subscription used for creating this cluster.
-	* **Resource group**: Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
-	* **Location**: Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage.
-	* **ClusterName**: Enter a name for the HDInsight cluster that you want to create.
-	* **Cluster login name and password**: The default login name is admin.
-	* **SSH user name and password**.
+    * **Subscription**: Select your Azure subscription used for creating this cluster.
+    * **Resource group**: Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
+    * **Location**: Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage.
+    * **ClusterName**: Enter a name for the HDInsight cluster that you want to create.
+    * **Cluster login name and password**: The default login name is admin.
+    * **SSH user name and password**.
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled **Deploying Template deployment**. It takes about 20 minutes to create the cluster.
 
@@ -103,7 +103,7 @@ For an example of reading data from a csv file instead of a Hive table, see [Run
 2. When the kernel is ready, paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The output should list a `hivesampletable` that is available on the cluster, by default.
 
     ```PySpark
-	%%sql
+    %%sql
     SHOW TABLES
     ```
 
@@ -116,7 +116,7 @@ For an example of reading data from a csv file instead of a Hive table, see [Run
 2. Run another query to see the data in `hivesampletable`.
 
     ```PySpark
-	%%sql
+    %%sql
     SELECT * FROM hivesampletable LIMIT 10
     ```
     

@@ -62,35 +62,37 @@ ms.author: carolz
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Resources</h3>
-                        <p><a href="/azure/germany/germany-image-gallery">Images</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="/azure/germany/germany-image-gallery">Images</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Services</h3>
-                        <p><a href="/azure/germany/germany-services-compute">Compute</a></p>
-                        <p><a href="/azure/germany/germany-services-storage">Storage</a></p>
-                        <p><a href="/azure/germany/germany-services-database">Database</a></p>
-                        <p><a href="/azure/germany/germany-services-networking">Networking</a></p>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Services</h3>
+                        <p><a href="/azure/germany/germany-services-compute">Compute</a></p>
+                        <p><a href="/azure/germany/germany-services-storage">Storage</a></p>
+                        <p><a href="/azure/germany/germany-services-database">Database</a></p>
+                        <p><a href="/azure/germany/germany-services-networking">Networking</a></p>
                         <p><a href="/azure/germany/germany-services-securityandidentity">Security and identity</a></p>
                         <p><a href="/azure/germany/germany-services-webandmobile">Web and mobile</a></p>
                         <p><a href="/azure/germany/germany-services-iot">Internet of Things (IoT)</a></p>
-                     </div>
-                </div>
-            </div>
-        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+

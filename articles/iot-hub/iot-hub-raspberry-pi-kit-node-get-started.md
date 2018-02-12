@@ -64,8 +64,8 @@ The following items are optional:
 * A diffused 10-mm LED.
 
 
-> [!NOTE] 
-If you don't have the optional items, you can use simulated sensor data.
+> [!NOTE]
+> If you don't have the optional items, you can use simulated sensor data.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -80,9 +80,9 @@ Prepare the microSD card for installation of the Raspbian image.
 
    > [!WARNING]
    > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
-   1. Extract the Raspbian image to a folder on your computer.
+   > 1. Extract the Raspbian image to a folder on your computer.
 
-1. Install Raspbian to the microSD card.
+2. Install Raspbian to the microSD card.
    1. [Download and install the Etcher SD card burner utility](https://etcher.io/).
    1. Run Etcher and select the Raspbian image that you extracted in step 1.
    1. Select the microSD card drive. Etcher may have already selected the correct drive.
@@ -102,8 +102,8 @@ Prepare the microSD card for installation of the Raspbian image.
 
    ![Enable I2C and SSH on Raspberry Pi](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
-To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
+> [!NOTE]
+> To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
 ### Connect the sensor to Pi
 
@@ -144,23 +144,23 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Clone sample application and install the prerequisite packages
 
 1. Connect to your Raspberry Pi with one of the following SSH clients from your host computer:
-   
+
    **Windows Users**
    1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
    1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
-   
-   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
-   
-   **Mac and Ubuntu Users**
-   
-   Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
-   > [!NOTE] 
-   The default username is `pi` and the password is `raspberry`.
 
-1. Install Node.js and NPM to your Pi.
-   
+   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+
+   **Mac and Ubuntu Users**
+
+   Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
+   > [!NOTE]
+   > The default username is `pi` and the password is `raspberry`.
+
+2. Install Node.js and NPM to your Pi.
+
    First check your Node.js version. 
-   
+
    ```bash
    node -v
    ```
@@ -172,20 +172,20 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    sudo apt-get -y install nodejs
    ```
 
-1. Clone the sample application.
+3. Clone the sample application.
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
    ```
 
-1. Install all packages for the sample. The installation includes Azure IoT device SDK, BME280 Sensor library, and Wiring Pi library.
+4. Install all packages for the sample. The installation includes Azure IoT device SDK, BME280 Sensor library, and Wiring Pi library.
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
-   > [!NOTE] 
-   It might take several minutes to finish this installation process depending on your network connection.
+   > [!NOTE]
+   > It might take several minutes to finish this installation process depending on your network connection.
 
 ### Configure the sample application
 
@@ -211,8 +211,8 @@ Run the sample application by running the following command:
    sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
    ```
 
-   > [!NOTE] 
-   Make sure you copy-paste the device connection string into the single quotes.
+> [!NOTE]
+>    Make sure you copy-paste the device connection string into the single quotes.
 
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
@@ -224,3 +224,4 @@ You should see the following output that shows the sensor data and the messages 
 You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub, or to send messages to your Raspberry Pi in a command-line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

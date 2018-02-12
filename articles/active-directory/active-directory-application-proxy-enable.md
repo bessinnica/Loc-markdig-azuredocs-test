@@ -91,11 +91,11 @@ In the Azure portal, sign in to your tenant and navigate to **Azure Active Direc
 
 On your server, check the list of active services for the connector and the connector updater. The two services should start running immediately, but if not, turn them on: 
 
-   * **Microsoft AAD Application Proxy Connector** enables connectivity
+* **Microsoft AAD Application Proxy Connector** enables connectivity
 
-   * **Microsoft AAD Application Proxy Connector Updater** is an automated update service. The updater checks for new versions of the connector and updates the connector as needed.
+* **Microsoft AAD Application Proxy Connector Updater** is an automated update service. The updater checks for new versions of the connector and updates the connector as needed.
 
-   ![App Proxy Connector services - screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+  ![App Proxy Connector services - screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 
 For information about connectors and how they stay up to date, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
 

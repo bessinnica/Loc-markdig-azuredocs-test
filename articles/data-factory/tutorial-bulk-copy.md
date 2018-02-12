@@ -92,9 +92,9 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command. 
 
     ```powershell
-	$resourceGroupName = "<your resource group to create the factory>"
-	$dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-	Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
+    $resourceGroupName = "<your resource group to create the factory>"
+    $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
     Note the following points:
@@ -116,8 +116,8 @@ In this tutorial, you create three linked services for source, sink, and staging
 
 1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADFv2TutorialBulkCopy** folder with the following content: (Create the folder ADFv2TutorialBulkCopy if it does not already exist.)
 
-	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
+    > [!IMPORTANT]
+    > Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
 
     ```json
     {
@@ -155,8 +155,8 @@ In this tutorial, you create three linked services for source, sink, and staging
 
 1. Create a JSON file named **AzureSqlDWLinkedService.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content:
 
-	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
+    > [!IMPORTANT]
+    > Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
 
     ```json
     {
@@ -194,8 +194,8 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
 
 1. Create a JSON file named **AzureStorageLinkedService.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content:
 
-	> [!IMPORTANT]
-	> Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
+    > [!IMPORTANT]
+    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
 
     ```json
     {
@@ -487,10 +487,10 @@ This pipeline performs two steps:
     $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'GetTableListAndTriggerCopyData'
     ```
 
-2. 	Run the following script to continuously check the run status of pipeline **GetTableListAndTriggerCopyData**, and print out the final pipeline run and activity run result.
+2.  Run the following script to continuously check the run status of pipeline **GetTableListAndTriggerCopyData**, and print out the final pipeline run and activity run result.
 
     ```powershell
-	while ($True) {
+    while ($True) {
         $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
@@ -506,7 +506,7 @@ This pipeline performs two steps:
         Start-Sleep -Seconds 15
     }
 
-	$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
     $result
     ```
@@ -514,7 +514,7 @@ This pipeline performs two steps:
     Here is the output of the sample run:
 
     ```json
-	Pipeline run details:
+    Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
     RunId             : 0000000000-00000-0000-0000-000000000000

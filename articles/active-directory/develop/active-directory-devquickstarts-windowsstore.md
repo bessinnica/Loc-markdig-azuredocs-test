@@ -48,8 +48,8 @@ To enable the app to get tokens, you first need to register it in your Azure AD 
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a **Native Client Application**.
-  * **Name** describes the app to users.
-  * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a placeholder value for now (for example, **http://DirectorySearcher**). You'll replace the value later.
+   * **Name** describes the app to users.
+   * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a placeholder value for now (for example, **http://DirectorySearcher**). You'll replace the value later.
 6. After you’ve completed the registration, Azure AD assigns the app a unique application ID. Copy the value on the **Application** tab, because you'll need it later.
 7. On the **Settings** page, select **Required Permissions**, and then select **Add**.
 8. For the **Azure Active Directory** app, select **Microsoft Graph** as the API.
@@ -66,8 +66,8 @@ Now that you have an app in Azure AD, you can install ADAL and write your identi
 
 2. In the DirectorySearcher project, open MainPage.xaml.cs.
 3. Replace the values in the **Config Values** region with the values that you entered in the Azure portal. Your code refers to these values whenever it uses ADAL.
-  * The *tenant* is the domain of your Azure AD tenant (for example, contoso.onmicrosoft.com).
-  * The *clientId* is the client ID of the app, which you copied from the portal.
+   * The *tenant* is the domain of your Azure AD tenant (for example, contoso.onmicrosoft.com).
+   * The *clientId* is the client ID of the app, which you copied from the portal.
 4. You now need to discover the callback URI for your Windows Store app. Set a breakpoint on this line in the `MainPage` method:
     ```
     redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
@@ -159,3 +159,4 @@ For reference, download the [completed sample](https://github.com/AzureADQuickSt
 You can now move on to additional identity scenarios. For example, try [Secure a .NET Web API with Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+

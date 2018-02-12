@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
 ---
-#Data Catalog Documentation
+# Data Catalog Documentation
 
 Learn how to use Data Catalog to help your organization and team discover, understand, and consume your data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
 
@@ -57,22 +57,24 @@ Learn how to use Data Catalog to help your organization and team discover, under
 </ul>
 
 ---
- 
+
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/datacatalog/">REST API</a></p>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/datacatalog/">REST API</a></p>
                         <p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Search syntax reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 
 

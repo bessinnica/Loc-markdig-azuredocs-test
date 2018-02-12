@@ -35,76 +35,76 @@ Save the JSON defined in the [H264 Multiple Bitrate 720p](media-services-mes-pre
 
 Open the **CustomPreset_JSON.json** file and remove first three layers from **H264Layers** so your file looks like this.
 
-	
-	{  
-	  "Version": 1.0,  
-	  "Codecs": [  
-	    {  
-	      "KeyFrameInterval": "00:00:02",  
-	      "H264Layers": [  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 1000,  
-	          "MaxBitrate": 1000,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 650,  
-	          "MaxBitrate": 650,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 400,  
-	          "MaxBitrate": 400,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 320,  
-	          "Height": 180,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        }  
-	      ],  
-	      "Type": "H264Video"  
-	    },  
-	    {  
-	      "Profile": "AACLC",  
-	      "Channels": 2,  
-	      "SamplingRate": 48000,  
-	      "Bitrate": 128,  
-	      "Type": "AACAudio"  
-	    }  
-	  ],  
-	  "Outputs": [  
-	    {  
-	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
-	      "Format": {  
-	        "Type": "MP4Format"  
-	      }  
-	    }  
-	  ]  
-	}  
-	
+    
+    {  
+      "Version": 1.0,  
+      "Codecs": [  
+        {  
+          "KeyFrameInterval": "00:00:02",  
+          "H264Layers": [  
+            {  
+              "Profile": "Auto",  
+              "Level": "auto",  
+              "Bitrate": 1000,  
+              "MaxBitrate": 1000,  
+              "BufferWindow": "00:00:05",  
+              "Width": 640,  
+              "Height": 360,  
+              "BFrames": 3,  
+              "ReferenceFrames": 3,  
+              "AdaptiveBFrame": true,  
+              "Type": "H264Layer",  
+              "FrameRate": "0/1"  
+            },  
+            {  
+              "Profile": "Auto",  
+              "Level": "auto",  
+              "Bitrate": 650,  
+              "MaxBitrate": 650,  
+              "BufferWindow": "00:00:05",  
+              "Width": 640,  
+              "Height": 360,  
+              "BFrames": 3,  
+              "ReferenceFrames": 3,  
+              "AdaptiveBFrame": true,  
+              "Type": "H264Layer",  
+              "FrameRate": "0/1"  
+            },  
+            {  
+              "Profile": "Auto",  
+              "Level": "auto",  
+              "Bitrate": 400,  
+              "MaxBitrate": 400,  
+              "BufferWindow": "00:00:05",  
+              "Width": 320,  
+              "Height": 180,  
+              "BFrames": 3,  
+              "ReferenceFrames": 3,  
+              "AdaptiveBFrame": true,  
+              "Type": "H264Layer",  
+              "FrameRate": "0/1"  
+            }  
+          ],  
+          "Type": "H264Video"  
+        },  
+        {  
+          "Profile": "AACLC",  
+          "Channels": 2,  
+          "SamplingRate": 48000,  
+          "Bitrate": 128,  
+          "Type": "AACAudio"  
+        }  
+      ],  
+      "Outputs": [  
+        {  
+          "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
+          "Format": {  
+            "Type": "MP4Format"  
+          }  
+        }  
+      ]  
+    }  
+    
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -114,8 +114,8 @@ The following code example uses Media Services .NET SDK to perform the following
 - Get a reference to the Media Encoder Standard encoder.
 - Load the custom JSON preset that you created in the previous section. 
   
-		// Load the JSON from the local file.
-		string configuration = File.ReadAllText(fileName);  
+        // Load the JSON from the local file.
+        string configuration = File.ReadAllText(fileName);  
 
 - Add an encoding task to the job. 
 - Specify the input asset to be encoded.

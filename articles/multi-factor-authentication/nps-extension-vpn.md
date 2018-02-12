@@ -31,20 +31,20 @@ Network Policy and Access Services gives organizations the ability to:
 
 * Assign a central location for the management and control of network requests to specify:
 
-    * Who can connect 
+  * Who can connect 
     
-    * What times of day connections are allowed 
+  * What times of day connections are allowed 
     
-    * The duration of connections
+  * The duration of connections
     
-    * The level of security that clients must use to connect
+  * The level of security that clients must use to connect
 
     Rather than specify policies on each VPN or Remote Desktop Gateway server, do so after they're in a central location. The RADIUS protocol is used to provide centralized Authentication, Authorization, and Accounting (AAA). 
 
 * Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
 
 * Provide a way to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.   
-For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 
@@ -115,8 +115,8 @@ The NPS extension requires Windows Server 2008 R2 SP1 or later, with the Network
 
 The following libraries are installed automatically with the NPS extension:
 
--	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 If the Microsoft Azure Active Directory PowerShell Module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
 

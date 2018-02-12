@@ -48,7 +48,7 @@ In this tutorial, you learn how to upload a file and other operation associated 
 The following considerations apply when using Media Services REST API:
  
 * When accessing entities using Media Services REST API, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md). <br/>The Postman collection used in this tutorial takes care of setting all the necessary headers.
-* Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+* Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the <strong>Name</strong> property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 * The length of the name should not be greater than 260 characters.
 * There is a limit to the maximum file size supported for processing in Media Services. See [this](media-services-quotas-and-limitations.md) article for details about the file size limitation.
 
@@ -72,16 +72,16 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 
     For example, the first operation gets an access token and set it on the **AccessToken** environment variable that is used in all other operations.
 
-	```    
-	"listen": "test",
-	"script": {
-		"type": "text/javascript",
-		"exec": [
-			"var json = JSON.parse(responseBody);",
-			"postman.setEnvironmentVariable(\"AccessToken\", json.access_token);"
-		]
-	}
-	```
+    ```    
+    "listen": "test",
+    "script": {
+        "type": "text/javascript",
+        "exec": [
+            "var json = JSON.parse(responseBody);",
+            "postman.setEnvironmentVariable(\"AccessToken\", json.access_token);"
+        ]
+    }
+    ```
 4. On the left of the **Postman** window, click on **1. Get AAD Auth token** -> **Get Azure AD Token for Service Principal**.
 
     The URL portion is filled with the **AzureADSTSEndpoint** environment variable (the value of which you set earlier in this tutorial).
@@ -92,7 +92,7 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 
     You can see the response that contains "access_token". The "test" script takes this value and sets the **AccessToken** environment variable (as described above). If you examine your environment variables, you will see that this variable now contains the access token (bearer token) value that is used in the rest of the operations. 
 
-    If the token expires go through the "Get Azure AD Token for Service Principal" step again. 
+    If the token expires go through the "Get Azure AD Token for Service Principal" step again. 
 
 ## Create an access policy with write permission
 

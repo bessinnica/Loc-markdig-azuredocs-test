@@ -32,6 +32,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## Networking
 <a id="direct-connection"></a>
 
+
 1. **Connection mode: Use DirectHttps**
 
     How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There is one key configuration setting available for configuring the client [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – the [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  The two available ConnectionModes are:
@@ -39,33 +40,35 @@ So if you're asking "How can I improve my database performance?" consider the fo
    1. [Gateway (default)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode.gateway)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode.directhttps)
 
-    Gateway mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, DirectHttps mode offers better performance due to fewer network hops. 
+      Gateway mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, DirectHttps mode offers better performance due to fewer network hops. 
 
-    The Java SDK uses HTTPS as a transport protocol. HTTPS uses SSL for initial authentication and encrypting traffic. When using the Java SDK, only HTTPS port 443 needs to be open. 
+      The Java SDK uses HTTPS as a transport protocol. HTTPS uses SSL for initial authentication and encrypting traffic. When using the Java SDK, only HTTPS port 443 needs to be open. 
 
-    The ConnectionMode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. 
+      The ConnectionMode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. 
 
-    ```Java
-    public ConnectionPolicy getConnectionPolicy() {
+      ```Java
+      public ConnectionPolicy getConnectionPolicy() {
         ConnectionPolicy policy = new ConnectionPolicy();
         policy.setConnectionMode(ConnectionMode.DirectHttps);
         policy.setMaxPoolSize(1000);
         return policy;
-    }
-        
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+      }
 
-    ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips-java/connection-policy.png)
+      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+      ```
+
+      ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
+
+
 2. **Collocate clients in same Azure region for performance**
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
-   
+
 ## SDK Usage
 1. **Install the most recent SDK**
 
@@ -114,7 +117,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     You may also set the page size using the the [setPageSize method](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## Indexing Policy
- 
+
 1. **Exclude unused paths from indexing for faster writes**
 
     Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy.setincludedpaths) and [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy.setexcludedpaths)). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
@@ -134,6 +137,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## Throughput
 <a id="measure-rus"></a>
 
+
 1. **Measure and tune for lower request units/second usage**
 
     Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures, and triggers – all operating on the documents within a database collection. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
@@ -151,7 +155,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ```             
 
     The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before throttling subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
-<a id="429"></a>
+   <a id="429"></a>
+
+
 2. **Handle rate limiting/request rate too large**
 
     When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.

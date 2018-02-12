@@ -29,18 +29,20 @@ You can't log in to the VM, and you receive a message that indicates that the pa
 
 ## Manual Password Reset procedure
 
-1.	Delete the VM and keep the attached disks.
+1.  Delete the VM and keep the attached disks.
 
-2.	Attach the OS Drive as a data disk to another temporal VM in the same location.
+2.  Attach the OS Drive as a data disk to another temporal VM in the same location.
 
-3.	Run the following SSH command on the temporal VM to become a super-user.
+3.  Run the following SSH command on the temporal VM to become a super-user.
 
 
-    ~~~~
-    sudo su
-    ~~~~
+~~~
+~~~~
+sudo su
+~~~~
+~~~
 
-4.	Run **fdisk -l** or look at system logs to find the newly attached disk. Locate the drive name to mount. Then on the temporal VM, look in the relevant log file.
+4.  Run **fdisk -l** or look at system logs to find the newly attached disk. Locate the drive name to mount. Then on the temporal VM, look in the relevant log file.
 
     ~~~~
     grep SCSI /var/log/kern.log (ubuntu)
@@ -53,19 +55,19 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     kernel: [ 9707.100572] sd 3:0:0:0: [sdc] Attached SCSI disk
     ~~~~
 
-5.	Create a mount point called **tempmount**.
+5.  Create a mount point called **tempmount**.
 
     ~~~~
     mkdir /tempmount
     ~~~~
 
-6.	Mount the OS disk on the mount point. You usually need to mount sdc1 or sdc2. This will depend on the hosting partition in /etc directory from the broken machine disk.
+6.  Mount the OS disk on the mount point. You usually need to mount sdc1 or sdc2. This will depend on the hosting partition in /etc directory from the broken machine disk.
 
     ~~~~
     mount /dev/sdc1 /tempmount
     ~~~~
 
-7.	Perform a backup before making any changes:
+7.  Perform a backup before making any changes:
 
     ~~~~
     cp /etc/passwd /etc/passwd_orig    
@@ -76,13 +78,13 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     cp /tempmount/etc/shadow /tempmount/etc/shadow_orig
     ~~~~
 
-8.	Reset the user’s password that you need:
+8.  Reset the user’s password that you need:
 
     ~~~~
     passwd <<USER>> 
     ~~~~
 
-9.	Move the modified files to the correct location on the broken machine's disk.
+9.  Move the modified files to the correct location on the broken machine's disk.
 
     ~~~~
     cp /etc/passwd /tempmount/etc/passwd
@@ -91,16 +93,16 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     cp /etc/shadow_orig /etc/shadow
     ~~~~
 
-10.	Go back to the root and unmount the disk.
+10. Go back to the root and unmount the disk.
 
     ~~~~
     cd /
     umount /tempmount
     ~~~~
 
-11.	Detach the disk from the management portal.
+11. Detach the disk from the management portal.
 
-12.	Recreate the VM.
+12. Recreate the VM.
 
 ## Next steps
 

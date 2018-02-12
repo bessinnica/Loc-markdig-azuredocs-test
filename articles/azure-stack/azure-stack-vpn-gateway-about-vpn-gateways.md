@@ -31,9 +31,9 @@ Each virtual network can have two virtual network gateways, but only one of each
 
 > [!NOTE]
 > In Azure, the bandwidth throughput for VPN Gateway SKU you choose must be divided across all the Connections that are connected to it.  In Azure Stack, the bandwidth value for the VPN Gateway SKU is applied to each Connection resource that is connected to it.     
-
+> 
 > For example, In Azure, the Basic VPN Gateway SKU can accommodate approximately 100 Mbps of aggregate throughput.  If you create two Connections to that VPN Gateway, and one connection is using 50 Mbps of bandwidth, then 50 Mbps is available to the other Connection.   
-
+> 
 > In Azure Stack, *each* Connection to the Basic VPN Gateway SKU gets allocated 100 Mbps of throughput.
 
 ## Configuring a VPN Gateway
@@ -84,11 +84,13 @@ When selecting a SKU, consider the following:
 ## Estimated aggregate throughput by SKU
 The following table shows the gateway types and the estimated aggregate throughput by gateway SKU.
 
-|	| VPN Gateway throughput *(1)* |VPN Gateway max IPsec tunnels |
-|-------|-------|-------|
-|**Basic SKU** ***(2)*** 	| 100 Mbps	| 10	|
-|**Standard SKU** 		| 100 Mbps 	| 10	|
-|**High Performance SKU** | 200 Mbps	| 30	|
+
+|                                                          | VPN Gateway throughput <em>(1)</em> | VPN Gateway max IPsec tunnels |
+|----------------------------------------------------------|-------------------------------------|-------------------------------|
+| <strong>Basic SKU</strong> <strong><em>(2)</em></strong> |              100 Mbps               |              10               |
+|              <strong>Standard SKU</strong>               |              100 Mbps               |              10               |
+|          <strong>High Performance SKU</strong>           |              200 Mbps               |              30               |
+
 ***(1)*** The VPN throughput is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.  
 ***(2)*** BGP is not supported for the Basic SKU.
 

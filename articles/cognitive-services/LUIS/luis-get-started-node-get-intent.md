@@ -50,9 +50,9 @@ You can use Node.js to access the same results you saw in the browser window in 
 3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services subscription key.
 
 4. Run the code. It displays the same values that you saw earlier in the browser window.
-<!-- 
-![Console window displays JSON result from LUIS](./media/luis-get-started-Node.js-get-intent/console-turn-on.png)
--->
+   <!-- 
+   ![Console window displays JSON result from LUIS](./media/luis-get-started-Node.js-get-intent/console-turn-on.png)
+   -->
 
 ## Next steps
 > [!div class="nextstepaction"]

@@ -16,9 +16,9 @@ ms.date: 11/22/2017
 ms.author: apimpm
 
 ---
-# Add an API manually 
+# Add an API manually 
 
-The steps in this article show how to use the Azure portal to add an API manually to the API Management (APIM) instance. A common scenario when you would want to create a blank API and define it manually is when you want to mock the API. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
+The steps in this article show how to use the Azure portal to add an API manually to the API Management (APIM) instance. A common scenario when you would want to create a blank API and define it manually is when you want to mock the API. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
 If you want to import an existing API, see [related topics](#related-topics) section.
 
@@ -41,13 +41,16 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     ![Settings](media/add-api-manually/settings.png)
 
-    |**Name**|**Value**|**Description**|
-    |---|---|---|
-    |**Display name**|"*Blank API*" |This name is displayed in the Developer portal.|
-    |**Web Service URL** (optional)| "*http://httpbin.org*"| If you want to mock an API, you might not enter anything. <br/>In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. <br/>If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.|
-    |**URL scheme**|"*HTTPS*"|In this case, even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. <br/>This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). <br/>You might want to use "HTTPS termination" to save on some CPU cycles.|
-    |**URL suffix**|"*hbin*"| The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.|
-    |**Products**|"*Unlimited*" |Publish the API by associating the API with a product. If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.<br/><br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/><br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**.| 
+
+   |            <strong>Name</strong>            |    <strong>Value</strong>     |                                                                                                                                                                                                                                                                                                                                                                                     <strong>Description</strong>                                                                                                                                                                                                                                                                                                                                                                                     |
+   |---------------------------------------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |        <strong>Display name</strong>        |     "<em>Blank API</em>"      |                                                                                                                                                                                                                                                                                                                                                                           This name is displayed in the Developer portal.                                                                                                                                                                                                                                                                                                                                                                            |
+   | <strong>Web Service URL</strong> (optional) | "<em>http://httpbin.org</em>" |                                                                                                                                                                                                                                       If you want to mock an API, you might not enter anything. <br/>In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. <br/>If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.                                                                                                                                                                                                                                        |
+   |         <strong>URL scheme</strong>         |       "<em>HTTPS</em>"        |                                                                                                                                                                                              In this case, even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. <br/>This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). <br/>You might want to use "HTTPS termination" to save on some CPU cycles.                                                                                                                                                                                               |
+   |         <strong>URL suffix</strong>         |        "<em>hbin</em>"        |                                                                                                                                                                                                                                                                                                                                       The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.                                                                                                                                                                                                                                                                                                                                       |
+   |          <strong>Products</strong>          |     "<em>Unlimited</em>"      | Publish the API by associating the API with a product. If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.<br/><br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/><br/> By default, each API Management instance comes with two sample products: <strong>Starter</strong> and <strong>Unlimited</strong>. |
+
+
 5. Select **Create**.
 
 At this point, you have no operations in APIM that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**. 
@@ -58,7 +61,7 @@ At this point, you have no operations in APIM that map to the operations in your
 
 ## Add and test an operation
 
-This section shows how to add a "/get" operation in order to map it to the back end "http://httpbin.org/get" operation.
+This section shows how to add a "/get" operation in order to map it to the back end "<http://httpbin.org/get>" operation.
 
 ### Add the operation
 
@@ -76,11 +79,11 @@ Test the operation in the Azure portal. Alternatively, you can test it in the **
 2. Select **FetchData**.
 3. Press **Send**.
 
-The response that the "http://httpbin.org/get" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
+The response that the "<http://httpbin.org/get>" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
 ## Add and test a parameterized operation
 
-This section shows how to add an operation that takes a parameter. In this case, we map the operation to "http://httpbin.org/status/200".
+This section shows how to add an operation that takes a parameter. In this case, we map the operation to "<http://httpbin.org/status/200>".
 
 ### Add the operation
 
@@ -98,7 +101,7 @@ Test the operation in the Azure portal.  Alternatively, you can test it in the *
 2. Select **GetStatus**. By default the code value is set to "*200*". You can change it to test other values. For example, type "*418*".
 3. Press **Send**.
 
-    The response that the "http://httpbin.org/status/200" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
+    The response that the "<http://httpbin.org/status/200>" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

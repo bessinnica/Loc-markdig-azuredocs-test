@@ -60,21 +60,21 @@ Once you have installed agents on all the machines of the group, you can visuali
 1. In the Azure Migrate project, under **Manage**, click **Groups**, and select the group.
 2. On the group page, click **View Dependencies**, to open the group dependency map.
 3. The dependency map for the group shows the following details:
-    - Inbound (Clients) and outbound (Servers) TCP connections to/from all the machines that are part of the group
-        - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
-        - The dependenct machines that have the MMA and the dependency agent installed are shown as separate boxes 
-    - Processes running inside the machine, you can expand each machine box to view the processes
-    - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
+   - Inbound (Clients) and outbound (Servers) TCP connections to/from all the machines that are part of the group
+       - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
+       - The dependenct machines that have the MMA and the dependency agent installed are shown as separate boxes 
+   - Processes running inside the machine, you can expand each machine box to view the processes
+   - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
      ![View group dependencies](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
-3. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
-4. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
-5. Use Ctrl+Click to select machines on the map to add or remove them from the group.
+4. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
+5. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
+6. Use Ctrl+Click to select machines on the map to add or remove them from the group.
     - You can only add machines that have been discovered.
     - Adding and removing machines from a group invalidates past assessments for it.
     - You can optionally create a new assessment when you modify the group.
-5. Click **OK** to save the group.
+7. Click **OK** to save the group.
 
     ![Add or remove machines](./media/how-to-create-group-dependencies/add-remove.png)
 

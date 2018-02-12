@@ -52,45 +52,45 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 
 1. Open the terminal window, and go to the directory */etc/syslog-ng/* 
 2. Create a new file *security-config-omsagent.conf* and add the following content:
-	OMS_facility = local4
-	
-	filter f_local4_oms { facility(local4); };
+    OMS_facility = local4
+    
+    filter f_local4_oms { facility(local4); };
 
-	destination security_oms { tcp("127.0.0.1" port(25226)); };
+    destination security_oms { tcp("127.0.0.1" port(25226)); };
 
-	log { source(src); filter(f_local4_oms); destination(security_oms); };
-	
+    log { source(src); filter(f_local4_oms); destination(security_oms); };
+    
 3. Download the file *security_events.conf* and place at */etc/opt/microsoft/omsagent/conf/omsagent.d/* in the OMS Agent computer.
 4. Type the command below to restart the syslog daemon:
-	*For syslog-ng run:*
-	
-	```
-	sudo service rsyslog restart
-	```
+    *For syslog-ng run:*
+    
+    ```
+    sudo service rsyslog restart
+    ```
 
-	*For rsyslog run:*
-	
-	```
-	/etc/init.d/syslog-ng restart
-	```
+    *For rsyslog run:*
+    
+    ```
+    /etc/init.d/syslog-ng restart
+    ```
 5. Type the command below to restart the OMS Agent:
 
-	*For syslog-ng run:*
-	
-	```
-	sudo service omsagent restart
-	```
+    *For syslog-ng run:*
+    
+    ```
+    sudo service omsagent restart
+    ```
 
-	*For rsyslog run:*
-	
-	```
-	systemctl restart omsagent
-	```
+    *For rsyslog run:*
+    
+    ```
+    systemctl restart omsagent
+    ```
 6. Type the command below and review the result to confirm that there are no errors in the OMS Agent log:
 
-	```	
-	tail /var/opt/microsoft/omsagent/log/omsagent.log
-	```
+    ``` 
+    tail /var/opt/microsoft/omsagent/log/omsagent.log
+    ```
 
 ## Reviewing collected security events
 

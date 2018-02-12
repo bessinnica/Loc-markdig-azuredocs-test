@@ -80,12 +80,12 @@ A [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.ser
 This error can occur for one of two reasons:
 
 1. The load is not evenly distributed across all partitions on the event hub, and one partition hits the local throughput unit limitation.
-	
-	Resolution: Revising the partition distribution strategy or trying [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) might help.
+    
+    Resolution: Revising the partition distribution strategy or trying [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) might help.
 
 2. The Event Hubs namespace does not have sufficient throughput units (you can check the **Metrics** screen in the Event Hubs namespace window in the [Azure portal](https://portal.azure.com) to confirm). Note that the portal shows aggregated (1 minute) information, but we measure the throughput in real time – so it is only an estimate.
 
-	Resolution: Increasing the throughput units on the namespace can help. You can do this on the portal, in the **Scale** window of the Event Hubs namespace screen.
+    Resolution: Increasing the throughput units on the namespace can help. You can do this on the portal, in the **Scale** window of the Event Hubs namespace screen.
 
 ### Error code 50001
 

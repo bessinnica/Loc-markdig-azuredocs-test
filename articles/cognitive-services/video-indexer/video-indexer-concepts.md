@@ -15,7 +15,7 @@ ms.author: juliako;
 # Video Indexer concepts
  
 This topic describes some concepts of the Video Indexer service.
- 	
+    
 ## Breakdowns
 
 The **breakdowns** element has the full list and details of everything. For example, it has a list of blocks where each block has its transcript lines, OCR lines, faces. In addition, transcript lines, OCR lines, faces have their timestamps and other details. This is where the full transcript comes from. However, the breakdown can be too detailed and too long for most users, in which case you would look at **Summarized insights**.

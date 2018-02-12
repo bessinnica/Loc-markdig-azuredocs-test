@@ -24,13 +24,13 @@ In the following offerings, here are our recommended actions to update your Oper
 <th>Offering</th> <th>Recommended Action </th>
 </tr>
 <tr>
-<td>Azure Cloud Services </td>	<td>Enable auto update or ensure you are running the newest Guest OS.</td>
+<td>Azure Cloud Services </td>  <td>Enable auto update or ensure you are running the newest Guest OS.</td>
 </tr>
 <tr>
 <td>Azure Linux Virtual Machines</td> <td>Install updates from your operating system provider when available. </td>
 </tr>
 <tr>
-<td>Azure Windows Virtual Machines </td> <td>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information.<p> Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
+<td>Azure Windows Virtual Machines </td> <td>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information.<p> Install the <a href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002" data-raw-source="[January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)">January security rollup</a>. </p></td>
 </tr>
 <tr>
 <td>Other Azure PaaS Services</td> <td>There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. </td>

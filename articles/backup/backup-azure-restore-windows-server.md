@@ -160,7 +160,7 @@ If Azure Backup does not successfully mount the recovery volume even after sever
 
 5.  Right click on **Unknown Device** and select **Update Driver Software**.
 
-6.	Update the driver by selecting the option to  **Search automatically for updated driver software**. Completion of the update should change **Unknown Device** to **Microsoft iSCSI Initiator** as shown below. 
+6.  Update the driver by selecting the option to  **Search automatically for updated driver software**. Completion of the update should change **Unknown Device** to **Microsoft iSCSI Initiator** as shown below. 
 
     ![Encryption](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 

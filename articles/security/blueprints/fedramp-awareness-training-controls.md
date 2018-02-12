@@ -186,7 +186,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may meet training record retention requirements. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                      |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The customer's enterprise-level security awareness training program may meet training record retention requirements. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                    Not Applicable                                                    |
+

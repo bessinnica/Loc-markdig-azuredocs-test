@@ -57,6 +57,7 @@ The following list describes the files that are relevant to this sample.
 
 <a id="sub-2"></a>
 
+
 ## Find the service name and api-key of your Azure Search service
 All REST API calls into Azure Search require that you provide the service URL and an api-key. 
 
@@ -64,7 +65,7 @@ All REST API calls into Azure Search require that you provide the service URL an
 2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
 3. Select the service you want to use.
 4. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
-   
+
       ![][3]
 5. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
@@ -77,10 +78,10 @@ All subsequent file modifications and run statements will be made against files 
 
 ## Import project
 1. In Eclipse, choose **File** > **Import** > **General** > **Existing Projects into Workspace**.
-   
+
     ![][4]
 2. In **Select root directory**, browse to the folder containing sample files. Select the folder that contains the .project folder. The project should appear in the **Projects** list as a selected item.
-   
+
     ![][12]
 3. Click **Finish**.
 4. Use **Project Explorer** to view and edit the files. If it's not already open, click **Window** > **Show View** > **Project Explorer** or use the shortcut to open it.
@@ -89,18 +90,18 @@ All subsequent file modifications and run statements will be made against files 
 1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
 2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
 3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL http://servicename.search.windows.net) replaces "service name" in the same file.
-   
+
     ![][5]
 
 ## Configure the project, build and runtime environments
 1. In Eclipse, in Project Explorer, right-click the project > **Properties** > **Project Facets**.
 2. Select **Dynamic Web Module**, **Java**, and **JavaScript**.
-   
+
     ![][6]
 3. Click **Apply**.
 4. Select **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**.
 5. Expand Apache and select the version of the Apache Tomcat server you previously installed. On our system, we installed version 8.
-   
+
     ![][7]
 6. On the next page, specify the Tomcat installation directory. On a Windows computer, this will most likely be C:\Program Files\Apache Software Foundation\Tomcat *version*.
 7. Click **Finish**.
@@ -110,17 +111,17 @@ All subsequent file modifications and run statements will be made against files 
 11. In JRE Definition, in JRE home, click **Directory**.
 12. Navigate to **Program Files** > **Java** and select the JDK you previously installed. It's important to select the JDK as the JRE.
 13. In Installed JREs, choose the **JDK**. Your settings should look similar to the following screenshot.
-    
+
     ![][9]
 14. Optionally, select **Window** > **Web Browser** > **Internet Explorer** to open the application in an external browser window. Using an external browser gives you a better Web application experience.
-    
+
     ![][8]
 
 You have now completed the configuration tasks. Next, you'll build and run the project.
 
 ## Build the project
 1. In Project Explorer, right-click the project name and choose **Run As** > **Maven build...** to configure the project.
-   
+
     ![][10]
 2. In Edit Configuration, in Goals, type "clean install", and then click **Run**.
 

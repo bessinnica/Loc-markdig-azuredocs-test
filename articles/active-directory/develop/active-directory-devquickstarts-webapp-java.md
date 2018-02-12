@@ -44,8 +44,8 @@ To set up the app to authenticate users, first register it in your tenant by doi
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a **Web Application and/or WebAPI**.
-  * **Name** describes the app to users.
-  * **Sign-On URL** is the base URL of the app. The skeleton's default URL is http://localhost:8080/adal4jsample/.
+   * **Name** describes the app to users.
+   * **Sign-On URL** is the base URL of the app. The skeleton's default URL is http://localhost:8080/adal4jsample/.
 6. After you've completed the registration, Azure AD assigns the app a unique application ID. Copy the value from the app page to use in the next sections.
 7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`).
 
@@ -222,11 +222,11 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
     </web-app>
     ```
 
- * YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
- * YOUR_CLIENT_SECRET is the **Application Secret** that you created in the portal.
- * YOUR_TENANT_NAME is the **tenant name** of your app (for example, contoso.onmicrosoft.com).
+   * YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
+   * YOUR_CLIENT_SECRET is the **Application Secret** that you created in the portal.
+   * YOUR_TENANT_NAME is the **tenant name** of your app (for example, contoso.onmicrosoft.com).
 
- As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, you use /secure as a place for the protected content and to force authentication to Azure AD.
+   As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, you use /secure as a place for the protected content and to force authentication to Azure AD.
 
 2. Create the mvc-dispatcher-servlet.xml file located under \webapp\WEB-INF\, and enter the following code:
 
@@ -253,7 +253,7 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
     </beans>
     ```
 
- This code tells the web app to use Spring, and it indicates where to find the JSP file, which you write in the next section.
+   This code tells the web app to use Spring, and it indicates where to find the JSP file, which you write in the next section.
 
 ## Step 4: Create the JSP View files (for BasicFilter MVC)
 You are half-way through setting up your web app in WEB-INF. Next, you create the JSP files for BasicFilter model view controller (MVC), which the web app executes. We hinted at creating the files during the configuration.
@@ -275,7 +275,7 @@ To create the JSP files, do the following:
     </html>
     ```
 
- This code simply redirects to a secure page that is protected by the filter.
+   This code simply redirects to a secure page that is protected by the filter.
 
 2. In the same directory, create an error.jsp file to catch any errors that might happen:
 
@@ -1296,11 +1296,11 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
 
 1. Create a file called AuthHelper.java, which will give you methods to use to determine the state of the signed-in user. The methods include:
 
- * **isAuthenticated()**: Returns whether the user is signed in.
- * **containsAuthenticationData()**: Returns whether the token has data.
- * **isAuthenticationSuccessful()**: Returns whether the authentication was successful for the user.
+   * **isAuthenticated()**: Returns whether the user is signed in.
+   * **containsAuthenticationData()**: Returns whether the token has data.
+   * **isAuthenticationSuccessful()**: Returns whether the authentication was successful for the user.
 
- To create the AuthHelper.java file, paste the following code:
+   To create the AuthHelper.java file, paste the following code:
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1440,7 +1440,6 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
         }
 
     }
-
     ```
 
 ## Step 8: Create the BasicFilter file (for BasicFilter MVC)
@@ -1684,7 +1683,6 @@ public class BasicFilter implements Filter {
     }
 
 }
-
 ```
 
 This servlet exposes all the methods that the ADAL4J will expect from the app to run. The methods include:
@@ -1702,7 +1700,7 @@ This servlet exposes all the methods that the ADAL4J will expect from the app to
 
     `$ mvn package`
 
- This command uses the pom.xml file that you wrote for dependencies.
+   This command uses the pom.xml file that you wrote for dependencies.
 
 You should now have a adal4jsample.war file in your /targets directory. You can deploy the file in your Tomcat container and visit the http://localhost:8080/adal4jsample/ URL.
 
@@ -1718,4 +1716,4 @@ For additional reference, you can get the completed sample (without your configu
 * Download it as a [.zip file](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip).
 * Clone the file from GitHub by entering the following command:
 
- ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
+  ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```

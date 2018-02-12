@@ -21,7 +21,7 @@ ms.custom: aaddev
 # Listing your application in the Azure Active Directory application gallery
 
 
-##	What is Azure AD app gallery?
+##  What is Azure AD app gallery?
 
 Azure AD is a cloud-based Identity service. [Azure AD app gallery](https://azure.microsoft.com/marketplace/active-directory/all/) is a common store where all the application connectors are published for single sign-on and user provisioning. Our mutual customers who are using Azure AD as Identity provider look for different SaaS application connectors, which are published here. IT administrator adds connector from the app gallery and configures and use it for Single sign-on and provisioning. Azure AD supports all major federation protocols like SAML 2.0, OpenID Connect, OAuth and WS-Fed for single sign-on. 
 
@@ -40,7 +40,7 @@ Azure AD is a cloud-based Identity service. [Azure AD app gallery](https://azure
 *  Enable the user provisioning for the same app if you are using SCIM.
 
 
-##	What are the pre-requisites?
+##  What are the pre-requisites?
 
 To list an application in the Azure AD gallery, the application first needs to implement one of the federation protocols supported by Azure AD. Read the terms and conditions of the Azure AD application gallery from here. If you are using: 
 
@@ -60,13 +60,13 @@ If you face any issue regarding the access, contact [Azure AD SSO Integration Te
 
 ## Timelines
     
-*   Process of listing SAML 2.0 or WS-Fed application into the gallery - **7-10 Business Days**
+* Process of listing SAML 2.0 or WS-Fed application into the gallery - **7-10 Business Days**
 
-   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline.png)
+  ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline.png)
 
-*   Process of listing OpenID Connect application into the gallery - **2-5 Business Days**
+* Process of listing OpenID Connect application into the gallery - **2-5 Business Days**
 
-   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline2.png)
+  ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline2.png)
 
 ## Escalations
 

@@ -41,9 +41,9 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ## Preview functional limitations
 ### Scale operations
-1.	Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
-2.	Dynamic on-demand increase of storage on pre-created server is currently not supported.
-3.	Decreasing server storage size is not supported.
+1.  Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
+2.  Dynamic on-demand increase of storage on pre-created server is currently not supported.
+3.  Decreasing server storage size is not supported.
 
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported.
@@ -52,8 +52,8 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ### Point-in-time-restore
-1.	Restoring to different service tier and/or Compute Units and Storage size is not allowed.
-2.	Restoring a dropped server is not supported.
+1.  Restoring to different service tier and/or Compute Units and Storage size is not allowed.
+2.  Restoring a dropped server is not supported.
 
 ## Next steps
 - Understand [What’s available in each pricing tier](concepts-service-tiers.md)

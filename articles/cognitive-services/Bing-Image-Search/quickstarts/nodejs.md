@@ -77,16 +77,16 @@ let response_handler = function (response) {
 let bing_image_search = function (search) {
   console.log('Searching images for: ' + term);
   let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + '?q=' + encodeURIComponent(search),
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+        method : 'GET',
+        hostname : host,
+        path : path + '?q=' + encodeURIComponent(search),
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
 
-	let req = https.request(request_params, response_handler);
-	req.end();
+    let req = https.request(request_params, response_handler);
+    req.end();
 }
 
 if (subscriptionKey.length === 32) {

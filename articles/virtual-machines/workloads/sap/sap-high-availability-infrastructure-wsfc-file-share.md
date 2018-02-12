@@ -268,9 +268,9 @@ To prepare the Azure infrastructure, complete the following:
 * As you use Windows Server 2016, we recommend that you configure [Azure Cloud Witness][deploy-cloud-witness].
 
 
-## Deploy the Scale-Out File Server cluster manually 
+## Deploy the Scale-Out File Server cluster manually 
 
-You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], by executing the following code:  
+You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], by executing the following code:  
 
 
 ```PowerShell
@@ -329,7 +329,7 @@ In the template, do the following:
 3. In the **Sofs Name** box, enter the SAP global host network name, **sapglobalhost**.
 4. In the **Share Name** box, enter the file share name, **sapmnt**.
 
-###	Use unmanaged disks
+### Use unmanaged disks
 
 The Azure Resource Manager template for deploying Scale-Out File Server with Storage Spaces Direct and Azure Unmanaged Disks is available on [GitHub][arm-sofs-s2d-non-managed-disks].
 

@@ -61,9 +61,9 @@ The solution starts collecting data without the need of further configuration. H
 
 On the solution dashboard, click **Configuration** to open the DNS Analytics Configuration page. There are two types of configuration changes that you can make:
 
-- **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Log Analytics. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
+- <strong>Whitelisted Domain Names</strong>. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Log Analytics. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 
- You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
+  You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
 - **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
 
@@ -142,7 +142,7 @@ The information helps you to identify the:
 
 **Sample DDI Analytics Queries**. Contains a list of the most common search queries that fetch raw analytics data directly.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Sample queries](./media/log-analytics-dns/queries.png)
 

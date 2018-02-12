@@ -55,26 +55,26 @@ To create an Azure Automation account in the Azure portal, complete the followin
 2. Select **+ Create a Resource**.
 3. Search for **Automation**. In the search results, select **Automation**.<br><br> ![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 4. On the next screen select **Create**.
-  ![Add Automation account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Add Automation account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
   
-  > [!NOTE]
-  > If you see the following message in the **Add Automation Account** pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.
-  >
-  > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
+   > [!NOTE]
+   > If you see the following message in the **Add Automation Account** pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.
+   >
+   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
+   >
 5. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account.
 6. If you have more than one subscription, in the **Subscription** box, specify the subscription you want to use for the new account. 
 7. For **Resource group**, enter or select a new or existing resource group. 
 8. For **Location**, select an Azure datacenter location.
 9. For the **Create Azure Run As account** option, ensure that **Yes** is selected, and then select **Create**.
     
-  > [!NOTE]
-  > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, the account doesn't have a corresponding authentication identity in your classic deployment model subscription or in the Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription. This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
-  >
-  > ![Add Automation account warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > When the service principal is not created, the Contributor role is not assigned.
-  >
+   > [!NOTE]
+   > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, the account doesn't have a corresponding authentication identity in your classic deployment model subscription or in the Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription. This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
+   >
+   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > When the service principal is not created, the Contributor role is not assigned.
+   >
 10. To track the progress of the Automation account creation, in the menu, select **Notifications**.
 
 ### Resources included

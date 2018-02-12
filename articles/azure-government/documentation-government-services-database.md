@@ -92,3 +92,4 @@ The following information identifies the Azure Government boundary for Azure Red
 ## Next Steps
 For supplemental information and updates subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+

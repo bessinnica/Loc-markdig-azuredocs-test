@@ -24,7 +24,7 @@ ms.author: sethm
 The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the ['ws'](https://www.npmjs.com/package/ws) NPM package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
 
 Existing applications that `require('ws')` can use this package with `require('hyco-ws')` instead, which also enables hybrid scenarios in which an application can listen for WebSocket connections locally from "inside the firewall" and via Hybrid Connections, all at the same time.
-  
+
 ## Documentation
 
 The APIs are [documented in the main 'ws' package](https://github.com/websockets/ws/blob/master/doc/ws.md). This article describes how this package differs from that baseline. 
@@ -41,7 +41,6 @@ const WebSocket = require('hyco-ws');
 var listenUri = WebSocket.createRelayListenUri('namespace.servicebus.windows.net', 'path');
 listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 ...
-
 ```
 
 The helper methods are for use with this package, but can also be used by a Node server for enabling web or device clients to create listeners or senders. The server uses these methods by passing them URIs that embed short-lived tokens. These URIs can also be used with common WebSocket stacks that do not support setting HTTP headers for the WebSocket handshake. Embedding authorization tokens into the URI is supported primarily for those library-external usage scenarios. 
@@ -64,7 +63,7 @@ The `token` value is optional and should only be used when it is not possible to
 
 
 #### createRelaySendUri
- 
+
 ```JavaScript
 var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 ```
@@ -193,7 +192,7 @@ var server = createRelayedServer([options], [connectCallback] )
 ```
 
 This method calls the constructor to create a new instance of the RelayedServer and then subscribes the provided callback to the 'connection' event.
- 
+
 ##### relayedConnect
 
 Simply mirroring the `createRelayedServer` helper in function, `relayedConnect` creates a client connection and subscribes to the 'open' event on the resulting socket.

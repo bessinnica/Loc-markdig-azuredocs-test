@@ -47,8 +47,8 @@ Data Lake Store provides two modes for management of master encryption keys (MEK
 
 The two modes for managing the master encryption key are as follows:
 
-*	Service managed keys
-*	Customer managed keys
+*   Service managed keys
+*   Customer managed keys
 
 In both modes, the master encryption key is secured by storing it in Azure Key Vault. Key Vault is a fully managed, highly secure service on Azure that can be used to safeguard cryptographic keys. For more information, see [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -69,8 +69,8 @@ Aside from this difference of who manages the MEK and the Key Vault instance in 
 
 It's important to remember the following when you choose the mode for the master encryption keys:
 
-*	You can choose whether to use customer managed keys or service managed keys when you provision a Data Lake Store account.
-*	After a Data Lake Store account is provisioned, the mode cannot be changed.
+*   You can choose whether to use customer managed keys or service managed keys when you provision a Data Lake Store account.
+*   After a Data Lake Store account is provisioned, the mode cannot be changed.
 
 ### Encryption and decryption of data
 
@@ -87,20 +87,20 @@ The following diagram illustrates these concepts:
 ![Keys in data encryption](./media/data-lake-store-encryption/fig2.png)
 
 #### Pseudo algorithm when a file is to be decrypted:
-1.	Check if the DEK for the Data Lake Store account is cached and ready for use.
+1.  Check if the DEK for the Data Lake Store account is cached and ready for use.
     - If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
-2.	For every block of data in the file:
+2.  For every block of data in the file:
     - Read the encrypted block of data from persistent storage.
     - Generate the BEK from the DEK and the encrypted block of data.
     - Use the BEK to decrypt data.
 
 
 #### Pseudo algorithm when a block of data is to be encrypted:
-1.	Check if the DEK for the Data Lake Store account is cached and ready for use.
+1.  Check if the DEK for the Data Lake Store account is cached and ready for use.
     - If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
-2.	Generate a unique BEK for the block of data from the DEK.
-3.	Encrypt the data block with the BEK, by using AES-256 encryption.
-4.	Store the encrypted data block of data on persistent storage.
+2.  Generate a unique BEK for the block of data from the DEK.
+3.  Encrypt the data block with the BEK, by using AES-256 encryption.
+4.  Store the encrypted data block of data on persistent storage.
 
 > [!NOTE] 
 > For performance reasons, the DEK in the clear is cached in memory for a short time, and is immediately erased afterward. On persistent media, it is always stored encrypted by the MEK.
@@ -122,16 +122,16 @@ Note that if you use the default options for encryption, your data is always enc
 
     ![Screenshot of Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.	Select the key associated with your Data Lake Store account, and create a new version of this key. Note that Data Lake Store currently only supports key rotation to a new version of a key. It doesn't support rotating to a different key.
+3. Select the key associated with your Data Lake Store account, and create a new version of this key. Note that Data Lake Store currently only supports key rotation to a new version of a key. It doesn't support rotating to a different key.
 
    ![Screenshot of Keys window, with New Version highlighted](./media/data-lake-store-encryption/keynewversion.png)
 
-4.	Browse to the Data Lake Store storage account, and select **Encryption**.
+4. Browse to the Data Lake Store storage account, and select **Encryption**.
 
-    ![Screenshot of Data Lake Store storage account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
+   ![Screenshot of Data Lake Store storage account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
 
-5.	A message notifies you that a new key version of the key is available. Click **Rotate Key** to update the key to the new version.
+5. A message notifies you that a new key version of the key is available. Click **Rotate Key** to update the key to the new version.
 
-    ![Screenshot of Data Lake Store window with message and Rotate Key highlighted](./media/data-lake-store-encryption/rotatekey.png)
+   ![Screenshot of Data Lake Store window with message and Rotate Key highlighted](./media/data-lake-store-encryption/rotatekey.png)
 
 This operation should take less than two minutes, and there is no expected downtime due to key rotation. After the operation is complete, the new version of the key is in use.

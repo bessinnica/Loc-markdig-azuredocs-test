@@ -157,8 +157,8 @@ To copy data to SAP Cloud for Customer, set the sink type in the copy activity t
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapCloudForCustomerSink**  | Yes |
-| writeBehavior | The write behavior of the operation. Could be “Insert”, “Update”. | No. Default “Insert”. |
-| writeBatchSize | The batch size of write operation. The batch size to get best performance may be different for different table or server. | No. Default 10. |
+| writeBehavior | The write behavior of the operation. Could be “Insert”, “Update”. | No. Default “Insert”. |
+| writeBatchSize | The batch size of write operation. The batch size to get best performance may be different for different table or server. | No. Default 10. |
 
 **Example:**
 
@@ -205,14 +205,14 @@ When copying data from SAP Cloud for Customer, the following mappings are used f
 
 | SAP C4C OData Data Type | Data factory interim data type |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte[] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | Guid |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

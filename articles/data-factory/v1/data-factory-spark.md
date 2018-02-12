@@ -114,38 +114,38 @@ In this step, you create an HDInsight linked service to link your HDInsight Spar
 
 1. In the Data Factory Editor, select **More** > **New compute** > **HDInsight cluster**.
 
-	![Create HDInsight linked service](media/data-factory-spark/new-hdinsight-linked-service.png)
+    ![Create HDInsight linked service](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 2. Copy and paste the following snippet to the Draft-1 window. In the JSON editor, take the following steps:
 
-	a. Specify the URI for the HDInsight Spark cluster. For example: `https://<sparkclustername>.azurehdinsight.net/`.
+    a. Specify the URI for the HDInsight Spark cluster. For example: `https://<sparkclustername>.azurehdinsight.net/`.
 
-	b. Specify the name of the user who has access to the Spark cluster.
+    b. Specify the name of the user who has access to the Spark cluster.
 
-	c. Specify the password for the user.
+    c. Specify the password for the user.
 
-	d. Specify the Storage linked service that is associated with the HDInsight Spark cluster. In this example, it's AzureStorageLinkedService.
+    d. Specify the Storage linked service that is associated with the HDInsight Spark cluster. In this example, it's AzureStorageLinkedService.
 
-	```json
-	{
-		"name": "HDInsightLinkedService",
-	    "properties": {
-	        "type": "HDInsight",
-	        "typeProperties": {
-	            "clusterUri": "https://<sparkclustername>.azurehdinsight.net/",
-	            "userName": "admin",
-	            "password": "**********",
-	            "linkedServiceName": "AzureStorageLinkedService"
-	        }
-	    }
-	}
-	```
+    ```json
+    {
+        "name": "HDInsightLinkedService",
+        "properties": {
+            "type": "HDInsight",
+            "typeProperties": {
+                "clusterUri": "https://<sparkclustername>.azurehdinsight.net/",
+                "userName": "admin",
+                "password": "**********",
+                "linkedServiceName": "AzureStorageLinkedService"
+            }
+        }
+    }
+    ```
 
-	> [!IMPORTANT]
-	> - The Spark activity doesn't support HDInsight Spark clusters that use Azure Data Lake Store as primary storage.
-	> - The Spark activity supports only existing (your own) HDInsight Spark clusters. It doesn't support an on-demand HDInsight linked service.
+    > [!IMPORTANT]
+    > - The Spark activity doesn't support HDInsight Spark clusters that use Azure Data Lake Store as primary storage.
+    > - The Spark activity supports only existing (your own) HDInsight Spark clusters. It doesn't support an on-demand HDInsight linked service.
 
-	For more information about the HDInsight linked service, see [HDInsight linked service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+    For more information about the HDInsight linked service, see [HDInsight linked service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
 3. To deploy the linked service, select **Deploy** on the command bar. 
 
@@ -156,27 +156,27 @@ The output dataset is what drives the schedule (hourly, daily). Therefore, you m
 
 2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned previously, this dataset is a dummy dataset. The Spark program in this example doesn't produce any output. The **availability** section specifies that the output dataset is produced daily. 
 
-	```json
-	{
-	    "name": "OutputDataset",
-	    "properties": {
-	        "type": "AzureBlob",
-	        "linkedServiceName": "AzureStorageLinkedService",
-	        "typeProperties": {
-	            "fileName": "sparkoutput.txt",
-	            "folderPath": "adfspark/pyFiles/output",
-	            "format": {
-	                "type": "TextFormat",
-	                "columnDelimiter": "\t"
-	            }
-	        },
-	        "availability": {
-	            "frequency": "Day",
-	            "interval": 1
-	        }
-	    }
-	}
-	```
+    ```json
+    {
+        "name": "OutputDataset",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+                "fileName": "sparkoutput.txt",
+                "folderPath": "adfspark/pyFiles/output",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": "\t"
+                }
+            },
+            "availability": {
+                "frequency": "Day",
+                "interval": 1
+            }
+        }
+    }
+    ```
 3. To deploy the dataset, select **Deploy** on the command bar.
 
 
@@ -187,61 +187,61 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 2. Replace the script in the Draft-1 window with the following script:
 
-	```json
-	{
-	    "name": "SparkPipeline",
-	    "properties": {
-	        "activities": [
-	            {
-	                "type": "HDInsightSpark",
-	                "typeProperties": {
-	                    "rootPath": "adfspark\\pyFiles",
-	                    "entryFilePath": "test.py",
-                    	"getDebugInfo": "Always"
-	                },
-	                "outputs": [
-	                    {
-	                        "name": "OutputDataset"
-	                    }
-	                ],
-	                "name": "MySparkActivity",
-	                "linkedServiceName": "HDInsightLinkedService"
-	            }
-	        ],
-	        "start": "2017-02-05T00:00:00Z",
-	        "end": "2017-02-06T00:00:00Z"
-	    }
-	}
-	```
-	Note the following points:
+    ```json
+    {
+        "name": "SparkPipeline",
+        "properties": {
+            "activities": [
+                {
+                    "type": "HDInsightSpark",
+                    "typeProperties": {
+                        "rootPath": "adfspark\\pyFiles",
+                        "entryFilePath": "test.py",
+                        "getDebugInfo": "Always"
+                    },
+                    "outputs": [
+                        {
+                            "name": "OutputDataset"
+                        }
+                    ],
+                    "name": "MySparkActivity",
+                    "linkedServiceName": "HDInsightLinkedService"
+                }
+            ],
+            "start": "2017-02-05T00:00:00Z",
+            "end": "2017-02-06T00:00:00Z"
+        }
+    }
+    ```
+    Note the following points:
 
-	a. The **type** property is set to **HDInsightSpark**.
+    a. The **type** property is set to **HDInsightSpark**.
 
-	b. The **rootPath** property is set to **adfspark\\pyFiles** where adfspark is the blob container and pyFiles is file folder in that container. In this example, the blob storage is the one that is associated with the Spark cluster. You can upload the file to a different storage account. If you do so, create a Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. For more information about this property and other properties supported by the Spark activity, see [Spark activity properties](#spark-activity-properties).
+    b. The **rootPath** property is set to **adfspark\\pyFiles** where adfspark is the blob container and pyFiles is file folder in that container. In this example, the blob storage is the one that is associated with the Spark cluster. You can upload the file to a different storage account. If you do so, create a Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. For more information about this property and other properties supported by the Spark activity, see [Spark activity properties](#spark-activity-properties).
 
-	c. The **entryFilePath** property is set to **test.py**, which is the Python file.
+    c. The **entryFilePath** property is set to **test.py**, which is the Python file.
 
-	d. The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
+    d. The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
-	> [!IMPORTANT]
-	> We recommend that you do not set this property to `Always` in a production environment unless you're troubleshooting an issue.
+    > [!IMPORTANT]
+    > We recommend that you do not set this property to `Always` in a production environment unless you're troubleshooting an issue.
 
-	e. The **outputs** section has one output dataset. You must specify an output dataset even if the Spark program doesn't produce any output. The output dataset drives the schedule for the pipeline (hourly, daily). 
+    e. The **outputs** section has one output dataset. You must specify an output dataset even if the Spark program doesn't produce any output. The output dataset drives the schedule for the pipeline (hourly, daily). 
 
-	For more information about the properties supported by the Spark activity, see the section [Spark activity properties](#spark-activity-properties).
+    For more information about the properties supported by the Spark activity, see the section [Spark activity properties](#spark-activity-properties).
 
 3. To deploy the pipeline, select **Deploy** on the command bar.
 
 ### Monitor a pipeline
 1. On the **Data factory** blade, select **Monitor & Manage** to start the monitoring application in another tab.
 
-	![Monitor & Manage tile](media/data-factory-spark/monitor-and-manage-tile.png)
+    ![Monitor & Manage tile](media/data-factory-spark/monitor-and-manage-tile.png)
 
 2. Change the **Start time** filter at the top to **2/1/2017**, and select **Apply**.
 
 3. Only one activity window appears because there is only one day between the start (2017-02-01) and end times (2017-02-02) of the pipeline. Confirm that the data slice is in the **Ready** state.
 
-	![Monitor the pipeline](media/data-factory-spark/monitor-and-manage-app.png)
+    ![Monitor the pipeline](media/data-factory-spark/monitor-and-manage-app.png)
 
 4. In the **Activity windows** list, select an activity run to see details about it. If there is an error, you see details about it in the right pane.
 
@@ -251,18 +251,18 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 2. Select **New** > **PySpark** to start a new notebook.
 
-	![Jupyter new notebook](media/data-factory-spark/jupyter-new-book.png)
+    ![Jupyter new notebook](media/data-factory-spark/jupyter-new-book.png)
 
 3. Run the following command by copying and pasting the text and pressing Shift+Enter at the end of the second statement:
 
-	```sql
-	%%sql
+    ```sql
+    %%sql
 
-	SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-	```
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 4. Confirm that you see the data from the hvac table. 
 
-	![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
+    ![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 For detailed instructions, see the section [Run a Spark SQL query](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
@@ -275,15 +275,15 @@ For further troubleshooting, take the following steps:
 
 1. Go to `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
-	![YARN UI application](media/data-factory-spark/yarnui-application.png)
+    ![YARN UI application](media/data-factory-spark/yarnui-application.png)
 
 2. Select **Logs** for one of the run attempts.
 
-	![Application page](media/data-factory-spark/yarn-applications.png)
+    ![Application page](media/data-factory-spark/yarn-applications.png)
 
 3. You see the following additional error information in the log page:
 
-	![Log error](media/data-factory-spark/yarnui-application-error.png)
+    ![Log error](media/data-factory-spark/yarnui-application-error.png)
 
 The following sections provide information about the data factory entities to use Spark cluster and Spark activity in your data factory.
 
@@ -300,10 +300,10 @@ Here is the sample JSON definition of a pipeline with a Spark activity:
                 "typeProperties": {
                     "rootPath": "adfspark\\pyFiles",
                     "entryFilePath": "test.py",
-					"arguments": [ "arg1", "arg2" ],
-					"sparkConfig": {
-						"spark.python.worker.memory": "512m"
-					}
+                    "arguments": [ "arg1", "arg2" ],
+                    "sparkConfig": {
+                        "spark.python.worker.memory": "512m"
+                    }
                     "getDebugInfo": "Always"
                 },
                 "outputs": [
@@ -346,7 +346,7 @@ Create the following folder structure in the blob storage referenced by the HDIn
 
 | Path | Description | Required | Type |
 | ---- | ----------- | -------- | ---- |
-| .	| The root path of the Spark job in the storage linked service.	| Yes | Folder |
+| . | The root path of the Spark job in the storage linked service. | Yes | Folder |
 | &lt;user defined &gt; | The path that points to the entry file of the Spark job. | Yes | File |
 | ./jars | All files under this folder are uploaded and placed on the Java classpath of the cluster. | No | Folder |
 | ./pyFiles | All files under this folder are uploaded and placed on the PYTHONPATH of the cluster. | No | Folder |
@@ -358,19 +358,19 @@ Here is an example for storage that contains two Spark job files in the blob sto
 
 ```
 SparkJob1
-	main.jar
-	files
-		input1.txt
-		input2.txt
-	jars
-		package1.jar
-		package2.jar
-	logs
+    main.jar
+    files
+        input1.txt
+        input2.txt
+    jars
+        package1.jar
+        package2.jar
+    logs
 
 SparkJob2
-	main.py
-	pyFiles
-		scrip1.py
-		script2.py
-	logs
+    main.py
+    pyFiles
+        scrip1.py
+        script2.py
+    logs
 ```

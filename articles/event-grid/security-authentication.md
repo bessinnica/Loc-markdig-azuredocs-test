@@ -162,18 +162,18 @@ The following are sample Event Grid role definitions that allow users to perform
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -181,22 +181,22 @@ The following are sample Event Grid role definitions that allow users to perform
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -204,21 +204,21 @@ The following are sample Event Grid role definitions that allow users to perform
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 

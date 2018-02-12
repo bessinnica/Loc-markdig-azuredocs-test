@@ -127,7 +127,7 @@ We encourage you to use the installation package to prepare the development envi
 The .zip file that you download contains all the necessary tools and packages for DevKit development.
 
 > [!div class="button"]
-[Download](https://aka.ms/devkit/prod/installpackage/latest)
+> [Download](https://aka.ms/devkit/prod/installpackage/latest)
 
 The .zip file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
 
@@ -178,7 +178,7 @@ Follow the [Homebrew installation instructions](https://docs.brew.sh/Installatio
 The .zip file that you download contains all the necessary tools and packages for DevKit development.
 
 > [!div class="button"]
-[Download](https://aka.ms/devkit/prod/installpackage/mac/latest)
+> [Download](https://aka.ms/devkit/prod/installpackage/mac/latest)
 
 The .zip file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
 
@@ -310,4 +310,4 @@ To continue getting started with Azure IoT Hub and to explore other IoT scenario
 - [Use Web Apps to visualize real-time sensor data from Azure IoT Hub](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-web-apps)
 - [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
 - [Device management with iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
-- [Remote monitoring and notifications with ​​Logic ​​Apps](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
+- [Remote monitoring and notifications with   Logic   Apps](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)

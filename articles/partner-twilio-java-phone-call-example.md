@@ -172,7 +172,7 @@ Following are the high-level steps to run your application; details for these st
 5. Open a browser, and run **http://localhost:8080/TwilioCloud/callform.jsp**.
 6. Enter values in the form, click **Make this call**, and then see the results in makecall.jsp.
 
-When you are ready to deploy to Azure, recompile for deployment to the cloud, deploy to Azure, and run http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp in the browser (substitute your value for *your_hosted_name*).
+When you are ready to deploy to Azure, recompile for deployment to the cloud, deploy to Azure, and run http://<em>your_hosted_name</em>.cloudapp.net/TwilioCloud/callform.jsp in the browser (substitute your value for <em>your_hosted_name</em>).
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in Java on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example:

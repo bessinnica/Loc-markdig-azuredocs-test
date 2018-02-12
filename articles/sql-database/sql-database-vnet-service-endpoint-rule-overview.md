@@ -37,6 +37,7 @@ If you only create a virtual network rule, you can skip ahead to the steps and e
 
 <a name="anch-terminology-and-description-82f" />
 
+
 ## Terminology and description
 
 **Virtual network:** You can have virtual networks associated with your Azure subscription.
@@ -56,6 +57,7 @@ A virtual network rule tells your SQL Database server to accept communications f
 
 
 <a name="anch-benefits-of-a-vnet-rule-68b" />
+
 
 ## Benefits of a virtual network rule
 
@@ -85,6 +87,7 @@ However as of September 2017, the Azure SQL Database service is not yet among th
 
 
 <a name="anch-details-about-vnet-rules-38q" />
+
 
 ## Details about virtual network rules
 
@@ -219,6 +222,7 @@ A list of several SQL Database error messages is documented [here][sql-database-
 
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
+
 ## Portal can create a virtual network rule
 
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your SQL Database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
@@ -235,6 +239,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 - If your subnet might not be tagged with the type name, see [Verify your subnet is an endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200" />
+
 
 ### Azure portal steps
 
@@ -275,6 +280,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 
 <a name="anchor-how-to-links-60h" />
+
 
 ## Related articles
 

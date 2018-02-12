@@ -71,6 +71,7 @@ with the cluster.
 
 <a id="connectsecurecluster"></a>
 
+
 ## Connect to a cluster using PowerShell
 Before you perform operations on a cluster through PowerShell, first establish a connection to the cluster. The cluster connection is used for all subsequent commands in the given PowerShell session.
 
@@ -123,6 +124,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 <a id="connectsecureclusterfabricclient"></a>
+
 
 ## Connect to a cluster using the FabricClient APIs
 The Service Fabric SDK provides the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
@@ -261,7 +263,6 @@ static string GetAccessToken(
         new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
     return authResult.AccessToken;
 }
-
 ```
 
 ### Connect to a secure cluster without prior metadata knowledge using Azure Active Directory
@@ -304,10 +305,10 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
         new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
     return authResult.AccessToken;
 }
-
 ```
 
 <a id="connectsecureclustersfx"></a>
+
 
 ## Connect to a secure cluster using Service Fabric Explorer
 To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) for a given cluster, point your browser to:
@@ -335,6 +336,7 @@ To connect to a cluster that is secured with certificates, point your browser to
 You are automatically be prompted to select a client certificate.
 
 <a id="connectsecureclustersetupclientcert"></a>
+
 ## Set up a client certificate on the remote computer
 At least two certificates should be used for securing the cluster, one for the cluster and server certificate and another for client access.  We recommend that you also use additional secondary certificates and client access certificates.  To secure the communication between a client and a cluster node using certificate security, you first need to obtain and install the client certificate. The certificate can be installed into the Personal (My) store of the local computer or the current user.  You also need the thumbprint of the server certificate so that the client can authenticate the cluster.
 

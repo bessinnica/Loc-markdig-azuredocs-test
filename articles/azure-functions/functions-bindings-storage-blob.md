@@ -109,7 +109,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### Trigger - JavaScript example
 
-The following example shows a blob trigger binding in a *function.json* file and [JavaScript code] (functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
+The following example shows a blob trigger binding in a <em>function.json</em> file and [JavaScript code](functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
 Here's the *function.json* file:
 
@@ -239,7 +239,7 @@ The following example triggers only on blobs in the `input` container that start
 ```json
 "path": "input/original-{name}",
 ```
- 
+
 If the blob name is *original-Blob1.txt*, the value of the `name` variable in function code is `Blob1`.
 
 ### Filter on file type
@@ -271,7 +271,7 @@ If the blob is named *original-Blob1.txt*, the value of the `blobname` and `blob
 
 ## Trigger - metadata
 
-The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) type.
+The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) type.
 
 
 |Property  |Type  |Description  |
@@ -396,7 +396,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-The following example shows blob input and output bindings in a *function.json* file and [JavaScript code] (functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings in a <em>function.json</em> file and [JavaScript code](functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named <em>{originalblobname}-Copy</em>.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
@@ -456,7 +456,6 @@ public static void Run(
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
-
 ```
 
 You can set the `Connection` property to specify the storage account to use, as shown in the following example:
@@ -608,7 +607,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-The following example shows blob input and output bindings in a *function.json* file and [JavaScript code] (functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings in a <em>function.json</em> file and [JavaScript code](functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named <em>{originalblobname}-Copy</em>.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 

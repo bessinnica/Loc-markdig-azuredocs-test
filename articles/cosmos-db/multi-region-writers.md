@@ -40,125 +40,125 @@ If you would like to learn more about partitioning and partition keys, see [Part
 ## <a id="ModelingNotifications"></a>Modeling notifications
 Notifications are data feeds specific to a user. Therefore, the access patterns for notifications documents are always in the context of single user. For example, you would "post a notification to a user" or "fetch all notifications for a given user". So, the optimal choice of partitioning key for this type would be `UserId`.
 
-	class Notification 
-	{ 
-		// Unique ID for Notification. 
-		public string Id { get; set; }
+    class Notification 
+    { 
+        // Unique ID for Notification. 
+        public string Id { get; set; }
 
-		// The user Id for which notification is addressed to. 
-		public string UserId { get; set; }
+        // The user Id for which notification is addressed to. 
+        public string UserId { get; set; }
 
-		// The partition Key for the resource. 
-		public string PartitionKey 
-		{ 
-			get 
-			{ 
-				return this.UserId; 
-			}
-		}
+        // The partition Key for the resource. 
+        public string PartitionKey 
+        { 
+            get 
+            { 
+                return this.UserId; 
+            }
+        }
 
-		// Subscription for which this notification is raised. 
-		public string SubscriptionFilter { get; set; }
+        // Subscription for which this notification is raised. 
+        public string SubscriptionFilter { get; set; }
 
-		// Subject of the notification. 
-		public string ArticleId { get; set; } 
-	}
+        // Subject of the notification. 
+        public string ArticleId { get; set; } 
+    }
 
 ## <a id="ModelingSubscriptions"></a>Modeling subscriptions
 Subscriptions can be created for various criteria like a specific category of articles of interest, or a specific publisher. Hence the `SubscriptionFilter` is a good choice for partition key.
 
-	class Subscriptions 
-	{ 
-		// Unique ID for Subscription 
-		public string Id { get; set; }
+    class Subscriptions 
+    { 
+        // Unique ID for Subscription 
+        public string Id { get; set; }
 
-		// Subscription source. Could be Author | Category etc. 
-		public string SubscriptionFilter { get; set; }
+        // Subscription source. Could be Author | Category etc. 
+        public string SubscriptionFilter { get; set; }
 
-		// subscribing User. 
-		public string UserId { get; set; }
+        // subscribing User. 
+        public string UserId { get; set; }
 
-		public string PartitionKey 
-		{ 
-			get 
-			{ 
-				return this.SubscriptionFilter; 
-			} 
-		} 
-	}
+        public string PartitionKey 
+        { 
+            get 
+            { 
+                return this.SubscriptionFilter; 
+            } 
+        } 
+    }
 
 ## <a id="ModelingArticles"></a>Modeling articles
 Once an article is identified through notifications, subsequent queries are typically based on the `Article.Id`. Choosing `Article.Id` as partition the key thus provides the best distribution for storing articles inside an Azure Cosmos DB collection. 
 
-	class Article 
-	{ 
-		// Unique ID for Article 
-		public string Id { get; set; }
-		
-		public string PartitionKey 
-		{ 
-			get 
-			{ 
-				return this.Id; 
-			} 
-		}
-		
-		// Author of the article
-		public string Author { get; set; }
+    class Article 
+    { 
+        // Unique ID for Article 
+        public string Id { get; set; }
+        
+        public string PartitionKey 
+        { 
+            get 
+            { 
+                return this.Id; 
+            } 
+        }
+        
+        // Author of the article
+        public string Author { get; set; }
 
-		// Category/genre of the article
-		public string Category { get; set; }
+        // Category/genre of the article
+        public string Category { get; set; }
 
-		// Tags associated with the article
-		public string[] Tags { get; set; }
+        // Tags associated with the article
+        public string[] Tags { get; set; }
 
-		// Title of the article
-		public string Title { get; set; }
-		
-		//... 
-	}
+        // Title of the article
+        public string Title { get; set; }
+        
+        //... 
+    }
 
 ## <a id="ModelingReviews"></a>Modeling reviews
 Like articles, reviews are mostly written and read in the context of article. Choosing `ArticleId` as a partition key provides best distribution and efficient access of reviews associated with article. 
 
-	class Review 
-	{ 
-		// Unique ID for Review 
-		public string Id { get; set; }
+    class Review 
+    { 
+        // Unique ID for Review 
+        public string Id { get; set; }
 
-		// Article Id of the review 
-		public string ArticleId { get; set; }
+        // Article Id of the review 
+        public string ArticleId { get; set; }
 
-		public string PartitionKey 
-		{ 
-			get 
-			{ 
-				return this.ArticleId; 
-			} 
-		}
-		
-		//Reviewer Id 
-		public string UserId { get; set; }
-		public string ReviewText { get; set; }
-		
-		public int Rating { get; set; } }
-	}
+        public string PartitionKey 
+        { 
+            get 
+            { 
+                return this.ArticleId; 
+            } 
+        }
+        
+        //Reviewer Id 
+        public string UserId { get; set; }
+        public string ReviewText { get; set; }
+        
+        public int Rating { get; set; } }
+    }
 
 ## <a id="DataAccessMethods"></a>Data access layer methods
 Now let's look at the main data access methods we need to implement. Here's the list of methods that the `ContentPublishDatabase` needs:
 
-	class ContentPublishDatabase 
-	{ 
-		public async Task CreateSubscriptionAsync(string userId, string category);
-	
-		public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId);
-	
-		public async Task<Article> ReadArticleAsync(string articleId);
-	
-		public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating);
-	
-		public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
-	}
+    class ContentPublishDatabase 
+    { 
+        public async Task CreateSubscriptionAsync(string userId, string category);
+    
+        public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId);
+    
+        public async Task<Article> ReadArticleAsync(string articleId);
+    
+        public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating);
+    
+        public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
+    }
 
 ## <a id="Architecture"></a>Azure Cosmos DB account configuration
 To guarantee local reads and writes, we must partition data not just on partition key, but also based on the geographical access pattern into regions. The model relies on having a geo-replicated Azure Cosmos DB database account for each region. For example, with two regions, here's a setup for multi-region writes:
@@ -233,14 +233,14 @@ For reading notifications and reviews, you must read from both regions and union
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
         IDocumentQuery<Notification> writeAccountNotification = (
-        	from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-        	where notification.UserId == userId 
-        	select notification).AsDocumentQuery();
+            from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) 
+            where notification.UserId == userId 
+            select notification).AsDocumentQuery();
         
         IDocumentQuery<Notification> readAccountNotification = (
-        	from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-        	where notification.UserId == userId 
-        	select notification).AsDocumentQuery();
+            from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) 
+            where notification.UserId == userId 
+            select notification).AsDocumentQuery();
 
         List<Notification> notifications = new List<Notification>();
 
@@ -271,14 +271,14 @@ For reading notifications and reviews, you must read from both regions and union
     public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId)
     {
         IDocumentQuery<Review> writeAccountReviews = (
-        	from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) 
-        	where review.ArticleId == articleId 
-        	select review).AsDocumentQuery();
+            from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) 
+            where review.ArticleId == articleId 
+            select review).AsDocumentQuery();
         
         IDocumentQuery<Review> readAccountReviews = (
-        	from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) 
-        	where review.ArticleId == articleId 
-        	select review).AsDocumentQuery();
+            from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) 
+            where review.ArticleId == articleId 
+            select review).AsDocumentQuery();
 
         List<Review> reviews = new List<Review>();
         

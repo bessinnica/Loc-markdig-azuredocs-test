@@ -186,7 +186,7 @@ In this snippet, we assume that the pushable dataset is already in an app worksp
     }
     var dummyDatasetID = import.Result.Datasets[0].Id;
 
-	// step 2 -> clone the pushable dataset and rebind to dummy dataset
+    // step 2 -> clone the pushable dataset and rebind to dummy dataset
     var cloneInfo = new Microsoft.PowerBI.Api.V1.Models.CloneReportRequest("pushableReportClone",null, dummyDatasetID);
     var clone = client.Reports.CloneReportAsync(<Your WSC NAME>, <Your workspace ID>, <Your pushable report ID>, cloneInfo);
     var pushableReportCloneID = clone.Result.Id;

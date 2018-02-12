@@ -66,8 +66,8 @@ When the Resource Group is exported, a single template parameter is created to p
 
 ```json
 "extensions_extensionname_protectedSettings": {
-	"defaultValue": null,
-	"type": "SecureObject"
+    "defaultValue": null,
+    "type": "SecureObject"
 }
 ```
 
@@ -79,23 +79,23 @@ From within the schema repository, search for the desired extension, for this ex
 
 ```json
 "protectedSettings": {
-	"type": "object",
-	"properties": {
-		"storageAccountName": {
-			"type": "string"
-		},
-		"storageAccountKey": {
-			"type": "string"
-		},
-		"storageAccountEndPoint": {
-			"type": "string"
-		}
-	},
-	"required": [
-		"storageAccountName",
-		"storageAccountKey",
-		"storageAccountEndPoint"
-	]
+    "type": "object",
+    "properties": {
+        "storageAccountName": {
+            "type": "string"
+        },
+        "storageAccountKey": {
+            "type": "string"
+        },
+        "storageAccountEndPoint": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "storageAccountName",
+        "storageAccountKey",
+        "storageAccountEndPoint"
+    ]
 }
 ```
 
@@ -107,9 +107,9 @@ In the example of the `IaasDiagnostic` extension, the new protected setting conf
 
 ```json
 "protectedSettings": {
-	"storageAccountName": "[parameters('storageAccountName')]",
-	"storageAccountKey": "[parameters('storageAccountKey')]",
-	"storageAccountEndPoint": "https://core.windows.net"
+    "storageAccountName": "[parameters('storageAccountName')]",
+    "storageAccountKey": "[parameters('storageAccountKey')]",
+    "storageAccountEndPoint": "https://core.windows.net"
 }
 ```
 
@@ -117,31 +117,31 @@ The final extension resource looks similar to the following JSON example:
 
 ```json
 {
-	"name": "Microsoft.Insights.VMDiagnosticsSettings",
-	"type": "extensions",
-	"location": "[resourceGroup().location]",
-	"apiVersion": "[variables('apiVersion')]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"tags": {
-		"displayName": "AzureDiagnostics"
-	},
-	"properties": {
-		"publisher": "Microsoft.Azure.Diagnostics",
-		"type": "IaaSDiagnostics",
-		"typeHandlerVersion": "1.5",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), variables('vmName'), variables('wadcfgxend')))]",
-			"storageAccount": "[parameters('existingdiagnosticsStorageAccountName')]"
-		},
-		"protectedSettings": {
-			"storageAccountName": "[parameters('storageAccountName')]",
-			"storageAccountKey": "[parameters('storageAccountKey')]",
-			"storageAccountEndPoint": "https://core.windows.net"
-		}
-	}
+    "name": "Microsoft.Insights.VMDiagnosticsSettings",
+    "type": "extensions",
+    "location": "[resourceGroup().location]",
+    "apiVersion": "[variables('apiVersion')]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "tags": {
+        "displayName": "AzureDiagnostics"
+    },
+    "properties": {
+        "publisher": "Microsoft.Azure.Diagnostics",
+        "type": "IaaSDiagnostics",
+        "typeHandlerVersion": "1.5",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), variables('vmName'), variables('wadcfgxend')))]",
+            "storageAccount": "[parameters('existingdiagnosticsStorageAccountName')]"
+        },
+        "protectedSettings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
+            "storageAccountKey": "[parameters('storageAccountKey')]",
+            "storageAccountEndPoint": "https://core.windows.net"
+        }
+    }
 }
 ```
 
@@ -151,12 +151,12 @@ In the example of the `IaasDiagnostic` extension, the following parameters would
 
 ```json
 "storageAccountName": {
-	"defaultValue": null,
-	"type": "SecureString"
+    "defaultValue": null,
+    "type": "SecureString"
 },
 "storageAccountKey": {
-	"defaultValue": null,
-	"type": "SecureString"
+    "defaultValue": null,
+    "type": "SecureString"
 }
 ```
 

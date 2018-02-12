@@ -61,7 +61,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
       - Select **Use existing** to select an existing resource group.
       - Select **Create new** to enter a name for a resource group.
           
-		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../../azure-resource-manager/resource-group-overview.md).
+        Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../../azure-resource-manager/resource-group-overview.md).
    4. Select a **location** for the data factory.
    5. Select **Pin to dashboard** check box at the bottom of the blade.  
    6. Click **Create**.
@@ -143,11 +143,11 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 3. To see the latest status of hourly slices, click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom. You see five activity windows for five days between start and end times for the pipeline. The list is not automatically refreshed, so you may need to click Refresh a couple of times before you see all the activity windows in the Ready state. 
 4. Select an activity window in the list. See the details about it in the **Activity Window Explorer** on the right.
 
-	![Activity window details](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)	
+    ![Activity window details](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-	Notice that the dates 11, 12, 13, 14, and 15 are in green color, which means that the daily output slices for these dates have already been produced. You also see this color coding on the pipeline and the output dataset in the diagram view. In the previous step, notice that two slices have already been produced, one slice is currently being processed, and the other two are waiting to be processed (based on the color coding). 
+    Notice that the dates 11, 12, 13, 14, and 15 are in green color, which means that the daily output slices for these dates have already been produced. You also see this color coding on the pipeline and the output dataset in the diagram view. In the previous step, notice that two slices have already been produced, one slice is currently being processed, and the other two are waiting to be processed (based on the color coding). 
 
-	For more information on using this application, see [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) article.
+    For more information on using this application, see [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) article.
 
 ## Next steps
 In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 

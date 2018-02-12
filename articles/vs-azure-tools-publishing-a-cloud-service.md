@@ -101,9 +101,9 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 1. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add an SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate, which you obtain from a certificate authority (CA).
 
     To make Web Deploy secure for each virtual machine for each of your web roles, you must upload the trusted certificate that you want to use for web deploy to the Azure portal. This certificate makes sure that the certificate is added to the virtual machine that is created for the web role when you publish your application.
-1. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
+2. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
 
-  a. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md). Your browser prompts you to download an `.rdp` file.
+   a. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md). Your browser prompts you to download an `.rdp` file.
    b. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** drop-down list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the Azure portal. For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       > [!NOTE]

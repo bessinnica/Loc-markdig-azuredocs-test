@@ -1,5 +1,5 @@
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
+If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting <strong>Get support</strong> on the [Azure support](https://azure.microsoft.com/support/options/) site.
 
 ## General troubleshooting steps
 ### Troubleshoot common allocation failures in the classic deployment model
@@ -15,7 +15,7 @@ These steps can help resolve many allocation failures in virtual machines:
 
 * Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
     To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
-  
+
     After all VMs stop, select the first VM and click **Start**.
 
 ## Background information
@@ -49,8 +49,6 @@ Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
 
 > [!NOTE]
 > The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
-> 
-> 
 
 ## Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
 **Error**
@@ -190,6 +188,7 @@ Full deallocation means that you stopped (deallocated) all VMs in an availabilit
 Select a new VM size to allocate. If this does not work, please try again later.
 
 <a name="Error string lookup"></a>
+
 
 ## Error string lookup
 **New_VMSizeNotSupported***

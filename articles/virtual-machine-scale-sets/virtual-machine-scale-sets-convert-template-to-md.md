@@ -116,7 +116,6 @@ In the following diff, we can see that we are removing the depends on clause ref
              },
              "imageReference": "[variables('imageReference')]"
            },
-
 ```
 
 There is no explicit property in the scale set configuration for whether to use managed or unmanaged disk. The scale set knows which to use based on the properties that are present in the storage profile. Thus, it is important when modifying the template to ensure that the right properties are in the storage profile of the scale set.

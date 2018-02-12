@@ -46,7 +46,7 @@ Information about rules is persisted in two locations:
 
 * **DeviceRulesNormalizedTable** table – This table stores a normalized reference to the rules defined by the solution portal. When the solution portal displays device rules, it queries this table for the rule definitions.
 * **DeviceRules** blob – This blob stores all the rules defined for all registered devices and is defined as a reference input to the Azure Stream Analytics jobs.
- 
+ 
 When you update an existing rule or define a new rule in the solution portal, both the table and blob are updated to reflect the changes. The rule definition displayed in the portal comes from the table store, and the rule definition referenced by the Stream Analytics jobs comes from the blob. 
 
 ## Update the RemoteMonitoring Visual Studio solution
@@ -82,7 +82,7 @@ The following steps show you how to modify the RemoteMonitoring Visual Studio so
     ```csharp
     public static string ExternalTemperature
     {
-        get { return "ExternalTemperature"; }
+        get { return "ExternalTemperature"; }
     }
     ```
 
@@ -90,12 +90,12 @@ The following steps show you how to modify the RemoteMonitoring Visual Studio so
 
     ```csharp
     private static List<string> _availableDataFields = new List<string>
-    {                    
-        Temperature, Humidity, ExternalTemperature
+    {                    
+        Temperature, Humidity, ExternalTemperature
     };
     ```
 
-7. Open the file Infrastructure\Repository\DeviceRulesRepository.cs and modify the **BuildBlobEntityListFromTableRows** method as follows:
+7. Open the file Infrastructure\Repository\DeviceRulesRepository.cs and modify the **BuildBlobEntityListFromTableRows** method as follows:
 
     ```csharp
     else if (rule.DataField == DeviceRuleDataFields.Humidity)
@@ -130,58 +130,58 @@ When the deployment is complete, you can update the Stream Analytics job to use 
 
 2. Navigate to the {deployment name}-Rules Stream Analytics job. 
 
-3. Click **Stop** to stop the Stream Analytics job from running. (You must wait for the streaming job to stop before you can edit the query).
+3. Click **Stop** to stop the Stream Analytics job from running. (You must wait for the streaming job to stop before you can edit the query).
 
-4. Click **Query**. Edit the query to include the **SELECT** statement for **ExternalTemperature**. The following sample shows the complete query with the new **SELECT** statement:
+4. Click **Query**. Edit the query to include the **SELECT** statement for **ExternalTemperature**. The following sample shows the complete query with the new **SELECT** statement:
 
     ```
     WITH AlarmsData AS 
     (
     SELECT
-         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-         'Temperature' as ReadingType,
-         Stream.Temperature as Reading,
-         Ref.Temperature as Threshold,
-         Ref.TemperatureRuleOutput as RuleOutput,
-         Stream.EventEnqueuedUtcTime AS [Time]
+         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+         'Temperature' as ReadingType,
+         Stream.Temperature as Reading,
+         Ref.Temperature as Threshold,
+         Ref.TemperatureRuleOutput as RuleOutput,
+         Stream.EventEnqueuedUtcTime AS [Time]
     FROM IoTTelemetryStream Stream
     JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
     WHERE
-         Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
-     
+         Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+     
     UNION ALL
-     
+     
     SELECT
-         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-         'Humidity' as ReadingType,
-         Stream.Humidity as Reading,
-         Ref.Humidity as Threshold,
-         Ref.HumidityRuleOutput as RuleOutput,
-         Stream.EventEnqueuedUtcTime AS [Time]
+         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+         'Humidity' as ReadingType,
+         Stream.Humidity as Reading,
+         Ref.Humidity as Threshold,
+         Ref.HumidityRuleOutput as RuleOutput,
+         Stream.EventEnqueuedUtcTime AS [Time]
     FROM IoTTelemetryStream Stream
     JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
     WHERE
-         Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-     
+         Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+     
     UNION ALL
-     
+     
     SELECT
-         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-         'ExternalTemperature' as ReadingType,
-         Stream.ExternalTemperature as Reading,
-         Ref.ExternalTemperature as Threshold,
-         Ref.ExternalTemperatureRuleOutput as RuleOutput,
-         Stream.EventEnqueuedUtcTime AS [Time]
+         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+         'ExternalTemperature' as ReadingType,
+         Stream.ExternalTemperature as Reading,
+         Ref.ExternalTemperature as Threshold,
+         Ref.ExternalTemperatureRuleOutput as RuleOutput,
+         Stream.EventEnqueuedUtcTime AS [Time]
     FROM IoTTelemetryStream Stream
     JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
     WHERE
-         Ref.ExternalTemperature IS NOT null AND Stream.ExternalTemperature > Ref.ExternalTemperature
+         Ref.ExternalTemperature IS NOT null AND Stream.ExternalTemperature > Ref.ExternalTemperature
     )
-     
+     
     SELECT *
     INTO DeviceRulesMonitoring
     FROM AlarmsData
-     
+     
     SELECT *
     INTO DeviceRulesHub
     FROM AlarmsData
@@ -197,11 +197,11 @@ You can now add the **ExternalTemperature** rule to a device in the solution das
 
 1. Navigate to the solution portal.
 
-2. Navigate to the **Devices** panel.
+2. Navigate to the **Devices** panel.
 
-3. Locate the custom device you created that sends **ExternalTemperature** telemetry and on the **Device Details** panel, click **Add Rule**.
+3. Locate the custom device you created that sends **ExternalTemperature** telemetry and on the **Device Details** panel, click **Add Rule**.
 
-4. Select **ExternalTemperature** in **Data Field**.
+4. Select **ExternalTemperature** in **Data Field**.
 
 5. Set **Threshold** to 56. Then click **Save and view rules**.
 
@@ -209,8 +209,8 @@ You can now add the **ExternalTemperature** rule to a device in the solution das
 
 7. In the console window you left open, start the Node.js console app to begin sending **ExternalTemperature** telemetry data.
 
-8. Notice that the **Alarm History** table shows new alarms when the new rule is triggered.
- 
+8. Notice that the **Alarm History** table shows new alarms when the new rule is triggered.
+ 
 ## Additional information
 
 Changing the operator **>** is more complex and goes beyond the steps outlined in this tutorial. While you can change the Stream Analytics job to use whatever operator you like, reflecting that operator in the solution portal is a more complex task. 

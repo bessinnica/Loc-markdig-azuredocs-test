@@ -134,18 +134,18 @@ In this step, you create a data factory and start the Data Factory UI to create 
 4. Select the Azure **subscription** in which you want to create the data factory.
 5. For **Resource Group**, take one of the following steps:
      
-      - Select **Use existing**, and select an existing resource group from the drop-down list.
+   - Select **Use existing**, and select an existing resource group from the drop-down list.
 
-      - Select **Create new**, and enter the name of a resource group.
+   - Select **Create new**, and enter the name of a resource group.
          
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 6. Under **Version**, select **V2 (Preview)**.
 7. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other regions.
 8. Select **Pin to dashboard**. 
 9. Select **Create**.
 10. On the dashboard, you see the following tile with the status **Deploying Data Factory**:
 
-	![Deploying data factory tile](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
+    ![Deploying data factory tile](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
 11. After the creation is finished, you see the **Data Factory** page as shown in the image:
    
     ![Data factory home page](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)

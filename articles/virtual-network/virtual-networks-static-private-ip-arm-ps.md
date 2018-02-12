@@ -36,52 +36,52 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 1. Set variables for the storage account, location, resource group, and credentials to be used. You will need to enter a user name and password for the VM. The storage account and resource group must already exist.
 
-	```powershell
-	$stName  = "vnetstorage"
-	$locName = "Central US"
-	$rgName  = "TestRG"
-	$cred    = Get-Credential -Message "Type the name and password of the local administrator account."
-	```
+    ```powershell
+    $stName  = "vnetstorage"
+    $locName = "Central US"
+    $rgName  = "TestRG"
+    $cred    = Get-Credential -Message "Type the name and password of the local administrator account."
+    ```
 
 2. Retrieve the virtual network and subnet you want to create the VM in.
 
-	```powershell
-	$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-	$subnet = $vnet.Subnets[0].Id
-	```
+    ```powershell
+    $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+    $subnet = $vnet.Subnets[0].Id
+    ```
 
 3. If necessary, create a public IP address to access the VM from the Internet.
 
-	```powershell
-	$pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
-	-Location $locName -AllocationMethod Dynamic
-	```
+    ```powershell
+    $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
+    -Location $locName -AllocationMethod Dynamic
+    ```
 
 4. Create a NIC using the static private IP address you want to assign to the VM. Make sure the IP is from the subnet range you are adding the VM to. This is the main step for this article, where you set the private IP to be static.
 
-	```powershell
-	$nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
-	-Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id `
-	-PrivateIpAddress 192.168.1.101
-	```
+    ```powershell
+    $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
+    -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id `
+    -PrivateIpAddress 192.168.1.101
+    ```
 
 5. Create the VM using the NIC created above.
 
-	```powershell
-	$vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
-	$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName DNS01 `
-	-Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer `
-	-Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri `
-	-CreateOption fromImage
-	New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
-	```
+    ```powershell
+    $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
+    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName DNS01 `
+    -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+    $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
+    $vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri `
+    -CreateOption fromImage
+    New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+    ```
 
-	Expected output:
-	
+    Expected output:
+    
         EndTime             : [Date and time]
         Error               : 
         Output              : 

@@ -23,8 +23,8 @@ After you create a profile, you typically also create one or more CDN endpoints 
 If you do not already have a custom domain, you must first purchase one with a domain provider. After you have obtained a custom domain, follow these steps:
 1. [Access the DNS records of your domain provider](#step-1-access-dns-records-by-using-your-domain-provider)
 2. [Create the CNAME DNS record(s)](#step-2-create-the-cname-dns-records)
-	- Option 1: Direct mapping of your custom domain to the CDN endpoint
-	- Option 2: Mapping of your custom domain to the CDN endpoint by using the **cdnverify** subdomain 
+    - Option 1: Direct mapping of your custom domain to the CDN endpoint
+    - Option 2: Mapping of your custom domain to the CDN endpoint by using the **cdnverify** subdomain 
 3. [Enable the CNAME record mapping in Azure](#step-3-enable-the-cname-record-mapping-in-azure)
 4. [Verify that the custom subdomain references your CDN endpoint](#step-4-verify-that-the-custom-subdomain-references-your-cdn-endpoint)
 5. [(Dependent step) Map the permanent custom domain to the CDN endpoint](#step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint)
@@ -56,12 +56,12 @@ Use one of the following options to map your custom domain to a CDN endpoint:
 
 - Option 2: Mapping of your custom domain to the CDN endpoint by using the **cdnverify** subdomain. If production traffic that cannot be interrupted is running on the custom domain, you can create a temporary CNAME mapping to your CDN endpoint. With this option, you use the Azure **cdnverify** subdomain to provide an intermediate registration step so that users can access your domain without interruption while the DNS mapping takes place.
 
-   1. Create a new CNAME record and provide a subdomain alias that includes the **cdnverify** subdomain. For example, `cdnverify.www` or `cdnverify.cdn`. 
-   2. Provide the host name, which is your CDN endpoint, in the following format: `cdnverify.<EndpointName>.azureedge.net`. Your CNAME mapping entry should be in this format: 
+  1. Create a new CNAME record and provide a subdomain alias that includes the **cdnverify** subdomain. For example, `cdnverify.www` or `cdnverify.cdn`. 
+  2. Provide the host name, which is your CDN endpoint, in the following format: `cdnverify.<EndpointName>.azureedge.net`. Your CNAME mapping entry should be in this format: 
 
-   | NAME                       | TYPE  | VALUE                            |
-   |----------------------------|-------|----------------------------------|
-   | `cdnverify.www.contoso.com` | `CNAME` | `cdnverify.contoso.azureedge.net` | 
+     | NAME                       | TYPE  | VALUE                            |
+     |----------------------------|-------|----------------------------------|
+     | `cdnverify.www.contoso.com` | `CNAME` | `cdnverify.contoso.azureedge.net` | 
 
 
 ## Step 3: Enable the CNAME record mapping in Azure

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Insights telemetry in Visual Studio CodeLens | Microsoft Docs
 description: Quickly access your Application Insights request and exception telemetry with CodeLens in Visual Studio.
 services: application-insights
@@ -71,6 +71,7 @@ To see more details, click the requests CodeLens indicator:
 * Choose the name of the Application Insights resource in the upper left corner of the CodeLens details view to change which resource is the source for CodeLens data.
 
 ## <a name="next"></a>Next steps
+
 |  |  |
 | --- | --- |
 | **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-codelens/34.png) |

@@ -59,23 +59,23 @@ Install the updates as follows:
 >All Scout components' file update version may not be the same in the update .zip file. The older version indicate that there is no change in the component since previous update to this update.
 
 Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file contains the following components: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
-  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-1. Extract the .zip files.
-2. **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
-3. **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
-4. **Windows Master Target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent update is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
+- RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+- UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  1. Extract the .zip files.
+  2. **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
+  3. **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
+  4. **Windows Master Target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent update is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
   The update does not need to apply on the Master target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**  as this is new GA installer with all the latest changes.
-5. **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
-	The update does not need to apply on the Master Target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** as this is new GA installer with all the latest changes.
-6. **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
-7. **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
-	You don't need to install the Update 5 agent on the source server if it has already been updated to Update 4 or source agent is installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
+  5. **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
+  The update does not need to apply on the Master Target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** as this is new GA installer with all the latest changes.
+  6. **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
+  7. **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
+  You don't need to install the Update 5 agent on the source server if it has already been updated to Update 4 or source agent is installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
+  8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
 
 ## Enable replication
 
@@ -128,19 +128,19 @@ Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Up
 #### Bug fixes and enhancements
 
 * Fixes for increased Windows cluster support reliability:
-	* Fixed- Some of the P2V MSCS cluster disks become RAW after recovery.
-	* Fixed- P2V MSCS cluster recovery fails due to a disk order mismatch.
-	* Fixed- The MSCS cluster operation to add disks fails with a disk size mismatch error.
-	* Fixed- The readiness check for the source MSCS cluster with RDM LUNs mapping fails in size verification.
-	* Fixed- Single node cluster protection fails because of a SCSI mismatch issue. 
-	* Fixed- Re-protection of the P2V Windows cluster server fails if target cluster disks are present. 
-	
+    * Fixed- Some of the P2V MSCS cluster disks become RAW after recovery.
+    * Fixed- P2V MSCS cluster recovery fails due to a disk order mismatch.
+    * Fixed- The MSCS cluster operation to add disks fails with a disk size mismatch error.
+    * Fixed- The readiness check for the source MSCS cluster with RDM LUNs mapping fails in size verification.
+    * Fixed- Single node cluster protection fails because of a SCSI mismatch issue. 
+    * Fixed- Re-protection of the P2V Windows cluster server fails if target cluster disks are present. 
+    
 * Fixed: During failback protection, if the selected master target server isn't on the same ESXi server as the protected source machine (during forward protection), then vContinuum picks up the wrong master target server during failback recovery, and the recovery operation fails.
 
 > [!NOTE]
 > * The P2V cluster fixes are applicable only to physical MSCS clusters that are newly protected with Site Recovery Scout Update 5. To install the cluster fixes on protected P2V MSCS clusters with older updates, follow the upgrade steps mentioned in section 12 of the [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
 > * if at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected, then re-protection of a physical MSCS cluster can only reuse existing target disks. If not, then use the manual steps in section 12 of [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes), to  move the target side disks to the correct datastore path, for reuse during re-protection. If you reprotect the MSCS cluster in P2V mode without following the upgrade steps, it creates a new disk on the target ESXi server. You will need to manually delete the old disks from the datastore.
-> * When a source SLES11 or SLES11 (with any service pack) server is rebooted gracefully, then manually mark the **root** disk replication pairs for re-synchronization. There's no notification in the CX interface. If you don't mark the root disk for resynchronization, you might notice data integrity issues.
+> * When a source SLES11 or SLES11 (with any service pack) server is rebooted gracefully, then manually mark the **root** disk replication pairs for re-synchronization. There's no notification in the CX interface. If you don't mark the root disk for resynchronization, you might notice data integrity issues.
 
 
 ### Azure Site Recovery Scout 8.0.1 Update 4
@@ -161,8 +161,8 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
 #### Bug fixes and enhancements
 
 * Improved shutdown handling for the following Linux operating systems and clones, to prevent unwanted re-synchronization issues:
-	* Red Hat Enterprise Linux (RHEL) 6.x
-	* Oracle Linux (OL) 6.x
+    * Red Hat Enterprise Linux (RHEL) 6.x
+    * Oracle Linux (OL) 6.x
 * For Linux, all folder access permissions in the unified agent installation directory are now restricted to the local user only.
 * On Windows, a fix for a timing out issue that occurred when issuing common distributed consistency bookmarks, on heavily loaded distributed applications such as SQL Server and Share Point clusters.
 * A log related fix in the configuration server base installer.
@@ -180,9 +180,9 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
 
 > [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** base package has:
-	* An updated configuration server base installer (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
-	* A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
-	* For all new installations, use the new configuration server and Windows master target GA bits.
+>     * An updated configuration server base installer (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+>     * A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
+>     * For all new installations, use the new configuration server and Windows master target GA bits.
 > * Update 4 can be applied directly on 8.0.1 GA.
 > * The configuration server and RX updates can’t be rolled back after they've been applied.
 
@@ -213,10 +213,10 @@ Update 3 fixes the following issues:
   * CentOS 6 update 7
 * The configuration server and RX consoles now show notifications for the pair, which goes into bitmap mode.
 * The following security fixes have been added in RX:
-	* Authorization bypass via parameter tampering: Restricted access to non-applicable users.
-	* Cross-site request forgery: The page-token concept was implemented, and it generates randomly for every page. This means there's only a single sign-in instance for the same user, and page refresh doesn't work. Instead, it redirects to the dashboard.
-	* Malicious file upload: Files are restricted to specific extensions: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip.
-	* Persistent cross-site scripting: Input validations were added.
+    * Authorization bypass via parameter tampering: Restricted access to non-applicable users.
+    * Cross-site request forgery: The page-token concept was implemented, and it generates randomly for every page. This means there's only a single sign-in instance for the same user, and page refresh doesn't work. Instead, it redirects to the dashboard.
+    * Malicious file upload: Files are restricted to specific extensions: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip.
+    * Persistent cross-site scripting: Input validations were added.
 
 ### Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
@@ -233,10 +233,10 @@ Update 1 includes the following bug fixes and new features:
 * At any time, the number of protected servers currently being charged is available on the **Dashboard** in the vault.
 * Support was added for vSphere Command-Line Interface (vCLI) 5.5 Update 2.
 * Support was added for these Linux operating systems on the source server:
-	* RHEL 6 Update 6
-	* RHEL 5 Update 11
-	* CentOS 6 Update 6
-	* CentOS 5 Update 11
+    * RHEL 6 Update 6
+    * RHEL 5 Update 11
+    * CentOS 6 Update 6
+    * CentOS 5 Update 11
 * Bug fixes to address the following issues:
   * Vault registration fails for the configuration server, or RX server.
   * Cluster volumes don't appear as expected when clustered VMs are reprotected as they resume.

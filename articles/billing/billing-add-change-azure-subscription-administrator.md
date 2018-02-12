@@ -32,6 +32,7 @@ To ensure better control and to simplify access management, we recommend that yo
 
 <a name="add-an-admin-for-a-subscription"></a>
 
+
 ## Add an RBAC Owner admin for a subscription in Azure portal 
 
 To add someone as an admin for Azure subscription service administration, give them an RBAC Owner role to the subscription. The Owner role can manage the resources in the subscription that you assigned and doesn't have access privilege to other subscriptions.
@@ -65,6 +66,7 @@ Only an Owner can be added as a Co-administrator. Other users with roles such as
 
 <a name="change-service-administrator-for-a-subscription"></a>
 
+
 ## Change the Service Administrator for an Azure subscription
 
 Only the Account Administrator can change the Service Administrator for a subscription. By default, when you sign up, the Service Administrator is the same as the Account Administrator. If the Service Administrator is changed to a different user, then the Account Administrator loses access to Azure portal. However, the Account Administrator can always use Account Center to change the Service Administrator back to themselves.
@@ -81,6 +83,7 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 <a name="limits"></a>
 
+
 ### Limitations for changing Service Administrators
 
 * Each subscription is associated with an Azure AD directory. To find the directory the subscription is associated with, go to [**Subscriptions**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), then select a subscription to see the directory.
@@ -96,6 +99,7 @@ Only the Account Administrator can change the Service Administrator for a subscr
 The Account Admin is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](billing-subscription-transfer.md).
 
 <a name="check-the-account-administrator-of-the-subscription"></a>
+
 
 **Not sure who the Account Administrator is?** Follow these steps:
 

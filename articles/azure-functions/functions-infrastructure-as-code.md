@@ -94,6 +94,7 @@ The function app resource is defined by using a resource of type **Microsoft.Web
 
 <a name="consumption"></a>
 
+
 ## Deploy a function app on the Consumption plan
 
 You can run a function app in two different modes: the Consumption plan and the App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more about hosting plans, see [Azure Functions Consumption and App Service plans](functions-scale.md).

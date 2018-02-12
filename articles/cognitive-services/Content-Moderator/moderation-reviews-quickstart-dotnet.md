@@ -57,14 +57,14 @@ Install the following NuGet packages:
 
 Modify the program's using statements.
 
-	using Microsoft.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using ModeratorHelper;
-	using Newtonsoft.Json;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Threading;
+    using Microsoft.CognitiveServices.ContentModerator;
+    using Microsoft.CognitiveServices.ContentModerator.Models;
+    using ModeratorHelper;
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
 
 ## Create a class to associate internal content information with a review ID
 
@@ -72,32 +72,32 @@ Add the following class to the **Program** class.
 Use this class to associate the review ID to 
 your internal content ID for the item.
 
-	/// <summary>
-	/// Associates the review ID (assigned by the service) to the internal
-	/// content ID of the item.
-	/// </summary>
-	public class ReviewItem
-	{
-    	/// <summary>
-    	/// The media type for the item to review.
-    	/// </summary>
-    	public string Type;
+    /// <summary>
+    /// Associates the review ID (assigned by the service) to the internal
+    /// content ID of the item.
+    /// </summary>
+    public class ReviewItem
+    {
+        /// <summary>
+        /// The media type for the item to review.
+        /// </summary>
+        public string Type;
 
-    	/// <summary>
-    	/// The URL of the item to review.
-    	/// </summary>
-    	public string Url;
+        /// <summary>
+        /// The URL of the item to review.
+        /// </summary>
+        public string Url;
 
-    	/// <summary>
-    	/// The internal content ID for the item to review.
-    	/// </summary>
-    	public string ContentId;
+        /// <summary>
+        /// The internal content ID for the item to review.
+        /// </summary>
+        public string ContentId;
 
-    	/// <summary>
-    	/// The ID that the service assigned to the review.
-    	/// </summary>
-    	public string ReviewId;
-	}
+        /// <summary>
+        /// The ID that the service assigned to the review.
+        /// </summary>
+        public string ReviewId;
+    }
 
 ### Initialize application-specific settings
 
@@ -204,20 +204,20 @@ Use these fields to track the application state.
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Writes a message to the log file, and optionally to the console.
-	/// </summary>
-	/// <param name="message">The message.</param>
-	/// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
-	private static void WriteLine(string message = null, bool echo = false)
-	{
-    	writer.WriteLine(message ?? String.Empty);
+    /// <summary>
+    /// Writes a message to the log file, and optionally to the console.
+    /// </summary>
+    /// <param name="message">The message.</param>
+    /// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
+    private static void WriteLine(string message = null, bool echo = false)
+    {
+        writer.WriteLine(message ?? String.Empty);
 
-    	if (echo)
-    	{
-    	    Console.WriteLine(message ?? String.Empty);
-    	}
-	}
+        if (echo)
+        {
+            Console.WriteLine(message ?? String.Empty);
+        }
+    }
 
 ## Create a method to create a set of reviews
 
@@ -227,66 +227,66 @@ of images.
 
 Add the following method to the **Program** class.
 
-	/// <summary>
-	/// Create the reviews using the fixed list of images.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	private static void CreateReviews(ContentModeratorClient client)
-	{
-    	WriteLine(null, true);
-    	WriteLine("Creating reviews for the following images:", true);
+    /// <summary>
+    /// Create the reviews using the fixed list of images.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    private static void CreateReviews(ContentModeratorClient client)
+    {
+        WriteLine(null, true);
+        WriteLine("Creating reviews for the following images:", true);
 
-    	// Create the structure to hold the request body information.
-    	List<CreateReviewBodyItem> requestInfo =
-        	new List<CreateReviewBodyItem>();
+        // Create the structure to hold the request body information.
+        List<CreateReviewBodyItem> requestInfo =
+            new List<CreateReviewBodyItem>();
 
-    	// Create some standard metadata to add to each item.
-    	List<CreateReviewBodyItemMetadataItem> metadata =
-        	new List<CreateReviewBodyItemMetadataItem>(
+        // Create some standard metadata to add to each item.
+        List<CreateReviewBodyItemMetadataItem> metadata =
+            new List<CreateReviewBodyItemMetadataItem>(
             new CreateReviewBodyItemMetadataItem[] {
                 new CreateReviewBodyItemMetadataItem(
                     MetadataKey, MetadataValue)
             });
 
-    	// Populate the request body information and the initial cached review information.
-    	for (int i = 0; i < ImageUrls.Length; i++)
-    	{
-        	// Cache the local information with which to create the review.
-        	var itemInfo = new ReviewItem()
-        	{
-            	Type = MediaType,
-            	ContentId = i.ToString(),
-            	Url = ImageUrls[i],
-            	ReviewId = null
-        	};
+        // Populate the request body information and the initial cached review information.
+        for (int i = 0; i < ImageUrls.Length; i++)
+        {
+            // Cache the local information with which to create the review.
+            var itemInfo = new ReviewItem()
+            {
+                Type = MediaType,
+                ContentId = i.ToString(),
+                Url = ImageUrls[i],
+                ReviewId = null
+            };
 
-        	WriteLine($" - {itemInfo.Url}; with id = {itemInfo.ContentId}.", true);
+            WriteLine($" - {itemInfo.Url}; with id = {itemInfo.ContentId}.", true);
 
-        	// Add the item informaton to the request information.
-        	requestInfo.Add(new CreateReviewBodyItem(
-            	itemInfo.Type, itemInfo.Url, itemInfo.ContentId,
-            	CallbackEndpoint, metadata));
+            // Add the item informaton to the request information.
+            requestInfo.Add(new CreateReviewBodyItem(
+                itemInfo.Type, itemInfo.Url, itemInfo.ContentId,
+                CallbackEndpoint, metadata));
 
-        	// Cache the review creation information.
-        	reviewItems.Add(itemInfo);
-    	}
+            // Cache the review creation information.
+            reviewItems.Add(itemInfo);
+        }
 
-    	var reviewResponse = client.Reviews.CreateReviewsWithHttpMessagesAsync(
-        	"application/json", TeamName, requestInfo);
+        var reviewResponse = client.Reviews.CreateReviewsWithHttpMessagesAsync(
+            "application/json", TeamName, requestInfo);
 
-    	// Update the local cache to associate the created review IDs with
-    	// the associated content.
-    	var reviewIds = reviewResponse.Result.Body;
-    	for (int i = 0; i < reviewIds.Count; i++)
-    	{
-        	Program.reviewItems[i].ReviewId = reviewIds[i];
-    	}
+        // Update the local cache to associate the created review IDs with
+        // the associated content.
+        var reviewIds = reviewResponse.Result.Body;
+        for (int i = 0; i < reviewIds.Count; i++)
+        {
+            Program.reviewItems[i].ReviewId = reviewIds[i];
+        }
 
-    	WriteLine(JsonConvert.SerializeObject(
+        WriteLine(JsonConvert.SerializeObject(
         reviewIds, Formatting.Indented));
 
-    	Thread.Sleep(throttleRate);
-	}
+        Thread.Sleep(throttleRate);
+    }
 
 ## Create a method to get the status of existing reviews
 
@@ -297,28 +297,28 @@ Add the following method to the **Program** class.
 > that would receive the results of the manual review (via an HTTP POST request).
 > You could modify this method to check on the status of pending reviews.
 
-	/// <summary>
-	/// Gets the review details from the server.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	private static void GetReviewDetails(ContentModeratorClient client)
-	{
-    	WriteLine(null, true);
-    	WriteLine("Getting review details:", true);
-    	foreach (var item in reviewItems)
-    	{
-        	var reviewDetail = client.Reviews.GetReviewWithHttpMessagesAsync(
-            	TeamName, item.ReviewId);
+    /// <summary>
+    /// Gets the review details from the server.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    private static void GetReviewDetails(ContentModeratorClient client)
+    {
+        WriteLine(null, true);
+        WriteLine("Getting review details:", true);
+        foreach (var item in reviewItems)
+        {
+            var reviewDetail = client.Reviews.GetReviewWithHttpMessagesAsync(
+                TeamName, item.ReviewId);
 
-        	WriteLine(
-            	$"Review {item.ReviewId} for item ID {item.ContentId} is " +
-            	$"{reviewDetail.Result.Body.Status}.", true);
-        	WriteLine(JsonConvert.SerializeObject(
-            	reviewDetail.Result.Body, Formatting.Indented));
+            WriteLine(
+                $"Review {item.ReviewId} for item ID {item.ContentId} is " +
+                $"{reviewDetail.Result.Body.Status}.", true);
+            WriteLine(JsonConvert.SerializeObject(
+                reviewDetail.Result.Body, Formatting.Indented));
 
-        	Thread.Sleep(throttleRate);
-    	}
-	}
+            Thread.Sleep(throttleRate);
+        }
+    }
 
 ## Add code to create a set of reviews and check its status
 
@@ -329,44 +329,44 @@ managing the list, as well as using the list to screen images. The logging featu
 allow you to see the response objects generated by the SDK calls to the Content
 Moderator service.
 
-	using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
-	{
-    	writer = outputWriter;
-    	using (var client = Clients.NewClient())
-    	{
-        	CreateReviews(client);
-        	GetReviewDetails(client);
+    using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
+    {
+        writer = outputWriter;
+        using (var client = Clients.NewClient())
+        {
+            CreateReviews(client);
+            GetReviewDetails(client);
 
-        	Console.WriteLine();
-        	Console.WriteLine("Perform manual reviews on the Content Moderator site.");
-        	Console.WriteLine("Then, press any key to continue.");
-        	Console.ReadKey();
+            Console.WriteLine();
+            Console.WriteLine("Perform manual reviews on the Content Moderator site.");
+            Console.WriteLine("Then, press any key to continue.");
+            Console.ReadKey();
 
-        	Console.WriteLine();
-        	Console.WriteLine($"Waiting {latencyDelay} seconds for results to propigate.");
-        	Thread.Sleep(latencyDelay * 1000);
+            Console.WriteLine();
+            Console.WriteLine($"Waiting {latencyDelay} seconds for results to propigate.");
+            Thread.Sleep(latencyDelay * 1000);
 
-        	GetReviewDetails(client);
-    	}
+            GetReviewDetails(client);
+        }
 
-    	writer = null;
-    	outputWriter.Flush();
-    	outputWriter.Close();
-	}
+        writer = null;
+        outputWriter.Flush();
+        outputWriter.Close();
+    }
 
-	Console.WriteLine();
-	Console.WriteLine("Press any key to exit...");
-	Console.ReadKey();
+    Console.WriteLine();
+    Console.WriteLine("Press any key to exit...");
+    Console.ReadKey();
 
 ## Run the program and review the output
 
 You see the following sample output:
 
-	Creating reviews for the following images:
-		- https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
+    Creating reviews for the following images:
+        - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
 
-	Getting review details:
-	Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
+    Getting review details:
+    Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
 
 Sign into the Content Moderator review tool to see the pending image review with the **sc** label set to **true**. You also see the default **a** and **r** tags and any custom tags that you may have defined within the review tool. 
 
@@ -376,12 +376,12 @@ Use the **Next** button to submit.
 
 Then, press any key to continue.
 
-	Waiting 45 seconds for results to propagate.
+    Waiting 45 seconds for results to propagate.
 
-	Getting review details:
-	Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Complete.
+    Getting review details:
+    Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Complete.
 
-	Press any key to exit...
+    Press any key to exit...
 
 ## Check out the following output in the log file.
 
@@ -393,84 +393,84 @@ The review IDs and the image content URLs are different each time you run
 the application, and when a review is complete, the `reviewerResultTags` field 
 reflects how the reviewer tagged the item.
 
-	Creating reviews for the following images:
-		- https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
-	[
-		"201712i46950138c61a4740b118a43cac33f434",
-	]
+    Creating reviews for the following images:
+        - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
+    [
+        "201712i46950138c61a4740b118a43cac33f434",
+    ]
 
-	Getting review details:
-	Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
-	{
-		"reviewId": "201712i46950138c61a4740b118a43cac33f434",
-		"subTeam": "public",
-		"status": "Pending",
-		"reviewerResultTags": [],
-		"createdBy": "{teamname}",
-		"metadata": [
-    	{
-      		"key": "sc",
-      		"value": "true"
-    	}
-		],
-		"type": "Image",
-		"content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-		"contentId": "0",
-		"callbackEndpoint": "{callbackUrl}"
-	}
+    Getting review details:
+    Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
+    {
+        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
+        "subTeam": "public",
+        "status": "Pending",
+        "reviewerResultTags": [],
+        "createdBy": "{teamname}",
+        "metadata": [
+        {
+            "key": "sc",
+            "value": "true"
+        }
+        ],
+        "type": "Image",
+        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
+        "contentId": "0",
+        "callbackEndpoint": "{callbackUrl}"
+    }
 
-	Getting review details:
-	Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Complete.
-	{
-		"reviewId": "201712i46950138c61a4740b118a43cac33f434",
-		"subTeam": "public",
-		"status": "Complete",
-		"reviewerResultTags": [
-    	{
-      		"key": "a",
-      		"value": "False"
-    	},
-    	{
-      		"key": "r",
-      		"value": "True"
-    	},
-    	{
-      		"key": "sc",
-      		"value": "True"
-    	}
-		],
-		"createdBy": "{teamname}",
-		"metadata": [
-    	{
-      		"key": "sc",
-      		"value": "true"
-    	}
-		],
-		"type": "Image",
-		"content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-		"contentId": "0",
-		"callbackEndpoint": "{callbackUrl}"
-	}
+    Getting review details:
+    Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Complete.
+    {
+        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
+        "subTeam": "public",
+        "status": "Complete",
+        "reviewerResultTags": [
+        {
+            "key": "a",
+            "value": "False"
+        },
+        {
+            "key": "r",
+            "value": "True"
+        },
+        {
+            "key": "sc",
+            "value": "True"
+        }
+        ],
+        "createdBy": "{teamname}",
+        "metadata": [
+        {
+            "key": "sc",
+            "value": "true"
+        }
+        ],
+        "type": "Image",
+        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
+        "contentId": "0",
+        "callbackEndpoint": "{callbackUrl}"
+    }
 
 ## Your callback Url if provided, receives this response
 
 You see a response like the following example:
 
-	{
-		"ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
-		"ModifiedOn": "2018-01-06T05:04:40.5525865Z",
-		"ModifiedBy": "yourusername",
-		"CallBackType": "Review",
-		"ContentId": "0",
-		"ContentType": "Image",
-		"Metadata": {
-    		"sc": "true"
-			},
-		"ReviewerResultTags": {
-			"a": "False",
-			"r": "False",
-		}
-	}
+    {
+        "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
+        "ModifiedOn": "2018-01-06T05:04:40.5525865Z",
+        "ModifiedBy": "yourusername",
+        "CallBackType": "Review",
+        "ContentId": "0",
+        "ContentType": "Image",
+        "Metadata": {
+            "sc": "true"
+            },
+        "ReviewerResultTags": {
+            "a": "False",
+            "r": "False",
+        }
+    }
 
 
 ## Next steps

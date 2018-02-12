@@ -25,7 +25,7 @@ For example, to point name www.contoso.com to the Traffic Manager DNS name conto
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-All traffic requests to *www.contoso.com* get directed to *contoso.trafficmanager.net*.
+All traffic requests to <em>www.contoso.com</em> get directed to <em>contoso.trafficmanager.net</em>.
 
 > [!IMPORTANT]
 > You cannot point a second-level domain, such as *contoso.com*, to the Traffic Manager domain. DNS protocol standards do not allow CNAME records for second-level domain names.

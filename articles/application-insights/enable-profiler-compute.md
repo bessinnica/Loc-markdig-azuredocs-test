@@ -59,70 +59,70 @@ Add the [Application Insights SDK](https://docs.microsoft.com/azure/application-
 ### Cloud Services Worker roles or Service Fabric Stateless backend
 If your application is *not* an ASP.NET or ASP.NET Core application (for example, if it's a Cloud Services worker role or Service Fabric stateless APIs), the following extra instrumentation setup is required, in addition to what step above:  
 
-  1. Add the following code early in the application lifetime:  
+1. Add the following code early in the application lifetime:  
 
-    ```csharp
-    using Microsoft.ApplicationInsights.Extensibility;
-    ...
-    // Replace with your own Application Insights instrumentation key.
-    TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
-    ```
-  For more information about this global instrumentation key configuration, see [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
+   ```csharp
+   using Microsoft.ApplicationInsights.Extensibility;
+   ...
+   // Replace with your own Application Insights instrumentation key.
+   TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
+   ```
+   For more information about this global instrumentation key configuration, see [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  2. For any piece of code that you want to instrument, add a `StartOperation<RequestTelemetry>` **USING** statement around it, as in the following example:
+2. For any piece of code that you want to instrument, add a `StartOperation<RequestTelemetry>` **USING** statement around it, as in the following example:
 
-    ```csharp
-    using Microsoft.ApplicationInsights;
-    using Microsoft.ApplicationInsights.DataContracts;
-    ...
-    var client = new TelemetryClient();
-    ...
-    using (var operation = client.StartOperation<RequestTelemetry>("Insert_Your_Custom_Event_Unique_Name"))
+   ```csharp
+   using Microsoft.ApplicationInsights;
+   using Microsoft.ApplicationInsights.DataContracts;
+   ...
+   var client = new TelemetryClient();
+   ...
+   using (var operation = client.StartOperation<RequestTelemetry>("Insert_Your_Custom_Event_Unique_Name"))
+   {
+    // ... Code I want to profile.
+   }
+   ```
+
+   Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope is not supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. For example:  
+
+   ```csharp
+   using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
+   {
+    try
     {
-      // ... Code I want to profile.
+      ProductDetail details = new ProductDetail() { Id = productId };
+      getDetailsOperation.Telemetry.Properties["ProductId"] = productId.ToString();
+
+      // By using DependencyTelemetry, 'GetProductPrice' is correctly linked as part of the 'GetProductDetails' request.
+      using (var getPriceOperation = client.StartOperation<DependencyTelemetry>("GetProductPrice"))
+      {
+          double price = await _priceDataBase.GetAsync(productId);
+          if (IsTooCheap(price))
+          {
+              throw new PriceTooLowException(productId);
+          }
+          details.Price = price;
+      }
+
+      // Similarly, note how 'GetProductReviews' doesn't establish another RequestTelemetry.
+      using (var getReviewsOperation = client.StartOperation<DependencyTelemetry>("GetProductReviews"))
+      {
+          details.Reviews = await _reviewDataBase.GetAsync(productId);
+      }
+
+      getDetailsOperation.Telemetry.Success = true;
+      return details;
     }
-    ```
-
-  Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope is not supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. For example:  
-
-    ```csharp
-    using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
+    catch(Exception ex)
     {
-      try
-      {
-        ProductDetail details = new ProductDetail() { Id = productId };
-        getDetailsOperation.Telemetry.Properties["ProductId"] = productId.ToString();
+      getDetailsOperation.Telemetry.Success = false;
 
-        // By using DependencyTelemetry, 'GetProductPrice' is correctly linked as part of the 'GetProductDetails' request.
-        using (var getPriceOperation = client.StartOperation<DependencyTelemetry>("GetProductPrice"))
-        {
-            double price = await _priceDataBase.GetAsync(productId);
-            if (IsTooCheap(price))
-            {
-                throw new PriceTooLowException(productId);
-            }
-            details.Price = price;
-        }
-
-        // Similarly, note how 'GetProductReviews' doesn't establish another RequestTelemetry.
-        using (var getReviewsOperation = client.StartOperation<DependencyTelemetry>("GetProductReviews"))
-        {
-            details.Reviews = await _reviewDataBase.GetAsync(productId);
-        }
-
-        getDetailsOperation.Telemetry.Success = true;
-        return details;
-      }
-      catch(Exception ex)
-      {
-        getDetailsOperation.Telemetry.Success = false;
-
-        // This exception gets linked to the 'GetProductDetails' request telemetry.
-        client.TrackException(ex);
-        throw;
-      }
+      // This exception gets linked to the 'GetProductDetails' request telemetry.
+      client.TrackException(ex);
+      throw;
     }
-    ```
+   }
+   ```
 
 
 ## Set up the environment deployment definition
@@ -139,18 +139,18 @@ Full examples:
 1. To ensure that [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later is in use, it's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later.
 
 2. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) extension in the deployment template file, and then add the following `SinksConfig` section as a child element of `WadCfg`. Replace the `ApplicationInsightsProfiler` property value with your own Application Insights instrumentation key:  
-  ```json
-  "SinksConfig": {
+   ```json
+   "SinksConfig": {
     "Sink": [
       {
         "name": "MyApplicationInsightsProfilerSink",
         "ApplicationInsightsProfiler": "00000000-0000-0000-0000-000000000000"
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  For information about adding the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   For information about adding the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 ### Cloud Services
@@ -158,12 +158,12 @@ Full examples:
 1. To ensure that [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later is in use, it's sufficient to confirm that ServiceConfiguration.\*.cscfg files have an `osFamily` value of **"5"** or later.
 
 2. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx file for your application role:  
-  ![Location of the diagnostics config file](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
-  If you can't find the file, to learn how to enable the Diagnostics extension in your Cloud Services project, see [Set up diagnostics for Azure Cloud Services and virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
+   ![Location of the diagnostics config file](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
+   If you can't find the file, to learn how to enable the Diagnostics extension in your Cloud Services project, see [Set up diagnostics for Azure Cloud Services and virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
 3. Add the following `SinksConfig` section as a child element of `WadCfg`:  
-  ```xml
-  <WadCfg>
+   ```xml
+   <WadCfg>
     <DiagnosticMonitorConfiguration>...</DiagnosticMonitorConfiguration>
     <SinksConfig>
       <Sink name="MyApplicationInsightsProfiler">
@@ -171,8 +171,8 @@ Full examples:
         <ApplicationInsightsProfiler>00000000-0000-0000-0000-000000000000</ApplicationInsightsProfiler>
       </Sink>
     </SinksConfig>
-  </WadCfg>
-  ```
+   </WadCfg>
+   ```
 
 > [!NOTE]  
 > If the `diagnostics.wadcfgx` file also contains another sink of type `ApplicationInsights`, all three of these instrumentation keys must match:  
@@ -188,29 +188,29 @@ Full examples:
 
 1. Deploy the modified environment deployment definition.  
 
-  To apply the modifications, typically a full template deployment or a cloud services publish through PowerShell cmdlets or Visual Studio is involved.  
+   To apply the modifications, typically a full template deployment or a cloud services publish through PowerShell cmdlets or Visual Studio is involved.  
 
-  The following is an alternate approach for existing virtual machines that touches only its Azure Diagnostics extension:  
-  ```powershell
-  $ConfigFilePath = [IO.Path]::GetTempFileName()
-  # After you export the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
-  (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
-  # Set-AzureRmVMDiagnosticsExtension might require the -StorageAccountName argument
-  # if your original diagnostics configuration had the storageAccountName property in the protectedSettings section
-  # (which is not downloadable). Make sure to pass the same original value you had in this cmdlet call.
-  Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
-  ```
+   The following is an alternate approach for existing virtual machines that touches only its Azure Diagnostics extension:  
+   ```powershell
+   $ConfigFilePath = [IO.Path]::GetTempFileName()
+   # After you export the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
+   (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
+   # Set-AzureRmVMDiagnosticsExtension might require the -StorageAccountName argument
+   # if your original diagnostics configuration had the storageAccountName property in the protectedSettings section
+   # (which is not downloadable). Make sure to pass the same original value you had in this cmdlet call.
+   Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
+   ```
 
 2. If the intended application is running through [IIS](https://www.microsoft.com/web/platform/server.aspx), enable the `IIS Http Tracing` Windows feature:  
 
-  1. Establish remote access to the environment, and then use the [Add Windows Features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window, or run the following command in PowerShell (as administrator):  
-    ```powershell
-    Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
-    ```  
-  2. If establishing remote access is a problem, you can use [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to run the following command:  
-    ```powershell
-    az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
-    ```
+   1. Establish remote access to the environment, and then use the [Add Windows Features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window, or run the following command in PowerShell (as administrator):  
+      ```powershell
+      Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
+      ```  
+   2. If establishing remote access is a problem, you can use [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to run the following command:  
+      ```powershell
+      az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
+      ```
 
 
 ## Enable the profiler on on-premises servers

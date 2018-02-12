@@ -70,22 +70,24 @@ monitors the resource group for your virtual machine.
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 2. From the upper left corner of the main Azure menu, 
-choose **New** > **Enterprise Integration** > **Logic App**.
+   choose **New** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
 3. Create your logic app with the settings 
-specified in the following table:
+   specified in the following table:
 
    ![Provide logic app details](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | Setting | Suggested value | Description | 
-   | ------- | --------------- | ----------- | 
-   | **Name** | *{your-logic-app-name}* | Provide a unique logic app name. | 
-   | **Subscription** | *{your-Azure-subscription}* | Select the same Azure subscription for all services in this tutorial. | 
-   | **Resource group** | *{your-Azure-resource-group}* | Select the same Azure resource group for all services in this tutorial. | 
-   | **Location** | *{your-Azure-region}* | Select the same region for all services in this tutorial. | 
-   | | | 
+
+   |             Setting             |           Suggested value            |                               Description                               |
+   |---------------------------------|--------------------------------------|-------------------------------------------------------------------------|
+   |      <strong>Name</strong>      |    <em>{your-logic-app-name}</em>    |                    Provide a unique logic app name.                     |
+   |  <strong>Subscription</strong>  |  <em>{your-Azure-subscription}</em>  |  Select the same Azure subscription for all services in this tutorial.  |
+   | <strong>Resource group</strong> | <em>{your-Azure-resource-group}</em> | Select the same Azure resource group for all services in this tutorial. |
+   |    <strong>Location</strong>    |     <em>{your-Azure-region}</em>     |        Select the same region for all services in this tutorial.        |
+   |                                 |                                      |                                                                         |
+
 
 4. When you're ready, select **Pin to dashboard**, and choose **Create**.
 
@@ -99,8 +101,8 @@ specified in the following table:
    > Otherwise, you can manually find and open your logic app.
 
 5. Now choose a logic app template. 
-Under **Templates**, choose **Blank Logic App** 
-so you can build your logic app from scratch.
+   Under **Templates**, choose **Blank Logic App** 
+   so you can build your logic app from scratch.
 
    ![Choose logic app template](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
@@ -112,12 +114,12 @@ so you can build your logic app from scratch.
    Your logic app needs a trigger as the first item.
 
 6. In the search box, enter "event grid" as your filter. 
-Select this trigger: **Azure Event Grid - On a resource event**
+   Select this trigger: **Azure Event Grid - On a resource event**
 
    ![Select this trigger: "Azure Event Grid - On a resource event"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. When prompted, sign in to Azure Event Grid 
-with your Azure credentials.
+   with your Azure credentials.
 
    ![Sign in with your Azure credentials](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
@@ -128,11 +130,11 @@ with your Azure credentials.
    > As a workaround, choose [Connect with Service Principal](../azure-resource-manager/resource-group-create-service-principal-portal.md), 
    > or authenticate as a member of the Azure Active Directory 
    > that's associated with your Azure subscription, for example, 
-   > *user-name*@emailoutlook.onmicrosoft.com.
+   > <em>user-name</em>@emailoutlook.onmicrosoft.com.
 
 8. Now subscribe your logic app to publisher events. 
-Provide the details for your event subscription 
-as specified in the following table:
+   Provide the details for your event subscription 
+   as specified in the following table:
 
    ![Provide details for event subscription](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
@@ -145,12 +147,12 @@ as specified in the following table:
    | | | 
 
    When you're done, your event grid trigger might look like this example:
-   
+
    ![Example event grid trigger details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
 9. Save your logic app. On the designer toolbar, choose **Save**. 
-To collapse and hide an action's details in your logic app, 
-choose the action's title bar.
+   To collapse and hide an action's details in your logic app, 
+   choose the action's title bar.
 
    ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
@@ -304,7 +306,7 @@ To view more details about a run, choose the row for that run.
 expand the step that you want to review. 
 This information can help you diagnose and debug 
 problems in your logic app.
- 
+
    ![Logic app run history details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
 Congratulations, you've created and run a logic app 

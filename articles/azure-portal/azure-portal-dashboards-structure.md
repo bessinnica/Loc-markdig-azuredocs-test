@@ -282,7 +282,6 @@ Since shared [Azure dashboards are resources](https://docs.microsoft.com/azure/a
         "hidden-title": "Created via API"
     }
 }
-
 ```
 
 ## Common resource properties
@@ -350,7 +349,6 @@ The inputs object generally contains information that binds a tile to a resource
         "value": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
     }
 ]
-
 ```
 The metrics chart part has a single input that expresses the resource to bind to, as well as information about the metric(s) being displayed. Here is the input for the tile that’s showing the Network In and Network Out metrics.
 
@@ -383,7 +381,6 @@ The metrics chart part has a single input that expresses the resource to bind to
         }
     }
 ]
-
 ```
 
 ### The settings object
@@ -402,7 +399,6 @@ The settings object contains the configurable elements of a part.  In our sample
         }
     }
 }
-
 ```
 
 Similarly, the video tile has its own settings that contain a pointer to the video to play, an autoplay setting, and optional title information.
@@ -421,7 +417,6 @@ Similarly, the video tile has its own settings that contain a pointer to the vid
         }
     }
 }
-
 ```
 
 ### The asset object

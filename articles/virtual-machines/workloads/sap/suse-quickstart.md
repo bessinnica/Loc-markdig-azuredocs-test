@@ -36,19 +36,19 @@ While it's still possible to use the standard SLES images for SAP installations,
 
 
 * Look for existing publishers, including SUSE:
-  
+
    ```
    PS  : Get-AzureRmVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
    CLI : azure vm image list-publishers westeurope | grep "US"
    ```
 * Look for existing offerings from SUSE:
-  
+
    ```
    PS  : Get-AzureRmVMImageOffer -Location "West Europe" -Publisher "SUSE"
    CLI : azure vm image list-offers westeurope SUSE
    ```
 * Look for SUSE SLES offerings:
-  
+
    ```
    PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
    PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP"
@@ -56,7 +56,7 @@ While it's still possible to use the standard SLES images for SAP installations,
    CLI : azure vm image list-skus westeurope SUSE SLES-SAP
    ```
 * Look for a specific version of a SLES SKU:
-  
+
    ```
    PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12-SP2"
    PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP" -skus "12-SP2"
@@ -116,7 +116,6 @@ file is created, you can deploy the VM by using the following CLI command as an 
 
    ```
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
-
    ```
 For more information about JSON template files, see [Authoring Azure Resource Manager templates](../../../resource-group-authoring-templates.md) and [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/).
 

@@ -228,7 +228,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The customer is responsible for accounting for planned changes to the information security architecture. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                          |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The customer is responsible for accounting for planned changes to the information security architecture. |
+| <strong>Provider (Microsoft Azure)</strong> |                                              Not Applicable                                              |
+

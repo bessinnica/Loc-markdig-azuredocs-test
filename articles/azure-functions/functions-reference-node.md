@@ -188,7 +188,7 @@ Functions lets you define the threshold trace level for writing to the console, 
 ```json
 { 
     "tracing": {      
-        "consoleLevel": "verbose"	  
+        "consoleLevel": "verbose"     
     }
 }  
 ```

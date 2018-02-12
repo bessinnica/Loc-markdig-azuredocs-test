@@ -62,17 +62,17 @@ To install the agent on a Linux machine:
     - Processes running inside the machine, you can expand each machine box to view the processes
     - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
- ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+   ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
-4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
-5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
-6. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate. 
+5. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
+6. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
+7. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate. 
 
     > [!NOTE]
     > If a dependent machine is not discovered by Azure Migrate, you cannot add it to the group. To add such machines to the group, you need to run the discovery process again with the right scope in vCenter Server and ensure that the machine is discovered by Azure Migrate.  
 
-7. If you want to create an assessment for this group, select the checkbox to create a new assessment for the group.
-8. Click **OK** to save the group.
+8. If you want to create an assessment for this group, select the checkbox to create a new assessment for the group.
+9. Click **OK** to save the group.
 
 Once the group is created, it is recommended to install agents on all the machines of the group and refine the group by visualizing the dependency of the entire group.
 

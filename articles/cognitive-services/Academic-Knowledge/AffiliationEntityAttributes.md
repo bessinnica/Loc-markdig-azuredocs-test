@@ -18,16 +18,18 @@ ms.author: alch
 *Following attributes are specific to affiliation entity. (Ty = '5')
 </sub>
 
-Name	|Description							|Type       | Operations
+
+Name    |Description                            |Type       | Operations
 ------- | ------------------------------------- | --------- | ----------------------------
-Id		|Entity ID								|Int64		|Equals
-AfN		|Affiliation normalized name		|String		|Equals
-DAfN	|Affiliation display name		|String		|none
-CC		|Affiliation total citation count			|Int32		|none  
-ECC		|Affiliation total estimated citation count	|Int32		|none
+Id      |Entity ID                              |Int64      |Equals
+AfN     |Affiliation normalized name        |String     |Equals
+DAfN    |Affiliation display name       |String     |none
+CC      |Affiliation total citation count           |Int32      |none  
+ECC     |Affiliation total estimated citation count |Int32      |none
 
 ## Extended Metadata Attributes ##
 
-Name    | Description               
---------|---------------------------	
-PC		|Affiliation's paper count
+| Name |        Description        |
+|------|---------------------------|
+|  PC  | Affiliation's paper count |
+

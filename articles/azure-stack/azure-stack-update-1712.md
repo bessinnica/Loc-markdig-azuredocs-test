@@ -72,19 +72,19 @@ This update includes the following improvements and fixes for Azure Stack.
 #### Windows Server 2016 new features and fixes
 
 - [January, 3rd - 2018—KB4056890 (OS Build 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
-	- This update includes the software fixes for the industry-wide security issue described by [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
+    - This update includes the software fixes for the industry-wide security issue described by [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
 
 ### Known issues with the update process
 
 This section contains known issues that you may encounter during the 1712 update installation.
 
 1. **Symptom:** Azure Stack operators may see the following error during the update process: *"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for -ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c."*
-	1. **Cause:**  This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
-	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+    1. **Cause:**  This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
+    2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
 <br><br>
 2. **Symptom:** Azure Stack operators may see the following error during the update process:*"Enabling the seed ring VM failed on node Host-Node03 with an error: [Host-Node03] Connecting to remote server Host-Node03 failed with the following error message : The WinRM client received an HTTP server error status (500), but the remote service did not include any other information about the cause of the failure."*
-	1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates. 
-	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+    1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates. 
+    2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
 <br><br>
 
 ### Known issues (post-installation)
@@ -102,8 +102,8 @@ This section contains post-installation known issues with build **180106.1**.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
    - If you have multiple user subscriptions, the resource group drop-down list may be empty.
 
-		> [!NOTE]
-		> To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
+        > [!NOTE]
+        > To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
@@ -133,8 +133,8 @@ This section contains post-installation known issues with build **180106.1**.
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU.
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
 
-	> [!NOTE]
-	> You should not have impact to your existing SQL or MySQL resource provider users when updating your Azure Stack Integrated Systems to the 1712 version. You can continue to use your current SQL or MySQL resource provider builds until a new Azure Stack update is available.
+    > [!NOTE]
+    > You should not have impact to your existing SQL or MySQL resource provider users when updating your Azure Stack Integrated Systems to the 1712 version. You can continue to use your current SQL or MySQL resource provider builds until a new Azure Stack update is available.
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
@@ -154,7 +154,7 @@ You can download the Azure Stack 1712 update package from [here](https://aka.ms/
 
 Microsoft has provided a way to monitor and resume updates using the Privileged End Point (PEP) installed with Update 1712.
 
-- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 
 ## See also
 

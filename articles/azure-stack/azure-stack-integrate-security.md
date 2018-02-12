@@ -62,7 +62,7 @@ The following procedure is an example you can use to configure Azure Storage Exp
 10. Click **Next**, review the summary, and **Finish** the Wizard.
 11. You can now browse the individual blob containers and download the events.
 
-   ![Browse blobs](media/azure-stack-integrate-security/browse-blob.png)
+    ![Browse blobs](media/azure-stack-integrate-security/browse-blob.png)
 
 ### Use programming languages to access events
 

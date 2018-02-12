@@ -21,9 +21,9 @@ ms.author: "anjangsh; billgib; genemi"
 
 In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
-1.	**Extract data** from each tenant database into an analytics store.
-2.	**Optimize the extracted data** for analytics processing.
-3.	Use **Business Intelligence** tools to draw out useful insights, which can guide decision making. 
+1.  **Extract data** from each tenant database into an analytics store.
+2.  **Optimize the extracted data** for analytics processing.
+3.  Use **Business Intelligence** tools to draw out useful insights, which can guide decision making. 
 
 In this tutorial you learn how to:
 
@@ -31,8 +31,8 @@ In this tutorial you learn how to:
 > - Create the tenant analytics store to extract the data into.
 > - Use elastic jobs to extract data from each tenant database into the analytics store.
 > - Optimize the extracted data (reorganize into a star-schema).
-> -	Query the analytics database.
-> -	Use Power BI for data visualization to highlight trends in tenant data and make recommendation for improvements.
+> - Query the analytics database.
+> - Use Power BI for data visualization to highlight trends in tenant data and make recommendation for improvements.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
@@ -92,7 +92,7 @@ In the following steps, you deploy the analytics store, which is called **tenant
     - To use SQL database with column store, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics<XX>.ps1* script) which creates the tenant analytics store. 
 
-Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
+Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect <strong>tenants1-dpt-&lt;User&gt;</strong> and <strong>catalog-dpt-&lt;User&gt;</strong> servers using Login = <em>developer</em>, Password = <em>P<xref href="ssword1" data-throw-if-not-resolved="False" data-raw-source="@ssword1"></xref></em>. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -174,7 +174,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
+5. Select <strong>Database</strong> in the left pane, then enter user name = <em>developer</em>, and enter password = <em>P<xref href="ssword1" data-throw-if-not-resolved="False" data-raw-source="@ssword1"></xref></em>. Click <strong>Connect</strong>.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -232,8 +232,8 @@ In this tutorial, you learned how to:
 > - Deployed a tenant analytics database with pre-defined star schema tables
 > - Used elastic jobs to extract data from all the tenant database
 > - Merge the extracted data into tables in a star-schema designed for analytics
-> -	Query an analytics database 
-> -	Use Power BI for data visualization to observe trends in tenant data 
+> - Query an analytics database 
+> - Use Power BI for data visualization to observe trends in tenant data 
 
 Congratulations!
 

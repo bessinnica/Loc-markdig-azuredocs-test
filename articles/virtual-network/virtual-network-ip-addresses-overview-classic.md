@@ -161,16 +161,17 @@ In most cases, public IP addresses are free. There is a nominal charge to use ad
 ## Differences between Resource Manager and classic deployments
 Below is a comparison of IP addressing features in Resource Manager and the classic deployment model.
 
-|  | Resource | Classic | Resource Manager |
-| --- | --- | --- | --- |
-| **Public IP Address** |***VM*** |Referred to as an ILPIP (dynamic only) |Referred to as a public IP (dynamic or static) |
-|  ||Assigned to an IaaS VM or a PaaS role instance |Associated to the VM's NIC | |
-|  |***Internet facing load balancer*** |Referred to as VIP (dynamic) or Reserved IP (static) |Referred to as a public IP (dynamic or static) | |
-|  ||Assigned to a cloud service |Associated to the load balancer's front end config | |
-|  | | | |
-| **Private IP Address** |***VM*** |Referred to as a DIP |Referred to as a private IP address |
-|  ||Assigned to an IaaS VM or a PaaS role instance |Assigned to the VM's NIC | |
-|  |***Internal load balancer (ILB)*** |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
+
+|                                     |                        Resource                         |                       Classic                        |                         Resource Manager                          |
+|-------------------------------------|---------------------------------------------------------|------------------------------------------------------|-------------------------------------------------------------------|
+| <strong>Public IP Address</strong>  |              <strong><em>VM</em></strong>               |        Referred to as an ILPIP (dynamic only)        |          Referred to as a public IP (dynamic or static)           |
+|                                     |                                                         |    Assigned to an IaaS VM or a PaaS role instance    |                    Associated to the VM's NIC                     |
+|                                     | <strong><em>Internet facing load balancer</em></strong> | Referred to as VIP (dynamic) or Reserved IP (static) |          Referred to as a public IP (dynamic or static)           |
+|                                     |                                                         |             Assigned to a cloud service              |        Associated to the load balancer's front end config         |
+|                                     |                                                         |                                                      |                                                                   |
+| <strong>Private IP Address</strong> |              <strong><em>VM</em></strong>               |                 Referred to as a DIP                 |                Referred to as a private IP address                |
+|                                     |                                                         |    Assigned to an IaaS VM or a PaaS role instance    |                     Assigned to the VM's NIC                      |
+|                                     | <strong><em>Internal load balancer (ILB)</em></strong>  |       Assigned to the ILB (dynamic or static)        | Assigned to the ILB's front end configuration (dynamic or static) |
 
 ## Next steps
 * [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the Azure portal.

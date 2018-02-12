@@ -60,17 +60,17 @@ We first downloaded the raw MEDLINE abstract data from [MEDLINE](https://www.nlm
         abstract
         affiliation
         authors
-        country	
+        country 
         delete: boolean if False means paper got updated so you might have two XMLs for the same paper.
-        file_name	
-        issn_linking	
-        journal	
-        keywords	
-        medline_ta: this is abbreviation of the journal nam	
-        mesh_terms: list of MeSH terms	
-        nlm_unique_id	
-        other_id: Other IDs	
-        pmc: Pubmed Central ID	
+        file_name   
+        issn_linking    
+        journal 
+        keywords    
+        medline_ta: this is abbreviation of the journal nam 
+        mesh_terms: list of MeSH terms  
+        nlm_unique_id   
+        other_id: Other IDs 
+        pmc: Pubmed Central ID  
         pmid: Pubmed ID
         pubdate: Publication date
         title

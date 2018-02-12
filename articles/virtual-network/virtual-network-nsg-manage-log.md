@@ -68,28 +68,28 @@ This log contains information about which NSG rules are applied to VMs and cloud
 
 ```json
 {
-	"time": "[DATE-TIME]",
-	"systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
-	"category": "NetworkSecurityGroupEvent",
-	"resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION-ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
-	"operationName": "NetworkSecurityGroupEvents",
-	"properties": {
-		"vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-B791E1DBC2F4}",
-		"subnetPrefix":"192.168.1.0/24",
-		"macAddress":"00-0D-3A-92-6A-7C",
-		"primaryIPv4Address":"192.168.1.4",
-		"ruleName":"UserRule_default-allow-rdp",
-		"direction":"In",
-		"priority":1000,
-		"type":"allow",
-		"conditions":{
-			"protocols":"6",
-			"destinationPortRange":"3389-3389",
-			"sourcePortRange":"0-65535",
-			"sourceIP":"0.0.0.0/0",
-			"destinationIP":"0.0.0.0/0"
-			}
-		}
+    "time": "[DATE-TIME]",
+    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+    "category": "NetworkSecurityGroupEvent",
+    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION-ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
+    "operationName": "NetworkSecurityGroupEvents",
+    "properties": {
+        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-B791E1DBC2F4}",
+        "subnetPrefix":"192.168.1.0/24",
+        "macAddress":"00-0D-3A-92-6A-7C",
+        "primaryIPv4Address":"192.168.1.4",
+        "ruleName":"UserRule_default-allow-rdp",
+        "direction":"In",
+        "priority":1000,
+        "type":"allow",
+        "conditions":{
+            "protocols":"6",
+            "destinationPortRange":"3389-3389",
+            "sourcePortRange":"0-65535",
+            "sourceIP":"0.0.0.0/0",
+            "destinationIP":"0.0.0.0/0"
+            }
+        }
 }
 ```
 
@@ -99,21 +99,21 @@ This log contains information about each rule applied to resources. The followin
 
 ```json
 {
-	"time": "[DATE-TIME]",
-	"systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
-	"category": "NetworkSecurityGroupRuleCounter",
-	"resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]TESTRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
-	"operationName": "NetworkSecurityGroupCounters",
-	"properties": {
-		"vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-791E1DBC2F4}",
-		"subnetPrefix":"192.168.1.0/24",
-		"macAddress":"00-0D-3A-92-6A-7C",
-		"primaryIPv4Address":"192.168.1.4",
-		"ruleName":"UserRule_default-allow-rdp",
-		"direction":"In",
-		"type":"allow",
-		"matchedConnections":125
-		}
+    "time": "[DATE-TIME]",
+    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+    "category": "NetworkSecurityGroupRuleCounter",
+    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]TESTRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
+    "operationName": "NetworkSecurityGroupCounters",
+    "properties": {
+        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-791E1DBC2F4}",
+        "subnetPrefix":"192.168.1.0/24",
+        "macAddress":"00-0D-3A-92-6A-7C",
+        "primaryIPv4Address":"192.168.1.4",
+        "ruleName":"UserRule_default-allow-rdp",
+        "direction":"In",
+        "type":"allow",
+        "matchedConnections":125
+        }
 }
 ```
 

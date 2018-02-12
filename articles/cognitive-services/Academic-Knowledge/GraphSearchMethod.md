@@ -14,8 +14,10 @@ ms.author: alch
 
 # Graph Search Method
 
-The **graph search** REST API is used to return a set of academic entities based on the given graph patterns.  The response is a set of graph paths satisfying the user-specified constraints. A graph path is an interleaved sequence of graph nodes and edges in the form of _v0, e0, v1, e1, ..., vn_, where _v0_ is the starting node of the path.
+The <strong>graph search</strong> REST API is used to return a set of academic entities based on the given graph patterns.  The response is a set of graph paths satisfying the user-specified constraints. A graph path is an interleaved sequence of graph nodes and edges in the form of <em>v0, e0, v1, e1, ..., vn</em>, where <em>v0</em> is the starting node of the path.
+
 <br>
+
 
 **REST endpoint:**  
 ```
@@ -23,7 +25,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ```   
 <br>
 
+
 ## Request Parameters  
+
 Name     | Value | Required?  | Description
 -----------|-----------|---------|--------
 **mode**       | Text string | Yes | Name of the mode that you wish to use. The value is either *json* or *lambda*.
@@ -40,16 +44,19 @@ For the *json* search, the POST body is a JSON object. The JSON object describes
 For the *lambda* search, the POST body is a plain-text string. The POST body is a LIKQ lambda query string, which  is a single C# statement (see the [specification of query string](LambdaSearchSyntax.md) for *lambda* search). 
 
 <br>
+
 ## Response (JSON)
+
 Name | Description
 -------|-----   
 **results** | An array of 0 or more entities that match the query expression. Each entity contains the values of requested attributes. This field is present if the request has been successfully processed.
-**error** |	HTTP status codes. This field is present if the request fails.
+**error** | HTTP status codes. This field is present if the request fails.
 **message** | Error message. This field is present if the request fails.
 
 If a query cannot be processed within _800 ms_, a _timeout_ error will be returned. 
 
 <br>
+
 #### Example:
 
 ##### JSON Search
@@ -57,7 +64,8 @@ If a query cannot be processed within _800 ms_, a _timeout_ error will be return
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 ```
 <br>
-For the *json* search, if we want to get the papers whose titles contain "graph engine" and written by "bin shao", we can specify the query as follows.
+For the 
+<em>json</em> search, if we want to get the papers whose titles contain "graph engine" and written by "bin shao", we can specify the query as follows.
 
 ```JSON
 {
@@ -129,7 +137,8 @@ The output of a query is an array of graph paths. A graph path is an array of no
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=lambda
 ```
 <br>
-For the *lambda* search, if we want to get the author IDs of a given paper, we can write a query like the following one.
+For the 
+<em>lambda</em> search, if we want to get the author IDs of a given paper, we can write a query like the following one.
 
 ```
 MAG.StartFrom(@"{
@@ -172,7 +181,7 @@ The output of a *lambda* search query is also an array of graph paths:
   ]
 }
 ```
- 
+
 ## Graph Schema
 
 Graph schema is useful for writing graph search queries. It is shown in the following figure.

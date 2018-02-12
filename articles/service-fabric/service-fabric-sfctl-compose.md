@@ -48,13 +48,13 @@ Creates a Service Fabric compose deployment.
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug                 | Increase logging verbosity to show all debug logs.|
-| --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
-| --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                      |
+|-------------|--------------------------------------------------------------------------------------|
+|   --debug   |                  Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                           Show this help message and exit.                           |
+| --output -o | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json. |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/.  |
+|  --verbose  |             Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl compose list
 Gets the list of compose deployments created in the Service Fabric cluster.
@@ -74,13 +74,13 @@ Gets the status about the compose deployments that were created or are in the pr
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug          | Increase logging verbosity to show all debug logs.|
-| --help -h        | Show this help message and exit.|
-| --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query          | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.       |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl compose remove
 Deletes an existing Service Fabric compose deployment from cluster.
@@ -96,13 +96,13 @@ Deletes an existing Service Fabric compose deployment.
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug                 | Increase logging verbosity to show all debug logs.|
-| --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
-| --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                      |
+|-------------|--------------------------------------------------------------------------------------|
+|   --debug   |                  Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                           Show this help message and exit.                           |
+| --output -o | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json. |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/.  |
+|  --verbose  |             Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl compose status
 Gets information about a Service Fabric compose deployment.
@@ -120,13 +120,13 @@ Returns the status of compose deployment that was created or in the process of b
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug                 | Increase logging verbosity to show all debug logs.|
-| --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
-| --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                      |
+|-------------|--------------------------------------------------------------------------------------|
+|   --debug   |                  Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                           Show this help message and exit.                           |
+| --output -o | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json. |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/.  |
+|  --verbose  |             Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl compose upgrade
 Starts upgrading a compose deployment in the Service Fabric cluster.
@@ -134,6 +134,7 @@ Starts upgrading a compose deployment in the Service Fabric cluster.
 Validates the supplied upgrade parameters and starts upgrading the deployment.
 
 ### Arguments
+
 |Argument|Description|
 | --- | --- |
 |    --file-path        [Required]| Path to the target Docker Compose file.|
@@ -158,6 +159,7 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 |    --warning-as-error           | Warnings are treated with the same severity as errors.|
 
 ### Global Arguments
+
  |Argument|Description|
 | --- | --- |
 |   --debug                      | Increase logging verbosity to show all debug logs.|

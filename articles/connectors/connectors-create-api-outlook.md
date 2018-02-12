@@ -33,7 +33,6 @@ To create Logic apps with Outlook.com, you must first create a **connection** th
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
 > [!INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
->
 
 ## Connector-specific details
 

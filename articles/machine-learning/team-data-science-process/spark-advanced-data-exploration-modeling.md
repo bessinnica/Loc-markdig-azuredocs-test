@@ -56,7 +56,7 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 
 ### Spark 2.0 notebooks
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)​: This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

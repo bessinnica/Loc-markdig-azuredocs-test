@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create network security groups - Azure PowerShell | Microsoft Docs
 description: Learn how to create and deploy network security groups using PowerShell.
 services: virtual-network
@@ -37,34 +37,34 @@ To create an NSG named *NSG-FrontEnd* based on the scenario, complete the follow
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Create a security rule allowing access from the Internet to port 3389.
 
-	```powershell
-	$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
-	-Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
-	-SourceAddressPrefix Internet -SourcePortRange * `
-	-DestinationAddressPrefix * -DestinationPortRange 3389
-	```
+    ```powershell
+    $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+    -SourceAddressPrefix Internet -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange 3389
+    ```
 
 3. Create a security rule allowing access from the Internet to port 80.
 
-	```powershell
-	$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
-	-Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
-	-SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * `
-	-DestinationPortRange 80
-	```
+    ```powershell
+    $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+    -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * `
+    -DestinationPortRange 80
+    ```
 
 4. Add the rules created above to a new NSG named **NSG-FrontEnd**.
 
-	```powershell
-	$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
-	-Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
-	```
+    ```powershell
+    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
+    -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
+    ```
 
 5. Check the rules created in the NSG by typing the following:
 
-	```powershell
-	$nsg
-	```
+    ```powershell
+    $nsg
+    ```
    
     Output showing just the security rules:
    
@@ -102,13 +102,13 @@ To create an NSG named *NSG-FrontEnd* based on the scenario, complete the follow
                                ]
 6. Associate the NSG created above to the *FrontEnd* subnet.
 
-	```powershell
-	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-	Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
-	-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
-	```
+    ```powershell
+    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+    -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
+    ```
 
-	Output showing only the *FrontEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:
+    Output showing only the *FrontEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:
    
                     Subnets           : [
                                           {
@@ -137,9 +137,9 @@ To create an NSG named *NSG-FrontEnd* based on the scenario, complete the follow
    > 
 7. Save the new VNet settings to Azure.
 
-	```powershell
-	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-	```
+    ```powershell
+    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    ```
 
     Output showing just the NSG portion:
    
@@ -152,38 +152,38 @@ To create an NSG named *NSG-BackEnd* based on the scenario above, complete the f
 
 1. Create a security rule allowing access from the front-end subnet to port 1433 (default port used by SQL Server).
 
-	```powershell
-	$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule `
-	-Description "Allow FE subnet" `
-	-Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
-	-SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
-	-DestinationAddressPrefix * -DestinationPortRange 1433
-	```
+    ```powershell
+    $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule `
+    -Description "Allow FE subnet" `
+    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+    -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange 1433
+    ```
 
 2. Create a security rule blocking access to the Internet.
 
-	```powershell
-	$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule `
-	-Description "Block Internet" `
-	-Access Deny -Protocol * -Direction Outbound -Priority 200 `
-	-SourceAddressPrefix * -SourcePortRange * `
-	-DestinationAddressPrefix Internet -DestinationPortRange *
-	```
+    ```powershell
+    $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule `
+    -Description "Block Internet" `
+    -Access Deny -Protocol * -Direction Outbound -Priority 200 `
+    -SourceAddressPrefix * -SourcePortRange * `
+    -DestinationAddressPrefix Internet -DestinationPortRange *
+    ```
 
 3. Add the rules created above to a new NSG named **NSG-BackEnd**.
 
-	```powershell
-	$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG `
-	-Location westus -Name "NSG-BackEnd" `
-	-SecurityRules $rule1,$rule2
-	```
+    ```powershell
+    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG `
+    -Location westus -Name "NSG-BackEnd" `
+    -SecurityRules $rule1,$rule2
+    ```
 
 4. Associate the NSG created above to the *BackEnd* subnet.
 
-	```powershell
-	Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd ` 
-	-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
-	```
+    ```powershell
+    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd ` 
+    -AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
+    ```
 
     Output showing only the *BackEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:
    
@@ -202,9 +202,9 @@ To create an NSG named *NSG-BackEnd* based on the scenario above, complete the f
                       }
 5. Save the new VNet settings to Azure.
 
-	```powershell
-	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-	```
+    ```powershell
+    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    ```
 
 ## How to remove an NSG
 To delete an existing NSG, called *NSG-Frontend* in this case, follow the step below:

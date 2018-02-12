@@ -36,6 +36,7 @@ If port 19080 is not accessible from the Service Fabric resource provider, a mes
 All Service Fabric templates are in [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). You should be able to deploy the templates as-is by using the following PowerShell commands. If you are deploying the existing Azure Virtual Network template or the static public IP template, first read the [Initial setup](#initialsetup) section of this article.
 
 <a id="initialsetup"></a>
+
 ## Initial setup
 
 ### Existing virtual network
@@ -73,6 +74,7 @@ DnsSettings              : {
 In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the [sample templates](https://github.com/Azure-Samples/service-fabric-cluster-templates), like the [secure five-node Service Fabric cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
+
 ## Existing virtual network or subnet
 
 1. Change the subnet parameter to the name of the existing subnet, and then add two new parameters to reference the existing virtual network:
@@ -172,6 +174,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 
 
 <a id="staticpublicip"></a>
+
 ## Static public IP address
 
 1. Add parameters for the name of the existing static IP resource group, name, and fully qualified domain name (FQDN):
@@ -279,6 +282,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 After deployment, you can see that your load balancer is bound to the public static IP address from the other resource group. The Service Fabric client connection endpoint and [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint point to the DNS FQDN of the static IP address.
 
 <a id="internallb"></a>
+
 ## Internal-only load balancer
 
 This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal and for the Service Fabric resource provider, see the preceding section.
@@ -377,6 +381,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 After deployment, your load balancer uses the private static 10.0.0.250 IP address. If you have another machine in that same virtual network, you can go to the internal [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint. Note that it connects to one of the nodes behind the load balancer.
 
 <a id="internalexternallb"></a>
+
 ## Internal and external load balancer
 
 In this scenario, you start with the existing single-node type external load balancer, and add an internal load balancer for the same node type. A back-end port attached to a back-end address pool can be assigned only to a single load balancer. Choose which load balancer will have your application ports, and which load balancer will have your management endpoints (ports 19000 and 19080). If you put the management endpoints on the internal load balancer, keep in mind the Service Fabric resource provider restrictions discussed earlier in the article. In the example we use, the management endpoints remain on the external load balancer. You also add a port 80 application port, and place it on the internal load balancer.

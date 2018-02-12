@@ -115,6 +115,7 @@ so that your Swagger file works well with logic apps.
 
 <a name="actions"></a>
 
+
 ## Action patterns
 
 For logic apps to perform tasks, your custom API should provide 
@@ -147,6 +148,7 @@ For samples, visit the [Logic Apps GitHub repository](https://github.com/logicap
 Also, learn more about [usage metering for actions](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
+
 
 ### Perform long-running tasks with the polling action pattern
 
@@ -193,9 +195,9 @@ immediately return an HTTP `202 ACCEPTED` response with the
 `location` header described later in this step. 
 This response lets the Logic Apps engine know that your API got the request, 
 accepted the request payload (data input), and is now processing. 
-   
+
    The `202 ACCEPTED` response should include these headers:
-   
+
    * *Required*: A `location` header that specifies the absolute path 
    to a URL where the Logic Apps engine can check your API's job status
 
@@ -208,7 +210,7 @@ accepted the request payload (data input), and is now processing.
 2. After the specified time passes, the Logic Apps engine polls 
 the `location` URL to check job status. Your API should perform these 
 checks and return these responses:
-   
+
    * If the job is done, return an HTTP `200 OK` response, 
    along with the response payload (input for the next step).
 
@@ -226,6 +228,7 @@ and checks the `location` header until your API returns a non-202 response.
 > [asynchronous controller response sample in GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
 
 <a name="webhook-actions"></a>
+
 
 ### Perform long-running tasks with the webhook action pattern
 
@@ -281,6 +284,7 @@ Your API can then unregister the callback URL and stop any processes as necessar
 
 <a name="triggers"></a>
 
+
 ## Trigger patterns
 
 Your custom API can act as a [*trigger*](./logic-apps-overview.md#logic-app-concepts) 
@@ -296,6 +300,7 @@ These patterns are similar to their counterparts for
 Also, learn more about [usage metering for triggers](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
+
 
 ### Check for new data or events regularly with the polling trigger pattern
 
@@ -341,6 +346,7 @@ you might build a polling trigger that has these behaviors:
 > [poll trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
 
 <a name="webhook-triggers"></a>
+
 
 ### Wait and listen for new data or events with the webhook trigger pattern
 

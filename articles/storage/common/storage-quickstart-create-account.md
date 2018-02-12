@@ -154,8 +154,7 @@ When naming your storage account, keep these rules in mind:
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
-# [Portal](#tab/portal)
-
+#### [Portal](#tab/portal/)
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
@@ -170,8 +169,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 ![Screen shot showing storage account creation in the Azure portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
-# [PowerShell](#tab/powershell)
-
+#### [PowerShell](#tab/powershell/)
 To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command: 
 
 ```powershell
@@ -191,8 +189,7 @@ To create a general-purpose v2 storage account with zone-redundant storage (ZRS 
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
-# [Azure CLI](#tab/azure-cli)
-
+#### [Azure CLI](#tab/azure-cli/)
 To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
@@ -213,14 +210,13 @@ To create a general-purpose v2 storage account with zone-redundant storage (ZRS 
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
----
-
+* * *
 > [!NOTE]
 > [Zone-redundant storage](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) is currently in preview, and is available only in the following locations:
 >    - US East 2
 >    - US Central
 >    - France Central (This region is currently in preview. See [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) to request access.)
-    
+
 For more information about the different types of replication available, see [Storage replication options](storage-redundancy.md).
 
 ## Clean up resources

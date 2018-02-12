@@ -40,11 +40,13 @@ Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com
 
 3. Enter **Name**, **Description**, **Website**. You can make up a URL for the **Website** field. The following table shows some sample values to use:
 
-   | Field | Value |
-   |:--- |:--- |
-   | Name |MyHDInsightApp |
-   | Description |MyHDInsightApp |
-   | Website |http://www.myhdinsightapp.com |
+
+   | Field       | Value                         |
+   |:------------|:------------------------------|
+   | Name        | MyHDInsightApp                |
+   | Description | MyHDInsightApp                |
+   | Website     | http://www.myhdinsightapp.com |
+
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 

@@ -49,10 +49,11 @@ The recovery time to restore a database using automated database backups is impa
 * The amount of activity that needs to be replayed to recover to the restore point
 * The network bandwidth if the restore is to a different region 
 * The number of concurrent restore requests being processed in the target region. 
-  
+
   For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
 
 For a single subscription, there’re some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long term retention backup) being submitted and proceeded:
+
 |  | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
 |Single database (per subscription)|10|60|
@@ -131,6 +132,7 @@ To geo-restore a database during its [retention period](sql-database-service-tie
 As previously discussed, in addition to the Azure portal, database recovery can be performed programmatically using Azure PowerShell or the REST API. The following tables describe the set of commands available.
 
 ### PowerShell
+
 | Cmdlet | Description |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Gets one or more databases. |
@@ -140,6 +142,7 @@ As previously discussed, in addition to the Azure portal, database recovery can 
 |  | |
 
 ### REST API
+
 | API | Description |
 | --- | --- |
 | [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Restores a database |

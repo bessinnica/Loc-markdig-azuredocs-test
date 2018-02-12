@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Bing Spell Check API with Node.JS 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Node.JS. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Node.JS. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
 
 ## Prerequisites
 
@@ -56,8 +57,8 @@ let request_params = {
     hostname : host,
     path : path + query_string,
     headers : {
-		'Content-Type' : 'application/x-www-form-urlencoded',
-		'Content-Length' : text.length + 5,
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'Content-Length' : text.length + 5,
         'Ocp-Apim-Subscription-Key' : key,
 //        'X-Search-Location' : CLIENT_LOCATION,
 //        'X-MSEdge-ClientID' : CLIENT_ID,

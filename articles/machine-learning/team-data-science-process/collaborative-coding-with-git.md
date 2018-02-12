@@ -43,7 +43,7 @@ The following picture depicts the recommended branching strategy for TDSP. You m
 
 To switch to the branch that you want to work on, run the following command in a shell command (Windows or Linux). 
 
-	git checkout <branch name>
+    git checkout <branch name>
 
 Changing the *<branch name\>* to **master** switches you back to the **master** branch. After you switch to the working branch, you can start working on that work item, developing the code or documentation artifacts needed to complete the item. 
 
@@ -52,18 +52,18 @@ You can also link a work item to an existing branch. In the **Detail** page of a
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
 You can also create a new branch in Git Bash commands. If <base branch name\> is missing, the <new branch name\> is based on _master_ branch. 
-	
-	git checkout -b <new branch name> <base branch name>
+    
+    git checkout -b <new branch name> <base branch name>
 
 
 ## 2. <a name='WorkonaBranchandCommittheChanges-2'></a>Work on a branch and commit the changes 
 
 Now suppose you make some change to the *data\_ingestion* branch for the work item, such as adding an R file on the branch in your local machine. You can commit the R file added to the branch for this work item, provided you are in that branch in your Git shell, using the following Git commands:
 
-	git status
-	git add .
-	git commit -m"added a R scripts"
-	git push origin data_ingestion
+    git status
+    git add .
+    git commit -m"added a R scripts"
+    git push origin data_ingestion
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
@@ -101,9 +101,9 @@ When you go back to the repository under **CODE**, you are told that you have be
 
 You can also use the following Git commands to merge your working branch to its base branch and delete the working branch after merging:
 
-	git checkout master
-	git merge data_ingestion
-	git branch -d data_ingestion
+    git checkout master
+    git merge data_ingestion
+    git branch -d data_ingestion
 
 ![13](./media/collaborative-coding-with-git/13-spring-branch-deleted-commandline.png)
 

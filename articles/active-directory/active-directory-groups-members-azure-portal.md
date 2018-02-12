@@ -33,7 +33,7 @@ This article explains how to manage the members for a group in Azure Active Dire
 
    ![Opening the groups blade](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
 4. On the **Users and groups - All groups** blade, select a group.
-5. On the **Group - *groupname*** blade, select **Members**.
+5. On the <strong>Group - *groupname</strong>* blade, select <strong>Members</strong>.
 
    ![Opening the Members blade](./media/active-directory-groups-members-azure-portal/view-group-members.png)
 6. To add members to the group, on the **Group - Members** blade, select **Add Members**.

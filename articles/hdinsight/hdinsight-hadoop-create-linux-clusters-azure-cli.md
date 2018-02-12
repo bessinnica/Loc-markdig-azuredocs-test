@@ -85,8 +85,8 @@ The following steps should be performed from a command line, such as PowerShell 
 
         azure storage account keys list -g groupname storagename
 
-    * Replace `groupname` with the resource group name.
-    * Replace `storagename` with the name of the storage account.
+   * Replace `groupname` with the resource group name.
+   * Replace `storagename` with the name of the storage account.
 
      In the data that is returned, save the `key` value for `key1`.
 
@@ -94,31 +94,31 @@ The following steps should be performed from a command line, such as PowerShell 
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Replace `groupname` with the resource group name.
+   * Replace `groupname` with the resource group name.
 
-    * Replace `Hadoop` with the cluster type that you wish to create. For example, `Hadoop`, `HBase`, `Kafka`, `Spark`, or `Storm`.
+   * Replace `Hadoop` with the cluster type that you wish to create. For example, `Hadoop`, `HBase`, `Kafka`, `Spark`, or `Storm`.
 
      > [!IMPORTANT]
      > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 
-    * Replace `location` with the same location used in previous steps.
+   * Replace `location` with the same location used in previous steps.
 
-    * Replace `storagename` with the storage account name.
+   * Replace `storagename` with the storage account name.
 
-    * Replace `storagekey` with the key obtained in the previous step.
+   * Replace `storagekey` with the key obtained in the previous step.
 
-    * For the `--defaultStorageContainer` parameter, use the same name as you are using for the cluster.
+   * For the `--defaultStorageContainer` parameter, use the same name as you are using for the cluster.
 
-    * Replace `admin` and `httppassword` with the name and password you wish to use when accessing the cluster through HTTPS.
+   * Replace `admin` and `httppassword` with the name and password you wish to use when accessing the cluster through HTTPS.
 
-    * Replace `sshuser` and `sshuserpassword` with the username and password you wish to use when accessing the cluster using SSH
+   * Replace `sshuser` and `sshuserpassword` with the username and password you wish to use when accessing the cluster using SSH
 
-    > [!IMPORTANT]
-    > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
-    >
-    > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+     > [!IMPORTANT]
+     > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
+     >
+     > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-    It may take several minutes for the cluster creation process to finish. Usually around 15.
+     It may take several minutes for the cluster creation process to finish. Usually around 15.
 
 ## Troubleshoot
 

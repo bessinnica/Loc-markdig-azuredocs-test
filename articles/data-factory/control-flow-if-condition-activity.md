@@ -31,12 +31,12 @@ The If Condition activity provides the same functionality that an if statement p
     "name": "<Name of the activity>",
     "type": "IfCondition",
     "typeProperties": {
-		    "expression": {
+            "expression": {
             "value": "<expression that evaluates to true or false>",
             "type": "Expression"
-		    },
+            },
 
-		    "ifTrueActivities": [
+            "ifTrueActivities": [
             {
                 "<Activity 1 definition>"
             },
@@ -58,7 +58,7 @@ The If Condition activity provides the same functionality that an if statement p
             {
                 "<Activity N definition>"
             }
-		    ]
+            ]
     }
 }
 ```

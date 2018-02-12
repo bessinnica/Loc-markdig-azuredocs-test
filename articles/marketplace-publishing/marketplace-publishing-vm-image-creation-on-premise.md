@@ -30,14 +30,14 @@ Locate the blob URL from the new [Microsoft Azure portal](https://portal.azure.c
 
 1. Go to **Browse** > **VMs**, and then select the deployed VM.
 2. Under **Configure**, select the **Disks** tile, which opens the Disks blade.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
 3. Select the **OS Disk**, which opens another blade that displays disk properties, including the VHD location.
 4. Copy this blob URL.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
 5. Now, delete the deployed VM without deleting the backing disks. You can also stop the VM instead of deleting it. Do not download the operating system VHD when the VM is running.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### Download a VHD
@@ -53,17 +53,17 @@ After you know the blob URL, you can download the VHD by using the [Azure portal
 1. Sign in to the Azure portal if you have not done so already.
 2. Click the **Storage** tab.
 3. Select the storage account within which the VHD is stored.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
 4. This displays storage account properties. Select the **Containers** tab.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
 5. Select the container in which the VHD is stored. By default, when created from the portal, the VHD is stored in a vhds container.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
 6. Select the correct operating system VHD by comparing the URL to the one you saved.
 7. Click **Download**.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### Download a VHD by using PowerShell
@@ -73,7 +73,8 @@ In addition to using the Azure portal, you can use the [Save-AzureVhd](http://ms
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
 For example,
-        Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
+        Save-AzureVhd -Source “<https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd”> -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
+
 
 > [!NOTE]
 > **Save-AzureVhd** also has a **NumberOfThreads** option that can be used to increase parallelism to make the best use of available bandwidth for the download.
@@ -93,12 +94,12 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
 1. Click **New**.
 2. Select **Storage**.
 3. Fill in the storage account name, and then select a location.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 4. Click **Create**.
 5. The blade for the created storage account should be open. If not, select **Browse** > **Storage Accounts**. On the Storage account blade, select the storage account created.
 6. Select **Containers**.
-   
+
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img09.png) 
 7. On the Containers blade, select **Add**, and then enter a container name and the container permissions. Select **Private** for container permissions.
 
@@ -144,6 +145,7 @@ Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
 ### Upload a VHD by using the command-line tool for Mac and Linux
 With the [Linux command-line tool](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), use the following:
         azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
+
 
 ## See also
 * [Creating a virtual machine image for the Marketplace](marketplace-publishing-vm-image-creation.md)

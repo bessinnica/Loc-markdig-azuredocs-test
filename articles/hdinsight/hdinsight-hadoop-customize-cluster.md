@@ -69,13 +69,14 @@ are specified. A script can be ran on the head node, the worker nodes, or both.
 
 HDInsight provides several scripts to install the following components on HDInsight clusters:
 
-| Name | Script |
-| --- | --- |
-| **Install Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. See [Install and use Spark on HDInsight clusters][hdinsight-install-spark]. |
-| **Install R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-install-r]. |
-| **Install Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). |
-| - **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
-| **Pre-load Hive libraries** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. See [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
+
+|                   Name                   |                                                                                           Script                                                                                           |
+|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      <strong>Install Spark</strong>      |          https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. See [Install and use Spark on HDInsight clusters][hdinsight-install-spark].          |
+|        <strong>Install R</strong>        |                  https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-install-r].                  |
+|      <strong>Install Solr</strong>       |       https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).       |
+|    - <strong>Install Giraph</strong>     |   https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).   |
+| <strong>Pre-load Hive libraries</strong> | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. See [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## Call scripts using the Azure portal
 **From the Azure portal**
@@ -92,7 +93,7 @@ HDInsight provides several scripts to install the following components on HDInsi
         <tr><td>Script URI</td>
             <td>Specify the URI to the script that is invoked to customize the cluster. s</td></tr>
         <tr><td>Head/Worker</td>
-            <td>Specify the nodes (**Head** or **Worker**) on which the customization script is run.</b>.
+            <td>Specify the nodes (<strong>Head</strong> or <strong>Worker</strong>) on which the customization script is run.</b>.
         <tr><td>Parameters</td>
             <td>Specify the parameters, if required by the script.</td></tr>
     </table>

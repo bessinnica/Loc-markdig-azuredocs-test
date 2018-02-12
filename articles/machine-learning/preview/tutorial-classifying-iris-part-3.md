@@ -99,19 +99,19 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 10. Review the following lines of code in the **init()** function that instantiates **ModelDataCollector**:
 
-   ```python
-   global inputs_dc, prediction_dc
-   inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
-   prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
-   ```
+    ```python
+    global inputs_dc, prediction_dc
+    inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
+    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
+    ```
 
 11. Review the following lines of code in the **run(input_df)** function as it collects the input and prediction data:
 
-   ```python
-   global clf2, inputs_dc, prediction_dc
-   inputs_dc.collect(input_df)
-   prediction_dc.collect(pred)
-   ```
+    ```python
+    global clf2, inputs_dc, prediction_dc
+    inputs_dc.collect(input_df)
+    prediction_dc.collect(pred)
+    ```
 
 Now you're ready to prepare your environment to operationalize the model.
 

@@ -34,29 +34,29 @@ If you don't have an Azure Government subscription, create a [free account](http
 1. Navigate to the [Azure Government portal](https://portal.azure.us) and login with your Azure Government credentials.
 2. Click on the green + New in the upper left blade and click on Networking | Virtual Network. 
 
-  ![createvn1](./media/documentation-government-quickstarts-vm1.png)
+   ![createvn1](./media/documentation-government-quickstarts-vm1.png)
 3. Make sure the deployment model is set to "Resource Manager" and click Create.
 4. Fill out the following fields and click Create.
 
-  >[!Note]
-  > Your Subscription box will look different from below.
-  >
-  >
+   >[!Note]
+   > Your Subscription box will look different from below.
+   >
+   >
 
    ![createvn2](./media/documentation-government-quickstarts-vm2.png)
   
 5. Navigate to "Virtual networks" from the menu on the left and click on the Virtual Network you just created. Under "Settings" click on "Subnets".
 
-  ![createvn3](./media/documentation-government-quickstarts-vm3.png)
+   ![createvn3](./media/documentation-government-quickstarts-vm3.png)
 6. On the top left-hand corner of the page choose "Subnet" and fill out the following fields.
 
-  ![createvn5](./media/documentation-government-quickstarts-vm5.png)
+   ![createvn5](./media/documentation-government-quickstarts-vm5.png)
 7. Click "Ok" when finished and navigate to the top left hand corner again. Click on "Gateway Subnet".
 
-  ![createvn6](./media/documentation-government-quickstarts-vm7.png)
+   ![createvn6](./media/documentation-government-quickstarts-vm7.png)
 8. Enter the address range shown below ad click "Ok". You have now created a Virtual Network on Azure Government.
 
-  ![createvn7](./media/documentation-government-quickstarts-vm8.png)
+   ![createvn7](./media/documentation-government-quickstarts-vm8.png)
   
 ## Part 2: Virtual Machine
 
@@ -76,32 +76,32 @@ If you don't already have a Virtual Network, complete the "Create a new Virtual 
 
 3. Search for "Data science" and then click on "Data Science Virtual Machine - Windows 2016 CSP". 
 
-  ![createvn8](./media/documentation-government-quickstarts-vm9.png)
+   ![createvn8](./media/documentation-government-quickstarts-vm9.png)
 4. Click on "Create". Then fill out the fields and click "Ok".
 
-  >[!Note]
-  > Choose a password that you will remember!
-  >
-  >
+   >[!Note]
+   > Choose a password that you will remember!
+   >
+   >
 
-  ![createvn9](./media/documentation-government-quickstarts-vm10.png)
+   ![createvn9](./media/documentation-government-quickstarts-vm10.png)
 5. Open the Supported disk type dropdown box and select HDD. Click on "View All" in the options at the top right corner. Scroll down the A4_v2 size and select it. Click on Select.
 
-  ![createvn10](./media/documentation-government-quickstarts-vm11.png)
+   ![createvn10](./media/documentation-government-quickstarts-vm11.png)
 6. On the left hand "Settings" box click on "Network" and select your Virtual Network.
 
-  ![createvn11](./media/documentation-government-quickstarts-vm12.png)
+   ![createvn11](./media/documentation-government-quickstarts-vm12.png)
 7. Click on "Subnet" and choose the subnet that you just created. 
 
-  ![createvn12](./media/documentation-government-quickstarts-vm13.png)
+   ![createvn12](./media/documentation-government-quickstarts-vm13.png)
 8. Click on "Public IP address" and then click on "Ok".
 
-  ![createvn13](./media/documentation-government-quickstarts-vm14.png)
+   ![createvn13](./media/documentation-government-quickstarts-vm14.png)
 9. Now we can create the VM by clicking "Ok".
 
 10. Once the validation step has completed click "Ok" and you should see the following screen.
 
-  ![createvn14](./media/documentation-government-quickstarts-vm15.png)
+    ![createvn14](./media/documentation-government-quickstarts-vm15.png)
   
 The VM will now be provisioned. It will take several minutes to complete, but afterwards you will be able to connect to the VM with RDP using the public IP address.
 ## Next steps

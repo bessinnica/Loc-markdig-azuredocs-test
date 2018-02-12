@@ -13,7 +13,7 @@ ms.author: tomfitz
 
 # Azure Event Grid event schema for event hubs
 
-This article provides the properties and schema for event hubs events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for event hubs events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ### Available event types
 

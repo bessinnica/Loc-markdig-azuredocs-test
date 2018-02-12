@@ -40,13 +40,13 @@ Let's walk through the steps to build a **Workspace Collection** using the Azure
 
 1. Open and sign into **Azure portal**: [http://portal.azure.com](http://portal.azure.com).
 2. Select **+ New** on the top panel.
-   
+
    ![+ New within Azure portal](media/get-started/create-workspace-1.png)
 3. Under **Data + Analytics**, select **Power BI Workspace Collection**.
 4. Within the get started message, if you already have an existing Power BI Workspace Collection subscription, select **Create a workspace collection** at the bottom.
 
 5. On **Workspace Collection**, enter the required information.
-   
+
    ![Workspace collection creation](media/get-started/create-workspace-2.png)
 1. Select **Create**.
 
@@ -57,6 +57,7 @@ The **Workspace Collection** takes a few moments to provision. When completed, y
 The **Creation** results contain the information you need to call the APIs that create workspaces and deploy content to them.
 
 <a name="view-access-keys"/>
+
 
 ## View Power BI API access keys
 

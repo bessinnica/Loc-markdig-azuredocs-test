@@ -204,25 +204,25 @@ Prerequisite for this step is to sign up for [Microsoft Flow](https://flow.micro
 The next step is to add three jobs (create, get output and send email) to the newly created recurring flow. To accomplish adding the required jobs to the flow, follow these steps:
 
 1. Create action to execute PowerShell script to retrieve tuning recommendations
-- Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
-- In the search field type “**automation**” and select “**Azure Automation – Create job**” from the search results
-- In the Create job pane, configure the job properties. For this configuration, you will need details of your Azure subscription ID, Resource Group and Automation Account **previously recorded** at the **Automation Account pane**. To learn more about options available in this section, see [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
-- Complete creating this action by clicking on “**Save flow**”
+2. Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
+3. In the search field type “**automation**” and select “**Azure Automation – Create job**” from the search results
+4. In the Create job pane, configure the job properties. For this configuration, you will need details of your Azure subscription ID, Resource Group and Automation Account **previously recorded** at the **Automation Account pane**. To learn more about options available in this section, see [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+5. Complete creating this action by clicking on “**Save flow**”
 
-2. Create action to retrieve output from the executed PowerShell script
-- Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
-- In the search filed type “**automation**” and select “**Azure Automation – Get job output**” from the search results. To learn more about options available in this section, see [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
-- Populate fields required (similar to creating the previous job) - populate your Azure subscription ID, Resource Group, and Automation Account (as entered in the Automation Account pane)
-- Click inside the field “**Job ID**” for the “**Dynamic content**” menu to show up. From within this menu, select the option “**Job ID**”.
-- Complete creating this action by clicking on “**Save flow**”
+6. Create action to retrieve output from the executed PowerShell script
+7. Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
+8. In the search filed type “**automation**” and select “**Azure Automation – Get job output**” from the search results. To learn more about options available in this section, see [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+9. Populate fields required (similar to creating the previous job) - populate your Azure subscription ID, Resource Group, and Automation Account (as entered in the Automation Account pane)
+10. Click inside the field “**Job ID**” for the “**Dynamic content**” menu to show up. From within this menu, select the option “**Job ID**”.
+11. Complete creating this action by clicking on “**Save flow**”
 
-3. Create action to send out email using Office 365 integration
-- Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
-- In the search filed type “**send an email**” and select “**Office 365 Outlook – Send an email**” from the search results
-- In the “**To**” field type in the email address to which you need to send the notification email
-- In the “**Subject**” field type in the subject of your email, for example “Automatic tuning recommendations email notification”
-- Click inside the field “**Body**” for the “**Dynamic content**” menu to show up. From within this menu, under “**Get job output**”, select “**Content**” 
-- Complete creating this action by clicking on “**Save flow**”
+12. Create action to send out email using Office 365 integration
+13. Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
+14. In the search filed type “**send an email**” and select “**Office 365 Outlook – Send an email**” from the search results
+15. In the “**To**” field type in the email address to which you need to send the notification email
+16. In the “**Subject**” field type in the subject of your email, for example “Automatic tuning recommendations email notification”
+17. Click inside the field “**Body**” for the “**Dynamic content**” menu to show up. From within this menu, under “**Get job output**”, select “**Content**” 
+18. Complete creating this action by clicking on “**Save flow**”
 
 > [!TIP]
 > To send automated emails to different recipients, create separate flows. In these additional flows, change the recipient email address in the “To” field, and the email subject line in the “Subject” field. Creating new runbooks in Azure Automation with customized PowerShell scripts (such as with change of Azure subscription ID) enables further customization of automated scenarios, such is for example emailing separate recipients on Automated tuning recommendations for separate subscriptions.

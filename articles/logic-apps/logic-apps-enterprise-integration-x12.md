@@ -46,59 +46,59 @@ you can create an X12 agreement by following these steps.
 
 ## Create an X12 agreement
 
-1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
-From the left menu, select **More services**. 
+1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
+   From the left menu, select **More services**. 
 
-    > [!TIP]
-    > If you don't see **More services**, you might have to expand the menu first. 
-    > At the top of the collapsed menu, select **Show menu**.
+   > [!TIP]
+   > If you don't see **More services**, you might have to expand the menu first. 
+   > At the top of the collapsed menu, select **Show menu**.
 
-	![On left menu, select "More services"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![On left menu, select "More services"](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.	In the search box, type "integration" as your filter. 
-In the results list, select **Integration Accounts**.  
+2. In the search box, type "integration" as your filter. 
+   In the results list, select **Integration Accounts**.  
 
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-x12/account-2.png)
+   ![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
 3. In the **Integration Accounts** blade that opens, 
-select the integration account where you want to add the agreement.
-If you don't see any integration accounts, 
-[create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").
+   select the integration account where you want to add the agreement.
+   If you don't see any integration accounts, 
+   [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").
 
-	![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
+    ![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Select **Overview**, then select the **Agreements** tile. 
-If you don't have an Agreements tile, add the tile first. 
+   If you don't have an Agreements tile, add the tile first. 
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+    ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. In the Agreements blade that opens, choose **Add**.
 
-	![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+    ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
-For the agreement type, select **X12**. 
-Select the **Host Partner**, **Host Identity**, 
-**Guest Partner**, and **Guest Identity** for your agreement. 
-For more property details, see the table in this step.
+   For the agreement type, select **X12**. 
+   Select the **Host Partner**, **Host Identity**, 
+   **Guest Partner**, and **Guest Identity** for your agreement. 
+   For more property details, see the table in this step.
 
-	![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
+    ![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
-	| Property | Description |
-	| --- | --- |
-	| Name |Name of the agreement |
-	| Agreement Type | Should be X12 |
-	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
-	| Host Identity |An identifier for the host partner |
-	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-	| Guest Identity |An identifier for the guest partner |
-	| Receive Settings |These properties apply to all messages received by an agreement. |
-	| Send Settings |These properties apply to all messages sent by an agreement. |  
+    | Property | Description |
+    | --- | --- |
+    | Name |Name of the agreement |
+    | Agreement Type | Should be X12 |
+    | Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
+    | Host Identity |An identifier for the host partner |
+    | Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
+    | Guest Identity |An identifier for the guest partner |
+    | Receive Settings |These properties apply to all messages received by an agreement. |
+    | Send Settings |These properties apply to all messages sent by an agreement. |  
 
-  > [!NOTE]
-  > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
-  > and the receiver qualifier and identifier defined in the partner and incoming message. 
-  > If these values change for your partner, update the agreement too.
+   > [!NOTE]
+   > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
+   > and the receiver qualifier and identifier defined in the partner and incoming message. 
+   > If these values change for your partner, update the agreement too.
 
 ## Configure how your agreement handles received messages
 
@@ -106,14 +106,14 @@ Now that you've set the agreement properties,
 you can configure how this agreement identifies and 
 handles incoming messages received from your partner through this agreement.
 
-1.	Under **Add**, select **Receive Settings**.
+1.  Under **Add**, select **Receive Settings**.
 Configure these properties based on your agreement 
 with the partner that exchanges messages with you. 
 For property descriptions, see the tables in this section.
 
-	**Receive Settings** is organized into these sections: 
-	Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, 
-	Validations, and Internal Settings.
+    **Receive Settings** is organized into these sections: 
+    Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, 
+    Validations, and Internal Settings.
 
 2. After you're done, 
 make sure to save your settings by choosing **OK**.
@@ -213,14 +213,14 @@ If you don't specify any rules, then validation uses the "Default" row.
 You can configure how this agreement identifies and handles outgoing 
 messages that you send to your partner through this agreement.
 
-1.	Under **Add**, select **Send Settings**.
+1.  Under **Add**, select **Send Settings**.
 Configure these properties based on your agreement 
 with your partner who exchanges messages with you. 
 For property descriptions, see the tables in this section.
 
-	**Send Settings** is organized into these sections: Identifiers, 
-	Acknowledgment, Schemas, Envelopes, Character Sets and Separators, 
-	Control Numbers, and Validation.
+    **Send Settings** is organized into these sections: Identifiers, 
+    Acknowledgment, Schemas, Envelopes, Character Sets and Separators, 
+    Control Numbers, and Validation.
 
 2. After you're done, 
 make sure to save your settings by choosing **OK**.
@@ -332,16 +332,16 @@ If you don't specify any rules, then validation uses the "Default" row.
 
 ## Find your created agreement
 
-1.	After you finish setting all your agreement properties, 
+1.  After you finish setting all your agreement properties, 
 on the **Add** blade, choose **OK** to finish creating your agreement 
 and return to your integration account blade.
 
-	Your newly added agreement now appears in your **Agreements** list.
+    Your newly added agreement now appears in your **Agreements** list.
 
-2.	You can also view your agreements in your integration account overview. 
+2.  You can also view your agreements in your integration account overview. 
 On your integration account blade, choose **Overview**, then select the **Agreements** tile.
 
-	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## View the swagger
 See the [swagger details](/connectors/x12/). 

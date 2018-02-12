@@ -40,6 +40,7 @@ Next, you create a function in the new function app.
 
 <a name="create-function"></a>
 
+
 ## Create Azure Cosmos DB trigger
 
 1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
@@ -53,7 +54,7 @@ Next, you create a function in the new function app.
 3. Configure the new trigger with the settings as specified in the table below the image.
 
     ![Create the Azure Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
-    
+
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Name** | Default | Use the default function name suggested by the template. |
@@ -62,7 +63,7 @@ Next, you create a function in the new function app.
     | **Database name** | Tasks | Name of database with the collection to be monitored. |
 
 4. Select **New** next to the **Azure Cosmos DB account connection** label, and choose an existing Cosmos DB account or **+ Create new**. 
- 
+
     ![Configure Azure Cosmos DB connection](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
 6. When creating a new Cosmos DB account, use the **New account** settings as specified in the table.
@@ -94,15 +95,15 @@ Next, you connect to your Azure Cosmos DB account and create the **Tasks** colle
     ![Search for the Azure Cosmos DB service](./media/functions-create-cosmos-db-triggered-function/functions-search-cosmos-db.png)
 
 2. Choose your Azure Cosmos DB account, then select the **Data Explorer**. 
- 
+
 3. In **Collections**, choose **taskDatabase** and select **New Collection**.
 
     ![Create a collection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
 
 4. In **Add Collection**, use the settings shown in the table below the image. 
- 
+
     ![Define the taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
- 
+
     | Setting|Suggested value|Description |
     | ---|---|--- |
     | **Database ID** | Tasks |The name for your new database. This must match the name defined in your function binding. |

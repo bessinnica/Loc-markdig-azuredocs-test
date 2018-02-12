@@ -50,9 +50,9 @@ Once the CDN endpoint is created, it applies the DSA optimizations for all files
 
 Dynamic Site Acceleration on Azure CDN speeds up delivery of dynamic assets using the following techniques:
 
--	Route Optimization
--	TCP Optimizations
--	Object Prefetch (Akamai only)
+-   Route Optimization
+-   TCP Optimizations
+-   Object Prefetch (Akamai only)
 -   Mobile Image Compression (Akamai only)
 
 ### Route Optimization
@@ -81,9 +81,9 @@ Transmission Control Protocol (TCP) is the standard of the Internet protocol sui
 
 Azure CDN from Akamai and Verizon eliminates slow start in three steps:
 
-1.	Both Akamai and Verizon's network use health and bandwidth monitoring to measure the bandwidth of connections between edge PoP servers.
-2. The metrics are shared between edge PoP servers so that each server is aware of the network conditions and server health of the other PoPs around them.  
-3. The CDN edge servers are now able to make assumptions about some transmission parameters, such as what the optimal window size should be when communicating with other CDN edge servers in its proximity. This step means that the initial congestion window size can be increased if the health of the connection between the CDN edge servers is capable of higher packet data transfers.  
+1.  Both Akamai and Verizon's network use health and bandwidth monitoring to measure the bandwidth of connections between edge PoP servers.
+2. The metrics are shared between edge PoP servers so that each server is aware of the network conditions and server health of the other PoPs around them.  
+3. The CDN edge servers are now able to make assumptions about some transmission parameters, such as what the optimal window size should be when communicating with other CDN edge servers in its proximity. This step means that the initial congestion window size can be increased if the health of the connection between the CDN edge servers is capable of higher packet data transfers.  
 
 #### Leveraging persistent connections
 
@@ -97,9 +97,9 @@ The Verizon network also sends periodic keep-alive packets over the TCP connecti
 
 Azure CDN from Akamai also tunes the parameters that govern server-to-server connections, and reduces the amount of long haul round trips required to retrieve content embedded in the site by using the following techniques:
 
-1.	Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgement.
-2.	Decreasing the initial retransmit timeout so that a loss is detected, and retransmission occurs more quickly.
-3.	Decreasing the minimum and maximum retransmit timeout to reduce the wait time before assuming packets were lost in transmission.
+1.  Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgement.
+2.  Decreasing the initial retransmit timeout so that a loss is detected, and retransmission occurs more quickly.
+3.  Decreasing the minimum and maximum retransmit timeout to reduce the wait time before assuming packets were lost in transmission.
 
 ### Object Prefetch (Akamai only)
 
@@ -125,12 +125,12 @@ With DSA, caching is turned off by default on the CDN, even when the origin incl
 
 If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
 
-If you are using ADN with Verizon Premium, you can turn caching back on for specific cases using the Rules Engine.  
+If you are using ADN with Verizon Premium, you can turn caching back on for specific cases using the Rules Engine.  
 
 An alternative is to use two CDN endpoints. One with DSA to deliver dynamic assets, and another endpoint with a static optimization type, such as general web delivery, to delivery cacheable assets. In order to accomplish this alternative, you will modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
 
 For example: 
-`mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`. 
+`mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`. 
 
 You can find an example [here](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller) on how to use controllers in an ASP.NET web application to serve content through a specific CDN URL.
 

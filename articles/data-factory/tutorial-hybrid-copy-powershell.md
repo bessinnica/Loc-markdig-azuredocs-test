@@ -135,7 +135,7 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 3. If you have multiple Azure subscriptions, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 
 ## Create a data factory
@@ -198,8 +198,8 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 2. Create a self-hosted integration runtime. 
     ```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
-    ```	
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ``` 
     Here is the sample output:
 
     ```json
@@ -326,18 +326,18 @@ In this step, you link your Azure storage account to the data factory.
     > Before you save the file, replace \<accountName> and \<accountKey> with the name and key of your Azure storage account. You noted them in the [Prerequisites](#get-storage-account-name-and-account-key) section.
 
    ```json
-	{
-		"properties": {
-			"type": "AzureStorage",
-			"typeProperties": {
-				"connectionString": {
-					"type": "SecureString",
-					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
-				}
-			}
-		},
-		"name": "AzureStorageLinkedService"
-	}
+    {
+        "properties": {
+            "type": "AzureStorage",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
+                }
+            }
+        },
+        "name": "AzureStorageLinkedService"
+    }
    ```
 
 2. In PowerShell, switch to the *C:\ADFv2Tutorial* folder.
@@ -369,23 +369,23 @@ In this step, you link your on-premises SQL Server instance to the data factory.
 
     **Using SQL authentication (sa):**
 
-	```json
-	{
-		"properties": {
-			"type": "SqlServer",
-			"typeProperties": {
-				"connectionString": {
-					"type": "SecureString",
-					"value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-				}
-			},
-			"connectVia": {
-				"type": "integrationRuntimeReference",
-				"referenceName": "<integration runtime name>"
-			}
-		},
-		"name": "SqlServerLinkedService"
-	}
+    ```json
+    {
+        "properties": {
+            "type": "SqlServer",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
+                }
+            },
+            "connectVia": {
+                "type": "integrationRuntimeReference",
+                "referenceName": "<integration runtime name>"
+            }
+        },
+        "name": "SqlServerLinkedService"
+    }
    ```    
 
     **Using Windows authentication:**
@@ -445,12 +445,12 @@ In this step, you define a dataset that represents data in the SQL Server databa
     ```json
     {
        "properties": {
-    		"type": "SqlServerTable",
-    		"typeProperties": {
-    			"tableName": "dbo.emp"
-    		},
-    		"structure": [
-    			 {
+            "type": "SqlServerTable",
+            "typeProperties": {
+                "tableName": "dbo.emp"
+            },
+            "structure": [
+                 {
                     "name": "ID",
                     "type": "String"
                 },
@@ -462,13 +462,13 @@ In this step, you define a dataset that represents data in the SQL Server databa
                     "name": "LastName",
                     "type": "String"
                 }
-    		],
-    		"linkedServiceName": {
-    			"referenceName": "EncryptedSqlServerLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	},
-    	"name": "SqlServerDataset"
+            ],
+            "linkedServiceName": {
+                "referenceName": "EncryptedSqlServerLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        },
+        "name": "SqlServerDataset"
     }
     ```
 
@@ -498,19 +498,19 @@ The linked service has the connection information that the data factory uses at 
     ```json
     {
         "properties": {
-    		"type": "AzureBlob",
-    		"typeProperties": {
-    			"folderPath": "adftutorial/fromonprem",
-    			"format": {
-    				"type": "TextFormat"
-    			}
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureStorageLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	},
-    	"name": "AzureBlobDataset"
+            "type": "AzureBlob",
+            "typeProperties": {
+                "folderPath": "adftutorial/fromonprem",
+                "format": {
+                    "type": "TextFormat"
+                }
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        },
+        "name": "AzureBlobDataset"
     }
     ```
 
@@ -540,32 +540,32 @@ In this tutorial, you create a pipeline with a copy activity. The copy activity 
        "name": "SQLServerToBlobPipeline",
         "properties": {
             "activities": [       
-    			{
-    				"type": "Copy",
-    				"typeProperties": {
-    					"source": {
-    						"type": "SqlSource"
-    					},
-    					"sink": {
-    						"type":"BlobSink"
-    					}
-    				},
-    				"name": "CopySqlServerToAzureBlobActivity",
-    				"inputs": [
-    					{
-    						"referenceName": "SqlServerDataset",
-    						"type": "DatasetReference"
-    					}
-    				],
-    				"outputs": [
-    					{
-    						"referenceName": "AzureBlobDataset",
-    						"type": "DatasetReference"
-    					}
-    				]
-    			}
-    		]
-    	}
+                {
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource"
+                        },
+                        "sink": {
+                            "type":"BlobSink"
+                        }
+                    },
+                    "name": "CopySqlServerToAzureBlobActivity",
+                    "inputs": [
+                        {
+                            "referenceName": "SqlServerDataset",
+                            "type": "DatasetReference"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "referenceName": "AzureBlobDataset",
+                            "type": "DatasetReference"
+                        }
+                    ]
+                }
+            ]
+        }
     }
     ```
 

@@ -76,7 +76,6 @@ The following example shows how to check the thumbprint of a client certificate 
         </return-response>
     </when>
 </choose>
-
 ```
 
 ## Next step

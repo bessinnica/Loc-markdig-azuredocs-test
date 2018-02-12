@@ -52,10 +52,10 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 
 1. Launch Notepad. Copy the following text and save it as **inputEmp.txt** file on your disk.
 
-	```
+    ```
     John|Doe
     Jane|Doe
-	```
+    ```
 
 2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
 

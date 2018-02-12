@@ -68,7 +68,7 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 
 2. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account, but with a different container name:
 
-	![Use the same Storage account, but create a different Container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
+    ![Use the same Storage account, but create a different Container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
 3. Flush your source HBase cluster. This is the cluster from which you are upgrading. HBase writes incoming data to an in-memory store, called a _memstore_. After the memstore reaches a certain size, the memstore is flushed to disk for long-term storage in the cluster's storage account. When deleting the old cluster, the memstores are recycled, potentially losing data. To manually flush the memstore for each table to disk, run the following script. The latest version of this script is on Azure's [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
 
@@ -85,9 +85,9 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
     
     usage ()
     {
-    	if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]
-    	then
-    		cat << ...
+        if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]
+        then
+            cat << ...
     
     Usage: 
     
@@ -99,55 +99,55 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
     
     For Example:
     
-    	1.	Executing script inside HDInsight cluster (where 'hbase shell' is 
-    		accessible):
+        1.  Executing script inside HDInsight cluster (where 'hbase shell' is 
+            accessible):
     
-    		$0 
+            $0 
     
-    		[No need to provide hostname]
+            [No need to provide hostname]
     
-    	2.	Executing script from HDinsight Azure portal:
+        2.  Executing script from HDinsight Azure portal:
     
-    		Provide Script URL.
+            Provide Script URL.
     
-    		Provide hostname as a parameter (i.e. hn0, hn1 or wn2 etc.).
+            Provide hostname as a parameter (i.e. hn0, hn1 or wn2 etc.).
     ...
-    		exit
-    	fi
+            exit
+        fi
     }
     
     validate_machine ()
     {
-    	THIS_HOST=`hostname`
+        THIS_HOST=`hostname`
     
-    	if [[ ! -z "$TARGET_HOST" ]] && [[ $THIS_HOST  != $TARGET_HOST* ]]
-    	then
-    		echo "[INFO] This machine '$THIS_HOST' is not the right machine ($TARGET_HOST) to execute the script."
-    		exit 0
-    	fi
+        if [[ ! -z "$TARGET_HOST" ]] && [[ $THIS_HOST  != $TARGET_HOST* ]]
+        then
+            echo "[INFO] This machine '$THIS_HOST' is not the right machine ($TARGET_HOST) to execute the script."
+            exit 0
+        fi
     }
     
     get_tables_list ()
     {
     hbase shell << ... > $LIST_OF_TABLES 2> /dev/null
-    	list
-    	exit
+        list
+        exit
     ...
     }
     
     add_table_for_flush ()
     {
-    	TABLE_NAME=$1
-    	echo "[INFO] Adding table '$TABLE_NAME' to flush list..."
-    	cat << ... >> $HBASE_SCRIPT
-    		flush '$TABLE_NAME'
+        TABLE_NAME=$1
+        echo "[INFO] Adding table '$TABLE_NAME' to flush list..."
+        cat << ... >> $HBASE_SCRIPT
+            flush '$TABLE_NAME'
     ...
     }
     
     clean_up ()
     {
-    	rm -f $LIST_OF_TABLES
-    	rm -f $HBASE_SCRIPT
+        rm -f $LIST_OF_TABLES
+        rm -f $HBASE_SCRIPT
     }
     
     ########
@@ -166,17 +166,17 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
     
     while read LINE 
     do 
-    	if [[ $LINE == TABLE ]] 
-    	then
-    		START=true
-    		continue
-    	elif [[ $LINE == *row*in*seconds ]]
-    	then
-    		break
-    	elif [[ $START == true ]]
-    	then
-    		add_table_for_flush $LINE
-    	fi
+        if [[ $LINE == TABLE ]] 
+        then
+            START=true
+            continue
+        elif [[ $LINE == *row*in*seconds ]]
+        then
+            break
+        elif [[ $START == true ]]
+        then
+            add_table_for_flush $LINE
+        fi
     
     done < $LIST_OF_TABLES
     
@@ -192,15 +192,15 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 5. To ensure that any recent data in the memstore is flushed, run the previous script again.
 6. Log in to Ambari on the old cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) and stop the HBase services. When you are prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
-	![In Ambari, click the Services tab, then HBase on the left-hand menu, then Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![In Ambari, click the Services tab, then HBase on the left-hand menu, then Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
-	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
+    ![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
 7. Log in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
 
-	![In Ambari, click the Services tab, then HDFS on the left-hand menu, then the Configs tab, then the Advanced tab underneath](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+    ![In Ambari, click the Services tab, then HDFS on the left-hand menu, then the Configs tab, then the Advanced tab underneath](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
-	![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
+    ![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
 8. Save your changes.
 9. Restart all required services as indicated by Ambari.

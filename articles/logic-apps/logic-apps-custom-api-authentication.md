@@ -43,6 +43,7 @@ or [Azure AD authentication](#azure-ad-code) through code.
 
 <a name="no-code"></a>
 
+
 ### Authenticate calls to your API without changing code
 
 Here are the general steps for this method:
@@ -125,6 +126,7 @@ when you leave the **Keys** page.
 
 <a name="powershell"></a>
 
+
 **Create the application identity for your logic app in PowerShell**
 
 You can perform this task through Azure Resource Manager with PowerShell. 
@@ -195,6 +197,7 @@ You can also use this GUID in your web app or API app's deployment template, if 
 5. Without saving your changes, close the **Azure Active Directory Settings** page.
 
 <a name="authen-deploy"></a>
+
 
 **Turn on authentication when you deploy with an Azure Resource Manager template**
 
@@ -281,9 +284,11 @@ For example:
 
 <a name="update-code"></a>
 
+
 ### Secure API calls through code
 
 <a name="certificate"></a>
+
 
 #### Certificate authentication
 
@@ -304,6 +309,7 @@ In the **Authorization** section, include this line:
 
 <a name="basic"></a>
 
+
 #### Basic authentication
 
 To validate incoming requests from your logic app to your web app or API app, 
@@ -323,6 +329,7 @@ In the **Authorization** section, include this line:
 |||| 
 
 <a name="azure-ad-code"></a>
+
 
 #### Azure Active Directory authentication through code
 

@@ -39,13 +39,13 @@ Managing resources in Azure are done within a resource group.  A resource group 
 ### Create a Resource Group project in Visual Studio
 
 1. In Visual Studio, click to add a **New Project**
-1. In the **Cloud** category, select to create an Azure **Resource Group** project  
- * If you do not see the category or project listed, be sure you have the Azure SDK installed for Visual Studio
-1. Give the project a name and location, and select **Ok** to create
+2. In the **Cloud** category, select to create an Azure **Resource Group** project  
+   * If you do not see the category or project listed, be sure you have the Azure SDK installed for Visual Studio
+3. Give the project a name and location, and select **Ok** to create
     Visual Studio prompts to select a template.  You could select to start from Blank, start with a Logic App or other resource.  However, in this case we use an Azure Quickstart Template to get us started with a serverless app.
-1. Select to show templates from **Azure Quickstart**
+4. Select to show templates from **Azure Quickstart**
     ![Selecting Azure Quickstart templates][1]
-1. Select the serverless quickstart template: **101-logic-app-and-function-app** and click **Ok**
+5. Select the serverless quickstart template: **101-logic-app-and-function-app** and click **Ok**
 
 The quickstart template creates a deployment template in your resource group project.  The template contains a simple Logic App that calls an Azure Functions, and returns the result.  If you open the `azuredeploy.json` file in the Solution Explorer, you can see the resources for the serverless app.
 

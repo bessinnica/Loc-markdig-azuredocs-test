@@ -55,6 +55,7 @@ Now let's get started!
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
+
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## Step 1: Create an Azure Cosmos DB account
@@ -68,7 +69,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **OK**.
    ![Screen shot of the New Project window](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
-    
+
     ![Screen shot of the Right Clicked Menu for the Project](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **NuGet** tab, click **Browse**, and type **azure documentdb** in the search box.
 6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
@@ -293,7 +294,7 @@ And insert two documents, one each for the Andersen Family and the Wakefield Fam
 Copy and paste the following code to your **GetStartedDemo** method after the document collection creation.
 
     await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
-    
+
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
 
@@ -470,9 +471,9 @@ Copy and paste the **DeleteFamilyDocument** method after your **ReplaceFamilyDoc
 Copy and paste the following code to your **GetStartedDemo** method after the second query execution, at the end of the method.
 
     await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
-    
+
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
-    
+
     // ADD THIS PART TO CODE
     await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 

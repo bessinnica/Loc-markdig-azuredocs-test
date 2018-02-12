@@ -57,7 +57,7 @@ for information required to connect to your Azure storage account. If these envi
 blob_client = Azure::Storage::Blob::BlobService.create(
     storage_account_name: account_name,
     storage_access_key: account_key
-	)
+    )
 ```
 
 To obtain these values from a classic or Resource Manager storage account in the Azure portal:

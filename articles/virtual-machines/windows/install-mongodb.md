@@ -39,7 +39,7 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
    
    * Select the **Tools** icon in the upper-right corner.
    * In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon.
-   * Click the **Sites** button. Add *https://\*.mongodb.com* to the list of trusted sites, and then close the dialog box.
+   * Click the <strong>Sites</strong> button. Add <em>https://\*.mongodb.com</em> to the list of trusted sites, and then close the dialog box.
      
      ![Configure Internet Explorer security settings](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Browse to the [MongoDB - Downloads](http://www.mongodb.com/downloads) page (http://www.mongodb.com/downloads).

@@ -270,7 +270,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Azure Only`
 
-|||
-|---|---|
-| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft restricts the use of writable, removable media to media that has been explicitly approved by Datacenter Management via the DCS Tools and Removable Media Procedure. Media that is personally owned or has no identifiable owner is prohibited in any production area as noted in the Microsoft Datacenter Work Rules and Regulations document. |
+
+|                                             |                                                                                                                                                                                                                                                                                                                                                          |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          |                                                                                                                                   There is no customer-controlled media within the scope of systems deployed on Azure.                                                                                                                                   |
+| <strong>Provider (Microsoft Azure)</strong> | Microsoft restricts the use of writable, removable media to media that has been explicitly approved by Datacenter Management via the DCS Tools and Removable Media Procedure. Media that is personally owned or has no identifiable owner is prohibited in any production area as noted in the Microsoft Datacenter Work Rules and Regulations document. |
+

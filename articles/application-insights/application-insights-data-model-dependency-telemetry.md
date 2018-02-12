@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Data Model - Dependency Telemetry | Microsoft Docs
 description: Application Insights data model for dependency telemetry
 services: application-insights
@@ -58,7 +58,6 @@ Indication of successful or unsuccessful call.
 ## Custom measurements
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
-
 
 ## Next steps
 

@@ -51,7 +51,7 @@ This topic provides you with answers to the most common questions in conjunction
 
 **A:**
 
-**Activity reports**	
+**Activity reports**    
 
 | Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |

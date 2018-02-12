@@ -132,7 +132,7 @@ And the IssuerUri on our new domain has been set to https://bmfabrikam.com/adfs/
 ## Support for Sub-domains
 When you add a sub-domain, because of the way Azure AD handled domains, it will inherit the settings of the parent.  This means that the IssuerUri needs to match the parents.
 
-So lets say for example that I have bmcontoso.com and then add corp.bmcontoso.com.  This means that the IssuerUri for a user from corp.bmcontoso.com will need to be **http://bmcontoso.com/adfs/services/trust.**  However the standard rule implemented above for Azure AD, will generate a token with an issuer as **http://corp.bmcontoso.com/adfs/services/trust.** which will not match the domain's required value and authentication will fail.
+So lets say for example that I have bmcontoso.com and then add corp.bmcontoso.com.  This means that the IssuerUri for a user from corp.bmcontoso.com will need to be <strong>http://bmcontoso.com/adfs/services/trust.</strong>  However the standard rule implemented above for Azure AD, will generate a token with an issuer as <strong>http://corp.bmcontoso.com/adfs/services/trust.</strong> which will not match the domain's required value and authentication will fail.
 
 ### How To enable support for sub-domains
 In order to work around this the AD FS relying party trust for Microsoft Online needs to be updated.  To do this, you must configure a custom claim rule so that it strips off any sub-domains from the user’s UPN suffix when constructing the custom Issuer value.

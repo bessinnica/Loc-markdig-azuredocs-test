@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-#Virtual Machine Scale Sets Documentation
+# Virtual Machine Scale Sets Documentation
 
 Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identical, auto-scaling Windows or Linux VMs. Documentation shows you how to use Scale Sets to support services that target big compute, big data, and containerized solutions.
 
@@ -78,47 +78,49 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node .js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/virtualmachinescalesets/">Virtual Machine Scale Sets REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/virtualmachinescalesets/">Virtual Machine Scale Sets REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 
 

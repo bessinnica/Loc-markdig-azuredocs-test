@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Service Fabric CLI Script Deploy Sample
 description: Create a secure Service Fabric Linux cluster in Azure using the Azure Service Fabric CLI.
 services: service-fabric

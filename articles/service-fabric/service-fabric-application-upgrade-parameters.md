@@ -22,6 +22,7 @@ This article describes the various parameters that apply during the upgrade of a
 
 <br>
 
+
 | Parameter | Description |
 | --- | --- |
 | ApplicationName |Name of the application that is being upgraded. Examples: fabric:/VisualObjects, fabric:/ClusterMonitor |
@@ -36,11 +37,13 @@ This article describes the various parameters that apply during the upgrade of a
 
 <br>
 
+
 ## Service health evaluation during application upgrade
 <br>
 The health evaluation criteria are optional. If the health evaluation criteria are not specified when an upgrade starts, Service Fabric uses the application health policies specified in the ApplicationManifest.xml of the application instance.
 
 <br>
+
 
 | Parameter | Description |
 | --- | --- |

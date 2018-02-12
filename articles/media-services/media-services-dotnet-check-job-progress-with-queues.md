@@ -149,7 +149,7 @@ namespace JobNotification
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-            
+
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -369,3 +369,4 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

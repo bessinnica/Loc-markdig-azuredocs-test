@@ -31,14 +31,14 @@ If you receive this error, the Azure Data Factory resource provider has not been
 1. Launch Azure PowerShell.
 2. Log in to your Azure account using the following command.
 
-	```powershell
-	Login-AzureRmAccount
-	```
+    ```powershell
+    Login-AzureRmAccount
+    ```
 3. Run the following command to register the Azure Data Factory provider.
 
-	```powershell        
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-	```
+    ```powershell        
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
 ### Problem: Unauthorized error when running a Data Factory cmdlet
 You are probably not using the right Azure account or subscription with the Azure PowerShell. Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell.

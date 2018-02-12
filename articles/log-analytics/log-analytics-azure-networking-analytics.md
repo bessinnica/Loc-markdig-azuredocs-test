@@ -21,12 +21,12 @@ ms.author: richrund
 
 Log Analytics offers the following solutions for monitoring your networks:
 * Network Performance Monitor (NPM) to
- * Monitor the health of your network
+  * Monitor the health of your network
 * Azure Application Gateway analytics to review
- * Azure Application Gateway logs
- * Azure Application Gateway metrics
+  * Azure Application Gateway logs
+  * Azure Application Gateway metrics
 * Azure Network Security Group analytics to review
- * Azure Network Security Group logs
+  * Azure Network Security Group logs
 
 ## Network Performance Monitor (NPM)
 
@@ -202,20 +202,23 @@ To use the updated solutions:
 
 1. [Configure diagnostics to be sent directly to Log Analytics from Azure Application Gateways](#enable-azure-application-gateway-diagnostics-in-the-portal)
 2. [Configure diagnostics to be sent directly to Log Analytics from Azure Network Security Groups](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Enable the *Azure Application Gateway Analytics* and the *Azure Network Security Group Analytics* solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md)
-3. Update any saved queries, dashboards, or alerts to use the new data type
-  + Type is to AzureDiagnostics. You can use the ResourceType to filter to Azure networking logs.
+3. Enable the *Azure Application Gateway Analytics* and the *Azure Network Security Group Analytics* solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md)
+4. Update any saved queries, dashboards, or alerts to use the new data type
+   + Type is to AzureDiagnostics. You can use the ResourceType to filter to Azure networking logs.
 
-    | Instead of: | Use: |
-    | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+
+     |                                  Instead of:                                  |                                                 Use:                                                 |
+     |-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+     |   `Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`    |   `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess`    |
+     | `Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
+     |                         `Type=NetworkSecuritygroups`                          |                      `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS`                      |
+
 
    + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
    + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.
-4. Remove the *Azure Networking Analytics (Deprecated)* solution.
-  + If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+
+5. Remove the *Azure Networking Analytics (Deprecated)* solution.
+   + If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
 

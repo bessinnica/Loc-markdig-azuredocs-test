@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
-and cloud infrastructure. Container Solution is a solution in OMS Log
+and cloud infrastructure. Container Solution is a solution in OMS Log
 Analytics, which helps you view the container inventory, performance,
 and logs in a single location. You can audit, troubleshoot containers by
 viewing the logs in centralized location, and find noisy consuming
@@ -54,12 +54,12 @@ properties** page.
 ![](media/container-service-monitoring-oms/image4.png)
 
 3. Here, you will be asked to enter the `wsid` (the OMS workspace ID)
-and `wskey` (the OMS primary key for the workspace id). To get both `wsid` and
-`wskey` you need to create an OMS account at <https://mms.microsoft.com>.
-Please follow the steps to create an account. Once you are done creating
-the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
+   and `wskey` (the OMS primary key for the workspace id). To get both `wsid` and
+   `wskey` you need to create an OMS account at <https://mms.microsoft.com>.
+   Please follow the steps to create an account. Once you are done creating
+   the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
 
- ![](media/container-service-monitoring-oms/image5.png)
+   ![](media/container-service-monitoring-oms/image5.png)
 
 4. Select the number you OMS instances that you want and click the ‘Review and Install’ button. Typically, you will want to have the number of OMS instances equal to the number of VM’s you have in your agent cluster. OMS Agent for Linux is installs as individual containers on each VM that it wants to collect information for monitoring and logging information.
 

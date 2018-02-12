@@ -77,16 +77,16 @@ let response_handler = function (response) {
 let bing_web_search = function (search) {
   console.log('Searching the Web for: ' + term);
   let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + '?q=' + encodeURIComponent(search),
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+        method : 'GET',
+        hostname : host,
+        path : path + '?q=' + encodeURIComponent(search),
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
 
-	let req = https.request(request_params, response_handler);
-	req.end();
+    let req = https.request(request_params, response_handler);
+    req.end();
 }
 
 if (subscriptionKey.length === 32) {
@@ -95,7 +95,6 @@ if (subscriptionKey.length === 32) {
     console.log('Invalid Bing Search API subscription key!');
     console.log('Please paste yours into the source code.');
 }
-
 ```
 
 ## JSON response

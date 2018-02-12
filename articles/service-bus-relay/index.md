@@ -71,8 +71,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             </div>
         </div>
         </a>
-    </li>    
-    <li>
+    </li><br/>    <li>
         <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
@@ -113,6 +112,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -151,3 +151,4 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
         </div>
     </li>
 </ul>
+

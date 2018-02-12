@@ -58,19 +58,19 @@ To configure the integration of Clear Review into Azure AD, you need to add Clea
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Clear Review**, select **Clear Review** from result panel then click **Add** button to add the application.
 
-	![Clear Review in the results list](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_addfromgallery.png)
+    ![Clear Review in the results list](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,62 +96,62 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Clear Review** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_samlbase.png)
 
 3. On the **Clear Review Domain and URLs** section, perform the following steps if you wish to configure the application in **IdP initiated** mode:
 
-	![Clear Review Domain and URLs single sign-on information](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
+    ![Clear Review Domain and URLs single sign-on information](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<customer name>.clearreview.com/sso/metadata`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer>.clearreview.com/sso/acs/`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer>.clearreview.com/sso/acs/`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Clear Review Domain and URLs single sign-on information](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url_sp.png)
+    ![Clear Review Domain and URLs single sign-on information](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url_sp.png)
 
-	In the **Sign-on URL** textbox, type a URL using the following pattern:`https://<customer name>.clearreview.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern:`https://<customer name>.clearreview.com`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Clear Review support team](https://clearreview.com/contact/) to get these values.
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Clear Review support team](https://clearreview.com/contact/) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
+    ![The Certificate download link](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
 7. On the **Clear Review Configuration** section, click **Configure Clear Review** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Clear Review Configuration](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
+    ![Clear Review Configuration](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
 8. To configure single sign-on on **Clear Review** side, open the **Clear Review** portal with admin credentials.
 
 9. Select **Admin** from the left navigation.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 10. Select **Change** at the bottom of the page.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 11. Perform following steps on **Single Sign-On Settings** page
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-	a. In the **Issuer URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+    a. In the **Issuer URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
-	b. In the **SAML Endpoint** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.	
+    b. In the **SAML Endpoint** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.    
 
-	c. In the **SLO Endpoint** textbox, paste the value of **Sign-On Service URL** which you have copied from Azure portal.	
+    c. In the **SLO Endpoint** textbox, paste the value of **Sign-On Service URL** which you have copied from Azure portal. 
 
-	d. Open the downloaded certificate in notepad and paste the content in the **X.509 Certificate** textbox.	
+    d. Open the downloaded certificate in notepad and paste the content in the **X.509 Certificate** textbox.   
 
 12. Click **Save**.
 
@@ -204,32 +204,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Clear Review**.
 
-	![The Clear Review link in the Applications list](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app.png)  
+    ![The Clear Review link in the Applications list](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Clear Review tile in the Access Panel, you should get automatically signed-on to your Clear Review application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

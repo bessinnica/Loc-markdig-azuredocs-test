@@ -58,19 +58,19 @@ To configure the integration of Veracode into Azure AD, you need to add Veracode
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Veracode**, select  **Veracode** from result panel then click **Add** button to add the application.
 
-	![Veracode in the results list](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addfromgallery.png)
+    ![Veracode in the results list](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,53 +96,53 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Veracode** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_samlbase.png)
 
-3. On the **Veracode Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure. 
+3. On the **Veracode Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_url.png)
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_certificate.png) 
 
 5. The objective of this section is to outline how to enable users to authenticate to Veracode with their account in Azure AD using federation based on the SAML protocol.
 
-	Your Veracode application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. The following screenshot shows an example for this.
-	
-	![Attributes](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_attr.png "Attributes")
+    Your Veracode application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. The following screenshot shows an example for this.
+    
+    ![Attributes](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_attr.png "Attributes")
 
 6. To add the required attribute mappings, perform the following steps:
 
-	| Attribute Name | Attribute Value |
-	|--- |--- |
-	| firstname |User.givenname |
-	| lastname |User.surname |
-	| email |User.mail |
+    | Attribute Name | Attribute Value |
+    |--- |--- |
+    | firstname |User.givenname |
+    | lastname |User.surname |
+    | email |User.mail |
     
     a. For each data row in the table above, click **add user attribute**.
-	
-	![Attributes](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addattr.png "Attributes")
-	
-	![Attributes](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addattr1.png "Attributes")
-	
-	b. In the **Attribute Name** textbox, type the attribute name shown for that row.
-	
-	c. In the **Attribute Value** textbox, select the attribute value shown for that row.
-	
-	d. Click **Ok**.
+    
+    ![Attributes](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addattr.png "Attributes")
+    
+    ![Attributes](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_addattr1.png "Attributes")
+    
+    b. In the **Attribute Name** textbox, type the attribute name shown for that row.
+    
+    c. In the **Attribute Value** textbox, select the attribute value shown for that row.
+    
+    d. Click **Ok**.
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-veracode-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-veracode-tutorial/tutorial_general_400.png)
 
 8. On the **Veracode Configuration** section, click **Configure Veracode** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
 
-	![Veracode Configuration](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_configure.png) 
+    ![Veracode Configuration](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_configure.png) 
 
 9. In a different web browser window, log into your Veracode company site as an administrator.
 
@@ -157,7 +157,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![Administration](./media/active-directory-saas-veracode-tutorial/ic802912.png "Administration")
    
     a.  In  **Issuer** textbox, paste the value of  **SAML Entity ID** which you have copied from Azure portal.
-	
+    
     b. To upload your downloaded certificate from Azure portal, click **Choose File**.
    
     c. Select **Enable Self Registration**.
@@ -235,32 +235,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Veracode**.
 
-	![The Veracode link in the Applications list](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_app.png)  
+    ![The Veracode link in the Applications list](./media/active-directory-saas-veracode-tutorial/tutorial_veracode_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Veracode tile in the Access Panel, you should get automatically signed-on to your Veracode application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

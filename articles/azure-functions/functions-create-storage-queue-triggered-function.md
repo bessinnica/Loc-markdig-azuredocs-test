@@ -42,6 +42,7 @@ Next, you create a function in the new function app.
 
 <a name="create-function"></a>
 
+
 ## Create a Queue triggered function
 
 1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
@@ -54,7 +55,7 @@ Next, you create a function in the new function app.
 
 3. Use the settings as specified in the table below the image.
     ![Configure the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
-    
+
     | Setting | Suggested value | Description |
     |---|---|---|
     | **Name** | Unique in your function app | Name of this queue triggered function. |

@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Assign a user-assigned Managed Service Identity (MSI) access to a resource, using Azure CLI
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Once you've created a user-assigned MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give a user-assigned MSI access to an Azure storage account, using Azure CLI.
 

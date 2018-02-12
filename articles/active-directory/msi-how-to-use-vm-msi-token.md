@@ -18,7 +18,8 @@ ms.author: daveba
 
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+
 This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
 
 ## Prerequisites
@@ -120,7 +121,6 @@ catch (Exception e)
 {
     string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
 }
-
 ```
 
 ## Get a token using Go
@@ -147,7 +147,7 @@ type responseJson struct {
 }
 
 func main() {
-    
+
     // Create HTTP request for MSI token to access Azure Resource Manager
     var msi_endpoint *url.URL
     msi_endpoint, err := url.Parse("http://localhost:50342/oauth2/token")
@@ -220,7 +220,6 @@ echo "The MSI access token is $access_token"
 $vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 echo "JSON returned from call to get VM info:"
 echo $vmInfoRest
-
 ```
 
 ## Get a token using CURL

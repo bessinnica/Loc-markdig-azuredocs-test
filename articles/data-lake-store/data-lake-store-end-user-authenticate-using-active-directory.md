@@ -88,7 +88,7 @@ To retrieve the redirect URI, do the following steps.
 
 2. From the **Settings** blade for the application, click **Redirect URIs**.
 
-	![Get Redirect URI](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
+    ![Get Redirect URI](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
 
 3. Copy the value displayed.
 
@@ -99,17 +99,17 @@ To retrieve the redirect URI, do the following steps.
 
 2. From the **Settings** blade for the application, click **Required permissions**, and then click **Add**.
 
-	![client ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+    ![client ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
 3. In the **Add API Access** blade, click **Select an API**, click **Azure Data Lake**, and then click **Select**.
 
-	![client ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+    ![client ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
  
 4.  In the **Add API Access** blade, click **Select permissions**, select the check box to give **Full access to Data Lake Store**, and then click **Select**.
 
-	![client ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![client ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-	Click **Done**.
+    Click **Done**.
 
 5. Repeat the last two steps to grant permissions for **Windows Azure Service Management API** as well.
    

@@ -26,6 +26,7 @@ Version 2016-09-01 of the REST API contains some changes from earlier versions. 
 
 <a name="WhatsNew"></a>
 
+
 ## What's new in version 2016-09-01
 Version 2016-09-01 is the second generally available release of the Azure Search Service REST API. New features in this API version include:
 
@@ -35,6 +36,7 @@ Version 2016-09-01 is the second generally available release of the Azure Search
 * ETags, which allow you to update the definitions of indexes, indexers, and data sources in a concurrency-safe manner. 
 
 <a name="UpgradeSteps"></a>
+
 
 ## Steps to upgrade
 If you are upgrading from version 2015-02-28, you probably won't have to make any changes to your code, other than to change the version number. The only situations in which you may need to change code are when:

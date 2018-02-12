@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
 
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
-        
+
     ```powershell
     Login-AzureRmAccount
     ```        
@@ -55,7 +55,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 2. Run the following commands after replacing the places-holders with your own values, to set global variables to be used in later steps.
 
@@ -77,7 +77,7 @@ Run the following commands to authenticate with Azure Active Directory (AAD):
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]"https://login.microsoftonline.com/${tenantId}"
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($appId, $authKey)
 $result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
-$authHeader = @{
+$authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
 'Authorization'=$result.CreateAuthorizationHeader()
@@ -137,7 +137,6 @@ Here is the sample response:
     "type":  "Microsoft.DataFactory/factories",
     "location":  "East US"
 } 
-
 ```
 
 ## Create linked services

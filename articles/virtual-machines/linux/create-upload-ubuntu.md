@@ -51,24 +51,24 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 3. Replace the current repositories in the image to use Ubuntu's Azure repos. The steps vary slightly depending on the Ubuntu version.
    
-	Before editing `/etc/apt/sources.list`, it is recommended to make a backup:
+    Before editing `/etc/apt/sources.list`, it is recommended to make a backup:
    
-		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-	Ubuntu 12.04:
+    Ubuntu 12.04:
    
-		# sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
-		# sudo apt-get update
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
 
-	Ubuntu 14.04:
+    Ubuntu 14.04:
    
-		# sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
-		# sudo apt-get update
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
 
-	Ubuntu 16.04:
+    Ubuntu 16.04:
    
-		# sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
-		# sudo apt-get update
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
 
 4. The Ubuntu Azure images are now following the *hardware enablement* (HWE) kernel. Update the operating system to the latest kernel by running the following commands:
 
@@ -90,7 +90,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
    
         # sudo reboot
 
-	Ubuntu 16.04:
+    Ubuntu 16.04:
    
         # sudo apt-get update
         # sudo apt-get install linux-generic-hwe-16.04 linux-cloud-tools-generic-hwe-16.04
@@ -98,9 +98,9 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
         # sudo reboot
 
-	**See also:**
-	- [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
-	- [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
+    **See also:**
+    - [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
+    - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
 
 5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
@@ -113,17 +113,17 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 7. Install the Azure Linux Agent:
    
-		# sudo apt-get update
-		# sudo apt-get install walinuxagent
+        # sudo apt-get update
+        # sudo apt-get install walinuxagent
 
-	>[!Note]
-	The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
+   > [!Note]
+   >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 9. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 

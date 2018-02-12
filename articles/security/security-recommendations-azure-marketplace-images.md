@@ -44,17 +44,18 @@ These recommendations can also be helpful for organizations that do not have ima
 
 ## Windows Server-based Images
 
-|||
-|-------------| -------------------------|
-| **Category**                                                     | **Check**                                                                                                                                                                |
-| Security                                                         | Use a secure OS base image. The VHD used for the source of any image based on Windows Server must be from the Windows Server OS images provided through Microsoft Azure. |
-| Security                                                         | Install all latest security updates.                                                                                                                                     |
-| Security                                                         | Applications should not have a dependency on restricted user names such as Administrator, root and admin.                                                                |
-| Security                                                         | BitLocker Drive Encryption is not supported on the operating system hard disk. BitLocker may be used on data disks.                                                            |
-| Security                                                         | Limit the attack surface by keeping minimal footprint with only necessary Windows Server roles, features, services and networking ports enabled.                         |
-| Security                                                         | Scan source code and resulting VM image for malware.                                                                                                                     |
-| Security                                                         | Set Windows Server images security update to auto-update.                                                                                                                |
-| Security                                                         | The VHD image only includes necessary locked accounts, that do not have default passwords that would allow interactive login; no back doors.                             |
-| Security                                                         | Firewall rules are disabled, unless application functionally relies on them, such as a firewall appliance.                                                               |
-| Security                                                         | All sensitive information has been removed from the VHD image. For example, HOSTS file, log files, and unnecessary certificates should be removed.                                              |
-| Deployment                                                       | 64-bit operating system only.                            |
+|                           |                                                                                                                                                                          |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <strong>Category</strong> |                                                                          <strong>Check</strong>                                                                          |
+|         Security          | Use a secure OS base image. The VHD used for the source of any image based on Windows Server must be from the Windows Server OS images provided through Microsoft Azure. |
+|         Security          |                                                                   Install all latest security updates.                                                                   |
+|         Security          |                                Applications should not have a dependency on restricted user names such as Administrator, root and admin.                                 |
+|         Security          |                           BitLocker Drive Encryption is not supported on the operating system hard disk. BitLocker may be used on data disks.                            |
+|         Security          |             Limit the attack surface by keeping minimal footprint with only necessary Windows Server roles, features, services and networking ports enabled.             |
+|         Security          |                                                           Scan source code and resulting VM image for malware.                                                           |
+|         Security          |                                                        Set Windows Server images security update to auto-update.                                                         |
+|         Security          |               The VHD image only includes necessary locked accounts, that do not have default passwords that would allow interactive login; no back doors.               |
+|         Security          |                                Firewall rules are disabled, unless application functionally relies on them, such as a firewall appliance.                                |
+|         Security          |            All sensitive information has been removed from the VHD image. For example, HOSTS file, log files, and unnecessary certificates should be removed.            |
+|        Deployment         |                                                                      64-bit operating system only.                                                                       |
+

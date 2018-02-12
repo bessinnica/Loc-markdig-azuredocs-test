@@ -48,7 +48,7 @@ Azure CDN Resource health is a subset of [Azure resource health](../resource-hea
 
 Statuses related to Azure CDN resource health can be found below.
 
-|Message | Recommended Action |
+|Message | Recommended Action |
 |---|---|
 |You may have stopped, removed, or misconfigured one or more of your CDN endpoints | You may have stopped, removed, or misconfigured one or more of your CDN endpoints.|
 |We are sorry, the CDN management service is currently unavailable | Check back here for status updates; If your problem persists after the expected resolution time, contact support.|

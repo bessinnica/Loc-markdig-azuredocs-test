@@ -49,21 +49,21 @@ In this section, you write a Windows console app that sends events to your event
     Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
-  ```csharp
-  using System.Threading;
-  using Microsoft.ServiceBus.Messaging;
-  ```
+   ```csharp
+   using System.Threading;
+   using Microsoft.ServiceBus.Messaging;
+   ```
 5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the event hub you created in the previous section, and the namespace-level connection string you saved previously.
    
-  ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
-  ```
+   ```csharp
+   static string eventHubName = "{Event Hub name}";
+   static string connectionString = "{send connection string}";
+   ```
 6. Add the following method to the **Program** class:
    
-  ```csharp
-  static void SendingRandomMessages()
-  {
+   ```csharp
+   static void SendingRandomMessages()
+   {
       var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
       while (true)
       {
@@ -82,18 +82,18 @@ In this section, you write a Windows console app that sends events to your event
    
           Thread.Sleep(200);
       }
-  }
-  ```
+   }
+   ```
    
-  This method continuously sends events to your event hub with a 200-ms delay.
+   This method continuously sends events to your event hub with a 200-ms delay.
 7. Finally, add the following lines to the **Main** method:
    
-  ```csharp
-  Console.WriteLine("Press Ctrl-C to stop the sender process");
-  Console.WriteLine("Press Enter to start now");
-  Console.ReadLine();
-  SendingRandomMessages();
-  ```
+   ```csharp
+   Console.WriteLine("Press Ctrl-C to stop the sender process");
+   Console.WriteLine("Press Enter to start now");
+   Console.ReadLine();
+   SendingRandomMessages();
+   ```
 8. Run the program, and ensure that there are no errors.
   
 Congratulations! You have now sent messages to an event hub.

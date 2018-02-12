@@ -34,8 +34,8 @@ If you want to use the existing data on the disk again, you can reattach it to t
 ```azurecli
 az vm disk detach \
     -g myResourceGroup \
-	--vm-name myVm \
-	-n myDataDisk
+    --vm-name myVm \
+    -n myDataDisk
 ```
 
 The disk remains in storage but is no longer attached to a virtual machine.

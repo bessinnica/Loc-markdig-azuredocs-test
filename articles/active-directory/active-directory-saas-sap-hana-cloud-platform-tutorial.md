@@ -61,19 +61,19 @@ To configure the integration of SAP Cloud Platform into Azure AD, you need to ad
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **SAP Cloud Platform**, select **SAP Cloud Platform** from result panel then click **Add** button to add the application.
 
-	![SAP Cloud Platform in the results list](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
+    ![SAP Cloud Platform in the results list](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -99,15 +99,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **SAP Cloud Platform** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
 
 3. On the **SAP Cloud Platform Domain and URLs** section, perform the following steps:
 
-	![SAP Cloud Platform Domain and URLs single sign-on information](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
+    ![SAP Cloud Platform Domain and URLs single sign-on information](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP Cloud Platform application. The URL is based on the following pattern: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
@@ -120,38 +120,38 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
     | `https://<subdomain>.hana.ondemand.com/<instancename>` |
 
-	b. In the **Identifier** textbox you will provide your SAP Cloud Platform's type a URL using one of the following patterns: 
+    b. In the **Identifier** textbox you will provide your SAP Cloud Platform's type a URL using one of the following patterns: 
 
-	| |
-	|--|
-	| `https://hanatrial.ondemand.com/<instancename>` |
-	| `https://hana.ondemand.com/<instancename>` |
-	| `https://us1.hana.ondemand.com/<instancename>` |
-	| `https://ap1.hana.ondemand.com/<instancename>` |
+    | |
+    |--|
+    | `https://hanatrial.ondemand.com/<instancename>` |
+    | `https://hana.ondemand.com/<instancename>` |
+    | `https://us1.hana.ondemand.com/<instancename>` |
+    | `https://ap1.hana.ondemand.com/<instancename>` |
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern:
+    c. In the **Reply URL** textbox, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-	| `https://<subdomain>.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
+    | |
+    |--|
+    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
+    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [SAP Cloud Platform Client support team](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) to get Sign-On URL and Identifier. Reply URL you can get from trust management section which is explained later in the tutorial.
-	> 
-	 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [SAP Cloud Platform Client support team](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) to get Sign-On URL and Identifier. Reply URL you can get from trust management section which is explained later in the tutorial.
+    > 
+     
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
 6. In a different web browser window, sign on to the SAP Cloud Platform Cockpit at `https://account.<landscape host>.ondemand.com/cockpit`(for example: https://account.hanatrial.ondemand.com/cockpit).
 
@@ -226,7 +226,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     c. The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
 
-###Assertion-based groups
+### Assertion-based groups
 
 As an optional step, you can configure assertion-based groups for your Azure Active Directory Identity Provider.
 
@@ -304,26 +304,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **SAP Cloud Platform**.
 
-	![The SAP Cloud Platform link in the Applications list](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
+    ![The SAP Cloud Platform link in the Applications list](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.

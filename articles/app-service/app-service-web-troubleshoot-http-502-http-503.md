@@ -45,6 +45,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 <a name="observe" />
 
+
 ### 1. Observe and monitor application behavior
 #### Track Service health
 Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
@@ -68,6 +69,7 @@ For more information, see:
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
+
 
 ### 2. Collect data
 #### Use the Azure App Service Support Portal
@@ -105,6 +107,7 @@ For more information on features available in Kudu, see
 [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
+
 
 ### 3. Mitigate the issue
 #### Scale the web app

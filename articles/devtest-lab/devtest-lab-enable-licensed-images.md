@@ -35,16 +35,16 @@ The first step to allowing users to create VMs from a licensed image is to make 
 
 1. In the left panel under **VIRTUAL MACHINE BASES**, select **Marketplace images**. 
 
-	![Marketplace images menu item](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
+    ![Marketplace images menu item](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
 
     A list of all available marketplace images is shown, including the **OFFER STATUS** for each image.
 
-	![List of marketplace images showing offer status for each image](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-offer-status.png)
+    ![List of marketplace images showing offer status for each image](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-offer-status.png)
 
-	A licensed image shows an offer status of 
-	
-	- **Terms accepted:** the licensed image is available to users to create VMs. 
-	- **Terms review needed:** the licensed image is not currently available to users. The terms and conditions of the license must be accepted before lab users can use it to create VMs. 
+    A licensed image shows an offer status of 
+    
+    - **Terms accepted:** the licensed image is available to users to create VMs. 
+    - **Terms review needed:** the licensed image is not currently available to users. The terms and conditions of the license must be accepted before lab users can use it to create VMs. 
 
 ## Making a licensed image available to lab users
 To make sure a licensed image is available to lab users, a lab owner with admin permissions must first accept the terms and conditions for that licensed image. Enabling programmatic deployment for the subscription associated with a licensed image automatically accepts the legal terms and privacy statements for that image. [Working with Marketplace Images on Azure Resource Manager](https://azure.microsoft.com/blog/working-with-marketplace-images-on-azure-resource-manager/) provides additional information about programmatic deployment of marketplace images.
@@ -55,7 +55,7 @@ You can enable programmatic deployment for a licensed image by following these s
 
 1. Identify a licensed image for which you want users to have access but whose terms have not been accepted. For example, you might see a Data Science Virtual Machine that shows a status of either **Terms accepted** or **Terms review needed**.
 
-   	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > Data Science VMs are Azure Virtual Machine images, pre-installed, configured, and tested with several popular tools that are commonly used for data analytics, machine learning and AI training. [Introduction to Azure Data Science Virtual Machine for Linux and Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) provides a great deal of information about DSVMs.
@@ -66,7 +66,7 @@ You can enable programmatic deployment for a licensed image by following these s
 
 1. In the Configure Programmatic Deployment window, select **Enable**.
 
-	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
+    ![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
 
    > [!IMPORTANT]
    > You might see multiple subscriptions listed in the Configure Programmatic Deployment window. Make sure you are enabling programmatic deployment only for the intended subscription.

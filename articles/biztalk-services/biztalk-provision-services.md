@@ -20,9 +20,9 @@ ms.author: mandia
 # Create BizTalk Services using the Azure portal
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
-
+> 
 > [!TIP]
 > To sign in to the Azure portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
@@ -104,6 +104,7 @@ The SQL Database scale is automatically configured. Typically, the default scale
 <td>Authenticates with Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control namespace. When you create a BizTalk Service, the Access Control namespace is automatically created.</td>
 </tr>
 
+
 <tr>
 <td>Azure Storage account</td>
 <td>Gives access to tables, blobs, and queues used by your BizTalk Service to save the following:
@@ -130,23 +131,31 @@ When an Azure BizTalk Service is created, an HTTPS URL that includes your BizTal
 <br/><br/>
 <strong>Important SSL Certificate Information</strong>
 
+
 <ul>
 <li>The certificate expiration date must be less than 5 years.</li>
 <li>All private certificates require a password. Know this password and as a best practice, share this password with your administrators.</li>
 <li>Self-signed certificates are used in a test/development environment. When using self-signed certificates, import the certificate to your Personal certificate store and the Trusted Root Certification Authorities certificate store.</li>
 </ul>
+
 <br/>When sending the production certificate request to your certification authority, give the following certificate properties:
 <br/>
+
 
 <ul>
 <li><strong>Enhanced Key Usage</strong>: At a minimum, Azure BizTalk Services requires Server Authentication.</li>
 <li><strong>Common Name</strong>: Enter the fully qualified domain name (FQDN) of your Azure BizTalk Service URL. See <a HREF="#CreateService">Create a BizTalk Service</a> in this article.</li>
 </ul>
+
 <br/>
 A new or different certificate can be added after the BizTalk Service is created.
+
 </td>
+
 </tr>
+
 </table>
+
 <!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 

@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Bing Spell Check API with PHP 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with PHP. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with PHP. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
 
 ## Prerequisites
 
@@ -47,9 +48,9 @@ $path = '/bing/v7.0/spellcheck?';
 $input = "Hollo, wrld!";
 
 $data = array (
-	'mkt' => 'en-US',
-	'method' => 'proof',
-	'text' => urlencode ($input)
+    'mkt' => 'en-US',
+    'method' => 'proof',
+    'text' => urlencode ($input)
 );
 
 // NOTE: Replace this example key with a valid subscription key.
@@ -63,7 +64,7 @@ $key = 'enter key here';
 //'X-MSEdge-ClientIP' => CLIENT_IP
 
 $headers = "Content-type: application/x-www-form-urlencoded\r\n" .
-	"Ocp-Apim-Subscription-Key: $key\r\n";
+    "Ocp-Apim-Subscription-Key: $key\r\n";
 
 // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
 // http://php.net/manual/en/function.stream-context-create.php
@@ -78,7 +79,7 @@ $context  = stream_context_create ($options);
 $result = file_get_contents ($host . $path, false, $context);
 
 if ($result === FALSE) {
-	/* Handle error */
+    /* Handle error */
 }
 
 var_dump($result);

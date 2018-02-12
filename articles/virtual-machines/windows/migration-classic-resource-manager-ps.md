@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate to Resource Manager with PowerShell | Microsoft Docs
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks (VNETs), and storage accounts from classic to Azure Resource Manager (ARM) by using Azure PowerShell commands
 services: virtual-machines-windows
@@ -51,6 +51,7 @@ There are two main options to install Azure PowerShell: [PowerShell Gallery](htt
 For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 <br>
+
 
 ## Step 3: Ensure that you are an administrator for the subscription in Azure portal
 To perform this migration, you must be added as a co-administrator for the subscription in the [Azure portal](https://portal.azure.com).
@@ -122,6 +123,7 @@ Set your Azure subscription for the current session. This example sets the defau
 ```
 
 <br>
+
 
 ## Step 5: Make sure you have enough Azure Resource Manager Virtual Machine vCPUs in the Azure region of your current deployment or VNET
 You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).

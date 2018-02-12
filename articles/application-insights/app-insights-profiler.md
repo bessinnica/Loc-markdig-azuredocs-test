@@ -233,24 +233,24 @@ As you can see this dashboard shows you all of the web jobs that are currently i
 
 First let's get the binaries we need.
 
-1.	Go to the Kudu site. Under the development tools tab, click on the "Advanced Tools" tab with the Kudu logo. Click on "Go". This takes you to a new site and logs you in automatically.
-2.	Next we need to download the profiler binaries. Navigate to the File Explorer via Debug Console -> CMD located at the top of the page.
-3.	Click on site -> wwwroot -> App_Data -> jobs -> continuous. You should see a folder "ApplicationInsightsProfiler2". Click on the download icon to the left of the folder. This downloads "ApplicationInsightsProfiler2.zip" file.
-4.	This downloads all the files you need. I recommend creating a clean directory to move this zip archive to before moving on.
+1.  Go to the Kudu site. Under the development tools tab, click on the "Advanced Tools" tab with the Kudu logo. Click on "Go". This takes you to a new site and logs you in automatically.
+2.  Next we need to download the profiler binaries. Navigate to the File Explorer via Debug Console -> CMD located at the top of the page.
+3.  Click on site -> wwwroot -> App_Data -> jobs -> continuous. You should see a folder "ApplicationInsightsProfiler2". Click on the download icon to the left of the folder. This downloads "ApplicationInsightsProfiler2.zip" file.
+4.  This downloads all the files you need. I recommend creating a clean directory to move this zip archive to before moving on.
 
 ### Setting up the web job archive
 When you add a new web job to the azure website basically, you create a zip archive with a run.cmd inside. The run.cmd tells the web job system what to do when you run the web job.
 
-1.	To start create a new folder, our example is named "RunProfiler2Minutes".
-2.	Copy the files from the extracted ApplicationInsightProfiler2 folder into this new folder.
-3.	Create a new run.cmd file. (You can open this working folder in VS Code before starting for convenience.)
-4.	Add the command `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`, and save the file.
-a.	The `start` command tells the profiler to start.
-b.	`--engine-mode immediate` tells the profiler we want to immediately start profiling.
-c.	`--single` means to run and then stop automatically
-d.	`--immediate-profiling-duration 120` means to have the profiler run for 120 seconds or 2 minutes.
-5.	Save this file.
-6.	Archive this folder, you can right-click the folder and choose Send to -> Compressed (zipped) folder. This creates a .zip file using the name of your folder.
+1.  To start create a new folder, our example is named "RunProfiler2Minutes".
+2.  Copy the files from the extracted ApplicationInsightProfiler2 folder into this new folder.
+3.  Create a new run.cmd file. (You can open this working folder in VS Code before starting for convenience.)
+4.  Add the command `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`, and save the file.
+a.  The `start` command tells the profiler to start.
+b.  `--engine-mode immediate` tells the profiler we want to immediately start profiling.
+c.  `--single` means to run and then stop automatically
+d.  `--immediate-profiling-duration 120` means to have the profiler run for 120 seconds or 2 minutes.
+5.  Save this file.
+6.  Archive this folder, you can right-click the folder and choose Send to -> Compressed (zipped) folder. This creates a .zip file using the name of your folder.
 
 ![start profiler command](./media/app-insights-profiler/start-profiler-command.png)
 
@@ -259,13 +259,13 @@ We now have a web job .zip we can use to set up web jobs in our site.
 ### Add a new web job
 Next we add a new web job in our site. This example shows you how to add a manually triggered web job. After you are able to do that the process is almost exactly the same for scheduled.
 
-1.	Go to the web jobs dashboard.
-2.	Click on the Add command from the toolbar.
-3.	Give your web job a name. For clarity it can help to match the name of your archive and to open it up to have different versions of the run.cmd.
-4.	In the file upload part of the form, click on the open file icon and find the .zip file you made above.
-5.	For the type, choose Triggered.
-6.	For the Triggers choose Manual.
-7.	Hit OK to save.
+1.  Go to the web jobs dashboard.
+2.  Click on the Add command from the toolbar.
+3.  Give your web job a name. For clarity it can help to match the name of your archive and to open it up to have different versions of the run.cmd.
+4.  In the file upload part of the form, click on the open file icon and find the .zip file you made above.
+5.  For the type, choose Triggered.
+6.  For the Triggers choose Manual.
+7.  Hit OK to save.
 
 ![start profiler command](./media/app-insights-profiler/create-webjob.png)
 

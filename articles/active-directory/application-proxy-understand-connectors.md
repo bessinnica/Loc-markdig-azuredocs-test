@@ -69,14 +69,16 @@ To learn more about connector groups, see [Publish applications on separate netw
 
 While connectors will automatically load balance within a connector group, it is also important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you will need. Below is a table giving an outline of the volume different machines can handle. Please note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and cannot be used to predict load.  Also note that there will be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS.
 
-|Cores|RAM|Expected Latency (MS)-P99|Max TPS|
-| ----- | ----- | ----- | ----- |
-|2|8|325|586|
-|4|16|320|1150|
-|8|32|270|1190|
-|16|64|245|1200*|
+
+| Cores | RAM | Expected Latency (MS)-P99 | Max TPS |
+|-------|-----|---------------------------|---------|
+|   2   |  8  |            325            |   586   |
+|   4   | 16  |            320            |  1150   |
+|   8   | 32  |            270            |  1190   |
+|  16   | 64  |            245            |  1200*  |
+
 \* This machine had a connection limit of 800. For all other machines we used the default 200 connection limit.
- 
+
 >[!NOTE]
 >There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
 

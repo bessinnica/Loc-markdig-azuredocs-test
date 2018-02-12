@@ -38,6 +38,7 @@ If you have physical devices, visit [Connect Raspberry Pi to Azure IoT Hub](iot-
 <img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
 </div>
 
+
 ## What you do
 
 * Learn the basics of Raspberry Pi online simulator.
@@ -58,7 +59,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 Click the button to launch Raspberry Pi online simulator.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Start Raspberry Pi Simulator</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Start Raspberry Pi Simulator</a>
 
 There are three areas in the web simulator.
 1. Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED. The area is locked in preview version so currently you cannot do customization.
@@ -68,13 +69,12 @@ There are three areas in the web simulator.
    * **Reset** - Reset the coding area to the default sample application.
    * **Fold/Expand** - On the right side there is a button for you to fold/expand the console window.
 
-> [!NOTE] 
-The Raspberry Pi web simulator is now available in preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+> [!NOTE]
+> The Raspberry Pi web simulator is now available in preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Overview of Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
-
 
 ## Run a sample application on Pi web simulator
 
@@ -93,3 +93,4 @@ You should see the following output that shows the sensor data and the messages 
 You’ve run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

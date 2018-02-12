@@ -22,8 +22,6 @@ To complete this how-to guide, you need:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
- 
-
 > [!IMPORTANT]
 > If you install and use the Azure CLI locally, this how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -48,9 +46,10 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 ```
 
 The `az postgres server restore` command requires the following parameters:
-| Setting | Suggested value | Description  |
+
+| Setting | Suggested value | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  The resource group where the source server exists.  |
+| resource-group |  myResourceGroup |  The resource group where the source server exists.  |
 | name | mypgserver-restored | The name of the new server that is created by the restore command. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Select a point in time to restore to. This date and time must be within the source server's backup retention period. Use the ISO8601 date and time format. For example, you can use your own local time zone, such as `2017-04-13T05:59:00-08:00`. You can also use the UTC Zulu format, for example, `2017-04-13T13:59:00Z`. |
 | source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |

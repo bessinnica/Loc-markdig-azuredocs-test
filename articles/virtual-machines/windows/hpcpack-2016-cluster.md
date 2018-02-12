@@ -46,7 +46,7 @@ If you don’t already have a certificate that meets these requirements, you can
 
     ```PowerShell 
     Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
-  
+
     New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
     ```
 
@@ -100,7 +100,6 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 "Vault Resource Group   :   $VaultRG"
 "Certificate URL        :   $($hpcSecret.Id)"
 "Certificate Thumbprint :   $thumbprint"
-
 ```
 
 

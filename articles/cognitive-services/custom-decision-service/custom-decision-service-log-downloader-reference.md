@@ -31,27 +31,27 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 ```
 
 ### Parameters
-| Input | Description | Default |
-| --- | --- | --- |
-| `-h`, `--help` | show help message and exit | |
-| `-a APP_ID`, `--app_id APP_ID` | app id (i.e., Azure storage blob container name) | Required |  
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | base dir to download data (a subfolder will be created)  | Required |  
-| `-s START_DATE`, `--start_date START_DATE` | downloading start date (included) - format `YYYY-MM-DD` | `None` |  
-| `-e END_DATE`, `--end_date END_DATE` | downloading end date (included) - format `YYYY-MM-DD` | `None` |  
-| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | overwrite mode to use | |  
-| | `0`: never overwrite - ask user if blobs are currently used | default | | 
-| | `1`: ask user if files have different sizes and if blobs are currently used | |  
-| | `2`: always overwrite - download currently used blobs | |  
-| | `3`: never overwrite and append if larger size, without asking - download currently used blobs | |  
-| | `4`: never overwrite and append if larger size, without asking - skip currently used blobs | |  
-| `--dry_run` | print which blobs would have been downloaded, without downloading | `False` |  
-| `--create_gzip` | create gzip file for Vowpal Wabbit | `False` |  
-| `--delta_mod_t DELTA_MOD_T` | time window in sec to detect if a file is currently in use | `3600` sec (`1` hour) |  
-| `--verbose` | print more details | `False` |  
-| `-v VERSION`, `--version VERSION` | version of log downloader to use | |  
-| | `1`: for uncooked logs (only for backward compatibility) | deprecated |  
-| | `2`: for cooked logs | default |  
 
+|                         Input                          |                                          Description                                           |        Default        |
+|--------------------------------------------------------|------------------------------------------------------------------------------------------------|-----------------------|
+|                     `-h`, `--help`                     |                                   show help message and exit                                   |                       |
+|             `-a APP_ID`, `--app_id APP_ID`             |                        app id (i.e., Azure storage blob container name)                        |       Required        |
+|           `-l LOG_DIR`, `--log_dir LOG_DIR`            |                    base dir to download data (a subfolder will be created)                     |       Required        |
+|       `-s START_DATE`, `--start_date START_DATE`       |                    downloading start date (included) - format `YYYY-MM-DD`                     |        `None`         |
+|          `-e END_DATE`, `--end_date END_DATE`          |                     downloading end date (included) - format `YYYY-MM-DD`                      |        `None`         |
+| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` |                                     overwrite mode to use                                      |                       |
+|                                                        |                  `0`: never overwrite - ask user if blobs are currently used                   |        default        |
+|                                                        |          `1`: ask user if files have different sizes and if blobs are currently used           |                       |
+|                                                        |                     `2`: always overwrite - download currently used blobs                      |                       |
+|                                                        | `3`: never overwrite and append if larger size, without asking - download currently used blobs |                       |
+|                                                        |   `4`: never overwrite and append if larger size, without asking - skip currently used blobs   |                       |
+|                      `--dry_run`                       |               print which blobs would have been downloaded, without downloading                |        `False`        |
+|                    `--create_gzip`                     |                               create gzip file for Vowpal Wabbit                               |        `False`        |
+|              `--delta_mod_t DELTA_MOD_T`               |                   time window in sec to detect if a file is currently in use                   | `3600` sec (`1` hour) |
+|                      `--verbose`                       |                                       print more details                                       |        `False`        |
+|           `-v VERSION`, `--version VERSION`            |                                version of log downloader to use                                |                       |
+|                                                        |                    `1`: for uncooked logs (only for backward compatibility)                    |      deprecated       |
+|                                                        |                                      `2`: for cooked logs                                      |        default        |
 
 ### Examples
 For a dry run of downloading all the data in your Azure Storage Blob container use:

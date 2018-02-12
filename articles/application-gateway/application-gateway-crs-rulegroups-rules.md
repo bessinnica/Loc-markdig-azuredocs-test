@@ -25,7 +25,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 The following tables are the Rule groups and rules that are available when using Application Gateway with web application firewall.  Each table represents the rules found in a rule group for a specific CRS version.
 
-##<a name="owasp30"></a> OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
 ### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
 
@@ -332,7 +332,7 @@ The following tables are the Rule groups and rules that are available when using
 |943017|Rule 943017|
 |943018|Rule 943018|
 
-##<a name="owasp229"></a> OWASP_2.2.9
+## <a name="owasp229"></a> OWASP_2.2.9
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 

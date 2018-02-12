@@ -36,18 +36,20 @@ ms.custom: H1Hack27Feb2017
 
 <table>
 
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td><strong>SDK download</strong></td><td><a href="https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/" data-raw-source="[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)">NuGet</a></td></tr>
 
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
+<tr><td><strong>API documentation</strong></td><td><a href="/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet" data-raw-source="[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)">.NET API reference documentation</a></td></tr>
 
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
+<tr><td><strong>Samples</strong></td><td><a href="sql-api-dotnet-samples.md" data-raw-source="[.NET code samples](sql-api-dotnet-samples.md)">.NET code samples</a></td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
+<tr><td><strong>Get started</strong></td><td><a href="sql-api-get-started.md" data-raw-source="[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)">Get started with the Azure Cosmos DB .NET SDK</a></td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
+<tr><td><strong>Web app tutorial</strong></td><td><a href="sql-api-dotnet-application.md" data-raw-source="[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)">Web application development with Azure Cosmos DB</a></td></tr>
 
-<tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
+<tr><td><strong>Current supported framework</strong></td><td><a href="https://www.microsoft.com/download/details.aspx?id=30653" data-raw-source="[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)">Microsoft .NET Framework 4.5</a></td></tr>
+
 </table></br>
+
 
 ## Release notes
 ### <a name="1.19.1"/>1.19.1
@@ -78,21 +80,21 @@ ms.custom: H1Hack27Feb2017
 * Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
 
 ### <a name="1.16.0"/>1.16.0
-*	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in the DocumentClient constructor.
+*   Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in the DocumentClient constructor.
 * Marked the DocumentClient constructor obsolete that required JsonSerializerSettings as the last parameter to allow for default values of ConnectionPolicy and ConsistencyLevel parameters when passing in JsonSerializerSettings parameter.
 
 ### <a name="1.15.0"/>1.15.0
-*	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
+*   Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="1.14.1"/>1.14.1
-*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB SQL queries.
+*   Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB SQL queries.
 
 ### <a name="1.14.0"/>1.14.0
-*	Added support for a new consistency level called ConsistentPrefix.
-*	Added support for query metrics for individual partitions.
-*	Added support for limiting the size of the continuation token for queries.
-*	Added support for more detailed tracing for failed requests.
-*	Made some performance improvements in the SDK.
+*   Added support for a new consistency level called ConsistentPrefix.
+*   Added support for query metrics for individual partitions.
+*   Added support for limiting the size of the continuation token for queries.
+*   Added support for more detailed tracing for failed requests.
+*   Made some performance improvements in the SDK.
 
 ### <a name="1.13.4"/>1.13.4
 * Functionally same as 1.13.3. Made some internal changes.
@@ -246,12 +248,12 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.2.0"/>1.2.0
 * Added a dependency on Newtonsoft.Json v5.0.7.
 * Made changes to support Order By:
-  
+
   * LINQ provider support for OrderBy() or OrderByDescending()
   * IndexingPolicy to support Order By 
-    
+
     **Possible breaking change** 
-    
+
     If you have existing code that provisions collections with a custom indexing policy, then your existing code needs to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>1.1.0
@@ -271,6 +273,7 @@ New features and functionality and optimizations are only added to the current S
 Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 <br/>
+
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

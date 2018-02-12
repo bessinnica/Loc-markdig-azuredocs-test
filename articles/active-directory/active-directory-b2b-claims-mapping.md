@@ -29,7 +29,7 @@ There are two possible reasons why you might need to edit the claims issued in t
 
 2. Your application requires the NameIdentifier claim to be something other than the user principal name stored in Azure Active Directory.
 
-  ![view claims in SAML token](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
+   ![view claims in SAML token](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
 
 For information on how to add and edit claims, check out this article on claims customization, [Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](develop/active-directory-saml-claims-customization.md). For B2B collaboration users, mapping NameID and UPN cross-tenant are prevented for security reasons.
 

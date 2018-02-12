@@ -35,6 +35,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## Networking
 <a id="direct-connection"></a>
 
+
 1. **Connection policy: Use direct connection mode**
 
     How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the [connection *protocol*](#connection-protocol).  The two available modes are:
@@ -43,7 +44,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    2. Direct Mode
 
       Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops.
-<a id="use-tcp"></a>
+   <a id="use-tcp"></a>
 2. **Connection policy: Use the TCP protocol**
 
     When using Direct Mode, there are two protocol options available:
@@ -57,20 +58,20 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
-    ```csharp
-    var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
-    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-    new ConnectionPolicy
-    {
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = new "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
+     {
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp
-    });
-    ```
+     });
+     ```
 
-    Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
+     Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
 
-    ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
+     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
 
 3. **Call OpenAsync to avoid startup latency on first request**
 
@@ -78,12 +79,16 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
         await client.OpenAsync();
    <a id="same-region"></a>
+
+
 4. **Collocate clients in same Azure region for performance**
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
+
+
 5. **Increase number of threads/tasks**
 
     Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
@@ -119,13 +124,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
 6. **Implement backoff at RetryAfter intervals**
 
     During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the SQL [.NET](sql-api-sdk-dotnet.md) and [Java](sql-api-sdk-java.md), version 1.9.0 and above of the [Node.js](sql-api-sdk-node.md) and [Python](sql-api-sdk-python.md), and all supported versions of the [.NET Core](sql-api-sdk-dotnet-core.md) SDKs. For more information, see [Exceeding reserved throughput limits](request-units.md#RequestRateTooLarge) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
-    
+
     With version 1.19 and later of the .NET SDK, there is a mechanism to log additional diagnostic information and troubleshoot latency issues as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand the number of times you observed 429s for a given request.
     ```csharp
     ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
     readDocument.RequestDiagnosticsString 
     ```
-    
+
 7. **Scale out your client-workload**
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
@@ -159,7 +164,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     - For ASP.NET Web applications deployed on Azure, this can be done by choosing the **Platform as 64-bit** in the **Application Settings** on the Azure portal.
 
 ## Indexing Policy
- 
+
 1. **Exclude unused paths from indexing for faster writes**
 
     Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
@@ -175,6 +180,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Throughput
 <a id="measure-rus"></a>
+
 
 1. **Measure and tune for lower request units/second usage**
 

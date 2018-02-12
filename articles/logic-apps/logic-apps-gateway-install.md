@@ -59,6 +59,7 @@ For information about how to use the gateway with other services, see these arti
 
 <a name="requirements"></a>
 
+
 ## Requirements
 
 **Minimum**:
@@ -114,16 +115,17 @@ that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
   running the latest installer. However, 
   you can use the latest installer to set up 
   a new gateway with the location that you want instead.
-  
+
   If you have a gateway installer that's earlier than 
   version 14.16.6317.4, but you haven't installed 
   your gateway yet, you can download and use the latest installer.
 
 <a name="install-gateway"></a>
 
+
 ## Install the data gateway
 
-1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.  [Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Review and accept the terms of use and privacy statement.
 
@@ -206,6 +208,7 @@ gateway that you want to migrate, restore, or take over.
 
 <a name="windows-service-account"></a>
 
+
 ## Windows service account
 
 The on-premises data gateway runs as a Windows service and is set up to 
@@ -222,6 +225,7 @@ the Windows service account must have at least **Contributor** permissions.
 
 <a name="restart-gateway"></a>
 
+
 ## Restart the gateway
 
 Like any other Windows service, you can start and stop the service in multiple ways. 
@@ -229,11 +233,11 @@ For example, you can open a command prompt with elevated permissions
 on the computer where the gateway is running, and run either these commands:
 
 * To stop the service, run this command:
-  
+
     `net stop PBIEgwService`
 
 * To start the service, run this command:
-  
+
     `net start PBIEgwService`
 
 ## Configure a firewall or proxy
@@ -304,6 +308,7 @@ you can download and use the [Microsoft Azure Datacenter IP ranges list](https:/
 In some cases, the Azure Service Bus connections are made with IP Address rather than fully qualified domain names.
 
 <a name="gateway-cloud-service"></a>
+
 ## How does the data gateway work?
 
 The data gateway facilitates quick and secure communication between your logic app, 
@@ -328,6 +333,7 @@ and sends the query to the queue for the gateway to process.
 The gateway cloud service then uses the results.
 
 <a name="faq"></a>
+
 ## Frequently asked questions
 
 ### General
@@ -341,6 +347,7 @@ Consider the gateway as a client application in this sense.
 The gateway just needs the capability to connect to the server name that was provided.
 
 <a name="why-azure-work-school-account"></a>
+
 
 **Q**: Why must I use an Azure work or school account to sign in? <br/>
 **A**: You can only use an Azure work or school account when you install the on-premises data gateway. 
@@ -449,7 +456,7 @@ You can see this traffic with the Power BI service from the client machine.
 This service might show errors and other related information.
 
 ## Next steps
-	
+
 * [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md)
 * [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Connectors for Azure Logic Apps](../connectors/apis-list.md)

@@ -207,3 +207,4 @@ else
 
 ## Next steps
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
+

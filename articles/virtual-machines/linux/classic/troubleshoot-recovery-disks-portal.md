@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Troubleshoot an Azure Linux classic VM by attaching the OS disk to a recovery VM| Microsoft Docs
 description: Learn how to troubleshoot an Azure Linux classic VM by attaching the OS disk to a recovery VM
@@ -20,7 +20,7 @@ ms.author: genli
 
 # Troubleshoot a Linux classic VM by attaching the OS disk to a recovery VM
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]

@@ -45,39 +45,39 @@ To upgrade from Backup Server v1 to Backup Server v2, make sure your installatio
 
 2. After you extract the setup wizard, make sure that **Execute setup.exe** is selected, and then select **Finish**.
 
-  ![Setup installer - Run setup](./media/backup-mabs-upgrade-to-v2/run-setup.png)
+   ![Setup installer - Run setup](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
 3. In the Microsoft Azure Backup Server wizard, under **Install**, select **Microsoft Azure Backup Server**.
 
-  ![Setup installer - Select install](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![Setup installer - Select install](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. On the **Welcome** page, review the warnings, and then select **Next**.
 
-  ![Setup installer - Welcome page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![Setup installer - Welcome page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. The setup wizard performs prerequisite checks to make sure your environment can upgrade. On the **Prerequisite Checks** page, select **Check**.
 
-  ![Setup installer - Prerequisite Checks page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![Setup installer - Prerequisite Checks page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. Your environment must pass the prerequisite checks. If your environment doesn't pass the checks, note the issues and fix them. Then, select **Check Again**. After you pass the prerequisite checks, select **Next**.
 
-  ![Setup installer - Check Again button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s4-pass-checks.png)
+   ![Setup installer - Check Again button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s4-pass-checks.png)
 
 7. On the **SQL Settings** page, select the relevant option for your SQL installation, and then select **Check and Install**.
 
-  ![Setup installer - SQL Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![Setup installer - SQL Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
-  The checks might take a few minutes. When the checks are finished, select **Next**.
+   The checks might take a few minutes. When the checks are finished, select **Next**.
 
-  ![Setup installer - SQL Settings Check and Install button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![Setup installer - SQL Settings Check and Install button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
 8. On the **Installation Settings** page, make any changes to the location where Backup Server is installed, or to the Scratch Location. Select **Next**.
 
-  ![Setup installer - Installation Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
+   ![Setup installer - Installation Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
 9. To finish the setup wizard, select **Finish**.
 
-  ![Setup installer - Finish](./media/backup-mabs-upgrade-to-v2/run-setup.png)
+   ![Setup installer - Finish](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
 
 
@@ -103,9 +103,9 @@ To add a volume in the Administrator Console:
 
       ![Add Disk Storage wizard - Add volume](./media/backup-mabs-upgrade-to-v2/add-volume.png)
 
-  If you want to add a disk, the disk must belong to a protection group that has legacy storage. These disks can only be used for these protection groups. If Backup Server doesn't have sources that have legacy protection, the disk isn't listed.
+   If you want to add a disk, the disk must belong to a protection group that has legacy storage. These disks can only be used for these protection groups. If Backup Server doesn't have sources that have legacy protection, the disk isn't listed.
 
-  For more information about adding disks, see [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
+   For more information about adding disks, see [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
 
 
 ### Assign workloads to volumes
@@ -138,34 +138,34 @@ To create a protection group:
 
     This opens the Create New Protection Group wizard.
 
-  ![Create New Protection Group wizard](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
+   ![Create New Protection Group wizard](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
 3. On the **Welcome** page, select **Next**.
 4. On the **Select Protection Group Type** page, select the type of protection group you want to create, and then select **Next**.
 
-  ![Select Protection Group Type page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
+   ![Select Protection Group Type page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
 5. On the **Select Group Members** page, in the **Available members** pane, the members with protection agents are listed. For this example, select volume D:\ and E:\ and add them to the **Selected members** pane. Select **Next**.
 
-  ![Select Group Members page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
+   ![Select Group Members page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
 6. On the **Select Data Protection Method** page, enter a **Protection group name**, select the protection method, and then select **Next**. If you want short-term protection, you must select the **Disk** backup method.
 
-  ![Select Data Protection Method page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
+   ![Select Data Protection Method page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
 
 7. On the **Specify Short-Term Goals** page, select the details for **Retention range** and **Synchronization frequency**. Then, select **Next**. Optionally, to change the schedule for when recovery points are taken, select **Modify**.
 
-  ![Specify Short-Term Goals page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
+   ![Specify Short-Term Goals page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
 
 8. On the **Review Disk Storage Allocation** page, review details about the data sources you selected, their size, and  values for the space to be provisioned and the target storage volume.
 
-  ![Review Disk Storage Allocation page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
+   ![Review Disk Storage Allocation page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  Storage volumes are based on the workload volume allocation (set by using PowerShell) and the available storage. You can change the storage volumes by selecting other volumes in the drop-down menu. If you change the value for **Target Storage**, the value for **Available disk storage** dynamically changes to reflect values under **Free Space** and **Underprovisioned Space**.
+   Storage volumes are based on the workload volume allocation (set by using PowerShell) and the available storage. You can change the storage volumes by selecting other volumes in the drop-down menu. If you change the value for **Target Storage**, the value for **Available disk storage** dynamically changes to reflect values under **Free Space** and **Underprovisioned Space**.
 
-  If the data sources grow as planned, the value for the **Underprovisioned Space** column in **Available disk storage** reflects the amount of additional storage that's needed. Use this value to help plan your storage needs for smooth backups. If the value is zero, there are no potential problems with storage in the foreseeable future. If the value is a number other than zero, you do not have sufficient storage allocated  (based on your protection policy and the data size of your protected members).
+   If the data sources grow as planned, the value for the **Underprovisioned Space** column in **Available disk storage** reflects the amount of additional storage that's needed. Use this value to help plan your storage needs for smooth backups. If the value is zero, there are no potential problems with storage in the foreseeable future. If the value is a number other than zero, you do not have sufficient storage allocated  (based on your protection policy and the data size of your protected members).
 
-  ![Underallocated disk storage](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
+   ![Underallocated disk storage](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
 
    To finish creating your protection group, complete the wizard.
 
@@ -176,13 +176,13 @@ Updating protection groups to use Modern Backup Storage is optional. To update t
 
 1. In the Administrator Console, select the **Protection** feature. In the **Protection Group Member** list, right-click the member, and then select **Stop protection of member**.
 
-  ![Stop protection of member](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Stop protection of member](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. In the **Remove from Group** dialog box, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Click **OK**.
 
-  If you want to immediately return the used disk space to the free storage pool, select the **Delete replica on disk** check box to delete the backup data (and recovery points) associated with that member.
+   If you want to immediately return the used disk space to the free storage pool, select the **Delete replica on disk** check box to delete the backup data (and recovery points) associated with that member.
 
-  ![Remove from Group dialog box](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Remove from Group dialog box](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Create a protection group that uses Modern Backup Storage. Include the unprotected data sources.
 
@@ -213,10 +213,10 @@ The following sections describe how to update protection agents for client compu
 
 2. In the display pane, select the client computers for which you want to update the protection agent.
 
-  > [!NOTE]
-  > The **Agent Updates** column indicates when a protection agent update is available for each protected computer. In the **Actions** pane, the **Update** action is available only when a protected computer is selected and updates are available.
-  >
-  >
+   > [!NOTE]
+   > The **Agent Updates** column indicates when a protection agent update is available for each protected computer. In the **Actions** pane, the **Update** action is available only when a protected computer is selected and updates are available.
+   >
+   >
 
 3. To install updated protection agents on the selected computers, in the **Actions** pane, select **Update**.
 
@@ -226,16 +226,16 @@ The following sections describe how to update protection agents for client compu
 
 2. In the display pane, select the client computers for which you want to update the protection agent.
 
-  > [!NOTE]
+   > [!NOTE]
    > The **Agent Updates** column indicates when a protection agent update is available for each protected computer. In the **Actions** pane, the **Update** action is not available when a protected computer is selected unless updates are available.
-  >
-  >
+   >
+   >
 
 3. To install updated protection agents on the selected computers, select **Update**.
 
 4. For a client computer that is not connected to the network, until the computer is connected to the network, the **Agent Status** column shows a status of **Update Pending**.
 
-  After a client computer is connected to the network, the **Agent Updates** column for the client computer shows a status of **Updating**.
+   After a client computer is connected to the network, the **Agent Updates** column for the client computer shows a status of **Updating**.
   
 ### Move legacy Protection groups from old version and sync the new version with Azure
 

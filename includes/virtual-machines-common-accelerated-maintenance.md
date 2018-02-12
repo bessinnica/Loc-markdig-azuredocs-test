@@ -39,13 +39,13 @@ Yes, virtual machines deployed in an availability set or virtual machine scale s
 
 Normally, Azure planned maintenance events are rolled out to paired regions one at a time to minimize the risk of disruption in both regions. However, due to the urgent nature of this security update, we are rolling the update out to all regions concurrently.
 
-## ​What about PaaS services on Azure?  
+##  What about PaaS services on Azure?  
 
 The Azure platform services including web & mobile, data services, IoT, serverless, etc. have addressed the vulnerability. There is no action needed for customers using these services.
 
 ## Intel released additional guidance on January 22, 2018 related to the security vulnerabilities.  Will this guidance cause any additional maintenance activities by Azure?  
 
-Azure mitigations previously announced on Jan 3, 2018 are unaffected by the [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
+Azure mitigations previously announced on Jan 3, 2018 are unaffected by the [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
  
 
 ## Next steps

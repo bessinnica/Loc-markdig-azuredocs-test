@@ -40,6 +40,7 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 <a id="DeviceIdentity_csharp"></a>
+
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## Trigger a remote reboot on the device using a direct method
@@ -54,25 +55,25 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![NuGet Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
-   
+
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
-        
+
 5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the section "Create an IoT hub." 
-   
+
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static string targetDevice = "myDeviceId";
-        
+
 6. Add the following method to the **Program** class.  This code gets the device twin for the rebooting device and outputs the reported properties.
-   
+
         public static async Task QueryTwinRebootReported()
         {
             Twin twin = await registryManager.GetTwinAsync(targetDevice);
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
-        
+
 7. Add the following method to the **Program** class.  This code initiates the reboot on the device using a direct method.
 
         public static async Task StartReboot()
@@ -87,13 +88,13 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         }
 
 7. Finally, add the following lines to the **Main** method:
-   
+
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartReboot().Wait();
         QueryTwinRebootReported().Wait();
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
-        
+
 8. Build the solution.
 
 > [!NOTE]
@@ -107,20 +108,20 @@ In this section, you will
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateManagedDevice**.
-   
+
     ![New Visual C# Windows Classic device app][img-createdeviceapp]
-    
+
 2. In Solution Explorer, right-click the **SimulateManagedDevice** project, and then click **Manage NuGet Packages...**.
 3. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
-   
+
     ![NuGet Package Manager window Client app][img-clientnuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
-   
+
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
 
 5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
-   
+
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
 
@@ -155,7 +156,7 @@ In this section, you will
         }
 
 7. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
-   
+
         try
         {
             Console.WriteLine("Connecting to hub");
@@ -177,7 +178,7 @@ In this section, you will
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
-        
+
 8. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **SimulateManagedDevice** project in the dropdown menu. Build the solution.       
 
 > [!NOTE]
@@ -189,7 +190,7 @@ You are now ready to run the apps.
 1. Run the .NET device app **SimulateManagedDevice**.  Right-click the **SimulateManagedDevice** project, select **Debug**, and then select **Start new instance**. It should start listening for method calls from your IoT Hub: 
 
 2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerReboot** app to invoke the reboot method in the simulated device app. Right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**. You should see "Rebooting!" written in the **SimulatedManagedDevice** console and the reported properties of the device, which include the last reboot time,  written in the **TriggerReboot** console.
-   
+
     ![Service and device app run][img-combinedrun]
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

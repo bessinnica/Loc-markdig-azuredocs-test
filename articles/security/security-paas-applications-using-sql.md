@@ -1,4 +1,4 @@
-﻿---
+---
 title: Securing PaaS Databases in Azure | Microsoft Docs
 description: " Learn about Azure SQL Database and SQL Data Warehouse security best practices for securing your PaaS web and mobile applications. "
 services: security

@@ -102,12 +102,12 @@ The following passwords are not allowed:
     <tr>
         <td style="text-align:center">abc@123</td>
         <td style="text-align:center">P@$$w0rd</td>
-        <td style="text-align:center">P@ssw0rd</td>
-        <td style="text-align:center">P@ssword123</td>
+        <td style="text-align:center">P<xref href="ssw0rd" data-throw-if-not-resolved="False" data-raw-source="@ssw0rd"></xref></td>
+        <td style="text-align:center">P<xref href="ssword123" data-throw-if-not-resolved="False" data-raw-source="@ssword123"></xref></td>
         <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
-        <td style="text-align:center">pass@word1</td>
+        <td style="text-align:center">pass<xref href="word1" data-throw-if-not-resolved="False" data-raw-source="@word1"></xref></td>
         <td style="text-align:center">Password!</td>
         <td style="text-align:center">Password1</td>
         <td style="text-align:center">Password22</td>

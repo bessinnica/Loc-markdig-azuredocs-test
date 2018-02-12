@@ -62,25 +62,25 @@ pip install azure-datalake-store
 
 2. Add the following snippet to import the required modules
 
-	```
-	## Use this for Azure AD authentication
-	from msrestazure.azure_active_directory import AADTokenCredentials
+    ```
+    ## Use this for Azure AD authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
 
-	## Required for Azure Data Lake Store account management
-	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+    ## Required for Azure Data Lake Store account management
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-	## Required for Azure Data Lake Store filesystem management
-	from azure.datalake.store import core, lib, multithread
+    ## Required for Azure Data Lake Store filesystem management
+    from azure.datalake.store import core, lib, multithread
 
-	# Common Azure imports
-	import adal
+    # Common Azure imports
+    import adal
     from azure.mgmt.resource.resources import ResourceManagementClient
-	from azure.mgmt.resource.resources.models import ResourceGroup
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
-	## Use these as needed for your application
-	import logging, pprint, uuid, time
-	```
+    ## Use these as needed for your application
+    import logging, pprint, uuid, time
+    ```
 
 3. Save changes to mysample.py.
 
@@ -90,7 +90,7 @@ pip install azure-datalake-store
 
 Use the following snippet to authenticate with Azure AD for account management operations on a Data Lake Store account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
 
-	authority_host_url = "https://login.microsoftonline.com"
+    authority_host_url = "https://login.microsoftonline.com"
     tenant = "FILL-IN-HERE"
     authority_url = authority_host_url + '/' + tenant
     client_id = 'FILL-IN-HERE'
@@ -107,7 +107,7 @@ Use the following snippet to authenticate with Azure AD for account management o
 
 Use this to authenticate with Azure AD for filesystem operations on a Data Lake Store account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
 
-	adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
+    adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
 ## End-user authentication without multi-factor authentication
 

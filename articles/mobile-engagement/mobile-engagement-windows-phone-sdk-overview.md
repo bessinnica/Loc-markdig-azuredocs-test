@@ -28,7 +28,7 @@ Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)
 3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ## Release notes
-###3.3.1 (11/03/2016)
+### 3.3.1 (11/03/2016)
 Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.1**
 
 * Stability improvements.

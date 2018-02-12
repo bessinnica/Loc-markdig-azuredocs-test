@@ -153,13 +153,13 @@ To fire specific actions for any failures that occurred within the scope, you ca
 
 ### Get the context of failures with results
 
-Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed, and to understand any errors or status codes that were returned. The **@result()** workflow function provides context about the result of all actions in a scope.
+Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed, and to understand any errors or status codes that were returned. The <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> workflow function provides context about the result of all actions in a scope.
 
-The **@result()** function takes a single parameter (scope name) and returns an array of all the action results from within that scope. These action objects include the same attributes as the **@actions()** object, including action start time, action end time, action status, action inputs, action correlation IDs, and action outputs. 
+The <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> function takes a single parameter (scope name) and returns an array of all the action results from within that scope. These action objects include the same attributes as the <strong><xref href="actions()" data-throw-if-not-resolved="False" data-raw-source="@actions()"></xref></strong> object, including action start time, action end time, action status, action inputs, action correlation IDs, and action outputs. 
 
-To send context of any actions that failed within a scope, you can easily pair an **@result()** function with a **runAfter** property.
+To send context of any actions that failed within a scope, you can easily pair an <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> function with a <strong>runAfter</strong> property.
 
-To execute an action *for each* action in a scope that has a **Failed** result, and to filter the array of results to actions that failed, you can pair **@result()** with a [Filter_array](../connectors/connectors-native-query.md) action and a [foreach](../logic-apps/logic-apps-loops-and-scopes.md) loop. With the filtered result array, you can perform an action for each failure by using the **foreach** loop. 
+To execute an action <em>for each</em> action in a scope that has a <strong>Failed</strong> result, and to filter the array of results to actions that failed, you can pair <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> with a [Filter_array](../connectors/connectors-native-query.md) action and a [foreach](../logic-apps/logic-apps-loops-and-scopes.md) loop. With the filtered result array, you can perform an action for each failure by using the <strong>foreach</strong> loop. 
 
 Here's an example that sends an HTTP POST request with the response body of any actions that failed in the scope My_Scope:
 
@@ -204,19 +204,19 @@ Here's an example that sends an HTTP POST request with the response body of any 
 
 Here's a detailed walkthrough to describe what happens in the preceding example:
 
-1. To get the result of all actions within My_Scope, the **Filter_array** action filters **@result('My_Scope')**.
+1. To get the result of all actions within My_Scope, the <strong>Filter_array</strong> action filters <strong><xref href="result(" data-throw-if-not-resolved="False" data-raw-source="@result("></xref>'My_Scope')</strong>.
 
-2. The condition for **Filter_array** is any **@result()** item that has a status equal to **Failed**. This condition filters the array from all action results from My_Scope, to an array with only failed action results.
+2. The condition for <strong>Filter_array</strong> is any <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> item that has a status equal to <strong>Failed</strong>. This condition filters the array from all action results from My_Scope, to an array with only failed action results.
 
 3. Perform a **foreach** action on the *filtered array* outputs. This step performs an action *for each* failed action result that was previously filtered.
 
-	If a single action in the scope failed, the actions in the **foreach** run only once. Multiple failed actions cause one action per failure.
+    If a single action in the scope failed, the actions in the **foreach** run only once. Multiple failed actions cause one action per failure.
 
-4. Send an HTTP POST on the **foreach** item response body, or **@item()['outputs']['body']**. The **@result()** item shape is the same as the **@actions()** shape. It can be parsed the same way.
+4. Send an HTTP POST on the <strong>foreach</strong> item response body, or <strong><xref href="item()[" data-throw-if-not-resolved="False" data-raw-source="@item()["></xref>'outputs']['body']</strong>. The <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> item shape is the same as the <strong><xref href="actions()" data-throw-if-not-resolved="False" data-raw-source="@actions()"></xref></strong> shape. It can be parsed the same way.
 
-5. Include two custom headers with the failed action name **@item()['name']** and the failed run client tracking ID **@item()['clientTrackingId']**.
+5. Include two custom headers with the failed action name <strong><xref href="item()[" data-throw-if-not-resolved="False" data-raw-source="@item()["></xref>'name']</strong> and the failed run client tracking ID <strong><xref href="item()[" data-throw-if-not-resolved="False" data-raw-source="@item()["></xref>'clientTrackingId']</strong>.
 
-For reference, here's an example of a single **@result()** item. It shows the **name**, **body**, and **clientTrackingId** properties that are parsed in the preceding example. Outside a **foreach** action, **@result()** returns an array of these objects.
+For reference, here's an example of a single <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> item. It shows the <strong>name</strong>, <strong>body</strong>, and <strong>clientTrackingId</strong> properties that are parsed in the preceding example. Outside a <strong>foreach</strong> action, <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> returns an array of these objects.
 
 ```json
 {
@@ -248,7 +248,7 @@ For reference, here's an example of a single **@result()** item. It shows the **
 }
 ```
 
-For different exception handling patterns, you can use the expressions described earlier in the article. You might choose to execute a single exception handling action outside the scope that accepts the entire filtered array of failures, and remove the **foreach**. You can also include other useful properties from the **@result()** response, as described earlier.
+For different exception handling patterns, you can use the expressions described earlier in the article. You might choose to execute a single exception handling action outside the scope that accepts the entire filtered array of failures, and remove the <strong>foreach</strong>. You can also include other useful properties from the <strong><xref href="result()" data-throw-if-not-resolved="False" data-raw-source="@result()"></xref></strong> response, as described earlier.
 
 ## Azure Diagnostics and telemetry
 

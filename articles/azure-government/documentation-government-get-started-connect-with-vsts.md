@@ -100,7 +100,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
     ![vsts2](./media/documentation-government-vsts-img13.png)
 4. Click on the blue text in order to set up the service principal. 
-	
+    
     ![vsts3](./media/documentation-government-vsts-img14.png)
 5. Fill out the dialog with "AzureUSGovernment" for the "Environment" parameter and choose a friendly name for "Connection Name". Fill out the rest of dialog with the Service Connection values generated in **Step 9 of the "Generate a Service Principal" section above**. Click "Verify Connection" in the bottom right corner, make sure it says "Verified", and then click "Ok".
 
@@ -108,29 +108,29 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 6. Confirm your build has been created successfully.
 
     ![vsts5](./media/documentation-government-vsts-img16.png)
-			
+            
 ## Define a Release Process
 
 1. After you have completed the steps above, we can now define the release process for our build.
-2. Choose the link to the completed build (for example, Build 1634). In the build's Summary tab under Deployments, choose "Create release". This starts a new release definition that's automatically linked to the build definition.
+2. Choose the link to the completed build (for example, Build 1634). In the build's Summary tab under Deployments, choose "Create release". This starts a new release definition that's automatically linked to the build definition.
 
     ![vsts6](./media/documentation-government-vsts-img17.png)
-3. Select the Azure App Service Deployment template and choose Next.
+3. Select the Azure App Service Deployment template and choose Next.
 
     ![vsts7](./media/documentation-government-vsts-img18.png)
-	In "Source..." make sure your CI build definition for the Web deploy package is selected as the artifact source.
-4. Select the Continuous deployment check box, and then choose Create.
-5. Select the Deploy Azure App Service task and configure it as follows:
- 	- Azure Subscription: Select the endpoint configured earlier
-	- App Service Name: the name of the web app (the part of the URL without .azurewebsites.us).
-	- Deploy to Slot: make sure this is cleared (the default)
-	- Virtual Application: leave blank
-	- Web Deploy Package: $(System.DefaultWorkingDirectory)\**\*.zip (the default)
-	- Advanced: Take App Offline: If you run into locked .DLL problems when you test the release, as explained below, try selecting this check box.
-		
-	
-6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
-	
+    In "Source..." make sure your CI build definition for the Web deploy package is selected as the artifact source.
+4. Select the Continuous deployment check box, and then choose Create.
+5. Select the Deploy Azure App Service task and configure it as follows:
+    - Azure Subscription: Select the endpoint configured earlier
+    - App Service Name: the name of the web app (the part of the URL without .azurewebsites.us).
+    - Deploy to Slot: make sure this is cleared (the default)
+    - Virtual Application: leave blank
+    - Web Deploy Package: $(System.DefaultWorkingDirectory)\**\*.zip (the default)
+    - Advanced: Take App Offline: If you run into locked .DLL problems when you test the release, as explained below, try selecting this check box.
+        
+    
+6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
+    
 Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/en-us/vsts/build-release/) to your applications in Azure Government. 
 
 ## Q&A

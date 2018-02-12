@@ -41,6 +41,7 @@ This guide shows you how to use the [StackExchange.Redis][StackExchange.Redis] c
 
 <a name="getting-started-cache-service"></a>
 
+
 ## Get Started with Azure Redis Cache
 Getting started with Azure Redis Cache is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
 
@@ -48,6 +49,7 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 * [Configure the cache clients][Configure the cache clients]
 
 <a name="create-cache"></a>
+
 
 ## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -59,12 +61,14 @@ For more information about configuring your cache, see [How to configure Azure R
 
 <a name="NuGet"></a>
 
+
 ## Configure the cache clients
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
 <a name="working-with-caches"></a>
+
 
 ## Working with Caches
 The steps in this section describe how to perform common tasks with Cache.
@@ -74,6 +78,7 @@ The steps in this section describe how to perform common tasks with Cache.
 * [Work with .NET objects in the cache](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
+
 
 ## Connect to the cache
 To programmatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use the StackExchange.Redis client to access an Azure Redis Cache.
@@ -143,6 +148,7 @@ Now that you know how to connect to an Azure Redis Cache instance and return a r
 
 <a name="add-object"></a>
 
+
 ## Add and retrieve objects from the cache
 Items can be stored in and retrieved from a cache by using the `StringSet` and `StringGet` methods.
 
@@ -168,12 +174,12 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
 You can also use `RedisValue`, as shown in the following example. `RedisValue` has implicit operators for working with integral data types, and can be useful if `null` is an expected value for a cached item.
 
 
-	RedisValue value = cache.StringGet("key1");
-	if (!value.HasValue)
-	{
-	    value = GetValueFromDataSource();
-	    cache.StringSet("key1", value);
-	}
+    RedisValue value = cache.StringGet("key1");
+    if (!value.HasValue)
+    {
+        value = GetValueFromDataSource();
+        cache.StringSet("key1", value);
+    }
 
 
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
@@ -205,6 +211,7 @@ One simple way to serialize objects is to use the `JsonConvert` serialization me
 
 <a name="next-steps"></a>
 
+
 ## Next Steps
 Now that you've learned the basics, follow these links to learn more about Azure Redis Cache.
 
@@ -214,6 +221,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 * [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 * Check out the [StackExchange.Redis cache client documentation][StackExchange.Redis cache client documentation].
   * Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][http://redis.io/clients].
+
 * Azure Redis Cache can also be used with third-party services and tools such as Redsmin and Redis Desktop Manager.
   * For more information about Redsmin, see [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin].
   * Access and inspect your data in Azure Redis Cache with a GUI using [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).

@@ -84,24 +84,24 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
   SELECT 
-  	[col_a]		
-  ,	[col_b]			
-  ,	...
-  ,	[col_n]
+    [col_a]     
+  , [col_b]         
+  , ...
+  , [col_n]
   FROM
-  	[dbo].[Orders]
+    [dbo].[Orders]
   WHERE 
-  	YEAR([o_orderdate]) >= '<Most Recent Year>'
+    YEAR([o_orderdate]) >= '<Most Recent Year>'
   UNION
   SELECT 
-  	[col_a]		
-  ,	[col_b]			
-  ,	...
-  ,	[col_n] 		
+    [col_a]     
+  , [col_b]         
+  , ...
+  , [col_n]         
   FROM
-  	[ext].[Orders]
+    [ext].[Orders]
   WHERE
-  	YEAR([o_orderdate]) < '<Most Recent Year>'
+    YEAR([o_orderdate]) < '<Most Recent Year>'
   ```
 
   A view produced in such a way let's the query compiler determine whether it needs to use the data warehouse instance to answer your users query. 

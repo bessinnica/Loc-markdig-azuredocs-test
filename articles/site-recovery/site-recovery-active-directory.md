@@ -77,7 +77,7 @@ Most applications require the presence of a domain controller or a DNS server. T
 2. Create an isolated network. Any virtual network that you create in Azure is isolated from other networks by default. We recommend that you use the same IP address range for this network that you use in your production network. Don't enable site-to-site connectivity on this network.
 3. Provide a DNS IP address in the isolated network. Use the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, provide the IP address for the virtual machine that's used on failover. To enter the IP address, in the replicated virtual machine, in the **Compute and Network** settings, select the **Target IP** settings.
 
-	![Azure test network](./media/site-recovery-active-directory/azure-test-network.png)
+    ![Azure test network](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
     > Site Recovery attempts to create test virtual machines in a subnet of the same name and by using the same IP address that's provided in the **Compute and Network** settings of the virtual machine. If a subnet of the same name isn't available in the Azure virtual network that's provided for test failover, the test virtual machine is created in the alphabetically first subnet. 
@@ -150,11 +150,11 @@ If virtualization safeguards are triggered after a test failover, you might see 
 
 1. At the command prompt, run the following command to check whether SYSVOL and NETLOGON folders are shared:
 
-	`NET SHARE`
+    `NET SHARE`
 
 2. At the command prompt, run the following command to ensure that the domain controller is functioning properly:
 
-	`dcdiag /v > dcdiag.txt`
+    `dcdiag /v > dcdiag.txt`
 
 3. In the output log, look for the following text. The text confirms that the domain controller is functioning correctly.
 
@@ -165,16 +165,16 @@ If virtualization safeguards are triggered after a test failover, you might see 
 If the preceding conditions are satisfied, it's likely that the domain controller is functioning correctly. If it's not, complete the following steps:
 
 1. Do an authoritative restore of the domain controller. Keep the following information in mind:
-	* Although we don't recommend [FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), if you use FRS replication, follow the steps for an authoritative restore. The process is described in [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762). 
+    * Although we don't recommend [FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), if you use FRS replication, follow the steps for an authoritative restore. The process is described in [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762). 
     
         For more information about BurFlags, see the blog post [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-	* If you use DFSR replication, complete the steps for an authoritative restore. The process is described in [Force an authoritative and non-authoritative sync for DFSR-replicated SYSVOL (like "D4/D2" for FRS)](https://support.microsoft.com/kb/2218556). 
+    * If you use DFSR replication, complete the steps for an authoritative restore. The process is described in [Force an authoritative and non-authoritative sync for DFSR-replicated SYSVOL (like "D4/D2" for FRS)](https://support.microsoft.com/kb/2218556). 
     
         You can also use the PowerShell functions. For more information, see [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
 2. Bypass the initial sync requirement by setting the following registry key to **0** in the on-premises domain controller. If the DWORD doesn't exist, you can create it under the **Parameters** node. 
 
-	`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
+    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     For more information, see [Troubleshoot DNS Event ID 4013: The DNS server was unable to load AD integrated DNS zones](https://support.microsoft.com/kb/2001093).
 

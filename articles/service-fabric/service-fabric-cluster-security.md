@@ -90,7 +90,7 @@ Server certificates have the primary task of authenticating a server (node) to c
 
 To learn how to generate certificates that have SANs, see [How to add a Subject Alternative Name to a secure LDAP certificate](http://support.microsoft.com/kb/931351).
 
-The **Subject** field can have multiple values. Each value is prefixed with an initialization to indicate the value type. Usually, the initialization is **CN** (for *common name*); for example, **CN = www.contoso.com**. The **Subject** field can be blank. If the optional **Subject Alternative Name** field is populated, it must have both the common name of the certificate and one entry per SAN. These are entered as **DNS Name** values.
+The <strong>Subject</strong> field can have multiple values. Each value is prefixed with an initialization to indicate the value type. Usually, the initialization is <strong>CN</strong> (for <em>common name</em>); for example, <strong>CN = www.contoso.com</strong>. The <strong>Subject</strong> field can be blank. If the optional <strong>Subject Alternative Name</strong> field is populated, it must have both the common name of the certificate and one entry per SAN. These are entered as <strong>DNS Name</strong> values.
 
 The value of the **Intended Purposes** field of the certificate should include an appropriate value, such as **Server Authentication** or **Client Authentication**.
 

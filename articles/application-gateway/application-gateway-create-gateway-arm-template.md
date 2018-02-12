@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Application Gateway - templates | Microsoft Docs
 description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 documentationcenter: na
@@ -50,74 +50,76 @@ In this scenario you will:
 You can download the existing Azure Resource Manager template to create a virtual network and two subnets from GitHub, make any changes you might want, and reuse it. To do so, use the following steps:
 
 1. Navigate to [Create Application Gateway with web application firewall enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
-1. Click **azuredeploy.json**, and then click **RAW**.
-1. Save the file to a local folder on your computer.
-1. If you are familiar with Azure Resource Manager templates, skip to step 7.
-1. Open the file that you saved and look at the contents under **parameters** in line
-1. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
+2. Click **azuredeploy.json**, and then click **RAW**.
+3. Save the file to a local folder on your computer.
+4. If you are familiar with Azure Resource Manager templates, skip to step 7.
+5. Open the file that you saved and look at the contents under **parameters** in line
+6. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
-  | Parameter | Description |
-  | --- | --- |
-  | **subnetPrefix** |CIDR block for the application gateway subnet. |
-  | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
-  | **backendIpaddress1** |IP address of the first web server. |
-  | **backendIpaddress2** |IP address of the second web server. |
-  | **wafEnabled** | Setting to determine if WAF is enabled.|
-  | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
-  | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
-  | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
-1. Check the content under **resources** and notice the following properties:
+   |                Parameter                |                                                       Description                                                       |
+   |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+   |      <strong>subnetPrefix</strong>      |                                     CIDR block for the application gateway subnet.                                      |
+   | <strong>applicationGatewaySize</strong> |                           Size of the application gateway.  WAF only allows medium and large.                           |
+   |   <strong>backendIpaddress1</strong>    |                                           IP address of the first web server.                                           |
+   |   <strong>backendIpaddress2</strong>    |                                          IP address of the second web server.                                           |
+   |       <strong>wafEnabled</strong>       |                                         Setting to determine if WAF is enabled.                                         |
+   |        <strong>wafMode</strong>         | Mode of the web application firewall.  Available options are <strong>prevention</strong> or <strong>detection</strong>. |
+   |     <strong>wafRuleSetType</strong>     |                          Ruleset type for WAF.  Currently OWASP is the only supported option.                           |
+   |   <strong>wafRuleSetVersion</strong>    |                      Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options.                      |
+
+
+7. Check the content under **resources** and notice the following properties:
 
    * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
    * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
    * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
-1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
-1. Click **azuredeploy-parameters.json**, and then click **RAW**.
-1. Save the file to a local folder on your computer.
-1. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
+8. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+9. Click **azuredeploy-parameters.json**, and then click **RAW**.
+10. Save the file to a local folder on your computer.
+11. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
 
-    ```json
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
-1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+12. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
@@ -150,7 +152,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
     ```
 
 1. Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
-    
+
     ```powershell
     New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -167,9 +169,9 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
     ```azurecli
     az group create --location westus --name appgatewayRG
     ```
-    
+
     **-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
-    
+
     **-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *westus*.
 
 1. Run the `az group deployment create` cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
@@ -187,11 +189,11 @@ Click-to-deploy is another way to use Azure Resource Manager templates. It's an 
 1. Click **Deploy to Azure**.
 
     ![Deploy to Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
-    
+
 1. Fill out the parameters for the deployment template on the portal and click **OK**.
 
     ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
-    
+
 1. Select **I agree to the terms and conditions stated above** and click **Purchase**.
 
 1. On the Custom deployment blade, click **Create**.

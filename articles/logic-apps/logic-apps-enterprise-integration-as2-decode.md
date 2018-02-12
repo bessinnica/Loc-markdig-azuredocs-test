@@ -43,7 +43,7 @@ that's already defined in your integration account
 so you must add a trigger for starting your logic app, like a Request trigger. 
 In the Logic App Designer, add a trigger, and then add an action to your logic app.
 
-3.	In the search box, enter "AS2" for your filter. 
+3.  In the search box, enter "AS2" for your filter. 
 Select **AS2 - Decode AS2 message**.
    
     ![Search for "AS2"](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
@@ -54,26 +54,26 @@ and select the integration account that you want to connect.
    
     ![Create integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
 
-	Properties with an asterisk are required.
+    Properties with an asterisk are required.
 
-	| Property | Details |
-	| --- | --- |
-	| Connection Name * |Enter any name for your connection. |
-	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+    | Property | Details |
+    | --- | --- |
+    | Connection Name * |Enter any name for your connection. |
+    | Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-5.	When you're done, your connection details should look similar to this example. 
+5.  When you're done, your connection details should look similar to this example. 
 To finish creating your connection, choose **Create**.
 
-	![integration connection details](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
+    ![integration connection details](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
 6. After your connection is created, as shown in this example, 
 select **Body** and **Headers** from the Request outputs.
    
     ![integration connection created](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
-	For example:
+    For example:
 
-	![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
+    ![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
 ## AS2 decoder details
 

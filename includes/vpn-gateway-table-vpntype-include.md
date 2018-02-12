@@ -1,4 +1,5 @@
 #### VPN type - Resource Manager deployment model
+
 |  | **RouteBased** | **PolicyBased** |
 | --- | --- | --- |
 | **Site-to-Site** |Supported |Supported |
@@ -9,6 +10,7 @@
 | **Classic to Resource Manager** |Supported |Not Supported |
 
 #### VPN type - classic deployment model
+
 |  | **Dynamic** | **Static** |
 | --- | --- | --- |
 | **Site-to-Site** |Supported |Supported |

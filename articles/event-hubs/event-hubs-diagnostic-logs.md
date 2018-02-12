@@ -29,23 +29,23 @@ You can view two types of logs for Azure Event Hubs:
 
 Diagnostics logs are disabled by default. To enable diagnostic logs:
 
-1.	In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
+1.  In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
 
     ![Pane navigation to diagnostic logs](./media/event-hubs-diagnostic-logs/image1.png)
 
-2.	Click the resource you want to monitor.
+2.  Click the resource you want to monitor.
 
-3.	Click **Turn on diagnostics**.
+3.  Click **Turn on diagnostics**.
 
-	![Turn on diagnostic logs](./media/event-hubs-diagnostic-logs/image2.png)
+    ![Turn on diagnostic logs](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.	For **Status**, click **On**.
+4.  For **Status**, click **On**.
 
-	![Change the status of diagnostic logs](./media/event-hubs-diagnostic-logs/image3.png)
+    ![Change the status of diagnostic logs](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
+5.  Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
 
-6.	Save the new diagnostics settings.
+6.  Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
@@ -107,7 +107,7 @@ Operational log JSON strings include elements listed in the following table:
 Name | Description
 ------- | -------
 ActivityId | Internal ID, used to track purpose.
-EventName | Operation name.	 
+EventName | Operation name.  
 resourceId | Azure Resource Manager resource ID.
 SubscriptionId | Subscription ID.
 EventTimeString | Operation time.

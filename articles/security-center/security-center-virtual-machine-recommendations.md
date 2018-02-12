@@ -23,6 +23,7 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 This article addresses recommendations that apply to VMs.  VM recommendations center around data collection, applying system updates, provisioning antimalware, encrypting your VM disks, and more.  Use the table below as a reference to help you understand the available VM recommendations and what each one will do if you apply it.
 
 ## Available VM recommendations
+
 | Recommendation | Description |
 | --- | --- |
 | [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |

@@ -91,20 +91,20 @@ In this section you configure the Spark magic that you installed earlier to conn
 
 5. Configure the right Heartbeat settings in `config.json`. You should add these settings at the same level as the `kernel_python_credentials` and `kernel_scala_credentials` snippets your added earlier. For an example on how and where to add the heartbeat settings, see this [sample config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
-    * For `sparkmagic 0.2.3` (clusters v3.4), include:
+   * For `sparkmagic 0.2.3` (clusters v3.4), include:
 
-            "should_heartbeat": true,
-            "heartbeat_refresh_seconds": 5,
-            "heartbeat_retry_seconds": 1
+           "should_heartbeat": true,
+           "heartbeat_refresh_seconds": 5,
+           "heartbeat_retry_seconds": 1
 
-    * For `sparkmagic 0.11.2` (clusters v3.5 and v3.6), include:
+   * For `sparkmagic 0.11.2` (clusters v3.5 and v3.6), include:
 
-            "heartbeat_refresh_seconds": 5,
-            "livy_server_heartbeat_timeout_seconds": 60,
-            "heartbeat_retry_seconds": 1
+           "heartbeat_refresh_seconds": 5,
+           "livy_server_heartbeat_timeout_seconds": 60,
+           "heartbeat_retry_seconds": 1
 
-    >[!TIP]
-    >Heartbeats are sent to ensure that sessions are not leaked. When a computer goes to sleep or is shut down, the heartbeat is not sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
+     >[!TIP]
+     >Heartbeats are sent to ensure that sessions are not leaked. When a computer goes to sleep or is shut down, the heartbeat is not sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
 
 6. Start Jupyter. Use the following command from the command prompt.
 
@@ -112,16 +112,16 @@ In this section you configure the Spark magic that you installed earlier to conn
 
 7. Verify that you can connect to the cluster using the Jupyter notebook and that you can use the Spark magic available with the kernels. Perform the following steps.
 
-	a. Create a new notebook. From the right-hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**. Click **PySpark**.
+    a. Create a new notebook. From the right-hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**. Click **PySpark**.
 
-	![Kernels in Jupyter notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels in Jupyter notebook")
+    ![Kernels in Jupyter notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels in Jupyter notebook")
 
-	b. Run the following code snippet.
+    b. Run the following code snippet.
 
-		%%sql
-		SELECT * FROM hivesampletable LIMIT 5
+        %%sql
+        SELECT * FROM hivesampletable LIMIT 5
 
-	If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
+    If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
 
     >[!TIP]
     >If you want to update the notebook configuration to connect to a different cluster, update the config.json with the new set of values, as shown in Step 3 above.

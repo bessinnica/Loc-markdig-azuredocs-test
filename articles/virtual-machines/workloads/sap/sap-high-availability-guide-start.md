@@ -184,12 +184,11 @@ This series of articles covers:
 * Infrastructure preparation.
 * SAP installation steps for deploying high-availability SAP systems in Azure by using the Azure Resource Manager deployment model.
 
-    > [!IMPORTANT]
-    > We strongly recommend that you use the Azure Resource Manager deployment model for your SAP installations. It offers many benefits that are not available in the classic deployment model. Learn more about Azure [deployment models][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
-    >
+  > [!IMPORTANT]
+  > We strongly recommend that you use the Azure Resource Manager deployment model for your SAP installations. It offers many benefits that are not available in the classic deployment model. Learn more about Azure [deployment models][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
 * SAP high availability on:
-  * ![Windows][Logo_Windows]  **Windows**, using **Windows Server Failover Cluster (WSFC)**
-  * ![Linux][Logo_Linux] **Linux**, using **Linux Cluster Framework**
+  * ![Windows][Logo_Windows]  <strong>Windows</strong>, using <strong>Windows Server Failover Cluster (WSFC)</strong>
+  * ![Linux][Logo_Linux] <strong>Linux</strong>, using <strong>Linux Cluster Framework</strong>
 
 In these articles, you learn how to help protect single point of failure (SPOF) components, such as SAP Central Services (ASCS/SCS) and database management systems (DBMS). You also learn about redundant components in Azure, such as SAP application server.
 
@@ -201,7 +200,7 @@ In these articles, you learn how to help protect single point of failure (SPOF) 
 
 * [Azure Virtual Machines high availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
-The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_Linux] **Linux**.
+The article covers both ![Windows][Logo_Windows] <strong>Windows</strong> and ![Linux][Logo_Linux] <strong>Linux</strong>.
 
 
 ## Azure infrastructure preparation for SAP NetWeaver high-availability deployment

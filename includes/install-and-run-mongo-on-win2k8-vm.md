@@ -6,7 +6,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 >
 
 1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu on the virtual machine.
-2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *https://\*.mongodb.org* to the list of trusted sites.
+2. Select the <strong>Tools</strong> button in the upper right corner.  In <strong>Internet Options</strong>, select the <strong>Security</strong> tab, and then select the <strong>Trusted Sites</strong> icon, and finally click the <strong>Sites</strong> button. Add <em>https://\*.mongodb.org</em> to the list of trusted sites.
 3. Go to [Downloads - MongoDB](https://www.mongodb.com/download-center#community).
 4. Find the **Current Stable Release** of **Community Server**, select the latest **64-bit** version in the Windows column. Download, then run the MSI installer.
 5. MongoDB is typically installed in C:\Program Files\MongoDB. Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable. For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.4\bin on your machine.
@@ -73,7 +73,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 12. If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now. You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely.
 
-  In the Azure portal, click **Virtual Machines (classic)**, click the name of your new virtual machine, and then click **Endpoints**.
+    In the Azure portal, click **Virtual Machines (classic)**, click the name of your new virtual machine, and then click **Endpoints**.
 
     ![Endpoints][Image7]
 

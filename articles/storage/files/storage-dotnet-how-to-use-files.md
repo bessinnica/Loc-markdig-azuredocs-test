@@ -340,7 +340,6 @@ fClient = storageAccount.CreateCloudFileClient();
 string baseShareName = "myazurefileshare"; 
 CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
 var snapshotShare = myShare.Snapshot();
-
 ```
 **List share snapshots**
 
@@ -373,7 +372,7 @@ var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
        var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
 var fileInliveShare = dirInliveShare.GetFileReference(fileName);
 
-           
+
 CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
 var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
 
@@ -389,7 +388,6 @@ sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
 
 string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
 fileInliveShare.StartCopyAsync(new Uri(sourceUri));
-
 ```
 
 

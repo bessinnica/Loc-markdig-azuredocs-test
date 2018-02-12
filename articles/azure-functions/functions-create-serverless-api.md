@@ -36,7 +36,7 @@ By default, your HTTP-triggered function is configured to accept any HTTP method
 
     ![Customizing an HTTP function](./media/functions-create-serverless-api/customizing-http.png)
 
-1. Use the HTTP trigger settings as specified in the table.
+1. Use the HTTP trigger settings as specified in the table.
 
     | Field | Sample value | Description |
     |---|---|---|
@@ -94,20 +94,22 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
 ### Creating a proxy on the frontend
 
 1. Navigate back to your frontend function app in the portal.
-1. In the left-hand navigation, click the plus sign '+' next to "Proxies".
+2. In the left-hand navigation, click the plus sign '+' next to "Proxies".
     ![Creating a proxy](./media/functions-create-serverless-api/creating-proxy.png)
-1. Use proxy settings as specified in the table. 
+3. Use proxy settings as specified in the table. 
 
-    | Field | Sample value | Description |
-    |---|---|---|
-    | Name | HelloProxy | A friendly name used only for management |
-    | Route template | /api/hello | Determines what route is used to invoke this proxy |
-    | Backend URL | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
-    
-1. Note that Proxies does not provide the `/api` base path prefix, and this must be included in the route template.
-1. The `%HELLO_HOST%` syntax will reference the app setting you created earlier. The resolved URL will point to your original function.
-1. Click **Create**.
-1. You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
+
+   |     Field      |          Sample value          |                          Description                          |
+   |----------------|--------------------------------|---------------------------------------------------------------|
+   |      Name      |           HelloProxy           |           A friendly name used only for management            |
+   | Route template |           /api/hello           |      Determines what route is used to invoke this proxy       |
+   |  Backend URL   | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
+
+
+4. Note that Proxies does not provide the `/api` base path prefix, and this must be included in the route template.
+5. The `%HELLO_HOST%` syntax will reference the app setting you created earlier. The resolved URL will point to your original function.
+6. Click **Create**.
+7. You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
     1. For an anonymous function use:
         1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
     1. For a function with authorization use:

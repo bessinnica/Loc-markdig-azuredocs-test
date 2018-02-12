@@ -89,29 +89,29 @@ In this section, you will:
     ```python
     def send_reported_state_callback(status_code, user_context):
         global SEND_REPORTED_STATE_CALLBACKS
-	
+    
         print ( "Device twins updated." )
 
     def device_method_callback(method_name, payload, user_context):
         global METHOD_CALLBACKS
-	
+    
         if method_name == "rebootDevice":
             print ( "Rebooting device..." )
-		
+        
             time.sleep(20)
-		
+        
             print ( "Device rebooted." )
-		
+        
             current_time = str(datetime.datetime.now())
             reported_state = "{\"rebootTime\":\"" + current_time + "\"}"
             CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
-		
+        
             print ( "Updating device twins: rebootTime" )
-			
+            
         device_method_return_value = DeviceMethodReturnValue()
         device_method_return_value.response = "{ \"Response\": \"This is the response from the device\" }"
         device_method_return_value.status = 200
-	
+    
         return device_method_return_value
     ```
 
@@ -121,7 +121,7 @@ In this section, you will:
     def iothub_client_init():
         if CLIENT.protocol == IoTHubTransportProvider.MQTT or client.protocol == IoTHubTransportProvider.MQTT_WS:
             CLIENT.set_device_method_callback(device_method_callback, METHOD_CONTEXT)
-		
+        
     def iothub_client_sample_run():
         try:
             iothub_client_init()
@@ -187,7 +187,7 @@ In this section, you create a Python console app that initiates a remote reboot 
         try:
             iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
             iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
-		
+        
             print ( "" )
             print ( "Invoking device to reboot..." )
 
@@ -198,7 +198,7 @@ In this section, you create a Python console app that initiates a remote reboot 
 
             print ( "" )
             print ( response.payload )
-		
+        
             while True:
                 print ( "" )
                 print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
@@ -206,7 +206,7 @@ In this section, you create a Python console app that initiates a remote reboot 
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
                     twin_info = iothub_twin_method.get_twin(DEVICE_ID)
-				
+                
                     if twin_info.find("rebootTime") != -1:
                         print ( "Last reboot time: " + twin_info[twin_info.find("rebootTime")+11:twin_info.find("rebootTime")+37])
                     else:

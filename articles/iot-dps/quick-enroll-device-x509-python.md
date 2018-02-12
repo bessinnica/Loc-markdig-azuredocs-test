@@ -28,6 +28,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 <a id="prepareenvironment"></a>
 
+
 ## Prepare the environment 
 
 1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. 
@@ -52,7 +53,7 @@ This section shows how to add the provisioning details of your X.509 device to t
 1. Using a text editor, create a new **EnrollmentGroup.py** file.
 
 1. Add the following `import` statements and variables at the start of the **EnrollmentGroup.py** file. Then replace `dpsConnectionString` with your connection string found under **Shared access policies** in your **Device Provisioning Service** on the **Azure Portal**. Replace the certificate placeholder with the certificate created previously in [Prepare the environment](quick-enroll-device-x509-python.md#prepareenvironment). Finally, create a unique `registrationid` and be sure that it only consists of lower-case alphanumerics and hyphens.  
-   
+
     ```python
     from provisioningserviceclient import ProvisioningServiceClient
     from provisioningserviceclient.models import EnrollmentGroup, AttestationMechanism
@@ -81,7 +82,7 @@ This section shows how to add the provisioning details of your X.509 device to t
     ```
 
 1. Add the following function and function call to implement the group enrollment creation:
-   
+
     ```python
     def main():
         print ( "Initiating enrollment group creation..." )
@@ -91,7 +92,7 @@ This section shows how to add the provisioning details of your X.509 device to t
         eg = EnrollmentGroup.create(GROUP_ID, att)
 
         eg = psc.create_or_update(eg)
-    
+
         print ( "Enrollment group created." )
 
     if __name__ == '__main__':
@@ -99,7 +100,7 @@ This section shows how to add the provisioning details of your X.509 device to t
     ```
 
 1. Save and close the **EnrollmentGroup.py** file.
- 
+
 
 ## Run the sample group enrollment
 

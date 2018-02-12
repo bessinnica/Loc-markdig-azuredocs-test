@@ -38,7 +38,6 @@ expand-archive master.zip `
 
 # Change to the tools directory
 cd AzureStack-Tools-master
-
 ```
 
 ## Functionalities provided by the modules

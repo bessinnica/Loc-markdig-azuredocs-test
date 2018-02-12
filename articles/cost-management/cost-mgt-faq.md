@@ -54,13 +54,13 @@ If you cannot view any Optimizer recommendation data, then most likely, you have
 
 To activate an account:
 
-1.	In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**.
-2.	On the Microsoft Azure Accounts tab, look for accounts that have an **unactivated** subscription.
-3.	To the right of an unactivated account, click the **edit** symbol that resembles a pencil.
-4.	Your tenant ID and rate ID is automatically detected. Click **Next**.
-5.	You’re redirected to the Azure portal. Sign in to the portal and authorize Cloudyn Collector to access your Azure data.
-6.	Next, you’re redirected to the Cloudyn Accounts management page and your subscription is updated with **active** Account Status. It shows a green check mark symbol.
-7.	If you don’t see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create a reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat steps 3 and 4.  
+1.  In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**.
+2.  On the Microsoft Azure Accounts tab, look for accounts that have an **unactivated** subscription.
+3.  To the right of an unactivated account, click the **edit** symbol that resembles a pencil.
+4.  Your tenant ID and rate ID is automatically detected. Click **Next**.
+5.  You’re redirected to the Azure portal. Sign in to the portal and authorize Cloudyn Collector to access your Azure data.
+6.  Next, you’re redirected to the Cloudyn Accounts management page and your subscription is updated with **active** Account Status. It shows a green check mark symbol.
+7.  If you don’t see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create a reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat steps 3 and 4.  
 
 After you complete the preceding steps, you can view Optimizer recommendations within one to two days. However, it can take up to five days before full optimization data is available.
 

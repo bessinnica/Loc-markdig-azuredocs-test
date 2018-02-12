@@ -38,10 +38,10 @@ The following steps restore the sample server to a point in time:
 4. Fill out the Restore form with the required information:
 
    ![Azure Database for PostgreSQL - Restore information ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Restore point**: Select a point-in-time that occurs before the server was changed.
-  - **Target server**: Provide a new server name you want to restore to.
-  - **Location**: You cannot select the region. By default it is same as the source server.
-  - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
+   - **Restore point**: Select a point-in-time that occurs before the server was changed.
+   - **Target server**: Provide a new server name you want to restore to.
+   - **Location**: You cannot select the region. By default it is same as the source server.
+   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
 
 5. Click **OK** to restore the server to restore to a point in time. 
 

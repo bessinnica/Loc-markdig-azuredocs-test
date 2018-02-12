@@ -112,11 +112,11 @@ The following table specifies whether an Azure Search data type is supported or 
 
 The following sample shows:
 
-1.	A linked service of type [AzureSearch](#linked-service-properties).
-2.	A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#dataset-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) and [AzureSearchIndexSink](#copy-activity-properties).
+1.  A linked service of type [AzureSearch](#linked-service-properties).
+2.  A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
+3.  An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
+4.  An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#dataset-properties).
+4.  A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) and [AzureSearchIndexSink](#copy-activity-properties).
 
 The sample copies time-series data from an on-premises SQL Server database to an Azure Search index hourly. The JSON properties used in this sample are described in sections following the samples.
 
@@ -126,14 +126,14 @@ As a first step, setup the data management gateway on your on-premises machine. 
 
 ```JSON
 {
-	"name": "AzureSearchLinkedService",
-   	"properties": {
-		"type": "AzureSearch",
-   		"typeProperties": {
-			"url": "https://<service>.search.windows.net",
-        	"key": "<AdminKey>"
-		}
-   	}
+    "name": "AzureSearchLinkedService",
+    "properties": {
+        "type": "AzureSearch",
+        "typeProperties": {
+            "url": "https://<service>.search.windows.net",
+            "key": "<AdminKey>"
+        }
+    }
 }
 ```
 
@@ -189,17 +189,17 @@ The sample copies data to an Azure Search index named **products**. Data Factory
 
 ```JSON
 {
-	"name": "AzureSearchIndexDataset",
-	"properties": {
-		"type": "AzureSearchIndex",
-		"linkedServiceName": "AzureSearchLinkedService",
-     	"typeProperties" : {
-			"indexName": "products",
-		},
-		"availability": {
-			"frequency": "Minute",
-			"interval": 15
-		}
+    "name": "AzureSearchIndexDataset",
+    "properties": {
+        "type": "AzureSearchIndex",
+        "linkedServiceName": "AzureSearchLinkedService",
+        "typeProperties" : {
+            "indexName": "products",
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        }
    }
 }
 ```
@@ -260,10 +260,10 @@ If you are copying data from a cloud data store into Azure Search, `executionLoc
 ```JSON
 "typeProperties": {
   "source": {
-	"type": "BlobSource"
+    "type": "BlobSource"
   },
   "sink": {
-	"type": "AzureSearchIndexSink"
+    "type": "AzureSearchIndexSink"
   },
   "executionLocation": "West US"
 }
@@ -276,10 +276,10 @@ If you are copying data from a cloud data store into Azure Search, `executionLoc
 ```JSON
 "typeProperties": {
   "source": {
-	"type": "BlobSource"
+    "type": "BlobSource"
   },
   "sink": {
-	"type": "AzureSearchIndexSink"
+    "type": "AzureSearchIndexSink"
   },
   "executionLocation": "West US"
 }

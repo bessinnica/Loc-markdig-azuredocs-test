@@ -82,9 +82,7 @@ The Microsoft Developer Center is used to register the company information once.
 2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
 
    > [!IMPORTANT]
-   > Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Also, **any email id under the Microsoft company domain i.e. @microsoft.com cannot be used** for Dev Center registration.
-   >
-   >
+   > Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Also, <strong>any email id under the Microsoft company domain i.e. <xref href="microsoft.com" data-throw-if-not-resolved="False" data-raw-source="@microsoft.com"></xref> cannot be used</strong> for Dev Center registration.
 
     ![drawing][img-signin]
 3. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.

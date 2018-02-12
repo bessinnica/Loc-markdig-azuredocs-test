@@ -1,4 +1,4 @@
-﻿---
+---
 title: Performance monitoring for Java web apps in Azure Application Insights | Microsoft Docs
 description: Extended performance and usage monitoring of your Java website with Application Insights.
 services: application-insights
@@ -33,11 +33,11 @@ To use the Java agent, you install it on your server. Your web apps must be inst
 ## Install the Application Insights agent for Java
 1. On the machine running your Java server, [download the agent](https://aka.ms/aijavasdk).
 2. Edit the application server startup script, and add the following JVM:
-   
+
     `javaagent:`*full path to the agent JAR file*
-   
+
     For example, in Tomcat on a Linux machine:
-   
+
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 3. Restart your application server.
 
@@ -80,7 +80,6 @@ Set the content of the xml file. Edit the following example to include or omit t
 
       </Instrumentation>
     </ApplicationInsightsAgent>
-
 ```
 
 You have to enable reports exception and method timing for individual methods.

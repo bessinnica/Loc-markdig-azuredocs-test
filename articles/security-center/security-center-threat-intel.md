@@ -48,24 +48,24 @@ To visualize the current threat intelligence for your environment, you must firs
 
 2. In the left pane, under **Detection** select **Threat intelligence**. The **Threat intelligence** dashboard appears.
 
-	![Threat intelligence dashboard](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
+    ![Threat intelligence dashboard](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
-	> [!NOTE]
-	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
-	> 
+    > [!NOTE]
+    > If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
+    > 
 3. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
 
-	![Threat intelligence information](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
+    ![Threat intelligence information](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
 4. The dashboard is divided into four tiles:
 
-	a.  **Threat types**. Summarizes the type of threats that were detected in the selected workspace.
+    a.  **Threat types**. Summarizes the type of threats that were detected in the selected workspace.
 
-	b.  **Origin country**. Aggregates the amount of traffic according to its source location.
+    b.  **Origin country**. Aggregates the amount of traffic according to its source location.
 
-	c.  **Threat location**. Helps you to identify the current locations around the globe that communicate with your environment. In the map shown, orange (incoming) and red (outgoing) arrows identify the traffic directions. If you select one of these arrows, the type of threat and the traffic direction appears.
+    c.  **Threat location**. Helps you to identify the current locations around the globe that communicate with your environment. In the map shown, orange (incoming) and red (outgoing) arrows identify the traffic directions. If you select one of these arrows, the type of threat and the traffic direction appears.
 
-	d.  **Threat details**. Shows more details about the threat that you selected in the map.
+    d.  **Threat details**. Shows more details about the threat that you selected in the map.
 
 Regardless of which option tile you select, the dashboard that appears is based on the Log Search query. The only difference is the type of query and the result.
 

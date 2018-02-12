@@ -22,6 +22,7 @@ The unlicensed usage report helps you identify unlicensed users that are using p
 The report shows active usage of the paid features in the last 30 days. 
 
 ## Report structure
+
 | Column name | Description |
 |:--- |:--- |
 | Unlicensed User |Name of the user |

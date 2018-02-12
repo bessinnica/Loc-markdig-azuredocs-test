@@ -30,7 +30,7 @@ Instead of outputting frames at regular intervals, the video moderation service 
 
 The following extract shows a partial response with potential shots, key frames, and adult and racy scores:
 
-	"fragments": [
+    "fragments": [
     {
       "start": 0,
       "duration": 18000

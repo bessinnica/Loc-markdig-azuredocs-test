@@ -18,6 +18,7 @@ ms.date: 12/08/2017
 This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
 
 Time Series Insights supports the following resources:
+
    | Resource | Description |
    | --- | --- |
    | Environment | A Time Series Insights environment is a logical grouping of events which are read from event brokers, stored, and made available for query. For more information see [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
@@ -264,6 +265,7 @@ The quickstart template's home page on GitHub also includes a **Deploy to Azure*
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
 
 ## Next steps
 

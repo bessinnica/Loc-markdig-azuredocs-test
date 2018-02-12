@@ -1,4 +1,3 @@
-
 ---
 title: Create Service Fabric cluster in the Azure portal | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
@@ -72,6 +71,7 @@ Application certificates cannot be configured when creating a cluster through th
 
 </a "create-cluster-portal" ></a>
 
+
 ## Create cluster in the Azure portal
 
 Creating a production cluster to meet your application needs involves some planning, to help you with that, it is strongly recommended that you read and understand [Service Fabric Cluster planning considerations][service-fabric-cluster-capacity] document. 
@@ -94,7 +94,7 @@ In the Basics blade, you need to provide the basic details for your cluster.
 2. Enter a **user name** and **password** for Remote Desktop for the VMs.
 3. Make sure to select the **Subscription** that you want your cluster to be deployed to, especially if you have multiple subscriptions.
 4. Create a **new resource group**. It is best to give it the same name as the cluster, since it helps in finding them later, especially when you are trying to make changes to your deployment or delete your cluster.
-   
+
    > [!NOTE]
    > Although you can decide to use an existing resource group, it is a good practice to create a new resource group. This makes it easy to delete clusters and all the resources it uses.
    > 
@@ -129,7 +129,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 
 To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your keyvault (and enabled the key vault for deployment), then use the **Custom** option
 
-#####Basic Option
+##### Basic Option
 Follow the screens to add or reuse an existing keyvault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.
 
 Resist the temptation of navigating away from the screen until the preceding process is completed.
@@ -148,7 +148,7 @@ You are now ready to proceed to the rest of the create cluster process.
 
 ![CreateKeyVault4]
 
-#####Custom Option
+##### Custom Option
 Skip this section, if you have already performed the steps in the **Basic** Option.
 
 ![SecurityCustomOption]
@@ -159,13 +159,13 @@ You need the CertificateThumbprint, SourceVault, and the CertificateURL informat
 1. Navigate to your keyvault, select the certificate. 
 2. Select the "properties"tab and Copy the 'RESOURCE ID'  to "Source Key vault" on the other browser window 
 
-	![CertInfo0]
+    ![CertInfo0]
 
 3. Now, select the "Certificates" tab.
 4. Click on certificate thumbprint, which takes you to the Versions page.
 5. Click on the Guids you see under the current Version.
 
-	![CertInfo1]
+    ![CertInfo1]
 
 6. You should now be on the screen like below. Copy the 'Thumbprint'  to "Certificate thumbprint" on the other browser window
 7. Copy the 'Secret Identifier' information to the "Certificate URL" on other browser window.

@@ -68,7 +68,7 @@ To start the streaming endpoint, do the following:
 2. In the Settings window, click Streaming endpoints.
 3. Click the default streaming endpoint.
 
-	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+    The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
 4. Click the Start icon.
 5. Click the Save button to save your changes.
@@ -328,9 +328,7 @@ If successful, the following response is returned:
 Once you have the AccessPolicy and Locator set, the actual file is uploaded to an Azure blob storage container using the Azure Storage REST APIs. You must upload the files as block blobs. Page blobs are not supported by Azure Media Services.  
 
 > [!NOTE]
-> You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
+> You must add the file name for the file you want to upload to the Locator <strong>Path</strong> value received in the previous section. For example, <https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?> . . .
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -813,9 +811,7 @@ The returned **Path** property contains the SAS URL.
 Once you have the AccessPolicy and Locator set, you can download files using the Azure Storage REST APIs.  
 
 > [!NOTE]
-> You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
+> You must add the file name for the file you want to download to the Locator <strong>Path</strong> value received in the previous section. For example, <https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?> . . .
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -918,3 +914,4 @@ To test progressive download, paste a URL into a browser (for example, IE, Chrom
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

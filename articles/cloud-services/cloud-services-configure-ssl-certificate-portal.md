@@ -36,7 +36,7 @@ The certificate must meet the following requirements for SSL certificates in Azu
 
 * The certificate must contain a private key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
-* The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
+* The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is <strong>contoso.com</strong> you would request a certificate from your CA for <strong><em>.contoso.com</em>* or **www.contoso.com</strong>.
 * The certificate must use a minimum of 2048-bit encryption.
 
 For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the following task uses a self-signed certificate in which the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
@@ -44,6 +44,7 @@ For test purposes, you can [create](cloud-services-certs-create.md) and use a se
 Next, you must include information about the certificate in your service definition and service configuration files.
 
 <a name="modify"> </a>
+
 
 ## Step 2: Modify the service definition and configuration files
 Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.

@@ -84,20 +84,20 @@ Both of these examples we have stated a dummy payload with only two columns and 
 Following is a sample payload for a standard webhook action without custom Json when used for log analytics-based log-alerts.
 
     {
-	"WorkspaceId":"12345a-1234b-123c-123d-12345678e",
-	"AlertRuleName":"AcmeRule","SearchQuery":"search *",
-	"SearchResult":
+    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "SearchResult":
         {
-		"tables":[
+        "tables":[
                     {"name":"PrimaryResult","columns":
                         [
-				        {"name":"$table","type":"string"},
-					    {"name":"Id","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"$table","type":"string"},
+                        {"name":"Id","type":"string"},
+                        {"name":"TimeGenerated","type":"datetime"},
                         ],
-					"rows":
+                    "rows":
                         [
-						    ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
+                            ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
                             ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
                         ]
                     }
@@ -123,20 +123,20 @@ Following is a sample payload for a standard webhook action without custom Json 
     {
     "schemaId":"LogAlert","data":
     {
-	"WorkspaceId":"12345a-1234b-123c-123d-12345678e",
-	"AlertRuleName":"AcmeRule","SearchQuery":"search *",
-	"SearchResult":
+    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "SearchResult":
         {
-		"tables":[
+        "tables":[
                     {"name":"PrimaryResult","columns":
                         [
-				        {"name":"$table","type":"string"},
-					    {"name":"Id","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"$table","type":"string"},
+                        {"name":"Id","type":"string"},
+                        {"name":"TimeGenerated","type":"datetime"},
                         ],
-					"rows":
+                    "rows":
                         [
-						    ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
+                            ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
                             ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
                         ]
                     }
@@ -168,18 +168,18 @@ Following is a sample payload for a custom webhook action for any log alert.
 
     {
     "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
-	"SearchResult":
+    "SearchResult":
         {
-		"tables":[
+        "tables":[
                     {"name":"PrimaryResult","columns":
                         [
-				        {"name":"$table","type":"string"},
-					    {"name":"Id","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"$table","type":"string"},
+                        {"name":"Id","type":"string"},
+                        {"name":"TimeGenerated","type":"datetime"},
                         ],
-					"rows":
+                    "rows":
                         [
-						    ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
+                            ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
                             ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
                         ]
                     }

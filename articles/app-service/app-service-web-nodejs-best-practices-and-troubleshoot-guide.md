@@ -56,7 +56,7 @@ This [schema file](https://github.com/Azure/iisnode/blob/master/src/config/iisno
     This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses websockets. You must enable websockets on your Azure webapp to use this version. See <http://www.ranjithr.com/?p=98> for more details on how to configure iisnode to use the new node-inspector.
 * flushResponse
   
-    The default behavior of IIS is that it buffers response data up to 4 MB before flushing, or until the end of the response, whichever comes first. iisnode offers a configuration setting to override this behavior: to flush a fragment of the response entity body as soon as iisnode receives it from node.exe, you need to set the iisnode/@flushResponse attribute in web.config to 'true':
+    The default behavior of IIS is that it buffers response data up to 4 MB before flushing, or until the end of the response, whichever comes first. iisnode offers a configuration setting to override this behavior: to flush a fragment of the response entity body as soon as iisnode receives it from node.exe, you need to set the iisnode/@"flushResponse" attribute in web.config to 'true':
   
     ```
     <configuration>    

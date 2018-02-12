@@ -73,7 +73,7 @@ Call `WebClient.UpLoadFile` with the `/details` endpoint and the image file to u
 
 Use the JSON text to initialize an instance of the `SearchResult` structure (see the [application source code](tutorial-image-post-source.md) for context).
 ```        
-		 const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/details";
+         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/details";
 
         // The image to upload. Replace with your file and path.
         const string imageFile = "ansel-adams-tetons-snake-river.jpg";

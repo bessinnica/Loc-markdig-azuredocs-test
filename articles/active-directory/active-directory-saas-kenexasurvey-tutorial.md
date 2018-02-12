@@ -56,23 +56,23 @@ To add IBM Kenexa Survey Enterprise from the gallery, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **Azure Active Directory** button. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Select **Enterprise applications**, and then select **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add an application, click the **New application** button.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **IBM Kenexa Survey Enterprise**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
 
 5. In the results list, select **IBM Kenexa Survey Enterprise**, and then click the **Add** button to add the application.
 
-	![IBM Kenexa Survey Enterprise in the results list](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
+    ![IBM Kenexa Survey Enterprise in the results list](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD SSO with IBM Kenexa Survey Enterprise based on a test user called "Britta Simon."
@@ -89,40 +89,40 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
 1. In the Azure portal, on the **IBM Kenexa Survey Enterprise** application integration page, click **Single sign-on**.
 
-	![IBM Kenexa Survey Enterprise Configure single sign-on link][4]
+    ![IBM Kenexa Survey Enterprise Configure single sign-on link][4]
 
 2. In the **Single sign-on** dialog box, in the **Mode** box, select **SAML-based Sign-on** to enable SSO.
  
-	![Single sign-on dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
 
 3. In the **IBM Kenexa Survey Enterprise Domain and URLs** section, perform the following steps:
 
-	![IBM Kenexa Survey Enterprise Domain and URLs single sign-on information](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
+    ![IBM Kenexa Survey Enterprise Domain and URLs single sign-on information](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
     a. In the **Identifier** textbox, type a URL with the following pattern: `https://surveys.kenexa.com/<companycode>`
 
-	b. In the **Reply URL** textbox, type a URL with the following pattern: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. In the **Reply URL** textbox, type a URL with the following pattern: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
-	> [!NOTE] 
-	> The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the actual values, contact the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
+    > [!NOTE] 
+    > The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the actual values, contact the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
 
 4. Under **SAML Signing Certificate**, click **Certificate (Base64)**, and then save the certificate file to your computer.
 
-	![The Certificate (Base64) download link](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
+    ![The Certificate (Base64) download link](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
     The IBM Kenexa Survey Enterprise application expects to receive the Security Assertions Markup Language (SAML) assertions in a specific format, which requires you to add custom attribute mappings to the configuration of your SAML token attributes. The value of the user-identifier claim in the response must match the SSO ID that's configured in the Kenexa system. To map the appropriate user identifier in your organization as SSO Internet Datagram Protocol (IDP), work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). 
 
     By default, Azure AD sets the user identifier as the user principal name (UPN) value. You can change this value on the **Attribute** tab, as shown in the following screenshot. The integration works only after you've completed the mapping correctly.
-	
-    ![The User Attributes dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)	
+    
+    ![The User Attributes dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)   
 
 5. Click **Save**.
 
-	![The configure single sign-on Save button](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
+    ![The configure single sign-on Save button](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
 
 6. To open the **Configure sign-on** window, under **IBM Kenexa Survey Enterprise Configuration**, click **Configure IBM Kenexa Survey Enterprise**. 
  
-	![The Configure IBM Kenexa Survey Enterprise link](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
+    ![The Configure IBM Kenexa Survey Enterprise link](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
 
 7. Copy the **Sign-Out URL**, **SAML Entity ID**, and **SAML single sign-on Service URL** values from the **Quick Reference** section.
 
@@ -141,25 +141,25 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
 
-	![The Azure Active Directory button](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
+    ![The Azure Active Directory button](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups**, and then click **All users**.
-	
-	![The "Users and groups" and "All users" links](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_02.png) 
+    
+    ![The "Users and groups" and "All users" links](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
  
-	![The Add button](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) 
+    ![The Add button](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) 
 
 4. In the **User** dialog box, perform the following steps:
  
-	![The User dialog box](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png) 
+    ![The User dialog box](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** box, type **BrittaSimon**.
 
     b. In the **User name** box, type the email address of user Britta Simon.
 
-	c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
  
@@ -179,26 +179,26 @@ To assign user Britta Simon to IBM Kenexa Survey Enterprise, do the following:
 
 1. In the Azure portal, open the **Applications** view, go to the **Directory** view, select **Enterprise applications**, and then click **All applications**.
 
-	![The "Enterprise applications" and "All applications" links][201] 
+    ![The "Enterprise applications" and "All applications" links][201] 
 
 2. In the **Applications** list, select **IBM Kenexa Survey Enterprise**.
 
-	![The IBM Kenexa Survey Enterprise link in the Applications list](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
+    ![The IBM Kenexa Survey Enterprise link in the Applications list](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
 
 3. In the left pane, click **Users and groups**.
 
-	![The "Users and groups" link][202] 
+    ![The "Users and groups" link][202] 
 
 4. Click the **Add** button and then, in the **Add Assignment** pane, select **Users and groups**.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. In the **Users and groups** dialog box, in the **Users** list, select **Britta Simon**.
 
 6. In the **Users and groups** dialog box, click the **Select** button.
 
 7. In the **Add Assignment** dialog box, click the **Assign** button.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD SSO configuration by using the Access Panel.

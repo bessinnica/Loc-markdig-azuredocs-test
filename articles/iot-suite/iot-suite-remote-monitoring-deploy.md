@@ -1,5 +1,5 @@
 ---
-title: Deploy the remote monitoring solution - Azure | Microsoft Docs 
+title: Deploy the remote monitoring solution - Azure | Microsoft Docs 
 description: This tutorial shows you how to provision the remote monitoring preconfigured solution from azureiotsuite.com.
 services: ''
 suite: iot-suite

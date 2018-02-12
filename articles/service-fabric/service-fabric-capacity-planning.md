@@ -35,7 +35,6 @@ The number of nodes required for maximum performance can be computed as follows:
 
 ```
 Number of Nodes = (DB_Size * RF)/Node_Size
-
 ```
 
 

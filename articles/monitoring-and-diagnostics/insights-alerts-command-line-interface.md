@@ -66,7 +66,6 @@ You can always receive help for commands by typing a command and putting -help a
     azure login
     azure account show
     azure config mode arm
-
     ```
 
 2. To list existing rules on a resource group, use the following form
@@ -74,11 +73,10 @@ You can always receive help for commands by typing a command and putting -help a
 
    ```console
    azure insights alerts rule list myresourcegroupname
-
    ```
 3. To create a rule, you need to have several important pieces of information first.
-  * The **Resource ID** for the resource you want to set an alert for
-  * The **metric definitions** available for that resource
+   * The **Resource ID** for the resource you want to set an alert for
+   * The **metric definitions** available for that resource
 
      One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. The *RESOURCE ID* is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/).
 
@@ -103,7 +101,6 @@ You can always receive help for commands by typing a command and putting -help a
 
     ```console
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
-
     ```
 5. To create webhook or send email when a metric alert fires, first create the email and/or webhooks. Then create the rule immediately afterwards. You cannot associate webhook or emails with already created rules using the CLI.
 

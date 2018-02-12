@@ -88,22 +88,22 @@ You can only stream over SSL if the streaming endpoint from which you deliver yo
 ### MPEG-DASH format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+<http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf>)
 
 ### Apple HTTP Live Streaming (HLS) V4 format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+<http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl>)
 
 ### Apple HTTP Live Streaming (HLS) V3 format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+<http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3>)
 
 ### Apple HTTP Live Streaming (HLS) format with audio-only filter
 By default, audio-only tracks are included in the HLS manifest. This is required for Apple Store certification for cellular networks. In this case, if a client doesn’t have sufficient bandwidth or is connected over a 2G connection, playback switches to audio-only. This helps to keep content streaming without buffering, but there is no video. In some scenarios, player buffering might be preferred over audio-only. If you want to remove the audio-only track, add **audio-only=false** to the URL.
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+<http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false>)
 
 For more information, see [Dynamic Manifest Composition support and HLS output additional features](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -163,6 +163,7 @@ Before the July 2016 service release--when assets produced by Media Encoder Stan
             <c d="2000" />
         </StreamIndex>
     </SmoothStreamingMedia>
+
 
 In the July 2016 service release, the generated Smooth Streaming manifest conforms to version 2.2, with fragment durations using repeat tags. For example:
 

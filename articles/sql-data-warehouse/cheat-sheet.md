@@ -53,9 +53,9 @@ Use the following strategies, depending on the table properties:
 
 | Type | Great fit for...| Watch out if...|
 |:--- |:--- |:--- |
-| Replicated | • Small dimension tables in a star schema with less than 2 GB of storage after compression (~5x compression) |•	Many write transactions are on table (such as insert, upsert, delete, update)<br></br>•	You change Data Warehouse Units (DWU) provisioning frequently<br></br>•	You only use 2-3 columns but your table has many columns<br></br>•	You index a replicated table |
-| Round Robin (default) | •	Temporary/staging table<br></br> • No obvious joining key or good candidate column |•	Performance is slow due to data movement |
-| Hash | • Fact tables<br></br>•	Large dimension tables |• The distribution key cannot be updated |
+| Replicated | • Small dimension tables in a star schema with less than 2 GB of storage after compression (~5x compression) |•  Many write transactions are on table (such as insert, upsert, delete, update)<br></br>• You change Data Warehouse Units (DWU) provisioning frequently<br></br>• You only use 2-3 columns but your table has many columns<br></br>•  You index a replicated table |
+| Round Robin (default) | • Temporary/staging table<br></br> • No obvious joining key or good candidate column |•   Performance is slow due to data movement |
+| Hash | • Fact tables<br></br>•    Large dimension tables |• The distribution key cannot be updated |
 
 **Tips:**
 * Start with Round Robin, but aspire to a hash distribution strategy to take advantage of a massively parallel architecture.
@@ -74,8 +74,8 @@ Indexing is helpful for reading tables quickly. There is a unique set of technol
 | Type | Great fit for... | Watch out if...|
 |:--- |:--- |:--- |
 | Heap | • Staging/temporary table<br></br>• Small tables with small lookups |• Any lookup scans the full table |
-| Clustered index | • Tables with up to 100 million rows<br></br>• Large tables (more than 100 million rows) with only 1-2 columns heavily used |•	Used on a replicated table<br></br>•	You have complex queries involving multiple join and Group By operations<br></br>•	You make updates on the indexed columns: it takes memory |
-| Clustered columnstore index (CCI) (default) | •	Large tables (more than 100 million rows) | •	Used on a replicated table<br></br>•	You make massive update operations on your table<br></br>•	You overpartition your table: row groups do not span across different distribution nodes and partitions |
+| Clustered index | • Tables with up to 100 million rows<br></br>• Large tables (more than 100 million rows) with only 1-2 columns heavily used |•  Used on a replicated table<br></br>•    You have complex queries involving multiple join and Group By operations<br></br>•  You make updates on the indexed columns: it takes memory |
+| Clustered columnstore index (CCI) (default) | •   Large tables (more than 100 million rows) | •   Used on a replicated table<br></br>•    You make massive update operations on your table<br></br>•  You overpartition your table: row groups do not span across different distribution nodes and partitions |
 
 **Tips:**
 * On top of a clustered index, you might want to add a nonclustered index to a column heavily used for filtering. 
@@ -126,6 +126,7 @@ Autoscale now at the time you want with Azure Functions:
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
+
 ## Optimize your architecture for performance
 
 We recommend considering SQL Database and Azure Analysis Services in a hub-and-spoke architecture. This solution can provide workload isolation between different user groups while also using advanced security features from SQL Database and Azure Analysis Services. This is also a way to provide limitless concurrency to your users.
@@ -137,6 +138,7 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
+
 
 
 <!--Image references-->

@@ -39,7 +39,7 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
 3. Create a StorSimple Data Manager account.
 4. Create a data transformation job that when runs, extracts data from a StorSimple device and transfers it into an AMS account as assets. 
 
-	When the job starts running, a storage queue is created. This queue is populated with messages about transformed blobs as they are ready. The name of this queue is the same as the name of the job definition. You can use this queue to determine when as asset is ready and call your desired Media Services operation to run on it. For example, you can use this queue to trigger an Azure Function that has the necessary Media Services code in it.
+    When the job starts running, a storage queue is created. This queue is populated with messages about transformed blobs as they are ready. The name of this queue is the same as the name of the job definition. You can use this queue to determine when as asset is ready and call your desired Media Services operation to run on it. For example, you can use this queue to trigger an Azure Function that has the necessary Media Services code in it.
 
 ## See also
 

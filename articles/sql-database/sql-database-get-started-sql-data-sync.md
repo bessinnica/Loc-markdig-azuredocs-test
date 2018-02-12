@@ -112,66 +112,66 @@ In the **Member Database** section, optionally add an on-premises SQL Server to 
 
 On the **Configure On-Premises** page, do the following things:
 
-1.  Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** page opens.
+1. Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** page opens.
 
-    ![Choose the sync agent gateway](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
+   ![Choose the sync agent gateway](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
 
-2.  On the **Choose the Sync Agent Gateway** page, choose whether to use an existing agent or create a new agent.
+2. On the **Choose the Sync Agent Gateway** page, choose whether to use an existing agent or create a new agent.
 
-    If you chose **Existing agents**, select the existing agent from the list.
+   If you chose **Existing agents**, select the existing agent from the list.
 
-    If you chose **Create a new agent**, do the following things:
+   If you chose **Create a new agent**, do the following things:
 
-    1.  Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
+   1. Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
  
-        > [!IMPORTANT]
-        > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
+      > [!IMPORTANT]
+      > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
 
 
-    2.  Enter a name for the agent.
+   2. Enter a name for the agent.
 
-    3.  Select **Create and Generate Key**.
+   3. Select **Create and Generate Key**.
 
-    4.  Copy the agent key to the clipboard.
+   4. Copy the agent key to the clipboard.
         
-        ![Creating a new sync agent](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
+      ![Creating a new sync agent](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
 
-    5.  Select **OK** to close the **Select Sync Agent** page.
+   5. Select **OK** to close the **Select Sync Agent** page.
 
-    6.  On the SQL Server computer, locate and run the Client Sync Agent app.
+   6. On the SQL Server computer, locate and run the Client Sync Agent app.
 
-        ![The data sync client agent app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+      ![The data sync client agent app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
-    7.  In the sync agent app, select **Submit Agent Key**. The **Sync Metadata Database Configuration** dialog box opens.
+   7. In the sync agent app, select **Submit Agent Key**. The **Sync Metadata Database Configuration** dialog box opens.
 
-    8.  In the **Sync Metadata Database Configuration** dialog box, paste in the agent key copied from the Azure portal. Also provide the existing credentials for the Azure SQL Database server on which the metadata database is located. (If you created a new metadata database, this database is on the same server as the hub database.) Select **OK** and wait for the configuration to finish.
+   8. In the **Sync Metadata Database Configuration** dialog box, paste in the agent key copied from the Azure portal. Also provide the existing credentials for the Azure SQL Database server on which the metadata database is located. (If you created a new metadata database, this database is on the same server as the hub database.) Select **OK** and wait for the configuration to finish.
 
-        ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
+      ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
-        >   [!NOTE] 
-        >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as \<hub_database_name\>.database.windows.net. To configure the Azure firewall rule, follow the steps in the dialog box. Then return to the Client Sync Agent app.
+      > [!NOTE]
+      >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as \<hub_database_name\>.database.windows.net. To configure the Azure firewall rule, follow the steps in the dialog box. Then return to the Client Sync Agent app.
 
-    9.  In the Client Sync Agent app, click **Register** to register a SQL Server database with the agent. The **SQL Server Configuration** dialog box opens.
+   9. In the Client Sync Agent app, click **Register** to register a SQL Server database with the agent. The **SQL Server Configuration** dialog box opens.
 
-        ![Add and configure a SQL Server database](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
+      ![Add and configure a SQL Server database](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. In the **SQL Server Configuration** dialog box, choose whether to connect by using SQL Server authentication or Windows authentication. If you chose SQL Server authentication, enter the existing credentials. Provide the SQL Server name and the name of the database that you want to sync. Select **Test connection** to test your settings. Then select **Save**. The registered database appears in the list.
+   10. In the **SQL Server Configuration** dialog box, choose whether to connect by using SQL Server authentication or Windows authentication. If you chose SQL Server authentication, enter the existing credentials. Provide the SQL Server name and the name of the database that you want to sync. Select **Test connection** to test your settings. Then select **Save**. The registered database appears in the list.
 
-        ![SQL Server database is now registered](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
+       ![SQL Server database is now registered](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
-    11. You can now close the Client Sync Agent app.
+   11. You can now close the Client Sync Agent app.
 
-    12. In the portal, on the **Configure On-Premises** page, select **Select the Database.** The **Select Database** page opens.
+   12. In the portal, on the **Configure On-Premises** page, select **Select the Database.** The **Select Database** page opens.
 
-    13. On the **Select Database** page, in the **Sync Member Name** field, provide a name for the new sync member. This name is distinct from the name of the database itself. Select the database from the list. In the **Sync Directions** field, select Bi-directional Sync, To the Hub, or From the Hub.
+   13. On the **Select Database** page, in the **Sync Member Name** field, provide a name for the new sync member. This name is distinct from the name of the database itself. Select the database from the list. In the **Sync Directions** field, select Bi-directional Sync, To the Hub, or From the Hub.
 
-        ![Select the on premises database](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
+       ![Select the on premises database](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
 
-    14. Select **OK** to close the **Select Database** page. Then select **OK** to close the **Configure On-Premises** page and wait for the new sync member to be created and deployed. Finally, click **OK** to close the **Select sync members** page.
+   14. Select **OK** to close the **Select Database** page. Then select **OK** to close the **Configure On-Premises** page and wait for the new sync member to be created and deployed. Finally, click **OK** to close the **Select sync members** page.
 
-        ![On premises database added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
+       ![On premises database added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
 
-3.  To connect to SQL Data Sync and the local agent, add your user name to the role `DataSync_Executor`. Data Sync creates this role on the SQL Server instance.
+3. To connect to SQL Data Sync and the local agent, add your user name to the role `DataSync_Executor`. Data Sync creates this role on the SQL Server instance.
 
 ## Step 3 - Configure sync group
 

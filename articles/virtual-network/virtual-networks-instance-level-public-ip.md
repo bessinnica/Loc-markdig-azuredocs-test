@@ -40,7 +40,7 @@ When you create a cloud service in Azure, corresponding DNS A records are create
 ## Why would I request an ILPIP?
 If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:&lt;port number&gt;, request an ILPIP for your VM or your role instance.
 
-* **Active FTP** - By assigning an ILPIP to a VM, it can receive traffic on any port. Endpoints are not required for the VM to receive traffic.  See (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] for details on the FTP protocol.
+* <strong>Active FTP</strong> - By assigning an ILPIP to a VM, it can receive traffic on any port. Endpoints are not required for the VM to receive traffic.  See (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] for details on the FTP protocol.
 * **Outbound IP** - Outbound traffic originating from the VM is mapped to the ILPIP as the source and the ILPIP uniquely identifies the VM to external entities.
 
 > [!NOTE]
@@ -71,32 +71,32 @@ Get-AzureVM -Name FTPInstance -ServiceName FTPService
 
 Expected output:
  
-	DeploymentName              : FTPService
-	Name                        : FTPInstance
-	Label                       : 
-	VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
-	InstanceStatus              : ReadyRole
-	IpAddress                   : 100.74.118.91
-	InstanceStateDetails        : 
-	PowerState                  : Started
-	InstanceErrorCode           : 
-	InstanceFaultDomain         : 0
-	InstanceName                : FTPInstance
-	InstanceUpgradeDomain       : 0
-	InstanceSize                : Small
-	HostName                    : FTPInstance
-	AvailabilitySetName         : 
-	DNSName                     : http://ftpservice888.cloudapp.net/
-	Status                      : ReadyRole
-	GuestAgentStatus            : 	Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
-	ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
-	PublicIPAddress             : 104.43.142.188
-	PublicIPName                : ftpip
-	NetworkInterfaces           : {}
-	ServiceName                 : FTPService
-	OperationDescription        : Get-AzureVM
-	OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
-	OperationStatus             : OK
+    DeploymentName              : FTPService
+    Name                        : FTPInstance
+    Label                       : 
+    VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
+    InstanceStatus              : ReadyRole
+    IpAddress                   : 100.74.118.91
+    InstanceStateDetails        : 
+    PowerState                  : Started
+    InstanceErrorCode           : 
+    InstanceFaultDomain         : 0
+    InstanceName                : FTPInstance
+    InstanceUpgradeDomain       : 0
+    InstanceSize                : Small
+    HostName                    : FTPInstance
+    AvailabilitySetName         : 
+    DNSName                     : http://ftpservice888.cloudapp.net/
+    Status                      : ReadyRole
+    GuestAgentStatus            :   Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
+    PublicIPAddress             : 104.43.142.188
+    PublicIPName                : ftpip
+    NetworkInterfaces           : {}
+    ServiceName                 : FTPService
+    OperationDescription        : Get-AzureVM
+    OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
+    OperationStatus             : OK
 
 ### How to remove an ILPIP from a VM
 To remove the ILPIP added to the VM in the previous script, run the following PowerShell command:
@@ -119,26 +119,26 @@ To add an ILPIP to a Cloud Services role instance, complete the following steps:
 1. Download the .cscfg file for the cloud service by completing the steps in the [How to Configure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) article.
 2. Update the .cscfg file by adding the `InstanceAddress` element. The following sample adds an ILPIP named *MyPublicIP* to a role instance named *WebRole1*: 
 
-	```xml
-	<?xml version="1.0" encoding="utf-8"?>
-	<ServiceConfiguration serviceName="ILPIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
-	  <Role name="WebRole1">
-	    <Instances count="1" />
-	      <ConfigurationSettings>
-		<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-	      </ConfigurationSettings>
-	  </Role>
-	  <NetworkConfiguration>
-	    <AddressAssignments>
-	      <InstanceAddress roleName="WebRole1">
-		<PublicIPs>
-		  <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
-	        </PublicIPs>
-	      </InstanceAddress>
-	    </AddressAssignments>
-	  </NetworkConfiguration>
-	</ServiceConfiguration>
-	```
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <ServiceConfiguration serviceName="ILPIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
+      <Role name="WebRole1">
+        <Instances count="1" />
+          <ConfigurationSettings>
+        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+          </ConfigurationSettings>
+      </Role>
+      <NetworkConfiguration>
+        <AddressAssignments>
+          <InstanceAddress roleName="WebRole1">
+        <PublicIPs>
+          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+            </PublicIPs>
+          </InstanceAddress>
+        </AddressAssignments>
+      </NetworkConfiguration>
+    </ServiceConfiguration>
+    ```
 3. Upload the .cscfg file for the cloud service by completing the steps in the [How to Configure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) article.
 
 ## Next steps

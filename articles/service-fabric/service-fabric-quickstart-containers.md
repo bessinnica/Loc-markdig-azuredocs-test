@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Service Fabric Windows container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric.  
 services: service-fabric

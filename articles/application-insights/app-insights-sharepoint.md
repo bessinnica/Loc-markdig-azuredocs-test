@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 services: application-insights
@@ -130,8 +130,6 @@ function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){
 function onRequestFail(sender, args) { 
 } 
 </script> 
-
-
 ```
 
 

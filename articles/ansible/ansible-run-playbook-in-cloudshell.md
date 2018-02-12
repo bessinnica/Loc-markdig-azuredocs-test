@@ -29,52 +29,52 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
 
 1. Open Bash in Cloud Shell. Shell type is denoted on the left side of the Cloud Shell window.
 
-1. If you do not have a virtual machine to use, enter the following commands into the Cloud Shell to create a virtual machine with which to test:
+2. If you do not have a virtual machine to use, enter the following commands into the Cloud Shell to create a virtual machine with which to test:
 
-  ```azurecli-interactive
-  az group create --resource-group ansible-test-rg --location eastus
-  ```
+   ```azurecli-interactive
+   az group create --resource-group ansible-test-rg --location eastus
+   ```
 
-  ```azurecli-interactive
-  az vm create --resource-group ansible-test-rg --name ansible-test-vm --image UbuntuLTS --generate-ssh-keys
-  ```
+   ```azurecli-interactive
+   az vm create --resource-group ansible-test-rg --name ansible-test-vm --image UbuntuLTS --generate-ssh-keys
+   ```
 
-1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
+3. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
-  ```azurecli-interactive
-  wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
-  ```
+   ```azurecli-interactive
+   wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
+   ```
 
-1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
+4. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
 
-  ```azurecli-interactive
-  chmod +x azure_rm.py
-  ```
+   ```azurecli-interactive
+   chmod +x azure_rm.py
+   ```
 
-1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your virtual machine: 
+5. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your virtual machine: 
 
-  ```azurecli-interactive
-  ansible -i azure_rm.py ansible-test-vm -m ping
-  ```
+   ```azurecli-interactive
+   ansible -i azure_rm.py ansible-test-vm -m ping
+   ```
 
-  Once connected, you should see results similar to the output:
+   Once connected, you should see results similar to the output:
 
-  ```Output
-  The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
-  ECDSA key fingerprint is SHA256:&lt;some value>.
-  Are you sure you want to continue connecting (yes/no)? yes
-  test-ansible-vm | SUCCESS => {
+   ```Output
+   The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
+   ECDSA key fingerprint is SHA256:&lt;some value>.
+   Are you sure you want to continue connecting (yes/no)? yes
+   test-ansible-vm | SUCCESS => {
       "changed": false,
       "failed": false,
       "ping": "pong"
-  }
-  ```
+   }
+   ```
 
-1. If you created a resource group and virtual machine in this section
+6. If you created a resource group and virtual machine in this section
 
-  ```azurecli-interactive
-  az group delete -n <resourceGroup>
-  ```
+   ```azurecli-interactive
+   az group delete -n <resourceGroup>
+   ```
 
 ## Run a playbook in Cloud Shell
 The [ansible-playbook](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) command executes Ansible playbooks, running the tasks on the targeted host(s). 
@@ -82,14 +82,14 @@ This section walks you through using the Cloud Shell to create and execute two p
 
 1. Create a file named `rg.yml` as follows:
 
-  ```azurecli-interactive
-  vi rg.yml
-  ```
+   ```azurecli-interactive
+   vi rg.yml
+   ```
 
-1. Copy the following contents into the Cloud Shell window (now hosting an instance of the VI editor):
+2. Copy the following contents into the Cloud Shell window (now hosting an instance of the VI editor):
 
-  ```yml
-  - name: My first Ansible Playbook
+   ```yml
+   - name: My first Ansible Playbook
     hosts: localhost
     connection: local
     tasks:
@@ -97,47 +97,47 @@ This section walks you through using the Cloud Shell to create and execute two p
       azure_rm_resourcegroup:
           name: demoresourcegroup
           location: eastus
-  ```
+   ```
 
-1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
+3. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
 
-1. Use the `ansible-playbook` command to run the `rg.yml` playbook:
+4. Use the `ansible-playbook` command to run the `rg.yml` playbook:
 
-  ```azurecli-interactive
-  ansible-playbook rg.yml
-  ```
+   ```azurecli-interactive
+   ansible-playbook rg.yml
+   ```
 
-1. You should see results similar to the following output:
+5. You should see results similar to the following output:
 
-  ```Output
-  PLAY [My first Ansible Playbook] **********
+   ```Output
+   PLAY [My first Ansible Playbook] **********
 
-  TASK [Gathering Facts] **********
-  ok: [localhost]
+   TASK [Gathering Facts] **********
+   ok: [localhost]
 
-  TASK [Create a resource group] **********
-  changed: [localhost]
+   TASK [Create a resource group] **********
+   changed: [localhost]
 
-  PLAY RECAP **********
-  localhost : ok=2 changed=1 unreachable=0 failed=0
-  ```
+   PLAY RECAP **********
+   localhost : ok=2 changed=1 unreachable=0 failed=0
+   ```
 
-1. Verify the deployment:
+6. Verify the deployment:
 
-  ```azurecli-interactive
-  az group show -n demoresourcegroup
-  ```
+   ```azurecli-interactive
+   az group show -n demoresourcegroup
+   ```
 
-1. Now that you've created the resource group, create a second Ansible playbook to delete the resource group:
+7. Now that you've created the resource group, create a second Ansible playbook to delete the resource group:
 
-  ```azurecli-interactive
-  vi rg2.yml
-  ```
+   ```azurecli-interactive
+   vi rg2.yml
+   ```
 
-1. Copy the following contents into the Cloud Shell window (now hosting an instance of the VI editor):
+8. Copy the following contents into the Cloud Shell window (now hosting an instance of the VI editor):
 
-  ```yml
-  - name: My second Ansible Playbook
+   ```yml
+   - name: My second Ansible Playbook
     hosts: localhost
     connection: local
     tasks:
@@ -145,31 +145,31 @@ This section walks you through using the Cloud Shell to create and execute two p
       azure_rm_resourcegroup:
           name: demoresourcegroup
           state: absent
-  ```
+   ```
 
-1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
+9. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
 
-1. Use the `ansible-playbook` command to run the `rg2.yml` playbook:
+10. Use the `ansible-playbook` command to run the `rg2.yml` playbook:
 
-  ```azurecli-interactive
-  ansible-playbook rg.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook rg.yml
+    ```
 
-1. You should see results similar to the following output:
+11. You should see results similar to the following output:
 
-  ```Output
-  The output is as following. 
-  PLAY [My second Ansible Playbook] **********
+    ```Output
+    The output is as following. 
+    PLAY [My second Ansible Playbook] **********
 
-  TASK [Gathering Facts] **********
-  ok: [localhost]
+    TASK [Gathering Facts] **********
+    ok: [localhost]
 
-  TASK [Delete a resource group] **********
-  changed: [localhost]
+    TASK [Delete a resource group] **********
+    changed: [localhost]
 
-  PLAY RECAP **********
-  localhost : ok=2 changed=1 unreachable=0 failed=0
-  ```
+    PLAY RECAP **********
+    localhost : ok=2 changed=1 unreachable=0 failed=0
+    ```
 
 ## Next steps
 

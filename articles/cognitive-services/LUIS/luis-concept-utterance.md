@@ -38,7 +38,7 @@ Where do I get a computer?
 I want to get a computer, how do I go about it?
 When can I have a computer? 
 ```
-The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS can be quite intelligent at inferring synonyms from context, but when you create utterances for training, it's still better to vary them.
+The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS can be quite intelligent at inferring synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Next steps
 See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.

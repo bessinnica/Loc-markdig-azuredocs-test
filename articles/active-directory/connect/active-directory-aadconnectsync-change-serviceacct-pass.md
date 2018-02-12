@@ -26,7 +26,7 @@ The encryption key used is secured using [Windows Data Protection (DPAPI)](https
 
 If you need to change the service account password you can use the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key) to accomplish this.  These procedures should also be used if you need to abandon the encryption key for any reason.
 
-##Issues that arise from changing the password
+## Issues that arise from changing the password
 There are two things that need to be done when you change the service account password.
 
 First, you need to change the password under the Windows Service Control Manager.  Until this issue is resolved you will see following errors:
@@ -38,8 +38,8 @@ First, you need to change the password under the Windows Service Control Manager
 Second, under specific conditions, if the password is updated, the Synchronization Service can no longer retrieve the encryption key via DPAPI. Without the encryption key, the Synchronization Service cannot decrypt the passwords required to synchronize to/from on-premises AD and Azure AD.
 You will see errors such as:
 
-- Under Windows Service Control Manager, if you try to start the Synchronization Service and it cannot retrieve the encryption key, it fails with error “**Windows could not start the Microsoft Azure AD Sync on Local Computer. For more information, review the System Event log. If this is a non-Microsoft service, contact the service vendor, and refer to service-specific error code **-21451857952****.”
-- Under Windows Event Viewer, the application event log contains an error with **Event ID 6028** and error message *“**The server encryption key cannot be accessed.**”*
+- Under Windows Service Control Manager, if you try to start the Synchronization Service and it cannot retrieve the encryption key, it fails with error “<strong>Windows could not start the Microsoft Azure AD Sync on Local Computer. For more information, review the System Event log. If this is a non-Microsoft service, contact the service vendor, and refer to service-specific error code **-21451857952</strong>**.”
+- Under Windows Event Viewer, the application event log contains an error with <strong>Event ID 6028</strong> and error message <em>“</em><em>The server encryption key cannot be accessed.</em><em>”</em>
 
 To ensure that you do not receive these errors, follow the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key) when changing the password.
  

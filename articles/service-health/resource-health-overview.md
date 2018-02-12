@@ -72,9 +72,9 @@ You can access up to 14 days of historical health data by clicking **View Histor
 
 ## Getting started
 To open Resource health for one resource
-1.	Sign in into the Azure portal.
-2.	Navigate to your resource.
-3.	In the resource menu located in the left-hand side, click **Resource health**.
+1.  Sign in into the Azure portal.
+2.  Navigate to your resource.
+3.  In the resource menu located in the left-hand side, click **Resource health**.
 
 ![Open Resource health from Resource blade](./media/resource-health-overview/from-resource-blade.png)
 

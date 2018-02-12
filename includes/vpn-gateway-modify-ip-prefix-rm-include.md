@@ -24,37 +24,37 @@ If you have a gateway connection and want to add or remove the IP address prefix
 
 1. Remove the connection.
 
-  ```powershell
-  Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
-  ```
+   ```powershell
+   Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
+   ```
 2. Modify the address prefixes for your local network gateway.
    
-  Set the variable for the LocalNetworkGateway.
+   Set the variable for the LocalNetworkGateway.
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
-  ```
+   ```powershell
+   $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
+   ```
    
-  Modify the prefixes.
+   Modify the prefixes.
    
-  ```powershell
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-  ```
+   ```powershell
+   Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+   ```
 3. Create the connection. In this example, we configure an IPsec connection type. When you recreate your connection, use the connection type that is specified for your configuration. For additional connection types, see the [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) page.
    
-  Set the variable for the VirtualNetworkGateway.
+   Set the variable for the VirtualNetworkGateway.
 
-  ```powershell
-  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
-  ```
+   ```powershell
+   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
+   ```
    
-  Create the connection. This example uses the variable $local that you set in step 2.
+   Create the connection. This example uses the variable $local that you set in step 2.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
-  -ResourceGroupName MyRGName -Location 'West US' `
-  -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-  -ConnectionType IPsec `
-  -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```powershell
+   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
+   -ResourceGroupName MyRGName -Location 'West US' `
+   -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec `
+   -RoutingWeight 10 -SharedKey 'abc123'
+   ```

@@ -83,11 +83,11 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Display password expiry notifications in the Office Portal and on the Windows 10 desktop| | |![Recommended](./media/choose-hybrid-identity-solution/ic195031.png)|
 
 > <sup>1</sup> Password synchronization with single sign-on. 
-
+> 
 > <sup>2</sup> Pass-through authentication and single sign-on. 
-
+> 
 > <sup>3</sup> Federated single sign-on with AD FS.
-
+> 
 > <sup>4</sup> AD FS can be integrated with your enterprise PKI to allow sign-in using certificates. These certificates can be soft-certificates deployed via trusted provisioning channels such as MDM or GPO or smartcard certificates (including PIV/CAC cards) or Hello for Business (cert-trust). For more information about smartcard authentication support, see [this blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
 
 

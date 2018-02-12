@@ -255,6 +255,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 ```
 
 ### Type mapping for Cassandra
+
 | Cassandra Type | .Net Based Type |
 | --- | --- |
 | ASCII |String |
@@ -312,6 +313,7 @@ The first virtual table is the base table named “ExampleTable” is shown in t
 The following tables show the virtual tables that renormalize the data from the List, Map, and StringSet columns. The columns with names that end with “_index” or “_key” indicate the position of the data within the original list or map. The columns with names that end with “_value” contain the expanded data from the collection.
 
 #### Table “ExampleTable_vt_List”:
+
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -323,6 +325,7 @@ The following tables show the virtual tables that renormalize the data from the 
 | 3 |3 |103 |
 
 #### Table “ExampleTable_vt_Map”:
+
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
@@ -330,6 +333,7 @@ The following tables show the virtual tables that renormalize the data from the 
 | 3 |S1 |t |
 
 #### Table “ExampleTable_vt_StringSet”:
+
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

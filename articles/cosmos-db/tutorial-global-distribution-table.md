@@ -29,7 +29,6 @@ This article covers the following tasks:
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-
 ## Connecting to a preferred region using the Table API
 
 In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations) property. The Azure Cosmos DB Table API SDK picks the best endpoint to communicate with based on the account configuration, current regional availability and the supplied preference list.

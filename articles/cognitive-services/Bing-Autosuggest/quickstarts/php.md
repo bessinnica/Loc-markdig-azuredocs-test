@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Bing Autosuggest API with PHP 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with PHP. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+
+This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with PHP. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
@@ -51,22 +52,22 @@ $query = "sail";
 
 function get_suggestions ($host, $path, $key, $mkt, $query) {
 
-	$params = '?mkt=' . $mkt . '&q=' . $query;
+    $params = '?mkt=' . $mkt . '&q=' . $query;
 
-	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+    $headers = "Content-type: text/json\r\n" .
+        "Ocp-Apim-Subscription-Key: $key\r\n";
 
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'GET'
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path . $params, false, $context);
-	return $result;
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // http://php.net/manual/en/function.stream-context-create.php
+    $options = array (
+        'http' => array (
+            'header' => $headers,
+            'method' => 'GET'
+        )
+    );
+    $context  = stream_context_create ($options);
+    $result = file_get_contents ($host . $path . $params, false, $context);
+    return $result;
 }
 
 $result = get_suggestions ($host, $path, $subscriptionKey, $mkt, $query);

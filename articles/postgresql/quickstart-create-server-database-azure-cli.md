@@ -102,48 +102,48 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
 
 1. Run the following psql command to connect to an Azure Database for PostgreSQL server
-```azurecli-interactive
-psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
-```
+   ```azurecli-interactive
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
-  ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
-```
+   ```azurecli-interactive
+   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+   ```
 
-2.  Once you are connected to the server, create a blank database at the prompt.
-```sql
-CREATE DATABASE mypgsqldb;
-```
+2. Once you are connected to the server, create a blank database at the prompt.
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
 
-3.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
-```sql
-\c mypgsqldb
-```
+3. At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
+   ```sql
+   \c mypgsqldb
+   ```
 
 ## Connect to PostgreSQL database using pgAdmin
 
 To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
-1.	Launch the _pgAdmin_ application on your client computer. You can install _pgAdmin_ from http://www.pgadmin.org/.
-2.	Choose **Add New Server** from the **Quick Links** menu.
-3.	In the **Create - Server** dialog box **General** tab, enter a unique friendly Name for the server. Say **Azure PostgreSQL Server**.
- ![pgAdmin tool - create - server](./media/quickstart-create-server-database-azure-cli/1-pgadmin-create-server.png)
-4.	In the **Create - Server** dialog box, **Connection** tab:
-    - Enter the fully qualified server name (for example, **mypgserver-20170401.postgres.database.azure.com**) in the **Host Name/ Address** box. 
-    - Enter port 5432 into the **Port** box. 
-    - Enter the **Server admin login (user@mypgserver)** obtained earlier in this quickstart and password you entered when you created the server into the **Username** and **Password** boxes, respectively.
-    - Select **SSL Mode** as **Require**. By default, all Azure PostgreSQL servers are created with SSL enforcing turned ON. To turn OFF SSL enforcing, see details in [Enforcing SSL](./concepts-ssl-connection-security.md).
+1. Launch the _pgAdmin_ application on your client computer. You can install _pgAdmin_ from http://www.pgadmin.org/.
+2. Choose **Add New Server** from the **Quick Links** menu.
+3. In the **Create - Server** dialog box **General** tab, enter a unique friendly Name for the server. Say **Azure PostgreSQL Server**.
+   ![pgAdmin tool - create - server](./media/quickstart-create-server-database-azure-cli/1-pgadmin-create-server.png)
+4. In the **Create - Server** dialog box, **Connection** tab:
+   - Enter the fully qualified server name (for example, **mypgserver-20170401.postgres.database.azure.com**) in the **Host Name/ Address** box. 
+   - Enter port 5432 into the **Port** box. 
+   - Enter the <strong>Server admin login (user<xref href="mypgserver)" data-throw-if-not-resolved="False" data-raw-source="@mypgserver)"></xref></strong> obtained earlier in this quickstart and password you entered when you created the server into the <strong>Username</strong> and <strong>Password</strong> boxes, respectively.
+   - Select **SSL Mode** as **Require**. By default, all Azure PostgreSQL servers are created with SSL enforcing turned ON. To turn OFF SSL enforcing, see details in [Enforcing SSL](./concepts-ssl-connection-security.md).
 
-    ![pgAdmin - Create - Server](./media/quickstart-create-server-database-azure-cli/2-pgadmin-create-server.png)
-5.	Click **Save**.
-6.	In the Browser left pane, expand the **Server Groups**. Choose your server **Azure PostgreSQL Server**.
-7.  Choose the **Server** you connected to, and then choose **Databases** under it. 
-8.	Right-click on **Databases** to Create a Database.
-9.	Choose a database name **mypgsqldb** and the owner for it as server admin login **mylogin**.
+   ![pgAdmin - Create - Server](./media/quickstart-create-server-database-azure-cli/2-pgadmin-create-server.png)
+5. Click **Save**.
+6. In the Browser left pane, expand the **Server Groups**. Choose your server **Azure PostgreSQL Server**.
+7. Choose the **Server** you connected to, and then choose **Databases** under it. 
+8. Right-click on **Databases** to Create a Database.
+9. Choose a database name **mypgsqldb** and the owner for it as server admin login **mylogin**.
 10. Click **Save** to create a blank database.
 11. In the **Browser**, expand the **Servers** group. Expand the server you created, and see the database **mypgsqldb** under it.
- ![pgAdmin - Create - Database](./media/quickstart-create-server-database-azure-cli/3-pgadmin-database.png)
+    ![pgAdmin - Create - Database](./media/quickstart-create-server-database-azure-cli/3-pgadmin-database.png)
 
 
 ## Clean up resources

@@ -23,6 +23,7 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 This article addresses recommendations that apply to Azure SQL service and data. Recommendations center around enabling auditing for Azure SQL servers and databases, enabling encryption for SQL databases, and enabling encryption of your Azure storage account.  Use the table below as a reference to help you understand the available SQL service and data recommendations and what each one does if you apply it.
 
 ## Available SQL service and data recommendations
+
 | Recommendation | Description |
 | --- | --- |
 | [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) |Recommends that you turn on auditing and threat detection for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines). |

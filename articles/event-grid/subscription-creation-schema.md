@@ -26,7 +26,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 The article describes the properties and schema for the body of the request.
- 
+ 
 ## Event subscription properties
 
 | Property | Type | Description |

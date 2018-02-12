@@ -58,19 +58,19 @@ To configure the integration of Rally Software into Azure AD, you need to add Ra
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Rally Software**, select **Rally Software** from result panel then click **Add** button to add the application.
 
-	![Rally Software in the results list](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_addfromgallery.png)
+    ![Rally Software in the results list](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,36 +96,36 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Rally Software** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_samlbase.png)
 
 3. On the **Rally Software Domain and URLs** section, perform the following steps:
 
-	![Rally Software Domain and URLs single sign-on information](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
+    ![Rally Software Domain and URLs single sign-on information](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.rally.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenant-name>.rally.com`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenant-name>.rally.com`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Rally Software Client support team](https://help.rallydev.com/) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Rally Software Client support team](https://help.rallydev.com/) to get these values. 
  
 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-rally-software-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-rally-software-tutorial/tutorial_general_400.png)
 
 6. On the **Rally Software Configuration** section, click **Configure Rally Software** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Entity ID** from the **Quick Reference section.**
 
-	![Rally Software Configuration](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_configure.png) 
+    ![Rally Software Configuration](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_configure.png) 
 
 7. Log in to your **Rally Software** tenant.
 
@@ -199,13 +199,13 @@ For Azure AD users to be able to sign in, they must be provisioned to the Rally 
    
     ![Create User](./media/active-directory-saas-rally-software-tutorial/ic781040.png "Create User")
 
-	a. In the **User Name** textbox, type the name of user like **Brittsimon**.
+    a. In the **User Name** textbox, type the name of user like **Brittsimon**.
    
     b. In **E-mail Address** textbox, enter the email of user like **brittasimon@contoso.com**.
 
-	c. In **First Name** text box, enter the first name of user like **Britta**.
+    c. In **First Name** text box, enter the first name of user like **Britta**.
 
-	d. In **Last Name** text box, enter the last name of user like **Simon**.
+    d. In **Last Name** text box, enter the last name of user like **Simon**.
 
     e. Click **Save & Close**.
 
@@ -222,26 +222,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Rally Software**.
 
-	![The Rally Software link in the Applications list](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_app.png)  
+    ![The Rally Software link in the Applications list](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.

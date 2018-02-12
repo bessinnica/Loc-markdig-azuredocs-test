@@ -424,7 +424,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The customer's enterprise-level employee sanctions process may be sufficient to address this control. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                       |
+|---------------------------------------------|-------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The customer's enterprise-level employee sanctions process may be sufficient to address this control. |
+| <strong>Provider (Microsoft Azure)</strong> |                                            Not Applicable                                             |
+

@@ -63,7 +63,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 **Step 1:** Open up the Resource Manager template you used to deploy you Cluster. (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
 
 **Step 2:** Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add it to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
- 
+
 ```JSON
    "secCertificateThumbprint": {
       "type": "string",
@@ -77,12 +77,11 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
         "description": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
       }
     },
-
 ```
 
 **Step 3:** Make changes to the **Microsoft.ServiceFabric/clusters** resource - Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet:
 
-   
+
 ```JSON
       "properties": {
         "certificate": {
@@ -99,7 +98,7 @@ So now the resource definition should look like the following (depending on your
       "properties": {
         "certificate": {
           "thumbprint": "[parameters('certificateThumbprint')]",
-		  "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
+          "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
           "x509StoreName": "[parameters('certificateStoreValue')]"
      }
 ``` 
@@ -110,7 +109,7 @@ If you want to **rollover the cert**, then specify the new cert as primary and m
       "properties": {
         "certificate": {
           "thumbprint": "[parameters('secCertificateThumbprint')]",
-		  "thumbprintSecondary": "[parameters('certificateThumbprint')]",
+          "thumbprintSecondary": "[parameters('certificateThumbprint')]",
           "x509StoreName": "[parameters('certificateStoreValue')]"
      }
 ``` 
@@ -130,7 +129,6 @@ Add the new cert entries to it
                     "x509StoreName": "[parameters('certificateStoreValue')]"
                     }
                   },
-
 ```
 
 The properties should now look like this
@@ -150,7 +148,6 @@ If you want to **rollover the cert**, then specify the new cert as primary and m
                     "x509StoreName": "[parameters('certificateStoreValue')]"
                     }
                   },
-
 ```
 The properties should now look like this
 
@@ -169,7 +166,6 @@ Add the secCertificateUrlValue to it. use the following snippet:
                     "certificateStore": "[parameters('certificateStoreValue')]",
                     "certificateUrl": "[parameters('secCertificateUrlValue')]"
                   }
-
 ```
 Now the resulting Json should look something like this.
 ![Json_Pub_Setting5][Json_Pub_Setting5]
@@ -193,7 +189,6 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
     "secCertificateUrlValue": {
       "value": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
      },
-
 ```
 
 ### Deploy the template to Azure
@@ -204,14 +199,12 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 ```powershell
 Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
-
 ```
 
 Test the template prior to deploying it. Use the same Resource Group that your cluster is currently deployed to.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
-
 ```
 
 Deploy the template to your resource group. Use the same Resource Group that your cluster is currently deployed to. Run the New-AzureRmResourceGroupDeployment command. You do not need to specify the mode, since the default value is **incremental**.
@@ -233,7 +226,6 @@ $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-V
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResouceGroup2
-
 ```
 
 Once the deployment is complete, connect to your cluster using the new Certificate and perform some queries. If you are able to do. Then you can delete the old certificate. 
@@ -244,7 +236,6 @@ If you are using a self-signed certificate, do not forget to import them into yo
 ######## Set up the certs on your local box
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
-
 ```
 For quick reference here is the command to connect to a secure cluster 
 

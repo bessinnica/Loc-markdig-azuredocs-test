@@ -25,13 +25,13 @@ The **Evaluate** operation returns a confidence score between 0 and 1. It also r
 
 Example extract:
 
-	"ImageModeration": {
+    "ImageModeration": {
       .............
       "adultClassificationScore": 0.019196987152099609,
       "isImageAdultClassified": false,
       "racyClassificationScore": 0.032390203326940536,
       "isImageRacyClassified": false,
-	  ............
+      ............
       ],
 
 
@@ -45,7 +45,7 @@ The response includes the following information:
 
 Example extract:
 
-	"TextDetection": {
+    "TextDetection": {
       "status": {
         "code": 3000.0,
         "description": "OK",
@@ -113,20 +113,20 @@ If a match is found, the operation returns the identifier and the moderation tag
 
 Example extract:
 
-	{
-	..............,
-	"IsMatch": true,
-	"Matches": [
-		{
-			"Score": 1.0,
-			"MatchId": 169490,
-			"Source": "169642",
-			"Tags": [],
-			"Label": "Sports"
-		}
-	],
-	....
-	}
+    {
+    ..............,
+    "IsMatch": true,
+    "Matches": [
+        {
+            "Score": 1.0,
+            "MatchId": 169490,
+            "Source": "169642",
+            "Tags": [],
+            "Label": "Sports"
+        }
+    ],
+    ....
+    }
 
 ## Human review tool
 

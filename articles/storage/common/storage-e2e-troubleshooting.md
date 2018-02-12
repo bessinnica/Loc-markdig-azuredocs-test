@@ -101,30 +101,30 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 
 1. Use the [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
    
-	```powershell
-	Add-AzureAccount
-	```
+    ```powershell
+    Add-AzureAccount
+    ```
 
 2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 3. Set the default storage account to the storage account you are using for the tutorial by executing these commands in the PowerShell window:
    
-	```powershell
-	$SubscriptionName = 'Your subscription name'
-	$StorageAccountName = 'yourstorageaccount'
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-	```
+    ```powershell
+    $SubscriptionName = 'Your subscription name'
+    $StorageAccountName = 'yourstorageaccount'
+    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    ```
 
 4. Enable storage logging for the Blob service:
    
-	```powershell
-	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-	```
+    ```powershell
+    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    ```
 
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
    
-	```powershell
-	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-	```
+    ```powershell
+    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    ```
 
 ### Configure .NET client-side logging
 To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
@@ -152,9 +152,9 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 5. In the **Advanced Settings** dialog, click the **Provider** tab.
 6. In the **Hostname Filter** field, specify your storage endpoints, separated by spaces. For example, you can specify your endpoints as follows; change `storagesample` to the name of your storage account:
 
-	```   
-	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
-	```
+    ```   
+    storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
+    ```
 
 7. Exit the dialog, and click **Restart** to begin collecting the trace with the hostname filter in place, so that only Azure Storage network traffic is included in the trace.
 
@@ -279,9 +279,9 @@ Next, we'll group and filter the log data to find all errors in the 400 range.
 3. Display the View Filter tool window if it is not already displayed. On the toolbar ribbon, select **Tool Windows**, then **View Filter**.
 4. To filter the log data to display only 400-range errors, add the following filter criteria to the **View Filter** window, and click **Apply**:
 
-	```   
-	(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
-	```
+    ```   
+    (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+    ```
 
 The picture below shows the results of this grouping and filter. Expanding the **ClientRequestID** field beneath the grouping for status code 409, for example, shows an operation that resulted in that status code.
 
@@ -307,12 +307,12 @@ The Storage Assets include predefined filters that you can use to narrow log dat
 4. Edit the timestamps shown in the filter to the range you wish to view. This will help to narrow the range of data to analyze.
 5. Your filter should appear similar to the example below. Click **Apply** to apply the filter to the Analysis Grid.
 
-	```   
-	((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
-	(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
-	```
+    ```   
+    ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
+    (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+    ```
 
-	![Azure Storage View Layout](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
+    ![Azure Storage View Layout](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
 
 ### Analyze your log data
 Now that you have grouped and filtered your data, you can examine the details of individual requests that generated 404 errors. In the current view layout, the data is grouped by client request ID, then by log source. Since we are filtering on requests where the StatusCode field contains 404, we'll see only the server and network trace data, not the client log data.
@@ -328,9 +328,9 @@ Next, we'll correlate this client request ID with the client log data to see wha
 3. On the toolbar ribbon, select **View Layout**, then select **All .NET Client Columns** under the **Azure Storage** section. This view layout shows data from the client log as well as the server and network trace logs. By default it is sorted on the **MessageNumber** column.
 4. Next, search the client log for the client request ID. On the toolbar ribbon, select **Find Messages**, then specify a custom filter on the client request ID in the **Find** field. Use this syntax for the filter, specifying your own client request ID:
 
-	```
-	*ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
-	```
+    ```
+    *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+    ```
 
 Message Analyzer locates and selects the first log entry where the search criteria matches the client request ID. In the client log, there are several entries for each client request ID, so you may want to group them on the **ClientRequestId** field to make it easier to see them all together. The picture below shows all of the messages in the client log for the specified client request ID.
 

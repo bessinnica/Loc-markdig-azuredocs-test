@@ -38,9 +38,9 @@ The following types are used when creating filters:
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
->[!NOTE]
-
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
 ## Connect to Media Services
 
@@ -324,7 +324,7 @@ The following examples show how to add filters to your streaming URLs.
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
-	
+    
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

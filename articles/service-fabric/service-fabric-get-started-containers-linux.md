@@ -80,7 +80,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
 
 if __name__ == "__main__":
@@ -100,7 +100,7 @@ Once the build command completes, run the `docker images` command to see informa
 
 ```bash
 $ docker images
-    
+
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
@@ -116,7 +116,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* gives a name to the running container (instead of the container ID).
 
-Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "<http://localhost:4000>". You should see the heading "Hello World!" display in the browser.
 
 ![Hello World!][hello-world]
 
@@ -184,7 +184,7 @@ Your containerized service needs an endpoint for communication.  Now add the pro
     </Endpoints>
   </Resources>
  ```
- 
+
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
 Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myServiceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
@@ -192,14 +192,14 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 ```xml
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-	<Policies>
-	    <ContainerHostPolicies CodePackageRef="Code">
-		<RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-		<PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-	    </ContainerHostPolicies>
-	</Policies>
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
    </ServiceManifestImport>
-```	
+``` 
 ## Configure docker HEALTHCHECK 
 Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the **dockerfile** used while generating the container image. 
 
@@ -250,7 +250,7 @@ Use the install script provided in the template to copy the application package 
 
 Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 
-Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "<http://localhost:4000>". You should see the heading "Hello World!" display in the browser.
 
 ![Hello World!][hello-world]
 
@@ -297,13 +297,13 @@ Here are the complete service and application manifests used in this article.
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
-    
+
     <EnvironmentVariables>
       <!--
       <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
       -->
     </EnvironmentVariables>
-    
+
   </CodePackage>
 
   <Resources>
@@ -341,7 +341,7 @@ Here are the complete service and application manifests used in this article.
     <!-- The section below creates instances of service types, when an instance of this 
          application type is created. You can also create one or more instances of service type using the 
          ServiceFabric PowerShell module.
-         
+
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="myservice">
       <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
@@ -365,6 +365,7 @@ To add another container service to an application already created using yeoman,
 <a id="manually"></a>
 
 
+
 ## Configure time interval before container is force terminated
 
 You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
@@ -378,7 +379,7 @@ You can configure a time interval for the runtime to wait before the container i
                 "name": "ContainerDeactivationTimeout",
                 "value" : "10"
           },
-	      ...
+          ...
         ]
 }
 ```

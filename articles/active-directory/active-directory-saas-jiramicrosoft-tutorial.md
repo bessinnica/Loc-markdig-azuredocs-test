@@ -56,8 +56,8 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Supported versions of JIRA
 
-*	JIRA Core and Software: 6.0 to 7.2.0
-*	JIRA Service Desk 3.0 to 3.2
+*   JIRA Core and Software: 6.0 to 7.2.0
+*   JIRA Service Desk 3.0 to 3.2
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -73,19 +73,19 @@ To configure the integration of Microsoft Azure Active Directory single sign-on 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Microsoft Azure Active Directory single sign-on for JIRA**, select **Microsoft Azure Active Directory single sign-on for JIRA** from result panel then click **Add** button to add the application.
 
-	![Microsoft Azure Active Directory single sign-on for JIRA in the results list](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_addfromgallery.png)
+    ![Microsoft Azure Active Directory single sign-on for JIRA in the results list](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -109,24 +109,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Microsoft Azure Active Directory single sign-on for JIRA** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_samlbase.png)
+    ![Single sign-on dialog box](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_samlbase.png)
 
 3. On the **Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs** section, perform the following steps:
 
-	![Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs single sign-on information](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
+    ![Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs single sign-on information](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<domain:port>/plugins/servlet/saml/auth`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<domain:port>/`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<domain:port>/`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<domain:port>/plugins/servlet/saml/auth`
+    c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<domain:port>/plugins/servlet/saml/auth`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Jira plugin, which is explained later in the tutorial.
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Jira plugin, which is explained later in the tutorial.
  
 4. To generate the **Metadata** url, perform the following steps:
 
@@ -150,49 +150,49 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_400.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_400.png)
 
 6. In a different web browser window, log in to your JIRA instance as an administrator.
 
 7. Hover on cog and click the **Add-ons**.
     
-	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
 8. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Manually upload the plugin provided by Microsoft using **Upload add-on** menu.
 
-	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
 9. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon13.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon13.png)
 
 10. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon52.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon52.png)
 
-	> [!TIP]
-	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
+    > [!TIP]
+    > Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
  
-	a. In **Metadata URL** paste the **Metadata URL** generated from Azure AD and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
+    a. In **Metadata URL** paste the **Metadata URL** generated from Azure AD and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
 
-	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs** section on Azure portal.
+    b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs** section on Azure portal.
 
-	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+    c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
-	d. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user id. If the user id is not matched, then system will not allow users to log in. 
+    d. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user id. If the user id is not matched, then system will not allow users to log in. 
 
-	> [!Note]
-	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
+    > [!Note]
+    > Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
 
-	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
+    e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
 
-	f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
-	
-	g. In **Domain Name** type the domain name here in case of the ADFS-based login.
+    f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
+    
+    g. In **Domain Name** type the domain name here in case of the ADFS-based login.
 
-	h. Check **Enable Single Sign out** if you wish to log out from Azure AD when a user logs out from JIRA. 
+    h. Check **Enable Single Sign out** if you wish to log out from Azure AD when a user logs out from JIRA. 
 
-	i. Click **Save** button to save the settings.
+    i. Click **Save** button to save the settings.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -244,25 +244,25 @@ To enable Azure AD users to log in to JIRA on-premise server, they must be provi
 
 3. You are redirected to Administrator Access page to enter **Password** and click **Confirm** button.
 
-	![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user2.png) 
+    ![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user2.png) 
 
 4. Under **User management** tab section, click **create user**.
 
-	![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user3.png) 
+    ![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user3.png) 
 
 5. On the **“Create new user”** dialog page, perform the following steps:
 
-	![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user4.png) 
+    ![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user4.png) 
 
-	a. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
+    a. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
 
-	b. In the **Full Name** textbox, type full name of the user like Britta Simon.
+    b. In the **Full Name** textbox, type full name of the user like Britta Simon.
 
-	c. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
+    c. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
 
-	d. In the **Password** textbox, type the password of user.
+    d. In the **Password** textbox, type the password of user.
 
-	e. Click **Create user**.
+    e. Click **Create user**.
 
 ### Assign the Azure AD test user
 
@@ -274,26 +274,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Microsoft Azure Active Directory single sign-on for JIRA**.
 
-	![The Microsoft Azure Active Directory single sign-on for JIRA link in the Applications list](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_app.png)  
+    ![The Microsoft Azure Active Directory single sign-on for JIRA link in the Applications list](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

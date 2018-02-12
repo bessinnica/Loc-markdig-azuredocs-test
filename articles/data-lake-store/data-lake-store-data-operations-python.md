@@ -58,30 +58,30 @@ pip install azure-datalake-store
 
 2. Add the following lines to import the required modules
 
-	```
-	## Use this only for Azure AD service-to-service authentication
-	from azure.common.credentials import ServicePrincipalCredentials
+    ```
+    ## Use this only for Azure AD service-to-service authentication
+    from azure.common.credentials import ServicePrincipalCredentials
 
-	## Use this only for Azure AD end-user authentication
-	from azure.common.credentials import UserPassCredentials
+    ## Use this only for Azure AD end-user authentication
+    from azure.common.credentials import UserPassCredentials
 
-	## Use this only for Azure AD multi-factor authentication
-	from msrestazure.azure_active_directory import AADTokenCredentials
+    ## Use this only for Azure AD multi-factor authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
 
-	## Required for Azure Data Lake Store account management
-	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+    ## Required for Azure Data Lake Store account management
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-	## Required for Azure Data Lake Store filesystem management
-	from azure.datalake.store import core, lib, multithread
+    ## Required for Azure Data Lake Store filesystem management
+    from azure.datalake.store import core, lib, multithread
 
-	# Common Azure imports
-	from azure.mgmt.resource.resources import ResourceManagementClient
-	from azure.mgmt.resource.resources.models import ResourceGroup
+    # Common Azure imports
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
-	## Use these as needed for your application
-	import logging, getpass, pprint, uuid, time
-	```
+    ## Use these as needed for your application
+    import logging, getpass, pprint, uuid, time
+    ```
 
 3. Save changes to mysample.py.
 
@@ -98,14 +98,14 @@ The following snippet first creates the Data Lake Store account client. It uses 
 
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
-	adlsAccountName = 'FILL-IN-HERE'
+    adlsAccountName = 'FILL-IN-HERE'
 
-	## Create a filesystem client object
+    ## Create a filesystem client object
     adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
 
 ## Create a directory
 
-	## Create a directory
+    ## Create a directory
     adlsFileSystemClient.mkdir('/mysampledirectory')
 
 ## Upload a file
@@ -122,8 +122,8 @@ The following snippet first creates the Data Lake Store account client. It uses 
 
 ## Delete a directory
 
-	## Delete a directory
-	adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
+    ## Delete a directory
+    adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
 ## Next steps
 * [Account management operations on Data Lake Store using Python](data-lake-store-get-started-python.md).

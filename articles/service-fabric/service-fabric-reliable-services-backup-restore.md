@@ -68,7 +68,6 @@ As shown below, `BackupAsync` takes in a `BackupDescription` object, where one c
 BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
 
 await this.BackupAsync(myBackupDescription);
-
 ```
 
 Request to take an incremental backup can fail with `FabricMissingFullBackupException`. This exception indicates that one of the following things is happening:
@@ -184,7 +183,7 @@ class MyCustomActorService : ActorService
             : base(context, actorTypeInfo)
      {                  
      }
-    
+
     //
    // Method overrides and other code.
     //
@@ -207,7 +206,7 @@ class MyCustomActorService : ActorService
             : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
      {                  
      }
-    
+
     //
    // Method overrides and other code.
     //

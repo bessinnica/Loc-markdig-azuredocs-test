@@ -32,6 +32,7 @@ Concurrency limits are governed by two concepts: *concurrent queries* and *concu
 The following table describes the limits for both concurrent queries and concurrency slots at the various DWU sizes.
 
 ### Concurrency limits
+
 | DWU | Max concurrent queries | Concurrency slots allocated |
 |:--- |:---:|:---:|
 | DW100 |4 |4 |
@@ -80,7 +81,7 @@ A few more details on resource class:
 
 * *Alter role* permission is required to change the resource class of a user.
 * Although you can add a user to one or more of the higher resource classes, dynamic resource classes take precedence over static resource classes. That is, if a user is assigned to both **mediumrc**(dynamic) and **staticrc80**(static), **mediumrc** is the resource class that is honored.
- * When a user is assigned to more than one resource class in a specific resource class type (more than one dynamic resource class or more than one static resource class), the highest resource class is honored. That is, if a user is assigned to both mediumrc and largerc, the higher resource class (largerc) is honored. And if a user is assigned to both **staticrc20** and **statirc80**, **staticrc80** is honored.
+  * When a user is assigned to more than one resource class in a specific resource class type (more than one dynamic resource class or more than one static resource class), the highest resource class is honored. That is, if a user is assigned to both mediumrc and largerc, the higher resource class (largerc) is honored. And if a user is assigned to both **staticrc20** and **statirc80**, **staticrc80** is honored.
 * The resource class of the system administrative user cannot be changed.
 
 For a detailed example, see [Changing user resource class example](#changing-user-resource-class-example).
@@ -91,6 +92,7 @@ There are pros and cons to increasing a user's resource class. Increasing a reso
 The following table maps the memory allocated to each distribution by DWU and resource class.
 
 ### Memory allocations per distribution for dynamic resource classes (MB)
+
 | DWU | smallrc | mediumrc | largerc | xlargerc |
 |:--- |:---:|:---:|:---:|:---:|
 | DW100 |100 |100 |200 |400 |
@@ -109,6 +111,7 @@ The following table maps the memory allocated to each distribution by DWU and re
 The following table maps the memory allocated to each distribution by DWU and static resource class. Note that the higher resource classes have their memory reduced to honor the global DWU limits.
 
 ### Memory allocations per distribution for static resource classes (MB)
+
 | DWU | staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |100 |200 |400 |400 |400 |400 |400 |400 |
@@ -127,6 +130,7 @@ The following table maps the memory allocated to each distribution by DWU and st
 From the preceding table, you can see that a query running on a DW2000 in the **xlargerc** resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.  In SQL Data Warehouse, there are 60 distributions. Therefore, to calculate the total memory allocation for a query in a given resource class, the above values should be multiplied by 60.
 
 ### Memory allocations system-wide (GB)
+
 | DWU | smallrc | mediumrc | largerc | xlargerc |
 |:--- |:---:|:---:|:---:|:---:|
 | DW100 |6 |6 |12 |23 |
@@ -145,11 +149,12 @@ From the preceding table, you can see that a query running on a DW2000 in the **
 From this table of system-wide memory allocations, you can see that a query running on a DW2000 in the xlargerc resource class is allocated a total of 375 GB of memory (6,400 MB * 60 distributions / 1,024 to convert to GB) over the entirety of your SQL Data Warehouse.
 
 The same calculation applies to static resource classes.
- 
+
 ## Concurrency slot consumption  
 SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therefore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
 
 ### Allocation and consumption of concurrency slots for dynamic resource classes  
+
 | DWU | Maximum concurrent queries | Concurrency slots allocated | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -166,6 +171,7 @@ SQL Data Warehouse grants more memory to queries running in higher resource clas
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
 ### Allocation and consumption of concurrency slots for static resource classes  
+
 | DWU | Maximum concurrent queries | Concurrency slots allocated |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |
@@ -187,8 +193,8 @@ From these tables, you can see that SQL Data Warehouse running as DW1000 allocat
 A good practice is to permanently assign users to a resource class rather than changing their resource classes. For example, loads to clustered columnstore tables create higher-quality indexes when allocated more memory. To ensure that loads have access to higher memory, create a user specifically for loading data and permanently assign this user to a higher resource class.
 There are a couple of best practices to follow here. As mentioned above, SQL DW supports two kinds of resource class types: static resource classes and dynamic resource classes.
 ### Loading best practices
-1.	If the expectations are loads with regular amount of data, a static resource class is a good choice. Later, when scaling up to get more computational power, the data warehouse will be able to run more concurrent queries out-of-the-box, as the load user does not consume more memory.
-2.	If the expectations are bigger loads in some occasions, a dynamic resource class is a good choice. Later, when scaling up to get more computational power, the load user will get more memory out-of-the-box, hence allowing the load to perform faster.
+1.  If the expectations are loads with regular amount of data, a static resource class is a good choice. Later, when scaling up to get more computational power, the data warehouse will be able to run more concurrent queries out-of-the-box, as the load user does not consume more memory.
+2.  If the expectations are bigger loads in some occasions, a dynamic resource class is a good choice. Later, when scaling up to get more computational power, the load user will get more memory out-of-the-box, hence allowing the load to perform faster.
 
 The memory needed to process loads efficiently depends on the nature of the table loaded and the amount of data processed. For instance, loading data into CCI tables requires some memory to let CCI rowgroups reach optimality. For more details, see the Columnstore indexes - data loading guidance.
 
@@ -196,8 +202,8 @@ As a best practice, we advise you to use at least 200MB of memory for loads.
 
 ### Querying best practices
 Queries have different requirements depending on their complexity. Increasing memory per query or increasing the concurrency are both valid ways to augment overall throughput depending on the query needs.
-1.	If the expectations are regular, complex queries (for instance, to generate daily and weekly reports) and do not need to take advantage of concurrency, a dynamic resource class is a good choice. If the system has more data to process, scaling up the data warehouse will therefore automatically provide more memory to the user running the query.
-2.	If the expectations are variable or diurnal concurrency patterns (for instance if the database is queried through a web UI broadly accessible), a static resource class is a good choice. Later, when scaling up to data warehouse, the user associated with the static resource class will automatically be able to run more concurrent queries.
+1.  If the expectations are regular, complex queries (for instance, to generate daily and weekly reports) and do not need to take advantage of concurrency, a dynamic resource class is a good choice. If the system has more data to process, scaling up the data warehouse will therefore automatically provide more memory to the user running the query.
+2.  If the expectations are variable or diurnal concurrency patterns (for instance if the database is queried through a web UI broadly accessible), a static resource class is a good choice. Later, when scaling up to data warehouse, the user associated with the static resource class will automatically be able to run more concurrent queries.
 
 Selecting proper memory grant depending on the need of your query is non-trivial, as it depends on many factors, such as the amount of data queried, the nature of the table schemas, and various join, selection, and group predicates. From a general standpoint, allocating more memory will allow queries to complete faster, but would reduce the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm. To fine-tune throughput, trying various flavors of resource classes may be required.
 
@@ -216,13 +222,13 @@ Here's the purpose of this stored procedure:
 - This stored proc depends on existing offered concurrency limit and if that changes then this stored proc would not work correctly.  
 - This stored proc depends on existing resource class offerings and if that changes then this stored proc wuold not work correctly.  
 
->  [!NOTE]  
+> [!NOTE]
 >  If you are not getting output after executing stored procedure with parameters provided then there could be two cases. <br />1. Either DW Parameter contains invalid SLO value <br />2. OR there are no matching resource class for CCI operation if table name was provided. <br />For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB.
-      
+
 #### Usage example:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
+1. @"DWU": Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
 2. @SCHEMA_NAME: Provide a schema name of the table
 3. @TABLE_NAME: Provide a table name of the interest
 
@@ -270,7 +276,7 @@ SET @DWU_NUM = CAST (SUBSTRING(@DWU, 3, LEN(@DWU)-2) AS INT)
 -- Raise error if either schema name or table name is supplied but not both them supplied
 --IF ((@SCHEMA_NAME IS NOT NULL AND @TABLE_NAME IS NULL) OR (@TABLE_NAME IS NULL AND @SCHEMA_NAME IS NOT NULL))
 --     RAISEERROR('User need to supply either both Schema Name and Table Name or none of them')
-       
+
 -- Dropping temp table if exists.
 IF OBJECT_ID('tempdb..#ref') IS NOT NULL
 BEGIN
@@ -557,6 +563,7 @@ SQL Data Warehouse implements resource classes by using workload groups. There a
 The following table shows the importance mappings for each workload group.
 
 ### Workload group mappings to concurrency slots and importance
+
 | Workload groups | Concurrency slot mapping | MB / Distribution | Importance mapping |
 |:--- |:---:|:---:|:--- |
 | SloDWGroupC00 |1 |100 |Medium |
@@ -571,6 +578,7 @@ The following table shows the importance mappings for each workload group.
 From the **Allocation and consumption of concurrency slots** chart, you can see that a DW500 uses 1, 4, 8 or 16 concurrency slots for smallrc, mediumrc, largerc, and xlargerc, respectively. You can look those values up in the preceding chart to find the importance for each resource class.
 
 ### DW500 mapping of resource classes to importance
+
 | Resource class | Workload group | Concurrency slots used | MB / Distribution | Importance |
 |:--- |:--- |:---:|:---:|:--- |
 | smallrc |SloDWGroupC00 |1 |100 |Medium |
@@ -682,37 +690,37 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ##  <a name="changing-user-resource-class-example"></a> Change a user resource class example
 1. **Create login:** Open a connection to your **master** database on the SQL server hosting your SQL Data Warehouse database and execute the following commands.
-   
+
     ```sql
     CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
     CREATE USER newperson for LOGIN newperson;
     ```
-   
+
    > [!NOTE]
    > It is a good idea to create a user in the master database for Azure SQL Data Warehouse users. Creating a user in master allows a user to login using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.  For more details about creating and managing users, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse].
    > 
    > 
 2. **Create SQL Data Warehouse user:** Open a connection to the **SQL Data Warehouse** database and execute the following command.
-   
+
     ```sql
     CREATE USER newperson FOR LOGIN newperson;
     ```
 3. **Grant permissions:** The following example grants `CONTROL` on the **SQL Data Warehouse** database. `CONTROL` at the database level is the equivalent of db_owner in SQL Server.
-   
+
     ```sql
     GRANT CONTROL ON DATABASE::MySQLDW to newperson;
     ```
 4. **Increase resource class:** Use the following query to add a user to a higher workload management role.
-   
+
     ```sql
     EXEC sp_addrolemember 'largerc', 'newperson'
     ```
 5. **Decrease resource class:** Use the following query to remove a user from a workload management role.
-   
+
     ```sql
     EXEC sp_droprolemember 'largerc', 'newperson';
     ```
-   
+
    > [!NOTE]
    > It is not possible to remove a user from smallrc.
    > 

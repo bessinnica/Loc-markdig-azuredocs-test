@@ -86,7 +86,7 @@ namespace ConsoleAppPost
                 jsonResult = json,
                 relevantHeaders = new Dictionary<String, String>()
             };
-            
+
             return searchResult;
         }
 
@@ -163,6 +163,4 @@ namespace ConsoleAppPost
         }
     }
 }
-
-
 ```

@@ -58,19 +58,19 @@ To configure the integration of etouches into Azure AD, you need to add etouches
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **etouches**, select **etouches** from result panel then click **Add** button to add the application.
 
-	![etouches in the results list](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_addfromgallery.png)
+    ![etouches in the results list](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with etouches based on a test user called "Britta Simon".
@@ -95,53 +95,53 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **etouches** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_samlbase.png)
 
 3. On the **etouches Domain and URLs** section, perform the following steps:
 
-	![etouches Domain and URLs single sign-on information](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_url.png)
+    ![etouches Domain and URLs single sign-on information](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.eiseverywhere.com/<instance name>`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.eiseverywhere.com/<instance name>`
 
-	> [!NOTE] 
-	> These values are not real. You update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
-	> 
+    > [!NOTE] 
+    > These values are not real. You update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
+    > 
 
 4. etouches application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attribute** of the application. The following screenshot shows an example for this. 
 
     ![User Attribute](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_attribute.png) 
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |
-	| Email | user.mail |    
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    
+    | Attribute Name | Attribute Value |
+    | ------------------- | -------------------- |
+    | Email | user.mail |    
+    
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Add Attribute](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_04.png)
+    ![Add Attribute](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_04.png)
 
-	![Add Attribute dialog](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_05.png)
+    ![Add Attribute dialog](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**. 
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**. 
 
 6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_certificate.png) 
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-etouches-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-etouches-tutorial/tutorial_general_400.png)
 
 8. To get SSO configured for your application, perform the following steps in the etouches application: 
 
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     h. Copy the **SP entity ID** value and paste it into the **Identifier**  textbox, which is in **etouches Domain and URLs** section on Azure portal.
 
-	i. Copy the **SSO URL / ACS** value and paste it into the **Sign on URL** textbox, which is in **etouches Domain and URLs** section on Azure portal.
+    i. Copy the **SSO URL / ACS** value and paste it into the **Sign on URL** textbox, which is in **etouches Domain and URLs** section on Azure portal.
    
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -178,25 +178,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](./media/active-directory-saas-etouches-tutorial/create_aaduser_01.png) 
+    ![The Azure Active Directory button](./media/active-directory-saas-etouches-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![The "Users and groups" and "All users" links](./media/active-directory-saas-etouches-tutorial/create_aaduser_02.png) 
+    
+    ![The "Users and groups" and "All users" links](./media/active-directory-saas-etouches-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![The Add button](./media/active-directory-saas-etouches-tutorial/create_aaduser_03.png) 
+    ![The Add button](./media/active-directory-saas-etouches-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![The User dialog box](./media/active-directory-saas-etouches-tutorial/create_aaduser_04.png) 
+    ![The User dialog box](./media/active-directory-saas-etouches-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -214,26 +214,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **etouches**.
 
-	![The etouches link in the Applications list](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_app.png) 
+    ![The etouches link in the Applications list](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202] 
+    ![The "Users and groups" link][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 

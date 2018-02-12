@@ -26,10 +26,10 @@ With Azure AD, you can create and manage users and groups, and enable permission
 Azure AD's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities enable us to deliver enterprise-level availability and performance to our customers.
 
 The following architecture elements are covered in this article:
- *	Service architecture design
- *	Scalability 
- *	Continuous availability
- *	Data centers
+ *  Service architecture design
+ *  Scalability 
+ *  Continuous availability
+ *  Data centers
 
 ### Service architecture design
 The most common way to build a scalable, highly-available, data-rich system is through independent building blocks or scale units for the Azure AD data tier, scale units are called *partitions*. 
@@ -82,7 +82,7 @@ Azure AD operates across data centers with the following characteristics:
 
  * Authentication, Graph and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will failover automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy data centers.
  * For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple data centers. In case of a failure of an entire data center, traffic will be automatically routed to a different datacenter.
- *	For *writes*, the directory will failover primary (master) replica across data centers via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two data centers.
+ *  For *writes*, the directory will failover primary (master) replica across data centers via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two data centers.
 
 **Data consistency**
 

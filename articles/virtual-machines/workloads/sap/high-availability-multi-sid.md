@@ -1,4 +1,3 @@
-
 ---
 title: Create an SAP multi-SID configuration in Azure | Microsoft Docs
 description: Guide to high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines
@@ -606,7 +605,6 @@ foreach ($Port in $Ports) {
 $ILB | Set-AzureRmLoadBalancer
 
 Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
-
 ```
 After the script has run, the results are displayed in the Azure portal, as shown in the following screenshot:
 
@@ -639,22 +637,22 @@ The complete process of installing a second SAP SID2 system is described in the 
 The high-level procedure is as follows:
 
 1. [Install the SAP first cluster node][sap-ha-guide-9.1.2].  
- In this step, you are installing SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.
+   In this step, you are installing SAP with a high-availability ASCS/SCS instance on the <strong>EXISTING WSFC cluster node 1</strong>.
 
 2. [Modify the SAP profile of the ASCS/SCS instance][sap-ha-guide-9.1.3].
 
 3. [Configure a probe port][sap-ha-guide-9.1.4].  
- In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes.
+   In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes.
 
 4. [Install the database instance][sap-ha-guide-9.2].  
- In this step, you are installing DBMS on a dedicated WSFC cluster.
+   In this step, you are installing DBMS on a dedicated WSFC cluster.
 
 5. [Install the second cluster node][sap-ha-guide-9.3].  
- In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2.
+   In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2.
 
 6. Open Windows Firewall ports for the SAP ASCS/SCS instance and ProbePort.  
- On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS. These ports are listed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.8].  
- Also open the Azure internal load balancer probe port, which is 62350 in our scenario.
+   On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS. These ports are listed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.8].  
+   Also open the Azure internal load balancer probe port, which is 62350 in our scenario.
 
 7. [Change the start type of the SAP ERS Windows service instance][sap-ha-guide-9.4].
 

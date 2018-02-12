@@ -63,8 +63,11 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 To delete a virtual network gateway for a S2S configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. When working with the examples below, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
 VNet name: VNet1<br>
-Resource Group name: RG1<br>
-Virtual network gateway name: GW1<br>
+Resource Group name
+: RG1<br>
+Virtual network gateway name
+: GW1<br>
+
 
 The following steps apply to the Resource Manager deployment model.
 
@@ -146,8 +149,11 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 To delete a virtual network gateway for a V2V configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. When working with the examples below, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
 VNet name: VNet1<br>
-Resource Group name: RG1<br>
-Virtual network gateway name: GW1<br>
+Resource Group name
+: RG1<br>
+Virtual network gateway name
+: GW1<br>
+
 
 The following steps apply to the Resource Manager deployment model.
 
@@ -162,7 +168,7 @@ $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```powershell
 get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
- 
+
 There may be other connections to the virtual network gateway that are part of a different resource group. Check for additional connections in each additional resource group. In this example, we are checking for connections from RG2. Run this for each resource group that you have which may have a connection to the virtual network gateway.
 
 ```powershell
@@ -176,7 +182,7 @@ Because this is a VNet-to-VNet configuration, you need the list of connections i
 ```powershell
 $ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
- 
+
 In this example, we are checking for connections from RG2. Run this for each resource group that you have which may have a connection to the virtual network gateway.
 
 ```powershell
@@ -234,8 +240,11 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 To delete a virtual network gateway for a P2S configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. When working with the examples below, some of the values must be specified, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
 VNet name: VNet1<br>
-Resource Group name: RG1<br>
-Virtual network gateway name: GW1<br>
+Resource Group name
+: RG1<br>
+Virtual network gateway name
+: GW1<br>
+
 
 The following steps apply to the Resource Manager deployment model.
 

@@ -25,10 +25,10 @@ If you’re having trouble finding a subscription or management group in Azure, 
 
 ## Switch directories 
 You can easily switch directories in the Azure portal.
-1.	Sign into the [Azure portal](https://portal.azure.com).
+1.  Sign into the [Azure portal](https://portal.azure.com).
 2.  Select your name in the top right of the screen. 
-3.	The bottom of the menu lists all the directories you have access to.
-4.	Select a directory's name to access. 
+3.  The bottom of the menu lists all the directories you have access to.
+4.  Select a directory's name to access. 
 
 ![Switch Directory Menu](media/billing-enterprise-mgmt-groups/switch-directory.png)
 

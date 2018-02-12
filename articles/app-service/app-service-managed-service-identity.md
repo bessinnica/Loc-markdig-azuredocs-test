@@ -214,7 +214,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 
 In Node.JS:
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
     var options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,

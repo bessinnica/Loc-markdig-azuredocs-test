@@ -1,4 +1,4 @@
-﻿---
+---
 title: Control routing and virtual appliances in Azure - template | Microsoft Docs
 description: Learn how to control routing and virtual appliances using an Azure Resource Manager template.
 services: virtual-network
@@ -37,24 +37,24 @@ You can view and download the [sample template](https://github.com/telmosampaio/
 
 The following section shows the definition of the front-end UDR in the **azuredeploy-vnet-nsg-udr.json** file for the scenario:
 
-	"apiVersion": "2015-06-15",
-	"type": "Microsoft.Network/routeTables",
-	"name": "[parameters('frontEndRouteTableName')]",
-	"location": "[resourceGroup().location]",
-	"tags": {
-	  "displayName": "UDR - FrontEnd"	
-	},
-	"properties": {
-	  "routes": [
-	    {
-	      "name": "RouteToBackEnd",
-	      "properties": {
-	        "addressPrefix": "[parameters('backEndSubnetPrefix')]",
-	        "nextHopType": "VirtualAppliance",
-	        "nextHopIpAddress": "[parameters('vmaIpAddress')]"
-	      }
-	    }
-	  ]
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Network/routeTables",
+    "name": "[parameters('frontEndRouteTableName')]",
+    "location": "[resourceGroup().location]",
+    "tags": {
+      "displayName": "UDR - FrontEnd"   
+    },
+    "properties": {
+      "routes": [
+        {
+          "name": "RouteToBackEnd",
+          "properties": {
+            "addressPrefix": "[parameters('backEndSubnetPrefix')]",
+            "nextHopType": "VirtualAppliance",
+            "nextHopIpAddress": "[parameters('vmaIpAddress')]"
+          }
+        }
+      ]
 
 To associate the UDR to the front-end subnet, you have to change the subnet definition in the template, and use the reference id for the UDR.
 
@@ -114,17 +114,17 @@ The sample template available in the public repository uses a parameter file con
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the following command to create a resource group:
 
-	```powershell
-	New-AzureRmResourceGroup -Name TestRG -Location westus
-	```
+    ```powershell
+    New-AzureRmResourceGroup -Name TestRG -Location westus
+    ```
 
 3. Run the following command to deploy the template:
 
-	```powershell
+    ```powershell
     New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
-		-TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
-		-TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json
-	```
+        -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
+        -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json
+    ```
 
     Expected output:
    
@@ -175,17 +175,17 @@ To deploy the ARM template by using the Azure CLI, complete the following steps:
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the following command to switch to Resource Manager mode:
 
-	```azurecli
-	azure config mode arm
-	```
+    ```azurecli
+    azure config mode arm
+    ```
 
-	Here is the expected output for the command above:
+    Here is the expected output for the command above:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
 3. From your browser, navigate to **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copy the contents of the json file, and paste into a new file in your computer. For this scenario, you would be copying the values below to a file named **c:\udr\azuredeploy.parameters.json**.
 
-	```json
+    ```json
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
           "contentVersion": "1.0.0.0",
@@ -201,13 +201,13 @@ To deploy the ARM template by using the Azure CLI, complete the following steps:
             }
           }
         }
-	```
+    ```
 
 4. Run the following command to deploy the new VNet by using the template and parameter files you downloaded and modified above:
 
-	```azurecli
-	azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
-	```
+    ```azurecli
+    azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
+    ```
 
     Expected output:
    
@@ -228,177 +228,177 @@ To deploy the ARM template by using the Azure CLI, complete the following steps:
 
 5. Run the following command to view the resources created in the new resource group:
 
-	```azurecli
-	azure group show TestRG
-	```
+    ```azurecli
+    azure group show TestRG
+    ```
 
-	Expected result:
+    Expected result:
 
-	        info:    Executing command group show
-	        info:    Listing resource groups
-	        info:    Listing resources for the group
-	        data:    Id:                  /subscriptions/[Subscription Id]/resourceGroups/TestRG
-	        data:    Name:                TestRG
-	        data:    Location:            westus
-	        data:    Provisioning State:  Succeeded
-	        data:    Tags: null
-	        data:    Resources:
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASFW
-	        data:      Name    : ASFW
-	        data:      Type    : availabilitySets
-	        data:      Location: westus
-	        data:      Tags    : displayName=AvailabilitySet - DMZ
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASSQL
-	        data:      Name    : ASSQL
-	        data:      Type    : availabilitySets
-	        data:      Location: westus
-	        data:      Tags    : displayName=AvailabilitySet - SQL
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASWEB
-	        data:      Name    : ASWEB
-	        data:      Type    : availabilitySets
-	        data:      Location: westus
-	        data:      Tags    : displayName=AvailabilitySet - Web
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1
-	        data:      Name    : FW1
-	        data:      Type    : virtualMachines
-	        data:      Location: westus
-	        data:      Tags    : displayName=VMs - DMZ
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/SQL1
-	        data:      Name    : SQL1
-	        data:      Type    : virtualMachines
-	        data:      Location: westus
-	        data:      Tags    : displayName=VMs - SQL
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/SQL2
-	        data:      Name    : SQL2
-	        data:      Type    : virtualMachines
-	        data:      Location: westus
-	        data:      Tags    : displayName=VMs - SQL
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WEB1
-	        data:      Name    : WEB1
-	        data:      Type    : virtualMachines
-	        data:      Location: westus
-	        data:      Tags    : displayName=VMs - Web
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WEB2
-	        data:      Name    : WEB2
-	        data:      Type    : virtualMachines
-	        data:      Location: westus
-	        data:      Tags    : displayName=VMs - Web
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
-		        data:      Name    : NICFW1
+            info:    Executing command group show
+            info:    Listing resource groups
+            info:    Listing resources for the group
+            data:    Id:                  /subscriptions/[Subscription Id]/resourceGroups/TestRG
+            data:    Name:                TestRG
+            data:    Location:            westus
+            data:    Provisioning State:  Succeeded
+            data:    Tags: null
+            data:    Resources:
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASFW
+            data:      Name    : ASFW
+            data:      Type    : availabilitySets
+            data:      Location: westus
+            data:      Tags    : displayName=AvailabilitySet - DMZ
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASSQL
+            data:      Name    : ASSQL
+            data:      Type    : availabilitySets
+            data:      Location: westus
+            data:      Tags    : displayName=AvailabilitySet - SQL
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASWEB
+            data:      Name    : ASWEB
+            data:      Type    : availabilitySets
+            data:      Location: westus
+            data:      Tags    : displayName=AvailabilitySet - Web
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1
+            data:      Name    : FW1
+            data:      Type    : virtualMachines
+            data:      Location: westus
+            data:      Tags    : displayName=VMs - DMZ
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/SQL1
+            data:      Name    : SQL1
+            data:      Type    : virtualMachines
+            data:      Location: westus
+            data:      Tags    : displayName=VMs - SQL
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/SQL2
+            data:      Name    : SQL2
+            data:      Type    : virtualMachines
+            data:      Location: westus
+            data:      Tags    : displayName=VMs - SQL
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WEB1
+            data:      Name    : WEB1
+            data:      Type    : virtualMachines
+            data:      Location: westus
+            data:      Tags    : displayName=VMs - Web
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WEB2
+            data:      Name    : WEB2
+            data:      Type    : virtualMachines
+            data:      Location: westus
+            data:      Tags    : displayName=VMs - Web
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
+                data:      Name    : NICFW1
         data:      Type    : networkInterfaces
-	        data:      Location: westus
-	        data:      Tags    : displayName=NetworkInterfaces - DMZ
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1
-	        data:      Name    : NICSQL1
-	        data:      Type    : networkInterfaces
-	        data:      Location: westus
-	        data:      Tags    : displayName=NetworkInterfaces - SQL
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2
-	        data:      Name    : NICSQL2
-	        data:      Type    : networkInterfaces
-	        data:      Location: westus
-	        data:      Tags    : displayName=NetworkInterfaces - SQL
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1
-	        data:      Name    : NICWEB1
-	        data:      Type    : networkInterfaces
-	        data:      Location: westus
-	        data:      Tags    : displayName=NetworkInterfaces - Web
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2
-	        data:      Name    : NICWEB2
-	        data:      Type    : networkInterfaces
-	        data:      Location: westus
-	        data:      Tags    : displayName=NetworkInterfaces - Web
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd
-	        data:      Name    : NSG-BackEnd
-	        data:      Type    : networkSecurityGroups
-	        data:      Location: westus
-	        data:      Tags    : displayName=NSG - Front End
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-	        data:      Name    : NSG-FrontEnd
-	        data:      Type    : networkSecurityGroups
-	        data:      Location: westus
-	        data:      Tags    : displayName=NSG - Remote Access
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1
-	        data:      Name    : PIPFW1
-	        data:      Type    : publicIPAddresses
-	        data:      Location: westus
-	        data:      Tags    : displayName=PublicIPAddresses - DMZ
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPSQL1
-	        data:      Name    : PIPSQL1
-		        data:      Type    : publicIPAddresses
-	        data:      Location: westus
-	        data:      Tags    : displayName=PublicIPAddresses - SQL
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPSQL2
-	        data:      Name    : PIPSQL2
-	        data:      Type    : publicIPAddresses
-	        data:      Location: westus
-	        data:      Tags    : displayName=PublicIPAddresses - SQL
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
-	        data:      Name    : PIPWEB1
-	        data:      Type    : publicIPAddresses
-	        data:      Location: westus
-	        data:      Tags    : displayName=PublicIPAddresses - Web
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPWEB2
-	        data:      Name    : PIPWEB2
-	        data:      Type    : publicIPAddresses
-	        data:      Location: westus
-	        data:      Tags    : displayName=PublicIPAddresses - Web
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd
-	        data:      Name    : UDR-BackEnd
-	        data:      Type    : routeTables
-	        data:      Location: westus
-	        data:      Tags    : displayName=Route Table - Back End
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd
-	        data:      Name    : UDR-FrontEnd
-	        data:      Type    : routeTables
-	        data:      Location: westus
-	        data:      Tags    : displayName=UDR - FrontEnd
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-	        data:      Name    : TestVNet
-	        data:      Type    : virtualNetworks
-	        data:      Location: westus
-	        data:      Tags    : displayName=VNet
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/testvnetstorageprm
-	        data:      Name    : testvnetstorageprm
-	        data:      Type    : storageAccounts
-	        data:      Location: westus
-	        data:      Tags    : displayName=Storage Account - Premium
-	        data:    
-	        data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/testvnetstoragestd
-	        data:      Name    : testvnetstoragestd
-	        data:      Type    : storageAccounts
-	        data:      Location: westus
-	        data:      Tags    : displayName=Storage Account - Simple
-	        data:    
-	        data:    Permissions:
-	        data:      Actions: *
-	        data:      NotActions: 
-	        data:
-	        info:    group show command OK
+            data:      Location: westus
+            data:      Tags    : displayName=NetworkInterfaces - DMZ
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1
+            data:      Name    : NICSQL1
+            data:      Type    : networkInterfaces
+            data:      Location: westus
+            data:      Tags    : displayName=NetworkInterfaces - SQL
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2
+            data:      Name    : NICSQL2
+            data:      Type    : networkInterfaces
+            data:      Location: westus
+            data:      Tags    : displayName=NetworkInterfaces - SQL
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1
+            data:      Name    : NICWEB1
+            data:      Type    : networkInterfaces
+            data:      Location: westus
+            data:      Tags    : displayName=NetworkInterfaces - Web
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2
+            data:      Name    : NICWEB2
+            data:      Type    : networkInterfaces
+            data:      Location: westus
+            data:      Tags    : displayName=NetworkInterfaces - Web
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd
+            data:      Name    : NSG-BackEnd
+            data:      Type    : networkSecurityGroups
+            data:      Location: westus
+            data:      Tags    : displayName=NSG - Front End
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+            data:      Name    : NSG-FrontEnd
+            data:      Type    : networkSecurityGroups
+            data:      Location: westus
+            data:      Tags    : displayName=NSG - Remote Access
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1
+            data:      Name    : PIPFW1
+            data:      Type    : publicIPAddresses
+            data:      Location: westus
+            data:      Tags    : displayName=PublicIPAddresses - DMZ
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPSQL1
+            data:      Name    : PIPSQL1
+                data:      Type    : publicIPAddresses
+            data:      Location: westus
+            data:      Tags    : displayName=PublicIPAddresses - SQL
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPSQL2
+            data:      Name    : PIPSQL2
+            data:      Type    : publicIPAddresses
+            data:      Location: westus
+            data:      Tags    : displayName=PublicIPAddresses - SQL
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
+            data:      Name    : PIPWEB1
+            data:      Type    : publicIPAddresses
+            data:      Location: westus
+            data:      Tags    : displayName=PublicIPAddresses - Web
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPWEB2
+            data:      Name    : PIPWEB2
+            data:      Type    : publicIPAddresses
+            data:      Location: westus
+            data:      Tags    : displayName=PublicIPAddresses - Web
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd
+            data:      Name    : UDR-BackEnd
+            data:      Type    : routeTables
+            data:      Location: westus
+            data:      Tags    : displayName=Route Table - Back End
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd
+            data:      Name    : UDR-FrontEnd
+            data:      Type    : routeTables
+            data:      Location: westus
+            data:      Tags    : displayName=UDR - FrontEnd
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+            data:      Name    : TestVNet
+            data:      Type    : virtualNetworks
+            data:      Location: westus
+            data:      Tags    : displayName=VNet
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/testvnetstorageprm
+            data:      Name    : testvnetstorageprm
+            data:      Type    : storageAccounts
+            data:      Location: westus
+            data:      Tags    : displayName=Storage Account - Premium
+            data:    
+            data:      Id      : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/testvnetstoragestd
+            data:      Name    : testvnetstoragestd
+            data:      Type    : storageAccounts
+            data:      Location: westus
+            data:      Tags    : displayName=Storage Account - Simple
+            data:    
+            data:    Permissions:
+            data:      Actions: *
+            data:      NotActions: 
+            data:
+            info:    group show command OK
 
 > [!TIP]
 > If you do not see all the resources, run the `azure group deployment show` command to ensure the provisioning state of the deployment is *Succeded*.

@@ -66,13 +66,13 @@ Instead of configuring Linux performance counters using the Azure portal, you ha
 
 Each object, or category, of performance metrics to collect should be defined in the configuration file as a single `<source>` element. The syntax follows the pattern below.
 
-	<source>
-	  type oms_omi  
-	  object_name "Processor"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+    <source>
+      type oms_omi  
+      object_name "Processor"
+      instance_regex ".*"
+      counter_name_regex ".*"
+      interval 30s
+    </source>
 
 
 The parameters in this element are described in the following table.
@@ -146,37 +146,37 @@ The following table lists the objects and counters that you can specify in the c
 
 Following is the default configuration for performance metrics.
 
-	<source>
-	  type oms_omi
-	  object_name "Physical Disk"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 5m
-	</source>
+    <source>
+      type oms_omi
+      object_name "Physical Disk"
+      instance_regex ".*"
+      counter_name_regex ".*"
+      interval 5m
+    </source>
 
-	<source>
-	  type oms_omi
-	  object_name "Logical Disk"
-	  instance_regex ".*
-	  counter_name_regex ".*"
-	  interval 5m
-	</source>
+    <source>
+      type oms_omi
+      object_name "Logical Disk"
+      instance_regex ".*
+      counter_name_regex ".*"
+      interval 5m
+    </source>
 
-	<source>
-	  type oms_omi
-	  object_name "Processor"
-	  instance_regex ".*
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+    <source>
+      type oms_omi
+      object_name "Processor"
+      instance_regex ".*
+      counter_name_regex ".*"
+      interval 30s
+    </source>
 
-	<source>
-	  type oms_omi
-	  object_name "Memory"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+    <source>
+      type oms_omi
+      object_name "Memory"
+      instance_regex ".*"
+      counter_name_regex ".*"
+      interval 30s
+    </source>
 
 ## Data collection
 Log Analytics collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your subscription.

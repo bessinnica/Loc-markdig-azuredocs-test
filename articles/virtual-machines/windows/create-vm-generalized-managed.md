@@ -76,10 +76,10 @@ Create the virtual network. This example creates a virtual network named **myVne
 $vnetName = "myVnet"
 $vnet = New-AzureRmVirtualNetwork `
     -Name $vnetName `
-	-ResourceGroupName $rgName `
-	-Location $location `
-	-AddressPrefix 10.0.0.0/16 `
-	-Subnet $singleSubnet
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -AddressPrefix 10.0.0.0/16 `
+    -Subnet $singleSubnet
 ```    
 
 ### Create a public IP address and network interface
@@ -92,9 +92,9 @@ Create a public IP address. This example creates a public IP address named **myP
 $ipName = "myPip"
 $pip = New-AzureRmPublicIpAddress `
     -Name $ipName `
-	-ResourceGroupName $rgName `
-	-Location $location `
-	-AllocationMethod Dynamic
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -AllocationMethod Dynamic
 ```
        
 Create the NIC. This example creates a NIC named **myNic**. 
@@ -103,10 +103,10 @@ Create the NIC. This example creates a NIC named **myNic**.
 $nicName = "myNic"
 $nic = New-AzureRmNetworkInterface `
     -Name $nicName `
-	-ResourceGroupName $rgName `
-	-Location $location `
-	-SubnetId $vnet.Subnets[0].Id `
-	-PublicIpAddressId $pip.Id
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -SubnetId $vnet.Subnets[0].Id `
+    -PublicIpAddressId $pip.Id
 ```
 
 ### Create the network security group and an RDP rule
@@ -179,11 +179,11 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to **PremiumLRS**, the disk size to **128 GB** and disk caching to **ReadWrite**.
 
 ```azurepowershell-interactive
-$vm = Set-AzureRmVMOSDisk -VM $vm  `
+$vm = Set-AzureRmVMOSDisk -VM $vm  `
     -StorageAccountType PremiumLRS `
-	-DiskSizeInGB 128 `
-	-CreateOption FromImage `
-	-Caching ReadWrite
+    -DiskSizeInGB 128 `
+    -CreateOption FromImage `
+    -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate

@@ -58,19 +58,19 @@ To configure the integration of Wizergos Productivity Software into Azure AD, yo
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Wizergos Productivity Software**, select **Wizergos Productivity Software** from result panel then click **Add** button to add the application.
 
-	![Wizergos Productivity Software in the results list](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_addfromgallery.png)
+    ![Wizergos Productivity Software in the results list](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,53 +96,53 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Wizergos Productivity Software** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_samlbase.png)
 
 3. On the **Wizergos Productivity Software Domain and URLs** section, perform the following steps:
 
-	![Wizergos Productivity Software Domain and URLs single sign-on information](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_url.png)
+    ![Wizergos Productivity Software Domain and URLs single sign-on information](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_url.png)
 
     In the **Identifier** textbox, type the URL: `http://www.wizergos.net`
 
 4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_400.png)
 
 6. On the **Wizergos Productivity Software Configuration** section, click **Configure Wizergos Productivity Software** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Wizergos Productivity Software Configuration](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_configure.png) 
+    ![Wizergos Productivity Software Configuration](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_configure.png) 
 
 7. In a different web browser window, sign-on to your Wizergos Productivity Software tenant as an administrator.
 
 8. From the hamburger menu, select **Admin**.
 
-	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
 
 9. In Admin page on left hand menu select **AUTHENTICATION** and click on **Azure AD**.
 
-	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
 
 10. Perform the following steps on **AUTHENTICATION** section.
 
-	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
-	
-	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
-	
-	b. In the **Issuer URL** textbox, paste the **SAML Entity ID** value which you have copied from Azure portal.
-	
-	c. In the **Single Sign-On URL** textbox, paste the **SAML Single Sign-On Service URL** value which you have copied from Azure portal.
-	
-	d. In the **Single Sign-Out URL** textbox, paste the **Sign-Out URL** value which you have copied from Azure portal.
-	
-	e. Click **Save** button.
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
+    
+    a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
+    
+    b. In the **Issuer URL** textbox, paste the **SAML Entity ID** value which you have copied from Azure portal.
+    
+    c. In the **Single Sign-On URL** textbox, paste the **SAML Single Sign-On Service URL** value which you have copied from Azure portal.
+    
+    d. In the **Single Sign-Out URL** textbox, paste the **Sign-Out URL** value which you have copied from Azure portal.
+    
+    e. Click **Save** button.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -194,32 +194,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Wizergos Productivity Software**.
 
-	![The Wizergos Productivity Software link in the Applications list](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_app.png)  
+    ![The Wizergos Productivity Software link in the Applications list](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Wizergos Productivity Software tile in the Access Panel, you should get automatically signed-on to your Wizergos Productivity Software application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

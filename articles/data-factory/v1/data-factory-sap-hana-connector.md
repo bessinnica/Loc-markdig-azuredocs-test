@@ -118,7 +118,6 @@ This linked service links your SAP HANA instance to the data factory. The type p
         }
     }
 }
-
 ```
 
 ### Azure Storage linked service
@@ -235,7 +234,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                 "typeProperties": {
                     "source": {
                         "type": "RelationalSource",
-        				"query": "<SQL Query for HANA>"
+                        "query": "<SQL Query for HANA>"
                     },
                     "sink": {
                         "type": "BlobSink",

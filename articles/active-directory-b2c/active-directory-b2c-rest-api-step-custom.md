@@ -231,11 +231,11 @@ After you add the new claim, the technical profile looks like this:
 
 Overwrite the existing versions of the policy.
 
-1.	(Optional:) Save the existing version (by downloading) of your extensions file before you proceed. To keep the initial complexity low, we recommend that you do not upload multiple versions of the extensions file.
-2.	(Optional:) Rename the new version of the policy ID for the policy edit file by changing   `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
-3.	Upload the extensions file.
-4.	Upload the policy edit RP file.
-5.	Use **Run Now** to test the policy. Review the token that the IEF returns to the application.
+1.  (Optional:) Save the existing version (by downloading) of your extensions file before you proceed. To keep the initial complexity low, we recommend that you do not upload multiple versions of the extensions file.
+2.  (Optional:) Rename the new version of the policy ID for the policy edit file by changing   `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+3.  Upload the extensions file.
+4.  Upload the policy edit RP file.
+5.  Use **Run Now** to test the policy. Review the token that the IEF returns to the application.
 
 If everything is set up correctly, the token will include the new claim `city`, with the value `Redmond`.
 

@@ -59,19 +59,19 @@ To configure the integration of Onit into Azure AD, you need to add Onit from th
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Onit**, select **Onit** from result panel then click **Add** button to add the application.
 
-	![Onit in the results list](./media/active-directory-saas-onit-tutorial/tutorial_onit_addfromgallery.png)
+    ![Onit in the results list](./media/active-directory-saas-onit-tutorial/tutorial_onit_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -97,67 +97,67 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Onit** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-onit-tutorial/tutorial_onit_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-onit-tutorial/tutorial_onit_samlbase.png)
 
 3. On the **Onit Domain and URLs** section, perform the following steps:
 
-	![Onit Domain and URLs single sign-on information](./media/active-directory-saas-onit-tutorial/tutorial_onit_url.png)
+    ![Onit Domain and URLs single sign-on information](./media/active-directory-saas-onit-tutorial/tutorial_onit_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sub-domain>.onit.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<sub-domain>.onit.com`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<sub-domain>.onit.com`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Onit Client support team](https://www.onit.com/support) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Onit Client support team](https://www.onit.com/support) to get these values. 
  
 4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
-	![The Certificate download link](./media/active-directory-saas-onit-tutorial/tutorial_onit_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-onit-tutorial/tutorial_onit_certificate.png) 
 
 5. Onit application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_onit_attribute.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_onit_attribute.png) 
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |
-	| email | user.mail |
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    
+    | Attribute Name | Attribute Value |
+    | ------------------- | -------------------- |
+    | email | user.mail |
+    
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+    c. From the **Value** list, type the attribute value shown for that row.
 
-	d. Leave the **Namespace** blank.
-	
-	e. Click **Ok**.
+    d. Leave the **Namespace** blank.
+    
+    e. Click **Ok**.
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-onit-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-onit-tutorial/tutorial_general_400.png)
 
 8. On the **Onit Configuration** section, click **Configure Onit** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Onit Configuration](./media/active-directory-saas-onit-tutorial/tutorial_onit_configure.png)
+    ![Onit Configuration](./media/active-directory-saas-onit-tutorial/tutorial_onit_configure.png)
 
 9. In a different web browser window, log into your Onit company site as an administrator.
 
 10. In the menu on the top, click **Administration**.
    
-   ![Administration](./media/active-directory-saas-onit-tutorial/IC791174.png "Administration")
+    ![Administration](./media/active-directory-saas-onit-tutorial/IC791174.png "Administration")
 11. Click **Edit Corporation**.
    
-   ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791175.png "Edit Corporation")
+    ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791175.png "Edit Corporation")
    
 12. Click the **Security** tab.
     
@@ -165,15 +165,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 13. On the **Security** tab, perform the following steps:
 
-	![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
 
-	a. As **Authentication Strategy**, select **Single Sign On and Password**.
-	
-	b. In **Idp Target URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    a. As **Authentication Strategy**, select **Single Sign On and Password**.
+    
+    b. In **Idp Target URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-	c. In **Idp logout URL** textbox, paste the value of  **Sign-Out URL**, which you have copied from Azure portal.
+    c. In **Idp logout URL** textbox, paste the value of  **Sign-Out URL**, which you have copied from Azure portal.
 
-	d. In **Idp Cert Fingerprint (SHA1)** textbox, paste the  **Thumbprint** value of certificate, which you have copied from Azure portal.
+    d. In **Idp Cert Fingerprint (SHA1)** textbox, paste the  **Thumbprint** value of certificate, which you have copied from Azure portal.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -227,11 +227,11 @@ In the case of Onit, provisioning is a manual task.
    
    ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.png "Add User")
    
-  1. Type the **Name** and the **Email Address** of a valid Azure AD account you want to provision into the related textboxes.
-  2. Click **Create**.    
+   1. Type the **Name** and the **Email Address** of a valid Azure AD account you want to provision into the related textboxes.
+   2. Click **Create**.    
    
- > [!NOTE]
- > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+   > [!NOTE]
+   > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
 ### Assign the Azure AD test user
 
@@ -243,32 +243,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Onit**.
 
-	![The Onit link in the Applications list](./media/active-directory-saas-onit-tutorial/tutorial_onit_app.png)  
+    ![The Onit link in the Applications list](./media/active-directory-saas-onit-tutorial/tutorial_onit_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Onit tile in the Access Panel, you should get automatically signed-on to your Onit application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -1,4 +1,3 @@
-
 ---
 title: Create a complete Linux environment with the Azure CLI 1.0 | Microsoft Docs
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 1.0.
@@ -1263,7 +1262,6 @@ data:      BootDiagnostics StorageUri    :https://mystorageaccount.blob.core.win
 data:
 data:      Diagnostics Instance View:
 info:    vm show command OK
-
 ```
 
 

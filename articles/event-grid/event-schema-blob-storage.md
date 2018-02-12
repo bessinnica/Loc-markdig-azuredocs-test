@@ -13,7 +13,7 @@ ms.author: tomfitz
 
 # Azure Event Grid event schema for Blob storage
 
-This article provides the properties and schema for blob storage events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for blob storage events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available event types
 
@@ -78,7 +78,7 @@ The schema for a blob deleted event is similar:
   "metadataVersion": "1"
 }]
 ```
- 
+ 
 ## Event properties
 
 An event has the following top-level data:

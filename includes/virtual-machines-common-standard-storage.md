@@ -45,10 +45,10 @@ In this section, we describe the Scalability and Performance targets you need to
 | **Resource** | **Default Limit** |
 |--------------|-------------------|
 | TB per storage account  | 500 TB |
-| Max ingress<sup>1</sup> per storage account (US Regions) | 10 Gbps if GRS/ZRS enabled, 20 Gbps for LRS |
-| Max egress<sup>1</sup> per storage account (US Regions) | 20 Gbps if RA-GRS/GRS/ZRS enabled, 30 Gbps for LRS |
-| Max ingress<sup>1</sup> per storage account (European and Asian Regions) | 5 Gbps if GRS/ZRS enabled, 10 Gbps for LRS |
-| Max egress<sup>1</sup> per storage account (European and Asian Regions) | 10 Gbps if RA-GRS/GRS/ZRS enabled, 15 Gbps for LRS |
+| Max ingress<sup>1</sup> per storage account (US Regions) | 10 Gbps if GRS/ZRS enabled, 20 Gbps for LRS |
+| Max egress<sup>1</sup> per storage account (US Regions) | 20 Gbps if RA-GRS/GRS/ZRS enabled, 30 Gbps for LRS |
+| Max ingress<sup>1</sup> per storage account (European and Asian Regions) | 5 Gbps if GRS/ZRS enabled, 10 Gbps for LRS |
+| Max egress<sup>1</sup> per storage account (European and Asian Regions) | 10 Gbps if RA-GRS/GRS/ZRS enabled, 15 Gbps for LRS |
 | Total Request Rate (assuming 1 KB object size) per storage account | Up to 20,000 IOPS, entities per second, or messages per second |
 
 <sup>1</sup> Ingress refers to all data (requests) being sent to a storage account. Egress refers to all data (responses) being received from a storage account.
@@ -109,9 +109,9 @@ When using Standard Storage, the following billing considerations apply:
 
 **Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
+**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Transaction**: Azure charges $0.0036 per 100,000 transactions for standard storage. Transactions include both read and write operations to storage.
+**Transaction**: Azure charges $0.0036 per 100,000 transactions for standard storage. Transactions include both read and write operations to storage.
 
 For detailed information on pricing for Standard Storage, Virtual Machines, and Managed Disks, see:
 

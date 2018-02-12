@@ -20,3 +20,4 @@ ms.author: rclaus
 ---
 # Common Azure CLI 1.0 commands on Linux and Mac
 [!INCLUDE [virtual-machines-common-cli-manage-nodejs](../../../includes/virtual-machines-common-cli-manage-nodejs.md)]
+

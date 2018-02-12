@@ -27,16 +27,16 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 
 > [!NOTE]
 > This tutorial shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. We're not going to discuss the general topic of machine learning or how to select and use the 100+ built-in algorithms and data manipulation modules included in Studio.
->
->If you're new to machine learning, the video series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) might be a good place to start. This video series is a great introduction to machine learning using everyday language and concepts.
->
->If you're familiar with machine learning, but you're looking for more general information about Machine Learning Studio, and the machine learning algorithms it contains, here are some good resources:
->
-- [What is Machine Learning Studio?](what-is-ml-studio.md) - This is a high-level overview of Studio.
-- [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md) - This infographic is useful if you want to learn more about the different types of machine learning algorithms included with Machine Learning Studio.
-- [Machine Learning Guide](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) - This guide covers similar information as the infographic above, but in an interactive format.
-- [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md) and [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) - This downloadable poster and accompanying article discuss the Studio algorithms in depth.
-- [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) - This is the complete reference for all Studio modules, including machine learning algorithms,
+> 
+> If you're new to machine learning, the video series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) might be a good place to start. This video series is a great introduction to machine learning using everyday language and concepts.
+> 
+> If you're familiar with machine learning, but you're looking for more general information about Machine Learning Studio, and the machine learning algorithms it contains, here are some good resources:
+> 
+> - [What is Machine Learning Studio?](what-is-ml-studio.md) - This is a high-level overview of Studio.
+> - [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md) - This infographic is useful if you want to learn more about the different types of machine learning algorithms included with Machine Learning Studio.
+> - [Machine Learning Guide](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) - This guide covers similar information as the infographic above, but in an interactive format.
+> - [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md) and [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) - This downloadable poster and accompanying article discuss the Studio algorithms in depth.
+> - [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) - This is the complete reference for all Studio modules, including machine learning algorithms,
 
 <!-- -->
 
@@ -64,13 +64,13 @@ To get started with Studio, go to [https://studio.azureml.net](https://studio.az
 In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio to create, train, and score your model:
 
 - **Create a model**
-	- [Step 1: Get data]
-	- [Step 2: Prepare the data]
-	- [Step 3: Define features]
+    - [Step 1: Get data]
+    - [Step 2: Prepare the data]
+    - [Step 3: Define features]
 - **Train the model**
-	- [Step 4: Choose and apply a learning algorithm]
+    - [Step 4: Choose and apply a learning algorithm]
 - **Score and test the model**
-	- [Step 5: Predict new automobile prices]
+    - [Step 5: Predict new automobile prices]
 
 [Step 1: Get data]: #step-1-get-data
 [Step 2: Prepare the data]: #step-2-prepare-the-data
@@ -94,13 +94,13 @@ Here's how to get the dataset into your experiment.
 
 2. The experiment is given a default name that you can see at the top of the canvas. Select this text and rename it to something meaningful, for example, **Automobile price prediction**. The name doesn't need to be unique.
 
-	![Rename the experiment][rename-experiment]
+    ![Rename the experiment][rename-experiment]
 
 2. To the left of the experiment canvas is a palette of datasets and modules. Type **automobile** in the Search box at the top of this palette to find the dataset labeled **Automobile price data (Raw)**. Drag this dataset to the experiment canvas.
 
-	![Find the automobile dataset and drag it onto the experiment canvas][type-automobile]
-	<br/>
-	***Find the automobile dataset and drag it onto the experiment canvas***
+    ![Find the automobile dataset and drag it onto the experiment canvas][type-automobile]
+    <br/>
+    ***Find the automobile dataset and drag it onto the experiment canvas***
 
 To see what this data looks like, click the output port at the bottom of the automobile dataset, and then select **Visualize**.
 
@@ -135,46 +135,46 @@ First we add a module that removes the **normalized-losses** column completely, 
 
 2. Connect the output port of the **Automobile price data (Raw)** dataset to the input port of the [Select Columns in Dataset][select-columns] module.
 
-	![Add the "Select Columns in Dataset" module to the experiment canvas and connect it][type-select-columns]
-	<br/>
-	***Add the "Select Columns in Dataset" module to the experiment canvas and connect it***
+    ![Add the "Select Columns in Dataset" module to the experiment canvas and connect it][type-select-columns]
+    <br/>
+    ***Add the "Select Columns in Dataset" module to the experiment canvas and connect it***
 
 3. Click the [Select Columns in Dataset][select-columns] module and click **Launch column selector** in the **Properties** pane.
 
-	- On the left, click **With rules**
-	- Under **Begin With**, click **All columns**. This directs [Select Columns in Dataset][select-columns] to pass through all the columns (except those columns we're about to exclude).
-	- From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
-	- Click the check mark (OK) button to close the column selector (on the lower-right).
+   - On the left, click **With rules**
+   - Under **Begin With**, click **All columns**. This directs [Select Columns in Dataset][select-columns] to pass through all the columns (except those columns we're about to exclude).
+   - From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
+   - Click the check mark (OK) button to close the column selector (on the lower-right).
 
-	![Launch the column selector and exclude the "normalized-losses" column][launch-column-selector]
-	<br/>
-	***Launch the column selector and exclude the "normalized-losses" column***
+     ![Launch the column selector and exclude the "normalized-losses" column][launch-column-selector]
+     <br/>
+     ***Launch the column selector and exclude the "normalized-losses" column***
 
-	Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
+     Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
 
-	![The properties pane shows that the "normalized-losses" column is excluded][showing-excluded-column]
-	<br/>
-	***The properties pane shows that the "normalized-losses" column is excluded***
+     ![The properties pane shows that the "normalized-losses" column is excluded][showing-excluded-column]
+     <br/>
+     ***The properties pane shows that the "normalized-losses" column is excluded***
 
-	> [!TIP]
-	You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
-	>
-	>
+     > [!TIP]
+     > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
 
 
-	![Double-click a module to add a comment][add-comment]
-	<br/>
-	***Double-click a module to add a comment***
+~~~
+![Double-click a module to add a comment][add-comment]
+<br/>
+***Double-click a module to add a comment***
+~~~
 
 3. Drag the [Clean Missing Data][clean-missing-data] module to the experiment canvas and connect it to the [Select Columns in Dataset][select-columns] module. In the **Properties** pane, select **Remove entire row** under **Cleaning mode**. This directs [Clean Missing Data][clean-missing-data] to clean the data by removing rows that have any missing values. Double-click the module and type the comment "Remove missing value rows."
 
-	![Set the cleaning mode to "Remove entire row" for the "Clean Missing Data" module][set-remove-entire-row]
-	<br/>
-	***Set the cleaning mode to "Remove entire row" for the "Clean Missing Data" module***
+    ![Set the cleaning mode to "Remove entire row" for the "Clean Missing Data" module][set-remove-entire-row]
+    <br/>
+    ***Set the cleaning mode to "Remove entire row" for the "Clean Missing Data" module***
 
 4. Run the experiment by clicking **RUN** at the bottom of the page.
 
-	When the experiment has finished running, all the modules have a green check mark to indicate that they finished successfully. Notice also the **Finished running** status in the upper-right corner.
+    When the experiment has finished running, all the modules have a green check mark to indicate that they finished successfully. Notice also the **Finished running** status in the upper-right corner.
 
 ![After running it, the experiment should look something like this][early-experiment-run]
 <br/>
@@ -195,14 +195,14 @@ Finding a good set of features for creating a predictive model requires experime
 
 Let's build a model that uses a subset of the features in our dataset. You can come back later and select different features, run the experiment again, and see if you get better results. But to start, let's try the following features:
 
-	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 
 1. Drag another [Select Columns in Dataset][select-columns] module to the experiment canvas. Connect the left output port of the [Clean Missing Data][clean-missing-data] module to the input of the [Select Columns in Dataset][select-columns] module.
 
-	![Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module][connect-clean-to-select]
-	<br/>
-	***Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module***
+    ![Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module][connect-clean-to-select]
+    <br/>
+    ***Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module***
 
 2. Double-click the module and type "Select features for prediction."
 
@@ -214,9 +214,9 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 5. Click the check mark (OK) button.
 
-	![Select the columns (features) to include in the prediction][select-columns-to-include]
-	<br/>
-	***Select the columns (features) to include in the prediction***
+    ![Select the columns (features) to include in the prediction][select-columns-to-include]
+    <br/>
+    ***Select the columns (features) to include in the prediction***
 
 This produces a filtered dataset containing only the features we want to pass to the learning algorithm we'll use in the next step. Later, you can return and try again with a different selection of features.
 
@@ -240,12 +240,12 @@ We'll use our data for both training the model and testing it by splitting the d
 
 2. Click the [Split Data][split] module to select it. Find the **Fraction of rows in the first output dataset** (in the **Properties** pane to the right of the canvas) and set it to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing (later, you can experiment with using different percentages).
 
-	![Set the split fraction of the "Split Data" module to 0.75][set-split-data-percentage]
-	<br/>
-	***Set the split fraction of the "Split Data" module to 0.75***
+    ![Set the split fraction of the "Split Data" module to 0.75][set-split-data-percentage]
+    <br/>
+    ***Set the split fraction of the "Split Data" module to 0.75***
 
-	> [!TIP]
-	> By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
+    > [!TIP]
+    > By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 
 2. Run the experiment. When the experiment is run, the [Select Columns in Dataset][select-columns] and [Split Data][split] modules pass column definitions to the modules we'll be adding next.  
 
@@ -254,17 +254,17 @@ We'll use our data for both training the model and testing it by splitting the d
 
 4. Find and drag the [Train Model][train-model] module to the experiment canvas. Connect the output of the [Linear Regression][linear-regression] module to the left input of the [Train Model][train-model] module, and connect the training data output (left port) of the [Split Data][split] module to the right input of the [Train Model][train-model] module.
 
-	![Connect the "Train Model" module to both the "Linear Regression" and "Split Data" modules][connect-train-model]
-	<br/>
-	***Connect the "Train Model" module to both the "Linear Regression" and "Split Data" modules***
+    ![Connect the "Train Model" module to both the "Linear Regression" and "Split Data" modules][connect-train-model]
+    <br/>
+    ***Connect the "Train Model" module to both the "Linear Regression" and "Split Data" modules***
 
 5. Click the [Train Model][train-model] module, click **Launch column selector** in the **Properties** pane, and then select the **price** column. This is the value that our model is going to predict.
 
-	You select the **price** column in the column selector by moving it from the **Available columns** list to the **Selected columns** list.
+    You select the **price** column in the column selector by moving it from the **Available columns** list to the **Selected columns** list.
 
-	![Select the price column for the "Train Model" module][select-price-column]
-	<br/>
-	***Select the price column for the "Train Model" module***
+    ![Select the price column for the "Train Model" module][select-price-column]
+    <br/>
+    ***Select the price column for the "Train Model" module***
 
 6. Run the experiment.
 
@@ -280,20 +280,20 @@ Now that we've trained the model using 75 percent of our data, we can use it to 
 
 1. Find and drag the [Score Model][score-model] module to the experiment canvas. Connect the output of the [Train Model][train-model] module to the left input port of [Score Model][score-model]. Connect the test data output (right port) of the [Split Data][split] module to the right input port of [Score Model][score-model].
 
-	![Connect the "Score Model" module to both the "Train Model" and "Split Data" modules][connect-score-model]
-	<br/>
-	***Connect the "Score Model" module to both the "Train Model" and "Split Data" modules***
+    ![Connect the "Score Model" module to both the "Train Model" and "Split Data" modules][connect-score-model]
+    <br/>
+    ***Connect the "Score Model" module to both the "Train Model" and "Split Data" modules***
 
 2. Run the experiment and view the output from the [Score Model][score-model] module (click the output port of [Score Model][score-model] and select **Visualize**). The output shows the predicted values for price and the known values from the test data.  
 
-	![Output of the "Score Model" module][score-model-output]
-	<br/>
-	***Output of the "Score Model" module***
+    ![Output of the "Score Model" module][score-model-output]
+    <br/>
+    ***Output of the "Score Model" module***
 
 3. Finally, we test the quality of the results. Select and drag the [Evaluate Model][evaluate-model] module to the experiment canvas, and connect the output of the [Score Model][score-model] module to the left input of [Evaluate Model][evaluate-model].
 
-	> [!TIP]
-	> There are two input ports on the [Evaluate Model][evaluate-model] module because it can be used to compare two models side by side. Later, you can add another algorithm to the experiment and use [Evaluate Model][evaluate-model] to see which one gives better results.
+    > [!TIP]
+    > There are two input ports on the [Evaluate Model][evaluate-model] module because it can be used to compare two models side by side. Later, you can add another algorithm to the experiment and use [Evaluate Model][evaluate-model] to see which one gives better results.
 
 4. Run the experiment.
 
@@ -328,8 +328,8 @@ Now that you've completed the first machine learning tutorial and have your expe
 - **Iterate to try to improve the model** - For example, you can change the features you use in your prediction. Or you can modify the properties of the [Linear Regression][linear-regression] algorithm or try a different algorithm altogether. You can even add multiple machine learning algorithms to your experiment at one time and compare two of them by using the [Evaluate Model][evaluate-model] module.
 For an example of how to compare multiple models in a single experiment, see [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) in the [Azure AI Gallery](https://gallery.cortanaintelligence.com).
 
-	> [!TIP]
-	> To copy any iteration of your experiment, use the **SAVE AS** button at the bottom of the page. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** at the bottom of the page. For more details, see [Manage experiment iterations in Azure Machine Learning Studio][runhistory].
+    > [!TIP]
+    > To copy any iteration of your experiment, use the **SAVE AS** button at the bottom of the page. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** at the bottom of the page. For more details, see [Manage experiment iterations in Azure Machine Learning Studio][runhistory].
 
 [runhistory]: manage-experiment-iterations.md
 

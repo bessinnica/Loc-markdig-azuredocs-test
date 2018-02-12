@@ -33,7 +33,6 @@ public interface ICommunicationListener
 
     void Abort();
 }
-
 ```
 
 ```java
@@ -127,7 +126,6 @@ Finally, describe the endpoints that are required for the service in the [servic
       <Endpoint Name="OtherServiceEndpoint" Protocol="tcp" Port="8505" />
     <Endpoints>
 </Resources>
-
 ```
 
 The communication listener can access the endpoint resources allocated to it from the `CodePackageActivationContext` in the `ServiceContext`. The listener can then start listening for requests when it is opened.
@@ -135,12 +133,10 @@ The communication listener can access the endpoint resources allocated to it fro
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
 var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
-
 ```
 ```java
 CodePackageActivationContext codePackageActivationContext = serviceContext.getCodePackageActivationContext();
 int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort();
-
 ```
 
 > [!NOTE]
@@ -405,7 +401,6 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
       // Communicate with the service using the client.
    },
    CancellationToken.None);
-
 ```
 ```java
 private MyCommunicationClientFactory myCommunicationClientFactory;
@@ -420,7 +415,6 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
       /* Communicate with the service using the client.
        */
    });
-
 ```
 
 ## Next steps

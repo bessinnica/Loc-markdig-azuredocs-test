@@ -83,6 +83,7 @@ To fix an issue with your account, file a [support request](https://ms.portal.az
 Other questions can be submitted to the team at [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com); however this is not a technical support alias. 
 
 <a id="try-cosmos-db"></a>
+
 ## Try Azure Cosmos DB subscriptions
 
 You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used in addition to an Azure Free Trial or an Azure paid subscription. 
@@ -183,10 +184,10 @@ For more information, see [Connect to your API for MongoDB database](connect-mon
 In addition to the common MongoDB error codes, the MongoDB API has its own specific error codes:
 
 
-| Error               | Code  | Description  | Solution  |
-|---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure portal or retrying again. |
-| ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+|        Error        | Code  |                                                             Description                                                              |                                                                                                                                                                                                                                    Solution                                                                                                                                                                                                                                    |
+|---------------------|-------|--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   TooManyRequests   | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. |                                                                                                                                                                                           Consider scaling the throughput of the collection from the Azure portal or retrying again.                                                                                                                                                                                           |
+| ExceededMemoryLimit | 16501 |                         As a multi-tenant service, the operation has exceeded the client's memory allotment.                         | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: <em>&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ## Develop with the Table API
 
@@ -210,12 +211,13 @@ There are some behavior differences that users coming from Azure Table storage w
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
 
 In terms of the REST API there are a number of endpoints/query options that are not supported by Azure Cosmos DB Table API:
-| Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
-| ------------| ------------- | ---------- | ----------- |
-| GET, PUT | /?restype=service@comp=properties| [Set Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables |
-| OPTIONS | /<table-resource-name> | [Pre-flight CORS table request](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | This is part of CORS which Azure Cosmos DB does not currently support. |
-| GET | /?restype=service@comp=stats | [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Provides information how quickly data is replicating between primary and secondaries. This isn't needed in Cosmos DB as the replication is part of writes. |
-| GET, PUT | /mytable?comp=acl | [Get Table ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) and [Set Table ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | This gets and sets the stored access policies used to manage Shared Access Signatures (SAS). Although SAS is supported, they are set and managed differently. |
+
+| Rest Method(s) |     Rest Endpoint/Query Option      |                                                                                                               Doc URLs                                                                                                                |                                                                                                          Explanation                                                                                                           |
+|----------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    GET, PUT    | /?restype=service@"comp=properties" | [Set Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables |
+|    OPTIONS     |       /<table-resource-name>        |                                                             [Pre-flight CORS table request](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request)                                                              |                                                                             This is part of CORS which Azure Cosmos DB does not currently support.                                                                             |
+|      GET       |    /?restype=service@comp=stats     |                                                                [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats)                                                                 |                                   Provides information how quickly data is replicating between primary and secondaries. This isn't needed in Cosmos DB as the replication is part of writes.                                   |
+|    GET, PUT    |          /mytable?comp=acl          |                               [Get Table ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) and [Set Table ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl)                               |                                 This gets and sets the stored access policies used to manage Shared Access Signatures (SAS). Although SAS is supported, they are set and managed differently.                                  |
 
 In addition Azure Cosmos DB Table API only supports the JSON format, not ATOM.
 
@@ -330,7 +332,7 @@ You can add as many regions as you want for the account and control where it can
 ### Is the Table API enabled for backups?
 Yes, the Table API leverages the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).
 
- 
+
 ### Does the Table API index all attributes of an entity by default?
 Yes, all attributes of an entity are indexed by default. For more information, see [Azure Cosmos DB: Indexing policies](indexing-policies.md). 
 
@@ -375,7 +377,7 @@ From the .NET SDK it can be submitted in the app.config file:
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API? 
 The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. We will provide additional functionality in the Table API in a future service update. For more information, see [SQL queries](sql-api-sql-query.md).
- 
+
 ### When should I change TableThroughput for the Table API?
 You should change TableThroughput when either of the following conditions applies:
 * You're performing an extract, transform, and load (ETL) of data, or you want to upload a lot of data in short amount of time. 
@@ -386,7 +388,7 @@ Yes, you can use the Azure Cosmos DB portal’s scale pane to scale the throughp
 
 ### Is a default TableThroughput set for newly provisioned tables?
 Yes, if you do not override the TableThroughput via app.config and do not use a pre-created container in Azure Cosmos DB, the service creates a table with throughput of 400.
- 
+
 ### Is there any change of pricing for existing customers of the Azure Table storage service?
 None. There is no change in price for existing Azure Table storage customers. 
 
@@ -453,10 +455,10 @@ CREATE TABLE keyspaceName.tablename (user_id int PRIMARY KEY, lastname text) WIT
 
 .NET
 ```csharp
-int provisionedThroughput = 400;
-var simpleStatement = new SimpleStatement($"CREATE TABLE {keyspaceName}.{tableName} (user_id int PRIMARY KEY, lastname text)");
-var outgoingPayload = new Dictionary<string, byte[]>();
-outgoingPayload["cosmosdb_provisioned_throughput"] = Encoding.UTF8.GetBytes(provisionedThroughput.ToString());
+int provisionedThroughput = 400;
+var simpleStatement = new SimpleStatement($"CREATE TABLE {keyspaceName}.{tableName} (user_id int PRIMARY KEY, lastname text)");
+var outgoingPayload = new Dictionary<string, byte[]>();
+outgoingPayload["cosmosdb_provisioned_throughput"] = Encoding.UTF8.GetBytes(provisionedThroughput.ToString());
 simpleStatement.SetOutgoingPayload(outgoingPayload); 
 ``` 
 

@@ -24,17 +24,20 @@ To provide an interactive experience, you can call this method repeatedly after 
 
 ## Request Parameters
 
-Name     | Value | Required?  | Description
----------|---------|---------|---------
-**query**    | Text string | Yes | Query entered by user.  If complete is set to 1, query will be interpreted as a prefix for generating query auto-completion suggestions.        
-**model**    | Text string | No  | Name of the model that you wish to query.  Currently, the value defaults to *latest*.        
-**complete** | 0 or 1 | No<br>default:0  | 1 means that auto-completion suggestions are generated based on the grammar and graph data.         
-**count**    | Number | No<br>default:10 | Maximum number of interpretations to return.         
-**offset**   | Number | No<br>default:0  | Index of the first interpretation to return. For example, *count=2&offset=0* returns interpretations 0 and 1. *count=2&offset=2* returns interpretations 2 and 3.       
-**timeout**  | Number | No<br>default:1000 | Timeout in milliseconds. Only interpretations found before the timeout has elapsed are returned.
+|           Name            |    Value    |     Required?      |                                                                                   Description                                                                                   |
+|---------------------------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <strong>query</strong>   | Text string |        Yes         |                    Query entered by user.  If complete is set to 1, query will be interpreted as a prefix for generating query auto-completion suggestions.                     |
+|  <strong>model</strong>   | Text string |         No         |                                          Name of the model that you wish to query.  Currently, the value defaults to <em>latest</em>.                                           |
+| <strong>complete</strong> |   0 or 1    |  No<br>default:0   |                                           1 means that auto-completion suggestions are generated based on the grammar and graph data.                                           |
+|  <strong>count</strong>   |   Number    |  No<br>default:10  |                                                                  Maximum number of interpretations to return.                                                                   |
+|  <strong>offset</strong>  |   Number    |  No<br>default:0   | Index of the first interpretation to return. For example, <em>count=2&offset=0</em> returns interpretations 0 and 1. <em>count=2&offset=2</em> returns interpretations 2 and 3. |
+| <strong>timeout</strong>  |   Number    | No<br>default:1000 |                                        Timeout in milliseconds. Only interpretations found before the timeout has elapsed are returned.                                         |
+
 <br>
-  
+
+
 ## Response (JSON)
+
 Name     | Description
 ---------|---------
 **query** |The *query* parameter from the request.
@@ -49,6 +52,7 @@ Name     | Description
 **aborted** | True if the request timed out.
 
 <br>
+
 #### Example:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2
@@ -93,4 +97,3 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers 
 ```
 evaluate?expr=Composite(AA.AuN=='jaime teevan')
 ```
- 

@@ -36,7 +36,7 @@ Each numbered area in the preceding image is described in detail in the followin
       - Asset Management
       - Optimization
 
-  Type a filter name and the click **Save**.
+   Type a filter name and the click **Save**.
 
 3. **Tags**
 
@@ -66,7 +66,7 @@ Each numbered area in the preceding image is described in detail in the followin
       - Cloudyn cost entity tags
       - Subscription tag categories for cost allocation purposes
 
-  Examples might include:
+   Examples might include:
      - Cost center
      - Department
      - Application
@@ -91,7 +91,7 @@ Each numbered area in the preceding image is described in detail in the followin
     - Reserved Instances purchase fees
     - Some Azure Marketplace items.
 
-  Under Amortization, select **Amortized cost** or **Actual Cost**.
+   Under Amortization, select **Amortized cost** or **Actual Cost**.
 
 8. **Resolution**
 
@@ -114,7 +114,7 @@ Each numbered area in the preceding image is described in detail in the followin
 
     The Show/hide option does not have any effect in reports.
 
-12.   **Display formats**
+12. **Display formats**
 
     Use Display formats to select various graph or table views.
 

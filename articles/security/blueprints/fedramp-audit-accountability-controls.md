@@ -593,7 +593,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | Access to audit functions is restricted using role-based access control within Azure and at the virtual machine OS-level. The configuration of events selected to be audited by resources deployed by this blueprint can be configured by users with appropriate role-based authorization. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                                                                                                                                                                            |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | Access to audit functions is restricted using role-based access control within Azure and at the virtual machine OS-level. The configuration of events selected to be audited by resources deployed by this blueprint can be configured by users with appropriate role-based authorization. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                                                                                                       Not Applicable                                                                                                                                       |
+

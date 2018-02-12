@@ -43,15 +43,15 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 
 - **Feature**: A feature corresponds to a project engagement. Different engagements with a client are considered different features. Similarly, it is best to consider different phases of a project with a client as different features. If you choose a schema such as ***ClientName-EngagementName*** to name your features, then you can easily recognize the context of the project/engagement from the names themselves.
 - **Story**: Stories are different work items that are needed to complete a feature (project) end-to-end. Examples of stories include:
-	- Getting Data 
-	- Exploring Data 
-	- Generating Features
-	- Building Models
-	- Operationalizing Models 
-	- Retraining Models
+    - Getting Data 
+    - Exploring Data 
+    - Generating Features
+    - Building Models
+    - Operationalizing Models 
+    - Retraining Models
 - **Task**: Tasks are assignable code or document work items or other activities that need to be done to complete a specific story. For example, tasks in the story *Getting Data* could be:
-	-  Getting Credentials of SQL Server 
-	-  Uploading Data to SQL Data Warehouse. 
+    -  Getting Credentials of SQL Server 
+    -  Uploading Data to SQL Data Warehouse. 
 - **Bug**: Bugs usually refer to fixes that are needed for an existing code or document that are done when completing a task. If the bug is caused by missing stages or tasks respectively, it can escalate to being a story or a task. 
 
 > [!NOTE]
@@ -124,26 +124,26 @@ This article explains how to set up an agile data science process template that 
 
 1. Navigate to server homepage,  **Configure** -> **Process**.
 
-	![10](./media/agile-development/10-settings.png) 
+    ![10](./media/agile-development/10-settings.png) 
 
 2. Navigate to **All processes** -> **Processes**, under **Agile** and click on **Create inherited process**. Then put the process name "AgileDataScienceProcess" and click **Create process**.
 
-	![11](./media/agile-development/11-agileds.png)
+    ![11](./media/agile-development/11-agileds.png)
 
 3. Under the **AgileDataScienceProcess** -> **Work item types** tab, disable **Epic**, **Feature**, **User Story**, and **Task** work item types by **Configure -> Disable**
 
-	![12](./media/agile-development/12-disable.png)
+    ![12](./media/agile-development/12-disable.png)
 
 4. Navigate to **AgileDataScienceProcess** -> **Backlog levels** tab. Rename "Epics" to "TDSP Projects" by  clicking on the **Configure** -> **Edit/Rename**. In the same dialog box, click **+New work item type** in "Data Science Project" and set the value of **Default work item type** to "TDSP Project" 
 
-	![13](./media/agile-development/13-rename.png)  
+    ![13](./media/agile-development/13-rename.png)  
 
 5. Similarly, change Backlog name "Features" to "TDSP Stages" and add the following to the **New work item type**:
 
-	- Business Understanding
-	- Data Acquisition
-	- Modeling
-	- Deployment
+    - Business Understanding
+    - Data Acquisition
+    - Modeling
+    - Deployment
 
 6. Rename "User Story" to "TDSP Substages" with default work item type set to newly created "TDSP Substage" type.
 
@@ -151,7 +151,7 @@ This article explains how to set up an agile data science process template that 
 
 8. After these steps, the Backlog levels should look like this:
 
-	![14](./media/agile-development/14-template.png)  
+    ![14](./media/agile-development/14-template.png)  
 
  
 ### Create Data Science Work Items
@@ -160,21 +160,21 @@ After the data science process template is created, you can create and track you
 
 1. When you create a new team project, select "Agile\AgileDataScienceProcess" as the **Work item process**:
 
-	![15](./media/agile-development/15-newproject.png)
+    ![15](./media/agile-development/15-newproject.png)
 
 2. Navigate to the newly created team project, and click on **Work** -> **Backlogs**.
 
 3. Make "TDSP Projects" visible by clicking on **Configure team settings** and check "TDSP Projects"; then save.
 
-	![16](./media/agile-development/16-enabledsprojects.png)
+    ![16](./media/agile-development/16-enabledsprojects.png)
 
 4. Now you can start creating the data science-specific work items.
 
-	![17](./media/agile-development/17-dsworkitems.png)
+    ![17](./media/agile-development/17-dsworkitems.png)
 
 5. Here is an example of how the data science project work items should appear:
 
-	![18](./media/agile-development/18-workitems.png)
+    ![18](./media/agile-development/18-workitems.png)
 
 
 ## Next steps
@@ -184,9 +184,9 @@ After the data science process template is created, you can create and track you
 Here are additional links to resources on agile processes.
 
 - Agile process
-	[https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+    [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
 - Agile process work item types and workflow
-	[https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+    [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 

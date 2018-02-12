@@ -51,6 +51,6 @@
 ## [AAD Integration with SAP NetWeaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD Integration with SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD Integration with SAP HANA DBMS](../../../active-directory/active-directory-saas-saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-##[SAP Fiori Launchpad SAML Single Sign-On with Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
+## [SAP Fiori Launchpad SAML Single Sign-On with Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

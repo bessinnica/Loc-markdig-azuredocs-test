@@ -65,6 +65,7 @@ Type `\q` to exit the PostgreSQL client.
 
 <a name="step2"></a>
 
+
 ## Create local Python Flask application
 
 In this step, you set up the local Python Flask project.
@@ -123,7 +124,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create a PostgreSQL server
 
@@ -245,9 +246,10 @@ Your Git repository already contains the following files it needs to run the Fla
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 <a name="create"></a>
+
 ### Create a web app
 
-[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)] 
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
 
 ### Install Python
 
@@ -300,7 +302,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
 ### Browse to the Azure web app 

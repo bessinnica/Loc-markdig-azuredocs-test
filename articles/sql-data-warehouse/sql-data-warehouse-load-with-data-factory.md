@@ -44,7 +44,7 @@ You can use Azure Data Factory to load data into Azure SQL Data Warehouse from a
 
 4. If you do not have a data factory in your Azure subscription, you see a **New Data Factory** dialog box in a separate tab of the browser. Fill in the requested information, and click **Create**. After the data factory is created, the **New Data Factory** dialog box closes, and you see the **Select Data Factory** dialog box.
 
-	If you have one or more data factories already in the Azure subscription, you see the **Select Data Factory** dialog box. In this dialog box, you can either select an existing data factory or click **Create new data factory** to create a new one.
+    If you have one or more data factories already in the Azure subscription, you see the **Select Data Factory** dialog box. In this dialog box, you can either select an existing data factory or click **Create new data factory** to create a new one.
 
     ![Configure Data Factory](media/sql-data-warehouse-load-with-data-factory/configure-data-factory.png)
 
@@ -56,42 +56,42 @@ Now that you have created a data factory, the next step is to configure the data
 1. For **Task name**, enter **DWLoadData-fromSQLServer**.
 2. Use the default **Run once now** option, click **Next**.
 
-	![Configure load schedule](media/sql-data-warehouse-load-with-data-factory/configure-load-schedule.png)
+    ![Configure load schedule](media/sql-data-warehouse-load-with-data-factory/configure-load-schedule.png)
 
 ## Configure the source data store and gateway
 Now you tell Data Factory about the on-premises SQL Server database from which you want to load data.
 
 1. Choose **SQL Server** from the supported source data store catalog, and click **Next**.
 
-	![Choose SQL Server source](media/sql-data-warehouse-load-with-data-factory/choose-sql-server-source.png)
+    ![Choose SQL Server source](media/sql-data-warehouse-load-with-data-factory/choose-sql-server-source.png)
 
 2. A **Specify the on-premises SQL Server database** dialog appears. The first  **Connection name** field is auto filled in. The second field asks for the name of the **Gateway**. If you are using an existing data factory that already has a gateway, you can reuse the gateway by selecting it from the drop-down list. Click the **Create Gateway** link to create a Data Management Gateway.  
 
-	> [!NOTE]
-	> If the source data store is on-premises or in an Azure IaaS virtual machine, a Data Management Gateway is required. A gateway has a 1-1 relationship with a data factory. It cannot be used from another data factory, but it can be used by multiple data loading tasks with in the same data factory. A gateway can be used to connect to multiple data stores when running data loading tasks.
-	>
-	> For detailed information about the gateway, see [Data Management Gateway](../data-factory/v1/data-factory-data-management-gateway.md) article.
+    > [!NOTE]
+    > If the source data store is on-premises or in an Azure IaaS virtual machine, a Data Management Gateway is required. A gateway has a 1-1 relationship with a data factory. It cannot be used from another data factory, but it can be used by multiple data loading tasks with in the same data factory. A gateway can be used to connect to multiple data stores when running data loading tasks.
+    >
+    > For detailed information about the gateway, see [Data Management Gateway](../data-factory/v1/data-factory-data-management-gateway.md) article.
 
 3. A **Create Gateway** dialog box appears. For Name, enter **GatewayForDWLoading**, and click **Create**.
 
 4. A **Configure Gateway** dialog box appears. Click **Launch express setup on this computer** to automatically download, install, and register Data Management Gateway on your current machine. The progress is shown in a pop-up window. If the machine cannot connect to the data store, you can manually [download and install the gateway](https://www.microsoft.com/download/details.aspx?id=39717) on a machine that can connect to the data store, and then use the key to register.
-	> [!NOTE]
-	> The express setup works natively with Microsoft Edge and Internet Explorer. If you are using Google Chrome, first install the ClickOnce extension from Chrome web store.
+    > [!NOTE]
+    > The express setup works natively with Microsoft Edge and Internet Explorer. If you are using Google Chrome, first install the ClickOnce extension from Chrome web store.
 
     ![Launch Express setup](media/sql-data-warehouse-load-with-data-factory/launch-express-setup.png)
 
 5. Wait for the gateway setup to complete. Once the gateway is successfully registered and is online, the pop-up window closes and the new gateway appears in the gateway field. Then fill in the rest required fields as follows, then click **Next**.
-    - **Server name**: Name of the on-premises SQL Server.
-    - **Database name**: SQL Server database.
-    - **Credential encryption**: Use the default "By web browser".
-    - **Authentication type**: Choose the type of authentication you are using.
-    - **User name** and **password**: Enter the user name and password for a user who has permission to copy the data.
+   - **Server name**: Name of the on-premises SQL Server.
+   - **Database name**: SQL Server database.
+   - **Credential encryption**: Use the default "By web browser".
+   - **Authentication type**: Choose the type of authentication you are using.
+   - **User name** and **password**: Enter the user name and password for a user who has permission to copy the data.
 
-    ![Launch Express setup](media/sql-data-warehouse-load-with-data-factory/configure-sql-server.png)
+     ![Launch Express setup](media/sql-data-warehouse-load-with-data-factory/configure-sql-server.png)
 
 6. The next step is to choose the tables from which to copy the data. You can filter the tables by using keywords. And you can preview the data and table schema in the bottom panel. After you finish your selection, click **Next**.
 
-	![Select tables](media/sql-data-warehouse-load-with-data-factory/select-tables.png)
+    ![Select tables](media/sql-data-warehouse-load-with-data-factory/select-tables.png)
 
 ## Configure the destination, your SQL Data Warehouse
 
@@ -99,15 +99,15 @@ Now you tell Data Factory about the destination information.
 
 1. Your SQL Data Warehouse connection information is filled in automatically. Enter the password for the user name. and click **Next**.
 
-	![Configure destination](media/sql-data-warehouse-load-with-data-factory/configure-destination.png)
+    ![Configure destination](media/sql-data-warehouse-load-with-data-factory/configure-destination.png)
 
 2. An intelligent table mapping appears that maps source to destination tables based on table names. If the table does not exist in the destination, by default ADF will create one with the same name (this applies to SQL Server or Azure SQL Database as source). You can also choose to map to an existing table. Review and click **Next**.
 
-	![Map tables](media/sql-data-warehouse-load-with-data-factory/table-mapping.png)
+    ![Map tables](media/sql-data-warehouse-load-with-data-factory/table-mapping.png)
 
 3. Review the schema mapping and look for error or warning messages. Intelligent mapping is based on column name. If there is an unsupported data type conversion between the source and destination column, you see an error message alongside the corresponding table. If you choose to let Data Factory auto create the tables, proper data type conversion may happen if needed to fix the incompatibility between source and destination stores.
 
-	![Map schema](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
+    ![Map schema](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
 4. Click **Next**.
 
@@ -130,19 +130,19 @@ You can see the deployment progress and results in the **Deployment** page.
 
 1. Once the deployment is done, click the link that says **Click here to monitor copy pipeline** to monitor data loading progress.
 
-	![Monitor pipeline](media/sql-data-warehouse-load-with-data-factory/monitor-pipeline.png)
+    ![Monitor pipeline](media/sql-data-warehouse-load-with-data-factory/monitor-pipeline.png)
 
 2. The newly created **DWLoadData-fromSQLServer** data loading pipeline is auto selected from the left-hand **Resource Explorer**.
 
-	![View pipeline](media/sql-data-warehouse-load-with-data-factory/view-pipeline.png)
+    ![View pipeline](media/sql-data-warehouse-load-with-data-factory/view-pipeline.png)
 
 3. Click into the pipeline in the middle panel to see the detailed status for each table that maps to an Activity.
 
-	![View table activity](media/sql-data-warehouse-load-with-data-factory/view-table-activity.png)
+    ![View table activity](media/sql-data-warehouse-load-with-data-factory/view-table-activity.png)
 
 4. Further click into an activity and you see the data loading details in the right panel including data size, rows, throughput, etc.
 
-	![View table activity details](media/sql-data-warehouse-load-with-data-factory/view-table-activity-details.png)
+    ![View table activity details](media/sql-data-warehouse-load-with-data-factory/view-table-activity-details.png)
 
 5. To launch this monitoring view later, go to your SQL Data Warehouse, click **Load Data > Azure Data Factory**, select your factory, and choose **Monitor existing loading tasks**.
 

@@ -68,6 +68,7 @@ An indexer can have multiple field mappings. For example, here's how you can "fo
 
 <a name="mappingFunctions"></a>
 
+
 ## Field mapping functions
 These functions are currently supported:
 
@@ -77,6 +78,7 @@ These functions are currently supported:
 * [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
 
 <a name="base64EncodeFunction"></a>
+
 
 ## base64Encode
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
@@ -113,6 +115,7 @@ If you don't need to look up documents by keys and also don't need to decode the
 
 <a name="base64DecodeFunction"></a>
 
+
 ## base64Decode
 Performs Base64 decoding of the input string. The input is assumed to a *URL-safe* Base64-encoded string.
 
@@ -134,6 +137,7 @@ If you don't specify any `parameters`, then the default value of `useHttpServerU
 
 <a name="base64details"></a>
 
+
 ### Details of base64 encoding and decoding
 Azure Search supports two base64 encodings: HttpServerUtility URL token and URL-safe base64 encoding without padding. You need to use the same encoding as the mapping functions if you want to encode a document key for look up, encode a value to be decoded by the indexer, or decode a field encoded by the indexer.
 
@@ -151,6 +155,7 @@ The following table compares different base64 encodings of the string `00>00?00`
 | URL-safe base64 without padding | `MDA-MDA_MDA` | None | None |
 
 <a name="extractTokenAtPositionFunction"></a>
+
 
 ## extractTokenAtPosition
 Splits a string field using the specified delimiter, and picks the token at the specified position in the resulting split.
@@ -181,6 +186,7 @@ Your data source contains a `PersonName` field, and you want to index it as two 
 ```
 
 <a name="jsonArrayToStringCollectionFunction"></a>
+
 
 ## jsonArrayToStringCollection
 Transforms a string formatted as a JSON array of strings into a string array that can be used to populate a `Collection(Edm.String)` field in the index.

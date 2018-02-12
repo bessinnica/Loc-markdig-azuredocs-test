@@ -18,8 +18,8 @@ ms.author: anoopkv
 ---
 # Automate Mobility Service installation by using software deployment tools
 
->[!IMPORTANT]
-This document assumes you are using version **9.9.4510.1** or higher.
+> [!IMPORTANT]
+> This document assumes you are using version **9.9.4510.1** or higher.
 
 This article provides you an example of how you can use System Center Configuration Manager to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like Configuration Manager has the following advantages:
 * Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates
@@ -87,72 +87,70 @@ whoami >> C:\Temp\logfile.log
 SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
 IF NOT %ERRORLEVEL% EQU 0 (
-	echo "Product is not installed. Goto INSTALL." >> C:\Temp\logfile.log
-	GOTO :INSTALL
+    echo "Product is not installed. Goto INSTALL." >> C:\Temp\logfile.log
+    GOTO :INSTALL
 ) ELSE (
-	echo "Product is installed." >> C:\Temp\logfile.log
+    echo "Product is installed." >> C:\Temp\logfile.log
 
-	echo "Checking for Post-install action status." >> C:\Temp\logfile.log
-	GOTO :POSTINSTALLCHECK
+    echo "Checking for Post-install action status." >> C:\Temp\logfile.log
+    GOTO :POSTINSTALLCHECK
 )
 
 :POSTINSTALLCHECK
-	REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "PostInstallActions" | Find "Succeeded"
-	If %ERRORLEVEL% EQU 0 (
-		echo "Post-install actions succeeded. Checking for Configuration status." >> C:\Temp\logfile.log
-		GOTO :CONFIGURATIONCHECK
-	) ELSE (
-		echo "Post-install actions didn't succeed. Goto INSTALL." >> C:\Temp\logfile.log
-		GOTO :INSTALL
-	)
+    REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "PostInstallActions" | Find "Succeeded"
+    If %ERRORLEVEL% EQU 0 (
+        echo "Post-install actions succeeded. Checking for Configuration status." >> C:\Temp\logfile.log
+        GOTO :CONFIGURATIONCHECK
+    ) ELSE (
+        echo "Post-install actions didn't succeed. Goto INSTALL." >> C:\Temp\logfile.log
+        GOTO :INSTALL
+    )
 
 :CONFIGURATIONCHECK
-	REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "AgentConfigurationStatus" | Find "Succeeded"
-	If %ERRORLEVEL% EQU 0 (
-		echo "Configuration has succeeded. Goto UPGRADE." >> C:\Temp\logfile.log
-		GOTO :UPGRADE
-	) ELSE (
-		echo "Configuration didn't succeed. Goto CONFIGURE." >> C:\Temp\logfile.log
-		GOTO :CONFIGURE
-	)
+    REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "AgentConfigurationStatus" | Find "Succeeded"
+    If %ERRORLEVEL% EQU 0 (
+        echo "Configuration has succeeded. Goto UPGRADE." >> C:\Temp\logfile.log
+        GOTO :UPGRADE
+    ) ELSE (
+        echo "Configuration didn't succeed. Goto CONFIGURE." >> C:\Temp\logfile.log
+        GOTO :CONFIGURE
+    )
 
 
 :INSTALL
-	echo "Perform installation." >> C:\Temp\logfile.log
-	UnifiedAgent.exe /Role MS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-	IF %ERRORLEVEL% EQU 0 (
-	    echo "Installation has succeeded." >> C:\Temp\logfile.log
-		(GOTO :CONFIGURE)
+    echo "Perform installation." >> C:\Temp\logfile.log
+    UnifiedAgent.exe /Role MS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Installation has succeeded." >> C:\Temp\logfile.log
+        (GOTO :CONFIGURE)
     ) ELSE (
-		echo "Installation has failed." >> C:\Temp\logfile.log
-		GOTO :ENDSCRIPT
-	)
+        echo "Installation has failed." >> C:\Temp\logfile.log
+        GOTO :ENDSCRIPT
+    )
 
 :CONFIGURE
-	echo "Perform configuration." >> C:\Temp\logfile.log
-	cd "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent"
-	UnifiedAgentConfigurator.exe  /CSEndPoint "[CSIP]" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
-	IF %ERRORLEVEL% EQU 0 (
-	    echo "Configuration has succeeded." >> C:\Temp\logfile.log
+    echo "Perform configuration." >> C:\Temp\logfile.log
+    cd "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent"
+    UnifiedAgentConfigurator.exe  /CSEndPoint "[CSIP]" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Configuration has succeeded." >> C:\Temp\logfile.log
     ) ELSE (
-		echo "Configuration has failed." >> C:\Temp\logfile.log
-	)
-	GOTO :ENDSCRIPT
+        echo "Configuration has failed." >> C:\Temp\logfile.log
+    )
+    GOTO :ENDSCRIPT
 
 :UPGRADE
-	echo "Perform upgrade." >> C:\Temp\logfile.log
-	UnifiedAgent.exe /Platform "VmWare" /Silent
-	IF %ERRORLEVEL% EQU 0 (
-	    echo "Upgrade has succeeded." >> C:\Temp\logfile.log
+    echo "Perform upgrade." >> C:\Temp\logfile.log
+    UnifiedAgent.exe /Platform "VmWare" /Silent
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Upgrade has succeeded." >> C:\Temp\logfile.log
     ) ELSE (
-		echo "Upgrade has failed." >> C:\Temp\logfile.log
-	)
-	GOTO :ENDSCRIPT
+        echo "Upgrade has failed." >> C:\Temp\logfile.log
+    )
+    GOTO :ENDSCRIPT
 
 :ENDSCRIPT
-	echo "End of script." >> C:\Temp\logfile.log
-
-
+    echo "End of script." >> C:\Temp\logfile.log
 ```
 
 ### Step 2: Create a package
@@ -164,25 +162,25 @@ IF NOT %ERRORLEVEL% EQU 0 (
 5. Select the **This package contains source files** check box.
 6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
 
 7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
-  | **Parameter name** | **Value** |
-  |--|--|
-  | Name | Install Microsoft Azure Mobility Service (Windows) |
-  | Command line | install.bat |
-  | Program can run | Whether or not a user is logged on |
+   | **Parameter name** | **Value** |
+   |--|--|
+   | Name | Install Microsoft Azure Mobility Service (Windows) |
+   | Command line | install.bat |
+   | Program can run | Whether or not a user is logged on |
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
 
 9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
 
 10. To complete the wizard, click **Next** twice.
 
@@ -192,19 +190,19 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ### Step 3: Deploy the package
 1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
-  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+   ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
 4. After the package distribution is done, right-click the package, and select **Deploy**.
-  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+   ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Windows Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
+   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
 
 6. On the **Specify the content destination** page, select your **Distribution Points**.
 7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
-  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
 9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
@@ -377,7 +375,6 @@ else
 fi
 
 cd /tmp
-
 ```
 
 ### Step 2: Create a package
@@ -389,24 +386,24 @@ cd /tmp
 5. Select the **This package contains source files** check box.
 6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
 
 7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
     | **Parameter name** | **Value** |
-  |--|--|
-  | Name | Install Microsoft Azure Mobility Service (Linux) |
-  | Command line | ./install_linux.sh |
-  | Program can run | Whether or not a user is logged on |
+   |--|--|
+   | Name | Install Microsoft Azure Mobility Service (Linux) |
+   | Command line | ./install_linux.sh |
+   | Program can run | Whether or not a user is logged on |
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
 
 9. On the next page, select **This program can run on any platform**.
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
+   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
 
 10. To complete the wizard, click **Next** twice.
 
@@ -415,19 +412,19 @@ cd /tmp
 
 ### Step 3: Deploy the package
 1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
-  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+   ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
 4. After the package distribution is done, right-click the package, and select **Deploy**.
-  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+   ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Linux Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
+   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
 
 6. On the **Specify the content destination** page, select your **Distribution Points**.
 7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
-  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
 9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
@@ -462,7 +459,6 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
                 echo "Uninstall" >> C:\logfile.log
                 MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
 :ENDSCRIPT
-
 ```
 
 ## Next steps

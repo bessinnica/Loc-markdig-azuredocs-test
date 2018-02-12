@@ -20,9 +20,9 @@ ms.author: annahar
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal
 
->[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
->
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
+> [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
+> 
+> This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
@@ -40,7 +40,7 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 2. In the portal, click **More services** > type *virtual machines* in the filter box, and then click **Virtual machines**.
 3. In the **Virtual machines** blade, click the VM you want to add IP addresses to. Click **Network interfaces** in the virtual machine blade that appears, and then select the network interface you want to add the IP addresses to. In the example shown in the following picture, the NIC named *myNIC* from the VM named *myVM* is selected:
 
-	![Network interface](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
+    ![Network interface](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
 4. In the blade that appears for the NIC you selected, click **IP configurations**.
 
@@ -53,8 +53,8 @@ Complete the following steps to add a new private IP address:
 1. Complete the steps in the [Core steps](#coreadd) section of this article.
 2. Click **Add**. In the **Add IP configuration** blade that appears, create an IP configuration named *IPConfig-4* with *10.0.0.7* as a *Static* private IP address, then click **OK**.
 
-	> [!NOTE]
-	> When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to. If the address you select is not available, the portal will show an X for the IP address and you'll need to select a different one.
+    > [!NOTE]
+    > When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to. If the address you select is not available, the portal will show an X for the IP address and you'll need to select a different one.
 
 3. Once you click OK, the blade will close and you'll see the new IP configuration listed. Click **OK** to close the **Add IP configuration** blade.
 4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses.
@@ -76,7 +76,7 @@ A public IP address is one setting for a public IP address resource. If you have
 3. In the portal, click **New** > **Networking** > **Public IP address**.
 4. In the **Create public IP address** blade that appears, enter a **Name**, select an **IP address assignment** type, a **Subscription**, a **Resource group**, and a **Location**, then click **Create**, as shown in the following picture:
 
-	![Create a public IP address resource](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
+    ![Create a public IP address resource](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
 
 5. Complete the steps in one of the sections that follow to associate the public IP address resource to an IP configuration.
 
@@ -85,7 +85,7 @@ A public IP address is one setting for a public IP address resource. If you have
 1. Complete the steps in the [Core steps](#coreadd) section of this article.
 2. Click **Add**. In the **Add IP configuration** blade that appears, create an IP configuration named *IPConfig-4*. Enable the **Public IP address** and select an existing, available public IP address resource from the **Choose public IP address** blade that appears.
 
-	Once you've selected the public IP address resource, click **OK** and the blade will close. If you don't have an existing public IP address, you can create one by completing the steps in the [Create a public IP address resource](#create-public-ip) section of this article. 
+    Once you've selected the public IP address resource, click **OK** and the blade will close. If you don't have an existing public IP address, you can create one by completing the steps in the [Create a public IP address resource](#create-public-ip) section of this article. 
 
 3. Review the new IP configuration. Even though a private IP address wasn't explicitly assigned, one was automatically assigned to the IP configuration, because all IP configurations must have a private IP address.
 4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses.
@@ -103,3 +103,4 @@ A public IP address is one setting for a public IP address resource. If you have
 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+

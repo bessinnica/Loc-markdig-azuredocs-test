@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure CDN with PowerShell | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets to manage Azure CDN.
 services: cdn
@@ -86,7 +86,6 @@ REMARKS
     To see the examples, type: "get-help Get-AzureRmCdnProfile -examples".
     For more information, type: "get-help Get-AzureRmCdnProfile -detailed".
     For technical information, type: "get-help Get-AzureRmCdnProfile -full".
-
 ```
 
 ## Listing existing Azure CDN profiles
@@ -146,7 +145,6 @@ New-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Lo
 
 # Create a new profile and endpoint (same as above) in one line
 New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
-
 ```
 
 ## Checking endpoint name availability

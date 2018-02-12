@@ -40,21 +40,19 @@ To begin, let's first set-up API Management to route requests via your delegatio
 Now you need to create the **delegation endpoint**. It has to perform a number of actions:
 
 1. Receive a request in the following form:
-   
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
-   > 
-   > 
-   
+
+   > <em>http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}</em>
+
     Query parameters for the sign-in / sign-up case:
-   
+
    * **operation**: identifies what type of delegation request it is - it can only be **SignIn** in this case
    * **returnUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
    * **salt**: a special salt string used for computing a security hash
    * **sig**: a computed security hash to be used for comparison to your own computed hash
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
-   
+
    * Compute an HMAC-SHA512 hash of a string based on the **returnUrl** and **salt** query parameters ([example code provided below]):
-     
+
      > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
@@ -63,10 +61,10 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 4. Present the user with UI to sign-in or sign-up
 5. If the user is signing-up you have to create a corresponding account for them in API Management. [Create a user] with the API Management REST API. When doing so, ensure that you set the user ID to the same it is in your user store or to an ID that you can keep track of.
 6. When the user is successfully authenticated:
-   
+
    * [request a single-sign-on (SSO) token] via the API Management REST API
    * append a returnUrl query parameter to the SSO URL you have received from the API call above:
-     
+
      > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
@@ -97,13 +95,11 @@ To enable the functionality, on the **Delegation** page click **Delegate product
 Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
-   
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
-   > 
-   > 
-   
+
+   > <em>http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}</em>
+
     Query parameters for the product subscription case:
-   
+
    * **operation**: identifies what type of delegation request it is. For product subscription requests the valid options are:
      * "Subscribe": a request to subscribe the user to a given product with provided ID (see below)
      * "Unsubscribe": a request to unsubscribe a user from a product
@@ -113,9 +109,9 @@ Then ensure the delegation endpoint performs the following actions:
    * **salt**: a special salt string used for computing a security hash
    * **sig**: a computed security hash to be used for comparison to your own computed hash
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
-   
+
    * Compute an HMAC-SHA512 of a string based on the **productId**, **userId** and **salt** query parameters:
-     
+
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 

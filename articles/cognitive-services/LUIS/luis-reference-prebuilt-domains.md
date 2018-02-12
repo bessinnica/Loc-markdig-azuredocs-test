@@ -48,6 +48,7 @@ For more detail on each domain, see the sections that follow.
 The Calendar domain provides intents and entities related to calendar entries. The Calendar intents include adding, deleting or editing an appointment, checking availability, and finding information about a calendar entry or appointment.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Add | Add a new one-time item to the calendar.| Make an appointment with Lisa at 2pm on Sunday <br/><br/>I want to schedule a meeting<br/><br/>I need to set up a meeting|
@@ -57,6 +58,7 @@ The Calendar domain provides intents and entities related to calendar entries. T
 | Find | Display my weekly calendar.| Find the dentist review appointment. <br/><br/>Show my calendar<br/>|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Location | Location of calendar item, meeting or appointment. Addresses, cities, and regions are good examples of locations.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garage|
@@ -66,6 +68,7 @@ The Calendar domain provides intents and entities related to calendar entries. T
 The Camera domain provides intents and entities related to using a camera. The intents cover capturing a photo, selfie, screenshot or video, and broadcasting video to an application.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | CapturePhoto| Capture a photo.| Take a photo<br/><br/>capture|
@@ -77,6 +80,7 @@ The Camera domain provides intents and entities related to using a camera. The i
 | StopVideoRecording| Stop recording a video.| That's enough<br/><br/>stop recording|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AppName | The name of an application to broadcast video to.| OneNote<br/><br/>Facebook<br/><br/>Skype|
@@ -86,6 +90,7 @@ The Camera domain provides intents and entities related to using a camera. The i
 The Communication domain provides intents and entities related to email, messages and phone calls.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AddContact| Add a new contact to the user's list of contacts.|Add new contact <br/><br/>Save this number and put the name as Carol|
@@ -119,6 +124,7 @@ The Communication domain provides intents and entities related to email, message
 | TurnSpeakerOn| Turn on the speaker phone.|Speakerphone mode.<br/>Put speakerphone on.<br/>|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Type of audio device (speaker, headset, microphone, etc).| Speaker<br/>Hands-free<br/>Bluetooth|
@@ -136,11 +142,13 @@ The Communication domain provides intents and entities related to email, message
 The Entertainment domain provides intents and entities related to searching for movies, music, games and TV shows.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Search| Search for movies, music, apps, games and TV shows.|Search the store for Halo.<br/>Search for Avatar.|
 
 ### Entities
+
 | Entities name | Description | Examples |
 | ---------------- |-----------------------|----|
 | ContentRating | Media content rating like G, or R for movies.|Kids video.<br/>PG rated.|
@@ -161,12 +169,14 @@ The Entertainment domain provides intents and entities related to searching for 
 The Events domain provides intents and entities related to booking tickets for events like concerts, festivals, sports games and comedy shows.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Book| Purchase tickets to an event.|I'd like to buy a ticket for the symphony this weekend.|
 
 
 ### Entities
+
 | Entities name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Address | Event location or address. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
@@ -179,6 +189,7 @@ The Events domain provides intents and entities related to booking tickets for e
 The Fitness domain provides intents and entities related to tracking fitness activities. The intents include saving notes, remaining time or distance, or saving activity results.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AddNote| Adds supplemental notes to a tracked activity.|The difficulty of this run was 6/10<br/>The terrain I am on running on is asphalt<br/>I am using a 3 speed bike|
@@ -187,6 +198,7 @@ The Fitness domain provides intents and entities related to tracking fitness act
 | LogWeight| Save or log the user's current weight.|Save my current weight<br/>log my weight now<br/>store my current body weight|
 
 ### Entities
+
 | Entities name | Description | Examples |
 | ---------------- |-----------------------|----|
 | ActivityType | The type of activity to track. |Run<br/>Walk<br/>Swim<br/>Cycle |
@@ -200,6 +212,7 @@ The Fitness domain provides intents and entities related to tracking fitness act
 The Gaming domain provides intents and entities related to managing a game party in a multiplayer game.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | InviteParty| Invite a contact to join a gaming party.|Invite this player to my party<br/>Come to my party<br/>Join my clan|
@@ -207,6 +220,7 @@ The Gaming domain provides intents and entities related to managing a game party
 | StartParty| Start a gaming party in a multiplayer game.|Dude let's start a party<br/>start a party<br/>should we start a clan tonight|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Contact| A contact name to use in a multiplayer game.|Carol<br/>Jim|
@@ -216,6 +230,7 @@ The Gaming domain provides intents and entities related to managing a game party
 The HomeAutomation domain provides intents and entities related to controlling smart home devices like lights and appliances.
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | TurnOff| Turn off, close, or unlock a device.|Turn off the lights<br/>Stop the coffee maker<br/>Close garage door|
@@ -223,6 +238,7 @@ The HomeAutomation domain provides intents and entities related to controlling s
 
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Device | A type of device that can be turned on or off.|coffee maker<br/>thermostat<br/>lights|
@@ -240,6 +256,7 @@ When is Captain Omar showing?
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captian Omar Part 2 next Wednesday|
@@ -247,6 +264,7 @@ When is Captain Omar showing?
 
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Address | The address of a movie theater.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
@@ -265,6 +283,7 @@ Skip to the next song
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | DecreaseVolume | Decrease the device volume.|decrease track volume<br/>volume down|
@@ -280,6 +299,7 @@ Skip to the next song
 | Unmute | Unmute a music playback device.| Unmute.|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | ArtistName | The actor, director, producer, writer, musician or artist associated with media to play on a device.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
@@ -296,6 +316,7 @@ Remove all items from my vacation list
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AddToNote | Add information to a note.|Add to my groceries note lettuce tomato bread coffee<br/>Add to my todo list<br/>add cupcakes to my Wunderlist|
@@ -309,6 +330,7 @@ Remove all items from my vacation list
 | ShowNext | See the next item in a list of notes.|Show the next one<br/>Next page<br/>Next|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AppName | The note-taking application name.|Wunderlist<br/>OneNote|
@@ -329,6 +351,7 @@ Can you make the screen brighter?
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AreYouListening | Ask if the device is listening.|is this on?<br/>are you listening?|
@@ -360,6 +383,7 @@ Can you make the screen brighter?
 |TurnUpBrightness|Turn up device brightness.|Can you make the screen brighter?|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AppName | Name of an application on the device.|SoundCloud<br/>YouTube|
@@ -380,6 +404,7 @@ At what time does Safeway close?
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AddFavoritePlace | Add a location to the the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
@@ -415,6 +440,7 @@ restart|
 |TakesReservations|Ask whether a place accepts reservations.|Does the art gallery accept reservations<br/>Is it possible to make a reservation at the Olive Garden
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | AbsoluteLocation | The location or address of a place.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
@@ -449,6 +475,7 @@ Can you check if I have a reminder about Christine's birthday?
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Change| Change a reminder.|Change my interview to 9 am tomorrow<br/>Move my assignment reminder to tomorrow|
@@ -457,6 +484,7 @@ Can you check if I have a reminder about Christine's birthday?
 | Find | Find a reminder.|Do I have a reminder about my anniversary?<br/>Can you check if I have a reminder about Christine's birthday?|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Text | The text description of a reminder.|pick up dry cleaning<br/>dropping my car off at the service center|
@@ -472,11 +500,13 @@ Table for 3 in Palo Alto at 7
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Reserve | Request a reservation for a restaurant. |Reserve at Zucca for two for tonight<br/>Book a table for tomorrow<br/>Table for 3 in Palo Alto at 7|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Address| An event location or address for a reservation.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
@@ -490,7 +520,7 @@ Table for 3 in Palo Alto at 7
 | Rating | The rating of a place or restaurant.|5 stars<br/>3 stars<br/>4 stars|
 
 ## Taxi 
- 
+
 The Taxi domain provides intents and entities for creating and managing taxi bookings.
 
 ### Examples
@@ -501,6 +531,7 @@ Cancel my Uber
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Book | Call a taxi. |Get me a cab<br/>Find a taxi<br/>Book me an uber x|
@@ -508,6 +539,7 @@ Cancel my Uber
 | Track | Track a taxi route.|How much longer do I have to wait for my taxi?<br/>Where is my Uber?|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Address| The address associated with booking a taxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
@@ -530,19 +562,21 @@ Translate this sentence to English
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Translate| Translate text to another language.|Translate to French<br/>Translate hello to German|
 
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | TargetLanguage | The target language of a translation.|French<br/>German<br/>Korean|
 | Text | The text to translate.|Hello World<br/>Good morning<br/>Good evening|
 
 ## TV 
- 
+
 The TV domain provides intents and entities for controlling TVs.
 
 ### Examples
@@ -553,6 +587,7 @@ Watch National Geographic
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | ChangeChannel| Change a channel on a TV.|Change channel to CNN<br/>Switch channel to BBC<br/>Go to channel 4|
@@ -560,6 +595,7 @@ Watch National Geographic
 | WatchTV| Ask to watch a TV channel.|I want to watch the Disney channel<br/>go to TV please<br/>Watch National Geographic|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | ChannelName | The name of a TV channel.|CNN<br/>BBC<br/>Movie channel|
@@ -575,6 +611,7 @@ Repeat last question please
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Cancel | Cancel an action.|Cancel the message<br/>I don't want to send the email anymore|
@@ -599,12 +636,14 @@ What's the average temperature in India in september?
 ```
 
 ### Intents
+
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
 | GetCondition | Get historic facts related to weather. |weather in London in September<br/>What's the average temperature in India in September?|
 | GetForecast | Get the current weather and forecast for the next few days. |How is the weather today?<br/>What's the 10 day forecast?<br/>How will the weather be this weekend?|
 
 ### Entities
+
 | Entity name | Description | Examples |
 | ---------------- |-----------------------|----|
 | Location| The absolute location for a weather request.|Seattle<br/>Paris<br/>Palo Alto|
@@ -620,7 +659,8 @@ Navigate to www.bing.com
 ```
 
 ### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Navigate | A request to navigate to a specified website. |Navigate to facebook.com<br/>Go to www.twitter.com|
+
+| Intent name |                  Description                  |                      Examples                      |
+|-------------|-----------------------------------------------|----------------------------------------------------|
+|  Navigate   | A request to navigate to a specified website. | Navigate to facebook.com<br/>Go to www.twitter.com |
 

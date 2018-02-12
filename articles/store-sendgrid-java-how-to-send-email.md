@@ -184,8 +184,9 @@ see [Filter Settings][Filter Settings].
           {\"enable\":1}}}}");
 
 ## How to: Update email properties
-Some email properties can be overwritten using **set*Property*** or
-appended using **add*Property***.
+Some email properties can be overwritten using <strong>set*Property</strong>* or
+appended using 
+<strong>add*Property</strong>*.
 
 For example, to specify **ReplyTo** addresses, use the following:
 

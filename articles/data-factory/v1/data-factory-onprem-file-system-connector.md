@@ -78,6 +78,7 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 
 
 ### Sample linked service and dataset definitions
+
 | Scenario | Host in linked service definition | folderPath in dataset definition |
 | --- | --- | --- |
 | Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |

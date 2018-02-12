@@ -34,18 +34,18 @@ To sign in, the account administrator uses the organization ID (OrgID) created w
 One service administrator role is created per Azure account and is authorized to manage services in Azure portal. With a new subscription, the account administrator is also the service administrator.
 
 To create a service administrator:
-1.	Log on to the Azure portal and click **Active Directory** from the left navigation menu.
-2.	Under **Name**, click **Add a user**. Enter a user name, profile, and a temporary password for the new user.
-3.	Click **View my bill**, select the subscription, and then click **Edit subscription details**.
-4.	Change Service Administrator to the newly-created user.
+1.  Log on to the Azure portal and click **Active Directory** from the left navigation menu.
+2.  Under **Name**, click **Add a user**. Enter a user name, profile, and a temporary password for the new user.
+3.  Click **View my bill**, select the subscription, and then click **Edit subscription details**.
+4.  Change Service Administrator to the newly-created user.
 
 ### Create a co-administrator
 Account administrators can create up to 199 co-administrator roles per subscription. This role has the same access privileges as the service administrator, but cannot change the association of subscriptions to Azure directories.
-1.	Log on to Azure portal and click **Active Directory** on the left navigation menu.
-2.	Under **Name**, click **Add a user**. Enter a user name, profile, and a temporary password for the new user.
-3.	On the main menu bar, click **Setting**, then click **Administrators**.
-4.	Click **Add**, then enter the user address from the earlier step. Use the original account domain. Select the subscription to which the co-administrator has access.
-5.	Verify the change on the **Setting** page.
+1.  Log on to Azure portal and click **Active Directory** on the left navigation menu.
+2.  Under **Name**, click **Add a user**. Enter a user name, profile, and a temporary password for the new user.
+3.  On the main menu bar, click **Setting**, then click **Administrators**.
+4.  Click **Add**, then enter the user address from the earlier step. Use the original account domain. Select the subscription to which the co-administrator has access.
+5.  Verify the change on the **Setting** page.
 
 ## Next steps
 - [Azure portal](https://portal.azure.cn/)

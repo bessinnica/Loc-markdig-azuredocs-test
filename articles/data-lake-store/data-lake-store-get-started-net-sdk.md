@@ -63,14 +63,14 @@ For instructions on how to perform data management operations on Data Lake Store
         using System.Linq;
         using System.Text;
         using System.Threading;
-		using System.Collections.Generic;
+        using System.Collections.Generic;
         using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
                 
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
-		using Microsoft.Azure.Management.DataLake.Store.Models;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. Declare the variables and provide the values for placeholders. Also, make sure the local path and file name you provide exist on the computer.
 

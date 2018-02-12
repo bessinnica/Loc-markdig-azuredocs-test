@@ -84,7 +84,7 @@ The failover test success section of the dashboard presents a break-up of virtua
 </table>
 
 Click the test failover status next to the donut, so see the list of protected servers based on their test failover status.
- 
+
 > [!IMPORTANT]
 > As a best practice, it is recommended that you perform a test failover on your protected servers at least once every six months. Performing a test failover is a non disruptive way to test failover of your servers and applications to an isolated environment, and helps you evaluate your business continuity preparedness.
 
@@ -110,15 +110,14 @@ The replication error symptoms for servers in a critical or warning replication 
 
 - Errors impacting on-premises infrastructure components such as the non-receipt of a heartbeat from the Azure Site Recovery Provider running on the on-premises Configuration Server, VMM server, or Hyper-V host are listed at the beginning of the error summary section
 - Replication error symptoms impacting protected servers is listed next. The error summary table entries are sorted by decreasing order of the error severity and then by decreasing order of the count of impacted servers.
- 
+
 
 > [!NOTE]
 > 
 >  Multiple replication error symptoms may be observed on a single server. If there are multiple error symptoms on a single server each error symptom would count that server in the list of its impacted servers. Once the underlying issue resulting in an error symptom is fixed, replication parameters improve and the error is cleared from the virtual machine.
->
+> 
 > > [!TIP]
-> The count of impacted servers is a useful way to understand if a single underlying issue may be impacting multiple servers. For example, a network glitch may potentially impact all servers replicating from an on-premises site to Azure. This view quickly conveys that fixing that one underlying issue will fix replication for multiple servers.
->
+> > The count of impacted servers is a useful way to understand if a single underlying issue may be impacting multiple servers. For example, a network glitch may potentially impact all servers replicating from an on-premises site to Azure. This view quickly conveys that fixing that one underlying issue will fix replication for multiple servers.
 
 ### 6. Infrastructure view
 
@@ -216,12 +215,11 @@ The action menu at the top of the page provides options to perform various opera
 > [!TIP]
 > How is RPO or recovery point objective different from the latest available recovery point?
 > 
->Azure Site Recovery uses a multi step asynchronous process to replicate virtual machines to Azure. In the penultimate step of replication, recent changes on the virtual machine along with metadata are copied into a log/cache storage account. Once these changes along with the tag to identify a recoverable point has been written to the storage account in the target region, Azure Site Recovery has the information necessary to generate a recoverable point for the virtual machine. At this point, the RPO has been met for the changes uploaded to the storage account thus far. In other words, the RPO for the virtual machine at this point expressed in units of time, is equal to amount of time elapsed from the timestamp corresponding to the recoverable point.
->
->The Azure Site Recovery service, operating in the background, picks the uploaded data from the storage account and applies them onto the replica disks created for the virtual machine. It then generates a recovery point and makes this point available for recovery at failover. The latest available recovery point indicates the timestamp corresponding to the latest recovery point that has already been processed and applied to the replica disks.
->> [!WARNING]
-> A skewed clock or incorrect system time on the replicating source machine or the on-premises infrastructure servers will skew the computed RPO value. To ensure accurate reporting of RPO values ensure that the system clock on the servers involved in replication is accurate. 
->
+> Azure Site Recovery uses a multi step asynchronous process to replicate virtual machines to Azure. In the penultimate step of replication, recent changes on the virtual machine along with metadata are copied into a log/cache storage account. Once these changes along with the tag to identify a recoverable point has been written to the storage account in the target region, Azure Site Recovery has the information necessary to generate a recoverable point for the virtual machine. At this point, the RPO has been met for the changes uploaded to the storage account thus far. In other words, the RPO for the virtual machine at this point expressed in units of time, is equal to amount of time elapsed from the timestamp corresponding to the recoverable point.
+> 
+> The Azure Site Recovery service, operating in the background, picks the uploaded data from the storage account and applies them onto the replica disks created for the virtual machine. It then generates a recovery point and makes this point available for recovery at failover. The latest available recovery point indicates the timestamp corresponding to the latest recovery point that has already been processed and applied to the replica disks.
+> > [!WARNING]
+> > A skewed clock or incorrect system time on the replicating source machine or the on-premises infrastructure servers will skew the computed RPO value. To ensure accurate reporting of RPO values ensure that the system clock on the servers involved in replication is accurate. 
 
 ## Monitor Azure Site Recovery Jobs/Operations
 

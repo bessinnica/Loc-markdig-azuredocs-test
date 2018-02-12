@@ -41,6 +41,7 @@ Next, you create a function in the new function app.
 
 <a name="create-function"></a>
 
+
 ## Create a Blob storage triggered function
 
 1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
@@ -50,7 +51,7 @@ Next, you create a function in the new function app.
 2. In the search field, type `blob` and then choose your desired language for the Blob storage trigger template.
 
     ![Choose the Blob storage trigger template.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
- 
+
 3. Use the settings as specified in the table below the image.
 
     ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)

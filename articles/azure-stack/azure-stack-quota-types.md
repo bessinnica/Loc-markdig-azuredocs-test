@@ -24,6 +24,7 @@ ms.author: erikje
 [Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
 
 ## Compute quota types
+
 | **Type** | **Default value** | **Description** |
 | --- | --- | --- |
 | Max number of virtual machines | 20 | The maximum number of virtual machines that a subscription can create in this location. |
@@ -37,12 +38,14 @@ ms.author: erikje
 > 
 
 ## Storage quota types
+
 | **Item** | **Default value** | **Description** |
 | --- | --- | --- |
 | Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
 
 ## Network quota types
+
 | **Item** | **Default value** | **Description** |
 | --- | --- | --- |
 | Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |

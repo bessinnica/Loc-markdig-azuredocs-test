@@ -57,19 +57,19 @@ To configure the integration of LinkedIn Learning into Azure AD, you need to add
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. Click **Add** button on the top of the dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **LinkedIn Learning**. From results panel, click **LinkedIn Learning** to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_000.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_000.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with LinkedIn Learning based on a test user called "Britta Simon".
@@ -94,88 +94,88 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **LinkedIn Learning** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedin_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedin_01.png)
 
 3. In a different web browser window, sign-on to your LinkedIn Learning tenant as an administrator.
 
 4. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Learning - Default** from the dropdown list.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 5. Click **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 6. On Azure portal, under **LinkedIn Learning Domain and URLs**, perform the following steps if you want to configure SSO in **IdP Initiated** mode
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
     a. In the **Identifier** textbox, enter the **Entity ID** copied from LinkedIn Portal 
 
-	b. In the **Reply URL** textbox, enter the **Assertion Consumer Access (ACS) Url** copied from LinkedIn Portal
+    b. In the **Reply URL** textbox, enter the **Assertion Consumer Access (ACS) Url** copied from LinkedIn Portal
 
 7. If you want to configure SSO in **SP Initiated**, then click Show Advanced URL setting option in the configuration section and configure the sign-on URL with the following pattern:
 
-	`https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
+    `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_02.png)   
-	
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_02.png)   
+    
 8. Your LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but LinkedIn Learning expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/updateusermail.png)
-	
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/updateusermail.png)
+    
 9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add four claims named **email**, **department**, **firstname**, and **lastname** and the value is to be mapped with **user.mail**, **user.department**, **user.givenname**, and **user.surname** respectively
 
-	| Attribute Name | Attribute Value |
-	| --- | --- |
-	| email| user.mail |    
-	| department| user.department |
-	| firstname| user.givenname |
-	| lastname| user.surname |
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
-	
-	a. Click **Add Attribute** to open the attribute dialog.
+    | Attribute Name | Attribute Value |
+    | --- | --- |
+    | email| user.mail |    
+    | department| user.department |
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+    
+    a. Click **Add Attribute** to open the attribute dialog.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_04.png)
 
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_05.png)
+    
+    b. In the **Name** textbox, type the attribute name shown for that row.
+    
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**
 
 10. Perform the following steps on the **name** attribute-
 
-	a. Click on the attribute to open the **Edit Attribute** window.
+    a. Click on the attribute to open the **Edit Attribute** window.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinLearning-tutorial/url_update.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinLearning-tutorial/url_update.png)
 
-	b. Delete the URL value from the **namespace**.
-	
-	c. Click **Ok** to save the setting.
+    b. Delete the URL value from the **namespace**.
+    
+    c. Click **Ok** to save the setting.
 
 11. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
 
 12. Click **Save**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
 
 13. Go to **LinkedIn Admin Settings** section. Upload the XML file you downloaded from the Azure portal by clicking the Upload XML file option.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 14. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -186,25 +186,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**. 
 
@@ -224,26 +224,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **LinkedIn Learning**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

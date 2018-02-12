@@ -42,6 +42,7 @@ Next, you create a function in the new function app.
 
 <a name="create-function"></a>
 
+
 ## Create a timer triggered function
 
 1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.

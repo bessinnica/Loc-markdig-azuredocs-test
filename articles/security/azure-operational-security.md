@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Operational Security | Microsoft Docs
 description: Learn about Microsoft Operations Management Suite (OMS), its services, and how it works.
 services: security
@@ -37,17 +37,17 @@ Azure’s infrastructure is designed from the facility to applications for hosti
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications,and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
 
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
-1.	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.  [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
-2.	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+2.  [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
-3.	[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+3.  [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
-4.	[Azure Network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+4.  [Azure Network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
 
-5.	[Azure Storage analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
+5.  [Azure Storage analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
-6.	[Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
 ## Microsoft Operations Management Suite
@@ -80,12 +80,12 @@ This method allows you to consolidate data from various sources, so you can comb
 ![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
 
 The Log Analytics service manages your cloud-based data securely by using the following methods:
--	data segregation
--	data retention
--	physical security
--	incident management
--	compliance
--	security standards certifications
+-   data segregation
+-   data retention
+-   physical security
+-   incident management
+-   compliance
+-   security standards certifications
 
 ### Azure Backup
 
@@ -132,40 +132,40 @@ Security Center collects data from your virtual machines (VMs) to assess their s
 
 - Azure Security Center analyzes data from the following sources to provide visibility into your security state, identify vulnerabilities and recommend mitigations, and detect active threats:
 
--	Azure Services: Uses information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
+-   Azure Services: Uses information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
 
 - Network Traffic: Uses sampled network traffic metadata from Microsoft’s infrastructure, such as source/destination IP/port, packet size, and network protocol.
 
--	Partner Solutions: Uses security alerts from integrated partner solutions, such as firewalls and antimalware solutions.
+-   Partner Solutions: Uses security alerts from integrated partner solutions, such as firewalls and antimalware solutions.
 
--	Your Virtual Machines: Uses configuration information and information about security events, such as Windows event and audit logs, IIS logs, syslog messages, and crash dump files from your virtual machines.
+-   Your Virtual Machines: Uses configuration information and information about security events, such as Windows event and audit logs, IIS logs, syslog messages, and crash dump files from your virtual machines.
 
 ### Data protection
 
 To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes security-related data, including configuration information, metadata, event logs, crash dump files, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
--	**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service.
+-   **Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service.
 
--	**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files, process creation events, VM disk snapshots and artifacts, which may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms and Privacy Statement](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), which state that Microsoft is not uses Customer Data or derive information from it for any advertising or similar commercial purposes.
+-   **Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files, process creation events, VM disk snapshots and artifacts, which may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms and Privacy Statement](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), which state that Microsoft is not uses Customer Data or derive information from it for any advertising or similar commercial purposes.
 
--	**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
+-   **Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
 ### Data location
 
 Azure Security Center collects ephemeral copies of your crash dump files and analyzes them for evidence of exploit attempts and successful compromises. Azure Security Center performs this analysis within the same Geo as the workspace, and deletes the ephemeral copies when analysis is complete. Machine artifacts are stored centrally in the same region as the VM.
 
--	**Your Storage Accounts**: A storage account is specified for each region where virtual machines are running. This enables you to store data in the same region as the virtual machine from which the data is collected.
+-   **Your Storage Accounts**: A storage account is specified for each region where virtual machines are running. This enables you to store data in the same region as the virtual machine from which the data is collected.
 
--	**Azure Security Center Storage**: Information about security alerts, including partner alerts, recommendations, and security health status is stored centrally, currently in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
+-   **Azure Security Center Storage**: Information about security alerts, including partner alerts, recommendations, and security health status is stored centrally, currently in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
 
 
 ## Azure Monitor
 
 The [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
 
--	Malware assessment
--	Update assessment
--	Identity and Access.
+-   Malware assessment
+-   Update assessment
+-   Identity and Access.
 
 Azure Monitor provides pointers to information on specific types of resources. It offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure infrastructure (Activity Log) and each individual Azure resource (Diagnostic Logs).
 
@@ -197,15 +197,15 @@ Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or O
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
 
--	**Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
+-   **Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 
--	**Get notified of an issue** that impacts the performance of your resource when a metric crosses a certain threshold.
+-   **Get notified of an issue** that impacts the performance of your resource when a metric crosses a certain threshold.
 
--	**Configure automated actions**, such as auto scaling a resource or firing a runbook when a metric crosses a certain threshold.
+-   **Configure automated actions**, such as auto scaling a resource or firing a runbook when a metric crosses a certain threshold.
 
--	**Perform advanced analytics** or reporting on performance or usage trends of your resource.
+-   **Perform advanced analytics** or reporting on performance or usage trends of your resource.
 
--	**Archive** the performance or health history of your resource for compliance or auditing purposes.
+-   **Archive** the performance or health history of your resource for compliance or auditing purposes.
 
 ### Azure Diagnostics
 
@@ -221,16 +221,16 @@ Auditing your network security is vital for detecting network vulnerabilities an
 
 Network Watcher currently has the following capabilities:
 
--	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
 
 
--	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP flow verifies </a>** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a Network Security Group, the rule and Network Security Group that denied the packet is returned.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP flow verifies </a>** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a Network Security Group, the rule and Network Security Group that denied the packet is returned.
 
--	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Next hop</a>** - Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Next hop</a>** - Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
 
--	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Security group view</a>** - Gets the effective and applied security rules that are applied on a VM.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Security group view</a>** - Gets the effective and applied security rules that are applied on a VM.
 
--	**<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG Flow logging</a>** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port,and Protocol.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG Flow logging</a>** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port,and Protocol.
 
 ## Azure Storage Analytics
 
@@ -248,8 +248,8 @@ Storage Analytics has a 20-TB limit on the amount of stored data that is indepen
 
 The following actions performed by Storage Analytics are billable:
 
--	Requests to create blobs for logging
--	Requests to create table entities for metrics.
+-   Requests to create blobs for logging
+-   Requests to create table entities for metrics.
 
 > [!Note]
 > For more information on billing and data retention policies, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
@@ -261,38 +261,39 @@ The following actions performed by Storage Analytics are billable:
 
 The following types of authenticated and anonymous requests are logged.
 
-| Authenticated  | Anonymous|
-| :------------- | :-------------|
-| Successful requests | Successful requests |
-|Failed requests, including timeout, throttling, network, authorization, and other errors | Requests using a Shared Access Signature (SAS), including failed and successful requests |
-| Requests using a Shared Access Signature (SAS), including failed and successful requests |Time out errors for both client and server |
-| 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
+
+| Authenticated                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Anonymous                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Successful requests                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Successful requests                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Failed requests, including timeout, throttling, network, authorization, and other errors                                                                                                                                                                                                                                                                                                                                                                                       | Requests using a Shared Access Signature (SAS), including failed and successful requests                                                                                                                                                                                                                                                                                                                                       |
+| Requests using a Shared Access Signature (SAS), including failed and successful requests                                                                                                                                                                                                                                                                                                                                                                                       | Time out errors for both client and server                                                                                                                                                                                                                                                                                                                                                                                     |
+| Requests to analytics data                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Failed GET requests with error code 304 (Not Modified)                                                                                                                                                                                                                                                                                                                                                                         |
 | Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
+
 ## Azure Active Directory
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
 
--	Improve application security with Azure AD multifactor authentication and conditional access.
+-   Improve application security with Azure AD multifactor authentication and conditional access.
 
--	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
+-   Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 
 Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
 The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure portal](https://portal.azure.com/), as described in [View your Audit Logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). Here's a list of the reports included:
 
-| Security reports  | Activity reports| Audit reports |
-| :------------- | :-------------| :-------------|
-|Sign-ins from unknown sources | Application usage: summary | Directory audit report |
-|Sign-ins after multiple failures | Application usage: detailed |   |
-|Sign-ins from multiple geographies | Application dashboard |  |
-|Sign-ins from IP addresses with suspicious activity |Account provisioning errors |  |
-|Irregular sign-in activity |Individual user devices |  |
-|Sign-ins from possibly infected devices |Individual user Activity |   |
-|Users with anomalous sign-in activity |Groups activity report |   |
-| |Password Reset Registration Activity Report |   |
-| |Password reset activity |   | |
 
-
+| Security reports                                    | Activity reports                            | Audit reports          |
+|:----------------------------------------------------|:--------------------------------------------|:-----------------------|
+| Sign-ins from unknown sources                       | Application usage: summary                  | Directory audit report |
+| Sign-ins after multiple failures                    | Application usage: detailed                 |                        |
+| Sign-ins from multiple geographies                  | Application dashboard                       |                        |
+| Sign-ins from IP addresses with suspicious activity | Account provisioning errors                 |                        |
+| Irregular sign-in activity                          | Individual user devices                     |                        |
+| Sign-ins from possibly infected devices             | Individual user Activity                    |                        |
+| Users with anomalous sign-in activity               | Groups activity report                      |                        |
+|                                                     | Password Reset Registration Activity Report |                        |
+|                                                     | Password reset activity                     |                        |
 
 The data of these reports can be useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools.
 
@@ -309,13 +310,13 @@ This article summaries protecting your privacy and securing your data, while del
 
 This article explains
 
--	How data is collected, processed, and secured in the Operations Management Suite (OMS).
+-   How data is collected, processed, and secured in the Operations Management Suite (OMS).
 
--	Quickly analyze events across multiple data sources. Identify security risks and understand the scope and impact of threats and attacks to mitigate the damage of a security breach.
+-   Quickly analyze events across multiple data sources. Identify security risks and understand the scope and impact of threats and attacks to mitigate the damage of a security breach.
 
--	Identify attack patterns by visualizing outbound malicious IP traffic and malicious threat types. Understand the security posture of your entire environment regardless of platform.
+-   Identify attack patterns by visualizing outbound malicious IP traffic and malicious threat types. Understand the security posture of your entire environment regardless of platform.
 
--	Capture all the log and event data required for a security or compliance audit. Slash the time and resources needed to supply a security audit with a complete, searchable, and exportable log and event data set.
+-   Capture all the log and event data required for a security or compliance audit. Slash the time and resources needed to supply a security audit with a complete, searchable, and exportable log and event data set.
 
 <ul>
 <li>Collect security-related events, audit,and breach analysis to keep a close eye your assets:</li>

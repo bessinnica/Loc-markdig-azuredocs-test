@@ -66,8 +66,8 @@ The following items are optional:
 * Grove Cable
 * Any spacer bars or screws included in the packaging, including two screws to fasten the module to the expansion board and four sets of screws and plastic spacers.
 
-> [!NOTE] 
-These items are optional because the code sample support simulated sensor data.
+> [!NOTE]
+> These items are optional because the code sample support simulated sensor data.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -102,7 +102,7 @@ Now your board is assembled.
 ### Connect the Grove Base Shield and the temperature sensor
 
 1. Place the Grove Base Shield on to your board. Make sure all pins are tightly plugged into your board.
-   
+
    ![Grove Base Shield](media/iot-hub-intel-edison-kit-node-get-started/6_grove_base_sheild.jpg)
 
 2. Use Grove Cable to connect Grove temperature sensor onto the Grove Base Shield **A0** port.
@@ -181,13 +181,13 @@ Congratulations! You've successfully configured Edison.
     - The built-in SSH client on Ubuntu or macOS.
 
 2. Clone the sample client app to your device. 
-   
+
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-intel-edison-client-app
    ```
 
 3. Then navigate to the repo folder to run the following command to install all packages, it may take serval minutes to complete.
-   
+
    ```bash
    cd iot-hub-node-intel-edison-client-app
    npm install
@@ -208,17 +208,17 @@ Congratulations! You've successfully configured Edison.
 
    If you **don't have the sensor**, set the `simulatedData` value to `true` to make the sample application create and use simulated sensor data.
 
-1. Save and exit by pressing Control-O > Enter > Control-X.
+2. Save and exit by pressing Control-O > Enter > Control-X.
 
 
-1. Run the sample application by running the following command:
+3. Run the sample application by running the following command:
 
    ```bash
    sudo node index.js '<your Azure IoT hub device connection string>'
    ```
 
-   > [!NOTE] 
-   Make sure you copy-paste the device connection string into the single quotes.
+   > [!NOTE]
+   > Make sure you copy-paste the device connection string into the single quotes.
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
@@ -229,3 +229,4 @@ You should see the following output that shows the sensor data and the messages 
 You’ve run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

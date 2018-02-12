@@ -27,10 +27,10 @@ This article explains how to create and configure event hub and run a sample app
 
 5. Select the name of the event hub to configure it.
 
-  ![Select event hub consumer group](media/send-events/consumer-group.png)
+   ![Select event hub consumer group](media/send-events/consumer-group.png)
 
 6. Under **Entities**, select **Consumer groups**.
- 
+
 7. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
    > [!IMPORTANT]
@@ -40,21 +40,21 @@ This article explains how to create and configure event hub and run a sample app
 
 9. On the event hub, create **MySendPolicy** that is used to send events in the csharp sample.
 
-  ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
+   ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
 
-  ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
+   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Create Time Series Insights event source
 1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
 
 2. Specify **deviceTimestamp** as the timestamp property name – this property is used as the actual timestamp in the C# sample. The timestamp property name is case-sensitive and values must follow the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the event hub enqueued time is used.
 
-  ![Create event source](media/send-events/event-source-1.png)
+   ![Create event source](media/send-events/event-source-1.png)
 
 ## Sample code to push events
 1. Go to the event hub policy named **MySendPolicy**. Copy the **connection string** with the policy key.
 
-  ![Copy MySendPolicy connection string](media/send-events/sample-code-connection-string.png)
+   ![Copy MySendPolicy connection string](media/send-events/sample-code-connection-string.png)
 
 2. Run the following code that to send 600 events per each of the three devices. Update `eventHubConnectionString` with your connection string.
 
@@ -123,7 +123,6 @@ namespace Microsoft.Rdx.DataGenerator
         }
     }
 }
-
 ```
 ## Supported JSON shapes
 ### Sample 1
@@ -186,7 +185,6 @@ A JSON object with a nested JSON array containing two JSON objects.
         }
     ]
 }
-
 ```
 #### Output - 2 Events
 Note that the property "location" is copied over to each of the event.

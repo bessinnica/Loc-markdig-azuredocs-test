@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-In above script example, the input and output to the script is defined in **@in** and **@out** parameters. The values for **@in** and **@out** parameters in the U-SQL script are passed dynamically by Data Factory using the ‘parameters’ section. 
+In above script example, the input and output to the script is defined in <strong><xref href="in" data-throw-if-not-resolved="False" data-raw-source="@in"></xref></strong> and <strong><xref href="out" data-throw-if-not-resolved="False" data-raw-source="@out"></xref></strong> parameters. The values for <strong><xref href="in" data-throw-if-not-resolved="False" data-raw-source="@in"></xref></strong> and <strong><xref href="out" data-throw-if-not-resolved="False" data-raw-source="@out"></xref></strong> parameters in the U-SQL script are passed dynamically by Data Factory using the ‘parameters’ section. 
 
 You can specify other properties such as degreeOfParallelism and priority as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
 

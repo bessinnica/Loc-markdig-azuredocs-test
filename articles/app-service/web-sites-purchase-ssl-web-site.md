@@ -120,11 +120,11 @@ At this point, you should be able to visit your app using `HTTPS://` instead of 
 
 ### Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
 ### PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## Advanced
 
@@ -193,6 +193,7 @@ Click **Rekey** Button to initiate the process. This process can take 1-10 minut
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
 <a name="notrenewed"></a>
+
 ## Why is my SSL certificate not auto-renewed?
 
 If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note the following: 

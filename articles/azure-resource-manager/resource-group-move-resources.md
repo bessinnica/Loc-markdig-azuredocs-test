@@ -36,53 +36,53 @@ There are some important steps to perform before moving a resource. By verifying
 
 1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
-  For Azure PowerShell, use:
+   For Azure PowerShell, use:
 
-  ```powershell
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```powershell
+   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  For Azure CLI, use:
+   For Azure CLI, use:
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  If the tenant IDs for the source and destination subscriptions are not the same, use the following methods to reconcile the tenant IDs: 
+   If the tenant IDs for the source and destination subscriptions are not the same, use the following methods to reconcile the tenant IDs: 
 
-  * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
-  * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+   * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
+   * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. The service must enable the ability to move resources. This article lists which services enable moving resources and which services do not enable moving resources.
 3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
-  For PowerShell, use the following commands to get the registration status:
+   For PowerShell, use the following commands to get the registration status:
 
-  ```powershell
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```powershell
+   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
+   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  To register a resource provider, use:
+   To register a resource provider, use:
 
-  ```powershell
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  For Azure CLI, use the following commands to get the registration status:
+   For Azure CLI, use the following commands to get the registration status:
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  To register a resource provider, use:
+   To register a resource provider, use:
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 ## When to call support
 
@@ -195,9 +195,9 @@ When moving a Web App _within the same subscription_, you cannot move the upload
 
 If you want to move the SSL certificate with the Web App, follow these steps:
 
-1.	Delete the uploaded certificate from the Web App.
-2.	Move the Web App.
-3.	Upload the certificate to the moved Web App.
+1.  Delete the uploaded certificate from the Web App.
+2.  Move the Web App.
+3.  Upload the certificate to the moved Web App.
 
 ### Moving across subscriptions
 
@@ -240,58 +240,58 @@ To move classic resources to a new subscription, use the REST operations that ar
 
 1. Check if the source subscription can participate in a cross-subscription move. Use the following operation:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      In the request body, include:
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      The response for the validation operation is in the following format:
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Check if the destination subscription can participate in a cross-subscription move. Use the following operation:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      In the request body, include:
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      The response is in the same format as the source subscription validation.
 3. If both subscriptions pass validation, move all classic resources from one subscription to another subscription with the following operation:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     In the request body, include:
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 The operation may run for several minutes.
 

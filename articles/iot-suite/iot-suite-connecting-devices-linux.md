@@ -175,3 +175,4 @@ The following steps describe how to use *CMake* to build your client application
     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
+

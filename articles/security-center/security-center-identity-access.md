@@ -38,23 +38,23 @@ To see current activities related to identity and access, you need to access the
 
 2. In the left pane, under **Prevention**, select **Identity & Access**. If you have multiple workspaces, the workspace selector appears.
 
-	![Workspace selection](./media/security-center-identity-access\security-center-identity-access-fig1.png)
+    ![Workspace selection](./media/security-center-identity-access\security-center-identity-access-fig1.png)
 
-	> [!NOTE]
-	> If the column on the far right shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to the Standard subscription to use this feature. If the column on the far right shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Security Center pricing. 
-	> 
+    > [!NOTE]
+    > If the column on the far right shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to the Standard subscription to use this feature. If the column on the far right shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Security Center pricing. 
+    > 
 3. If you have more than one workspace to investigate, you can prioritize the investigation according to the **FAILED LOGONS** column. It shows the current number of unsuccessful logon attempts in this workspace. Select the workspace that you want to use, and the **Identity & Access** dashboard appears.
 
-	![Identity & Access](./media/security-center-identity-access\security-center-identity-access-fig2.png)
+    ![Identity & Access](./media/security-center-identity-access\security-center-identity-access-fig2.png)
 
 4. The information available in this dashboard can immediately assist you in identifying potential suspicious activity. The dashboard is divided into three major areas:
 
-	a. **Identity posture**. Summarizes the identity-related activities that take place in this workspace.
+    a. **Identity posture**. Summarizes the identity-related activities that take place in this workspace.
 
-	b. **Failed logons**. Helps you to quickly identify the main cause for failed logon attempts. Shows a list of the top 10 accounts that failed the most attempts to log on.
+    b. **Failed logons**. Helps you to quickly identify the main cause for failed logon attempts. Shows a list of the top 10 accounts that failed the most attempts to log on.
 
-	c. **Logons over time**. Helps you to quickly identify the number of logons over time. It shows a list of the top computer account logon attempts.
-	
+    c. **Logons over time**. Helps you to quickly identify the number of logons over time. It shows a list of the top computer account logon attempts.
+    
 Regardless of which tile you select, the dashboard that appears is based on the Log Search query. The only difference is the type of query and the result. You can still select an item, for example, a computer, and see relevant data. 
 
 ## See also

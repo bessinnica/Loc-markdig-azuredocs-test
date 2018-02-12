@@ -43,7 +43,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 2. In the left navigation pane of the portal, click **New**, click **Storage**, and then click **Storage Account**.  
 3. Complete the fields in the storage account window, and then click **Create**.
 
-	![Create storage account][1]
+    ![Create storage account][1]
 
 4. After you see the **Deployments Succeeded** message, click the name of the new storage account. In the **Essentials** window, click **Blobs**. When the **Blob service** dialog box opens, click **+ Container** at the top. Give the container a name, and then close **Blob service**.  
 5. Click **Access keys** in the left-hand window and copy the name of the storage container, the storage account, and the value of **key1**. Save these values to Notepad or some other temporary location.  
@@ -71,7 +71,7 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
-	using System.Threading.Tasks;
+    using System.Threading.Tasks;
     ```
 
 3. Implement the `IEventProcessor` interface. Replace the entire contents of the `SimpleEventProcessor` class with the following code:
@@ -117,7 +117,7 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
-	using System.Threading.Tasks;
+    using System.Threading.Tasks;
     ```
 
 2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
@@ -163,7 +163,7 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
     MainAsync(args).GetAwaiter().GetResult();
     ```
 
-	Here is what your Program.cs file should look like:
+    Here is what your Program.cs file should look like:
 
     ```csharp
     namespace SampleEphReceiver

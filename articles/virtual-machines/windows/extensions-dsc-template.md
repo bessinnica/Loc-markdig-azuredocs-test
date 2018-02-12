@@ -160,7 +160,6 @@ in an Azure Resource Manager template.
   "configurationUrlSasToken": "?g!bber1sht0k3n",
   "configurationDataUrlSasToken": "?dataAcC355T0k3N"
 }
-
 ```
 
 ## Details

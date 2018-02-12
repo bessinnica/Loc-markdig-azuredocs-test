@@ -38,7 +38,6 @@ Perform the following steps to get the IQN of a Windows host that is running Win
 
 [!INCLUDE [storsimple-get-iqn](../../includes/storsimple-get-iqn.md)]
 
-
 ## Add an access control record
 You use the **Configuration** section in the StorSimple Device Manager service blade to add ACRs. Typically, you will associate one ACR with one volume.
 
@@ -54,7 +53,7 @@ Perform the following steps to add an ACR.
 3. In the **Add ACR** blade, do the following steps:
 
     1. Supply a name for your ACR.
-    
+
     2. Provide the IQN name of your Windows Server host under **iSCSI Initiator Name (IQN)**.
 
     3. Click **Add** to create the ACR.
@@ -93,7 +92,7 @@ Perform the following steps to edit an ACR.
 
 5. You are notified when the ACR is updated. The tabular listing also updates to reflect the change.
 
-   
+
 ## Delete an access control record
 You use the **Configuration** section in the StorSimple Device Manager service blade to delete ACRs.
 

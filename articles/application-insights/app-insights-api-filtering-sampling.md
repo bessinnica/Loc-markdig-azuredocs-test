@@ -1,4 +1,4 @@
-﻿---
+---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
@@ -31,6 +31,7 @@ Before you start:
 * Install the Application Insights [SDK for ASP.NET](app-insights-asp-net.md) or [SDK for Java](app-insights-java-get-started.md) in your app.
 
 <a name="filtering"></a>
+
 
 ## Filtering: ITelemetryProcessor
 This technique gives you more direct control over what is included or excluded from the telemetry stream. You can use it in conjunction with Sampling, or separately.
@@ -105,7 +106,6 @@ To filter telemetry, you write a telemetry processor and register it with the SD
          <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
       </Add>
     </TelemetryProcessors>
-
 ```
 
 (This is the same section where you initialize a sampling filter.)
@@ -128,7 +128,6 @@ You can pass string values from the .config file by providing public named prope
     builder.Use((next) => new AnotherProcessor(next));
 
     builder.Build();
-
 ```
 
 TelemetryClients created after this point will use your processors.
@@ -178,7 +177,6 @@ public void Process(ITelemetry item)
     // Send everything else:
     this.Next.Process(item);
 }
-
 ```
 
 #### Filter out fast remote dependency calls
@@ -209,6 +207,7 @@ public void Process(ITelemetry item)
 
 
 <a name="add-properties"></a>
+
 
 ## Add properties: ITelemetryInitializer
 Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules.
@@ -285,6 +284,7 @@ In ApplicationInsights.config:
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
+
 
 ### JavaScript telemetry initializers
 *JavaScript*

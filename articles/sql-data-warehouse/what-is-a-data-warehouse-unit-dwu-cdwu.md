@@ -82,8 +82,8 @@ To view the current DWU setting:
 
 ```sql
 SELECT  db.name [Database]
-,	    ds.edition [Edition]
-,	    ds.service_objective [Service Objective]
+,       ds.edition [Edition]
+,       ds.service_objective [Service Objective]
 FROM    sys.database_service_objectives   AS ds
 JOIN    sys.databases                     AS db ON ds.database_id = db.database_id
 ;

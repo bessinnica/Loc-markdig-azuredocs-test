@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a web app with .NET, Xamarin, and Facebook authentication
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -31,6 +31,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Create a database account
@@ -72,7 +73,7 @@ The authentication and data flow is illustrated in the diagram below.
 * The app accesses the user's todo items using the resource token.
 
 ![Todo app with sample data](./media/create-sql-api-xamarin-dotnet/tokenbroker.png)
-    
+
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.

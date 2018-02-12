@@ -258,7 +258,6 @@ tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
 passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
 };
-
 ```
 
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
@@ -587,8 +586,6 @@ server.use(restify.authorizationParser()); // Looks for authorization headers
 
 server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
-
-
 ```
 ## Add the routes to the server (without authentication)
 ```Javascript
@@ -659,7 +656,6 @@ server.listen(serverPort, function() {
     //log.info(consoleMessage, server.name, server.url, server.url, server.url);
 
 });
-
 ```
 
 ## Add authentication to your REST API server

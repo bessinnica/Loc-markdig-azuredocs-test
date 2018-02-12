@@ -68,7 +68,7 @@ Before you deploy a virtual array, make sure that:
 
 * You have access to a host system running Hyper-V on Windows Server 2008 R2 or later or VMware (ESXi 5.0, 5.5 or 6.0) that can be used to a provision a device.
 * The host system is able to dedicate the following resources to provision your virtual array:
-  
+
   * A minimum of 4 cores.
   * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface.
@@ -129,7 +129,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
 2. In the Azure portal, click **Browse > StorSimple Device Managers**.
 3. Select an existing StorSimple Device Manager service. In the **StorSimple Device Manager** blade, click **Quick Start**. 
 4. Click the link corresponding to the image that you want to download from the Microsoft Download Center. The image files are approximately 4.8 GB.
-   
+
    * VHDX for Hyper-V on Windows Server 2012 and later
    * VHD for Hyper-V on Windows Server 2008 R2 and later
    * VMDK for VMWare ESXi 5.0, 5.5 or 6.0
@@ -149,16 +149,17 @@ Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) 
 2. Select **Storage account credentials** within the **Configuration** section.
 3. Click **Add**.
 4. In the **Add a storage account** blade, do the following:
-   
-    1. For **Subscription**, select **Current**.
-   
-    2. Provide the name of your Azure storage account.
-   
-    3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
-   
-    4. Click **Add**. You are notified after the storage account is successfully created.<br></br>
-   
-     ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+
+   1. For **Subscription**, select **Current**.
+
+   2. Provide the name of your Azure storage account.
+
+   3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
+
+   4. Click <strong>Add</strong>. You are notified after the storage account is successfully created.<br></br>
+
+
+      ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## Next step
 

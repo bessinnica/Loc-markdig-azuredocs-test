@@ -464,7 +464,7 @@ router bgp 65010
  neighbor 10.2.0.228 update-source Loopback0
  neighbor 10.2.0.228 soft-reconfiguration inbound
  neighbor 10.2.0.228 filter-list 10 out
- neighbor 10.2.0.229 remote-as 65000	
+ neighbor 10.2.0.229 remote-as 65000    
  neighbor 10.2.0.229 ebgp-multihop 5
  neighbor 10.2.0.229 update-source Loopback0
  neighbor 10.2.0.229 soft-reconfiguration inbound

@@ -456,7 +456,6 @@ The following template sample illustrates how to:
     }
   }
 }
-
 ```
 ### Deploying the sample template
 To deploy the sample template:

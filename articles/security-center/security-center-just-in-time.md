@@ -1,4 +1,4 @@
-﻿---
+---
 title: Just in time virtual machine access in Azure Security Center | Microsoft Docs
 description: This document demonstrates how just in time VM access in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
@@ -72,7 +72,7 @@ To select the VMs that you want to enable:
 
 1. Under **Just in time VM access**, select the **Recommended** tab.
 
-  ![Enable just in time access][3]
+   ![Enable just in time access][3]
 
 2. Under **VIRTUAL MACHINE**, select the VMs that you want to enable. This puts a checkmark next to a VM.
 3. Select **Enable JIT on VMs**.
@@ -84,7 +84,7 @@ You can see the default ports that Security Center recommends enabling just in t
 
 1. Under **Just in time VM access**, select the **Recommended** tab.
 
-  ![Display default ports][6]
+   ![Display default ports][6]
 
 2. Under **VMs**, select a VM. This puts a checkmark next to the VM and opens **JIT VM access configuration**. This blade displays the default ports.
 
@@ -94,13 +94,13 @@ Under **JIT VM access configuration**, you can also add and configure a new port
 
 1. Under **JIT VM access configuration**, select **Add**. This opens **Add port configuration**.
 
-  ![Port configuration][7]
+   ![Port configuration][7]
 
 2. Under **Add port configuration**, you identify the port, protocol type, allowed source IPs, and maximum request time.
 
-  Allowed source IPs are the IP ranges allowed to get access upon an approved request.
+   Allowed source IPs are the IP ranges allowed to get access upon an approved request.
 
-  Maximum request time is the maximum time window that a specific port can be opened.
+   Maximum request time is the maximum time window that a specific port can be opened.
 
 3. Select **OK**.
 
@@ -112,7 +112,7 @@ To request access to a VM:
 2. Under **VMs**, select the VMs that you want to enable access. This puts a checkmark next to a VM.
 3. Select **Request access**. This opens **Request access**.
 
-  ![Request access to a VM][4]
+   ![Request access to a VM][4]
 
 4. Under **Request access**, you configure for each VM the ports to open along with the source IP that the port is opened to and the time window for which the port is opened. You can request access only to the ports that are configured in the just in time policy. Each port has a maximum allowed time derived from the just in time policy.
 5. Select **Open ports**.
@@ -126,11 +126,11 @@ In order to edit an existing just in time policy of a VM, the **Configured** tab
 1. Under **VMs**, select a VM to add a port to by clicking on the three dots within the row for that VM. This opens a menu.
 2. Select **Edit** in the menu. This opens **JIT VM access configuration**.
 
-  ![Edit policy][8]
+   ![Edit policy][8]
 
 3. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port by clicking on its port, or you can select **Add**. This opens **Add port configuration**.
 
-  ![Add a port][7]
+   ![Add a port][7]
 
 4. Under **Add port configuration**, identify the port, protocol type, allowed source IPs, and maximum request time.
 5. Select **OK**.
@@ -144,11 +144,11 @@ You can gain insights into VM activities using log search. To view logs:
 2. Under **VMs**, select a VM to view information about by clicking on the three dots within the row for that VM. This opens a menu.
 3. Select **Activity Log** in the menu. This opens **Activity log**.
 
-  ![Select activity log][9]
+   ![Select activity log][9]
 
-  **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
+   **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
 
-  ![View activity log][5]
+   ![View activity log][5]
 
 You can download the log information by selecting **Click here to download all the items as CSV**.
 

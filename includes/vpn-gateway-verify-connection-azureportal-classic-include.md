@@ -4,10 +4,10 @@ In the Azure portal, you can view the connection status for a classic VNet VPN G
 2. On the virtual network blade, click **Overview** to access the **VPN connections** section of the blade.
 3. On the VPN connections graphic, click the site.
 
-	![Local site](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "local site")
+    ![Local site](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "local site")
 4. On the **Site-to-site VPN connections** blade, view the information about your site.
 
-	![Connection status](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Connection status")
+    ![Connection status](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Connection status")
 5. To view more information about the connection, click the name of the connection to open the **Site-to-site VPN Connection** blade.
 
-	![Connection status more](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Connection status more info")
+    ![Connection status more](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Connection status more info")

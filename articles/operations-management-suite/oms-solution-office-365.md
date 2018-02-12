@@ -86,19 +86,19 @@ All records created in the Log Analytics workspace by the Office 365 solution ha
 ### Common properties
 The following properties are common to all Office 365 records.
 
-| Property | Description |
-|:--- |:--- |
-| Type | *OfficeActivity* |
-| ClientIP | The IP address of the device that was used when the activity was logged. The IP address is displayed in either an IPv4 or IPv6 address format. |
-| OfficeWorkload | Office 365 service that the record refers to.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| Operation | The name of the user or admin activity.  |
-| OrganizationId | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
-| RecordType | Type of of operation performed. |
-| ResultStatus | Indicates whether the action (specified in the Operation property) was successful or not. Possible values are Succeeded, PartiallySucceded, or Failed. For Exchange admin activity, the value is either True or False. |
-| UserId | The UPN (User Principal Name) of the user who performed the action that resulted in the record being logged; for example, my_name@my_domain_name. Note that records for activity performed by system accounts (such as SHAREPOINT\system or NTAUTHORITY\SYSTEM) are also included. | 
-| UserKey | An alternative ID for the user identified in the UserId property.  For example, this property is populated with the passport unique ID (PUID) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts|
-| UserType | The type of user that performed the operation.<br><br>Admin<br>Application<br>DcAdmin<br>Regular<br>Reserved<br>ServicePrincipal<br>System |
 
+| Property       | Description                                                                                                                                                                                                                                                                                                                                                                         |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Type           | <em>OfficeActivity</em>                                                                                                                                                                                                                                                                                                                                                             |
+| ClientIP       | The IP address of the device that was used when the activity was logged. The IP address is displayed in either an IPv4 or IPv6 address format.                                                                                                                                                                                                                                      |
+| OfficeWorkload | Office 365 service that the record refers to.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint                                                                                                                                                                                                                                                                                 |
+| Operation      | The name of the user or admin activity.                                                                                                                                                                                                                                                                                                                                             |
+| OrganizationId | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs.                                                                                                                                                                                                              |
+| RecordType     | Type of of operation performed.                                                                                                                                                                                                                                                                                                                                                     |
+| ResultStatus   | Indicates whether the action (specified in the Operation property) was successful or not. Possible values are Succeeded, PartiallySucceded, or Failed. For Exchange admin activity, the value is either True or False.                                                                                                                                                              |
+| UserId         | The UPN (User Principal Name) of the user who performed the action that resulted in the record being logged; for example, my_name@my_domain_name. Note that records for activity performed by system accounts (such as SHAREPOINT\system or NTAUTHORITY\SYSTEM) are also included.                                                                                                  |
+| UserKey        | An alternative ID for the user identified in the UserId property.  For example, this property is populated with the passport unique ID (PUID) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts |
+| UserType       | The type of user that performed the operation.<br><br>Admin<br>Application<br>DcAdmin<br>Regular<br>Reserved<br>ServicePrincipal<br>System                                                                                                                                                                                                                                          |
 
 ### Azure Active Directory base
 The following properties are common to all Azure Active Directory records.
@@ -136,7 +136,7 @@ These records are created when change or additions are made to Azure Active Dire
 | ActorContextId | The GUID of the organization that the actor belongs to. |
 | ActorIpAddress | The actor's IP address in IPV4 or IPV6 address format. |
 | InterSystemsId | The GUID that track the actions across components within the Office 365 service. |
-| IntraSystemId | 	The GUID that's generated by Azure Active Directory to track the action. |
+| IntraSystemId |   The GUID that's generated by Azure Active Directory to track the action. |
 | SupportTicketId | The customer support ticket ID for the action in "act-on-behalf-of" situations. |
 | TargetContextId | The GUID of the organization that the targeted user belongs to. |
 
@@ -150,7 +150,7 @@ These records are created from Data Center Security audit data.
 | ElevationApprovedTime | The timestamp for when the elevation was approved. |
 | ElevationApprover | The name of a Microsoft manager. |
 | ElevationDuration | The duration for which the elevation was active. |
-| ElevationRequestId | 	A unique identifier for the elevation request. |
+| ElevationRequestId |  A unique identifier for the elevation request. |
 | ElevationRole | The role the elevation was requested for. |
 | ElevationTime | The start time of the elevation. |
 | Start_Time | The start time of the cmdlet execution. |
@@ -163,8 +163,8 @@ These records are created when changes are made to Exchange configuration.
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
-| ExternalAccess | 	Specifies whether the cmdlet was run by a user in your organization, by Microsoft datacenter personnel or a datacenter service account, or by a delegated administrator. The value False indicates that the cmdlet was run by someone in your organization. The value True indicates that the cmdlet was run by datacenter personnel, a datacenter service account, or a delegated administrator. |
-| ModifiedObjectResolvedName | 	This is the user friendly name of the object that was modified by the cmdlet. This is logged only if the cmdlet modifies the object. |
+| ExternalAccess |  Specifies whether the cmdlet was run by a user in your organization, by Microsoft datacenter personnel or a datacenter service account, or by a delegated administrator. The value False indicates that the cmdlet was run by someone in your organization. The value True indicates that the cmdlet was run by datacenter personnel, a datacenter service account, or a delegated administrator. |
+| ModifiedObjectResolvedName |  This is the user friendly name of the object that was modified by the cmdlet. This is logged only if the cmdlet modifies the object. |
 | OrganizationName | The name of the tenant. |
 | OriginatingServer | The name of the server from which the cmdlet was executed. |
 | Parameters | The name and value for all parameters that were used with the cmdlet that is identified in the Operations property. |
@@ -184,7 +184,7 @@ These records are created when changes or additions are made to Exchange mailbox
 | ClientVersion | The version of the email client . |
 | InternalLogonType | Reserved for internal use. |
 | Logon_Type | Indicates the type of user who accessed the mailbox and performed the operation that was logged. |
-| LogonUserDisplayName | 	The user-friendly name of the user who performed the operation. |
+| LogonUserDisplayName |    The user-friendly name of the user who performed the operation. |
 | LogonUserSid | The SID of the user who performed the operation. |
 | MailboxGuid | The Exchange GUID of the mailbox that was accessed. |
 | MailboxOwnerMasterAccountSid | Mailbox owner account's master account SID. |
@@ -221,7 +221,7 @@ These records are created when changes or additions are made to Exchange groups.
 | DestMailboxOwnerUPN | Set only if the CrossMailboxOperations parameter is True. Specifies the UPN of the owner of the target mailbox. |
 | DestFolder | The destination folder, for operations such as Move. |
 | Folder | The folder where a group of items is located. |
-| Folders | 	Information about the source folders involved in an operation; for example, if folders are selected and then deleted. |
+| Folders |     Information about the source folders involved in an operation; for example, if folders are selected and then deleted. |
 
 
 ### SharePoint Base
@@ -234,7 +234,7 @@ These properties are common to all SharePoint records.
 | EventSource | Identifies that an event occurred in SharePoint. Possible values are SharePoint or ObjectModel. |
 | ItemType | The type of object that was accessed or modified. See the ItemType table for details on the types of objects. |
 | MachineDomainInfo | Information about device sync operations. This information is reported only if it's present in the request. |
-| MachineId | 	Information about device sync operations. This information is reported only if it's present in the request. |
+| MachineId |   Information about device sync operations. This information is reported only if it's present in the request. |
 | Site_ | The GUID of the site where the file or folder accessed by the user is located. |
 | Source_Name | The entity that triggered the audited operation. Possible values are SharePoint or ObjectModel. |
 | UserAgent | Information about the user's client or browser. This information is provided by the client or browser. |
@@ -248,7 +248,7 @@ These records are created when configuration changes are made to SharePoint.
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | CustomEvent | Optional string for custom events. |
-| Event_Data | 	Optional payload for custom events. |
+| Event_Data |  Optional payload for custom events. |
 | ModifiedProperties | The property is included for admin events, such as adding a user as a member of a site or a site collection admin group. The property includes the name of the property that was modified (for example, the Site Admin group), the new value of the modified property (such the user who was added as a site admin), and the previous value of the modified object. |
 
 
@@ -265,9 +265,9 @@ These records are created in response to file operations in SharePoint.
 | SharingType | The type of sharing permissions that were assigned to the user that the resource was shared with. This user is identified by the UserSharedWith parameter. |
 | Site_Url | The URL of the site where the file or folder accessed by the user is located. |
 | SourceFileExtension | The file extension of the file that was accessed by the user. This property is blank if the object that was accessed is a folder. |
-| SourceFileName | 	The name of the file or folder accessed by the user. |
+| SourceFileName |  The name of the file or folder accessed by the user. |
 | SourceRelativeUrl | The URL of the folder that contains the file accessed by the user. The combination of the values for the SiteURL, SourceRelativeURL, and SourceFileName parameters is the same as the value for the ObjectID property, which is the full path name for the file accessed by the user. |
-| UserSharedWith | 	The user that a resource was shared with. |
+| UserSharedWith |  The user that a resource was shared with. |
 
 
 

@@ -7,7 +7,7 @@ To navigate to your APIM instance, follow these steps:
 3. Type "api" in the search box.
 4. Click **API Management services**.
 
-	![Navigate](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
+    ![Navigate](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
 
 5. Select your APIM service instance.
 

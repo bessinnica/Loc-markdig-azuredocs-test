@@ -19,10 +19,11 @@ ms.author: genli
 ---
 # Troubleshoot Azure Files problems in Windows
 
-This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
+This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
 
 
 <a id="error53-67-87"></a>
+
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
 
 When you try to mount a file share from on-premises or from a different datacenter, you might receive the following errors:
@@ -79,6 +80,7 @@ Revert the **LmCompatibilityLevel** value to the default value of 3 in the follo
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
+
 ## Error 1816 “Not enough quota is available to process this command” when you copy to an Azure file share
 
 ### Cause
@@ -90,15 +92,16 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
+
 ## Slow file copying to and from Azure Files in Windows
 
 You might see slow performance when you try to transfer files to the Azure File service.
 
 - If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
--	If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
--	Use the right copy method:
-    -	Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
-    -	Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
+-   If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
+-   Use the right copy method:
+    -   Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
+    -   Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
 
 ### Considerations for Windows 8.1 or Windows Server 2012 R2
 
@@ -116,6 +119,7 @@ If hotfix is installed, the following output is displayed:
 > Windows Server 2012 R2 images in Azure Marketplace have hotfix KB3114025 installed by default, starting in December 2015.
 
 <a id="shareismissing"></a>
+
 ## No folder with a drive letter in **My Computer**
 
 If you map an Azure file share as an administrator by using net use, the share appears to be missing.
@@ -128,6 +132,7 @@ By default, Windows File Explorer does not run as an administrator. If you run n
 Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/library/ee844140.aspx) to configure the **EnableLinkedConnections** registry value.
 
 <a id="netuse"></a>
+
 ## Net use command fails if the storage account contains a forward slash
 
 ### Cause
@@ -149,6 +154,7 @@ You can use either of the following steps to work around the problem:
 - Put double quotation marks around the key to work around this problem--unless the forward slash is the first character. If it is, either use the interactive mode and enter your password separately or regenerate your keys to get a key that doesn't start with a forward slash.
 
 <a id="cannotaccess"></a>
+
 ## Application or service cannot access a mounted Azure Files drive
 
 ### Cause
@@ -159,12 +165,13 @@ Drives are mounted per user. If your application or service is running under a d
 
 Use one of the following solutions:
 
--	Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
+-   Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
 - Pass the storage account name and key in the user name and password parameters of the net use command.
 
 After you follow these instructions, you might receive the following error message when you run net use for the system/network service account: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated." If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.windows.net").
 
 <a id="doesnotsupportencryption"></a>
+
 ## Error "You are copying a file to a destination that does not support encryption"
 
 When a file is copied over the network, the file is decrypted on the source computer, transmitted in plaintext, and re-encrypted at the destination. However, you might see the following error when you're trying to copy an encrypted file: "You are copying the file to a destination that does not support encryption."

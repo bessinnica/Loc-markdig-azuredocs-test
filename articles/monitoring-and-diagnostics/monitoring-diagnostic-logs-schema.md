@@ -52,6 +52,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Virtual Networks | Schema not available. |
 
 ## Supported log categories per resource type
+
 |Resource Type|Category|Category Display Name|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Engine|Engine|

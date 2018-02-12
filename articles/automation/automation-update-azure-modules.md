@@ -32,16 +32,16 @@ Because modules are updated regularly by the product group, changes can occur wi
 
 3. Click **Yes** and the module update process begins. The update process takes about 15-20 minutes to update the following modules:
 
-  * Azure
-  *	Azure.Storage
-  *	AzureRm.Automation
-  *	AzureRm.Compute
-  *	AzureRm.Profile
-  *	AzureRm.Resources
-  *	AzureRm.Sql
-  * AzureRm.Storage
+   * Azure
+   * Azure.Storage
+   * AzureRm.Automation
+   * AzureRm.Compute
+   * AzureRm.Profile
+   * AzureRm.Resources
+   * AzureRm.Sql
+   * AzureRm.Storage
 
-    If the modules are already up to date, then the process completes in a few seconds. When the update process completes, you will be notified.<br><br> ![Update Azure Modules update status](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+     If the modules are already up to date, then the process completes in a few seconds. When the update process completes, you will be notified.<br><br> ![Update Azure Modules update status](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
 > Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.    

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure N-series driver setup for Windows | Microsoft Docs
 description: How to set up NVIDIA GPU drivers for N-series VMs running Windows in Azure
 services: virtual-machines-windows
@@ -26,8 +26,6 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 
 [!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
-
-
 
 ## Driver installation
 

@@ -32,6 +32,7 @@ When you add/upload documents and submit search queries to Azure Search, you sub
 As you define your schema, you must specify the name, type, and attributes of each field in your index. The field type classifies the data that is stored in that field. Attributes are set on individual fields to specify how the field is used. The following tables enumerate the types and attributes you can specify.
 
 ### Field types
+
 | Type | Description |
 | --- | --- |
 | *Edm.String* |Text that can optionally be tokenized for full-text search (word-breaking, stemming, etc). |
@@ -46,6 +47,7 @@ As you define your schema, you must specify the name, type, and attributes of ea
 You can find more detailed information about Azure Search's [supported data types here](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### Field attributes
+
 | Attribute | Description |
 | --- | --- |
 | *Key* |A string that provides the unique ID of each document, used for document look up. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |

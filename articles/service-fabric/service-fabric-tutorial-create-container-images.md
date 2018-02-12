@@ -55,7 +55,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-The solution contains two folders and a 'docker-compose.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. These directories contain the necessary assets for this tutorial.  
+The solution contains two folders and a 'docker-compose.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. These directories contain the necessary assets for this tutorial.  
 
 ## Create container images
 
@@ -77,7 +77,6 @@ Notice that two images have been downloaded or created. The *azure-vote-front* i
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
-
 ```
 
 ## Deploy Azure Container Registry
@@ -168,7 +167,6 @@ REPOSITORY                             TAG                 IMAGE ID            C
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
 <acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
-
 ```
 
 ## Push images to registry

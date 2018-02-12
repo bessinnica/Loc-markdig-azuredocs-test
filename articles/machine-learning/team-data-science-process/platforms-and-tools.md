@@ -110,15 +110,15 @@ The TDSP team from Microsoft has published two end-to-end walkthroughs that show
 
 If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
 
-	iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-	choco install git-credential-manager-for-windows -y
-	
+    iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+    choco install git-credential-manager-for-windows -y
+    
 
 ### Install Git on Linux (CentOS) machines
 
 Run the following bash command to install Git on Linux (CentOS) machines:
 
-	sudo yum install git
+    sudo yum install git
 
 
 ### Generate public SSH key on Linux (CentOS) machines
@@ -127,20 +127,20 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 - To generate the SSH key, run the following two commands: 
 
-		ssh-keygen
-		cat .ssh/id_rsa.pub
+        ssh-keygen
+        cat .ssh/id_rsa.pub
 
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copy the entire ssh key including *ssh-rsa*. 
 - Log in to your VSTS server. 
 - Click **<Your Name\>** at the top right corner of the page and click **security**. 
-	
-	![](./media/platforms-and-tools/resources-2-user-setting.png)
+    
+    ![](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Click **SSH public keys**, and click **+Add**. 
 
-	![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Paste the ssh key just copied into the text box and save.
 

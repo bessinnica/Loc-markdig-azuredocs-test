@@ -32,10 +32,10 @@ The new [QnAMakerDialog](https://github.com/Microsoft/BotBuilder-CognitiveServic
 The [Train API](https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58edd31c3d9e041ffcef000f) is used to register feedback from users.
 
 It accepts the following inputs:
-* **userId**:	A unique identifier to distinguish feedback from different users.
-* **userQuestion**:	Question asked by user (user utterance).
-* **kbQuestion**:	Question field from the correct question-answer pair for userQuestion. This field should exactly match the question present in the knowledge base.
-* **kbAnswer**:	Answer field from the correct question-answer pair for userQuestion. This field should exactly match the answer present in the knowledge base.
+* **userId**:   A unique identifier to distinguish feedback from different users.
+* **userQuestion**: Question asked by user (user utterance).
+* **kbQuestion**:   Question field from the correct question-answer pair for userQuestion. This field should exactly match the question present in the knowledge base.
+* **kbAnswer**: Answer field from the correct question-answer pair for userQuestion. This field should exactly match the answer present in the knowledge base.
 
 ## How it works ##
 ### Learning new alterations ###

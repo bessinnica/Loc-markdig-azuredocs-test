@@ -21,11 +21,11 @@ ms.author: genli
 # Troubleshoot storage delete errors in Resource Manager deployment
 This article provides troubleshooting guidance when one of the following errors occur when trying to delete Azure storage account, container, or blob in Azure Resource Manager deployment.
 
->**Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
-
->**Failed to delete # out of # container(s):<br>vhds: There is currently a lease on the container and no lease ID was specified in the request.**
-
->**Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request.**
+> **Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
+> 
+> **Failed to delete # out of # container(s):<br>vhds: There is currently a lease on the container and no lease ID was specified in the request.**
+> 
+> **Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request.**
 
 The Virtual Hard Disks used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure.  More information about Azure disks can be found [here](../../virtual-machines/windows/about-disks-and-vhds.md). Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts which have a page blob that is attached to a VM. 
 

@@ -63,7 +63,7 @@ Open the file called IKEErrors.txt and it displays the following error, indicati
 
 ```
 Error: On-premises device rejected Quick Mode settings. Check values.
-	 based on log : Peer sent NO_PROPOSAL_CHOSEN notify
+     based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
 You can get detailed information from the Scrubbed-wfpdiag.txt about the error, as in this case it mentions that there was `ERROR_IPSEC_IKE_POLICY_MATCH` that lead to connection not working properly.

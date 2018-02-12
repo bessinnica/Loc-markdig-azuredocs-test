@@ -28,7 +28,7 @@ For more information about security recommendations, see [Managing security reco
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	On the Advisor dashboard, click the **Security** tab.
+2.  On the Advisor dashboard, click the **Security** tab.
 
 ## Next steps
 

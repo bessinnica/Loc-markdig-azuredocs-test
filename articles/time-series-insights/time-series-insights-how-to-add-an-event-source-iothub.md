@@ -46,34 +46,38 @@ This article describes how to use the Azure portal to add an event source that r
 
    ![Subscription and Event hub details](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-   | Property | Description |
-   | --- | --- |
-   | Subscription ID | Select the subscription in which this IoT Hub was created.
-   | IoT Hub name | Select the name of the IoT Hub.
-   | IoT Hub policy name | Select the shared access policy, which can be found on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
-   | IoT Hub policy key | The key is prepopulated.
-   | IoT Hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
-   | Event serialization format | JSON is the only available serialization at present. The event messages must be in this format, or no data can be read. |
-   | Timestamp property name | To determine this value, you need to understand the message format of the message data sent into IoT Hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the **event enqueue time** within the event source is used as the event timestamp. |
+
+   |          Property          |                                                                                                                                                                                           Description                                                                                                                                                                                           |
+   |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      Subscription ID       |                                                                                                                                                                   Select the subscription in which this IoT Hub was created.                                                                                                                                                                    |
+   |        IoT Hub name        |                                                                                                                                                                                 Select the name of the IoT Hub.                                                                                                                                                                                 |
+   |    IoT Hub policy name     |                                                        Select the shared access policy, which can be found on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source <em>must</em> have <strong>service connect</strong> permissions.                                                        |
+   |     IoT Hub policy key     |                                                                                                                                                                                    The key is prepopulated.                                                                                                                                                                                     |
+   |   IoT Hub consumer group   |                                                                                                                              The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.                                                                                                                              |
+   | Event serialization format |                                                                                                                                     JSON is the only available serialization at present. The event messages must be in this format, or no data can be read.                                                                                                                                     |
+   |  Timestamp property name   | To determine this value, you need to understand the message format of the message data sent into IoT Hub. This value is the <strong>name</strong> of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the <strong>event enqueue time</strong> within the event source is used as the event timestamp. |
+
 
 9. If you have selected the **Provide IoT Hub settings manually** option, the following table explains each required property:
 
-   | Property | Description |
-   | --- | --- |
-   | Subscription ID | The subscription in which this IoT Hub was created.
-   | Resource group | The resource group name in which this IoT Hub was created.
-   | IoT Hub name | The name of your IoT Hub. When you created your IoT Hub, you also gave it a specific name.
-   | IoT Hub policy name | The shared access policy, which can be created on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
-   | IoT Hub policy key | The shared access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.
-   | IoT Hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
-   | Event serialization format | JSON is the only available serialization at present. The event messages must be in this format, or no data can be read. |
-   | Timestamp property name | To determine this value, you need to understand the message format of the message data sent into IoT Hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the **event enqueue time** within the event source is used as the event timestamp. |
+
+   |          Property          |                                                                                                                                                                                           Description                                                                                                                                                                                           |
+   |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      Subscription ID       |                                                                                                                                                                       The subscription in which this IoT Hub was created.                                                                                                                                                                       |
+   |       Resource group       |                                                                                                                                                                   The resource group name in which this IoT Hub was created.                                                                                                                                                                    |
+   |        IoT Hub name        |                                                                                                                                                   The name of your IoT Hub. When you created your IoT Hub, you also gave it a specific name.                                                                                                                                                    |
+   |    IoT Hub policy name     |                                                          The shared access policy, which can be created on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source <em>must</em> have <strong>service connect</strong> permissions.                                                           |
+   |     IoT Hub policy key     |                                                                                                                                     The shared access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.                                                                                                                                     |
+   |   IoT Hub consumer group   |                                                                                                                              The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.                                                                                                                              |
+   | Event serialization format |                                                                                                                                     JSON is the only available serialization at present. The event messages must be in this format, or no data can be read.                                                                                                                                     |
+   |  Timestamp property name   | To determine this value, you need to understand the message format of the message data sent into IoT Hub. This value is the <strong>name</strong> of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the <strong>event enqueue time</strong> within the event source is used as the event timestamp. |
+
 
 10. Select **Create** to add the new event source.
 
-   ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+    ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
-   After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
+    After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
 
 ### Add a consumer group to your IoT Hub
 Consumer groups are used by applications to pull data from Azure IoT Hubs. Provide a dedicated consumer group, for use by this Time Series Insights environment only, to reliably read data from your IoT Hub.

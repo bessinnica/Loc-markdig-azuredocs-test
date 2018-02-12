@@ -22,6 +22,7 @@ ms.author: cynthn
 The following SPECInt benchmark scores show compute performance for Azure's high-performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## A-series - compute-intensive
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 |8 |1 |Intel Xeon CPU E5-2670 0 @ 2.6 GHz |10 |236.1 |1.1 |
@@ -30,6 +31,7 @@ The following SPECInt benchmark scores show compute performance for Azure's high
 | Standard_A11 |16 |2 |Intel Xeon CPU E5-2670 0 @ 2.6 GHz |7 |454.7 |4.8 |
 
 ## Dv2-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 |1 |1 |Intel Xeon E5-2673 v3 @ 2.4 GHz |83 |36.6 |2.6 |
@@ -43,6 +45,7 @@ The following SPECInt benchmark scores show compute performance for Azure's high
 | Standard_D14_v2 |16 |2 |Intel Xeon E5-2673 v3 @ 2.4 GHz |15 |460.8 |6.5 |
 
 ## G-series, GS-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1, Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |31 |71.8 |6.5 |
@@ -52,6 +55,7 @@ The following SPECInt benchmark scores show compute performance for Azure's high
 | Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |22 |762.8 |3.7 |
 
 ## H-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate  | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3.2 GHz |5 |297.4 |0.9 |

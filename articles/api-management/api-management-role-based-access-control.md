@@ -36,7 +36,9 @@ The following table provides brief descriptions of the built-in roles. You can a
 
 <sup>[1] Read access to API Management services and entities (for example, APIs and policies).</sup>
 
+
 <sup>[2] Write access to API Management services and entities except the following operations: instance creation, deletion, and scaling; VPN configuration; and custom domain setup.</sup>
+
 
 <sup>\* The Service Editor role will be available after we migrate all the admin UI from the existing publisher portal to the Azure portal. The Content Manager role will be available after the publisher portal is refactored to only contain functionality related to managing the developer portal.</sup>  
 

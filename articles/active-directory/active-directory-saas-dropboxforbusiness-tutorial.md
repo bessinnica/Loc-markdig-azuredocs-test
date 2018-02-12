@@ -58,19 +58,19 @@ To configure the integration of Dropbox for Business into Azure AD, you need to 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Dropbox for Business**, select **Dropbox for Business** from result panel then click **Add** button to add the application.
 
-	![Dropbox for Business in the results list](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
+    ![Dropbox for Business in the results list](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,58 +96,58 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Dropbox for Business** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
 3. On the **Dropbox for Business Domain and URLs** section, perform the following steps:
 
-	![Dropbox for Business Domain and URLs single sign-on information](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
+    ![Dropbox for Business Domain and URLs single sign-on information](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.dropbox.com/sso/<id>`
 
-	b. In the **Identifier** textbox, type a value: `Dropbox`
+    b. In the **Identifier** textbox, type a value: `Dropbox`
 
-	> [!NOTE] 
-	> The preceding Sign-on URL value is not real value. You will update the value with the actual Sign-on URL, which is explained later in the tutorial. Contact [Dropbox for Business Client support team](https://www.dropbox.com/business/contact) to get the value. 
+    > [!NOTE] 
+    > The preceding Sign-on URL value is not real value. You will update the value with the actual Sign-on URL, which is explained later in the tutorial. Contact [Dropbox for Business Client support team](https://www.dropbox.com/business/contact) to get the value. 
  
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_400.png)
 
 6. On the **Dropbox for Business Configuration** section, click **Configure Dropbox for Business** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Dropbox for Business Configuration](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
+    ![Dropbox for Business Configuration](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
 
 7. To configure single sign-on on **Dropbox for Business** side, Go on your Dropbox for Business tenant.
 
-	a. Sign on to your Dropbox for business tenant. 
+    a. Sign on to your Dropbox for business tenant. 
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
    
-	b. In the navigation pane on the left side, click **Admin Console**. 
+    b. In the navigation pane on the left side, click **Admin Console**. 
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769510.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769510.png "Configure single sign-on")
    
-	c. On the **Admin Console**, click **Authentication** in the left navigation pane. 
+    c. On the **Admin Console**, click **Authentication** in the left navigation pane. 
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769511.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769511.png "Configure single sign-on")
    
-	d. In the **Single sign-on** section, select **Enable single sign-on**, and then click **More** to expand this section.  
+    d. In the **Single sign-on** section, select **Enable single sign-on**, and then click **More** to expand this section.  
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769512.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769512.png "Configure single sign-on")
    
-	e. Copy the URL next to **Users can sign in by entering their email address or they can go directly to** and paste it into the **Sign-on URL** textbox of **Dropbox for Business Domain and URLs** section on Azure portal. 
-	
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769513.png)
-	
+    e. Copy the URL next to **Users can sign in by entering their email address or they can go directly to** and paste it into the **Sign-on URL** textbox of **Dropbox for Business Domain and URLs** section on Azure portal. 
+    
+    ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769513.png)
+    
 8. In the **Single sign-on** section of the **Authentication** page, perform the following steps: 
    
     ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configure single sign-on")
@@ -215,26 +215,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Dropbox for Business**.
 
-	![The Dropbox for Business link in the Applications list](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png)  
+    ![The Dropbox for Business link in the Applications list](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

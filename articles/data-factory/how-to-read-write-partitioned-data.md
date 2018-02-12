@@ -109,65 +109,65 @@ Pipeline definition:
 
 ```json
 {
-	"properties": {
-		"activities": [{
-			"type": "HDInsightHive",
-			"typeProperties": {
-				"scriptPath": {
-					"value": "@concat(pipeline().parameters.blobContainer, '/scripts/', pipeline().parameters.partitionHiveScriptFile)",
-					"type": "Expression"
-				},
-				"scriptLinkedService": {
-					"referenceName": "churnStorageLinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"defines": {
-					"RAWINPUT": {
-						"value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/', pipeline().parameters.inputRawLogsFolder, '/')",
-						"type": "Expression"
-					},
-					"PARTITIONEDOUTPUT": {
-						"value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/partitionedgameevents/')",
-						"type": "Expression"
-					},
-					"Year": {
-						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
-						"type": "Expression"
-					},
-					"Month": {
-						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
-						"type": "Expression"
-					},
-					"Day": {
-						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
-						"type": "Expression"
-					}
-				}
-			},
-			"linkedServiceName": {
-				"referenceName": "HdiLinkedService",
-				"type": "LinkedServiceReference"
-			},
-			"name": "HivePartitionGameLogs"
-		}],
-		"parameters": {
-			"scheduledRunTime": {
-				"type": "String"
-			},
-			"blobStorageAccount": {
-				"type": "String"
-			},
-			"blobContainer": {
-				"type": "String"
-			},
-			"inputRawLogsFolder": {
-				"type": "String"
-			},
-			"partitionHiveScriptFile": {
-				"type": "String"
-			}
-		}
-	}
+    "properties": {
+        "activities": [{
+            "type": "HDInsightHive",
+            "typeProperties": {
+                "scriptPath": {
+                    "value": "@concat(pipeline().parameters.blobContainer, '/scripts/', pipeline().parameters.partitionHiveScriptFile)",
+                    "type": "Expression"
+                },
+                "scriptLinkedService": {
+                    "referenceName": "churnStorageLinkedService",
+                    "type": "LinkedServiceReference"
+                },
+                "defines": {
+                    "RAWINPUT": {
+                        "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/', pipeline().parameters.inputRawLogsFolder, '/')",
+                        "type": "Expression"
+                    },
+                    "PARTITIONEDOUTPUT": {
+                        "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/partitionedgameevents/')",
+                        "type": "Expression"
+                    },
+                    "Year": {
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
+                        "type": "Expression"
+                    },
+                    "Month": {
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
+                        "type": "Expression"
+                    },
+                    "Day": {
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
+                        "type": "Expression"
+                    }
+                }
+            },
+            "linkedServiceName": {
+                "referenceName": "HdiLinkedService",
+                "type": "LinkedServiceReference"
+            },
+            "name": "HivePartitionGameLogs"
+        }],
+        "parameters": {
+            "scheduledRunTime": {
+                "type": "String"
+            },
+            "blobStorageAccount": {
+                "type": "String"
+            },
+            "blobContainer": {
+                "type": "String"
+            },
+            "inputRawLogsFolder": {
+                "type": "String"
+            },
+            "partitionHiveScriptFile": {
+                "type": "String"
+            }
+        }
+    }
 }
 ```
 

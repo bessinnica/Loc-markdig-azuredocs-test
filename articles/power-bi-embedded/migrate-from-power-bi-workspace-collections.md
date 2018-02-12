@@ -35,14 +35,14 @@ There are a few things you need to do to prepare for migrating from Power BI Wor
 
     Which tenant to use?
 
-    * Use your existing corporate Power BI tenant?
-    * Use a separate tenant for your application?
-    * Use a separate tenant for each customer?
+   * Use your existing corporate Power BI tenant?
+   * Use a separate tenant for your application?
+   * Use a separate tenant for each customer?
 
-    If you decide to create a new tenant for your application, or each customer, see one of the following:
+     If you decide to create a new tenant for your application, or each customer, see one of the following:
 
-    * [Create an Azure Active Directory tenant](https://powerbi.microsoft.com/documentation/powerbi-developer-create-an-azure-active-directory-tenant/)
-    * [How to get an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant).
+   * [Create an Azure Active Directory tenant](https://powerbi.microsoft.com/documentation/powerbi-developer-create-an-azure-active-directory-tenant/)
+   * [How to get an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant).
 
 2. Create a user within this new tenant that acts as your application "master" account. That account needs to sign up for Power BI and needs to have a Power BI Pro license assigned to it.
 

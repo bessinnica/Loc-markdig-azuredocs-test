@@ -47,11 +47,11 @@ In your GitHub Desktop, open Sample-WPF\VisionAPI-WPF-Samples.sln.
 2. Locate the Computer Vision API user interface window with the text edit box reading "Paste your subscription key here to start".
 You can choose to persist your subscription key on your PC or laptop by clicking the "Save Key" button. When you want to delete the subscription key from the system, click "Delete Key" to remove it from your PC or laptop.
 
-	![Vision Subscription Key](../Images/Vision_UI_Subscription.PNG)
+    ![Vision Subscription Key](../Images/Vision_UI_Subscription.PNG)
 
 3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
 
-	![Analyze Image Interface](../Images/Analyze_Image_Example.PNG)
+    ![Analyze Image Interface](../Images/Analyze_Image_Example.PNG)
 
 4. There are example images to be used with this example application. You can find these images on the Face API Windows Github repo, in the [Data folder](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data). Please note the use of these images is licensed under agreement [LICENSE-IMAGE](https://github.com/Microsoft/Cognitive-Face-Windows/blob/master/LICENSE-IMAGE.md).
 
@@ -68,82 +68,81 @@ Reviewing how the Vision Client Library gets used in our example app, let's look
 The analyze endpoint is able to work with either an image URL or binary image data (in form of an octet stream) as input. First, you find a using directive, which lets you use the Vision Client Library.
 
 ```
-	            // ----------------------------------------------------------------------
-	            // KEY SAMPLE CODE STARTS HERE
-	            // Use the following namespace for VisionServiceClient 
-	            // ---------------------------------------------------------------------- 
-	            using Microsoft.ProjectOxford.Vision; 
-	            using Microsoft.ProjectOxford.Vision.Contract; 
-	            // ----------------------------------------------------------------------
-	            // KEY SAMPLE CODE ENDS HERE 
-	            // ----------------------------------------------------------------------
-
+                // ----------------------------------------------------------------------
+                // KEY SAMPLE CODE STARTS HERE
+                // Use the following namespace for VisionServiceClient 
+                // ---------------------------------------------------------------------- 
+                using Microsoft.ProjectOxford.Vision; 
+                using Microsoft.ProjectOxford.Vision.Contract; 
+                // ----------------------------------------------------------------------
+                // KEY SAMPLE CODE ENDS HERE 
+                // ----------------------------------------------------------------------
 ```
 **UploadAndAnalyzeImage(…)**
 This code snippet shows how to use the Client Library to submit your subscription key and a locally stored image to the analyze endpoint of the Computer Vision API service.
 
 ```
-	private async Task<AnalysisResult> UploadAndAnalyzeImage(string imageFilePath)
-	{
-	    // -----------------------------------------------------------------------
-	    // KEY SAMPLE CODE STARTS HERE
-	    // -----------------------------------------------------------------------	
-	    //
-	    // Create Project Oxford Computer Vision API Service client
-	    //
-	    VisionServiceClient VisionServiceClient = new VisionServiceClient(SubscriptionKey);
-	    Log("VisionServiceClient is created");
-	
-	    using (Stream imageFileStream = File.OpenRead(imageFilePath))
-	    {
-	        //
-	        // Analyze the image for all visual features
-	        //
-	        Log("Calling VisionServiceClient.AnalyzeImageAsync()...");
+    private async Task<AnalysisResult> UploadAndAnalyzeImage(string imageFilePath)
+    {
+        // -----------------------------------------------------------------------
+        // KEY SAMPLE CODE STARTS HERE
+        // -----------------------------------------------------------------------  
+        //
+        // Create Project Oxford Computer Vision API Service client
+        //
+        VisionServiceClient VisionServiceClient = new VisionServiceClient(SubscriptionKey);
+        Log("VisionServiceClient is created");
+
+        using (Stream imageFileStream = File.OpenRead(imageFilePath))
+        {
+            //
+            // Analyze the image for all visual features
+            //
+            Log("Calling VisionServiceClient.AnalyzeImageAsync()...");
          VisualFeature[] visualFeatures = new VisualFeature[] { VisualFeature.Adult, VisualFeature.Categories, VisualFeature.Color, VisualFeature.Description, VisualFeature.Faces, VisualFeature.ImageType, VisualFeature.Tags };
-	        AnalysisResult analysisResult = await VisionServiceClient.AnalyzeImageAsync(imageFileStream, visualFeatures);
-	        return analysisResult;
-	    }
-	
-	    // -----------------------------------------------------------------------
-	    // KEY SAMPLE CODE ENDS HERE
-	    // -----------------------------------------------------------------------
-    	}
+            AnalysisResult analysisResult = await VisionServiceClient.AnalyzeImageAsync(imageFileStream, visualFeatures);
+            return analysisResult;
+        }
+
+        // -----------------------------------------------------------------------
+        // KEY SAMPLE CODE ENDS HERE
+        // -----------------------------------------------------------------------
+        }
 ```
 **AnalyzeUrl(…)**
 This code snippet shows how to use the Client Library to submit your subscription key and a photo URL to the analyze endpoint of the Computer Vision API service.
 
 ```
-	private async Task<AnalysisResult> AnalyzeUrl(string imageUrl)
-	{
-	    // -----------------------------------------------------------------------
-	    // KEY SAMPLE CODE STARTS HERE
-	    // -----------------------------------------------------------------------
-	
-	    //
-	    // Create Project Oxford Computer Vision API Service client
-	    //
+    private async Task<AnalysisResult> AnalyzeUrl(string imageUrl)
+    {
+        // -----------------------------------------------------------------------
+        // KEY SAMPLE CODE STARTS HERE
+        // -----------------------------------------------------------------------
+
+        //
+        // Create Project Oxford Computer Vision API Service client
+        //
      VisionServiceClient VisionServiceClient = new VisionServiceClient(SubscriptionKey);
-	    Log("VisionServiceClient is created");
-	
-	    //
-	    // Analyze the url for all visual features
-	    //
-	    Log("Calling VisionServiceClient.AnalyzeImageAsync()...");
-	    VisualFeature[] visualFeatures = new VisualFeature[] { VisualFeature.Adult, VisualFeature.Categories, VisualFeature.Color, VisualFeature.Description, VisualFeature.Faces, VisualFeature.ImageType, VisualFeature.Tags };
-	    AnalysisResult analysisResult = await VisionServiceClient.AnalyzeImageAsync(imageUrl, visualFeatures);
+        Log("VisionServiceClient is created");
+
+        //
+        // Analyze the url for all visual features
+        //
+        Log("Calling VisionServiceClient.AnalyzeImageAsync()...");
+        VisualFeature[] visualFeatures = new VisualFeature[] { VisualFeature.Adult, VisualFeature.Categories, VisualFeature.Color, VisualFeature.Description, VisualFeature.Faces, VisualFeature.ImageType, VisualFeature.Tags };
+        AnalysisResult analysisResult = await VisionServiceClient.AnalyzeImageAsync(imageUrl, visualFeatures);
      return analysisResult;
-	}
-	    // -----------------------------------------------------------------------
-	    // KEY SAMPLE CODE ENDS HERE
-	    // -----------------------------------------------------------------------
+    }
+        // -----------------------------------------------------------------------
+        // KEY SAMPLE CODE ENDS HERE
+        // -----------------------------------------------------------------------
 ```
 **Other pages and endpoints**
 How to interact with the other endpoints exposed by the Computer Vision API service can be seen by looking at the other pages in the sample; for instance, the OCR endpoint is shown as part of the code contained in OCRPage.xaml.cs 
 
 ### <a name="Related">Related Topics</a>
  * [Get started with Face API](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
- 
- 
+
+
 
 

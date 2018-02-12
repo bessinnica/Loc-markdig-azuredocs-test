@@ -3,11 +3,11 @@
 
 This step shows how to create a new controller to expose sign-in and sign-out methods.
 
-1.	Right click the `Controllers` folder and select `Add` > `Controller`
-2.	Select `MVC (.NET version) Controller – Empty`.
-3.	Click *Add*
-4.	Name it `HomeController` and click *Add*
-5.	Add *OWIN* references to the class:
+1.  Right click the `Controllers` folder and select `Add` > `Controller`
+2.  Select `MVC (.NET version) Controller – Empty`.
+3.  Click *Add*
+4.  Name it `HomeController` and click *Add*
+5.  Add *OWIN* references to the class:
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -51,9 +51,9 @@ public void SignOut()
 
 In Visual Studio, create a new view to add the sign-in button and display user information after authentication:
 
-1.	Right click the `Views\Home` folder and select `Add View`
-2.	Name it `Index`.
-3.	Add the following HTML, which includes the sign-in button, to the file:
+1.  Right click the `Views\Home` folder and select `Add View`
+2.  Name it `Index`.
+3.  Add the following HTML, which includes the sign-in button, to the file:
 
 ```html
 <html>
@@ -95,16 +95,16 @@ else
 <!--start-collapse-->
 ### More Information
 > This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
-<!--end-collapse-->
+> <!--end-collapse-->
 
 ## Add a controller to display user's claims
 This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
 
-1.	Right click the `Controllers` folder: `Add` > `Controller`
-2.	Select `MVC {version} Controller – Empty`.
-3.	Click *Add*
-4.	Name it `ClaimsController`
-5.	Replace the code of your controller class with the code below - this adds the `[Authorize]` attribute to the class:
+1.  Right click the `Controllers` folder: `Add` > `Controller`
+2.  Select `MVC {version} Controller – Empty`.
+3.  Click *Add*
+4.  Name it `ClaimsController`
+5.  Replace the code of your controller class with the code below - this adds the `[Authorize]` attribute to the class:
 
 ```csharp
 [Authorize]
@@ -137,15 +137,15 @@ public class ClaimsController : Controller
 <!--start-collapse-->
 ### More Information
 > Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the `ClaimsPrincipal.Current` instance for specific user attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
-<!--end-collapse-->
+> <!--end-collapse-->
 
 ## Create a view to display the user's claims
 
 In Visual Studio, create a new view to display the user's claims in a web page:
 
-1.	Right click the `Views\Claims` folder and: `Add View`
-2.	Name it `Index`.
-3.	Add the following HTML to the file:
+1.  Right click the `Views\Claims` folder and: `Add View`
+2.  Name it `Index`.
+3.  Add the following HTML to the file:
 
 ```html
 <html>

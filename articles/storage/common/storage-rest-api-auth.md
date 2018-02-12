@@ -70,7 +70,7 @@ operation so you understand where some of the fields come from in the request an
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
-**Request URI**: https://myaccount.blob.core.windows.net/?comp=list  This is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
+**Request URI**: https://myaccount.blob.core.windows.net/?comp=list  This is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
 
 [URI parameters](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): There are additional query parameters you can use when calling ListContainers. A couple of these parameters are *timeout* for the call (in seconds) and *prefix*, which is used for filtering.
 
@@ -291,19 +291,19 @@ This code snippet shows the format of the Shared Key signature string:
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 Most of these fields are rarely used. For Blob storage, you specify VERB, md5, content length, Canonicalized Headers, and Canonicalized Resource. You can leave the others blank (but put in the `\n` so it knows they are blank).
@@ -452,7 +452,6 @@ In ListContainersAsyncREST, change the code that sets the URI to the API for Lis
 String uri = 
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
-
 ```
 
 Then where you handle the response, change the code to look for blobs instead of containers.

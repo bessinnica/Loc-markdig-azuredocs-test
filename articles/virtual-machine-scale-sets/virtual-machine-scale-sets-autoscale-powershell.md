@@ -1,4 +1,4 @@
-﻿---
+---
 title: Autoscale virtual machine scale sets with Azure PowerShell | Microsoft Docs
 description: How to create autoscale rules for virtual machine scale sets with Azure PowerShell
 services: virtual-machine-scale-sets

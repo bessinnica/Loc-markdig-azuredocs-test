@@ -19,3 +19,4 @@ ms.author: danlep
 # HPC, Batch, and Big Compute solutions using Azure VMs
 
 [!INCLUDE [virtual-machines-common-high-performance-computing](../../../includes/virtual-machines-common-high-performance-computing.md)]
+

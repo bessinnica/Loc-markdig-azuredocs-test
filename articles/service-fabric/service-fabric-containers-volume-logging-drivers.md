@@ -48,34 +48,34 @@ The plug-ins are specified in the application manifest as follows:
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv"> 
-        <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-        <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
-        <LogConfig Driver="etwlogs" >
-          <DriverOption Name="test" Value="vale"/>
-        </LogConfig>
-        <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+        <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+        <LogConfig Driver="etwlogs" >
+          <DriverOption Name="test" Value="vale"/>
+        </LogConfig>
+        <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 

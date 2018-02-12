@@ -80,12 +80,12 @@ Let us take a closer look on how a pipeline is defined in JSON format. The gener
         ],
         "start": "<start date-time>",
         "end": "<end date-time>",
-		"isPaused": true/false,
-		"pipelineMode": "scheduled/onetime",
+        "isPaused": true/false,
+        "pipelineMode": "scheduled/onetime",
         "expirationTime": "15.00:00:00",
         "datasets": 
-		[
-		]
+        [
+        ]
     }
 }
 ```

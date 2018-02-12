@@ -55,7 +55,7 @@ A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv0
         <tr><td>Name</td>
             <td>Specify a name for the script action, for example, <b>Install R</b>.</td></tr>
         <tr><td>Script URI</td>
-            <td>Specify the URI to the script that is invoked to customize the cluster, for example, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+            <td>Specify the URI to the script that is invoked to customize the cluster, for example, <i><a href="https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1" data-raw-source="https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1">https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</a></i></td></tr>
         <tr><td>Node Type</td>
             <td>Specify the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.
         <tr><td>Parameters</td>

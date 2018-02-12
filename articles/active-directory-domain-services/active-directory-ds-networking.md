@@ -132,6 +132,7 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 
 <br>
 
+
 ## Related Content
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)

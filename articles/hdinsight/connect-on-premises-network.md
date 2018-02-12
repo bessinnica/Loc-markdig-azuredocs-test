@@ -78,29 +78,29 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 
 2. From the __Basics__ section, enter the following information:
 
-    * __Name__: A friendly name that identifies this virtual machine. For example, __DNSProxy__.
-    * __User name__: The name of the SSH account.
-    * __SSH public key__ or __Password__: The authentication method for the SSH account. We recommend using public keys, as they are more secure. For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.
-    * __Resource group__: Select __Use existing__, and then select the resource group that contains the virtual network created earlier.
-    * __Location__: Select the same location as the virtual network.
+   * __Name__: A friendly name that identifies this virtual machine. For example, __DNSProxy__.
+   * __User name__: The name of the SSH account.
+   * __SSH public key__ or __Password__: The authentication method for the SSH account. We recommend using public keys, as they are more secure. For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.
+   * __Resource group__: Select __Use existing__, and then select the resource group that contains the virtual network created earlier.
+   * __Location__: Select the same location as the virtual network.
 
-    ![Virtual machine basic configuration](./media/connect-on-premises-network/vm-basics.png)
+     ![Virtual machine basic configuration](./media/connect-on-premises-network/vm-basics.png)
 
-    Leave other entries at the default values and then select __OK__.
+     Leave other entries at the default values and then select __OK__.
 
 3. From the __Choose a size__ section, select the VM size. For this tutorial, select the smallest and lowest cost option. To continue, use the __Select__ button.
 
 4. From the __Settings__ section, enter the following information:
 
-    * __Virtual network__: Select the virtual network that you created earlier.
+   * __Virtual network__: Select the virtual network that you created earlier.
 
-    * __Subnet__: Select the default subnet for the virtual network. Do __not__ select the subnet used by the VPN gateway.
+   * __Subnet__: Select the default subnet for the virtual network. Do __not__ select the subnet used by the VPN gateway.
 
-    * __Diagnostics storage account__: Either select an existing storage account or create a new one.
+   * __Diagnostics storage account__: Either select an existing storage account or create a new one.
 
-    ![Virtual network settings](./media/connect-on-premises-network/virtual-network-settings.png)
+     ![Virtual network settings](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Leave the other entries at the default value, then select __OK__ to continue.
+     Leave the other entries at the default value, then select __OK__ to continue.
 
 5. From the __Purchase__ section, select the __Purchase__ button to create the virtual machine.
 
@@ -119,7 +119,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
     Replace `sshuser` with the SSH user account you specified when creating the cluster.
 
     > [!NOTE]
-	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
+    > There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
@@ -129,35 +129,35 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 2. To install Bind, use the following commands from the SSH session:
 
     ```bash
-	sudo apt-get update -y
-	sudo apt-get install bind9 -y
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
     ```
 
 3. To configure Bind to forward name resolution requests to your on-prem DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
-		acl goodclients {
-			10.0.0.0/16; # Replace with the IP address range of the virtual network
-			10.1.0.0/16; # Replace with the IP address range of the on-premises network
-			localhost;
-			localnets;
-		};
+        acl goodclients {
+            10.0.0.0/16; # Replace with the IP address range of the virtual network
+            10.1.0.0/16; # Replace with the IP address range of the on-premises network
+            localhost;
+            localnets;
+        };
 
-		options {
-				directory "/var/cache/bind";
+        options {
+                directory "/var/cache/bind";
 
-				recursion yes;
+                recursion yes;
 
-				allow-query { goodclients; };
+                allow-query { goodclients; };
 
-				forwarders {
-				192.168.0.1; # Replace with the IP address of the on-premises DNS server
-				};
+                forwarders {
+                192.168.0.1; # Replace with the IP address of the on-premises DNS server
+                };
 
-				dnssec-validation auto;
+                dnssec-validation auto;
 
-				auth-nxdomain no;    # conform to RFC1035
-				listen-on { any; };
-		};
+                auth-nxdomain no;    # conform to RFC1035
+                listen-on { any; };
+        };
 
     > [!IMPORTANT]
     > Replace the values in the `goodclients` section with the IP address range of the virtual network and on-premises network. This section defines the addresses that this DNS server accepts requests from.
@@ -187,10 +187,10 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 5. To configure Bind to resolve DNS names for resources within the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
 
         // Replace the following with the DNS suffix for your virtual network
-		zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-			type forward;
-			forwarders {168.63.129.16;}; # The Azure recursive resolver
-		};
+        zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+            type forward;
+            forwarders {168.63.129.16;}; # The Azure recursive resolver
+        };
 
     > [!IMPORTANT]
     > You must replace the `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` with the DNS suffix you retrieved earlier.
@@ -224,11 +224,11 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
     The response appears similar to the following text:
 
         Server:         10.0.0.4
-		Address:        10.0.0.4#53
+        Address:        10.0.0.4#53
 
-		Non-authoritative answer:
-		Name:   dns.mynetwork.net
-		Address: 192.168.0.4
+        Non-authoritative answer:
+        Name:   dns.mynetwork.net
+        Address: 192.168.0.4
 
 ### Configure the virtual network to use the custom DNS server
 
@@ -251,9 +251,9 @@ A conditional forward only forwards requests for a specific DNS suffix. In this 
 The following text is an example of a conditional forwarder configuration for the **Bind** DNS software:
 
     zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-		type forward;
-		forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
-	};
+        type forward;
+        forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
+    };
 
 For information on using DNS on **Windows Server 2016**, see the [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) documentation...
 
@@ -303,25 +303,25 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 1. To discover the internal fully qualified domain names of the HDInsight cluster nodes, use one of the following methods:
 
-	```powershell
-	$resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    ```powershell
+    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-	$clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+    $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
-	$nodes = @()
-	foreach($nic in $clusterNICs) {
-		$node = new-object System.Object
-		$node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
-		$node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
-		$node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
-		$nodes += $node
-	}
-	$nodes | sort-object Type
-	```
+    $nodes = @()
+    foreach($nic in $clusterNICs) {
+        $node = new-object System.Object
+        $node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
+        $node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
+        $node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
+        $nodes += $node
+    }
+    $nodes | sort-object Type
+    ```
 
-	```azurecli
-	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
-	```
+    ```azurecli
+    az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
+    ```
 
 2. To determine the port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 

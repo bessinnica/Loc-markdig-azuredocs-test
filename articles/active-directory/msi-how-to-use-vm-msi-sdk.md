@@ -18,7 +18,8 @@ ms.author: daveba
 
 # How to use an Azure VM Managed Service Identity (MSI) with Azure SDKs 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+
 This article provides a list of SDK samples, which demonstrate use of their respective Azure SDK's support for MSI.
 
 ## Prerequisites

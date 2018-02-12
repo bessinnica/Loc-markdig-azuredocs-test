@@ -53,10 +53,10 @@ The Data Source Wizard automatically detects the data types of the dataset's col
 
 You can specify one or more sampling strategies for the dataset, and choose one as the active strategy. The default is to load the Top 10000 rows. You can edit this sample by clicking on the **Edit** button in the toolbar or add a new strategy by clicking on +New. The strategies that we currently support are
 
--     Top number of rows
--     Random number of rows
--     Random percentage of rows
--     Full file
+- Top number of rows
+- Random number of rows
+- Random percentage of rows
+- Full file
 
 You can specify as many sampling strategies as you want, but there is only one that can be set to active when preparing your data. You can set any strategy to be the active by selecting the strategy and click Set as Active  in the toolbar.
 

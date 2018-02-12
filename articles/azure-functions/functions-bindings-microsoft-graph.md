@@ -67,6 +67,7 @@ If you're using the Azure portal, you'll see a warning below the prompt to insta
 
 
 <a name="token-input"></a>
+
 ## Auth token
 
 The auth token input binding gets an Azure AD token for a given resource and provides it to your code as a string. The resource can be any for which the application has permissions. 
@@ -165,7 +166,7 @@ The *function.json* file defines an HTTP trigger with a token input binding:
 The JavaScript code uses the token to make an HTTP call to the Microsoft Graph and returns the result.
 
 ```js
-const rp = require('request-promise');
+const rp = require('request-promise');
 
 module.exports = function (context, req) {
     let token = "Bearer " + context.bindings.graphToken;
@@ -176,7 +177,7 @@ module.exports = function (context, req) {
             'Authorization': token
         }
     };
-    
+
     rp(options)
         .then(function(profile) {
             context.res = {
@@ -208,11 +209,12 @@ The following table explains the binding configuration properties that you set i
 |**type**||Required - must be set to `token`.|
 |**direction**||Required - must be set to `in`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
-|**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
+|**userId**|**UserId**  |Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**Resource**|**resource**|Required - An Azure AD resource URL for which the token is being requested.|
 
 <a name="token-input-code"></a>
+
 ### Auth token - usage
 
 The binding itself does not require any Azure AD permissions, but depending on how the token is used, you may need to request additional permissions. Check the requirements of the resource you intend to access with the token.
@@ -223,6 +225,7 @@ The token is always presented to code as a string.
 
 
 <a name="excel-input"></a>
+
 ## Excel input
 
 The Excel table input binding reads the contents of an Excel table stored in OneDrive.
@@ -341,16 +344,18 @@ The following table explains the binding configuration properties that you set i
 |**type**||Required - must be set to `excel`.|
 |**direction**||Required - must be set to `in`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
-|**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
+|**userId**|**UserId**  |Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|**Path**|Required - the path in OneDrive to the Excel workbook.|
 |**worksheetName**|**WorksheetName**|The worksheet in which the table is found.|
 |**tableName**|**TableName**|The name of the table. If not specified, the contents of the worksheet will be used.|
 
 <a name="excel-input-code"></a>
+
 ### Excel input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|
@@ -370,6 +375,7 @@ The binding exposes the following types to .NET functions:
 
 
 <a name="excel-output"></a>
+
 ## Excel output
 
 The Excel output binding modifies the contents of an Excel table stored in OneDrive.
@@ -501,7 +507,7 @@ The following table explains the binding configuration properties that you set i
 |**type**||Required - must be set to `excel`.|
 |**direction**||Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
-|**UserId**	|**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
+|**UserId** |**userId** |Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|**Path**|Required - the path in OneDrive to the Excel workbook.|
 |**worksheetName**|**WorksheetName**|The worksheet in which the table is found.|
@@ -509,9 +515,11 @@ The following table explains the binding configuration properties that you set i
 |**updateType**|**UpdateType**|Required - The type of change to make to the table. Can be one of the following values:<ul><li><code>update</code> - Replaces the contents of the table in OneDrive.</li><li><code>append</code> - Adds the payload to the end of the table in OneDrive by creating new rows.</li></ul>|
 
 <a name="excel-output-code"></a>
+
 ### Excel output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -527,6 +535,7 @@ The binding exposes the following types to .NET functions:
 
 
 <a name="onedrive-input"></a>
+
 ## File input
 
 The OneDrive File input binding reads the contents of a file stored in OneDrive.
@@ -645,14 +654,16 @@ The following table explains the binding configuration properties that you set i
 |**type**||Required - must be set to `onedrive`.|
 |**direction**||Required - must be set to `in`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
-|**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
+|**userId**|**UserId**  |Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|**Path**|Required - the path in OneDrive to the file.|
 
 <a name="onedrive-input-code"></a>
+
 ### File input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|
@@ -669,6 +680,7 @@ The binding exposes the following types to .NET functions:
 
 
 <a name="onedrive-output"></a>
+
 ## File output
 
 The OneDrive file output binding modifies the contents of a file stored in OneDrive.
@@ -790,14 +802,16 @@ The following table explains the binding configuration properties that you set i
 |**type**||Required - must be set to `onedrive`.|
 |**direction**||Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
-|**UserId**	|**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
+|**UserId** |**userId** |Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|**Path**|Required - the path in OneDrive to the file.|
 
 <a name="onedrive-output-code"></a>
+
 #### File output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -813,6 +827,7 @@ The binding exposes the following types to .NET functions:
 
 
 <a name="outlook-output"></a>
+
 ## Outlook output
 
 The Outlook message output binding sends a mail message through Outlook.
@@ -939,13 +954,15 @@ The following table explains the binding configuration properties that you set i
 |**type**||Required - must be set to `outlook`.|
 |**direction**||Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
-|**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
+|**userId**|**UserId**  |Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 
 <a name="outlook-output-code"></a>
+
 ### Outlook output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Send mail as user|
@@ -1094,6 +1111,7 @@ The binding exposes the following types to .NET functions:
 
 
 <a name="webhook-input"></a>
+
 ## Webhook input
 
 The Microsoft Graph webhook input binding allows you to retrieve the list of subscriptions managed by this function app. The binding reads from function app storage, so it does not reflect other subscriptions created from outside the app.
@@ -1306,8 +1324,8 @@ using System.Net;
 public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
 {
   log.Info("C# HTTP trigger function processed a request.");
-	clientState = Guid.NewGuid().ToString();
-	return new HttpResponseMessage(HttpStatusCode.OK);
+    clientState = Guid.NewGuid().ToString();
+    return new HttpResponseMessage(HttpStatusCode.OK);
 }
 ```
 
@@ -1349,7 +1367,7 @@ The *function.json* file defines an HTTP trigger with a subscription output bind
 The JavaScript code registers a webhook that will notify this function app when the calling user receives an Outlook message:
 
 ```js
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 module.exports = function (context, req) {
     context.bindings.clientState = uuidv4();
@@ -1371,7 +1389,7 @@ The following table explains the binding configuration properties that you set i
 |**type**||Required - must be set to `graphWebhookSubscription`.|
 |**direction**||Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
-|**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
+|**userId**|**UserId**  |Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**action**|**Action**|Required - specifies the action the binding should perform. Can be one of the following values:<ul><li><code>create</code> - Registers a new subscription.</li><li><code>delete</code> - Deletes a specified subscription.</li><li><code>refresh</code> - Refreshes a specified subscription to keep it from expiring.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|Needed if and only if the _action_ is set to `create`. Specifies the Microsoft Graph resource that will be monitored for changes. See [Working with webhooks in Microsoft Graph]. |
@@ -1387,6 +1405,7 @@ The binding exposes the following types to .NET functions:
 
 
 <a name="webhook-examples"></a>
+
 ## Webhook subscription refresh
 
 There are two approaches to refreshing subscriptions:
@@ -1539,8 +1558,8 @@ using System;
 public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, TraceWriter log)
 {
   log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-	foreach (var subscription in existingSubscriptions)
-	{
+    foreach (var subscription in existingSubscriptions)
+    {
         // binding in code to allow dynamic identity
         using (var subscriptionsToRefresh = await binder.BindAsync<IAsyncCollector<string>>(
             new GraphWebhookSubscriptionAttribute() {
@@ -1550,7 +1569,7 @@ public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubsc
             }
         ))
         {
-    		log.Info($"Refreshing subscription {subscription}");
+            log.Info($"Refreshing subscription {subscription}");
             await subscriptionsToRefresh.AddAsync(subscription);
         }
 

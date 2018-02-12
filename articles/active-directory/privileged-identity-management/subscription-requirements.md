@@ -1,4 +1,4 @@
-﻿---
+---
 title: Privileged Identity Management subscriptions - Azure| Microsoft Docs
 description: Explains the subscription and licensing requirements for managing and using Azure AD Privileged Identity Management in your tenant
 services: active-directory
@@ -22,13 +22,13 @@ ms.custom: pim
 
 Azure AD Privileged Identity Management is available as part of the Premium P2 edition of Azure AD. For more information on the other features of P2 and how it compares to Premium P1, see [Azure Active Directory editions](../active-directory-editions.md).
 
->[!NOTE]
-When Azure Active Directory (Azure AD) Privileged Identity Management was in preview, there were no license checks for a tenant to try the service.  Now that Azure AD Privileged Identity Management has reached general availability, a trial or paid subscription must be present for the tenant to continue using Privileged Identity Management after December 2016.
-  
+> [!NOTE]
+> When Azure Active Directory (Azure AD) Privileged Identity Management was in preview, there were no license checks for a tenant to try the service.  Now that Azure AD Privileged Identity Management has reached general availability, a trial or paid subscription must be present for the tenant to continue using Privileged Identity Management after December 2016.
+  
 
 ## Confirm your trial or paid subscription
 
-If you're not sure whether your organization has a trial or purchased subscription, then you can check whether there is a subscription in your tenant by using the commands included in Azure Active Directory Module for Windows PowerShell V1. 
+If you're not sure whether your organization has a trial or purchased subscription, then you can check whether there is a subscription in your tenant by using the commands included in Azure Active Directory Module for Windows PowerShell V1. 
 1. Open a PowerShell window.
 2. Enter `Connect-MsolService` to authenticate as a user in your tenant.
 3. Enter `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.

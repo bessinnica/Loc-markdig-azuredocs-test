@@ -83,10 +83,10 @@ $requestBody = @"
     'storageId': '${storageId}',
     'enabled': 'true',
     'retentionPolicy' : {
-			days: 5,
-			enabled: true
-		}
-	}
+            days: 5,
+            enabled: true
+        }
+    }
 }
 "@
 
@@ -126,10 +126,10 @@ $requestBody = @"
     'storageId': '${storageId}',
     'enabled': 'false',
     'retentionPolicy' : {
-			days: 5,
-			enabled: true
-		}
-	}
+            days: 5,
+            enabled: true
+        }
+    }
 }
 "@
 

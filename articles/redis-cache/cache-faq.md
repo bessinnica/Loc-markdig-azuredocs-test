@@ -95,6 +95,7 @@ If you don't already have an Azure account, you can:
 
 <a name="cache-size"></a>
 
+
 ### What Redis Cache offering and size should I use?
 Each Azure Redis Cache offering provides different levels of **size**, **bandwidth**, **high availability**, and **SLA** options.
 
@@ -114,6 +115,7 @@ The following are considerations for choosing a Cache offering.
 * **Performance improvements**: Caches in the Premium tier are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
 
 <a name="cache-performance"></a>
+
 
 ### Azure Redis Cache performance
 The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Redis Cache endpoint.
@@ -149,10 +151,12 @@ For instructions on setting up stunnel or downloading the Redis tools such as `r
 
 <a name="cache-region"></a>
 
+
 ### In what region should I locate my cache?
 For best performance and lowest latency, locate your Azure Redis Cache in the same region as your cache client application.
 
 <a name="cache-billing"></a>
+
 
 ### How am I billed for Azure Redis Cache?
 Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
@@ -177,6 +181,7 @@ For information on using Azure Redis Cache with PowerShell in Azure Government C
 
 <a name="cache-configuration"></a>
 
+
 ### What do the StackExchange.Redis configuration options do?
 StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
@@ -198,12 +203,12 @@ Usually the default values of the client are sufficient. You can fine-tune the o
   * Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
   * Use multiple `ConnectionMultiplexer` instances for custom workloads.
-	  * You can follow this model if you have varying load in your application. For example:
-	  * You can have one multiplexer for dealing with large keys.
-	  * You can have one multiplexer for dealing with small keys.
-	  * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
-	  * Set the `ClientName` property on each multiplexer to help with diagnostics.
-	  * This guidance may lead to more streamlined latency per `ConnectionMultiplexer`.
+      * You can follow this model if you have varying load in your application. For example:
+      * You can have one multiplexer for dealing with large keys.
+      * You can have one multiplexer for dealing with small keys.
+      * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+      * Set the `ClientName` property on each multiplexer to help with diagnostics.
+      * This guidance may lead to more streamlined latency per `ConnectionMultiplexer`.
 
 ### What Redis cache clients can I use?
 One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](http://redis.io/clients). For tutorials that cover several different languages and clients, see [How to use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
@@ -211,6 +216,7 @@ One of the great things about Redis is that there are many clients supporting ma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 <a name="cache-emulator"></a>
+
 
 ### Is there a local emulator for Azure Redis Cache?
 There is no local emulator for Azure Redis Cache, but you can run the MSOpenTech version of redis-server.exe from the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/) on your local machine and connect to it to get a similar experience to a local cache emulator, as shown in the following example:
@@ -236,6 +242,7 @@ You can optionally configure a [redis.conf](http://redis.io/topics/config) file 
 
 <a name="cache-commands"></a>
 
+
 ### How can I run Redis commands?
 You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). You have several options to run Redis commands.
 
@@ -253,6 +260,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 >
 
 <a name="cache-reference"></a>
+
 
 ### Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?
 Microsoft Azure Redis Cache is based on the popular open source Redis Cache and can be accessed by a wide variety of [Redis clients](http://redis.io/clients) for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
@@ -284,6 +292,7 @@ Redis Databases are just a logical separation of data within the same Redis inst
 
 
 <a name="cache-ssl"></a>
+
 
 ### When should I enable the non-SSL port for connecting to Redis?
 Redis server does not natively support SSL, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL.
@@ -325,6 +334,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 <a name="cache-redis-commands"></a>
 
+
 ### What are some of the considerations when using common Redis commands?
 * You should not run certain Redis commands which take a long time to complete, without understanding the impact of these commands.
   * For example, do not run the [KEYS](http://redis.io/commands/keys) command in production as it could take a long time to return depending on the number of keys. Redis is a single-threaded server and it processes commands one at a time. If you have other commands issued after KEYS, they will not be processed until Redis processes the KEYS command. The [redis.io site](http://redis.io/commands/) has details around the time complexity for each operation that it supports. Click each command to see the complexity for each operation.
@@ -332,6 +342,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 * These considerations don't mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies will be higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances, each configured with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](#cache-configuration) section.
 
 <a name="cache-benchmarking"></a>
+
 
 ### How can I benchmark and test the performance of my cache?
 * [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
@@ -352,6 +363,7 @@ The following commands provide an example of using redis-benchmark.exe. For accu
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
 
 <a name="threadpool"></a>
+
 
 ### Important details about ThreadPool growth
 The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads.
@@ -394,6 +406,7 @@ How to configure this setting:
 
 <a name="server-gc"></a>
 
+
 ### Enable server GC to get more throughput on the client when using StackExchange.Redis
 Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles:
 
@@ -410,6 +423,7 @@ For more information about the different connections limits for each tier, see [
 
 <a name="cache-monitor"></a>
 
+
 ### How do I monitor the health and performance of my cache?
 Microsoft Azure Redis Cache instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](cache-how-to-monitor.md).
 
@@ -423,10 +437,12 @@ These tools enable you to monitor the health of your Azure Redis Cache instances
 
 <a name="cache-timeouts"></a>
 
+
 ### Why am I seeing timeouts?
 Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client-side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
+
 
 ### Why was my client disconnected from the cache?
 The following are some common reason for a cache disconnect.

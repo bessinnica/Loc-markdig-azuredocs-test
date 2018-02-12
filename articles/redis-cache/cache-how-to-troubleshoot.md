@@ -195,19 +195,19 @@ This error message contains metrics that can help point you to the cause and pos
 1. As a best practice make sure, you are using the following pattern to connect when using the StackExchange.Redis client.
 
     ```csharp
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-	    return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-	
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+    
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
+        }
+    }
     ````
 
     For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).

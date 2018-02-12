@@ -109,7 +109,6 @@ var credentials = new batch.SharedKeyCredentials(accountName,accountKey);
 // Create Batch service client
 
 var batch_client = new batch.ServiceClient(credentials,accountUrl);
-
 ```
 
 The Azure Batch URI can be found in the Overview tab of the Azure portal. It is of the format:

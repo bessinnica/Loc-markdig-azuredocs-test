@@ -57,23 +57,23 @@ To configure the integration of ScaleX Enterprise in to Azure AD, you need to ad
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. Click **Add** button on the top of the dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **ScaleX Enterprise**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
 5. In the results panel, select **ScaleX Enterprise**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with ScaleX Enterprise based on a test user called "Britta Simon."
@@ -98,85 +98,85 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **ScaleX Enterprise** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
 3. On the **ScaleX Enterprise Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
     a. In the **Identifier** textbox, type the value using the following pattern: `https://platform.rescale.com/saml2/<company id>/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://platform.rescale.com/saml2/<company id>/acs/`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://platform.rescale.com/saml2/<company id>/acs/`
 
 4. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
     In the **Sign-on URL** textbox, type the value using the following pattern: `https://platform.rescale.com/saml2/<company id>/sso/`
-	 
-	> [!NOTE] 
-	> These are not the real values. Update these values with the actual Identifier, Reply URL or Sign-On URL. Contact [ScaleX Enterprise Client support team](http://info.rescale.com/contact_sales) to get these values. 
+     
+    > [!NOTE] 
+    > These are not the real values. Update these values with the actual Identifier, Reply URL or Sign-On URL. Contact [ScaleX Enterprise Client support team](http://info.rescale.com/contact_sales) to get these values. 
 
 5. Your ScaleX application expects the SAML assertions in a specific format, which requires you to modify custom attribute mappings to your SAML token attributes configuration. Click **View and edit all other user attributes** checkbox to open the custom attributes settings.
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
-	
-	a. Right click the attribute **name** and click delete.
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
+    
+    a. Right click the attribute **name** and click delete.
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/delete_attribute_name.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/delete_attribute_name.png)
 
-	b. Click **emailaddress** attribute to open the Edit Attribute window. Change its value from **user.mail** to **user.userprincipalname** and click Ok.
+    b. Click **emailaddress** attribute to open the Edit Attribute window. Change its value from **user.mail** to **user.userprincipalname** and click Ok.
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)	
-	
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
+    
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the Certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_400.png)
+    
 7. On the **ScaleX Enterprise Configuration** section, click **Configure ScaleX Enterprise** to open **Configure sign-on** window. Copy the **SAML Entity ID** and **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
 8. To configure single sign-on on **ScaleX Enterprise** side, login to the ScaleX Enterprise company website as an administrator.
 
 9. Click the menu in the upper right and select **Contoso Administration**.
 
-	> [!NOTE] 
-	> Contoso is just an example. This should be your actual Company Name. 
+    > [!NOTE] 
+    > Contoso is just an example. This should be your actual Company Name. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
 
 10. Select **Integrations** from the top menu and select **Single Sign-On**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/admin_sso.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/admin_sso.png) 
 
 11. Complete the form as follows:
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/scalex_admin_save.png) 
-	
-	a. Select **“Create any user who can authenticate with SSO.”**
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/scalex_admin_save.png) 
+    
+    a. Select **“Create any user who can authenticate with SSO.”**
 
-	b. **Service Provider saml**: Paste the value ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
+    b. **Service Provider saml**: Paste the value ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
 
-	c. **Name of Identity Provider email field in ACS response**: Paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Name of Identity Provider email field in ACS response**: Paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-	d. **Identity Provider EntityDescriptor Entity ID:** Paste the **SAML Entity ID** value copied from the Azure portal.
+    d. **Identity Provider EntityDescriptor Entity ID:** Paste the **SAML Entity ID** value copied from the Azure portal.
 
-	e. **Identity Provider SingleSignOnService URL:** Paste the **SAML Single Sign-On Service URL** from the Azure portal.
+    e. **Identity Provider SingleSignOnService URL:** Paste the **SAML Single Sign-On Service URL** from the Azure portal.
 
-	f. **Identity Provider public X509 certificate:** Open the X509 certificate downloaded from the Azure in notepad and paste the contents in this box. Ensure there are no line breaks in the middle of the certificate contents.
-	
-	g. Check the following checkboxes: **Enabled, Encrypt NameID and Sign AuthnRequests.**
+    f. **Identity Provider public X509 certificate:** Open the X509 certificate downloaded from the Azure in notepad and paste the contents in this box. Ensure there are no line breaks in the middle of the certificate contents.
+    
+    g. Check the following checkboxes: **Enabled, Encrypt NameID and Sign AuthnRequests.**
 
-	h. Click **Update SSO Settings** to save the settings.
+    h. Click **Update SSO Settings** to save the settings.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -191,25 +191,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_01.png) 
 
 2. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_02.png) 
 
 3. At the top of the dialog, click **Add** to open the **User** dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -227,19 +227,19 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **ScaleX Enterprise**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 

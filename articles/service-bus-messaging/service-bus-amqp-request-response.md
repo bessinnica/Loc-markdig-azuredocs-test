@@ -43,10 +43,10 @@ All the operations described in this document follow a request/response pattern,
 Creates a link to the management node for sending requests.  
   
 ```  
-requestLink = session.attach( 	  
+requestLink = session.attach(     
 role: SENDER,   
-   	target: { address: "<entity address>/$management" },   
-   	source: { address: ""<my request link unique address>" }   
+    target: { address: "<entity address>/$management" },   
+    source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -56,10 +56,10 @@ role: SENDER,
 Creates a link for receiving responses from the management node.  
   
 ```  
-responseLink = session.attach(	  
+responseLink = session.attach(    
 role: RECEIVER,   
-	source: { address: "<entity address>/$management" }   
-   	target: { address: "<my response link unique address>" }   
+    source: { address: "<entity address>/$management" }   
+    target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -93,13 +93,13 @@ The response message is in the following form:
   
 ```  
 Message(  
-properties: {	  
-		correlation-id: <request id>  
-	},  
-	application-properties: {  
-			"statusCode" -> <status code>,  
-			"statusDescription" -> <status description>,  
-           },		  
+properties: {     
+        correlation-id: <request id>  
+    },  
+    application-properties: {  
+            "statusCode" -> <status code>,  
+            "statusDescription" -> <status description>,  
+           },         
 )  
   
 ```  

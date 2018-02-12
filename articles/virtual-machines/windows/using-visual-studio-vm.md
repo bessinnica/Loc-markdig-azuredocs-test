@@ -73,7 +73,7 @@ Provisioning a new virtual machine is easy, and Azure offers a full range of vir
    * Standard_D2_v2
    * Standard_D2S_v2
    * Standard_D3_v2
-    
+
 For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
 With Azure, you’re not stuck with your first pick – you can rebalance your initial choice by resizing the VM.  You can either provision a new VM with a more appropriate size, or you can resize your existing VM to different underlying hardware.  For more information, see [Resizing a Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
@@ -87,7 +87,8 @@ The spectrum of development environments is huge, and there’s real cost associ
 
 As a quick summary, you’ll need to sysprep and shutdown the running VM, then *capture (Figure 1)* the VM as an image through the Azure portal’s UI.  Azure saves the `.vhd` file that contains the image in the storage account of your choosing.  Then, the new image shows up as an Image resource in your subscription’s list of resources.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal’s UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figure 1) Capture an image through the Azure portal’s UI.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal’s UI" style="border:3px solid Silver; display: block; margin: auto;"><center><em>(Figure 1) Capture an image through the Azure portal’s UI.</em></center>
+
 
 For more information, see [Capturing a VM to an image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
 

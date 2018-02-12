@@ -43,8 +43,8 @@ To integrate your application gateway with your ILB App Service Environment, you
 * An internet routable domain name to be used with your app in the ILB App Service Environment.
 * The ILB address that your ILB App Service Environment uses. This information is in the App Service Environment portal under **Settings** > **IP Addresses**:
 
-	![Example list of IP addresses used by the ILB App Service Environment][9]
-	
+    ![Example list of IP addresses used by the ILB App Service Environment][9]
+    
 * A public DNS name that is used later to point to your application gateway. 
 
 For details on how to create an ILB App Service Environment, see [Creating and using an ILB App Service Environment][ilbase].
@@ -88,7 +88,7 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
    f. For **Web application firewall**, you can enable the firewall and also set it for either **Detection** or **Prevention** as you see fit.
 
    ![New application gateway creation settings][3]
-	
+    
 4. In the **Summary** section, review the settings and select **OK**. Your application gateway can take a little more than 30 minutes to complete setup.  
 
 5. After your application gateway completes setup, go to your application gateway portal. Select **Backend pool**. Add the ILB address for your ILB App Service Environment.
@@ -98,11 +98,11 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
 6. After the process of configuring your back-end pool is completed, select **Health probes**. Create a health probe for the domain name that you want to use for your app. 
 
    ![Configure health probes][5]
-	
+    
 7. After the process of configuring your health probes is completed, select **HTTP settings**. Edit the existing settings, select **Use Custom probe**, and pick the probe that you configured.
 
    ![Configure HTTP settings][6]
-	
+    
 8. Go to the application gateway's **Overview** section, and copy the public IP address that your application gateway uses. Set that IP address as an A record for your app domain name, or use the DNS name for that address in a CNAME record. It's easier to select the public IP address and copy it from the public IP address's UI rather than copy it from the link in the application gateway's **Overview** section. 
 
    ![Application gateway portal][7]

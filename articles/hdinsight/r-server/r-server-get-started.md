@@ -43,6 +43,7 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
+
 ## Create a cluster by using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -57,17 +58,17 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 
 4. Select **Cluster type** to open the **Cluster configuration** pane. In the **Cluster configuration** pane, select the following options:
 
-   	* **Cluster type**: Select **R Server**.
-   	* **Version**: Select the version of R Server to install on the cluster. The version currently available is **R Server 9.1 (HDI 3.6)**. Release notes for the available versions of R Server are available on [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
-   	* **R Studio community edition for R Server**: This browser-based IDE is installed by default on the edge node. If you prefer to not have it installed, clear the check box. If you choose to have it installed, the URL for accessing the RStudio Server login will be in a portal application pane for your cluster after it’s created.
-   	* Leave the other options at the default values, and use the **Select** button to save the cluster type.
+    * **Cluster type**: Select **R Server**.
+    * **Version**: Select the version of R Server to install on the cluster. The version currently available is **R Server 9.1 (HDI 3.6)**. Release notes for the available versions of R Server are available on [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
+    * **R Studio community edition for R Server**: This browser-based IDE is installed by default on the edge node. If you prefer to not have it installed, clear the check box. If you choose to have it installed, the URL for accessing the RStudio Server login will be in a portal application pane for your cluster after it’s created.
+    * Leave the other options at the default values, and use the **Select** button to save the cluster type.
 
-   		![Screenshot of "Cluster type" pane](./media/r-server-get-started/clustertypeconfig.png)
+        ![Screenshot of "Cluster type" pane](./media/r-server-get-started/clustertypeconfig.png)
 
 5. In the **Basics** pane, in the **Cluster login username** and **Cluster login password** boxes, enter a username and a password (respectively) for the cluster.
 
 6. In the **Secure Shell (SSH) username** box, specify the SSH username. SSH is used to remotely connect to the cluster by using an SSH client. You can specify the SSH user in this box or after the cluster is created (on the **Configuration** tab for the cluster).
-   
+
    > [!NOTE] 
    > R Server is configured to expect an SSH username of “remoteuser.” If you use a different username, you must perform an additional step after the cluster is created.
 
@@ -77,13 +78,13 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 
    a. Generate a public/private key pair from the command prompt on your laptop:
 
-		ssh-keygen -t rsa -b 2048
+        ssh-keygen -t rsa -b 2048
 
    b. Follow the prompt to name a key file and then enter a passphrase for added security. Your screen should look something like the following image:
 
       ![SSH command line in Windows](./media/r-server-get-started/sshcmdline.png)
 
-   	  This command creates a private key file and a public key file under the name <private-key-filename>.pub. In this example, the files are furiosa and furiosa.pub:
+      This command creates a private key file and a public key file under the name <private-key-filename>.pub. In this example, the files are furiosa and furiosa.pub:
 
       ![Example result of dir command](./media/r-server-get-started/dir.png)
 
@@ -93,38 +94,38 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 
    d. Change permissions on the private key file on your laptop:
 
-		chmod 600 <private-key-filename>
+        chmod 600 <private-key-filename>
 
    e. Use the private key file with SSH for remote login:
 
-		ssh –i <private-key-filename> remoteuser@<hostname public ip>
+        ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-   	  Or, use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+      Or, use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 8. The quick create transitions you to the **Storage** pane. There, you select the storage account settings to be used for the primary location of the HDFS file system that the cluster uses. Select a new or existing Azure storage account, or select an existing Azure Data Lake Store account.
 
-	- If you select an Azure storage account, you can choose an existing account by selecting **Select a storage account** and then selecting the relevant account. Create a new account by using the **Create new** link in the **Select a storage account** section.
+   - If you select an Azure storage account, you can choose an existing account by selecting **Select a storage account** and then selecting the relevant account. Create a new account by using the **Create new** link in the **Select a storage account** section.
 
-      > [!NOTE]
-      > If you select **New**, you must enter a name for the new storage account. A green check appears if the name is accepted.
+     > [!NOTE]
+     > If you select **New**, you must enter a name for the new storage account. A green check appears if the name is accepted.
 
-      **Default container** defaults to the name of the cluster. Leave this default as the value.
+     **Default container** defaults to the name of the cluster. Leave this default as the value.
 
-      If you selected a new storage account, use **Location** in the prompt to select a region for it.  
+     If you selected a new storage account, use **Location** in the prompt to select a region for it.  
 
-         ![Data source pane](./media/r-server-get-started/datastore.png)  
+        ![Data source pane](./media/r-server-get-started/datastore.png)  
 
-      > [!IMPORTANT]
-      > Selecting the location for the default data source also sets the location of the HDInsight cluster. The cluster and default data source must be in the same region.
+     > [!IMPORTANT]
+     > Selecting the location for the default data source also sets the location of the HDInsight cluster. The cluster and default data source must be in the same region.
 
-	- If you want to use an existing Data Lake Store account, select the account to use. Then add the cluster *ADD* identity to your cluster to allow access to the store. For more information on this process, see [Create HDInsight clusters with Data Lake Store by using the Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
+   - If you want to use an existing Data Lake Store account, select the account to use. Then add the cluster *ADD* identity to your cluster to allow access to the store. For more information on this process, see [Create HDInsight clusters with Data Lake Store by using the Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
-   	Use the **Select** button to save the data source configuration.
+     Use the **Select** button to save the data source configuration.
 
 
 9. The **Summary** pane then appears so you can validate all your settings. Here you can change your cluster size to modify the number of servers in your cluster. You can also specify any script actions that you want to run. Unless you know that you need a larger cluster, leave the number of worker nodes at the default of **4**. The pane also shows the estimated cost of the cluster.
 
-   	![Cluster summary](./media/r-server-get-started/clustersummary.png)
+    ![Cluster summary](./media/r-server-get-started/clustersummary.png)
 
    > [!NOTE]
    > If needed, you can resize your cluster later through the portal (**Cluster** > **Settings** > **Scale cluster**) to increase or decrease the number of worker nodes. This resizing can be useful for idling down the cluster when it's not in use, or for adding capacity to meet the needs of larger tasks.
@@ -152,13 +153,14 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
    >
 
 <a name="connect-to-rstudio-server"></a>
+
 ## Connect to RStudio Server
 
 If you chose to include RStudio Server community edition in your installation, you can access the RStudio login via two methods:
 
 - Go to the following URL (where *CLUSTERNAME* is the name of the cluster that you created):
 
-    https://*CLUSTERNAME*.azurehdinsight.net/rstudio/
+    https://<em>CLUSTERNAME</em>.azurehdinsight.net/rstudio/
 
 - Open the entry for your cluster in the Azure portal, select the **R Server dashboards** quick link, and then select **R Studio dashboard**:
 
@@ -170,6 +172,7 @@ If you chose to include RStudio Server community edition in your installation, y
 > Regardless of the method used, the first time you log in, you need to authenticate twice. At the first authentication, provide the cluster admin user ID and password. At the second prompt, provide the SSH user ID and password. Subsequent logins require only the SSH user ID and password.
 
 <a name="connect-to-edge-node"></a>
+
 ## Connect to the R Server edge node
 
 Connect to the R Server edge node of the HDInsight cluster by using SSH via this command:
@@ -185,15 +188,16 @@ Connect to the R Server edge node of the HDInsight cluster by using SSH via this
 
 If you used a password to help secure your SSH user account, you are prompted to enter it. If you used a public key, you might have to use the `-i` parameter to specify the matching private key. For example:
 
-	ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+    ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
 For more information, see [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 After you're connected, you arrive at a prompt that's similar to the following:
 
-	sername@ed00-myrser:~$
+    sername@ed00-myrser:~$
 
 <a name="enable-concurrent-users"></a>
+
 ## Enable multiple concurrent users
 
 You can enable multiple concurrent users by adding more users for the edge node on which the RStudio community version runs.
@@ -209,11 +213,11 @@ The RStudio Server community version used in the Microsoft R Server on HDInsight
 
 1. Log in by using the HTTP user credentials through the HDInsight gateway: 
 
-	![Entering HTTP user credentials](./media/r-server-get-started/concurrent-users-2a.png)
+    ![Entering HTTP user credentials](./media/r-server-get-started/concurrent-users-2a.png)
 
 2. Use the SSH user credentials to sign in to RStudio:
-  
-	![Entering SSH user credentials](./media/r-server-get-started/concurrent-users-2b.png)
+
+    ![Entering SSH user credentials](./media/r-server-get-started/concurrent-users-2b.png)
 
 Currently, you can create only one SSH user account when provisioning an HDInsight cluster. To enable multiple users to access Microsoft R Server on HDInsight clusters, you need to create additional users in the Linux system.
 
@@ -233,8 +237,8 @@ Download any SSH tool (such as PuTTY) and use the existing SSH user to log in. T
 
 To add a user to the edge node, run these commands:
 
-	sudo useradd yournewusername -m
-	sudo passwd yourusername
+    sudo useradd yournewusername -m
+    sudo passwd yourusername
 
 You should see the following items returned: 
 
@@ -257,73 +261,73 @@ You can also log in by using the original credentials (by default, it's **sshuse
 
 You can submit a job by using ScaleR functions. Here is an example of the commands for running a job:
 
-	# Set the HDFS (Azure Blob storage) location of example data
-	bigDataDirRoot <- "/example/data"
+    # Set the HDFS (Azure Blob storage) location of example data
+    bigDataDirRoot <- "/example/data"
 
-	# Create a local folder for storing data temporarily
-	source <- "/tmp/AirOnTimeCSV2012"
-	dir.create(source)
+    # Create a local folder for storing data temporarily
+    source <- "/tmp/AirOnTimeCSV2012"
+    dir.create(source)
 
-	# Download data to the tmp folder
-	remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
-	download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
-	download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
-	download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
-	download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
-	download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
-	download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
-	download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
-	download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
-	download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
-	download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
-	download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
-	download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
+    # Download data to the tmp folder
+    remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+    download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
+    download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
+    download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
+    download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
+    download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
+    download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
+    download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
+    download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
+    download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
+    download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
+    download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
+    download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
 
-	# Set the directory in bigDataDirRoot to load the data
-	inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
+    # Set the directory in bigDataDirRoot to load the data
+    inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
 
-	# Create the directory
-	rxHadoopMakeDir(inputDir)
+    # Create the directory
+    rxHadoopMakeDir(inputDir)
 
-	# Copy the data from source to input
-	rxHadoopCopyFromLocal(source, bigDataDirRoot)
+    # Copy the data from source to input
+    rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-	# Define the HDFS (Blob storage) file system
-	hdfsFS <- RxHdfsFileSystem()
+    # Define the HDFS (Blob storage) file system
+    hdfsFS <- RxHdfsFileSystem()
 
-	# Create an info list for the airline data
-	airlineColInfo <- list(
-	DAY_OF_WEEK = list(type = "factor"),
-	ORIGIN = list(type = "factor"),
-	DEST = list(type = "factor"),
-	DEP_TIME = list(type = "integer"),
-	ARR_DEL15 = list(type = "logical"))
+    # Create an info list for the airline data
+    airlineColInfo <- list(
+    DAY_OF_WEEK = list(type = "factor"),
+    ORIGIN = list(type = "factor"),
+    DEST = list(type = "factor"),
+    DEP_TIME = list(type = "integer"),
+    ARR_DEL15 = list(type = "logical"))
 
-	# Get all the column names
-	varNames <- names(airlineColInfo)
+    # Get all the column names
+    varNames <- names(airlineColInfo)
 
-	# Define the text data source in HDFS
-	airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
+    # Define the text data source in HDFS
+    airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
 
-	# Define the text data source in the local system
-	airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
+    # Define the text data source in the local system
+    airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
 
-	# Specify the formula to use
-	formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
+    # Specify the formula to use
+    formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
 
-	# Define the Spark compute context
-	mySparkCluster <- RxSpark()
+    # Define the Spark compute context
+    mySparkCluster <- RxSpark()
 
-	# Set the compute context
-	rxSetComputeContext(mySparkCluster)
+    # Set the compute context
+    rxSetComputeContext(mySparkCluster)
 
-	# Run a logistic regression
-	system.time(
-		modelSpark <- rxLogit(formula, data = airOnTimeData)
-	)
+    # Run a logistic regression
+    system.time(
+        modelSpark <- rxLogit(formula, data = airOnTimeData)
+    )
 
-	# Display a summary
-	summary(modelSpark)
+    # Display a summary
+    summary(modelSpark)
 
 
 Notice that the submitted jobs are under different user names in the YARN UI:
@@ -334,45 +338,46 @@ Note also that the newly added users do not have root privileges in Linux system
 
 
 <a name="use-r-console"></a>
+
 ## Use the R console
 
 1. From the SSH session, use the following command to start the R console:  
 
-		R
+        R
 
 2. You should see output similar to the following:
-	
-		R version 3.2.2 (2015-08-14) -- "Fire Safety"
-		Copyright (C) 2015 The R Foundation for Statistical Computing
-		Platform: x86_64-pc-linux-gnu (64-bit)
 
-		R is free software and comes with ABSOLUTELY NO WARRANTY.
-		You are welcome to redistribute it under certain conditions.
-		Type 'license()' or 'licence()' for distribution details.
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
 
-	    Natural language support but running in an English locale
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
 
-		R is a collaborative project with many contributors.
-		Type 'contributors()' for more information and
-		'citation()' on how to cite R or R packages in publications.
+        Natural language support but running in an English locale
 
-		Type 'demo()' for some demos, 'help()' for on-line help, or
-		'help.start()' for an HTML browser interface to help.
-		Type 'q()' to quit R.
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
 
-		Microsoft R Server version 8.0: an enhanced distribution of R
-		Microsoft packages Copyright (C) 2016 Microsoft Corporation
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
 
-	    Type 'readme()' for release notes.
-	    >
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
+
+        Type 'readme()' for release notes.
+        >
 
 3. From the `>` prompt, you can enter R code. R Server includes packages that you can use to easily interact with Hadoop and run distributed computations. For example, use the following command to view the root of the default file system for the HDInsight cluster:
 
-		rxHadoopListFiles("/")
+        rxHadoopListFiles("/")
 
 4. You can also use the Blob storage style of addressing:
 
-		rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasb:///")
 
 
 ## Use R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
@@ -518,7 +523,7 @@ You can use a compute context to control whether computation is performed locall
         system.time(  
            modelSpark <- rxLogit(formula, data = airOnTimeData)
         )
-        
+
         # Display a summary
         summary(modelSpark)
 
@@ -531,7 +536,7 @@ You can use a compute context to control whether computation is performed locall
 
 With R Server, you can easily take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This function is useful when you're doing a parameter sweep or simulations. The following code is an example of how to use `rxExec`:
 
-	rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+    rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
 If you are still using the Spark or MapReduce context, this command returns the `nodename` value for the worker nodes that the code `(Sys.info()["nodename"])` is run on. For example, on a four-node cluster, you expect to receive output similar to the following:
 
@@ -573,10 +578,10 @@ The following code provides some examples of how to use the new functions:
     rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
     pqData <- RxParquetData('/share/claimsParquet',
                      colInfo = list(
-    		    age    = list(type = "factor"),
-    		   car.age = list(type = "factor"),
-    		      type = list(type = "factor")
-    		 ) )
+                age    = list(type = "factor"),
+               car.age = list(type = "factor"),
+                  type = list(type = "factor")
+             ) )
     rxGetInfo(pqData, getVarInfo = TRUE)
 
     rxNaiveBayes(type ~ age + cost, data = pqData)
@@ -647,14 +652,14 @@ When your data modeling is complete, you can operationalize the model to make pr
 
 1. Use the `ssh` command for the edge node--for example: 
 
-	   ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+       ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
 2. Change directory for the relevant version, and use the `sudo dotnet` command for the .dll file. 
 
    For Microsoft R Server 9.1:
 
        cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
-	   sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+       sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
 
    For Microsoft R Server 9.0:
 
@@ -691,16 +696,16 @@ When your data modeling is complete, you can operationalize the model to make pr
 >[!NOTE]
 >If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you might need to add some missing folders. The Spark application belongs to a user called *rserve2* whenever it's invoked from a web service through mrsdeploy functions. To work around this issue:
 
-	#Create these required folders for user rserve2 in local and HDFS
-	hadoop fs -mkdir /user/RevoShare/rserve2
-	hadoop fs -chmod 777 /user/RevoShare/rserve2
+    #Create these required folders for user rserve2 in local and HDFS
+    hadoop fs -mkdir /user/RevoShare/rserve2
+    hadoop fs -chmod 777 /user/RevoShare/rserve2
 
-	mkdir /var/RevoShare/rserve2
-	chmod 777 /var/RevoShare/rserve2
+    mkdir /var/RevoShare/rserve2
+    chmod 777 /var/RevoShare/rserve2
 
 
-	#Create a new Spark compute context 
-	rxSparkConnect(reset = TRUE)
+    #Create a new Spark compute context 
+    rxSparkConnect(reset = TRUE)
 
 
 At this stage, the configuration for operationalization is complete. Now you can use the mrsdeploy package on R Client to connect to the operationalization on the edge node. You can then start using its features, like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you might need to set up port forward tunneling through an SSH login.
@@ -710,13 +715,13 @@ At this stage, the configuration for operationalization is complete. Now you can
 Make sure that you allow traffic through port 12800 to the edge node. That way, you can use the edge node to connect to the operationalization feature.
 
 
-	library(mrsdeploy)
+    library(mrsdeploy)
 
-	remoteLogin(
-    	deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
-    	username = "admin",
-    	password = "xxxxxxx"
-	)
+    remoteLogin(
+        deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
+        username = "admin",
+        password = "xxxxxxx"
+    )
 
 
 If `remoteLogin()` cannot connect to the edge node, but you can use SSH to connect to the edge node, you need to check whether the rule to allow traffic on port 12800 is set properly. If you continue to face the issue, you can work around it by setting up port forward tunneling through SSH. For instructions, see the following section.
@@ -725,7 +730,7 @@ If `remoteLogin()` cannot connect to the edge node, but you can use SSH to conne
 
 If your cluster is not set up on a virtual network, or if you're having trouble with connectivity through a virtual network, you can use SSH port forward tunneling:
 
-	ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+    ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
 You can also set it up on PuTTY:
 
@@ -734,13 +739,13 @@ You can also set it up on PuTTY:
 After your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through the SSH session. Make sure that you use `127.0.0.1:12800` in your `remoteLogin()` method. This method logs in to the edge node’s operationalization through port forwarding.
 
 
-	library(mrsdeploy)
+    library(mrsdeploy)
 
-	remoteLogin(
-    	deployr_endpoint = "http://127.0.0.1:12800",
-    	username = "admin",
-    	password = "xxxxxxx"
-	)
+    remoteLogin(
+        deployr_endpoint = "http://127.0.0.1:12800",
+        username = "admin",
+        password = "xxxxxxx"
+    )
 
 
 ## Scale Microsoft R Server operationalization compute nodes on HDInsight worker nodes
@@ -764,7 +769,7 @@ To decommission worker nodes:
 8. Unselect the worker nodes and select the head nodes.
 9. Select **Actions** > **Selected Hosts** > **Hosts** > **Restart All Components**.
 
-###	Configure compute nodes on each decommissioned worker node
+### Configure compute nodes on each decommissioned worker node
 
 1. Use SSH to connect to each decommissioned worker node.
 2. Run an admin utility by using `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`.
@@ -780,7 +785,7 @@ After all decommissioned worker nodes are configured to run on the compute node,
 2. Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 3. Look for the `URIs` section, and add the worker nodes' IP and port details.
 
-	![Command line for the edge node](./media/r-server-get-started/get-started-op-cmd.png)
+    ![Command line for the edge node](./media/r-server-get-started/get-started-op-cmd.png)
 
 
 ## Troubleshoot

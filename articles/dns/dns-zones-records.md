@@ -92,7 +92,7 @@ You can modify all properties of the SOA record except for the 'host' property, 
 
 [SRV records](https://en.wikipedia.org/wiki/SRV_record) are used by various services to specify server locations. When specifying an SRV record in Azure DNS:
 
-* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '@' in the record name, simply use the service and protocol, for example '\_sip.\_tcp'.
+* The <em>service</em> and <em>protocol</em> must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '@' in the record name, simply use the service and protocol, for example '\_sip.\_tcp'.
 * The *priority*, *weight*, *port*, and *target* are specified as parameters of each record in the record set.
 
 ### TXT records
@@ -127,13 +127,13 @@ By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones
 
 At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
 
-| Header | Behavior |
-| --- | --- |
-| None |PUT always succeeds (no Etag checks) |
-| If-match <etag> |PUT only succeeds if resource exists and Etag matches |
-| If-match * |PUT only succeeds if resource exists |
-| If-none-match * |PUT only succeeds if resource does not exist |
 
+|     Header      |                       Behavior                        |
+|-----------------|-------------------------------------------------------|
+|      None       |         PUT always succeeds (no Etag checks)          |
+| If-match <etag> | PUT only succeeds if resource exists and Etag matches |
+|   If-match *    |         PUT only succeeds if resource exists          |
+| If-none-match * |     PUT only succeeds if resource does not exist      |
 
 ## Limits
 

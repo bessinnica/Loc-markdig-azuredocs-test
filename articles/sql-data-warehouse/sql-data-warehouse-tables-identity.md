@@ -37,8 +37,8 @@ You can define a table as having the IDENTITY property when you first create the
 
 ```sql
 CREATE TABLE dbo.T1
-(	C1 INT IDENTITY(1,1) NOT NULL
-,	C2 INT NULL
+(   C1 INT IDENTITY(1,1) NOT NULL
+,   C2 INT NULL
 )
 WITH
 (   DISTRIBUTION = HASH(C2)
@@ -59,8 +59,8 @@ The following example is an illustration:
 
 ```sql
 CREATE TABLE dbo.T1
-(	C1 INT IDENTITY(1,1)	NOT NULL
-,	C2 VARCHAR(30)				NULL
+(   C1 INT IDENTITY(1,1)    NOT NULL
+,   C2 VARCHAR(30)              NULL
 )
 WITH
 (   DISTRIBUTION = HASH(C2)
@@ -91,7 +91,7 @@ When an existing IDENTITY column is selected into a new table, the new column in
 - Multiple SELECT statements are joined by using UNION.
 - The IDENTITY column is listed more than one time in the SELECT list.
 - The IDENTITY column is part of an expression.
-	
+    
 If any one of these conditions is true, the column is created NOT NULL instead of inheriting the IDENTITY property.
 
 ### CREATE TABLE AS SELECT
@@ -116,8 +116,8 @@ VALUES (-1,'UNKNOWN')
 
 SET IDENTITY_INSERT dbo.T1 OFF;
 
-SELECT 	*
-FROM	dbo.T1
+SELECT  *
+FROM    dbo.T1
 ;
 ```    
 
@@ -133,8 +133,8 @@ The following example highlights the basic pattern:
 ```sql
 --CREATE TABLE with IDENTITY
 CREATE TABLE dbo.T1
-(	C1 INT IDENTITY(1,1)
-,	C2 VARCHAR(30)
+(   C1 INT IDENTITY(1,1)
+,   C2 VARCHAR(30)
 )
 WITH
 (   DISTRIBUTION = HASH(C2)
@@ -145,12 +145,12 @@ WITH
 --Use INSERT..SELECT to populate the table from an external table
 INSERT INTO dbo.T1
 (C2)
-SELECT 	C2
-FROM	ext.T1
+SELECT  C2
+FROM    ext.T1
 ;
 
-SELECT 	*
-FROM 	dbo.T1
+SELECT  *
+FROM    dbo.T1
 ;
 
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
@@ -226,8 +226,8 @@ This section provides some sample code you can use to perform common tasks when 
 Use the `MAX()` function to determine the highest value allocated for a distributed table:
 
 ```sql
-SELECT 	MAX(C1)
-FROM	dbo.T1
+SELECT  MAX(C1)
+FROM    dbo.T1
 ``` 
 
 ### Find the seed and increment for the IDENTITY property

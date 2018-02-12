@@ -26,8 +26,8 @@ analyzing live statistics, which is just one of the various methods you can use 
 To complete this quickstart:
 
 - Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-	- ASP.NET and web development
-	- Azure development
+    - ASP.NET and web development
+    - Azure development
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. Select **Configure Application Insights** from the Project menu. Visual Studio adds the Application Insights SDK to your application.
 3. Click **Start Free**, select your preferred billing plan, and click **Register**.
 
-	![Adding Application Insights to Visual Studio](./media/quick-monitor-portal/add-application-insights.png)
+    ![Adding Application Insights to Visual Studio](./media/quick-monitor-portal/add-application-insights.png)
 
 4. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
   F5 key.
@@ -57,19 +57,19 @@ You can now open Application Insights in the Azure portal to view various detail
 
 1. Right-click on **Connected Services Application Insights** folder in Solution Explorer and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
 
-	![Application Map](media/quick-monitor-portal/001.png)
+    ![Application Map](media/quick-monitor-portal/001.png)
 
 2. Click on **App map** to get a visual layout of the dependency relationships between your application components.  Each component shows KPIs such as load, performance, failures, and alerts.
 
-	![Application Map](media/quick-monitor-portal/application-map.png)
+    ![Application Map](media/quick-monitor-portal/application-map.png)
 
 3. Click on the **App Analytics** icon ![Application Map](media/quick-monitor-portal/app-analytics-icon.png) on one of the application components.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights.  In this case, a query is generated for you that renders the request count as a chart.  You can write your own queries to analyze other data.
 
-	![Analytics](media/quick-monitor-portal/analytics.png)
+    ![Analytics](media/quick-monitor-portal/analytics.png)
 
 4. Return to the **Overview** page and click on **Live Stream**.  This shows live statistics about your application as it's running.  This includes such information as the number of incoming requests, the duration of those requests, and any failures that occur.  You can also inspect critical performance metrics such as processor and memory.
 
-	![Live Stream](media/quick-monitor-portal/live-stream.png)
+    ![Live Stream](media/quick-monitor-portal/live-stream.png)
 
 If you are ready to host your application in Azure, you can publish it now. Follow the steps described
 in [Create an ASP.NET Web App Quickstart](../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Discover, identify, and classify personal data in Microsoft Azure | Microsoft Docs
 description: Learn about searching, classifying, discovering, and identifying data
 services: security
@@ -20,7 +20,7 @@ ms.custom:
 ---
 # Discover, identify, and classify personal data in Microsoft Azure
 
-This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB.
+This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB.
 
 ## Scenario, problem statement, and goal
 
@@ -62,16 +62,16 @@ This is particularly helpful if you want to find or change personal data for a s
 
 3. On the **Users and groups** blade, select **Users**.
 
-  ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+   ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. On the **Users and groups - Users** blade, select a user from the list, and then, on the blade for the selected user, select **Profile** to view user profile information that might contain personal data.
 
-  ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
+   ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. If you need to add or change user profile information, you can do so, and then, in the command bar, select **Save.**
 6. On the blade for the selected user, select **Work Info** to view user work information that may contain personal data.
 
- ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
+   ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. If you need to add or change user work information, you can do so, and then, in the command bar, select **Save.**
 
@@ -94,8 +94,8 @@ There are three ways to do it:
 
   ![CLIT tutorial](media/how-to-discover-classify-personal-data-azure/cli-tutorial.png)
 
->[!NOTE]
-Azure CLI is commonly used by Linux admins and developers. Some users find it easier and more intuitive than PowerShell, which is your third option.
+> [!NOTE]
+> Azure CLI is commonly used by Linux admins and developers. Some users find it easier and more intuitive than PowerShell, which is your third option.
 
 - Finally, you can create a SQL database using PowerShell, which is a command line/script tool used to create and manage Azure and other resources. In this tutorial, you launch the tool, define script variables, create a resource group and logical server, and configure a server firewall rule. Then you’ll create a database with sample data.
 
@@ -110,8 +110,8 @@ New-AzureRmSQLDatabase -ResourceGroupName $resourcegroupname `
 
 To learn how to create your database this way, visit the [Create a single Azure SQL database using Powershell](../sql-database/sql-database-get-started-powershell.md) tutorial.
 
->[!Note]
-Windows admins tend to use PowerShell, but some of them prefer Azure CLI.
+> [!Note]
+> Windows admins tend to use PowerShell, but some of them prefer Azure CLI.
 
 ### How do I search for personal data in SQL database in the Azure portal?**
 
@@ -194,7 +194,7 @@ Quickstart tutorial. If you’d like to do this in a language other than .NET, s
 
 [What is SQL Database?](../sql-database/sql-database-technical-overview.md)
 
-[SQL Database Query Editor available in Azure portal] (https://azure.microsoft.com/blog/t-sql-query-editor-in-browser-azure-portal/)
+[SQL Database Query Editor available in Azure portal](https://azure.microsoft.com/blog/t-sql-query-editor-in-browser-azure-portal/)
 
 [What is Azure Information Protection?](https://docs.microsoft.com/information-protection/understand-explore/what-is-information-protection)
 

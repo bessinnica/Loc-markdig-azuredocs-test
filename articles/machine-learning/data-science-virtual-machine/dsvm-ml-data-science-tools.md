@@ -25,6 +25,7 @@ The Data Science Virtual Machine (DSVM) has a rich set of tools and libraries fo
 Here are some of the machine learning tools and libraries on the DSVM. 
 
 ## XGBoost 
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   |    Fast, Portable, and Distributed Gradient Boosting (GBDT, GBRT, or GBM) Library, for Python, R, Java, Scala, C++ and more. Runs on single machine, Hadoop, Spark    |
@@ -38,6 +39,7 @@ Here are some of the machine learning tools and libraries on the DSVM.
 
 
 ## Vowpal Wabbit
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   |   Vowpal Wabbit (also known as "VW") is an open source fast out-of-core learning system library    |
@@ -50,6 +52,7 @@ Here are some of the machine learning tools and libraries on the DSVM.
 
 
 ## Weka
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   |  Weka is a collection of machine learning algorithms for data mining tasks. The algorithms can either be applied directly to a dataset or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
@@ -60,6 +63,7 @@ Here are some of the machine learning tools and libraries on the DSVM.
 | Related Tools on the DSVM      |LightGBM, Rattle, XGBooost   |
 
 ## Rattle
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   |   A Graphical User Interface for Data Mining using R   |
@@ -70,6 +74,7 @@ Here are some of the machine learning tools and libraries on the DSVM.
 | Related Tools on the DSVM      |LightGBM, Weka, XGBoost   |
 
 ## LightGBM
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | A fast, distributed, high-performance gradient boosting (GBDT, GBRT, GBM, or MART) framework based on decision tree algorithms, used for ranking, classification, and many other machine learning tasks.    |
@@ -80,6 +85,7 @@ Here are some of the machine learning tools and libraries on the DSVM.
 | Related Tools on the DSVM      | MXNet, XgBoost  |
 
 ## H2O
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | An open-source AI platform supporting in-memory, distributed, fast, and scalable machine learning  |

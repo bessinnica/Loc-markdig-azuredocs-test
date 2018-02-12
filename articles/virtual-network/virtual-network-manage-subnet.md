@@ -21,7 +21,7 @@ ms.author: jdial
 # Add, change, or delete a virtual network subnet
 
 Learn how to add, change, or delete a virtual network subnet. If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](virtual-network-manage-network.md). All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network.
- 
+
 ## Before you begin
 
 Complete the following tasks before completing steps in any section of this article:
@@ -38,11 +38,11 @@ Complete the following tasks before completing steps in any section of this arti
 3. Under **SETTINGS**, select **Subnets**.
 4. Select **+Subnet**.
 5. Enter values for the following parameters:
-	- **Name**: The name must be unique within the virtual network.
-	- **Address range**: The range must be unique within the address space for the virtual network. The range cannot overlap with other subnet address ranges within the virtual network. The address space must be specified by using Classless Inter-Domain Routing (CIDR) notation. For example, in a virtual network with address space 10.0.0.0/16, you might define a subnet address space of 10.0.0.0/24. The smallest range you can specify is /29, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance. Three additional addresses are reserved for Azure service usage. As a result, defining a subnet with a /29 address range results in three usable IP addresses in the subnet. If you plan to connect a virtual network to a VPN gateway, you must create a gateway subnet. Learn more about [specific address range considerations for gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). You can change the address range after the subnet is added, under specific conditions. To learn how to change a subnet address range, see [Change subnet settings](#change-subnet-settings).
-	- **Network security group**: You can associate zero, or one existing network security group to a subnet to filter inbound and outbound network traffic for the subnet. The network security group must exist in the same subscription and location as the virtual network. Learn more about [network security groups](security-overview.md) and [how to create a network security group](virtual-networks-create-nsg-arm-pportal.md).
-	- **Route table**: You can associate zero or one existing route table to a subnet to control network traffic routing to other networks. The route table must exist in the same subscription and location as the virtual network. Learn more about [Azure routing](virtual-networks-udr-overview.md) and [how to create a route table](create-user-defined-route-portal.md)
-	- **Service endpoints:** A subnet can have zero or multiple service endpoints enabled for it. To enable a service endpoint for a service, select the service or services that you want to enable service endpoints for from the **Services** list. To remove a service endpoint, unselect the service you want to remove the service endpoint for. To learn more about service endpoints, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md). Once you enable a service endpoint for a service, you must also enable network access for the subnet for a resource created with the service. For example, if you enable the service endpoint for *Microsoft.Storage*, you must also enable network access to all Azure Storage accounts you want to grant network access to. For details about how to enable network access to subnets that a service endpoint is enabled for, see the documentation for the individual service you enabled the service endpoint for.
+    - **Name**: The name must be unique within the virtual network.
+    - **Address range**: The range must be unique within the address space for the virtual network. The range cannot overlap with other subnet address ranges within the virtual network. The address space must be specified by using Classless Inter-Domain Routing (CIDR) notation. For example, in a virtual network with address space 10.0.0.0/16, you might define a subnet address space of 10.0.0.0/24. The smallest range you can specify is /29, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance. Three additional addresses are reserved for Azure service usage. As a result, defining a subnet with a /29 address range results in three usable IP addresses in the subnet. If you plan to connect a virtual network to a VPN gateway, you must create a gateway subnet. Learn more about [specific address range considerations for gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). You can change the address range after the subnet is added, under specific conditions. To learn how to change a subnet address range, see [Change subnet settings](#change-subnet-settings).
+    - **Network security group**: You can associate zero, or one existing network security group to a subnet to filter inbound and outbound network traffic for the subnet. The network security group must exist in the same subscription and location as the virtual network. Learn more about [network security groups](security-overview.md) and [how to create a network security group](virtual-networks-create-nsg-arm-pportal.md).
+    - **Route table**: You can associate zero or one existing route table to a subnet to control network traffic routing to other networks. The route table must exist in the same subscription and location as the virtual network. Learn more about [Azure routing](virtual-networks-udr-overview.md) and [how to create a route table](create-user-defined-route-portal.md)
+    - **Service endpoints:** A subnet can have zero or multiple service endpoints enabled for it. To enable a service endpoint for a service, select the service or services that you want to enable service endpoints for from the **Services** list. To remove a service endpoint, unselect the service you want to remove the service endpoint for. To learn more about service endpoints, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md). Once you enable a service endpoint for a service, you must also enable network access for the subnet for a resource created with the service. For example, if you enable the service endpoint for *Microsoft.Storage*, you must also enable network access to all Azure Storage accounts you want to grant network access to. For details about how to enable network access to subnets that a service endpoint is enabled for, see the documentation for the individual service you enabled the service endpoint for.
 6. To add the subnet to the virtual network that you selected, select **OK**.
 
 **Commands**
@@ -86,11 +86,13 @@ You can delete a subnet only if there are no resources in the subnet. If there a
 
 To perform tasks on subnets, your account must be assigned to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
 
-|Operation                                                                |   Operation name                               |
-|-----------------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/virtualNetworks/subnets/read                           |   Get Virtual Network Subnet                   |
-|Microsoft.Network/virtualNetworks/subnets/write                          |   Create or Update Virtual Network Subnet      |
-|Microsoft.Network/virtualNetworks/subnets/delete                         |   Delete Virtual Network Subnet                |
-|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Join Virtual Network                         |
-|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Join Service to a Subnet                     |
-|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Get Virtual Network Subnet Virtual Machines  |
+
+|                                Operation                                |               Operation name                |
+|-------------------------------------------------------------------------|---------------------------------------------|
+|             Microsoft.Network/virtualNetworks/subnets/read              |         Get Virtual Network Subnet          |
+|             Microsoft.Network/virtualNetworks/subnets/write             |   Create or Update Virtual Network Subnet   |
+|            Microsoft.Network/virtualNetworks/subnets/delete             |        Delete Virtual Network Subnet        |
+|          Microsoft.Network/virtualNetworks/subnets/join/action          |            Join Virtual Network             |
+| Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action |          Join Service to a Subnet           |
+|     Microsoft.Network/virtualNetworks/subnets/virtualMachines/read      | Get Virtual Network Subnet Virtual Machines |
+

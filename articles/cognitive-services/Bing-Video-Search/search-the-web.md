@@ -24,7 +24,7 @@ If you're building a videos-only search results page to find videos that are rel
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
 After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
-  
+
 ## Getting videos
 
 To get videos related to the user's search term from the web, send the following GET request:
@@ -44,7 +44,7 @@ All requests must be made from a server
 If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
 
 To get videos from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1  
 ```
@@ -109,7 +109,7 @@ As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://d
 If the user clicks the thumbnail, the following are the video viewing options:
 
 - Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-hostpageurl) to view the video on the host website (for example, YouTube)  
-  
+
 - Use [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-websearchurl) to view the video in the Bing video browser  
 
 - Use [embdedHtml](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-embedhtml) to embed the video in your own experience 
@@ -122,22 +122,22 @@ For details about using [videoId](https://docs.microsoft.com/rest/api/cognitives
 ## Filtering videos
 
 By default, the Video Search API returns all videos that are relevant to the query. If you only want free videos or videos less than five minutes in length, you'd use the following filter query parameters:  
-  
+
 -   [pricing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#pricing)&mdash;Filter videos by pricing (for example, videos that are free or that you have to pay for)  
-  
+
 -   [resolution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#resolution)&mdash;Filter videos by resolution (for example, videos with a 720p or higher resolution)  
-  
+
 -   [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Filter videos by video length (for example, videos that are less than five minutes in length)  
-    
+
 -   [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Filter videos by age (for example, videos discovered by Bing in the past week) 
-  
+
 To get videos from a specific domain, include the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator in the query string.
 
 > [!NOTE] 
 > Depending on the query, if you use the `site:` query operator, there is the chance that the response contains adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.   
-  
+
 The following example shows how to get free videos from ContosoSailing.com that have a resolution of 720p or better and that Bing has discovered in the past month.  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&pricing=free&freshness=month&resolution=720p&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -153,7 +153,7 @@ Host: api.cognitive.microsoft.com
 If Bing can expand the query to narrow the original search, the [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) object contains the `queryExpansions` field. For example, if the query was *Cleaning Gutters*, the expanded queries might be: Gutter Cleaning **Tools**, Cleaning Gutters **From the Ground**, Gutter Cleaning **Machine**, and **Easy** Gutter Cleaning.  
 
 The following example shows the expanded queries for *Cleaning Gutters*.  
-  
+
 ```  
 {  
     "_type" : "Videos",  
@@ -185,7 +185,7 @@ The `queryExpansions` field contains a list of [Query](https://docs.microsoft.co
 If Bing can segment the original search query, the [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) object contains the `pivotSuggestions` field. For example, if the original query was *Cleaning Gutters*, Bing might segment the query into *Cleaning* and *Gutters*. 
 
 The following example shows the pivot suggestions for *Cleaning Gutters*.  
-  
+
 ```  
 {  
     "_type" : "Videos",  
@@ -228,7 +228,7 @@ The following example shows the pivot suggestions for *Cleaning Gutters*.
     ]
 }  
 ```  
-  
+
 For each pivot, the response contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query and the `displayText` field contains the term that replaces the pivot in the original query. For example, Window Cleaning.  
 
 You can use the `text` and `thumbnail` fields to display the expanded query strings to the user in case the expanded query string is really what they're looking for. Make the thumbnail and text clickable using the `webSearchUrl` URL or `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results, or `searchLink` if you provide your own results page.
@@ -238,7 +238,6 @@ You can use the `text` and `thumbnail` fields to display the expanded query stri
 ## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
-
 
 ## Next steps
 
@@ -255,7 +254,7 @@ Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.
 When you call the Video Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. The response's `totalEstimatedMatches` field contains an estimate of the number of videos that are available to view. For details about how you'd page through the remaining videos, see [Paging Videos](./paging-videos.md).
 
 For details about getting insights about a video, see [Video Insights](./video-insights.md).  
-  
+
 For details about getting trending videos, see [Trending Videos](./trending-videos.md).  
-  
-  
+
+

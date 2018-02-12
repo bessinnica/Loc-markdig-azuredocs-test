@@ -235,8 +235,8 @@ You don't need to upgrade your existing Azure tools to create, attach, or resize
 |Azure tools      | Supported versions                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Version number 4.1.0: June 2017 release or later|
-|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
-|AzCopy	          | Version number 6.1.0: June 2017 release or later|
+|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
+|AzCopy           | Version number 6.1.0: June 2017 release or later|
 
 The support for Azure CLI v2 and Azure Storage Explorer is coming soon. 
 

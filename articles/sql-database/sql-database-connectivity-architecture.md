@@ -68,7 +68,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | East US 1 | 191.238.6.43 | 40.121.158.30 |
 | East US 2 | 191.239.224.107 | 40.79.84.180 * |
 | India Central | 104.211.96.159  | |
-| India South | 104.211.224.146	 | |
+| India South | 104.211.224.146  | |
 | India West | 104.211.160.80 | |
 | Japan East | 191.237.240.43 | 13.78.61.196 |
 | Japan West | 191.238.68.11 | 104.214.148.156 |
@@ -81,11 +81,11 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | UK North | 13.87.97.210 | |
 | UK South 1 | 51.140.184.11 | |
 | UK South 2 | 13.87.34.7 | |
-| UK West | 51.141.8.11	 | |
+| UK West | 51.141.8.11  | |
 | West Central US | 13.78.145.25 | |
 | West Europe | 191.237.232.75 | 40.68.37.158 |
 | West US 1 | 23.99.34.75 | 104.42.238.205 |
-| West US 2 | 13.66.226.202	 | |
+| West US 2 | 13.66.226.202  | |
 ||||
 
 \* **NOTE:** *East US 2* has also a tertiary IP address of `52.167.104.0`.

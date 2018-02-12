@@ -18,9 +18,9 @@ ms.date: 12/07/2017
 
 Microsoft Genomics is a scalable, secure service for secondary analysis that can rapidly process a genome, starting from raw reads and producing aligned reads and variant calls. 
 Get started in just a few steps: 
-1.	Set up: Create a Microsoft Genomics account through the Azure portal, and install the Microsoft Genomics Python client in your local environment. 
-2.	Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files. The input files should be paired end reads (fastq or bam files).
-3.	Run: Use the Microsoft Genomics command-line interface to run workflows through the Microsoft Genomics service. 
+1.  Set up: Create a Microsoft Genomics account through the Azure portal, and install the Microsoft Genomics Python client in your local environment. 
+2.  Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files. The input files should be paired end reads (fastq or bam files).
+3.  Run: Use the Microsoft Genomics command-line interface to run workflows through the Microsoft Genomics service. 
 
 For more information on Microsoft Genomics, see [What is Microsoft Genomics?](overview-what-is-genomics.md)
 
@@ -34,15 +34,13 @@ To create a Microsoft Genomics account, navigate to the [Azure portal](https://p
 
 Configure your Genomics account with the following information, as shown in the preceding image. 
 
- |**Setting**          |  **Suggested value**  | **Field description** |
- |:-------------       |:-------------         |:----------            |
- |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
-
-
+| <strong>Setting</strong> | <strong>Suggested value</strong> | <strong>Field description</strong>                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-------------------------|:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Account name             | MyGenomicsAccount                | Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)                                                                                                                                                                                                                                                                           |
+| Subscription             | Your subscription name           | This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions)                                                                                                                                                                                                                                                                                |
+| Resource group           | MyResourceGroup                  | Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+| Location                 | West US 2                        | Service is available in West US 2, West Europe, and Southeast Asia                                                                                                                                                                                                                                                                                                                                                                 |
 
 You can click Notifications in the top menu bar to monitor the deployment process.
 ![Microsoft Genomics Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics Notifications")

@@ -60,7 +60,7 @@ The Azure log integration service collects telemetry data from the machine on wh
    >
 
     Authentication to Azure is done through Azure AD.  Creating a service principal for Azure log integration creates the Azure AD identity that is given access to read from Azure subscriptions.
-3. Run the **azlog authorize <SubscriptionID>** command to assign Reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then the service principal is assigned the Reader role to all subscriptions to which you have access.
+3. Run the <strong>azlog authorize <SubscriptionID></strong> command to assign Reader access on the subscription to the service principal created in step 2. If you don’t specify a <strong>SubscriptionID</strong>, then the service principal is assigned the Reader role to all subscriptions to which you have access.
 
    > [!NOTE]
    > You may see warnings if you run the **authorize** command immediately after the **createazureid** command. There is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.

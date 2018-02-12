@@ -99,6 +99,7 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 
 <a name="why-azure-work-school-account"></a>
 
+
 **Q**: Why do I need to use a work or school account to sign in? <br/>
 **A**: You can only use an organizational work or school account when you install the on-premises data gateway. And, that account must be in the same tenant as the subscription you are configuring the gateway resource in. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
@@ -203,16 +204,16 @@ Telemetry can be used for monitoring and troubleshooting. By default
 
 **To turn on telemetry**
 
-1.	Check the On-premises data gateway client directory on the computer. Typically, it is **%systemdrive%\Program Files\On-premises data gateway**. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
-2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
-        
+1.  Check the On-premises data gateway client directory on the computer. Typically, it is **%systemdrive%\Program Files\On-premises data gateway**. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
+2.  In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
+
     ```
         <setting name="SendTelemetry" serializeAs="String">
                     <value>true</value>
         </setting>
     ```
 
-3.	Save your changes and restart the Windows service: On-premises data gateway service.
+3.  Save your changes and restart the Windows service: On-premises data gateway service.
 
 
 

@@ -40,7 +40,7 @@ An acoustic data set for customizing the acoustic model consists of two parts: (
 >
 
 | Property | Value |
-|----------	|----------|
+|---------- |----------|
 | File Format | RIFF (WAV) |
 | Sampling Rate | 8000 Hz or 16000 Hz |
 | Channels | 1 (mono) |

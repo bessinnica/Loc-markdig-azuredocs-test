@@ -37,7 +37,7 @@ While the Microsoft Speech-To-Text engine is world-class, it is targeted toward 
 
 For example, if you were building an app to search MSDN by voice, it’s likely that terms like “object-oriented” or “namespace” or “dot net” will appear more frequently than in typical voice applications. Customizing the language model will enable the system to learn this.
 
-For more details about how to use the Custom Speech Service, refer to the [Custom Speech Service Portal] (https://cris.ai).
+For more details about how to use the Custom Speech Service, refer to the [Custom Speech Service Portal](https://cris.ai).
 
 * [Get Started](cognitive-services-custom-speech-get-started.md)
 * [FAQ](cognitive-services-custom-speech-faq.md)

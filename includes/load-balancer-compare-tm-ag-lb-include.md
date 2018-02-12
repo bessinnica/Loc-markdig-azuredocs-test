@@ -18,13 +18,15 @@ The following table summarizes the features offered by each service:
 
 Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The following table helps understanding the difference between the two load balancers:
 
-| Type | Azure Load Balancer | Application Gateway |
-| --- | --- | --- |
-| Protocols |UDP/TCP |HTTP, HTTPS, and WebSockets |
-| IP reservation |Supported |Not supported |
-| Load balancing mode |5-tuple(source IP, source port, destination IP, destination port, protocol type) |Round Robin<br>Routing based on URL |
-| Load balancing mode (source IP /sticky sessions) |2-tuple (source IP and destination IP), 3-tuple (source IP, destination IP, and port). Can scale up or down based on the number of virtual machines |Cookie-based affinity<br>Routing based on URL |
-| Health probes |Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user-defined probes |Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user-defined probes |
-| SSL offloading |Not supported |Supported |
-| Url-based routing | Not supported | Supported|
-| SSL Policy | Not supported | Supported|
+
+|                       Type                       |                                                                 Azure Load Balancer                                                                 |                                                                  Application Gateway                                                                  |
+|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                    Protocols                     |                                                                       UDP/TCP                                                                       |                                                              HTTP, HTTPS, and WebSockets                                                              |
+|                  IP reservation                  |                                                                      Supported                                                                      |                                                                     Not supported                                                                     |
+|               Load balancing mode                |                                  5-tuple(source IP, source port, destination IP, destination port, protocol type)                                   |                                                          Round Robin<br>Routing based on URL                                                          |
+| Load balancing mode (source IP /sticky sessions) | 2-tuple (source IP and destination IP), 3-tuple (source IP, destination IP, and port). Can scale up or down based on the number of virtual machines |                                                     Cookie-based affinity<br>Routing based on URL                                                     |
+|                  Health probes                   |                    Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user-defined probes                    | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user-defined probes |
+|                  SSL offloading                  |                                                                    Not supported                                                                    |                                                                       Supported                                                                       |
+|                Url-based routing                 |                                                                    Not supported                                                                    |                                                                       Supported                                                                       |
+|                    SSL Policy                    |                                                                    Not supported                                                                    |                                                                       Supported                                                                       |
+

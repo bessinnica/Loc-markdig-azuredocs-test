@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Bing Autosuggest API with Node.JS 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Node.JS. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+
+This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Node.JS. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
@@ -56,8 +57,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
+        let body_ = JSON.parse (body);
+        let body__ = JSON.stringify (body_, null, '  ');
         console.log (body__);
     });
     response.on ('error', function (e) {
@@ -66,17 +67,17 @@ let response_handler = function (response) {
 };
 
 let get_suggestions = function () {
-	let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + params,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + params,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
 
-	let req = https.request (request_params, response_handler);
-	req.end ();
+    let req = https.request (request_params, response_handler);
+    req.end ();
 }
 
 get_suggestions ();

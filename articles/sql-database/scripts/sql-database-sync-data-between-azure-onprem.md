@@ -24,7 +24,7 @@ ms.reviewer: douglasl
 This PowerShell example configures Data Sync to sync between an Azure SQL Database and a SQL Server on-premises database. 
 
 This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
- 
+
 Run `Login-AzureRmAccount` to create a connection with Azure.
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](../sql-database-sync-data.md).
@@ -126,7 +126,7 @@ $AgentKey = New-AzureRmSqlSyncAgentKey -ResourceGroupName $ResourceGroupName   `
                               -SyncAgentName $SyncAgentName
  Write-Host "Use your agent key to configure the sync agent. Do this before proceeding"
 $agentkey
-                  
+
 #DO THE FOLLOWING BEFORE THE NEXT STEP
 #Install the on-premises sync agent on your machine and register the sync agent using the agent key generated above to bring the sync agent online.
 #Add the SQL server database information including server name, database name, user name, password on the configuration tool within the sync agent.  
@@ -351,7 +351,6 @@ else
 # Clean up deployment 
 # Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 # Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
-
 ```
 
 ## Clean up deployment

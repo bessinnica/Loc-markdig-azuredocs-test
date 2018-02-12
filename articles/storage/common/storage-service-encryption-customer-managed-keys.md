@@ -120,6 +120,6 @@ A: Contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) f
 
 ## Next steps
 
-*	For more information on the comprehensive set of security capabilities that help developers build secure applications, see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
-*	For overview information about Azure Key Vault, see [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
-*	For getting started on Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-get-started.md).
+*   For more information on the comprehensive set of security capabilities that help developers build secure applications, see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   For overview information about Azure Key Vault, see [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+*   For getting started on Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-get-started.md).

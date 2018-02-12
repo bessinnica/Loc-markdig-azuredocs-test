@@ -1,4 +1,4 @@
-﻿---
+---
 title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your app.
 services: application-insights
@@ -78,7 +78,7 @@ What if you want to investigate the traffic to your site in more detail, like sp
 
 ## Retention - how many users come back?
 
-Retention helps you understand how often your users return to use their app, based on cohorts of users that performed some business action during a certain time bucket. 
+Retention helps you understand how often your users return to use their app, based on cohorts of users that performed some business action during a certain time bucket. 
 
 - Understand what specific features cause users to come back more than others 
 - Form hypotheses based on real user data 

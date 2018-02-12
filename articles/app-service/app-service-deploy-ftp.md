@@ -26,6 +26,7 @@ or API app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
 <a name="step1"></a>
+
 ## Step 1: Set deployment credentials
 
 To access the FTP server for your app, you first need deployment credentials. 

@@ -35,7 +35,7 @@ Follow the steps below for the iOS bridge sample:
 
 1. First of all, you need to ensure that you have gone through our [Getting Started tutorial](mobile-engagement-ios-get-started.md) to integrate the Mobile Engagement iOS SDK in your hybrid app. Optionally, you can also enable test logging as follows so that you can see the SDK methods as we trigger them from the webview. 
    
-        - (BOOL)application:(UIApplication ​*)application didFinishLaunchingWithOptions:(NSDictionary *​)launchOptions {
+        - (BOOL)application:(UIApplication  *)application didFinishLaunchingWithOptions:(NSDictionary * )launchOptions {
            ....
              [EngagementAgent setTestLogEnabled:YES];
            ....
@@ -77,7 +77,7 @@ Follow the steps below for the iOS bridge sample:
    
         @implementation EngagementJs
    
-        +(void) sendEngagementEvent:(NSString​*)name :(NSString*​)extras {
+        +(void) sendEngagementEvent:(NSString *)name :(NSString* )extras {
            NSMutableDictionary* extrasInput = [self ParseExtras:extras];
            [[EngagementAgent shared] sendEvent:name extras:extrasInput];
         }
@@ -144,7 +144,7 @@ Follow the steps below for the iOS bridge sample:
            context[@"EngagementJs"] = [EngagementJs class];
         }
    
-        - (void)webView:(UIWebView​*)wv didFailLoadWithError:(NSError*​)error
+        - (void)webView:(UIWebView *)wv didFailLoadWithError:(NSError* )error
         {
            NSLog(@"Error for WEBVIEW: %@", [error description]);
         }

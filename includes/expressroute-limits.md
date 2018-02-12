@@ -14,6 +14,7 @@ The following limits apply to ExpressRoute resources per subscription.
 | Number of virtual network links allowed per ExpressRoute circuit |see table below |
 
 #### Number of Virtual Networks per ExpressRoute circuit
+
 | **Circuit Size** | **Number of VNet links for standard** | **Number of VNet Links with Premium add-on** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |

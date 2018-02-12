@@ -58,10 +58,10 @@ There is no new language to learn; Time Series Insights provides a granular, fre
 ## Getting started
 Getting started takes less than 5 minutes. 
 
-1.	To get started, provision a Time Series Insights environment in the Azure portal. 
-2.	Connect an event source like an Azure IoT Hub or Event Hub.  
-3.	Upload reference data (this is not an additional service).
-4.	See your data in minutes with the Time Series Insights explorer.
+1.  To get started, provision a Time Series Insights environment in the Azure portal. 
+2.  Connect an event source like an Azure IoT Hub or Event Hub.  
+3.  Upload reference data (this is not an additional service).
+4.  See your data in minutes with the Time Series Insights explorer.
 
 ## Time Series Insights explorer
 This diagram shows an example of time series insights data viewed through the explorer:

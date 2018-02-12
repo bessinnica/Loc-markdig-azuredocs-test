@@ -288,24 +288,20 @@ The following binary operators are currently supported and can be used in querie
 
 <table>
 <tr>
-<td>Arithmetic</td>    
-<td>+,-,*,/,%</td>
+<td>Arithmetic</td><br/><td>+,-,*,/,%</td>
 </tr>
 <tr>
-<td>Bitwise</td>    
-<td>|, &, ^, <<, >>, >>> (zero-fill right shift)</td>
+<td>Bitwise</td><br/><td>|, &amp;, ^, &lt;&lt;, &gt;&gt;, &gt;&gt;&gt; (zero-fill right shift)</td>
 </tr>
 <tr>
 <td>Logical</td>
 <td>AND, OR, NOT</td>
 </tr>
 <tr>
-<td>Comparison</td>    
-<td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
+<td>Comparison</td><br/><td>=, !=, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;</td>
 </tr>
 <tr>
-<td>String</td>    
-<td>|| (concatenate)</td>
+<td>String</td><br/><td>|| (concatenate)</td>
 </tr>
 </table>  
 
@@ -1808,21 +1804,21 @@ First, for the type system, we support all JSON primitive types – numeric type
 
 * Constant values – these include constant values of the primitive data types at the time the query is evaluated.
 * Property/array index expressions – these expressions refer to the property of an object or an array element.
-  
+
      family.Id;
      family.children[0].familyName;
      family.children[0].grade;
      family.children[n].grade; //n is an int variable
 * Arithmetic expressions - These include common arithmetic expressions on numerical and boolean values. For the complete list, refer to the SQL specification.
-  
+
      2 * family.children[0].grade;
      x + y;
 * String comparison expression - these include comparing a string value to some constant string value.  
-  
+
      mother.familyName == "Smith";
      child.givenName == s; //s is a string variable
 * Object/array creation expression - these expressions return an object of compound value type or anonymous type or an array of such objects. These values can be nested.
-  
+
      new Parent { familyName = "Smith", givenName = "Joe" };
      new { first = 1, second = 2 }; //an anonymous type with two fields              
      new int[] { 3, child.grade, 5 };

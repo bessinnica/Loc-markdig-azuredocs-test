@@ -58,19 +58,19 @@ To configure the integration of LINE WORKS into Azure AD, you need to add LINE W
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **LINE WORKS**, select **LINE WORKS** from result panel then click **Add** button to add the application.
 
-	![LINE WORKS in the results list](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
+    ![LINE WORKS in the results list](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,34 +96,34 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **LINE WORKS** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_samlbase.png)
 
 3. On the **LINE WORKS Domain and URLs** section, perform the following steps:
 
-	![LINE WORKS Domain and URLs single sign-on information](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
+    ![LINE WORKS Domain and URLs single sign-on information](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
-	b. In the **Identifier** textbox, type the value: `worksmobile.com`
+    b. In the **Identifier** textbox, type the value: `worksmobile.com`
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [LINE WORKS Client support team](mailto:dl_ssoinfo@worksmobile.com) to get this value.
+    > [!NOTE] 
+    > This value is not real. Update this value with the actual Sign-On URL. Contact [LINE WORKS Client support team](mailto:dl_ssoinfo@worksmobile.com) to get this value.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-lineworks-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-lineworks-tutorial/tutorial_general_400.png)
 
 6. On the **LINE WORKS Configuration** section, click **Configure LINE WORKS** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![LINE WORKS Configuration](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
+    ![LINE WORKS Configuration](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
 
 7. To configure single sign-on on **LINE WORKS** side, you need to send the downloaded **Certificate file, Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [LINE WORKS support team](mailto:dl_ssoinfo@worksmobile.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -177,32 +177,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **LINE WORKS**.
 
-	![The LINE WORKS link in the Applications list](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
+    ![The LINE WORKS link in the Applications list](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the LINE WORKS tile in the Access Panel, you should get automatically signed-on to your LINE WORKS application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

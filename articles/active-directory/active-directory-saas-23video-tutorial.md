@@ -57,23 +57,23 @@ To configure the integration of 23 Video into Azure AD, you need to add 23 Video
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **23 Video**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/tutorial_23video_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/tutorial_23video_search.png)
 
 5. In the results panel, select **23 Video**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/tutorial_23video_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/tutorial_23video_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with 23 Video based on a test user called "Britta Simon."
@@ -98,34 +98,34 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **23 Video** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_samlbase.png)
 
 3. On the **23 Video Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.23video.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.23video.com/saml/trust/<uniqueid>`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.23video.com/saml/trust/<uniqueid>`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [23 Video Client support team](mailto:support@23company.com) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [23 Video Client support team](mailto:support@23company.com) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_general_400.png)
 
 6. On the **23 Video Configuration** section, click **Configure 23 Video** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_configure.png) 
 
 7. To configure single sign-on on **23 Video** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [23 Video support team](mailto:support@23company.com). 
 
@@ -142,25 +142,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -200,26 +200,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **23 Video**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-23video-tutorial/tutorial_23video_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Testing single sign-on
 
 The objective of this section is to test your Azure AD SSO configuration using the Access Panel.

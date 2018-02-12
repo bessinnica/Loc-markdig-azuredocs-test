@@ -85,13 +85,13 @@ For instruction purposes, first we'll need to create a job that will create seve
 3. In the **Build** section of the job configuration, click **Add build step** and choose **Execute Windows batch command**.
 4. In **Command**, use the following commands:
 
-	```   
-	md text
-	cd text
-	echo Hello Azure Storage from Jenkins > hello.txt
-	date /t > date.txt
-	time /t >> date.txt
-	```
+    ```   
+    md text
+    cd text
+    echo Hello Azure Storage from Jenkins > hello.txt
+    date /t > date.txt
+    time /t >> date.txt
+    ```
 
 5. In the **Post-build Actions** section of the job configuration, click **Add post-build action** and choose **Upload artifacts to Azure Blob storage**.
 6. For **Storage account name**, select the storage account to use.
@@ -121,7 +121,7 @@ The following steps show how to configure a build step to download items from Az
 1. In the **Build** section of the job configuration, click **Add build step** and choose **Download from Azure Blob storage**.
 2. For **Storage account name**, select the storage account to use.
 3. For **Container name**, specify the name of the container that has the blobs you want to download. You can use environment variables.
-4. For **Blob name**, specify the blob name. You can use environment variables. Also, you can use an asterisk, as a wildcard after you specify the initial letter(s) of the blob name. For example, **project\*** would specify all blobs whose names start with **project**.
+4. For <strong>Blob name</strong>, specify the blob name. You can use environment variables. Also, you can use an asterisk, as a wildcard after you specify the initial letter(s) of the blob name. For example, <strong>project\</strong>* would specify all blobs whose names start with <strong>project</strong>.
 5. [Optional] For **Download path**, specify the path on the Jenkins machine where you want to download files from Azure blob storage. Environment variables can also be used. (If you do not provide a value for **Download path**, the files from Azure blob storage will be downloaded to the job's workspace.)
 
 If you have additional items you want to download from Azure blob storage, you can create additional build steps.

@@ -32,6 +32,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
+
 ## Create an account with Azure Location Based Services
 
 Follow these steps to create a new Location Based Services account.
@@ -40,17 +41,18 @@ Follow these steps to create a new Location Based Services account.
 2. In the *Search the Marketplace* box, type **location based services**.
 3. From the *Results*, click the **Location Based Services (preview)**. Click **Create** button that appears below the map. 
 4. On the **Create Location Based Services Account** page, enter the following values:
-    - The *Name* of your new account. 
-    - The *Subscription* that you want to use for this account.
-    - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
-    - Select the *Resource group location*.
-    - Read the *Preview Terms* and check the checkbox to accept the terms. 
-    - Finally, click the **Create** button.
-   
-    ![Create Location Based Services account in portal](./media/tutorial-search-location/create-lbs-account.png)
+   - The *Name* of your new account. 
+   - The *Subscription* that you want to use for this account.
+   - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
+   - Select the *Resource group location*.
+   - Read the *Preview Terms* and check the checkbox to accept the terms. 
+   - Finally, click the **Create** button.
+
+     ![Create Location Based Services account in portal](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
+
 
 ## Get the primary key for your account
 
@@ -64,6 +66,7 @@ Once your Location Based Services account is successfully created, follow the st
 
 
 <a id="createmap"></a>
+
 
 ## Create new web page using Azure Map Control API
 Azure Map Control API is a convenient client library that allows you to easily integrate Azure Location Based Services into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the Location Based Services' Map Control API. 
@@ -109,7 +112,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
     </html>
     ``` 
     Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the *script* segment added to the *body* of the HTML file. This segment will contain the inline JavaScript code to access the Azure Location Based Service's APIs.
- 
+
 3.  Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Location Based Services account in the script. 
 
     ```JavaScript
@@ -137,6 +140,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
 
 
 <a id="usesearch"></a>
+
 
 ## Use Search Service to find nearby point of interest
 

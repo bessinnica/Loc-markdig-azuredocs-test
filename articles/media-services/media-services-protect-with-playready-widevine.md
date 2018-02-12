@@ -69,11 +69,11 @@ Perform the following general steps when you protect your assets with PlayReady 
 
 4. Configure the content key's authorization policy. You must configure the content key authorization policy. The client must meet the policy before the content key is delivered to the client.
 
-	When you create the content key authorization policy, you must specify the delivery method (PlayReady or Widevine) and the restrictions (open or token). You also must specify information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
+    When you create the content key authorization policy, you must specify the delivery method (PlayReady or Widevine) and the restrictions (open or token). You also must specify information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
 
 5. Configure the delivery policy for an asset. The delivery policy configuration includes the delivery protocol (for example, MPEG-DASH, HLS, Smooth Streaming, or all). The configuration also includes the type of dynamic encryption (for example, common encryption) and the PlayReady or Widevine license acquisition URL.
 
-	You can apply a different policy to each protocol on the same asset. For example, you can apply PlayReady encryption to Smooth/DASH and an AES envelope to HLS. Any protocols that aren't defined in a delivery policy (for example, if you add a single policy that specifies only HLS as the protocol) are blocked from streaming. The exception is if you have no asset delivery policy defined at all. Then, all protocols are allowed in the clear.
+    You can apply a different policy to each protocol on the same asset. For example, you can apply PlayReady encryption to Smooth/DASH and an AES envelope to HLS. Any protocols that aren't defined in a delivery policy (for example, if you add a single policy that specifies only HLS as the protocol) are blocked from streaming. The exception is if you have no asset delivery policy defined at all. Then, all protocols are allowed in the clear.
 
 6. Create an OnDemand locator to get a streaming URL.
 
@@ -152,8 +152,8 @@ You can use the [Azure Media Services Player](http://amsplayer.azurewebsites.net
 
 2. Add the following elements to **appSettings** defined in your app.config file:
 
-		<add key="Issuer" value="http://testacs.com"/>
-		<add key="Audience" value="urn:test"/>
+        <add key="Issuer" value="http://testacs.com"/>
+        <add key="Audience" value="urn:test"/>
 
 ## Example
 

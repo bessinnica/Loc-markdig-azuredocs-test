@@ -23,8 +23,6 @@ This article outlines the variety of sample data sources and target scenarios th
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
 
 Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
 
@@ -85,16 +83,16 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 4. Transform data to cleaned, tabular form, if needed.
 5. Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
 6. Load data to SQL Server database running on an Azure VM.
-   
+
    Option \#1: Using SQL Server Management Studio.
-   
+
    * Login to SQL Server VM
    * Run SQL Server Management Studio.
    * Create database and target tables.
    * Use one of the bulk import methods to load the data from VM-local files.
-   
+
    Option \#2: Using IPython Notebook – not advisable for medium and larger datasets
-   
+
    <!-- -->    
    * Use ODBC connection string to access SQL Server on VM.
    * Create database and target tables.
@@ -112,30 +110,30 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 1. Create an Azure Virtual Machine running SQL Server and IPython Notebook server.
 2. Upload data to an Azure storage container.
 3. (Optional) Pre-process and clean data.
-   
+
    a.  Pre-process and clean data in IPython Notebook, accessing data from Azure
-   
+
        blobs.
-   
+
    b.  Transform data to cleaned, tabular form, if needed.
-   
+
    c.  Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
 4. Load data to SQL Server database running on an Azure VM.
-   
+
    a.  Login to SQL Server VM.
-   
+
    b.  If data not saved already, download data files from Azure
-   
+
        storage container to local-VM folder.
-   
+
    c.  Run SQL Server Management Studio.
-   
+
    d.  Create database and target tables.
-   
+
    e.  Use one of the bulk import methods to load the data.
-   
+
    f.  If table joins are required, create indexes to expedite joins.
-   
+
    > [!NOTE]
    > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
    > 
@@ -152,7 +150,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 #### Additional Azure resources: Azure Virtual Machine (SQL Server / IPython Notebook server)
 1. Create an Azure Virtual Machine running SQL Server and IPython Notebook server.
 2. Use one of the data export methods to export the data from SQL Server to dump files.
-   
+
    > [!NOTE]
    > If you decide to move all data from the on-prem database,
    > an alternate (faster) method to move the full database to the
@@ -163,19 +161,19 @@ Each of the following sections presents a sample scenario. For each scenario, a 
    > 
 3. Upload dump files to Azure storage container.
 4. Load the data to a SQL Server database running on an Azure Virtual Machine.
-   
+
    a.  Login to the SQL Server VM.
-   
+
    b.  Download data files from an Azure storage container to the local-VM folder.
-   
+
    c.  Run SQL Server Management Studio.
-   
+
    d.  Create database and target tables.
-   
+
    e.  Use one of the bulk import methods to load the data.
-   
+
    f.  If table joins are required, create indexes to expedite joins.
-   
+
    > [!NOTE]
    > For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
    > 
@@ -205,37 +203,37 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 1. Create an Azure Virtual Machine running IPython Notebook server.
 2. Create an Azure HDInsight Hadoop cluster.
 3. (Optional) Pre-process and clean data.
-   
+
    a.  Pre-process and clean data in IPython Notebook, accessing data from Azure
-   
+
        blobs.
-   
+
    b.  Transform data to cleaned, tabular form, if needed.
-   
+
    c.  Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
 4. Upload data to the default container of the Hadoop cluster selected in the step 2.
 5. Load data to Hive database in Azure HDInsight Hadoop cluster.
-   
+
    a.  Log in to the head node of the Hadoop cluster
-   
+
    b.  Open the Hadoop Command Line.
-   
+
    c.  Enter the Hive root directory by command `cd %hive_home%\bin` in Hadoop Command Line.
-   
+
    d.  Run the Hive queries to create database and tables, and load data from blob storage to Hive tables.
-   
+
    > [!NOTE]
    > If the data is big, users can create the Hive table with partitions. Then, users can use a `for` loop in the Hadoop Command Line on the head node to load data into the Hive table partitioned by partition.
    > 
    > 
 6. Explore data and create features as needed in Hadoop Command Line. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
-   
+
    a.  Log in to the head node of the Hadoop cluster
-   
+
    b.  Open the Hadoop Command Line.
-   
+
    c.  Enter the Hive root directory by command `cd %hive_home%\bin` in Hadoop Command Line.
-   
+
    d.  Run the Hive queries in Hadoop Command Line on the head node of the Hadoop cluster to explore the data and create features as needed.
 7. If needed and/or desired, sample the data to fit in Azure Machine Learning Studio.
 8. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).

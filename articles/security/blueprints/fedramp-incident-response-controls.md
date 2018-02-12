@@ -608,7 +608,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The customer's enterprise-level incident response procedures may address safeguards for personnel inadvertently exposed to information not within assigned access authorizations. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                                                                   |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The customer's enterprise-level incident response procedures may address safeguards for personnel inadvertently exposed to information not within assigned access authorizations. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                                                  Not Applicable                                                                                   |
+

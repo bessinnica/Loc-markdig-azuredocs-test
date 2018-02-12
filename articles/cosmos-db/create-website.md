@@ -30,6 +30,7 @@ After completing this tutorial, you will be able to answer the following questio
 
 <a id="Prerequisites"></a>
 
+
 ## Prerequisites
 > [!TIP]
 > While this tutorial does not assume prior experience with Azure Resource Manager templates or JSON, should you wish to modify the referenced templates or deployment options, then knowledge of each of these areas will be required.
@@ -48,6 +49,7 @@ Let's start by downloading the template files we will use in this tutorial.
 
 <a id="Build"></a>
 
+
 ## Step 2: Deploy the Azure Cosmos DB account, App Service web app and demo application sample
 Now let's deploy our first template.
 
@@ -63,12 +65,12 @@ Now let's deploy our first template.
 3. Click **Edit template**, paste the contents of the DocDBWebsiteTodo.json template file, and click **Save**.
    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment3.png)
 4. Click **Edit parameters**, provide values for each of the mandatory parameters, and click **OK**.  The parameters are as follows:
-   
+
    1. SITENAME: Specifies the App Service web app name and is used to construct the URL that you will use to access the web app (e.g. if you specify "mydemodocdbwebapp", then the URL by which you will access the web app will be mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: Specifies the name of App Service hosting plan to create.
    3. LOCATION: Specifies the Azure location in which to create the Azure Cosmos DB and web app resources.
    4. DATABASEACCOUNTNAME: Specifies the name of the Azure Cosmos DB account to create.   
-      
+
       ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment4.png)
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 
@@ -78,12 +80,12 @@ Now let's deploy our first template.
 7. When the deployment finishes, the Resource group blade will open.
    ![Screenshot of the resource group blade](./media/create-website/TemplateDeployment7.png)  
 8. To use the application, simply navigate to the web app URL (in the example above, the URL would be http://mydemodocdbwebapp.azurewebsites.net).  You'll see the following web application:
-   
+
    ![Sample Todo application](./media/create-website/image2.png)
 9. Go ahead and create a couple of tasks in the web app and then return to the Resource group blade in the Azure portal. Click the Azure Cosmos DB account resource in the Resources list and then click **Query Explorer**.
     ![Screenshot of the Summary lens with the web app highlighted](./media/create-website/TemplateDeployment8.png)  
 10. Run the default query, "SELECT * FROM c" and inspect the results.  Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.  Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items which have been marked as complete.
-    
+
     ![Screenshot of the Query Explorer and Results blades showing the query results](./media/create-website/image5.png)
 11. Feel free to explore the Azure Cosmos DB portal experience or modify the sample Todo application.  When you're ready, let's deploy another template.
 
@@ -104,12 +106,12 @@ Now let's deploy our second template.  This template is useful to show how you c
 3. Click **Edit template**, paste the contents of the DocDBWebSite.json template file, and click **Save**.
    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment3.png)
 4. Click **Edit parameters**, provide values for each of the mandatory parameters, and click **OK**.  The parameters are as follows:
-   
+
    1. SITENAME: Specifies the App Service web app name and is used to construct the URL that you will use to access the web app (e.g. if you specify "mydemodocdbwebapp", then the URL by which you will access the web app will be mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: Specifies the name of App Service hosting plan to create.
    3. LOCATION: Specifies the Azure location in which to create the Azure Cosmos DB and web app resources.
    4. DATABASEACCOUNTNAME: Specifies the name of the Azure Cosmos DB account to create.   
-      
+
       ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment4.png)
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 
@@ -126,6 +128,7 @@ Now let's deploy our second template.  This template is useful to show how you c
 10. Feel free to continue exploring the Azure Portal, or follow one of our Azure Cosmos DB [samples](http://go.microsoft.com/fwlink/?LinkID=402386) to create your own Azure Cosmos DB application.
 
 <a name="NextSteps"></a>
+
 
 ## Next steps
 Congratulations! You've deployed Azure Cosmos DB, App Service web app and a sample web application using Azure Resource Manager templates.

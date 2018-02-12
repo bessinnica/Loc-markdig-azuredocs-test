@@ -21,6 +21,7 @@ ms.author: brendal
 For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../azure-resource-manager/resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
 
 ## Compute
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Batch |Yes |
@@ -31,6 +32,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Virtual Machines |Yes |
 
 ## Networking
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Application Gateway |Yes |
@@ -42,6 +44,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | VPN Gateway |Yes |
 
 ## Data & Storage
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Azure Cosmos DB |No |
@@ -53,6 +56,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | StorSimple |No |
 
 ## Web & Mobile
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | API Apps |Yes |
@@ -63,6 +67,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Web Apps |Yes |
 
 ## Analytics
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Data Catalog |No |
@@ -74,11 +79,13 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Power BI |No |
 
 ## Intelligence
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Cognitive Services |No |
 
 ## Internet of Things
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Event Hub |Yes |
@@ -86,12 +93,14 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Notification Hubs |No |
 
 ## Media & CDN
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | CDN |No |
 | Media Service |No |
 
 ## Hybrid Integration
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | BizTalk Services |No |
@@ -99,6 +108,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Service Bus |Yes |
 
 ## Developer Services
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Application Insights |No |
@@ -107,6 +117,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Visual Studio account |No |
 
 ## Management and Security
+
 | Service | Resource Manager Enabled |
 | --- | --- |
 | Automation |Yes |
@@ -116,6 +127,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Security (preview) |No |
 
 ## Resource Manager
+
 | Feature | Resource Manager Enabled |
 | --- | --- |
 | Authorization |Yes |
@@ -124,4 +136,5 @@ For detailed information on Resource Manager providers, API versions, and schema
 ## Next Steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+
 

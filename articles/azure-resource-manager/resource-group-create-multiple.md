@@ -46,26 +46,26 @@ The resource to create multiple times takes the following format:
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"resources": [
-		{
-			"apiVersion": "2016-01-01",
-			"type": "Microsoft.Storage/storageAccounts",
-			"name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-			"location": "[resourceGroup().location]",
-			"sku": {
-				"name": "Standard_LRS"
-			},
-			"kind": "Storage",
-			"properties": {},
-			"copy": {
-				"name": "storagecopy",
-				"count": 3
-			}
-		}
-	],
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
+            }
+        }
+    ],
+    "outputs": {}
 }
 ```
 
@@ -132,28 +132,28 @@ For example, to serially deploy storage accounts two at a time, use:
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"resources": [
-		{
-			"apiVersion": "2016-01-01",
-			"type": "Microsoft.Storage/storageAccounts",
-			"name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-			"location": "[resourceGroup().location]",
-			"sku": {
-				"name": "Standard_LRS"
-			},
-			"kind": "Storage",
-			"properties": {},
-			"copy": {
-				"name": "storagecopy",
-				"count": 4,
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-			}
-		}
-	],
-	"outputs": {}
+            }
+        }
+    ],
+    "outputs": {}
 }
 ``` 
 
@@ -316,20 +316,20 @@ You specify that a resource is deployed after another resource by using the `dep
     "parameters": {},
     "resources": [
         {
-			"apiVersion": "2016-01-01",
-			"type": "Microsoft.Storage/storageAccounts",
-			"name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-			"location": "[resourceGroup().location]",
-			"sku": {
-				"name": "Standard_LRS"
-			},
-			"kind": "Storage",
-			"properties": {},
-			"copy": {
-				"name": "storagecopy",
-				"count": 3
-			}
-		},
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
+            }
+        },
         {
             "apiVersion": "2015-06-15", 
             "type": "Microsoft.Compute/virtualMachines", 

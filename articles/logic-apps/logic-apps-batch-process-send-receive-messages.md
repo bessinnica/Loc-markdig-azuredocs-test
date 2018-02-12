@@ -59,6 +59,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 <a name="batch-receiver"></a>
 
+
 ## Create logic apps that receive messages as a batch
 
 Before you can send messages to a batch, you must first create a 
@@ -87,7 +88,7 @@ and specify criteria for releasing the batch, for example:
    * **Batch Name**: The name used to identify the batch, 
    which is "TestBatch" in this example.
    * **Release Criteria**: The batch release criteria, which can be based on the message count, schedule, or both.
-   
+
      ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
 
    * **Message Count**: The number of messages to hold as a batch 
@@ -107,7 +108,7 @@ Each time the batch has five items or its past 5 minutes, the logic app sends an
 
    2. In the search box, enter "email" as your filter.
    Based on your email provider, select an email connector.
-   
+
       For example, if you have a work or school account, 
       select the Office 365 Outlook connector. 
       If you have a Gmail account, select the Gmail connector.
@@ -161,6 +162,7 @@ Learn more about [authenticating your email credentials](../logic-apps/quickstar
 
 
 <a name="batch-sender"></a>
+
 
 ## Create logic apps that send messages to a batch
 
@@ -226,7 +228,7 @@ while receiver logic apps don't need to know anything about the senders.
 choose **Show advanced options**.
 
    * **Partition Name**: An optional unique partition key to use for dividing the target batch. For this example, add an expression that generates a random number between one and five.
-   
+
      1. When the **Dynamic content** list appears, choose **Expression**.
      2. Enter this expression: **rand(1,6)**
 

@@ -51,13 +51,13 @@ This section describes how to delete and re-create a Run As or Classic Run As ac
 
 3. On the **Run As Accounts** properties page, select either the Run As account or Classic Run As account that you want to delete. Then, on the **Properties** pane for the selected account, click **Delete**.
 
- ![Delete Run As account](media/automation-manage-account/automation-account-delete-runas.png)
+   ![Delete Run As account](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. While the account is being deleted, you can track the progress under **Notifications** from the menu.
 
 5. After the account has been deleted, you can re-create it on the **Run As Accounts** properties page by selecting the create option **Azure Run As Account**.
 
- ![Re-create the Automation Run As account](media/automation-manage-account/automation-account-create-runas.png)
+   ![Re-create the Automation Run As account](media/automation-manage-account/automation-account-create-runas.png)
 
 ## Misconfiguration
 Some configuration items necessary for the Run As or Classic Run As account to function properly might have been deleted or created improperly during initial setup. The items include:

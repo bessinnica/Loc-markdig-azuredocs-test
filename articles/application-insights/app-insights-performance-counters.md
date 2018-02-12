@@ -1,4 +1,4 @@
-﻿---
+---
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 services: application-insights
@@ -40,25 +40,24 @@ To see all your most useful charts in one place, create a [dashboard](app-insigh
 If the performance counter you want isn't shown in the list of metrics, that's because the Application Insights SDK isn't collecting it in your web server. You can configure it to do so.
 
 1. Find out what counters are available in your server by using this PowerShell command at the server:
-   
+
     `Get-Counter -ListSet *`
-   
+
     (See [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
 2. Open ApplicationInsights.config.
-   
+
    * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then re-deploy it to your servers.
    * If you used Status Monitor to instrument a web app at runtime, find ApplicationInsights.config in the root directory of the app in IIS. Update it there in each server instance.
 3. Edit the performance collector directive:
-   
+
 ```XML
-   
+
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
       </Counters>
     </Add>
-
 ```
 
 You can capture both standard counters and those you have implemented yourself. `\Objects\Processes` is an example of a standard counter, available on all Windows systems. `\Sales(photo)\# Items Sold` is an example of a custom counter that might be implemented in a web service. 

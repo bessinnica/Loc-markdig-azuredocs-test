@@ -194,7 +194,7 @@ using Microsoft.WindowsAzure.MediaServices.Client;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-	
+    
 namespace CopyExistingBlobsIntoAsset
 {
     class Program

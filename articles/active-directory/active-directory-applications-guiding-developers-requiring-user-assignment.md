@@ -33,3 +33,4 @@ You will now have to assign users and/or groups to the application. See [Assigni
 
 ## Next Steps
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+

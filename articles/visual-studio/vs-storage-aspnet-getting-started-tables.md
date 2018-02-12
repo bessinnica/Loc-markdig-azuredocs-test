@@ -26,7 +26,7 @@ Azure Table storage enables you to store large amounts of structured data. The s
 
 This tutorial shows how to write ASP.NET code for some common scenarios using Azure table storage entities. These scenarios include creating a table, and adding, querying, and deleting table entities. 
 
-##Prerequisites
+## Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -41,24 +41,24 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 1. In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.
 
-	![Add a controller to an ASP.NET MVC app](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
+    ![Add a controller to an ASP.NET MVC app](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
 
 1. On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.
 
-	![Specify MVC controller type](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
+    ![Specify MVC controller type](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
 
 1. On the **Add Controller** dialog, name the controller *TablesController*, and select **Add**.
 
-	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
+    ![Name the MVC controller](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
 1. Add the following *using* directives to the `TablesController.cs` file:
 
     ```csharp
-	using Microsoft.Azure;
+    using Microsoft.Azure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Table;
-	```
+    ```
 
 ### Create a model class
 
@@ -71,7 +71,7 @@ Many of the examples in this article use a **TableEntity**-derived class called 
 1. Open the `CustomerEntity.cs` file, and add the following **using** directive:
 
     ```csharp
-	using Microsoft.WindowsAzure.Storage.Table;
+    using Microsoft.WindowsAzure.Storage.Table;
     ```
 
 1. Modify the class so that, when finished, the class is declared as in the following code. The class declares an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
@@ -106,7 +106,7 @@ The following steps illustrate how to create a table:
     ```csharp
     public ActionResult CreateTable()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
@@ -134,13 +134,13 @@ The following steps illustrate how to create a table:
 1. Call the **CloudTable.CreateIfNotExists** method to create the table if it does not yet exist. The **CloudTable.CreateIfNotExists** method returns **true** if the table does not exist, and is successfully created. Otherwise, **false** is returned.    
 
     ```csharp
-	ViewBag.Success = table.CreateIfNotExists();
+    ViewBag.Success = table.CreateIfNotExists();
     ```
 
 1. Update the **ViewBag** with the name of the table.
 
     ```csharp
-	ViewBag.TableName = table.Name;
+    ViewBag.TableName = table.Name;
     ```
 
 1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
@@ -150,13 +150,13 @@ The following steps illustrate how to create a table:
 1. Open `CreateTable.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
-	@{
-	    ViewBag.Title = "Create Table";
-	}
-	
-	<h2>Create Table results</h2>
+    @{
+        ViewBag.Title = "Create Table";
+    }
+    
+    <h2>Create Table results</h2>
 
-	Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
+    Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
@@ -164,14 +164,14 @@ The following steps illustrate how to create a table:
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
+    <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
 1. Run the application, and select **Create table** to see results similar to the following screen shot:
   
-	![Create table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
+    ![Create table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add an entity to a table
 
@@ -195,7 +195,7 @@ The entity class *must* declare a public parameter-less constructor.
 1. Add the following directive so that the code in the `TablesController.cs` file can access the **CustomerEntity** class:
 
     ```csharp
-	using StorageAspnet.Models;
+    using StorageAspnet.Models;
     ```
 
 1. Add a method called **AddEntity** that returns an **ActionResult**.
@@ -203,7 +203,7 @@ The entity class *must* declare a public parameter-less constructor.
     ```csharp
     public ActionResult AddEntity()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
@@ -244,14 +244,14 @@ The entity class *must* declare a public parameter-less constructor.
 1. Execute the insert operation by calling the **CloudTable.Execute** method. You can verify the result of the operation by inspecting the **TableResult.HttpStatusCode** property. A status code of 2xx indicates the action requested by the client was processed successfully. For example, successful insertions of new entities results in an HTTP status code of 204, meaning that the operation was successfully processed and the server did not return any content.
 
     ```csharp
-	TableResult result = table.Execute(insertOperation);
+    TableResult result = table.Execute(insertOperation);
     ```
 
 1. Update the **ViewBag** with the table name, and the results of the insert operation.
 
     ```csharp
-	ViewBag.TableName = table.Name;
-	ViewBag.Result = result.HttpStatusCode;
+    ViewBag.TableName = table.Name;
+    ViewBag.Result = result.HttpStatusCode;
     ```
 
 1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
@@ -261,27 +261,27 @@ The entity class *must* declare a public parameter-less constructor.
 1. Open `AddEntity.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
-	@{
-	    ViewBag.Title = "Add entity";
-	}
-	
-	<h2>Add entity results</h2>
+    @{
+        ViewBag.Title = "Add entity";
+    }
+    
+    <h2>Add entity results</h2>
 
-	Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
+    Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
     ```
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
+    <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
 1. Run the application, and select **Add entity** to see results similar to the following screen shot:
   
-	![Add entity](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
+    ![Add entity](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
-	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all the entities for your tables.
+    You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all the entities for your tables.
 
 ## Add a batch of entities to a table
 
@@ -298,7 +298,7 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
     ```csharp
     public ActionResult AddEntities()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
@@ -349,13 +349,13 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 1. Execute the batch insert operation by calling the **CloudTable.ExecuteBatch** method.   
 
     ```csharp
-	IList<TableResult> results = table.ExecuteBatch(batchOperation);
+    IList<TableResult> results = table.ExecuteBatch(batchOperation);
     ```
 
 1. The **CloudTable.ExecuteBatch** method returns a list of **TableResult** objects where each **TableResult** object can be examined to determine the success or failure of each individual operation. For this example, pass the list to a view and let the view display the results of each operation. 
  
     ```csharp
-	return View(results);
+    return View(results);
     ```
 
 1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
@@ -365,28 +365,28 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 1. Open `AddEntities.cshtml`, and modify it so that it looks like the following.
 
     ```csharp
-	@model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
-	@{
-	    ViewBag.Title = "AddEntities";
-	}
-	
-	<h2>Add-entities results</h2>
-	
-	<table border="1">
-	    <tr>
-	        <th>First name</th>
-	        <th>Last name</th>
-	        <th>HTTP result</th>
-	    </tr>
-	    @foreach (var result in Model)
-	    {
-	    <tr>
-	        <td>@((result.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
-	        <td>@((result.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
-	        <td>@result.HttpStatusCode</td>
-	    </tr>
-	    }
-	</table>
+    @model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
+    @{
+        ViewBag.Title = "AddEntities";
+    }
+    
+    <h2>Add-entities results</h2>
+    
+    <table border="1">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>HTTP result</th>
+        </tr>
+        @foreach (var result in Model)
+        {
+        <tr>
+            <td>@((result.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
+            <td>@((result.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
+            <td>@result.HttpStatusCode</td>
+        </tr>
+        }
+    </table>
     ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
@@ -394,14 +394,14 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
+    <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
 1. Run the application, and select **Add entities** to see results similar to the following screen shot:
   
-	![Add entities](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
+    ![Add entities](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
-	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all the entities for your tables.
+    You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all the entities for your tables.
 
 ## Get a single entity
 
@@ -418,7 +418,7 @@ This section illustrates how to get a single entity from a table using the entit
     ```csharp
     public ActionResult GetSingle()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
@@ -468,40 +468,40 @@ This section illustrates how to get a single entity from a table using the entit
 1. Open `GetSingle.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
-	@model Microsoft.WindowsAzure.Storage.Table.TableResult
-	@{
-	    ViewBag.Title = "GetSingle";
-	}
-	
-	<h2>Get Single results</h2>
-	
-	<table border="1">
-	    <tr>
-	        <th>HTTP result</th>
-	        <th>First name</th>
-	        <th>Last name</th>
-	        <th>Email</th>
-	    </tr>
-	    <tr>
-	        <td>@Model.HttpStatusCode</td>
-	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
-	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
-	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).Email)</td>
-	    </tr>
-	</table>
-	```
+    @model Microsoft.WindowsAzure.Storage.Table.TableResult
+    @{
+        ViewBag.Title = "GetSingle";
+    }
+    
+    <h2>Get Single results</h2>
+    
+    <table border="1">
+        <tr>
+            <th>HTTP result</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>@Model.HttpStatusCode</td>
+            <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
+            <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
+            <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).Email)</td>
+        </tr>
+    </table>
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
+    <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
 1. Run the application, and select **Get Single** to see results similar to the following screen shot:
   
-	![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
+    ![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
 ## Get all entities in a partition
 
@@ -522,7 +522,7 @@ specified partition.
     ```csharp
     public ActionResult GetPartition()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
@@ -551,8 +551,8 @@ specified partition.
 
     ```csharp
     TableQuery<CustomerEntity> query = 
-		new TableQuery<CustomerEntity>()
-		.Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
+        new TableQuery<CustomerEntity>()
+        .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
     ```
 
 1. Within a loop, call the **CloudTable.ExecuteQuerySegmented** method passing the query object you instantiated in the previous step.  The **CloudTable.ExecuteQuerySegmented** method returns a **TableContinuationToken** object that - when **null** - indicates that there are no more entities to retrieve. Within the loop, use another loop to iterate over the returned entities. In the following code example, each returned entity is added to a list. Once the loop ends, the list is passed to a view for display: 
@@ -581,41 +581,41 @@ specified partition.
 1. Open `GetPartition.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
-	@model IEnumerable<StorageAspnet.Models.CustomerEntity>
-	@{
-	    ViewBag.Title = "GetPartition";
-	}
-	
-	<h2>Get Partition results</h2>
-	
-	<table border="1">
-	    <tr>
-	        <th>First name</th>
-	        <th>Last name</th>
-	        <th>Email</th>
-	    </tr>
-	    @foreach (var customer in Model)
-	    {
-	    <tr>
-	        <td>@(customer.RowKey)</td>
-	        <td>@(customer.PartitionKey)</td>
-	        <td>@(customer.Email)</td>
-	    </tr>
-	    }
-	</table>
-	```
+    @model IEnumerable<StorageAspnet.Models.CustomerEntity>
+    @{
+        ViewBag.Title = "GetPartition";
+    }
+    
+    <h2>Get Partition results</h2>
+    
+    <table border="1">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+        <tr>
+            <td>@(customer.RowKey)</td>
+            <td>@(customer.PartitionKey)</td>
+            <td>@(customer.Email)</td>
+        </tr>
+        }
+    </table>
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
+    <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
 1. Run the application, and select **Get Partition** to see results similar to the following screen shot:
   
-	![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
+    ![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
 ## Delete an entity
 
@@ -632,7 +632,7 @@ This section illustrates how to delete an entity from a table.
     ```csharp
     public ActionResult DeleteEntity()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
@@ -661,7 +661,7 @@ This section illustrates how to delete an entity from a table.
 
     ```csharp
     TableOperation deleteOperation = 
-	    TableOperation.Delete(new CustomerEntity("Smith", "Ben") { ETag = "*" } );
+        TableOperation.Delete(new CustomerEntity("Smith", "Ben") { ETag = "*" } );
     ```
 
 1. Execute the delete operation.   
@@ -683,39 +683,39 @@ This section illustrates how to delete an entity from a table.
 1. Open `DeleteEntity.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
-	@model Microsoft.WindowsAzure.Storage.Table.TableResult
-	@{
-	    ViewBag.Title = "DeleteEntity";
-	}
-	
-	<h2>Delete Entity results</h2>
-	
-	<table border="1">
-	    <tr>
-	        <th>First name</th>
-	        <th>Last name</th>
-	        <th>HTTP result</th>
-	    </tr>
-	    <tr>
-	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
-	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
-	        <td>@Model.HttpStatusCode</td>
-	    </tr>
-	</table>
+    @model Microsoft.WindowsAzure.Storage.Table.TableResult
+    @{
+        ViewBag.Title = "DeleteEntity";
+    }
+    
+    <h2>Delete Entity results</h2>
+    
+    <table border="1">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>HTTP result</th>
+        </tr>
+        <tr>
+            <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
+            <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
+            <td>@Model.HttpStatusCode</td>
+        </tr>
+    </table>
 
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
+    <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
 1. Run the application, and select **Delete entity** to see results similar to the following screen shot:
   
-	![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
+    ![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
 ## Next steps
 View more feature guides to learn about additional options for storing data in Azure.

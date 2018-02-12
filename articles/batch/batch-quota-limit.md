@@ -41,6 +41,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 If you used an earlier version of the Batch API to create a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 ## Other limits
+
 | **Resource** | **Maximum Limit** |
 | --- | --- |
 | [Concurrent tasks](batch-parallel-node-tasks.md) per compute node |4 x number of node cores |
@@ -61,7 +62,7 @@ View your Batch account quotas in the [Azure portal][portal].
 1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
 2. Select **Quotas** on the Batch account's menu.
 3. View the quotas currently applied to the Batch account
-   
+
     ![Batch account quotas][account_quotas]
 
 
@@ -74,29 +75,29 @@ Follow these steps to request a quota increase for your Batch account or your su
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
 2. Select **New support request** > **Basics**.
 3. In **Basics**:
-   
+
     a. **Issue Type** > **Quota**
-   
+
     b. Select your subscription.
-   
+
     c. **Quota type** > **Batch**
-   
+
     d. **Support plan** > **Quota support - Included**
-   
+
     Click **Next**.
 4. In **Problem**:
-   
+
     a. Select a **Severity** according to your [business impact][support_sev].
-   
+
     b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
-   
+
     Click **Next**.
 5. In **Contact information**:
-   
+
     a. Select a **Preferred contact method**.
-   
+
     b. Verify and enter the required contact details.
-   
+
     Click **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.

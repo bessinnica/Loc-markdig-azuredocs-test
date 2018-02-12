@@ -98,6 +98,7 @@ In the following examples, replace example parameter names with your own values.
 
 <a id="prepimage"> </a>
 
+
 ## Prepare the disk to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
 

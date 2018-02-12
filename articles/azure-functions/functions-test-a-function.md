@@ -130,12 +130,12 @@ To test the function with a request body in Postman:
 3. Change the HTTP method to **POST**.
 4. Click **Body** > **raw**, and add a JSON request body similar to the following:
 
-	```json
+    ```json
     {
         "name" : "Wes testing with Postman",
         "address" : "Seattle, WA 98101"
     }
-	```
+    ```
 5. Click **Send**.
 
 The following image shows testing the simple echo function example in this tutorial.
@@ -269,7 +269,7 @@ To demonstrate this approach, we first create a queue trigger function that we w
 8. Click the **Develop** tab for your timer trigger.
 9. You can use the following code for the C# timer function, as long as you used the same queue message object name shown earlier. Then click **Save**.
 
-	```cs
+    ```cs
     using System;
 
     public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
@@ -282,7 +282,7 @@ To demonstrate this approach, we first create a queue trigger function that we w
 
         myQueue = newUser;
     }
-	```
+    ```
 
 At this point, the C# timer function executes every 30 seconds if you used the example cron expression. The logs for the timer function report each execution:
 

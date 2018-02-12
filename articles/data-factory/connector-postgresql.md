@@ -164,49 +164,49 @@ To copy data from PostgreSQL, set the source type in the copy activity to **Rela
 
 When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| PostgreSQL data type | PostgresSQL aliases | Data factory interim data type |
-|:--- |:--- |:--- |
-| `abstime` | |`Datetime` | &nbsp;
-| `bigint` | `int8` | `Int64` |
-| `bigserial` | `serial8` | `Int64` |
-| `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | `varbit |Byte[], String` |
-| `boolean` | `bool` | `Boolean` |
-| `box` | | `Byte[], String` | &nbsp;
-| `bytea` | | `Byte[], String` |&nbsp;
-| `character [ (n) ]` | `char [ (n) ]` | `String` |
-| `character varying [ (n) ]` | `varchar [ (n) ]` | `String` |
-| `cid` | | `String` |&nbsp;
-| `cidr` | | `String` |&nbsp;
-| `circle` | |`Byte[], String` |&nbsp;
-| `date` | |`Datetime` |&nbsp;
-| `daterange` | |`String` |&nbsp;
-| `double precision` |`float8` |`Double` |
-| `inet` | |`Byte[], String` |&nbsp;
-| `intarry` | |`String` |&nbsp;
-| `int4range` | |`String` |&nbsp;
-| `int8range` | |`String` |&nbsp;
-| `integer` | `int, int4 |Int32` |
-| `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
-| `json` | | `String` |&nbsp;
-| `jsonb` | | `Byte[]` |&nbsp;
-| `line` | | `Byte[], String` |&nbsp;
-| `lseg` | | `Byte[], String` |&nbsp;
-| `macaddr` | | `Byte[], String` |&nbsp;
-| `money` | | `Decimal` |&nbsp;
-| `numeric [ (p, s) ]`|`decimal [ (p, s) ]` |`Decimal` |
-| `numrange` | |`String` |&nbsp;
-| `oid` | |`Int32` |&nbsp;
-| `path` | |`Byte[], String` |&nbsp;
-| `pg_lsn` | |`Int64` |&nbsp;
-| `point` | |`Byte[], String` |&nbsp;
-| `polygon` | |`Byte[], String` |&nbsp;
-| `real` |`float4` |`Single` |
-| `smallint` |`int2` |`Int16` |
-| `smallserial` |`serial2` |`Int16` |
-| `serial` |`serial4` |`Int32` |
-| `text` | |`String` |&nbsp;
 
+| PostgreSQL data type          | PostgresSQL aliases  | Data factory interim data type |
+|:------------------------------|:---------------------|:-------------------------------|
+| `abstime`                     |                      | `Datetime`                     |
+| `bigint`                      | `int8`               | `Int64`                        |
+| `bigserial`                   | `serial8`            | `Int64`                        |
+| `bit [ (n) ]`                 |                      | `Byte[], String`               |
+| `bit varying [ (n) ]`         | `varbit              | Byte[], String`                |
+| `boolean`                     | `bool`               | `Boolean`                      |
+| `box`                         |                      | `Byte[], String`               |
+| `bytea`                       |                      | `Byte[], String`               |
+| `character [ (n) ]`           | `char [ (n) ]`       | `String`                       |
+| `character varying [ (n) ]`   | `varchar [ (n) ]`    | `String`                       |
+| `cid`                         |                      | `String`                       |
+| `cidr`                        |                      | `String`                       |
+| `circle`                      |                      | `Byte[], String`               |
+| `date`                        |                      | `Datetime`                     |
+| `daterange`                   |                      | `String`                       |
+| `double precision`            | `float8`             | `Double`                       |
+| `inet`                        |                      | `Byte[], String`               |
+| `intarry`                     |                      | `String`                       |
+| `int4range`                   |                      | `String`                       |
+| `int8range`                   |                      | `String`                       |
+| `integer`                     | `int, int4           | Int32`                         |
+| `interval [ fields ] [ (p) ]` |                      | `Timespan`                     |
+| `json`                        |                      | `String`                       |
+| `jsonb`                       |                      | `Byte[]`                       |
+| `line`                        |                      | `Byte[], String`               |
+| `lseg`                        |                      | `Byte[], String`               |
+| `macaddr`                     |                      | `Byte[], String`               |
+| `money`                       |                      | `Decimal`                      |
+| `numeric [ (p, s) ]`          | `decimal [ (p, s) ]` | `Decimal`                      |
+| `numrange`                    |                      | `String`                       |
+| `oid`                         |                      | `Int32`                        |
+| `path`                        |                      | `Byte[], String`               |
+| `pg_lsn`                      |                      | `Int64`                        |
+| `point`                       |                      | `Byte[], String`               |
+| `polygon`                     |                      | `Byte[], String`               |
+| `real`                        | `float4`             | `Single`                       |
+| `smallint`                    | `int2`               | `Int16`                        |
+| `smallserial`                 | `serial2`            | `Int16`                        |
+| `serial`                      | `serial4`            | `Int32`                        |
+| `text`                        |                      | `String`                       |
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -45,6 +45,7 @@ The types are expressed with the following syntax:
 The functions with the types **mvbin**, **mvstr**, and **mvref** can only work on multi-valued attributes. Functions with **bin**, **str**, and **ref** work on both single-valued and multi-valued attributes.
 
 ## Functions Reference
+
 | List of functions |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
 | **Certificate** | | | | |
@@ -161,7 +162,7 @@ Returns the Oid values of all the critical extensions of a certificate object.
 
 **Syntax:**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertFormat
@@ -170,7 +171,7 @@ Returns the name of the format of this X.509v3 certificate.
 
 **Syntax:**  
 `str CertFormat(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertFriendlyName
@@ -179,7 +180,7 @@ Returns the associated alias for a certificate.
 
 **Syntax:**  
 `str CertFriendlyName(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertHashString
@@ -188,7 +189,7 @@ Returns the SHA1 hash value for the X.509v3 certificate as a hexadecimal string.
 
 **Syntax:**  
 `str CertHashString(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertIssuer
@@ -197,7 +198,7 @@ Returns the name of the certificate authority that issued the X.509v3 certificat
 
 **Syntax:**  
 `str CertIssuer(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertIssuerDN
@@ -206,7 +207,7 @@ Returns the distinguished name of the certificate issuer.
 
 **Syntax:**  
 `str CertIssuerDN(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertIssuerOid
@@ -215,7 +216,7 @@ Returns the Oid of the certificate issuer.
 
 **Syntax:**  
 `str CertIssuerOid(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertKeyAlgorithm
@@ -224,7 +225,7 @@ Returns the key algorithm information for this X.509v3 certificate as a string.
 
 **Syntax:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertKeyAlgorithmParams
@@ -233,7 +234,7 @@ Returns the key algorithm parameters for the X.509v3 certificate as a hexadecima
 
 **Syntax:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertNameInfo
@@ -242,9 +243,9 @@ Returns the subject and issuer names from a certificate.
 
 **Syntax:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
-*	X509NameType: The X509NameType value for the subject.
-*	includesIssuerName: true to include the issuer name; otherwise, false.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   X509NameType: The X509NameType value for the subject.
+*   includesIssuerName: true to include the issuer name; otherwise, false.
 
 - - -
 ### CertNotAfter
@@ -253,7 +254,7 @@ Returns the date in local time after which a certificate is no longer valid.
 
 **Syntax:**  
 `dt CertNotAfter(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertNotBefore
@@ -262,7 +263,7 @@ Returns the date in local time on which a certificate becomes valid.
 
 **Syntax:**  
 `dt CertNotBefore(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertPublicKeyOid
@@ -271,7 +272,7 @@ Returns the Oid of the public key for the X.509v3 certificate.
 
 **Syntax:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertPublicKeyParametersOid
@@ -280,7 +281,7 @@ Returns the Oid of the public key parameters for the X.509v3 certificate.
 
 **Syntax:**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertSerialNumber
@@ -289,7 +290,7 @@ Returns the serial number of the X.509v3 certificate.
 
 **Syntax:**  
 `str CertSerialNumber(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertSignatureAlgorithmOid
@@ -298,7 +299,7 @@ Returns the Oid of the algorithm used to create the signature of a certificate.
 
 **Syntax:**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertSubject
@@ -307,7 +308,7 @@ Gets the subject distinguished name from a certificate.
 
 **Syntax:**  
 `str CertSubject(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertSubjectNameDN
@@ -316,7 +317,7 @@ Returns the subject distinguished name from a certificate.
 
 **Syntax:**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertSubjectNameOid
@@ -325,7 +326,7 @@ Returns the Oid of the subject name from a certificate.
 
 **Syntax:**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertThumbprint
@@ -334,7 +335,7 @@ Returns the thumbprint of a certificate.
 
 **Syntax:**  
 `str CertThumbprint(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CertVersion
@@ -343,7 +344,7 @@ Returns the X.509 format version of a certificate.
 
 **Syntax:**  
 `str CertThumbprint(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CGuid
@@ -709,7 +710,7 @@ Returns true if the raw data can be serialized into .NET X509Certificate2 certif
 
 **Syntax:**  
 `bool CertThumbprint(binary certificateRawData)`  
-*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*   certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 - - -
 ### IsEmpty
 **Description:**  

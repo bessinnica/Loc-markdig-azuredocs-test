@@ -44,22 +44,22 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 ### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
 First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-If bash is not installed on your FreeBSD machine, run following command before the installation. 
+If bash is not installed on your FreeBSD machine, run following command before the installation. 
 
 ```bash
 sudo pkg install bash
 ```
 
-If python is not installed on your FreeBSD machine, run following commands before the installation. 
+If python is not installed on your FreeBSD machine, run following commands before the installation. 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -68,7 +68,7 @@ During the installation, you are asked `Modify profile to update your $PATH and 
 Now you can log in Azure and create your FreeBSD VM. Below is an example to create a FreeBSD 11.0 VM. You can also add the parameter `--public-ip-address-dns-name` with a globally unique DNS name for a newly created Public IP. 
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location eastus
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \
@@ -127,7 +127,7 @@ $ sudo <COMMAND>
 You can optionally obtain a root shell by using `sudo -s`.
 
 ## Known issues
-The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
+The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue](https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.

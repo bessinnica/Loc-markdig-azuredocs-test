@@ -240,7 +240,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### Input - JavaScript example
 
-The following example shows a  table input binding in a *function.json* file and [JavaScript code] (functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
+The following example shows a  table input binding in a <em>function.json</em> file and [JavaScript code](functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
 
 The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value "{queueTrigger}" indicates that the row key comes from the queue message string.
 
@@ -281,7 +281,7 @@ module.exports = function (context, myQueueItem) {
 ```
 
 ## Input - attributes
- 
+
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a table input binding:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
@@ -466,7 +466,6 @@ public class Person
     public string RowKey { get; set; }
     public string Name { get; set; }
 }
-
 ```
 
 ### Output - F# example
@@ -558,7 +557,7 @@ module.exports = function (context) {
             Name: "Name " + i
         });
     }
-    
+
     context.done();
 };
 ```

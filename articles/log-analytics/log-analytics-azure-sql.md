@@ -27,7 +27,7 @@ Currently, this preview solution supports up to 150,000 Azure SQL Databases and 
 The Azure SQL Analytics solution, like others available for Log Analytics, helps you monitor and receive notifications about the health of your Azure resources—in this case, Azure SQL Database. Microsoft Azure SQL Database is a scalable relational database service that provides familiar SQL-Server-like capabilities to applications running in the Azure cloud. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
-  		  
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -138,8 +138,7 @@ Through Query duration and query waits perspective, you can correlate the perfor
 
 You can easily create alerts with the data coming from Azure SQL Database resources. Here are a couple of useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 *High DTU on Azure SQL Database*
 

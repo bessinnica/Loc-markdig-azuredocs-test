@@ -29,13 +29,13 @@ Azure Backup Server v2 comes with System Center 2016 Data Protection Manager Mod
 
 Backup Server v2 accepts storage volumes. When you add a volume, Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires. To add a volume, and to expand it later if you need to, we suggest that you use this workflow:
 
-1.	Set up Backup Server v2 on a VM.
-2.	Create a volume on a virtual disk in a storage pool:
+1.  Set up Backup Server v2 on a VM.
+2.  Create a volume on a virtual disk in a storage pool:
     1.  Add a disk to a storage pool and create a virtual disk with simple layout.
     2.  Add any additional disks, and extend the virtual disk.
     3.  Create volumes on the virtual disk.
-3.	Add the volumes to Backup Server.
-4.	Configure workload-aware storage.
+3.  Add the volumes to Backup Server.
+4.  Configure workload-aware storage.
 
 ## Create a volume for Modern Backup Storage
 

@@ -274,12 +274,12 @@ To run the sample, perform the following steps:
         })
 
         .done(function(data) {
-			// Show formatted JSON on webpage.
+            // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
         })
 
         .fail(function(jqXHR, textStatus, errorThrown) {
-			// Display error message.
+            // Display error message.
             var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
             errorString += (jqXHR.responseText === "") ? "" : jQuery.parseJSON(jqXHR.responseText).message;
             alert(errorString);

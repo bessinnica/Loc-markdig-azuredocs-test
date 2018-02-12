@@ -77,30 +77,31 @@ Learn how to understand your Azure billing, and monitor usage and costs. Tutoria
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/module/azurerm.billing/?view=azurermps-3.8.0">PowerShell for invoice download</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.billing/?view=azurermps-3.8.0">PowerShell for invoice download</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.billing">.NET Reference for invoice download</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.billing">.NET Reference for invoice download</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
         <div class="cardSize">
@@ -130,3 +131,4 @@ Learn how to understand your Azure billing, and monitor usage and costs. Tutoria
         </div>
     </li>
 </ul>
+

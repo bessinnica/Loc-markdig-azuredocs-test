@@ -1,5 +1,5 @@
 ---
-title: Deploy the Java remote monitoring solution - Azure | Microsoft Docs 
+title: Deploy the Java remote monitoring solution - Azure | Microsoft Docs 
 description: This tutorial shows you how to provision the remote monitoring preconfigured solution using the CLI.
 services: ''
 suite: iot-suite

@@ -21,15 +21,15 @@ ms.author: kapiteir
 This article details how to use the new APNS HTTP/2 protocol with token based authentication.
 
 The key benefits of using the new protocol include:
--	Token generation is relatively hassle free (compared to certificates)
--	No more expiry dates – you are in control of your authentication tokens and their revocation
--	Payloads can now be up to 4 KB
+-   Token generation is relatively hassle free (compared to certificates)
+-   No more expiry dates – you are in control of your authentication tokens and their revocation
+-   Payloads can now be up to 4 KB
 - Synchronous feedback
--	You’re on Apple’s latest protocol – certificates still use the binary protocol, which is marked for deprecation
+-   You’re on Apple’s latest protocol – certificates still use the binary protocol, which is marked for deprecation
 
 Using this new mechanism can be done in two steps in a few minutes:
-1.	Obtain the necessary information from the Apple Developer Account portal
-2.	Configure your notification hub with the new information
+1.  Obtain the necessary information from the Apple Developer Account portal
+2.  Configure your notification hub with the new information
 
 Notification Hubs is now all set to use the new authentication system with APNS. 
 

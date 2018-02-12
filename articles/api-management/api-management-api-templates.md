@@ -181,7 +181,7 @@ The templates in this section allow you to customize the content of the API page
         <h4>{% localized "Documentation|SectionHeadingRequestBody" %}</h4>  
         <div class="panel">  
             {% if operation.request.description %}  
-                <p>{{operation.request.description }}</p>	  
+                <p>{{operation.request.description }}</p>     
             {% endif %}  
   
             {% if operation.request.representations.size > 0 %}  
@@ -199,7 +199,7 @@ The templates in this section allow you to customize the content of the API page
                         {% for representation in operation.request.representations %}  
                             <div id="requesttab{{forloop.index}}" role="tabpanel" class="tab-pane snippet{% if forloop.first %} active{% endif %}">  
   
-                                {% if representation.sample or representation.schema %}	  
+                                {% if representation.sample or representation.schema %}   
                                 <div role="tabpanel">  
                                     {% if representation.sample and representation.schema %}   
                                     <ul class="nav nav-tabs-borderless" role="tablist">  
@@ -850,7 +850,7 @@ namespace CSHttpClientSample
 {% endcase -%}  
         }  
     }  
-}	  
+}     
 ```  
   
 #### Controls  

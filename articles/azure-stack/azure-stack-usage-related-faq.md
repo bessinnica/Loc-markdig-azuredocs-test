@@ -79,6 +79,7 @@ in any environment.
 Currently, you can query only by *Reported Time*.
 
 ## What do these usage API error codes mean?
+
 | **HTTP status code** | **Error code** | **Description** |
 | --- | --- | --- |
 | 400/Bad Request |*NoApiVersion* |The *api-version* query parameter is missing. |

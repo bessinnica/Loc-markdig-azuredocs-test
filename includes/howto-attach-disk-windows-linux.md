@@ -54,6 +54,6 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
 7. The **Attach existing disk** panel displays again, with the location containing the storage account, container, and selected hard disk (vhd) to add to the virtual machine.
 
-  Set **Host caching** to none or Read only, then click OK.
+   Set **Host caching** to none or Read only, then click OK.
 
     ![Data disk successfully attached](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

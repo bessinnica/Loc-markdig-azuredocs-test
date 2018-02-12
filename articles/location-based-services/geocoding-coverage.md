@@ -203,95 +203,97 @@ Address Points are derived from the Point Address index in Online Search. This f
 
 Azure LBS provides city-level accuracy when searching in the following regions: 
 
-|Area  |Region  |
-|---------|---------|
-|**Americas**     |        |
-|     |Anguilla        |
-|     |Antarctica         |
-|     |Aruba        |
-|     |Belize         |
-|     |Bolivia         |
-|     |Bonaire, Sint Eustatius, and Saba         |
-|     |Clipperton Island         |
-|     |Falkland Islands         |
-|     |Montserrat         |
-|     |Paraguay         |
-|     |Saint Lucia         |
-|     |Saint Pierre and Miquelon         |
-|     |Saint Vincent and the Grenadines         |
-|     |South Georgia and the South Sandwich Islands         |
-|     |Suriname         |
-|     |United States Minor Outlying Islands         |
-|     |Virgin Islands - British         |
-|     |         |
-|**Asia Pacific**     |         |
-|     |Bangladesh         |
-|     |Bhutan         |
-|     |British Indian Ocean Territory         |
-|     |Cambodia         |
-|     |China        |
-|     |Cocos (Keeling) Islands         |
-|     |Comoros         |
-|     |Cook Islands         |
-|     |Timor-Leste         |
-|     |Fiji         |
-|     |French Polynesia         |
-|     |Heard Island and McDonald Islands         |
-|     |Japan        |
-|     |Kiribati         |
-|     |Laos         |
-|     |Micronesia       |
-|     |Mongolia         |
-|     |Nauru         |
-|     |Napal         |
-|     |New Caledonia         |
-|     |Niue         |
-|     |Norfolk Island         |
-|     |North Korea         |
-|     |Palau        |
-|     |Pakistan         |
-|     |Papua New Guinea         |
-|     |Paracel Islands         |
-|     |Pitcairn         |
-|     |Samoa         |
-|     |Senkaku Islands         |
-|     |Solomon Islands         |
-|     |South Korea         |
-|     |Southern Kurils         |
-|     |Spratly Islands         |
-|     |Sri Lanka         |
-|     |Tokelau         |
-|     |Tonga         |
-|     |Turks and Caicos Islands         |
-|     |Tuvalu         |
-|     |Vanuatu         |
-|     |Wallis and Futuna       |
-|     |         |
-|**Europe**     |        |
-|     |Armenia        |
-|     |Azerbaijan         |
-|     |Faroe Islands         |
-|     |Georgia         |
-|     |Greenland         |
-|     |Jan Mayen         |
-|     |Kazakhstan         |
-|     |Kyrgyzstan         |
-|     |Tajikistan         |
-|     |Turkmenistan         |
-|     |Uzbekistan         |
-||         |
-|**Middle East & Africa**     |         |
-|     |Afghanistan         |
-|     |Bouvet Island         |
-|     |French Southern Territories         |
-|     |Gambia         |
-|     |Iran         |
-|     |Israel         |
-|     |Maldives      |
-|     |Marshall Islands         |
-|     |Myanmar         |
-|     |Palestinian Authority         |
-|     |Saint Helena         |
-|     |Somalia         |
-|     |Syria         |
-|     |West Bank         |
+
+|                 Area                  |                    Region                    |
+|---------------------------------------|----------------------------------------------|
+|       <strong>Americas</strong>       |                                              |
+|                                       |                   Anguilla                   |
+|                                       |                  Antarctica                  |
+|                                       |                    Aruba                     |
+|                                       |                    Belize                    |
+|                                       |                   Bolivia                    |
+|                                       |      Bonaire, Sint Eustatius, and Saba       |
+|                                       |              Clipperton Island               |
+|                                       |               Falkland Islands               |
+|                                       |                  Montserrat                  |
+|                                       |                   Paraguay                   |
+|                                       |                 Saint Lucia                  |
+|                                       |          Saint Pierre and Miquelon           |
+|                                       |       Saint Vincent and the Grenadines       |
+|                                       | South Georgia and the South Sandwich Islands |
+|                                       |                   Suriname                   |
+|                                       |     United States Minor Outlying Islands     |
+|                                       |           Virgin Islands - British           |
+|                                       |                                              |
+|     <strong>Asia Pacific</strong>     |                                              |
+|                                       |                  Bangladesh                  |
+|                                       |                    Bhutan                    |
+|                                       |        British Indian Ocean Territory        |
+|                                       |                   Cambodia                   |
+|                                       |                    China                     |
+|                                       |           Cocos (Keeling) Islands            |
+|                                       |                   Comoros                    |
+|                                       |                 Cook Islands                 |
+|                                       |                 Timor-Leste                  |
+|                                       |                     Fiji                     |
+|                                       |               French Polynesia               |
+|                                       |      Heard Island and McDonald Islands       |
+|                                       |                    Japan                     |
+|                                       |                   Kiribati                   |
+|                                       |                     Laos                     |
+|                                       |                  Micronesia                  |
+|                                       |                   Mongolia                   |
+|                                       |                    Nauru                     |
+|                                       |                    Napal                     |
+|                                       |                New Caledonia                 |
+|                                       |                     Niue                     |
+|                                       |                Norfolk Island                |
+|                                       |                 North Korea                  |
+|                                       |                    Palau                     |
+|                                       |                   Pakistan                   |
+|                                       |               Papua New Guinea               |
+|                                       |               Paracel Islands                |
+|                                       |                   Pitcairn                   |
+|                                       |                    Samoa                     |
+|                                       |               Senkaku Islands                |
+|                                       |               Solomon Islands                |
+|                                       |                 South Korea                  |
+|                                       |               Southern Kurils                |
+|                                       |               Spratly Islands                |
+|                                       |                  Sri Lanka                   |
+|                                       |                   Tokelau                    |
+|                                       |                    Tonga                     |
+|                                       |           Turks and Caicos Islands           |
+|                                       |                    Tuvalu                    |
+|                                       |                   Vanuatu                    |
+|                                       |              Wallis and Futuna               |
+|                                       |                                              |
+|        <strong>Europe</strong>        |                                              |
+|                                       |                   Armenia                    |
+|                                       |                  Azerbaijan                  |
+|                                       |                Faroe Islands                 |
+|                                       |                   Georgia                    |
+|                                       |                  Greenland                   |
+|                                       |                  Jan Mayen                   |
+|                                       |                  Kazakhstan                  |
+|                                       |                  Kyrgyzstan                  |
+|                                       |                  Tajikistan                  |
+|                                       |                 Turkmenistan                 |
+|                                       |                  Uzbekistan                  |
+|                                       |                                              |
+| <strong>Middle East & Africa</strong> |                                              |
+|                                       |                 Afghanistan                  |
+|                                       |                Bouvet Island                 |
+|                                       |         French Southern Territories          |
+|                                       |                    Gambia                    |
+|                                       |                     Iran                     |
+|                                       |                    Israel                    |
+|                                       |                   Maldives                   |
+|                                       |               Marshall Islands               |
+|                                       |                   Myanmar                    |
+|                                       |            Palestinian Authority             |
+|                                       |                 Saint Helena                 |
+|                                       |                   Somalia                    |
+|                                       |                    Syria                     |
+|                                       |                  West Bank                   |
+

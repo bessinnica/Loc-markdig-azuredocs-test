@@ -37,8 +37,8 @@ Follow these steps to create a new policy assignment.
     Run the following command to register the resource provider:
 
     ```
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
-```
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+   ```
 
     You cannot unregister a resource provider while you have resource types from the resource provider in your subscription.
 
@@ -47,8 +47,8 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
 2. After you register the resource provider, run the following command to view all policy definitions and find the one you want to assign:
 
     ```powershell
-$definition = Get-AzureRmPolicyDefinition
-```
+   $definition = Get-AzureRmPolicyDefinition
+   ```
 
     Azure Policy comes with already built-in policy definitions you can use. You will see built-in policy definitions such as:
 

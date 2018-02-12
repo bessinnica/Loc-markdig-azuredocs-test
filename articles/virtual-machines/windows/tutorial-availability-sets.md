@@ -89,7 +89,7 @@ $vnet = New-AzureRmVirtualNetwork `
     -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
-	
+    
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
     -Name myNetworkSecurityGroupRuleRDP `
     -Protocol Tcp `
@@ -106,7 +106,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -Name myNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupAvailability `
     -SecurityRules $nsgRuleRDP
-	
+    
 # Apply the network security group to a subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `

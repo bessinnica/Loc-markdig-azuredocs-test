@@ -40,28 +40,28 @@ After you enable email notification for a virtual array, members of the notifica
 #### To enable email notification for alerts
 
 1. Go to your StorSimple Device Manager service and in the **Management** section,select and click **Devices**. From the list of devices displayed, select and click your device.
-   
+
     ![alert settings](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. This opens up the **Settings** blade. In the **Device settings** section, select **General**. This opens up the **General Settings** blade.
-   
+
     ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. In the **General settings** blade, go to **Alert settings** section and set the following:
-   
+
    1. In the **Enable email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
    3. In the **Additional email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device.
-      
+
        ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
-      
+
        ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
-      
+
       > [!NOTE]
       > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again.
       > 
       > 
    5. At the bottom of the page, click **Save** to save your configuration. When prompted for confirmation, click **Yes**.
-      
+
       ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## Common alert conditions
@@ -143,6 +143,7 @@ The following tables list some of the StorSimple alerts that you might encounter
 | Clone of <*device name*> couldn’t be completed. |Clone job failure. |Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation. |
 
 ### Networking alerts
+
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | Could not connect to the authentication service. |Datapath error |The URL that is used to authenticate is not reachable. Ensure that your firewall rules include the URL patterns specified for the StorSimple device. For more information on URL patterns in Azure portal, go to [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|

@@ -27,6 +27,7 @@ The DSVMs come with included fully worked-out samples in the form of Jupyter Not
 > Refer to [Access Jupyter](#access-jupyter) section to enable Jupyter Notebooks on your DSVM.
 
 ## Quick Reference of Samples
+
 | Samples Category | Description | Locations |
 | ------------- | ------------- | ------------- |
 | **R** Language  | Samples in **R** explaining scenarios like connecting with Azure cloud data stores, Comparing Open Source R and Microsoft R & operationalizing Models on Microsoft R Server or SQL Server. <br/> [Screenshot](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
@@ -43,6 +44,7 @@ The DSVMs come with included fully worked-out samples in the form of Jupyter Not
 | **XGBoost** | Standard Machine Learning samples in **XGBoost** for scenarios like classification, regression etc. <br/> [Screenshot](#xgboost) | <br/>`~samples/xgboost/demo`<br/><br/> |
 
 <br/>
+
 
 ## Access Jupyter 
 
@@ -61,45 +63,62 @@ Sign in with the new password you had just set.
 <br/>
 **Linux DSVM**
 
-You can access Jupyter Home on your VM by visiting **`https://localhost:8000`** on your browser. See screenshot to add exception and enable Jupyter access over the browser.
+You can access Jupyter Home on your VM by visiting <strong><code>https://localhost:8000</code></strong> on your browser. See screenshot to add exception and enable Jupyter access over the browser.
+
 <br/>![Enable Jupyter Exception](./media/ubuntu-jupyter-exception.png)<br/>
 Sign in with the same password as your login for the DSVM.
+
 <br/>
 
-**Jupyter Home**
+
+<strong>Jupyter Home</strong>
+
 <br/>![Jupyter Home](./media/jupyter-home.png)<br/>
+
 
 ## R Language 
 <br/>![R Samples](./media/r-language-samples.png)<br/>
 
+
 ## Python Language
 <br/>![Python Samples](./media/python-language-samples.png)<br/>
+
 
 ## Julia Language 
 <br/>![Julia Samples](./media/julia-samples.png)<br/>
 
+
 ## CNTK 
 <br/>![CNTK Samples](./media/cntk-samples2.png)<br/>
+
 <br/>![CNTK Samples](./media/cntk-samples.png)<br/>
+
 
 ## MXNet
 <br/>![MXnet Samples](./media/mxnet-samples.png)<br/>
 
+
 ## AzureML 
 <br/>![AzurekML Samples](./media/azureml-samples.png)<br/>
+
 
 ## caffe2 
 <br/>![caffe2 Samples](./media/caffe2-samples.png)<br/>
 
+
 ## H2O 
 <br/>![H2O Samples](./media/h2o-samples.png)<br/>
+
 
 ## SparkML 
 <br/>![SparkML Samples](./media/sparkml-samples.png)<br/>
 
+
 ## TensorFlow 
 <br/>![TensorFlow Samples](./media/tensorflow-samples.png)<br/>
 
+
 ## XGBoost 
 <br/>![XGBoost Samples](./media/xgboost-samples.png)<br/>
+
 

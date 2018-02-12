@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move a Windows AWS VMs to Azure | Microsoft Docs
 description: Move an Amazon Web Services (AWS) EC2 Windows instance to Azure Virtual Machines using Azure PowerShell. 
 services: virtual-machines-windows
@@ -32,14 +32,14 @@ You can upload both generalized and specialized VHDs to Azure. Each type require
 
 - **Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should: 
  
-	* [Prepare a Windows VM](prepare-for-upload-vhd-image.md).  
-	* Generalize the virtual machine using Sysprep.  
+    * [Prepare a Windows VM](prepare-for-upload-vhd-image.md).  
+    * Generalize the virtual machine using Sysprep.  
 
  
 - **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed.  
-	* [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). **Do not** generalize the VM using Sysprep. 
-	* Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools). 
-	* Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up.  
+    * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). **Do not** generalize the VM using Sysprep. 
+    * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools). 
+    * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up.  
 
 
 ## Export and download the VHD 

@@ -24,3 +24,4 @@ ms.author: cynthn
 You can protect your data by taking backups at regular intervals. There are several backup options available for VMs, depending on your use-case.
 
 [!INCLUDE [virtual-machines-common-backup-recovery](../../../includes/virtual-machines-common-backup-recovery.md)]
+

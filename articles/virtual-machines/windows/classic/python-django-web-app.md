@@ -20,7 +20,7 @@ ms.author: huvalo
 ---
 # Django Hello World web app on a Windows Server VM
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and the classic deployment model](../../../resource-manager-deployment-model.md). This article describes the classic deployment model. We recommend that most new deployments use the Resource Manager model.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
@@ -48,11 +48,11 @@ The following screenshot shows the completed application:
    1. In the Azure portal, go to the dashboard and select your newly created virtual machine.
    2. Click **Endpoints**, and then click **Add**.
 
-     ![Add an endpoint](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
+      ![Add an endpoint](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
 
    3. On the **Add endpoint** page, for **Name**, enter **HTTP**. Set the public and private TCP ports to **80**.
 
-     ![Enter name and set public and private ports](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
+      ![Enter name and set public and private ports](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
 
    4. Click **OK**.
      

@@ -58,19 +58,19 @@ To configure the integration of SuccessFactors into Azure AD, you need to add Su
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **SuccessFactors**, select **SuccessFactors** from result panel then click **Add** button to add the application.
 
-	![SuccessFactors in the results list](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_addfromgallery.png)
+    ![SuccessFactors in the results list](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,17 +96,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **SuccessFactors** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_samlbase.png)
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
+    ![Single sign-on dialog box](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_samlbase.png)
 
 3. On the **SuccessFactors Domain and URLs** section, perform the following steps:
 
-	![SuccessFactors Domain and URLs single sign-on information](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_url.png)
+    ![SuccessFactors Domain and URLs single sign-on information](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -115,6 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | `https://<companyname>.sapsf.eu`|
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -127,7 +129,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | `https://www.successfactors.cn`|
     | `https://www.successfactors.cn/<companyname>`|
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern:
+    c. In the **Reply URL** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -140,85 +143,85 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | `https://<companyname>.sapsf.eu/<companyname>`|
     | `https://<companyname>.sapsf.cn`|
     | `https://<companyname>.sapsf.cn/<companyname>`|
-    	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SuccessFactors Client support team](https://www.successfactors.com/en_us/support.html) to get these values. 
+
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SuccessFactors Client support team](https://www.successfactors.com/en_us/support.html) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-successfactors-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-successfactors-tutorial/tutorial_general_400.png)
+
 6. On the **SuccessFactors Configuration** section, click **Configure SuccessFactors** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_configure.png) 
 
 7. In a different web browser window, log in to your **SuccessFactors admin portal** as an administrator.
-	
+
 8. Visit **Application Security** and native to **Single Sign On Feature**. 
 
 9. Place any value in the **Reset Token** and click **Save Token** to enable SAML SSO.
-   
+
     ![Configuring single sign-on on app side][11]
 
     > [!NOTE] 
     > This value is used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
 
 10. Native to below screenshot and perform the following actions:
-   
+
     ![Configuring single sign-on on app side][12]
-   
+
     a. Select the **SAML v2 SSO** Radio Button
-   
+
     b. Set the **SAML Asserting Party Name**(for example, SAML issuer + company name).
-   
+
     c. In the **Issuer URL** textbox, paste the **SAML Entity ID** value which you have copied from the Azure portal.
-   
+
     d. Select **Response(Customer Generated/IdP/AP)** as **Require Mandatory Signature**.
-   
+
     e. Select **Enabled** as **Enable SAML Flag**.
-   
+
     f. Select **No** as **Login Request Signature(SF Generated/SP/RP)**.
-   
+
     g. Select **Browser/Post Profile** as **SAML Profile**.
-   
+
     h. Select **No** as **Enforce Certificate Valid Period**.
-   
+
     i. Copy the content of the downloaded certificate file from Azure portal, and then paste it into the **SAML Verifying Certificate** textbox.
 
     > [!NOTE] 
     > The certificate content must have begin certificate and end certificate tags.
 
 11. Navigate to SAML V2, and then perform the following steps:
-   
+
     ![Configuring single sign-on on app side][13]
-   
+
     a. Select **Yes** as **Support SP-initiated Global Logout**.
-   
+
     b. In the **Global Logout Service URL (LogoutRequest destination)** textbox, paste the **Sign-Out URL** value which you have copied form the Azure portal.
-   
+
     c. Select **No** as **Require sp must encrypt all NameID element**.
-   
+
     d. Select **unspecified** as **NameID Format**.
-   
+
     e. Select **Yes** as **Enable sp initiated login (AuthnRequest)**.
-   
+
     f. In the **Send request as Company-Wide issuer** textbox, paste **SAML Single Sign-On Service URL** value which you have copied from the Azure portal.
 
 12. Perform these steps if you want to make the login usernames Case Insensitive.
-   
-	![Configure Single Sign-On][29]
-	
-	a. Visit **Company Settings**(near the bottom).
-   
-	b. select checkbox near **Enable Non-Case-Sensitive Username**.
-   
-	c.Click **Save**.
-   
-	> [!NOTE] 
+
+    ![Configure Single Sign-On][29]
+
+    a. Visit **Company Settings**(near the bottom).
+
+    b. select checkbox near **Enable Non-Case-Sensitive Username**.
+
+    c.Click **Save**.
+
+    > [!NOTE] 
     > If you try to enable this, the system checks if it creates a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system gives you an error message and does not enable the feature. The customer needs to change one of the usernames so it’s spelled different.
 
 > [!TIP]
@@ -255,7 +258,7 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a SuccessFactors test user
 
 To enable Azure AD users to log in to SuccessFactors, they must be provisioned into SuccessFactors.  
@@ -273,32 +276,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **SuccessFactors**.
 
-	![The SuccessFactors link in the Applications list](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_app.png)  
+    ![The SuccessFactors link in the Applications list](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the SuccessFactors tile in the Access Panel, you should get automatically signed-on to your SuccessFactors application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

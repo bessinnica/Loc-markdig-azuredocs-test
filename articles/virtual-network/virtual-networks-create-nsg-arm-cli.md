@@ -50,15 +50,15 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
    * `--location`: Azure region where the new NSG is created. For our scenario, *westus*.
    * `--name`: Name for the new NSG. For our scenario, *NSG-FrontEnd*.
 
-    The expected output is quite a bit of information including a list of all the default rules. The following example shows the default rules using a JMESPATH query filter with the `table` output format:
+     The expected output is quite a bit of information including a list of all the default rules. The following example shows the default rules using a JMESPATH query filter with the `table` output format:
 
-    ```azurecli
-    az network nsg show \
-    -g testrg \
-    -n nsg-frontend \
-    --query 'defaultSecurityRules[].{Access:access,Desc:description,DestPortRange:destinationPortRange,Direction:direction,Priority:priority}' \
-    -o table
-    ```
+     ```azurecli
+     az network nsg show \
+     -g testrg \
+     -n nsg-frontend \
+     --query 'defaultSecurityRules[].{Access:access,Desc:description,DestPortRange:destinationPortRange,Direction:direction,Priority:priority}' \
+     -o table
+     ```
    
    Output:
 

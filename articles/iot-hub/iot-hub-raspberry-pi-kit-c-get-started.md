@@ -65,8 +65,8 @@ The following items are optional:
 * A diffused 10-mm LED.
 
 
-> [!NOTE] 
-These items are optional because the code sample support simulated sensor data.
+> [!NOTE]
+> These items are optional because the code sample support simulated sensor data.
 
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
@@ -99,8 +99,8 @@ Prepare the microSD card for installation of the Raspbian image.
 
    ![Enable SPI and SSH on Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
-To enable SSH and SPI, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+> [!NOTE]
+> To enable SSH and SPI, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
 
 ### Connect the sensor to Pi
 
@@ -141,18 +141,18 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Login to your Raspberry Pi
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
-   
+
    **Windows Users**
    1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
    1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
-   
+
    ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
-   
+
    **Mac and Ubuntu Users**
-   
+
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
-   > [!NOTE] 
-   The default username is `pi` , and the password is `raspberry`.
+   > [!NOTE]
+   > The default username is `pi` , and the password is `raspberry`.
 
 
 ### Configure the sample application
@@ -184,14 +184,14 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    ```
    ![Build output](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
-1. Run the sample application by running the following command:
+2. Run the sample application by running the following command:
 
    ```bash
    sudo ./app '<DEVICE CONNECTION STRING>'
    ```
 
-   > [!NOTE] 
-   Make sure you copy-paste the device connection string into the single quotes.
+   > [!NOTE]
+   > Make sure you copy-paste the device connection string into the single quotes.
 
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
@@ -203,3 +203,4 @@ You should see the following output that shows the sensor data and the messages 
 You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi in a command line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

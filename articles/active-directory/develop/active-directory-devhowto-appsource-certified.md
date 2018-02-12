@@ -33,7 +33,7 @@ An application that accepts sign-ins from users from any company or organization
 
 In order to enable multi-tenancy on your application:
 - Set `Multi-Tenanted` property to `Yes` on your application registration's information in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (by default, applications created in the Azure Portal are configured as *single-tenant*)
-- Update your code to send requests to the '`common`' endpoint (update the endpoint from *https://login.microsoftonline.com/{yourtenant}* to *https://login.microsoftonline.com/common*)
+- Update your code to send requests to the '`common`' endpoint (update the endpoint from <em>https://login.microsoftonline.com/{yourtenant}</em> to <em>https://login.microsoftonline.com/common</em>)
 - For some platforms, like ASP.NET, you need also to update your code to accept multiple issuers
 
 For more information about multi-tenancy, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](./active-directory-devhowto-multi-tenant-overview.md).
@@ -47,7 +47,8 @@ Single-tenant applications can enable the *Contact Me* experience, but if you wa
 ## AppSource trial experiences
 
 ### Free Trial (Customer-led trial experience) 
-The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:<br/><br/>
+The <em>customer-led trial</em> is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:<br/><br/>
+
 
 <table >
 <tr>
@@ -63,7 +64,8 @@ The *customer-led trial* is the experience that AppSource recommends as it offer
 </table>
 
 ### Contact Me (Partner-led trial experience)
-The *partner trial experience* can be used when a manual or a long-term operation needs to happen to provision the user/ company: for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the *'Request Trial'* button and fills out a form, AppSource sends you the user's contact information. Upon receiving this information, you then provision the environment and send the instructions to the user on how to access the trial experience:<br/><br/>
+The <em>partner trial experience</em> can be used when a manual or a long-term operation needs to happen to provision the user/ company: for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the <em>'Request Trial'</em> button and fills out a form, AppSource sends you the user's contact information. Upon receiving this information, you then provision the environment and send the instructions to the user on how to access the trial experience:<br/><br/>
+
 
 <table valign="top">
 <tr>
@@ -91,13 +93,13 @@ The *partner trial experience* can be used when a manual or a long-term operatio
     <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>User accesses your application and complete the single-sign-on process</li></ul></td>
     <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>User gives consent for your application</li></ul></td>
     <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
-   
+
 </tr>
 </table>
 
 ### More information
 For more information about the AppSource trial experience, see [this video](https://aka.ms/trialexperienceforwebapps). 
- 
+
 ## Next Steps
 
 - For more information on building applications that support Azure Active Directory sign-ins, see [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 

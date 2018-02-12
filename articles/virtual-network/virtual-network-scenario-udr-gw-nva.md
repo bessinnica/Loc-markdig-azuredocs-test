@@ -79,12 +79,14 @@ In this scenario, the only traffic flowing from on-premises to Azure will be use
 | 10.0.4.0/24 |10.0.3.11 |Allows on-premises traffic to reach management firewall **AZF3** |
 
 ### azsn2udr
+
 | Destination | Next hop | Explanation |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Allows traffic to the backend subnet hosting the application server through **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Allows all other traffic to be routed through **AZF1** |
 
 ### azsn3udr
+
 | Destination | Next hop | Explanation |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Allows traffic to **azsn2** to flow from app server to the webserver through **AZF2** |
@@ -92,11 +94,13 @@ In this scenario, the only traffic flowing from on-premises to Azure will be use
 You also need to create route tables for the subnets in **onpremvnet** to mimic the on-premises datacenter.
 
 ### onpremsn1udr
+
 | Destination | Next hop | Explanation |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Allows traffic to **onpremsn2** through **OPFW** |
 
 ### onpremsn2udr
+
 | Destination | Next hop | Explanation |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Allows traffic to the backed subnet in Azure through **OPFW** |

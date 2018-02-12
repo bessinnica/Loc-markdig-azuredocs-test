@@ -28,7 +28,7 @@ The Get Task Counts operation counts tasks by state, as follows:
 - A task is counted as **running** when it has been assigned to a compute node, but has not yet completed. A task is counted as **running** when its state is either `preparing` or `running`, as indicated by the [Get information about a task][rest_get_task] operation.
 - A task is counted as **completed** when it is no longer eligible to run. A task counted as **completed** has typically either finished successfully, or has finished unsuccessfully and has also exhausted its retry limit. 
 
-The Get Task Counts operation also reports how many tasks have succeeded or failed. Batch determines whether a task has succeeded or failed by checking the **result** property of the [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] property:
+The Get Task Counts operation also reports how many tasks have succeeded or failed. Batch determines whether a task has succeeded or failed by checking the <strong>result</strong> property of the [executionInfo][<https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo>] property:
 
     - A task is counted as **succeeded** if the result of task execution is `success`.
     - A task is counted as **failed** if the result of task execution is `failure`.

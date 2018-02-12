@@ -24,6 +24,7 @@ Metrics for Azure Redis Cache instances are collected using the Redis [INFO](htt
 
 <a name="view-cache-metrics"></a>
 
+
 To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Redis Cache provides some built-in charts on the **Overview** blade and the **Redis metrics** blade. Each chart can be customized by adding or removing metrics and changing the reporting interval.
 
 ![Redis metrics](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
@@ -55,7 +56,9 @@ To view Redis metrics and create custom charts using Azure Monitor, click **Metr
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
+
 <a name="enable-cache-diagnostics"></a>
+
 ## Export cache metrics
 By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
 
@@ -111,6 +114,7 @@ Each metric includes two versions. One metric measures performance for the entir
 | Cache Write |The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client. |
 
 <a name="operations-and-alerts"></a>
+
 ## Alerts
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
 

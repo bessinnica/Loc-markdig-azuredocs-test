@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Operational Security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure Operational Security.
@@ -25,22 +25,22 @@ Azure Operational Security refers to the services, controls, and features availa
 In this article, we discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
 
 For each best practice, we explain:
--	What the best practice is
--	Why you want to enable that best practice
--	What might be the result if you fail to enable the best practice
+-   What the best practice is
+-   Why you want to enable that best practice
+-   What might be the result if you fail to enable the best practice
 - How you can learn to enable the best practice
 
 This Azure Operational Security Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
 
 Azure Operational Security best practices discussed in this article include:
 
--	Monitor, manage, and protect cloud infrastructure
--	Manage identity and implement single sign-on (SSO)
--	Trace requests, analyze usage trends, and diagnose issues
--	Monitoring services with a centralized monitoring solution
--	Prevent, detect, and respond to threats
--	End-to-end scenario-based network monitoring
--	Secure deployment using proven DevOps tools
+-   Monitor, manage, and protect cloud infrastructure
+-   Manage identity and implement single sign-on (SSO)
+-   Trace requests, analyze usage trends, and diagnose issues
+-   Monitoring services with a centralized monitoring solution
+-   Prevent, detect, and respond to threats
+-   End-to-end scenario-based network monitoring
+-   Secure deployment using proven DevOps tools
 
 ## Monitor, manage, and protect cloud infrastructure
 IT Operations is responsible for managing datacenter infrastructure, applications, and data, including the stability and security of these systems. However, gaining security insights across increasing complex IT environments often requires organizations to cobble together data from multiple security and management systems.
@@ -53,15 +53,15 @@ For more information about OMS, read the article [Operations Management Suite](h
 
 To help you prevent, detect, and respond to threats, [Operations Management Suite (OMS) Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) collects and processes data about your resources, which includes:
 
--	Security event log
--	Event Tracing for Windows (ETW) events
--	AppLocker auditing events
--	Windows Firewall log
--	Advanced Threat Analytics events
--	Results of baseline assessment
--	Results of antimalware assessment
--	Results of update/patch assessment
--	Syslog streams that are explicitly enabled on the agent
+-   Security event log
+-   Event Tracing for Windows (ETW) events
+-   AppLocker auditing events
+-   Windows Firewall log
+-   Advanced Threat Analytics events
+-   Results of baseline assessment
+-   Results of antimalware assessment
+-   Results of update/patch assessment
+-   Syslog streams that are explicitly enabled on the agent
 
 
 ## Manage identity and implement single sign-on
@@ -71,11 +71,11 @@ To help you prevent, detect, and respond to threats, [Operations Management Suit
 
 The following capabilities can help secure cloud-based applications, streamline IT processes, cut costs and help ensure that corporate compliance goals are met:
 
--	Identity and access management for the cloud
--	Simplify user access to any cloud app
--	Protect sensitive data and applications
--	Enable self-service for your employees
--	Integrate with Azure Active Directory
+-   Identity and access management for the cloud
+-   Simplify user access to any cloud app
+-   Protect sensitive data and applications
+-   Enable self-service for your employees
+-   Integrate with Azure Active Directory
 
 ### Identity and access management for the cloud
 Azure Active Directory (Azure AD) is a comprehensive [identity and access management cloud solution](https://www.microsoft.com/cloud-platform/identity-management), which gives you a robust set of capabilities to manage users and groups. It helps secure access to on-premises and cloud applications, including Microsoft web services like Office 365 and much non-Microsoft software as a service (SaaS) applications.
@@ -121,18 +121,18 @@ This shows how to quickly apply a built-in monitoring RBAC role to a user in Azu
 ## Prevent, detect, and respond to threats
 Security Center threat detection works by automatically collecting security information from Azure resources, the network, and connected partner solutions. It analyses this information, often correlating information from multiple sources, to identify threats. Security alerts are prioritized in Security Center along with recommendations on how to remediate the threat.
 
--	[Configure a security policy](https://docs.microsoft.com/azure/security-center/security-center-policies) for your Azure subscription.
--	Use the [recommendations in Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) to help you protect your Azure resources.
--	Review and manage your current [security alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
+-   [Configure a security policy](https://docs.microsoft.com/azure/security-center/security-center-policies) for your Azure subscription.
+-   Use the [recommendations in Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) to help you protect your Azure resources.
+-   Review and manage your current [security alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
 
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 Security Center delivers easy-to-use and effective threat prevention, detection, and response capabilities that are built in to Azure. Key capabilities are:
 
--	Understand cloud security state
--	Take control of cloud security
--	Easily deploy integrated cloud security solutions
--	Detect threats and respond fast
+-   Understand cloud security state
+-   Take control of cloud security
+-   Easily deploy integrated cloud security solutions
+-   Detect threats and respond fast
 
 ### Understand cloud security state
 Use Azure Security Center to get a central view of the security state of all of your Azure resources. At a glance, verify that the appropriate security controls are in place and configured correctly and quickly identify any resources, which require attention.
@@ -165,11 +165,11 @@ To learn more about how to configure Network watcher and how to enable it, pleas
 ## Secure deployment using proven DevOps tools
 These are some of the List of Azure DevOps Practices in this Microsoft Cloud space, which makes enterprises and teams productive and efficient.
 
--	**Infrastructure as Code (IaC):** Infrastructure as Code is a set of techniques and practices, which help IT Pros remove the burden associated with the day to day build and management of modular infrastructure. It allows IT Pros to build and maintain their modern server environment in a way that is like how software developers build and maintain application code. For Azure, we have [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
--	**Continuous Integration and Deployment:** You can configure your Visual Studio Online team projects to [automatically build and deploy](https://www.visualstudio.com/docs/build/overview) to Azure web apps or cloud services. VSO automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process described here is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
--	**Release Management:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) is a great solution for automating multi-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, we can much automate our release process, and we can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
--	**App Performance Monitoring:** Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it. Configuration is easy matter of adding JS code and a webconfig entry, and you see results within minutes in the portal with all the details.[App insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) helps enterprises for faster detection of issues & remediation.
--	**Load Testing & Autoscale:** We can find performance problems in our app to improve deployment quality and to make sure our app is always up or available to cater to the business needs. Make sure your app can handle traffic for your next launch or marketing campaign. Start running cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) in almost no time with Visual Studio Online.
+-   **Infrastructure as Code (IaC):** Infrastructure as Code is a set of techniques and practices, which help IT Pros remove the burden associated with the day to day build and management of modular infrastructure. It allows IT Pros to build and maintain their modern server environment in a way that is like how software developers build and maintain application code. For Azure, we have [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
+-   **Continuous Integration and Deployment:** You can configure your Visual Studio Online team projects to [automatically build and deploy](https://www.visualstudio.com/docs/build/overview) to Azure web apps or cloud services. VSO automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process described here is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
+-   **Release Management:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) is a great solution for automating multi-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, we can much automate our release process, and we can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
+-   **App Performance Monitoring:** Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it. Configuration is easy matter of adding JS code and a webconfig entry, and you see results within minutes in the portal with all the details.[App insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) helps enterprises for faster detection of issues & remediation.
+-   **Load Testing & Autoscale:** We can find performance problems in our app to improve deployment quality and to make sure our app is always up or available to cater to the business needs. Make sure your app can handle traffic for your next launch or marketing campaign. Start running cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) in almost no time with Visual Studio Online.
 
 ## Next steps
 - Learn more about [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security).

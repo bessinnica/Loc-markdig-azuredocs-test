@@ -23,7 +23,6 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
-
 Here are links to more information about the different sizes:
 - [General-purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)

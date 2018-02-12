@@ -46,10 +46,10 @@ To ensure that your users’ on-premises Active Directory accounts are well prot
 
 Use the following instructions to verify your Active Directory account lockout policies:
 
-1.	Open the Group Policy Management tool.
-2.	Edit the group policy that's applied to all users, for example, the **Default Domain Policy**.
-3.	Browse to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Account Lockout Policy**.
-4.	Verify your **Account lockout threshold** and **Reset account lockout counter after** values.
+1.  Open the Group Policy Management tool.
+2.  Edit the group policy that's applied to all users, for example, the **Default Domain Policy**.
+3.  Browse to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Account Lockout Policy**.
+4.  Verify your **Account lockout threshold** and **Reset account lockout counter after** values.
 
 ![Active Directory account lockout policies](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 

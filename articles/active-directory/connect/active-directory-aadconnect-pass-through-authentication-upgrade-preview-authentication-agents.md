@@ -24,7 +24,7 @@ ms.custom: seohack1
 This article is for customers using Azure AD Pass-through Authentication through preview. We recently upgraded (and rebranded) the Authentication Agent software. You need to _manually_ upgrade preview Authentication Agents installed on your on-premises servers. This manual upgrade is a one-time action only. All future updates to Authentication Agents are automatic. The reasons to upgrade are as follows:
 
 - The preview versions of Authentication Agents will not receive any further security or bug fixes.
--	The preview versions of Authentication Agents can't be installed on additional servers, for high availability.
+-   The preview versions of Authentication Agents can't be installed on additional servers, for high availability.
 
 ## Check versions of your Authentication Agents
 
@@ -54,7 +54,7 @@ To check the versions of your Authentication Agents, on each server identified i
 Before upgrading, ensure that you have the following items in place:
 
 1. **Create cloud-only Global Administrator account**: Don’t upgrade without having a cloud-only Global Administrator account to use in emergency situations where your Pass-through Authentication Agents are not working properly. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
-2.	**Ensure high availability**: If not completed previously, install a second standalone Authentication Agent to provide high availability for sign-in requests, using these [instructions](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+2.  **Ensure high availability**: If not completed previously, install a second standalone Authentication Agent to provide high availability for sign-in requests, using these [instructions](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## Upgrading the Authentication Agent on your Azure AD Connect server
 

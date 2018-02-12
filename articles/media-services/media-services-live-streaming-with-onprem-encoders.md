@@ -64,8 +64,8 @@ The following steps describe tasks involved in creating common live-streaming ap
     When you use the .NET SDK or REST, you need to create an asset and specify to use this asset when creating a program.
 6. Publish the asset that's associated with the program.   
 
-	>[!NOTE]
-	>When your Azure Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state.
+    >[!NOTE]
+    >When your Azure Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 7. Start the program when you're ready to start streaming and archiving.
 

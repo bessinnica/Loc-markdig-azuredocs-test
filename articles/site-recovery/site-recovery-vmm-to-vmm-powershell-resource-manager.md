@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate Hyper-V VMs in VMM to a secondary site with PowerShell (Azure Resource Manager) | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds to a secondary VMM site using PowerShell (Resource Manager)
 services: site-recovery
@@ -190,13 +190,13 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
         $TargetClassification = $storageclassifications[1]
 
-    > [!NOTE]
-    > The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array.
+   > [!NOTE]
+   > The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array.
+   > 
+   > Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
 
-    > Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
 
-
-1. The below cmdlet creates a mapping between the source classification and the target classification.
+3. The below cmdlet creates a mapping between the source classification and the target classification.
 
         New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
 

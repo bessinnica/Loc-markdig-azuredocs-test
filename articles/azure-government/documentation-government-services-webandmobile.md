@@ -71,7 +71,7 @@ For details on this service and how to use it, see [Azure API Management documen
 Azure API Management service is in public preview in Azure Government. Features that are not currently available in API Management service for Azure Government are:
 
 - Azure Monitor Integration 
-    - API Management and Azure Monitor integration is in progress in Azure Government.  As of now it is not available for customers.  Hence, Azure Monitor metrics and diagnostic logs will not be available to API Management customers in Azure Government.
+    - API Management and Azure Monitor integration is in progress in Azure Government.  As of now it is not available for customers.  Hence, Azure Monitor metrics and diagnostic logs will not be available to API Management customers in Azure Government.
 - Azure AAD B2C Integration 
     - Integration with Azure AAD B2C is not available in Azure Government 
 
@@ -81,10 +81,11 @@ The URLs for accessing Azure API Management in Azure Government are different:
 | --- | --- | --- |
 |API Management gateway| *.azure-api.net| *.azure-api.us|
 |API Management portal | *.portal.azure-api.net |*.portal.azure-api.us| 
-|API Management management|	*.management.azure-api.net	|*.management.azure-api.us|
+|API Management management| *.management.azure-api.net  |*.management.azure-api.us|
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure API Management service:
+
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 |All data stored and processed in Azure API Management service can contain Azure Government-regulated data.|Azure API Management service metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: API Management service name, Subscription name, Resource groups, Resource tags.|

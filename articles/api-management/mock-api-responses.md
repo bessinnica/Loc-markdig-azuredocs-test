@@ -56,7 +56,7 @@ The steps in this section show how to create a blank API with no backend. It als
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
 
-	![Mocked operation response](./media/mock-api-responses/mock-api-responses02.png)
+    ![Mocked operation response](./media/mock-api-responses/mock-api-responses02.png)
 
     |Setting|Value|Description|
     |---|---|---|

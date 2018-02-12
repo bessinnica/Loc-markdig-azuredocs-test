@@ -58,19 +58,19 @@ To configure the integration of Nomadic into Azure AD, you need to add Nomadic f
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Nomadic**, select **Nomadic** from result panel then click **Add** button to add the application.
 
-	![Nomadic in the results list](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_addfromgallery.png)
+    ![Nomadic in the results list](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,32 +96,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Nomadic** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_samlbase.png)
 
 3. On the **Nomadic Domain and URLs** section, perform the following steps:
 
-	![Nomadic Domain and URLs single sign-on information](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_url.png)
+    ![Nomadic Domain and URLs single sign-on information](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.nomadic.fm/signin`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.nomadic.fm/auth/saml2/sp`, `https://<company name>.staging.nomadic.fm/auth/saml2/sp`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.nomadic.fm/auth/saml2/sp`, `https://<company name>.staging.nomadic.fm/auth/saml2/sp`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Nomadic Client support team](mailto:help@nomadic.fm) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Nomadic Client support team](mailto:help@nomadic.fm) to get these values. 
  
 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-nomadic-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-nomadic-tutorial/tutorial_general_400.png)
 
 6.  To get SSO configured for your application, contact [Nomadic support team](mailto:help@nomadic.fm) and provide them with the downloaded **metadata**.
 
@@ -175,32 +175,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Nomadic**.
 
-	![The Nomadic link in the Applications list](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_app.png)  
+    ![The Nomadic link in the Applications list](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Nomadic tile in the Access Panel, you should get automatically signed-on to your Nomadic application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

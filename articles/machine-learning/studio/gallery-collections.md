@@ -46,25 +46,25 @@ For example, you can use a collection to group items on a specific topic, or you
 1. Sign in to the Gallery by using your Microsoft account.
 
 2.  Select your image at the top of the page, and then select your name.
-  
+
     ![Select your account name](./media/gallery-collections/click-account-name.png)
 
 3. Select **New Item**.
-   
+
     ![Select "New Item"](./media/gallery-collections/click-new-item.png)
 4. On the **Description** page, for **ITEM TYPE**, select **Collection**. Enter a name for your collection, a brief summary, a detailed description, and any tags that might help other users find your collection.
-   
+
     ![Enter information for a new collection](./media/gallery-collections/create-collection-page-1.png)
 5. On the **Image Selection** page, select an image that is displayed with the collection. You can upload your own image file, or select a stock image. Choose an image that might help users identify the content and purpose of the collection.
-   
+
     ![Enter information for a new collection](./media/gallery-collections/create-collection-page-2.png)
 6. On the **Settings** page, for **Visibility**, select whether the collection is **Public** (anyone can view the collection) or **Unlisted** (only people with a direct link to the collection can view it).
-   
+
    > [!IMPORTANT]
    > After you set a collection to **Public** and then select **Create**, you cannot later change the collection to **Unlisted**.
    > 
    > 
-   
+
     ![Select "Public" or "Unlisted"](./media/gallery-collections/create-collection-page-3.png)
 7. Select **Create**.
 
@@ -96,3 +96,4 @@ To remove an item from your collection, select **Remove**.
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

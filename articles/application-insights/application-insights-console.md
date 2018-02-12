@@ -81,7 +81,6 @@ You may get a full example of the config file by installing latest version of [M
   </TelemetryModules>
   <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel, Microsoft.AI.ServerTelemetryChannel"/>
 </ApplicationInsights>
-
 ```
 
 ### Configuring telemetry collection from code

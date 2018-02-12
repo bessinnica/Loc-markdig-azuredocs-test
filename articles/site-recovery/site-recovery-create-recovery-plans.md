@@ -69,12 +69,12 @@ Once you complete the customization, you can visualize the exact steps of the re
 Recovering large applications can be a complex task. It is also difficult to remember the exact customization steps post failover or migration. Sometimes, it is not you, but someone else who is unaware of the application intricacies, who needs to trigger the failover. Remembering too many manual steps in times of chaos is difficult and error prone. A recovery plan gives you a way to automate the required actions you need to take at every step, by using Microsoft Azure Automation runbooks. With runbooks, you can automate common recovery tasks like the examples given below. For those tasks that cannot be automated, recovery plans also provide you the ability to insert manual actions.
 
 * Tasks on the Azure virtual machine post failover – these are required typically so that you can connect to the virtual machine, for example:
-	* Create a public IP on the virtual machine post failover
-	* Assign an NSG to the failed over virtual machine’s NIC
-	* Add a load balancer to an availability set
+    * Create a public IP on the virtual machine post failover
+    * Assign an NSG to the failed over virtual machine’s NIC
+    * Add a load balancer to an availability set
 * Tasks inside the virtual machine post failover – these reconfigure the application so that it continues to work correctly in the new environment, for example:
-	* Modify the database connection string inside the virtual machine
-	* Change web server configuration/rules
+    * Modify the database connection string inside the virtual machine
+    * Change web server configuration/rules
 
 **With a complete recovery plan that automates the post recovery tasks using automation runbooks, you can achieve one-click failover and optimize the RTO.**
 

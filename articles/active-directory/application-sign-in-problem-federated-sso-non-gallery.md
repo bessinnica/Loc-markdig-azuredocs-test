@@ -30,7 +30,7 @@ To troubleshoot your problem, you need to verify the application configuration i
 
 ## Application not found in directory
 
-*Error AADSTS70001: Application with Identifier ‘https://contoso.com’ was not found in the directory*.
+<em>Error AADSTS70001: Application with Identifier ‘<https://contoso.com’> was not found in the directory</em>.
 
 **Possible cause**
 
@@ -40,29 +40,29 @@ The Issuer attribute sends from the application to Azure AD in the SAML request 
 
 Ensure that the Issuer attribute in the SAML request it’s matching the Identifier value configured in Azure AD:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to configure single sign-on.
+6. Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
 
-8.  <span id="_Hlk477190042" class="anchor"></span>Go to **Domain and URLs** section. Verify that the value in the Identifier textbox is matching the value for the identifier value displayed in the error.
+8. <span id="_Hlk477190042" class="anchor"></span>Go to **Domain and URLs** section. Verify that the value in the Identifier textbox is matching the value for the identifier value displayed in the error.
 
 After you have updated the Identifier value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
 
 ## The reply address does not match the reply addresses configured for the application. 
 
-*Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application* 
+<em>Error AADSTS50011: The reply address ‘<https://contoso.com’> does not match the reply addresses configured for the application</em> 
 
 **Possible cause** 
 
@@ -72,25 +72,25 @@ The AssertionConsumerServiceURL value in the SAML request doesn't match the Repl
 
 Ensure that the AssertionConsumerServiceURL value in the SAML request it's matching the Reply URL value configured in Azure AD. 
  
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.** 
+1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.** 
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu. 
+2. Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu. 
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item. 
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item. 
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu. 
+4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu. 
 
-5.  click **All Applications** to view a list of all your applications. 
+5. click **All Applications** to view a list of all your applications. 
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and       set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and       set the **Show** option to **All Applications.**
   
-6.  Select the application you want to configure single sign-on
+6. Select the application you want to configure single sign-on
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
 
-8.  Go to **Domain and URLs** section. Verify or update the value in the Reply URL textbox to match the AssertionConsumerServiceURL value in the SAML request.
+8. Go to **Domain and URLs** section. Verify or update the value in the Reply URL textbox to match the AssertionConsumerServiceURL value in the SAML request.
 
-  * If you don't see the Reply URL textbox, select the **Show advanced URL settings** checkbox. 
+   * If you don't see the Reply URL textbox, select the **Show advanced URL settings** checkbox. 
 
 After you have updated the Reply URL value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
 
@@ -106,25 +106,25 @@ The user has not been granted access to the application in Azure AD.
 
 To assign one or more users to an application directly, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to assign a user to from the list.
+6. Select the application you want to assign a user to from the list.
 
-7.  Once the application loads, click **Users and Groups** from the application’s left hand navigation menu.
+7. Once the application loads, click **Users and Groups** from the application’s left hand navigation menu.
 
-8.  Click the **Add** button on top of the **Users and Groups** list to open the **Add Assignment** blade.
+8. Click the **Add** button on top of the **Users and Groups** list to open the **Add Assignment** blade.
 
-9.  click the **Users and groups** selector from the **Add Assignment** blade.
+9. click the **Users and groups** selector from the **Add Assignment** blade.
 
 10. Type in the **full name** or **email address** of the user you are interested in assigning into the **Search by name or email address** search box.
 
@@ -176,23 +176,23 @@ The application object is corrupted.
 
 To solve the problem, remove the application from the directory. Then, add and reconfigure the application, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to configure single sign-on.
+6. Select the application you want to configure single sign-on.
 
-7.  Click **Delete** at the top-left of the application **Overview** blade.
+7. Click **Delete** at the top-left of the application **Overview** blade.
 
-8.  Refresh Azure AD and Add the application from the Azure AD gallery. Then, Configure the application again.
+8. Refresh Azure AD and Add the application from the Azure AD gallery. Then, Configure the application again.
 
 After reconfiguring the application, you should be able to sign in to the application.
 
@@ -208,25 +208,25 @@ The application object is corrupted and Azure AD doesn’t recognize the certifi
 
 To delete and create a new certificate, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to configure single sign-on.
+6. Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
 
-8.  click **Create new certificate** under the **SAML signing Certificate** section.
+8. click **Create new certificate** under the **SAML signing Certificate** section.
 
-9.  Select Expiration date. Then, click **Save.**
+9. Select Expiration date. Then, click **Save.**
 
 10. Check **Make new certificate active** to override the active certificate. Then, click **Save** at the top of the blade and accept to activate the rollover certificate.
 

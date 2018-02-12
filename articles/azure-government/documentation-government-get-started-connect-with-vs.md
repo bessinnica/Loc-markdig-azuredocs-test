@@ -84,9 +84,9 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 
 #### Manually updating Visual Studio for Azure Government
 
-1.	Close Visual Studio
-2.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\\.IdentityService\AadConfigurations**.  Create this folder if not present.
-3.	Launch Visual Studio and begin using your Azure Government account.
+1.  Close Visual Studio
+2.  Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\\.IdentityService\AadConfigurations**.  Create this folder if not present.
+3.  Launch Visual Studio and begin using your Azure Government account.
 
 > [!NOTE]
 > With the configuration file, only Azure Government subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Government instead of Azure Public.  Remove the file to connect to Azure Commercial.
@@ -96,9 +96,9 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 #### Manually reverting Visual Studio Connection to Azure Government
 To enable Visual Studio to connect to Azure Public, you need to remove the configuration file setting that enables connection to Azure Government.
 
-1.	Close Visual Studio
-2.	Delete this folder: **%localappdata%\.IdentityService\AadConfigurations**
-3.	Restart Visual Studio and begin using your Azure Public account.
+1.  Close Visual Studio
+2.  Delete this folder: **%localappdata%\.IdentityService\AadConfigurations**
+3.  Restart Visual Studio and begin using your Azure Public account.
 
 > [!NOTE]
 > Once this configuration has been reverted, your Azure Government subscriptions no longer accessible.

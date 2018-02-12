@@ -52,6 +52,7 @@ For details on this service and how to use it, see [Azure Notification Hubs docu
 Notification Hubs **does not yet have Portal support** and cannot be accessed through the Azure Government Portal.
 
 The URLs for accessing and managing Azure Notification Hub in Azure Government are different:
+
 | Azure Public        | Azure Government   | 
 | ------------------- | ------------------ | 
 | *.servicebus.windows.net | *.servicebus.usgovcloudapi.net |

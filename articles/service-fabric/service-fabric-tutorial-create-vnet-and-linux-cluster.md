@@ -113,18 +113,19 @@ If any other application ports are needed, then you will need to adjust the Micr
 ## Set template parameters
 The [vnet-cluster.parameters.json][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
 
-|Parameter|Example value|Notes|
-|---|---||
-|adminUserName|vmadmin| Admin username for the cluster VMs. |
-|adminPassword|Password#1234| Admin password for the cluster VMs.|
-|clusterName|mysfcluster123| Name of the cluster. |
-|location|southcentralus| Location of the cluster. |
-|certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3". </p>| 
-|certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
-|sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
+|       Parameter       | Example value  |                                                                                                                                                                          Notes                                                                                                                                                                           |
+|-----------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     adminUserName     |    vmadmin     |                                                                                                                                                           Admin username for the cluster VMs.                                                                                                                                                            |
+|     adminPassword     | Password#1234  |                                                                                                                                                           Admin password for the cluster VMs.                                                                                                                                                            |
+|      clusterName      | mysfcluster123 |                                                                                                                                                                   Name of the cluster.                                                                                                                                                                   |
+|       location        | southcentralus |                                                                                                                                                                 Location of the cluster.                                                                                                                                                                 |
+| certificateThumbprint |                |                                     <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3". </p>                                     |
+|  certificateUrlValue  |                |                <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "<https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346>".</p>                 |
+|   sourceVaultValue    |                | <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p> |
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+
 
 ## Deploy the virtual network and cluster
 Next, set up the network topology and deploy the Service Fabric cluster. The [vnet-linuxcluster.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.

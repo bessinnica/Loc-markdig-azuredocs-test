@@ -51,7 +51,6 @@ Perform the following steps to create a service.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
-
 For each StorSimple Device Manager service, the following attributes exist:
 
 * **Name** – The name that was assigned to your StorSimple Device Manager service when it was created. **The service name cannot be changed after the service is created. This is also true for other entities such as devices, volumes, volume containers, and backup policies that cannot be renamed in the Azure portal.**
@@ -101,7 +100,7 @@ Perform the following steps to regenerate a service registration key.
 
 ### To regenerate the service registration key
 1. In the **StorSimple Device Manager** blade, go to **Management &gt;** **Keys**.
-    
+
     ![Keys blade](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. In the **Keys** blade, click **Regenerate**.
@@ -155,17 +154,17 @@ If you are using the device serial console to connect to the Windows PowerShell 
 #### To initiate the service data encryption key change
 1. Select option 1 to log on with full access.
 2. At the command prompt, type:
-   
+
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. After the cmdlet has successfully completed, you will get a new service data encryption key. Copy and save this key for use in step 3 of this process. This key will be used to update all the remaining devices registered with the StorSimple Manager service.
-   
+
    > [!NOTE]
    > This process must be initiated within four hours of authorizing a StorSimple device.
    > 
    > 
-   
+
    This new key is then sent to the service to be pushed to all the devices that are registered with the service. An alert will then appear on the service dashboard. The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices. However, the I/Os (hosts sending data to the cloud) will not be disrupted.
-   
+
    If you have a single device registered to your service, the rollover process is now complete and you can skip the next step. If you have multiple devices registered to your service, proceed to step 3.
 
 ### Step 3: Update the service data encryption key on other StorSimple devices

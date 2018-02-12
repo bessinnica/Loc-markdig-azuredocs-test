@@ -58,19 +58,19 @@ To configure the integration of ClearCompany into Azure AD, you need to add Clea
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **ClearCompany**, select **ClearCompany** from result panel then click **Add** button to add the application.
 
-	![ClearCompany in the results list](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_addfromgallery.png)
+    ![ClearCompany in the results list](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,38 +96,38 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **ClearCompany** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_samlbase.png)
 
 3. On the **ClearCompany Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
 
-	![ClearCompany Domain and URLs single sign-on information](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url1.png)
+    ![ClearCompany Domain and URLs single sign-on information](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url1.png)
 
     In the **Identifier** textbox, type the URL: `https://api.clearcompany.com`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![ClearCompany Domain and URLs single sign-on information](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url2.png)
+    ![ClearCompany Domain and URLs single sign-on information](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url2.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.clearcompany.com`
-	
-	> [!NOTE] 
-	> Sign-on URL value is not a real value. Update this value with the actual Sign-On URL. Contact [ClearCompany Client support team](http://www.clearcompany.com/support) to get this value. 
+    
+    > [!NOTE] 
+    > Sign-on URL value is not a real value. Update this value with the actual Sign-On URL. Contact [ClearCompany Client support team](http://www.clearcompany.com/support) to get this value. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-clearcompany-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-clearcompany-tutorial/tutorial_general_400.png)
+    
 7. On the **ClearCompany Configuration** section, click **Configure ClearCompany** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![ClearCompany Configuration](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_configure.png) 
+    ![ClearCompany Configuration](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
 8. To configure single sign-on on **ClearCompany** side, you need to send the downloaded **Certificate(Base64)** and **SAML Single Sign-On Service URL** to [ClearCompany support team](http://www.clearcompany.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -168,7 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a ClearCompany test user
 
-In this section, you create a user called Britta Simon in ClearCompany. Work with [ClearCompany support team](http://www.clearcompany.com/support) to add the users in the ClearCompany platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in ClearCompany. Work with [ClearCompany support team](http://www.clearcompany.com/support) to add the users in the ClearCompany platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
@@ -180,32 +180,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **ClearCompany**.
 
-	![The ClearCompany link in the Applications list](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_app.png)  
+    ![The ClearCompany link in the Applications list](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the ClearCompany tile in the Access Panel, you should get automatically signed-on to your ClearCompany application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

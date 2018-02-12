@@ -58,19 +58,19 @@ To configure the integration of MOBI into Azure AD, you need to add MOBI from th
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **MOBI**, select **MOBI** from result panel then click **Add** button to add the application.
 
-	![MOBI in the results list](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_addfromgallery.png)
+    ![MOBI in the results list](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,37 +96,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **MOBI** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_samlbase.png)
 
 3. On the **MOBI Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
 
-	![MOBI Domain and URLs single sign-on information](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_url.png)
+    ![MOBI Domain and URLs single sign-on information](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.thefutureis.mobi`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.thefutureis.mobi/saml_consume`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.thefutureis.mobi/saml_consume`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![MOBI Domain and URLs single sign-on information](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_url1.png)
+    ![MOBI Domain and URLs single sign-on information](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.thefutureis.mobi/login`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [MOBI Client support team](mailto:sso@mobiwm.com) to get these values. 
+     
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [MOBI Client support team](mailto:sso@mobiwm.com) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-mobi-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-mobi-tutorial/tutorial_general_400.png)
+    
 7. To configure single sign-on on **MOBI** side, you need to send the downloaded **Metadata XML** to [MOBI support team](mailto:sso@mobiwm.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
@@ -166,7 +166,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a MOBI test user
 
-In this section, you create a user called Britta Simon in MOBI. Work with [MOBI support team](mailto:sso@mobiwm.com) to add the users in the MOBI platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in MOBI. Work with [MOBI support team](mailto:sso@mobiwm.com) to add the users in the MOBI platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
@@ -178,32 +178,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **MOBI**.
 
-	![The MOBI link in the Applications list](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_app.png)  
+    ![The MOBI link in the Applications list](./media/active-directory-saas-mobi-tutorial/tutorial_mobi_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the MOBI tile in the Access Panel, you should get automatically signed-on to your MOBI application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

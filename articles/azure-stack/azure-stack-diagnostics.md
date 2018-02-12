@@ -37,11 +37,11 @@ The PowerShell cmdlet **Get-AzureStackLog** can be used to collect logs from all
  
 The following are some example log types that are collected:
 *   **Azure Stack deployment logs**
-*	**Windows event logs**
-*	**Panther logs**
-*	**Cluster logs**
-*	**Storage diagnostic logs**
-*	**ETW logs**
+*   **Windows event logs**
+*   **Panther logs**
+*   **Cluster logs**
+*   **Storage diagnostic logs**
+*   **ETW logs**
 
 These files are collected and saved in a share by Trace Collector. The  **Get-AzureStackLog** PowerShell cmdlet can then be used to collect them when necessary.
  
@@ -146,10 +146,10 @@ To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch
 * Each role has its logs inside individual zip files. Depending on the size of the collected logs, a role may have its logs split in to multiple zip files. For such a role, if you want to have all the log files unzipped in to a single folder, use a tool that can  unzip in bulk (such as 7zip). Select all the zipped files for the role, and select **extract here**. This unzips all the log files for that role in a single merged folder.
 * A file called **Get-AzureStackLog_Output.log** is also created in the folder that contains the zipped log files. This file is a log of the command output, which can be used for troubleshooting problems during log collection.
 * To investigate a specific failure, logs may be needed from more than one component.
-    -	System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.
-    -	System and Event logs for all hosts are collected in the *BareMetal* role.
-    -	Failover Cluster and Hyper-V event logs are collected in the *Storage* role.
-    -	ACS logs are collected in the *Storage* and *ACS* roles.
+    -   System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.
+    -   System and Event logs for all hosts are collected in the *BareMetal* role.
+    -   Failover Cluster and Hyper-V event logs are collected in the *Storage* role.
+    -   ACS logs are collected in the *Storage* and *ACS* roles.
 
 > [!NOTE]
 > Size and age limits are enforced on the logs collected as it is essential to ensure efficient utilization of your storage space to ensure it doesn't get flooded with logs. However, when diagnosing a problem you sometimes need logs that might not exist anymore because of these limits. Thus, it is **highly recommended** that you offload your logs to an external storage space (a storage account in Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months, depending on your requirements. Also, ensure this storage location is encrypted.

@@ -50,33 +50,33 @@ Install the following NuGet packages:
 
 Modify the program's using statements.
 
-	using Microsoft.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using ModeratorHelper;
-	using Newtonsoft.Json;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Threading;
+    using Microsoft.CognitiveServices.ContentModerator;
+    using Microsoft.CognitiveServices.ContentModerator.Models;
+    using ModeratorHelper;
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
 
 ### Initialize application-specific settings
 
 Add the following static fields to the **Program** class in Program.cs.
 
-	///<summary>
+    ///<summary>
     ///The name of the file that contains the image URLs to evaluate.
     ///</summary>
     ///<remarks>You will need to create an input file and update 
     ///this path accordingly. Paths are relative to the execution directory.
-	///</remarks>
-	private static string ImageUrlFile = "ImageFiles.txt";
+    ///</remarks>
+    private static string ImageUrlFile = "ImageFiles.txt";
 
     ///<summary>
     ///The name of the file to contain the output from the evaluation.
     ///</summary>
     ///<remarks>Paths are relative to the execution directory.
-	///</remarks>
-	private static string OutputFile = "ModerationOutput.json";
+    ///</remarks>
+    private static string OutputFile = "ModerationOutput.json";
 
 
 > [!NOTE]
@@ -89,32 +89,32 @@ Add the following static fields to the **Program** class in Program.cs.
 Add the following class to the **Program** class. Use an instance 
 of this class to record the moderation results for the reviewed images.
 
-	/// <summary>
-	/// Contains the image moderation results for an image, 
-	/// including text and face detection results.
-	/// </summary>
-	public class EvaluationData
-	{
-    	/// <summary>
-    	/// The URL of the evaluated image.
-    	/// </summary>
-    	public string ImageUrl;
+    /// <summary>
+    /// Contains the image moderation results for an image, 
+    /// including text and face detection results.
+    /// </summary>
+    public class EvaluationData
+    {
+        /// <summary>
+        /// The URL of the evaluated image.
+        /// </summary>
+        public string ImageUrl;
 
-    	/// <summary>
-    	/// The image moderation results.
-    	/// </summary>
-    	public Evaluate ImageModeration;
+        /// <summary>
+        /// The image moderation results.
+        /// </summary>
+        public Evaluate ImageModeration;
 
-    	/// <summary>
-    	/// The text detection results.
-    	/// </summary>
-    	public OCR TextDetection;
+        /// <summary>
+        /// The text detection results.
+        /// </summary>
+        public OCR TextDetection;
 
-    	/// <summary>
-    	/// The face detection results;
-    	/// </summary>
-    	public FoundFaces FaceDetection;
-	}
+        /// <summary>
+        /// The face detection results;
+        /// </summary>
+        public FoundFaces FaceDetection;
+    }
 
 ## Evaluate an individual image
 
@@ -128,43 +128,43 @@ single image and returns the evaluation results.
 > A free tier key has a one RPS rate limit.
 
 
-	/// <summary>
-	/// Evaluates an image using the Image Moderation APIs.
-	/// </summary>
-	/// <param name="client">The Content Moderator API wrapper to use.</param>
-	/// <param name="imageUrl">The URL of the image to evaluate.</param>
-	/// <returns>Aggregated image moderation results for the image.</returns>
-	/// <remarks>This method throttles calls to the API.
-	/// Your Content Moderator service key will have a requests per second (RPS)
-	/// rate limit, and the SDK will throw an exception with a 429 error code 
-	/// if you exceed that limit. A free tier key has a 1 RPS rate limit.
-	/// </remarks>
-	private static EvaluationData EvaluateImage(
+    /// <summary>
+    /// Evaluates an image using the Image Moderation APIs.
+    /// </summary>
+    /// <param name="client">The Content Moderator API wrapper to use.</param>
+    /// <param name="imageUrl">The URL of the image to evaluate.</param>
+    /// <returns>Aggregated image moderation results for the image.</returns>
+    /// <remarks>This method throttles calls to the API.
+    /// Your Content Moderator service key will have a requests per second (RPS)
+    /// rate limit, and the SDK will throw an exception with a 429 error code 
+    /// if you exceed that limit. A free tier key has a 1 RPS rate limit.
+    /// </remarks>
+    private static EvaluationData EvaluateImage(
     ContentModeratorClient client, string imageUrl)
-	{
-    	var url = new ImageUrl("URL", imageUrl.Trim());
+    {
+        var url = new ImageUrl("URL", imageUrl.Trim());
 
-    	var imageData = new EvaluationData();
+        var imageData = new EvaluationData();
 
-    	imageData.ImageUrl = url.Value;
+        imageData.ImageUrl = url.Value;
 
-		// Evaluate for adult and racy content.
-    	imageData.ImageModeration =
-        	client.ImageModeration.EvaluateUrlInput("application/json", url, true);
-    	Thread.Sleep(1000);
+        // Evaluate for adult and racy content.
+        imageData.ImageModeration =
+            client.ImageModeration.EvaluateUrlInput("application/json", url, true);
+        Thread.Sleep(1000);
 
-    	// Detect and extract text.
-    	imageData.TextDetection =
-        	client.ImageModeration.OCRUrlInput("eng", "application/json", url, true);
-    	Thread.Sleep(1000);
+        // Detect and extract text.
+        imageData.TextDetection =
+            client.ImageModeration.OCRUrlInput("eng", "application/json", url, true);
+        Thread.Sleep(1000);
 
-    	// Detect faces.
-    	imageData.FaceDetection =
-        	client.ImageModeration.FindFacesUrlInput("application/json", url, true);
-    	Thread.Sleep(1000);
+        // Detect faces.
+        imageData.FaceDetection =
+            client.ImageModeration.FindFacesUrlInput("application/json", url, true);
+        Thread.Sleep(1000);
 
-    	return imageData;
-	}
+        return imageData;
+    }
 
 The **EvaluateUrlInput** method is a wrapper for the Image Moderation REST API.
 The return value contains the object returned from the API call.
@@ -179,43 +179,43 @@ The return value contains the object returned from the API call.
 
 Add the following code to the **Main** method.
 
-	// Create an object to store the image moderation results.
-	List<EvaluationData> evaluationData = new List<EvaluationData>();
+    // Create an object to store the image moderation results.
+    List<EvaluationData> evaluationData = new List<EvaluationData>();
 
-	// Create an instance of the Content Moderator API wrapper.
-	using (var client = Clients.NewClient())
-	{
-    	// Read image URLs from the input file and evaluate each one.
-    	using (StreamReader inputReader = new StreamReader(ImageUrlFile))
-    	{
-        	while (!inputReader.EndOfStream)
-        	{
-            	string line = inputReader.ReadLine().Trim();
-            	if (line != String.Empty)
-            	{
-                	EvaluationData imageData = EvaluateImage(client, line);
-                	evaluationData.Add(imageData);
-            	}
-        	}
-    	}
-	}
+    // Create an instance of the Content Moderator API wrapper.
+    using (var client = Clients.NewClient())
+    {
+        // Read image URLs from the input file and evaluate each one.
+        using (StreamReader inputReader = new StreamReader(ImageUrlFile))
+        {
+            while (!inputReader.EndOfStream)
+            {
+                string line = inputReader.ReadLine().Trim();
+                if (line != String.Empty)
+                {
+                    EvaluationData imageData = EvaluateImage(client, line);
+                    evaluationData.Add(imageData);
+                }
+            }
+        }
+    }
 
-	// Save the moderation results to a file.
-	using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
-	{
-    	outputWriter.WriteLine(JsonConvert.SerializeObject(
-        	evaluationData, Formatting.Indented));
+    // Save the moderation results to a file.
+    using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
+    {
+        outputWriter.WriteLine(JsonConvert.SerializeObject(
+            evaluationData, Formatting.Indented));
 
-    	outputWriter.Flush();
-    	outputWriter.Close();
-	}
+        outputWriter.Flush();
+        outputWriter.Close();
+    }
 
 ## Run the program and review the output
 
 The following JSON object contains output for the program.
 
-	[
-	{
+    [
+    {
     "ImageUrl": "https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg",
     "ImageModeration": {
       "cacheID": "7733c303-3b95-4710-a41e-7a322ae81a15_636488005858745661",
@@ -285,8 +285,8 @@ The following JSON object contains output for the program.
       ],
       "faces": []
     }
-	},
-	{
+    },
+    {
     "ImageUrl": "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png",
     "ImageModeration": {
       "cacheID": "b4866aa2-5e69-44ed-806a-f9a5d618c8ae_636488005930693926",
@@ -393,8 +393,8 @@ The following JSON object contains output for the program.
         }
       ]
     }
-	}
-	]
+    }
+    ]
 
 
 ## Next steps - get the source code

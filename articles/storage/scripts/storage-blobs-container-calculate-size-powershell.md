@@ -45,10 +45,11 @@ Remove-AzureRmResourceGroup -Name bloblisttestrg
 
 This script uses the following commands to calculate the size of the Blob storage container. Each item in the table links to command-specific documentation.
 
-| Command | Notes |
-|---|---|
+
+|                                          Command                                          |                                                  Notes                                                   |
+|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Gets a specified Storage account or all of the Storage accounts in a resource group or the subscription. |
-| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | Lists blobs in a container. ||
+|       [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob)       |                                       Lists blobs in a container.                                        |
 
 ## Next steps
 

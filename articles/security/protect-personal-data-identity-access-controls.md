@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protect personal data with Azure identity and access controls | Microsoft Docs
 description: Using Azure identity and access controls to help you protect your personal data
 services: security
@@ -39,7 +39,7 @@ only those who need it to do their jobs.
 
 ## Company goal
 
-The company’s goal is to ensure that access to personal data is strictly controlled. It is essential that identities of users with access to personal data be protected by strong authentication. A policy of [least privilege] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) must be enforced so that legitimate users have only the level of  access they need, and no more.
+The company’s goal is to ensure that access to personal data is strictly controlled. It is essential that identities of users with access to personal data be protected by strong authentication. A policy of [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) must be enforced so that legitimate users have only the level of  access they need, and no more.
 
 ## Solutions
 

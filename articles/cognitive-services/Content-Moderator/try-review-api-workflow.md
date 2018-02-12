@@ -30,26 +30,26 @@ On the Content Moderator Dashboard, select **Review** > **Settings** > **Workflo
 
 Click the **Edit** option for your workflow, and then select the **JSON** tab. You see the following JSON **Expression**.
 
-	{
-		"Type": "Logic",
-		"If": {
-    		"ConnectorName": "moderator",
-    		"OutputName": "isAdult",
-    		"Operator": "eq",
-    		"Value": "true",
-    		"Type": "Condition"
-			},
-		"Then": {
-		"Perform": [
-      	{
-        	"Name": "createreview",
-        	"CallbackEndpoint": null,
-        	"Tags": []
-      	}
-    	],
-    	"Type": "Actions"
-		}
-	}
+    {
+        "Type": "Logic",
+        "If": {
+            "ConnectorName": "moderator",
+            "OutputName": "isAdult",
+            "Operator": "eq",
+            "Value": "true",
+            "Type": "Condition"
+            },
+        "Then": {
+        "Perform": [
+        {
+            "Name": "createreview",
+            "CallbackEndpoint": null,
+            "Tags": []
+        }
+        ],
+        "Type": "Actions"
+        }
+    }
 
 ## Get workflow details
 
@@ -85,32 +85,32 @@ Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (
   
 Select **Send**. If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the following JSON workflow:
 
-	{
-		"Name": "default",
-		"Description": "Default",
-		"Type": "Image",
-		"Expression": {
-    	"If": {
-      		"ConnectorName": "moderator",
-      		"OutputName": "isadult",
-      		"Operator": "eq",
-      		"Value": "true",
-      		"AlternateInput": null,
-      		"Type": "Condition"
-    		},
-    	"Then": {
-      		"Perform": [{
-        		"Name": "createreview",
-        		"Subteam": null,
-        		"CallbackEndpoint": null,
-        		"Tags": []
-      		}],
-      		"Type": "Actions"
-    		},
-    		"Else": null,
-    		"Type": "Logic"
-			}
-	}
+    {
+        "Name": "default",
+        "Description": "Default",
+        "Type": "Image",
+        "Expression": {
+        "If": {
+            "ConnectorName": "moderator",
+            "OutputName": "isadult",
+            "Operator": "eq",
+            "Value": "true",
+            "AlternateInput": null,
+            "Type": "Condition"
+            },
+        "Then": {
+            "Perform": [{
+                "Name": "createreview",
+                "Subteam": null,
+                "CallbackEndpoint": null,
+                "Tags": []
+            }],
+            "Type": "Actions"
+            },
+            "Else": null,
+            "Type": "Logic"
+            }
+    }
 
 
 ## Create a workflow
@@ -146,39 +146,39 @@ Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (
 Edit the **Request body** box to enter the JSON request with details for **Description** and **Type** (Image or Text).
 For the **Expression**, copy the default workflow **Expression** from the preceding section as shown here.
 
-	{
-		"Description": "Default workflow from API console",
-		"Type": "Image",
-		"Expression": 
-			// Copy the default workflow expression from the preceding section
-	}
+    {
+        "Description": "Default workflow from API console",
+        "Type": "Image",
+        "Expression": 
+            // Copy the default workflow expression from the preceding section
+    }
 
 Your request body looks like the following JSON request:
 
-	{
-		"Description": "Default workflow from API console",
-		"Type": "Image",
-		"Expression": {
-		    "Type": "Logic",
-    		"If": {
-      			"ConnectorName": "moderator",
-      			"OutputName": "isAdult",
-      			"Operator": "eq",
-      			"Value": "true",
-      			"Type": "Condition"
-    			},
-    		"Then": {
-      		"Perform": [
-        	{
-         		"Name": "createreview",
-          		"CallbackEndpoint": null,
-          		"Tags": [ ]
-        	}
-      		],
-      		"Type": "Actions"
-			}
-		}
-	}
+    {
+        "Description": "Default workflow from API console",
+        "Type": "Image",
+        "Expression": {
+            "Type": "Logic",
+            "If": {
+                "ConnectorName": "moderator",
+                "OutputName": "isAdult",
+                "Operator": "eq",
+                "Value": "true",
+                "Type": "Condition"
+                },
+            "Then": {
+            "Perform": [
+            {
+                "Name": "createreview",
+                "CallbackEndpoint": null,
+                "Tags": [ ]
+            }
+            ],
+            "Type": "Actions"
+            }
+        }
+    }
  
 ### Submit your request
   

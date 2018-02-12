@@ -30,17 +30,17 @@ The following table and graphic provide a high-level view of the components used
 
 ## Replication process
 
-1.	You prepare Azure resources, and on-premises components.
-2.	In the Recovery Services vault, you specify source replication settings. As part of this process, you set up the on-premises configuration server. To deploy this server as a VMware VM, you download a prepared OVF template, and import it to VMware to create the VM.
+1.  You prepare Azure resources, and on-premises components.
+2.  In the Recovery Services vault, you specify source replication settings. As part of this process, you set up the on-premises configuration server. To deploy this server as a VMware VM, you download a prepared OVF template, and import it to VMware to create the VM.
 3. You specify target replication settings, create a replication policy, and enable replication for your VMware VMs.
-4.	Machines replicate in accordance with the replication policy, and an initial copy of the VM data is replicated to Azure storage.
-5.	After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
+4.  Machines replicate in accordance with the replication policy, and an initial copy of the VM data is replicated to Azure storage.
+5.  After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
     - Machines communicate with the configuration server on port HTTPS 443 inbound, for replication management.
     - Machines send replication data to the process server on port HTTPS 9443 inbound (can be modified).
     - The configuration server orchestrates replication management with Azure over port HTTPS 443 outbound.
     - The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
     - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This is useful if machines are running the same workload and need to be consistent.
-6.	Traffic replicates to Azure storage public endpoints, over the internet. Alternately, you can use zure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+6.  Traffic replicates to Azure storage public endpoints, over the internet. Alternately, you can use zure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 
 **VMware to Azure replication process**

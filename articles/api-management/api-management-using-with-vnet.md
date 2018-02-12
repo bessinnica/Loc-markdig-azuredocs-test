@@ -47,26 +47,26 @@ To perform the steps described in this article, you must have:
     ![Virtual network menu of API Management][api-management-using-vnet-menu]
 4. Select the desired access type:
     
-    * **External**: the API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
+   * **External**: the API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
     
-    ![Public peering][api-management-vnet-public]
+     ![Public peering][api-management-vnet-public]
     
-    * **Internal**: the API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network.
+   * **Internal**: the API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network.
     
-    ![Private peering][api-management-vnet-private]`
+     ![Private peering][api-management-vnet-private]`
 
-    You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
+     You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
     
-    > [!NOTE]
-    > **Service Endpoint** in the above diagram includes Gateway/Proxy, the Azure portal, the Developer portal, GIT, and the Direct Management Endpoint.
-    > **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure portal and Powershell.
-    > Also, note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on its configured Hostnames.
+     > [!NOTE]
+     > **Service Endpoint** in the above diagram includes Gateway/Proxy, the Azure portal, the Developer portal, GIT, and the Direct Management Endpoint.
+     > **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure portal and Powershell.
+     > Also, note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on its configured Hostnames.
     
-    > [!IMPORTANT]
-    > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
-    >
+     > [!IMPORTANT]
+     > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
+     >
 
-    ![Select VPN][api-management-setup-vpn-select]
+     ![Select VPN][api-management-setup-vpn-select]
 
 5. Click **Save** at the top of the screen.
 
@@ -127,9 +127,9 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 * **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDRs]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
   If possible, it is recommended to use the following configuration:
- * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
- * The UDR applied to the subnet containing the Azure API Management defines 0.0.0.0/0 with a next hop type of Internet.
- The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure API Management.
+  * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
+  * The UDR applied to the subnet containing the Azure API Management defines 0.0.0.0/0 with a next hop type of Internet.
+  The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure API Management.
 
 * **Routing through network virtual appliances**: Configurations that use a UDR with a default route (0.0.0.0/0) to route internet destined traffic from the API Management subnet through a network virtual appliance running in Azure will block management traffic coming from Internet to the API Management service instance deployed inside the virtual network subnet. This configuration is not supported.
 
@@ -142,8 +142,8 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
     * Azure Storage blob
     * Azure SQL Database
 
- > [!IMPORTANT]
- > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.
+  > [!IMPORTANT]
+  > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.
 
 * **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), to verify that the API Management service has not lost access to any of the critical resources which it depends upon. The connectivity status should be updated every 15 minutes.
 

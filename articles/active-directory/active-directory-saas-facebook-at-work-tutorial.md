@@ -53,19 +53,19 @@ To configure the integration of Workplace by Facebook into Azure AD, add Workpla
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Browse to **Enterprise applications** > **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add the new application, select **New application** on the top of the dialog box.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Workplace by Facebook**, and select **Workplace by Facebook** from results. Then select **Add**, to add the application.
 
-	![Workplace by Facebook in the results list](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_search.png)
+    ![Workplace by Facebook in the results list](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_search.png)
 
 ##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD SSO with Workplace by Facebook, based on a test user called "Britta Simon."
@@ -80,11 +80,11 @@ In this section, you enable Azure AD SSO in the Azure portal, and you configure 
 
 1. In the Azure portal, on the **Workplace by Facebook** application integration page, select **Single sign-on**.
 
-	![Configure Single sign-on link][4]
+    ![Configure Single sign-on link][4]
 
 2. In the **Single sign-on** dialog box, select **Mode** as **SAML-based Sign-on** to enable SSO.
  
-	![Single sign-on dialog box](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
 3. In the **Workplace by Facebook Domain and URLs** section, do the following:
 
@@ -92,20 +92,20 @@ In this section, you enable Azure AD SSO in the Azure portal, and you configure 
 
     b. In the **Identifier** text box, type a URL that uses the following pattern: `https://www.facebook.com/company/<scim company id>`
 
-	> [!NOTE]
-	> These values are an example only. Update these values with the actual sign-on URL and identifier. Contact the [Workplace by Facebook Client support team](https://workplace.fb.com/faq/) to get these values. 
+    > [!NOTE]
+    > These values are an example only. Update these values with the actual sign-on URL and identifier. Contact the [Workplace by Facebook Client support team](https://workplace.fb.com/faq/) to get these values. 
 
 4. In the **SAML Signing Certificate** section, select **Certificate (Base64)**, and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_certificate.png) 
 
 5. Select **Save**.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_400.png)
 
 6. In the **Workplace by Facebook Configuration** section, select **Configure Workplace by Facebook** to open the **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference** section.
 
-	![Workplace by Facebook Configuration](./media/active-directory-saas-facebook-at-work-tutorial/config.png) 
+    ![Workplace by Facebook Configuration](./media/active-directory-saas-facebook-at-work-tutorial/config.png) 
 
 7. In a different web browser window, sign in to your Workplace by Facebook company site as an administrator.
   
@@ -118,10 +118,10 @@ In this section, you enable Azure AD SSO in the Azure portal, and you configure 
 
 10. Enter the values copied from the **Workplace by Facebook Configuration** section of the Azure portal into the corresponding fields:
 
-	*	In the **SAML URL** text box, paste the value of **Single Sign-On Service URL**, which you have copied from the Azure portal.
-	*	In the **SAML Issuer URL** text box, paste the value of **SAML Entity ID**, which you have copied from the Azure portal.
-	*	In **SAML Logout Redirect (optional)**, paste the value of **Sign-Out URL**, which you have copied from the Azure portal.
-	*	Open your **base-64 encoded certificate** in Notepad, downloaded from the Azure portal. Copy the content of it into your clipboard, and then paste it to the **SAML Certificate** text box.
+    *   In the **SAML URL** text box, paste the value of **Single Sign-On Service URL**, which you have copied from the Azure portal.
+    *   In the **SAML Issuer URL** text box, paste the value of **SAML Entity ID**, which you have copied from the Azure portal.
+    *   In **SAML Logout Redirect (optional)**, paste the value of **Sign-Out URL**, which you have copied from the Azure portal.
+    *   Open your **base-64 encoded certificate** in Notepad, downloaded from the Azure portal. Copy the content of it into your clipboard, and then paste it to the **SAML Certificate** text box.
 
 11. You might need to enter the audience URL, recipient URL, and ACS (Assertion Consumer Service) URL, listed under the **SAML Configuration** section.
 
@@ -154,25 +154,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, in the left pane, select **Azure Active Directory**.
 
-	![The Azure Active Directory button](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_01.png) 
+    ![The Azure Active Directory button](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups**, and select **All users**.
-	
-	![The "Users and groups" and "All users" links](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_02.png) 
+    
+    ![The "Users and groups" and "All users" links](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog box, select **Add**.
  
-	![The Add button](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_03.png) 
+    ![The Add button](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_03.png) 
 
 4. In the **User** dialog box, do the following:
  
-	![The User dialog box](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_04.png) 
+    ![The User dialog box](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** text box, type **BrittaSimon**.
 
     b. In the **User name** text box, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password**, and write it down.
+    c. Select **Show Password**, and write it down.
 
     d. Select **Create**.
  
@@ -193,26 +193,26 @@ In this section, you enable Britta Simon to use Azure SSO by granting access to 
 
 1. In the Azure portal, open the applications view. Go to the directory view, go to **Enterprise applications**, and then select **All applications**.
 
-	![Assign user][201] 
+    ![Assign user][201] 
 
 2. In the applications list, select **Workplace by Facebook**.
 
-	![The Workplace by Facebook link in the Applications list](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_app.png) 
+    ![The Workplace by Facebook link in the Applications list](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_app.png) 
 
 3. In the menu on the left, select **Users and groups**.
 
-	![The "Users and groups" link][202] 
+    ![The "Users and groups" link][202] 
 
 4. Select **Add**. Then, in the **Add Assignment** pane, select **Users and groups**.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. In the **Users and groups** dialog box, select **Britta Simon** in the users list.
 
 6. In the **Users and groups** dialog box, select **Select**.
 
 7. In the **Add Assignment** dialog box, select **Assign**.
-	
+    
 ### Test single sign-on
 
 If you want to test your SSO settings, open the Access Panel.

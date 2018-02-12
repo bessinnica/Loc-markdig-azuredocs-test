@@ -58,6 +58,7 @@ New features and functionality and optimizations are only added to the current S
 Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 <br/>
 
+
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
@@ -78,7 +79,7 @@ when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you hav
     ```
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
-    
+
 * Using your preferred Nuget package management tool, install the Microsoft.Azure.Storage.Common Nuget package before installing Microsoft.Azure.CosmosDB.Table.
 
 ## FAQ

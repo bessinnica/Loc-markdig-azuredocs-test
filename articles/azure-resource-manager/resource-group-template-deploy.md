@@ -27,6 +27,7 @@ If needed, install the Azure PowerShell module using the instructions found in t
 
 <a id="deploy-local-template" />
 
+
 ## Deploy a template from your local machine
 
 When deploying resources to Azure, you:
@@ -43,7 +44,7 @@ The following example creates a resource group, and deploys a template from your
 Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
- 
+
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
@@ -126,7 +127,7 @@ If your template includes a parameter with the same name as one of the parameter
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [Test-​Azure​Rm​Resource​Group​Deployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+To test your template and parameter values without actually deploying any resources, use [Test- Azure Rm Resource Group Deployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `

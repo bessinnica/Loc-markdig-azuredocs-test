@@ -33,15 +33,15 @@ To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must comple
 ## Download and extract the development kit
 1. Before you start the download, make sure that your computer meets the following prerequisites:
 
-  - The computer must have at least 60 GB of free disk space available on four separate, identical logical hard drives in addition to the operating system disk.
-  - [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
+   - The computer must have at least 60 GB of free disk space available on four separate, identical logical hard drives in addition to the operating system disk.
+   - [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
 
 2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try) where you can download the Azure Stack Development Kit, provide your details, and then click **Submit**.
 3. Download and run the [Deployment Checker for Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) prerequisite checker script. This standalone script goes through the pre-requisites checks done by the setup for Azure Stack Development Kit. It provides a way to confirm you are meeting the hardware and software requirements, before downloading the larger package for Azure Stack Development Kit.
 4. Under **Download the software**, click **Azure Stack Development Kit**.
 
-  > [!NOTE]
-  > The ASDK download (AzureStackDevelopmentKit.exe) is approximiately 10GB by itself. If you choose to also download the Windows Server 2016 evaluation version ISO file, the download size increases to approximately 17GB. You can use that ISO file to create and add a Windows Server 2016 virtual machine image to the Azure Stack Marketplace after ASDK installation completes. Note that this Windows Server 2016 evaluation image can only be used with the ASDK and is subject to the ASDK license terms.
+   > [!NOTE]
+   > The ASDK download (AzureStackDevelopmentKit.exe) is approximiately 10GB by itself. If you choose to also download the Windows Server 2016 evaluation version ISO file, the download size increases to approximately 17GB. You can use that ISO file to create and add a Windows Server 2016 virtual machine image to the Azure Stack Marketplace after ASDK installation completes. Note that this Windows Server 2016 evaluation image can only be used with the ASDK and is subject to the ASDK license terms.
 
 5. After the download completes, click **Run** to launch the ASDK self-extractor (AzureStackDevelopmentKit.exe).
 6. Review and accept the displayed license agreement from the **License Agreement** page of the Self-Extractor Wizard and then click **Next**.
@@ -65,34 +65,34 @@ Before you can install the ASDK on the host computer, the ASDK environment must 
 2. Ensure that the CloudBuilder.vhdx file has been moved to the root of the C:\ drive (C:\CloudBuilder.vhdx).
 3. Run the following script to download the development kit installer file (asdk-installer.ps1) from the [Azure Stack GitHub tools repository](https://github.com/Azure/AzureStack-Tools) to the **C:\AzureStack_Installer** folder on your development kit host computer:
 
-  ```powershell
-  # Variables
-  $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
-  $LocalPath = 'C:\AzureStack_Installer'
-  # Create folder
-  New-Item $LocalPath -Type directory
-  # Download file
-  Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
-  ```
+   ```powershell
+   # Variables
+   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
+   $LocalPath = 'C:\AzureStack_Installer'
+   # Create folder
+   New-Item $LocalPath -Type directory
+   # Download file
+   Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
+   ```
 
 4. From an elevated PowerShell console, start the **C:\AzureStack_Installer\asdk-installer.ps1** script, and then click **Prepare Environment**.
 5. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the **cloudbuilder.vhdx** file that you downloaded and extracted in the previous steps. On this page you can also, optionally, enable the **Add drivers** check box if you need to add additional drivers to the development kit host computer.  
 6. On the **Optional settings** page, provide the local administrator account for the development kit host computer. 
 
-  > [!IMPORTANT]
-  > If you don't provide these credentials, you'll need direct or KVM access to the host after the computer restarts as part of setting up the development kit.
+   > [!IMPORTANT]
+   > If you don't provide these credentials, you'll need direct or KVM access to the host after the computer restarts as part of setting up the development kit.
 
 7. You can also provide these optional settings on the **Optional settings** page:
     - **Computername**: This option sets the name for the development kit host. The name must comply with FQDN requirements and must be 15 characters or less in length. The default is a random computer name generated by Windows.
     - **Time zone**: Sets the time zone for the development kit host. The default is (UTC-8:00) Pacific Time (US & Canada).
     - **Static IP configuration**: Sets your deployment to use a static IP address. Otherwise, when the installer reboots into the cloudbuilder.vhx, the network interfaces are configured with DHCP.
-11. Click **Next**.
-12. If you chose a static IP configuration in the previous step, you must now:
-    - Select a network adapter. Make sure you can connect to the adapter before you click **Next**.
-    - Make sure that the **IP address**, **Gateway**, and **DNS** values are correct and then click **Next**.
-13. Click **Next** to start the preparation process.
-14. When the preparation indicates **Completed**, click **Next**.
-15. Click **Reboot now** to boot into the cloudbuilder.vhdx and continue the deployment process.
+8. Click **Next**.
+9. If you chose a static IP configuration in the previous step, you must now:
+   - Select a network adapter. Make sure you can connect to the adapter before you click **Next**.
+   - Make sure that the **IP address**, **Gateway**, and **DNS** values are correct and then click **Next**.
+10. Click **Next** to start the preparation process.
+11. When the preparation indicates **Completed**, click **Next**.
+12. Click **Reboot now** to boot into the cloudbuilder.vhdx and continue the deployment process.
 
 
 ### Deploy the development kit using a guided experience
@@ -111,10 +111,10 @@ After preparing the ASDK host computer, the ASDK can be deployed into the CloudB
     - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and internet). 
     - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
     - **Time server**: This required field sets the time server to be used by the development kit. This parameter must be provided as a valid time server IP address. Server names are not supported.
-  
-  > [!TIP]
-  > To find a time server IP address, visit [pool.ntp.org](http:\\pool.ntp.org) or ping time.windows.com. 
-  
+
+   > [!TIP]
+   > To find a time server IP address, visit [pool.ntp.org](http:\\pool.ntp.org) or ping time.windows.com. 
+
 8. Click **Next**. 
 9. On the **Verifying network interface card properties** page, you'll see a progress bar. 
     - If it says **An update cannot be downloaded**, follow the instructions on the page.
@@ -123,14 +123,14 @@ After preparing the ASDK host computer, the ASDK can be deployed into the CloudB
 11. If you're using an Azure AD deployment, you'll be prompted to enter your Azure AD global administrator account credentials a few minutes after setup starts.
 12. The deployment process can take a few hours, during which the system automatically reboots once. When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**. If the deployment fails, you can can [redeploy](azure-stack-redeploy.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
 
-  ```powershell
-  cd C:\CloudDeployment\Setup
-  .\InstallAzureStackPOC.ps1 -Rerun
-  ```
+    ```powershell
+    cd C:\CloudDeployment\Setup
+    .\InstallAzureStackPOC.ps1 -Rerun
+    ```
 
-   > [!IMPORTANT]
-   > If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin when the development kit host restarts during setup. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
-   
+    > [!IMPORTANT]
+    > If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin when the development kit host restarts during setup. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
+
 
 ## Deploy the ASDK using PowerShell
 The previous steps walked you through deploying the ASDK using a guided user experience. Alternatively, you can use PowerShell to deploy the ASDK on the development kit host by following the steps in this section.
@@ -212,6 +212,7 @@ If your environment **does not** have DHCP enabled then you must include the fol
 ```
 
 ### ASDK InstallAzureStackPOC.ps1 optional parameters
+
 |Parameter|Required/Optional|Description|
 |-----|-----|-----|
 |AdminPassword|Required|Sets the local administrator account and all other user accounts on all the virtual machines created as part of development kit deployment. This password must match the current local administrator password on the host.|

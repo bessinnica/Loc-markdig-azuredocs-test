@@ -67,17 +67,17 @@ If you do not have a Hybrid Runbook Worker already deployed in your data center,
 1. Sign on to the computer hosting the Hybrid Runbook Worker role with an account that has local administrative rights and create a directory to hold the Git runbook files. Clone the internal Git repository to the directory.
 2. If you do not already have a RunAs account created or you want to create a new one dedicated for this purpose, from the Azure portal navigate to Automation accounts, select your Automation account, and create a [credential asset](automation-credentials.md) that contains the username and password for a user with permissions to the hybrid worker.  
 3. From your Automation account, [edit the runbook](automation-edit-textual-runbook.md)  **Export-RunAsCertificateToHybridWorker** and modify the value for the variable *$Password* with a strong password.  After you modify the value, click **Publish** to have the draft version of the runbook published. 
-5. Start the runbook **Export-RunAsCertificateToHybridWorker**, and in the **Start Runbook** blade, under the option **Run settings** select the option **Hybrid Worker** and in the drop-down list select the Hybrid worker group you created earlier for this scenario.  
+4. Start the runbook **Export-RunAsCertificateToHybridWorker**, and in the **Start Runbook** blade, under the option **Run settings** select the option **Hybrid Worker** and in the drop-down list select the Hybrid worker group you created earlier for this scenario.  
 
     This exports a certificate to the hybrid worker so that runbooks on the worker can authenticate with Azure using the Run As connection in order to manage Azure resources (in particular for this scenario - import runbooks to the Automation account).
 
-4. From your Automation account, select the Hybrid worker group created earlier and [specify a RunAs account](automation-hrw-run-runbooks.md#runas-account) for the Hybrid worker group, and chose the credential asset you just or already have created. This assures that the Sync runbook can run Git commands. 
-5. Start the runbook **Sync-LocalGitFolderToAutomationAccount**, provide the following required input parameter values and in the **Start Runbook** blade, under the option **Run settings** select the option **Hybrid Worker** and in the drop-down list select the Hybrid worker group you created earlier for this scenario:
-	* *ResourceGroup* - the name of your resource group associated with your Automation account
-	* *AutomationAccountName* - the name of your Automation account
-	* *GitPath* - The local folder or file on the Hybrid Runbook Worker where Git is set up to pull latest changes into
+5. From your Automation account, select the Hybrid worker group created earlier and [specify a RunAs account](automation-hrw-run-runbooks.md#runas-account) for the Hybrid worker group, and chose the credential asset you just or already have created. This assures that the Sync runbook can run Git commands. 
+6. Start the runbook **Sync-LocalGitFolderToAutomationAccount**, provide the following required input parameter values and in the **Start Runbook** blade, under the option **Run settings** select the option **Hybrid Worker** and in the drop-down list select the Hybrid worker group you created earlier for this scenario:
+   * *ResourceGroup* - the name of your resource group associated with your Automation account
+   * *AutomationAccountName* - the name of your Automation account
+   * *GitPath* - The local folder or file on the Hybrid Runbook Worker where Git is set up to pull latest changes into
 
-    This syncs the local Git folder on the hybrid worker computer and then imports the .ps1 files from the source directory to the Automation account.
+     This syncs the local Git folder on the hybrid worker computer and then imports the .ps1 files from the source directory to the Automation account.
 
 7. View job summary details for the runbook by selecting it from the **Runbooks** blade in your Automation account, and then select the **Jobs** tile. Confirm it completed successfully by selecting the **All logs** tile and reviewing the detailed log stream.  
 

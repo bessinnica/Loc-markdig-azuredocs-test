@@ -145,6 +145,7 @@ This release contains the following updates:
 | JSON Output Format: Line Separated or Array |Now there is an option when outputting to Blob Storage or Event Hub to output as either an array of JSON objects or by separating JSON objects with a new line. |
 
 ## Notes for 04/16/2015 release of Stream Analytics
+
 | Title | Description |
 | --- | --- |
 | Delay in Azure Storage account configuration |When creating a Stream Analytics job in a region for the first time, you are prompted to create a new Storage account or specify an existing account for monitoring Stream Analytics jobs in that region. Due to latency in configuring monitoring, creating another Stream Analytics job in the same region within 30 minutes prompt for the specifying of a second Storage account instead of showing the recently configured one in the Monitoring Storage Account drop-down. To avoid creating an unnecessary Storage account, wait 30 minutes after creating a job in a region for the first time before provisioning additional jobs in that region. |

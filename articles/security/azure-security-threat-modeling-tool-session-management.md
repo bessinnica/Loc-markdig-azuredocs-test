@@ -19,6 +19,7 @@ ms.author: rodsan
 ---
 
 # Security Frame: Session Management | Articles 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
@@ -384,6 +385,7 @@ void Page_Init (object sender, EventArgs e) {
     <sessionState mode="InProc" cookieless="true" timeout="15" />
   </system.web>
 </configuration>
+
 ```
 
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
@@ -402,6 +404,7 @@ void Page_Init (object sender, EventArgs e) {
 ```XML code
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>
+
 ```
 
 | Title                   | Details      |

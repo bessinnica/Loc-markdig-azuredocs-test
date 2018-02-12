@@ -51,9 +51,9 @@ You can use Python to access the same results you saw in the browser window in t
 2. Replace the value of the `Ocp-Apim-Subscription-Key` field with your LUIS subscription key.
 
 3. Run the script. It displays the same JSON that you saw earlier in the browser window.
-<!-- 
-![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
--->
+   <!-- 
+   ![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
+   -->
 
 ## Next steps
 > [!div class="nextstepaction"]

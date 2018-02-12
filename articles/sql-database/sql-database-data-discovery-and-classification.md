@@ -39,7 +39,8 @@ The classification includes two metadata attributes:
 * Information Types – Provide additional granularity into the type of data stored in the column.
 
 <br>
-**To classify your SQL Database:**
+
+<strong>To classify your SQL Database:</strong>
 
 1. Go to the [Azure portal](https://portal.azure.com).
 

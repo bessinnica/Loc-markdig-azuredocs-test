@@ -20,7 +20,7 @@ ms.author: yurid
 # Azure Security Center planning and operations guide
 This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators whose organizations are planning to use Azure Security Center.
 
-	
+    
 ## Planning guide
 This guide covers a set of steps and tasks that you can follow to optimize your use of Security Center based on your organization’s security requirements and cloud management model. To take full advantage of Security Center, it is important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Security Center are:
 

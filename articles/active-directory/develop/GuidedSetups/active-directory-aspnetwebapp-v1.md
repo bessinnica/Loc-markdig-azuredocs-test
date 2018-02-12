@@ -82,15 +82,15 @@ This section shows the steps to install and configure the authentication pipelin
 
 <!--start-collapse-->
 > ### About these packages
->The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to reauthenticate, and no additional verification is needed.
-<!--end-collapse-->
+> The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to reauthenticate, and no additional verification is needed.
+> <!--end-collapse-->
 
 ## Configure the authentication pipeline
 The following steps are used to create an OWIN middleware *Startup Class* to configure OpenID Connect authentication. This class is executed automatically.
 
 > [!TIP]
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
-> 1. Right-click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
+> 1. Right-click on the project's root folder: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Name it `Startup.cs`<br/>
 >
 >> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
@@ -98,16 +98,16 @@ The following steps are used to create an OWIN middleware *Startup Class* to con
 
 1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Replace Startup class with the following code:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
-    
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
+
 <!--start-collapse-->
 > [!NOTE]
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies, you also need to set up cookie authentication as the preceding code shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
-<!--end-collapse-->
+> <!--end-collapse-->
 
 <!--end-setup-->
 
@@ -117,59 +117,59 @@ The following steps are used to create an OWIN middleware *Startup Class* to con
 
 This step shows how to create a new controller to expose sign-in and sign-out methods.
 
-1.	Right-click the `Controllers` folder and select `Add` > `Controller`
-2.	Select `MVC (.NET version) Controller – Empty`.
-3.	Click *Add*
-4.	Name it `HomeController` and click *Add*
-5.	Add *OWIN* namespaces to the class:
+1. Right-click the `Controllers` folder and select `Add` > `Controller`
+2. Select `MVC (.NET version) Controller – Empty`.
+3. Click *Add*
+4. Name it `HomeController` and click *Add*
+5. Add *OWIN* namespaces to the class:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+   [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
-    
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+
 ## Create the app's home page to sign in users via a sign-in button
 
 In Visual Studio, create a new view to add the sign-in button and display user information after authentication:
 
-1.	Right-click the `Views\Home` folder and select `Add View`
-2.	Name it `Index`.
-3.	Add the following HTML, which includes the sign-in button, to the file:
+1. Right-click the `Views\Home` folder and select `Add View`
+2. Name it `Index`.
+3. Add the following HTML, which includes the sign-in button, to the file:
 
-    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
+   [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
 <!--start-collapse-->
 > [!NOTE]
 > This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
-<!--end-collapse-->
+> <!--end-collapse-->
 
 ## Display user's claims by adding a controller
 This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The following code makes use of the attribute to display user claims that were retrieved as part of the sign-in.
 
-1.	Right-click the `Controllers` folder: `Add` > `Controller`
-2.	Select `MVC {version} Controller – Empty`.
-3.	Click *Add*
-4.	Name it `ClaimsController`
-5.	Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
+1. Right-click the `Controllers` folder: `Add` > `Controller`
+2. Select `MVC {version} Controller – Empty`.
+3. Click *Add*
+4. Name it `ClaimsController`
+5. Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+   [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
 > Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN initiates an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
-<!--end-collapse-->
+> <!--end-collapse-->
 
 ## Create a view to display the user's claims
 
 In Visual Studio, create a new view to display the user's claims in a web page:
 
-1.	Right-click the `Views\Claims` folder and: `Add View`
-2.	Name it `Index`.
-3.	Add the following HTML to the file:
+1. Right-click the `Views\Claims` folder and: `Add View`
+2. Name it `Index`.
+3. Add the following HTML to the file:
 
-    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
-    
+   [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
+
 <!--end-use-->
 
 <!--start-configure-->
@@ -232,10 +232,10 @@ Another option is to implement a custom method to validate the issuers using *Is
 
 In this step, you will configure your project to use SSL, and then use the SSL URL to configure your application’s registration information. After this, add the application’ registration information to your solution via *web.config*.
 
-1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
-2.	Change `SSL Enabled` to `True`
-3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](media/active-directory-aspnetwebapp-v1/vsprojectproperties.png)<br />
-4.	Add the following in `web.config` file located in root’s folder, under section `configuration\appSettings`:
+1.  In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
+2.  Change `SSL Enabled` to `True`
+3.  Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](media/active-directory-aspnetwebapp-v1/vsprojectproperties.png)<br />
+4.  Add the following in `web.config` file located in root’s folder, under section `configuration\appSettings`:
 
 ```xml
 <add key="ClientId" value="[Enter the application Id here]" />
@@ -248,7 +248,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## Test your code
 
-Press `F5` to run your project in Visual Studio. The browser opens and directs you to *http://localhost:{port}* where you see the *Sign in with Microsoft* button. Go ahead and click it to sign in.
+Press `F5` to run your project in Visual Studio. The browser opens and directs you to <em>http://localhost:{port}</em> where you see the <em>Sign in with Microsoft</em> button. Go ahead and click it to sign in.
 
 When you're ready to test, use a work account (Azure Active Directory) to sign in. 
 
@@ -277,8 +277,10 @@ In addition, you see a table including all user claims included in authenticatio
 
 ### Test accessing a method that has an *[Authorize]* attribute (Optional)
 In this step, you test accessing the Claims controller as an anonymous user:<br/>
-Select the link to sign-out the user and complete the sign-out process.<br/>
-Now in your browser, type http://localhost:{port}/claims to access your controller that is protected with the `[Authorize]` attribute
+Select the link to sign-out the user and complete the sign-out process.
+<br/>
+Now in your browser, type 
+http://localhost:{port}/claims to access your controller that is protected with the `[Authorize]` attribute
 
 #### Expected results
 You should receive the prompt requiring you to authenticate to see the view.
@@ -295,6 +297,8 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 <div></div>
+
 <br/>
+
 
 <!--end-test-->

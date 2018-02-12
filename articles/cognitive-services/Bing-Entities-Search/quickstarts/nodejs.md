@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Bing Entity Search API with Node.JS 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Node.JS.
+
+This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Node.JS.
 
 ## Prerequisites
 
@@ -58,8 +59,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
+        let body_ = JSON.parse (body);
+        let body__ = JSON.stringify (body_, null, '  ');
         console.log (body__);
     });
     response.on ('error', function (e) {
@@ -68,17 +69,17 @@ let response_handler = function (response) {
 };
 
 let Search = function () {
-	let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + params,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + params,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
 
-	let req = https.request (request_params, response_handler);
-	req.end ();
+    let req = https.request (request_params, response_handler);
+    req.end ();
 }
 
 Search ();

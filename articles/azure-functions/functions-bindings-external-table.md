@@ -150,9 +150,9 @@ To create a table in SQL Server to use with this example, here's a script. `data
 ```sql
 CREATE TABLE Contact
 (
-	Id int NOT NULL,
-	LastName varchar(20) NOT NULL,
-	FirstName varchar(20) NOT NULL,
+    Id int NOT NULL,
+    LastName varchar(20) NOT NULL,
+    FirstName varchar(20) NOT NULL,
     CONSTRAINT PK_Contact_Id PRIMARY KEY (Id)
 )
 GO

@@ -20,3 +20,4 @@ ms.author: delhan
 # How to use boot diagnostics to troubleshoot Windows virtual machines in Azure
 
 [!INCLUDE [virtual-machines-common-boot-diagnostics](../../../includes/virtual-machines-common-boot-diagnostics.md)]
+

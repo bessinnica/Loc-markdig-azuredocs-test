@@ -38,6 +38,7 @@ Below is a list of currently supported data types:
 |Query|Query expression that specifies a subset of data objects in the index|All()<br/>And(*q1*, *q2*)|
 
 <a name="semantic-functions"></a>
+
 ## Semantic Functions
 There is a built-in set of semantic functions.  They allow the construction of sophisticated queries, and provide context sensitive control over grammar interpretations.
 
@@ -101,6 +102,7 @@ written in the 90s
 ```
 
 <a name="composite-function"/>
+
 ### Composite Function
 `query = Composite(innerQuery);`
 

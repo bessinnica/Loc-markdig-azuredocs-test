@@ -30,7 +30,7 @@ Composite(AA.AuN='sue dumais')
 **String Attribute: Exact single value** (matches only canonical values)  
 Ti=='indexing by latent semantic analysis'  
 Composite(AA.AuN=='susan t dumais')
-	 
+     
 **String Attribute: Prefix value**   
 Ti='indexing by latent seman'...  
 Composite(AA.AuN='sue du'...)
@@ -82,8 +82,8 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 
 In general, consider the following example: We have a composite attribute C that has two components A and B. An entity may have multiple values for C. These are our entities:
 ```
-E1:	C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
-E2:	C={A=1, B=3}  C={A=3,B=2}
+E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
+E2: C={A=1, B=3}  C={A=3,B=2}
 ```
 
 <br>The query 

@@ -24,7 +24,7 @@ When you need to pass a secure value such as a password during deployment, you c
 In this article, we walk you through the steps required to deploy a Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Prerequisites
- 
+
 * You must subscribe to an offer that includes the Key Vault service.  
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
@@ -62,7 +62,6 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
   -SecretValue $secretValue
-
 ```
 
 When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Deploy Windows virtual machine with password in key vault template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Download the [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
@@ -97,7 +96,6 @@ Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, a
         }
     }
 }
-
 ```
 
 ## Template deployment

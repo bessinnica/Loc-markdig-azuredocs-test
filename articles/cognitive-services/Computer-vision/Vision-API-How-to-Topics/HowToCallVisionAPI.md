@@ -16,8 +16,8 @@ ms.author: juliakuz
 
 This guide demonstrates how to call Computer Vision API using REST. The samples are written both in C# using the Computer Vision API client library, and as HTTP POST/GET calls. We will focus on:
 
--	How to get "Tags", "Description" and "Categories".
--	How to get "Domain-specific" information (celebrities).
+-   How to get "Tags", "Description" and "Categories".
+-   How to get "Domain-specific" information (celebrities).
 
 ### <a name="Prerequisites">Prerequisites</a> 
 Image URL or path to locally stored image.
@@ -25,7 +25,7 @@ Image URL or path to locally stored image.
   * Supported image formats: JPEG, PNG, GIF, BMP
   * Image file size: Less than 4MB
   * Image dimension: Greater than 50 x 50 pixels
-  
+
 In the examples below, the following features are demonstrated:
 
 1. Analyzing an image and getting an array of tags and a description returned.
@@ -35,7 +35,7 @@ Features are broken down on:
 
   * **Option One:** Scoped Analysis - Analyze only a given model
   * **Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
-  
+
 ### <a name="Step1">Step 1: Authorize the API call</a> 
 Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header. 
 
@@ -138,21 +138,22 @@ Here's an example:
     "captions": [
     {
     "text”: “partridge in a pear tree”,
-			“confidence”: 0.96
+            “confidence”: 0.96
     }
                 ]
-  	}
+    }
   }
 ```
-Field	| Type	| Content
+
+Field   | Type  | Content
 ------|------|------|
-Tags 	| object	| Top-level object for array of tags
-tags[].Name	| string	| Keyword from tags classifier
-tags[].Score	| number	| Confidence score, between 0 and 1.
-description	 | object	| Top-level object for a description.
-description.tags[] |	string	| List of tags.  If there insufficient confidence in the ability to produce a caption, the tags maybe the only information available to the caller.
-description.captions[].text	| string	| A phrase describing the image.
-description.captions[].confidence	| number	| Confidence for the phrase.
+Tags    | object    | Top-level object for array of tags
+tags[].Name | string    | Keyword from tags classifier
+tags[].Score    | number    | Confidence score, between 0 and 1.
+description  | object   | Top-level object for a description.
+description.tags[] |    string  | List of tags.  If there insufficient confidence in the ability to produce a caption, the tags maybe the only information available to the caller.
+description.captions[].text | string    | A phrase describing the image.
+description.captions[].confidence   | number    | Confidence for the phrase.
 
 ### <a name="Step4">Step 4: Retrieving and understanding the JSON output of domain-specific models</a>
 
@@ -162,7 +163,7 @@ The output will be an array of tags, an example will be like this example:
 ```
   { 
     "result": [ 
- 	  { 
+      { 
     "name": "golden retriever", 
     "score": 0.98
     },
@@ -204,12 +205,12 @@ For domain-specific models using Option Two (Enhanced Analysis), the categories 
 
 The categories field is a list of one or more of the [86-categories](../Category-Taxonomy.md) in the original taxonomy. Note also that categories ending in an underscore will match that category and its children (for example, people_ as well as people_group, for celebrities model).
 
-Field	| Type	| Content
+Field   | Type  | Content
 ------|------|------|
-categories | object	| Top-level object
-categories[].name	 | string	| Name from 86-category taxonomy
-categories[].score	| number	| Confidence score, between 0 and 1
-categories[].detail	 | object?      | Optional detail object
+categories | object | Top-level object
+categories[].name    | string   | Name from 86-category taxonomy
+categories[].score  | number    | Confidence score, between 0 and 1
+categories[].detail  | object?      | Optional detail object
 
 Note that if multiple categories match (for example, 86-category classifier returns a score for both people_ and people_young when model=celebrities), the details are attached to the most general level match (people_ in that example.)
 
@@ -221,4 +222,4 @@ These are identical to vision.analyze, with the additional error of NotSupported
 These are the basic functionalities of the Computer Vision API: how you can upload images and retrieve valuable metadata in return.
 
 To use the REST API, go to [Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739).
- 
+

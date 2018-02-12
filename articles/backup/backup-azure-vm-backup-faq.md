@@ -1,4 +1,3 @@
-
 ---
 title: Azure VM Backup FAQ | Microsoft Docs
 description: 'Answers to common questions about: how Azure VM backup works, limitations and what happens when changes to policy occur'

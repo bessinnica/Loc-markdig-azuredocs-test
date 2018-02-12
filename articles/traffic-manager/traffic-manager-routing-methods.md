@@ -42,7 +42,7 @@ The Traffic Manager profile contains a prioritized list of service endpoints. By
 
 With Azure Resource Manager, you configure the endpoint priority explicitly using the 'priority' property for each endpoint. This property is a value between 1 and 1000. Lower values represent a higher priority. Endpoints cannot share priority values. Setting the property is optional. When omitted, a default priority based on the endpoint order is used.
 
-##<a name = "weighted"></a>Weighted traffic-routing method
+## <a name = "weighted"></a>Weighted traffic-routing method
 The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
 
 ![Azure Traffic Manager 'Weighted' traffic-routing method][2]

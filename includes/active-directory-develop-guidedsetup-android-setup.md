@@ -4,15 +4,15 @@
 Do you want to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip), and skip to the [Configuration step](#create-an-application-express) to configure the code sample before you execute it.
 
 ### Create a new project 
-1.	Open Android Studio, and then select **File** > **New** > **New Project**.
-2.	Name your application, and then select **Next**.
-3.	Select **API 21 or newer (Android 5.0)**, and then select **Next**.
-4.	Leave **Empty Activity** as it is, select **Next**, and then select **Finish**.
+1.  Open Android Studio, and then select **File** > **New** > **New Project**.
+2.  Name your application, and then select **Next**.
+3.  Select **API 21 or newer (Android 5.0)**, and then select **Next**.
+4.  Leave **Empty Activity** as it is, select **Next**, and then select **Finish**.
 
 
 ### Add MSAL to your project
-1.	In Android Studio, select **Gradle Scripts** > **build.gradle (Module: app)**.
-2.	Under **Dependencies**, paste the following code:
+1.  In Android Studio, select **Gradle Scripts** > **build.gradle (Module: app)**.
+2.  Under **Dependencies**, paste the following code:
 
     ```ruby  
     compile ('com.microsoft.identity.client:msal:0.1.+') {

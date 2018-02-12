@@ -46,29 +46,29 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 
 1. Set some parameters. 
 
- ```azurepowershell-interactive
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$dataDiskName = 'myDisk' 
-$snapshotName = 'mySnapshot'  
-```
+   ```azurepowershell-interactive
+   $resourceGroupName = 'myResourceGroup' 
+   $location = 'eastus' 
+   $dataDiskName = 'myDisk' 
+   $snapshotName = 'mySnapshot'  
+   ```
 
 2. Get the VHD disk to be copied.
 
- ```azurepowershell-interactive
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
-```
+   ```azurepowershell-interactive
+   $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
+   ```
 3. Create the snapshot configurations. 
 
- ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
-```
+   ```azurepowershell-interactive
+   $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
+   ```
 4. Take the snapshot.
 
- ```azurepowershell-interactive
-New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
-```
-If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.
+   ```azurepowershell-interactive
+   New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
+   ```
+   If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.
 
 ## Next steps
 

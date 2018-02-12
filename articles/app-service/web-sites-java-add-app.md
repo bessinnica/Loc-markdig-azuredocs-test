@@ -31,6 +31,7 @@ Note for Tomcat web apps: Once you've uploaded your WAR file to the **webapps** 
 
 <a name="see-also"></a>
 
+
 ## See Also
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 

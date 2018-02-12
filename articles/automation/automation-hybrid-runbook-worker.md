@@ -62,11 +62,11 @@ Perform the following steps to automate the installation and configuration of th
 
     The *New-OnPremiseHybridWorker.ps1* script requires the following parameters during execution:
 
-  * *AutomationAccountName* (mandatory) - the name of your Automation account. 
-  * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account. 
-  * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario. 
-  *  *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in.
-  *  *WorkspaceName* (optional) - the OMS workspace name. If you do not have an OMS workspace, the script creates and configures one. 
+   * *AutomationAccountName* (mandatory) - the name of your Automation account. 
+   * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account. 
+   * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario. 
+   * *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in.
+   * *WorkspaceName* (optional) - the OMS workspace name. If you do not have an OMS workspace, the script creates and configures one. 
 
      > [!NOTE]
      > Currently the only Automation regions supported for integration with OMS are - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates an OMS workspace but it warns you that it cannot link them together.

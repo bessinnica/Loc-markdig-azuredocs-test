@@ -17,7 +17,7 @@ ms.author: davidmu
 ---
 # Create an application gateway with multiple site hosting using the Azure CLI
 
-You can use the Azure CLI to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use the Azure CLI to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of <em>www.contoso.com</em> and <em>www.fabrikam.com</em>.
 
 In this article, you learn how to:
 
@@ -113,7 +113,7 @@ az network application-gateway address-pool create \
 
 ### Add listeners
 
-A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www.contoso.com* and *www.fabrikam.com*. 
+A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of <em>www.contoso.com</em> and <em>www.fabrikam.com</em>. 
 
 Add the listeners named *contosoListener* and *fabrikamListener* that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
 

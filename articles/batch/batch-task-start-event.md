@@ -24,23 +24,23 @@ ms.author: tamram
 
 ```
 {
-	"jobId": "job-0000000001",
-	"id": "task-5",
-	"taskType": "User",
-	"systemTaskVersion": 0,
-	"nodeInfo": {
-		"poolId": "pool-001",
-		"nodeId": "tvm-257509324_1-20160908t162728z"
-	},
-	"multiInstanceSettings": {
-		"numberOfInstances": 1
-	},
-	"constraints": {
-		"maxTaskRetryCount": 2
-	},
-	"executionInfo": {
-		"retryCount": 0
-	}
+    "jobId": "job-0000000001",
+    "id": "task-5",
+    "taskType": "User",
+    "systemTaskVersion": 0,
+    "nodeInfo": {
+        "poolId": "pool-001",
+        "nodeId": "tvm-257509324_1-20160908t162728z"
+    },
+    "multiInstanceSettings": {
+        "numberOfInstances": 1
+    },
+    "constraints": {
+        "maxTaskRetryCount": 2
+    },
+    "executionInfo": {
+        "retryCount": 0
+    }
 }
 ```
 
@@ -76,6 +76,7 @@ ms.author: tamram
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Element name|Type|Notes|
-|------------------|----------|-----------|
-|retryCount|Int32|The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount|
+| Element name | Type  |                                                                                Notes                                                                                |
+|--------------|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  retryCount  | Int32 | The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount |
+

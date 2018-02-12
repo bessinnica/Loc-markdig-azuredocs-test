@@ -68,6 +68,7 @@ ACU: 160-180
 
 <br>
 
+
 ## GS-series <sup>1</sup>
 
 ACU: 180 - 240
@@ -88,20 +89,23 @@ ACU: 180 - 240
 
 <br>
 
+
 ## G-series
 
 ACU: 180 - 240
 
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
 | Standard_G3  | 8         | 112         | 1,536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
 | Standard_G4  | 16        | 224         | 3,072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16000          |
 | Standard_G5 <sup>1</sup> | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
 
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
+
 <br>
+
 
 
 ## DSv2-series <sup>1</sup>
@@ -124,6 +128,7 @@ ACU: 210 - 250
 
 <br>
 
+
 ## Dv2-series
 
 ACU: 210 - 250
@@ -141,6 +146,7 @@ ACU: 210 - 250
 <sup>2</sup> 25000 Mbps with Accelerated Networking.
 
 <br>
+
 
 ## DS-series <sup>1</sup>
 
@@ -168,4 +174,5 @@ ACU: 160
 | Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
 <br>
+
 

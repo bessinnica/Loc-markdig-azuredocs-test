@@ -43,11 +43,13 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
 2. From the **File** menu, click **New**, and then click **Project**.
 3. From **New Project**, type or select the following values:
 
-   | Property | Value |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |Console Application |
-   | Name |CreateADLApplication |
+
+   | Property |            Value            |
+   |----------|-----------------------------|
+   | Category | Templates/Visual C#/Windows |
+   | Template |     Console Application     |
+   |   Name   |    CreateADLApplication     |
+
 
 4. Click **OK** to create the project.
 
@@ -59,8 +61,8 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
 
       * `Microsoft.Azure.DataLake.Store` - This tutorial uses v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.3.1.
-    
-    Close the **NuGet Package Manager**.
+
+      Close the **NuGet Package Manager**.
 
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 
@@ -70,11 +72,11 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
         using System.Text;
         using System.Collections.Generic;
         using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
-                
+
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.DataLake.Store;
-    	using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. Declare the variables as shown below, and provide the values for the placeholders. Also, make sure the local path and file name you provide here exist on the computer.
 
@@ -104,7 +106,7 @@ The following snippet creates the Data Lake Store filesystem client object, whic
 Add the following snippet to your application. This snippet adds a file as well as any parent directory that do not exist.
 
     // Create a file - automatically creates any parent directories that don't exist
-    
+
     string fileName = "/Test/testFilename1.txt";
     using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
     {

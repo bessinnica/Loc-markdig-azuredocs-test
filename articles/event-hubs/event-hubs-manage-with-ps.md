@@ -86,7 +86,7 @@ $CurrentEH = Get-AzureRMEventHub -ResourceGroupName $ResGrpName -NamespaceName $
 if($CurrentEH)
 {
     Write-Host "The event hub $EventHubName already exists in the $Location region:"
-	# Report what was found
+    # Report what was found
     Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
 else
@@ -110,7 +110,7 @@ $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -Na
 if($CurrentCG)
 {
     Write-Host "The consumer group $ConsumerGroupName in event hub $EventHubName already exists in the $Location region:"
-	# Report what was found
+    # Report what was found
     Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
 else

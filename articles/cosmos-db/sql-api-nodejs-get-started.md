@@ -58,6 +58,7 @@ Please make sure you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
+
 * [Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
 ## Step 1: Create an Azure Cosmos DB account

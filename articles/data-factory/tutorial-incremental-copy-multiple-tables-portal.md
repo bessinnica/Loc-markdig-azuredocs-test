@@ -40,22 +40,22 @@ You perform the following steps in this tutorial:
 Here are the important steps to create this solution: 
 
 1. **Select the watermark column**.
-	
+
     Select one column for each table in the source data store, which can be used to identify the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
 2. **Prepare a data store to store the watermark value**.   
-	
+
     In this tutorial, you store the watermark value in a SQL database.
 
 3. **Create a pipeline with the following activities**: 
-	
-	a. Create a ForEach activity that iterates through a list of source table names that is passed as a parameter to the pipeline. For each source table, it invokes the following activities to perform delta loading for that table.
+
+    a. Create a ForEach activity that iterates through a list of source table names that is passed as a parameter to the pipeline. For each source table, it invokes the following activities to perform delta loading for that table.
 
     b. Create two lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
 
-	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
+    c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
 
-	d. Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
+    d. Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
 
     Here is the high-level solution diagram: 
 
@@ -83,13 +83,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Name varchar(255),
         LastModifytime datetime
     );
-    
+
     create table project_table
     (
         Project varchar(255),
         Creationtime datetime
     );
-        
+
     INSERT INTO customer_table
     (PersonID, Name, LastModifytime)
     VALUES
@@ -98,14 +98,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     (3, 'Alice','9/3/2017 2:36:00 AM'),
     (4, 'Andy','9/4/2017 3:21:00 AM'),
     (5, 'Anny','9/5/2017 8:06:00 AM');
-    
+
     INSERT INTO project_table
     (Project, Creationtime)
     VALUES
     ('project1','1/1/2015 0:00:00 AM'),
     ('project2','2/2/2016 1:23:00 AM'),
     ('project3','3/4/2017 5:16:00 AM');
-    
+
     ```
 
 ### Create destination tables in your Azure SQL database
@@ -114,7 +114,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. In **Server Explorer**, right-click the database and choose **New Query**.
 
 3. Run the following SQL command against your SQL database to create tables named `customer_table` and `project_table`:  
-    
+
     ```sql
     create table customer_table
     (
@@ -122,22 +122,22 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Name varchar(255),
         LastModifytime datetime
     );
-    
+
     create table project_table
     (
         Project varchar(255),
         Creationtime datetime
     );
 
-	```
+    ```
 
 ### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
-    
+
     ```sql
     create table watermarktable
     (
-    
+
         TableName varchar(255),
         WatermarkValue datetime,
     );
@@ -150,7 +150,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     VALUES 
     ('customer_table','1/1/2010 12:00:00 AM'),
     ('project_table','1/1/2010 12:00:00 AM');
-    
+
     ```
 
 ### Create a stored procedure in the Azure SQL database 
@@ -168,7 +168,6 @@ BEGIN
 WHERE [TableName] = @TableName
 
 END
-
 ```
 
 ### Create data types and additional stored procedures in Azure SQL database
@@ -220,43 +219,42 @@ BEGIN
       INSERT (Project, Creationtime)
       VALUES (source.Project, source.Creationtime);
 END
-
 ```
 
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
-   
+2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+
    ![New->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
-2. In the **New data factory** page, enter **ADFMultiIncCopyTutorialDF** for the **name**. 
-      
+3. In the **New data factory** page, enter **ADFMultiIncCopyTutorialDF** for the **name**. 
+
      ![New data factory page](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
- 
+
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFMultiIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
-  
+
        `Data factory name ADFMultiIncCopyTutorialDF is not available`
-3. Select your Azure **subscription** in which you want to create the data factory. 
-4. For the **Resource Group**, do one of the following steps:
-     
+4. Select your Azure **subscription** in which you want to create the data factory. 
+5. For the **Resource Group**, do one of the following steps:
+
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
-         
+
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-6. Select **Pin to dashboard**.     
-7. Click **Create**.      
-8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
+6. Select **V2 (Preview)** for the **version**.
+7. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+8. Select **Pin to dashboard**.     
+9. Click **Create**.      
+10. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-	![deploying data factory tile](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
-   
-   ![Data factory home page](./media/tutorial-incremental-copy-multiple-tables-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch Azure Data Factory user interface (UI) in a separate tab.
-11. In the get started page of Azure Data Factory UI, click **Create pipeline** (or) switch to the **Edit** tab. 
+     ![deploying data factory tile](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
+11. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-   ![Get started page](./media/tutorial-incremental-copy-multiple-tables-portal/get-started-page.png)
+    ![Data factory home page](./media/tutorial-incremental-copy-multiple-tables-portal/data-factory-home-page.png)
+12. Click **Author & Monitor** tile to launch Azure Data Factory user interface (UI) in a separate tab.
+13. In the get started page of Azure Data Factory UI, click **Create pipeline** (or) switch to the **Edit** tab. 
+
+    ![Get started page](./media/tutorial-incremental-copy-multiple-tables-portal/get-started-page.png)
 
 ## Create self-hosted integration runtime
 As you are moving data from a data store in a private network (on-premises) to an Azure data store, install a self-hosted integration runtime (IR) in your on-premises environment. The self-hosted IR moves data between your private network and Azure. 
@@ -270,24 +268,24 @@ As you are moving data from a data store in a private network (on-premises) to a
 3. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Next**. 
 
    ![Select integration runtime type](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-4. Select ** Private Network**, and click **Next**. 
+4. Select ** Private Network<strong>, and click **Next</strong>. 
 
    ![Select private network](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 5. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
 
    ![Self-hosted IR name](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-10. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
+6. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
 
    ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
-11. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
+7. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
 
    ![Integration runtime setup - successful](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
-12. In the Web browser, in the **Integration Runtime Setup** window, click **Finish**. 
+8. In the Web browser, in the **Integration Runtime Setup** window, click **Finish**. 
 
    ![Integration runtime setup - finish](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
-17. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
+9. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
-       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+      ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and SQL database. 
@@ -334,7 +332,7 @@ In the last step, you create a linked service to link your source SQL Server dat
 
         ![Azure SQL linked service - settings](./media/tutorial-incremental-copy-multiple-tables-portal/azure-sql-linked-service-settings.png)
 10. Confirm that you see two linked services in the list. 
-   
+
     ![Two linked services](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
 
 ## Create datasets
@@ -415,11 +413,11 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Pipeline name](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 3. In the **Properties** window, do the following steps: 
 
-    1. Click **+ New**. 
-    2. Enter **tableList** for the parameter **name**. 
-    3. Select **Object** for the parameter **type**.
+   1. Click **+ New**. 
+   2. Enter **tableList** for the parameter **name**. 
+   3. Select **Object** for the parameter **type**.
 
-    ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+      ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 4. Drag-and-drop the **ForEach** activity from the **Activities** toolbox to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
 
     ![ForEach activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -444,7 +442,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
         ![First Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
 9. Drag-drop the **Lookup** activity from the **Activities** toolbox, and enter **LookupNewWaterMarkActivity** for **Name**.
-        
+
     ![Second Lookup Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 10. Switch to the **Settings** tab.
 
@@ -455,7 +453,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         ```sql    
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
-    
+
         ![Second Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 11. Drag-drop the **Copy** activity from the **Activities** toolbox, and enter **IncrementalCopyActivity** for **Name**. 
 
@@ -475,7 +473,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
         ![Copy Activity - source settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 14. Switch to the **Sink** tab, and select **SinkDataset** for **Sink Dataset**. 
-        
+
     ![Copy Activity - sink settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 15. Switch to the **Parameters** tab, and do the following steps:
 
@@ -502,7 +500,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         | ---- | ---- | ----- |
         | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
-    
+
         ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 20. In the left pane, click **Publish**. This action publishes the entities you created to the Data Factory service. 
 
@@ -511,7 +509,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
     ![Show Notifications](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
- 
+
 ## Run the pipeline
 
 1. On the toolbar for the pipeline, click **Trigger**, and click **Trigger Now**.     
@@ -558,13 +556,13 @@ select * from customer_table
 **Output**
 ```
 ===========================================
-PersonID	Name	LastModifytime
+PersonID    Name    LastModifytime
 ===========================================
-1	        John	2017-09-01 00:56:00.000
-2	        Mike	2017-09-02 05:23:00.000
-3	        Alice	2017-09-03 02:36:00.000
-4	        Andy	2017-09-04 03:21:00.000
-5	        Anny	2017-09-05 08:06:00.000
+1           John    2017-09-01 00:56:00.000
+2           Mike    2017-09-02 05:23:00.000
+3           Alice   2017-09-03 02:36:00.000
+4           Andy    2017-09-04 03:21:00.000
+5           Anny    2017-09-05 08:06:00.000
 ```
 
 **Query**
@@ -577,11 +575,11 @@ select * from project_table
 
 ```
 ===================================
-Project	    Creationtime
+Project     Creationtime
 ===================================
-project1	2015-01-01 00:00:00.000
-project2	2016-02-02 01:23:00.000
-project3	2017-03-04 05:16:00.000
+project1    2015-01-01 00:00:00.000
+project2    2016-02-02 01:23:00.000
+project3    2017-03-04 05:16:00.000
 ```
 
 **Query**
@@ -594,10 +592,10 @@ select * from watermarktable
 
 ```
 ======================================
-TableName	    WatermarkValue
+TableName       WatermarkValue
 ======================================
-customer_table	2017-09-05 08:06:00.000
-project_table	2017-03-04 05:16:00.000
+customer_table  2017-09-05 08:06:00.000
+project_table   2017-03-04 05:16:00.000
 ```
 
 Notice that the watermark values for both tables were updated. 
@@ -660,13 +658,13 @@ select * from customer_table
 **Output**
 ```
 ===========================================
-PersonID	Name	LastModifytime
+PersonID    Name    LastModifytime
 ===========================================
-1	        John	2017-09-01 00:56:00.000
-2	        Mike	2017-09-02 05:23:00.000
-3	        NewName	2017-09-08 00:00:00.000
-4	        Andy	2017-09-04 03:21:00.000
-5	        Anny	2017-09-05 08:06:00.000
+1           John    2017-09-01 00:56:00.000
+2           Mike    2017-09-02 05:23:00.000
+3           NewName 2017-09-08 00:00:00.000
+4           Andy    2017-09-04 03:21:00.000
+5           Anny    2017-09-05 08:06:00.000
 ```
 
 Notice the new values of **Name** and **LastModifytime** for the **PersonID** for number 3. 
@@ -681,12 +679,12 @@ select * from project_table
 
 ```
 ===================================
-Project	    Creationtime
+Project     Creationtime
 ===================================
-project1	2015-01-01 00:00:00.000
-project2	2016-02-02 01:23:00.000
-project3	2017-03-04 05:16:00.000
-NewProject	2017-10-01 00:00:00.000
+project1    2015-01-01 00:00:00.000
+project2    2016-02-02 01:23:00.000
+project3    2017-03-04 05:16:00.000
+NewProject  2017-10-01 00:00:00.000
 ```
 
 Notice that the **NewProject** entry was added to project_table. 
@@ -701,14 +699,14 @@ select * from watermarktable
 
 ```
 ======================================
-TableName	    WatermarkValue
+TableName       WatermarkValue
 ======================================
-customer_table	2017-09-08 00:00:00.000
-project_table	2017-10-01 00:00:00.000
+customer_table  2017-09-08 00:00:00.000
+project_table   2017-10-01 00:00:00.000
 ```
 
 Notice that the watermark values for both tables were updated.
-     
+
 ## Next steps
 You performed the following steps in this tutorial: 
 

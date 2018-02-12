@@ -143,7 +143,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart.
 
-To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​From​FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
+To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud Block Blob. Upload From FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **fileAndPath** and the name of the blob in **localFileName**. The following example uploads the file to your container called **quickstartblobs**.
 
@@ -170,7 +170,7 @@ Block blobs can be any type of text or binary file. Page blobs are primarily use
 
 ### List the blobs in a container
 
-You can get a list of files in the container using [Cloud​Blob​Container.​List​BlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
+You can get a list of files in the container using [Cloud Blob Container. List BlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
 
 If you have 5,000 or fewer blobs in the container, all of the blob names are retrieved in one call to ListBlobsSegmentedAsync. If you have more than 5,000 blobs in the container, the service retrieves the list in sets of 5,000 until all of the blob names have been retrieved. So the first time this API is called, it returns the first 5,000 blob names and a continuation token. The second time, you provide the token, and the service retrieves the next set of blob names, and so on, until the continuation token is null, which indicates that all of the blob names have been retrieved.
 
@@ -188,12 +188,11 @@ do
     }
     blobContinuationToken = results.ContinuationToken;
 } while (blobContinuationToken != null);
-
 ```
 
 ### Download blobs
 
-Download blobs to your local disk using [Cloud​Blob.​Download​To​FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
+Download blobs to your local disk using [Cloud Blob. Download To FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
 The following code downloads the blob uploaded in a previous section, adding a suffix of "_DOWNLOADED" to the blob name so you can see both files on local disk.
 
@@ -209,7 +208,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### Clean up resources
 
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Also delete the files created if they are no longer needed.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud Blob Container. DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Also delete the files created if they are no longer needed.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");

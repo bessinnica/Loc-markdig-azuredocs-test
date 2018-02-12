@@ -110,7 +110,7 @@ The following snippets are from the src/main/java/com/azure/cosmosdb/cassandra/r
         return session.prepare(insertStatement);
     }
 
-	public void insertUser(PreparedStatement statement, int id, String name, String city) {
+    public void insertUser(PreparedStatement statement, int id, String name, String city) {
         BoundStatement boundStatement = new BoundStatement(statement);
         session.execute(boundStatement.bind(id, name, city));
     }

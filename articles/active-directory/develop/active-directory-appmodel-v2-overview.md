@@ -25,6 +25,7 @@ In the past, application developers who wanted to support both personal Microsof
 Choose your favorite platform from the following list to build an application by using the Microsoft open source libraries and frameworks. You can also use the OAuth 2.0 and OpenID Connect protocols to send and receive protocol messages directly without using an authentication library.
 <br />
 
+
 [!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
 ## Learn more about the Azure AD v2.0 endpoint
@@ -49,3 +50,4 @@ Explore in-depth information about the Azure AD v2.0 endpoint platform:
 > If you only need to sign in work and school accounts from Azure Active Directory, start with the [Azure AD developer's guide](active-directory-developers-guide.md). The Azure AD v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+

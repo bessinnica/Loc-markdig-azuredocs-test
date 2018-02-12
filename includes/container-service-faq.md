@@ -2,27 +2,27 @@
 
 ## Orchestrators
 
-### Which container orchestrators do you support on Azure Container Service? 
+### Which container orchestrators do you support on Azure Container Service? 
 
 There is support for open-source DC/OS, Docker Swarm, and Kubernetes. For more information, see the [Overview](../articles/container-service/kubernetes/container-service-intro-kubernetes.md).
- 
-### Do you support Docker Swarm mode? 
+ 
+### Do you support Docker Swarm mode? 
 
-Currently Swarm mode is not supported, but it is on the service roadmap. 
+Currently Swarm mode is not supported, but it is on the service roadmap. 
 
-### Does Azure Container Service support Windows containers?  
+### Does Azure Container Service support Windows containers?  
 
 Currently Linux containers are supported with all orchestrators. Support for Windows containers with Kubernetes is in preview.
 
-### Do you recommend a specific orchestrator in Azure Container Service? 
+### Do you recommend a specific orchestrator in Azure Container Service? 
 Generally we do not recommend a specific orchestrator. If you have experience with one of the supported orchestrators, you can apply that experience in Azure Container Service. Data trends suggest, however, that DC/OS is production proven for Big Data and IoT workloads, Kubernetes is suited for cloud-native workloads, and Docker Swarm is known for its integration with Docker tools and easy learning curve.
 
-Depending on your scenario, you can also build and manage custom container solutions with other Azure services. These services include [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md), and [Batch](../articles/batch/batch-technical-overview.md).  
+Depending on your scenario, you can also build and manage custom container solutions with other Azure services. These services include [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md), and [Batch](../articles/batch/batch-technical-overview.md).  
 
-### What is the difference between Azure Container Service and ACS Engine? 
+### What is the difference between Azure Container Service and ACS Engine? 
 Azure Container Service is an SLA-backed Azure service with features in the Azure portal, Azure command-line tools, and Azure APIs. The service enables you to quickly implement and manage clusters running standard container orchestration tools with a relatively small number of configuration choices. 
 
-[ACS Engine](http://github.com/Azure/acs-engine) is an open-source project that enables power users to customize the cluster configuration at every level. This ability to alter the configuration of both infrastructure and software means that we offer no SLA for ACS Engine. Support is handled through the open-source project on GitHub rather than through official Microsoft channels. 
+[ACS Engine](http://github.com/Azure/acs-engine) is an open-source project that enables power users to customize the cluster configuration at every level. This ability to alter the configuration of both infrastructure and software means that we offer no SLA for ACS Engine. Support is handled through the open-source project on GitHub rather than through official Microsoft channels. 
 
 For additional details please refer to our [support policy for containers](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
@@ -47,16 +47,16 @@ You can create a cluster with 1, 3, or 5 master nodes. You can choose up to 100 
 > For larger clusters and depending on the VM size you choose for your nodes, you might need to increase the cores quota in your subscription. To request a quota increase, open an [online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 > 
 
-### How do I increase the number of masters after a cluster is created? 
+### How do I increase the number of masters after a cluster is created? 
 Once the cluster is created, the number of masters is fixed and cannot be changed. During the creation of the cluster, you should ideally select multiple masters for high availability.
 
-### How do I increase the number of agents after a cluster is created? 
+### How do I increase the number of agents after a cluster is created? 
 You can scale the number of agents in the cluster by using the Azure portal or command-line tools. See [Scale an Azure Container Service cluster](../articles/container-service/kubernetes/container-service-scale.md).
 
-### What are the URLs of my masters and agents? 
+### What are the URLs of my masters and agents? 
 The URLs of cluster resources in Azure Container Service are based on the DNS name prefix you supply and the name of the Azure region you chose for deployment. For example, the fully qualified domain name (FQDN) of the master node is of this form:
 
-``` 
+``` 
 DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
@@ -71,23 +71,23 @@ You can find commonly used URLs for your cluster in the Azure portal, the Azure 
 ### How do I upgrade the orchestrator after deployment?
 
 Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
- 
+ 
 ### Where do I find the SSH connection string to my cluster?
 
 You can find the connection string in the Azure portal, or by using Azure command-line tools. 
 
-1. In the portal, navigate to the resource group for the cluster deployment.  
+1. In the portal, navigate to the resource group for the cluster deployment.  
 
-2. Click **Overview** and click the link for **Deployments** under **Essentials**. 
+2. Click **Overview** and click the link for **Deployments** under **Essentials**. 
 
-3. In the **Deployment history** blade, click the deployment that has a name beginning with **microsoft-acs** followed by a deployment date. Example: microsoft-acs-201701310000.  
+3. In the **Deployment history** blade, click the deployment that has a name beginning with **microsoft-acs** followed by a deployment date. Example: microsoft-acs-201701310000.  
 
-4. On the **Summary** page, under **Outputs**, several cluster links are provided. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
+4. On the **Summary** page, under **Outputs**, several cluster links are provided. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
 
 As previously noted, you can also use Azure tools to find the FQDN of the master. Make an SSH connection to the master using the FQDN of the master and the user name you specified when creating the cluster. For example:
 
 ```bash
-ssh userName@masterFQDN –A –p 22 
+ssh userName@masterFQDN –A –p 22 
 ```
 
 For more information, see [Connect to an Azure Container Service cluster](../articles/container-service/kubernetes/container-service-connect.md).

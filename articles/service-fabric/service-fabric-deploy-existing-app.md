@@ -110,6 +110,7 @@ Yeoman creates an application package with the appropriate application and manif
 
 <a id="manually"></a>
 
+
 ## Manually package and deploy an existing executable
 The process of manually packaging a guest executable is based on the following general steps:
 
@@ -234,7 +235,6 @@ The WorkingFolder is useful to set the correct working directory so that relativ
 <Endpoints>
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
 </Endpoints>
-
 ```
 In the preceding example, the `Endpoint` element specifies the endpoints that the application can listen on. In this example, the Node.js application listens on http on port 3000.
 
@@ -315,7 +315,6 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'nodeapp'
 New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
-
 ```
 
 >[!TIP]

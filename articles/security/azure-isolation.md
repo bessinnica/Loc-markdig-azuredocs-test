@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
@@ -111,9 +111,9 @@ Some other capabilities for Azure Active Directory include:
 ### Isolation from Microsoft Administrators & Data Deletion
 Microsoft takes strong measures to protect your data from inappropriate access or use by unauthorized persons. These operational processes and controls are backed by the [Online Services Terms](http://aka.ms/Online-Services-Terms), which offer contractual commitments that govern access to your data.
 
--	Microsoft engineers do not have default access to your data in the cloud. Instead, they are granted access, under management oversight, only when necessary. That access is carefully controlled and logged, and revoked when it is no longer needed.
+-   Microsoft engineers do not have default access to your data in the cloud. Instead, they are granted access, under management oversight, only when necessary. That access is carefully controlled and logged, and revoked when it is no longer needed.
 
--	Microsoft may hire other companies to provide limited services on its behalf. Subcontractors may access customer data only to deliver the services for which, we have hired them to provide, and they are prohibited from using it for any other purpose. Further, they are contractually bound to maintain the confidentiality of our customers’ information.
+-   Microsoft may hire other companies to provide limited services on its behalf. Subcontractors may access customer data only to deliver the services for which, we have hired them to provide, and they are prohibited from using it for any other purpose. Further, they are contractually bound to maintain the confidentiality of our customers’ information.
 
 Business services with audited certifications such as ISO/IEC 27001 are regularly verified by Microsoft and accredited audit firms, which perform sample audits to attest that access, only for legitimate business purposes. You can always access your own customer data at any time and for any reason.
 
@@ -171,9 +171,9 @@ By default, all traffic is blocked when a virtual machine is created, and then t
 
 There are two categories of rules that are programmed:
 
--	**Machine configuration or infrastructure rules:** By default, all communication is blocked. There are exceptions to allow a virtual machine to send and receive DHCP and DNS traffic. Virtual machines can also send traffic to the “public” internet and send traffic to other virtual machines within the same Azure Virtual Network and the OS activation server. The virtual machines’ list of allowed outgoing destinations does not include Azure router subnets, Azure management, and other Microsoft properties.
+-   **Machine configuration or infrastructure rules:** By default, all communication is blocked. There are exceptions to allow a virtual machine to send and receive DHCP and DNS traffic. Virtual machines can also send traffic to the “public” internet and send traffic to other virtual machines within the same Azure Virtual Network and the OS activation server. The virtual machines’ list of allowed outgoing destinations does not include Azure router subnets, Azure management, and other Microsoft properties.
 
--	**Role configuration file:** This defines the inbound Access Control Lists (ACLs) based on the tenant's service model.
+-   **Role configuration file:** This defines the inbound Access Control Lists (ACLs) based on the tenant's service model.
 
 ### VLAN Isolation
 There are three VLANs in each cluster:
@@ -181,11 +181,11 @@ There are three VLANs in each cluster:
 ![VLAN Isolation](./media/azure-isolation/azure-isolation-fig8.jpg)
 
 
--	The main VLAN – interconnects untrusted customer nodes
+-   The main VLAN – interconnects untrusted customer nodes
 
--	The FC VLAN – contains trusted FCs and supporting systems
+-   The FC VLAN – contains trusted FCs and supporting systems
 
--	The device VLAN – contains trusted network and other infrastructure devices
+-   The device VLAN – contains trusted network and other infrastructure devices
 
 Communication is permitted from the FC VLAN to the main VLAN, but cannot be initiated from the main VLAN to the FC VLAN. Communication is also blocked from the main VLAN to the device VLAN. This assures that even if a node running customer code is compromised, it cannot attack nodes on either the FC or device VLANs.
 
@@ -210,27 +210,27 @@ IP storage data can be protected from unauthorized users via a networking mechan
 
 ### Encryption
 Azure offers following types of Encryption to protect data:
--	Encryption in transit
+-   Encryption in transit
 
--	Encryption at rest
+-   Encryption at rest
 
 #### Encryption in Transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
 
--	[Transport-level encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
+-   [Transport-level encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File shares.
+-   [Wire encryption](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File shares.
 
--	[Client-side encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
+-   [Client-side encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 #### Encryption at Rest
 For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
 
--	[Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
+-   [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 
--	[Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) also provides the feature of encryption at rest.
+-   [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) also provides the feature of encryption at rest.
 
--	[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+-   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
 #### Azure Disk Encryption
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
@@ -238,39 +238,39 @@ For many organizations, [data encryption at rest](https://blogs.microsoft.com/cy
 The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
--	Integration with Azure Key Vault
+-   Integration with Azure Key Vault
 
--	Standard tier VMs: A, D, DS, G, GS, and so forth, series IaaS VMs
+-   Standard tier VMs: A, D, DS, G, GS, and so forth, series IaaS VMs
 
--	Enabling encryption on Windows and Linux IaaS VMs
+-   Enabling encryption on Windows and Linux IaaS VMs
 
--	Disabling encryption on OS and data drives for Windows IaaS VMs
+-   Disabling encryption on OS and data drives for Windows IaaS VMs
 
--	Disabling encryption on data drives for Linux IaaS VMs
+-   Disabling encryption on data drives for Linux IaaS VMs
 
--	Enabling encryption on IaaS VMs that are running Windows client OS
+-   Enabling encryption on IaaS VMs that are running Windows client OS
 
--	Enabling encryption on volumes with mount paths
+-   Enabling encryption on volumes with mount paths
 
--	Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using [mdadm](https://en.wikipedia.org/wiki/Mdadm)
+-   Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using [mdadm](https://en.wikipedia.org/wiki/Mdadm)
 
--	Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) for data disks
+-   Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) for data disks
 
--	Enabling encryption on Windows VMs that are configured by using storage spaces
+-   Enabling encryption on Windows VMs that are configured by using storage spaces
 
--	All Azure public regions are supported
+-   All Azure public regions are supported
 
 The solution does not support the following scenarios, features, and technology in the release:
 
--	Basic tier IaaS VMs
+-   Basic tier IaaS VMs
 
--	Disabling encryption on an OS drive for Linux IaaS VMs
+-   Disabling encryption on an OS drive for Linux IaaS VMs
 
--	IaaS VMs that are created by using the classic VM creation method
+-   IaaS VMs that are created by using the classic VM creation method
 
--	Integration with your on-premises Key Management Service
+-   Integration with your on-premises Key Management Service
 
--	Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
+-   Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
 
 ## SQL Azure Database Isolation
 SQL Database is a relational database service in the Microsoft cloud based on the market-leading Microsoft SQL Server engine and capable of handling mission-critical workloads. SQL Database offers predictable data isolation at account level, geography / region based and based on networking— all with near-zero administration.
@@ -294,9 +294,9 @@ SQL Azure servers are not physical or VM instances, instead they are collections
 
 Logical master databases include:
 
--	SQL logins used to connect to the server
+-   SQL logins used to connect to the server
 
--	Firewall rules
+-   Firewall rules
 
 Billing and usage-related information for SQL Azure databases from the same logical server are not guaranteed to be on the same physical instance in SQL Azure cluster, instead applications must provide the target database name when connecting.
 
@@ -307,13 +307,13 @@ From a customer perspective, a logical server is created in a geo-graphical regi
 When a logical server is created and its DNS name is registered, the DNS name points to the so called “Gateway VIP” address in the specific data center where the server was placed.
 
 Behind the VIP (virtual IP address), we have a collection of stateless gateway services. In general, gateways get involved when there is coordination needed between multiple data sources (master database, user database, etc.). Gateway services implement the following:
--	**TDS connection proxying.** This includes locating user database in the backend cluster, implementing the login sequence and then forwarding the TDS packets to the backend and back.
+-   **TDS connection proxying.** This includes locating user database in the backend cluster, implementing the login sequence and then forwarding the TDS packets to the backend and back.
 
--	**Database management.** This includes implementing a collection of workflows to do CREATE/ALTER/DROP database operations. The database operations can be invoked by either sniffing TDS packets or explicit OData APIs.
+-   **Database management.** This includes implementing a collection of workflows to do CREATE/ALTER/DROP database operations. The database operations can be invoked by either sniffing TDS packets or explicit OData APIs.
 
--	CREATE/ALTER/DROP login/user operations
+-   CREATE/ALTER/DROP login/user operations
 
--	Logical server management operations via OData API
+-   Logical server management operations via OData API
 
 ![Isolation through Network Topology](./media/azure-isolation/azure-isolation-fig12.png)
 

@@ -30,7 +30,7 @@ An Azure VM is one of several types of [on-demand, scalable computing resources]
 [Overview of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 ## Claimable VM
-An Azure Claimable VM is a virtual machine that is available for use by any lab user with permissions. A lab admin can prepare VMs with specific base images and artifacts and save them to a shared pool. A lab user can then claim a working VM from the pool when they need one with that specific configuration.
+An Azure Claimable VM is a virtual machine that is available for use by any lab user with permissions. A lab admin can prepare VMs with specific base images and artifacts and save them to a shared pool. A lab user can then claim a working VM from the pool when they need one with that specific configuration.
 
 A VM that is claimable is not initially assigned to any particular user, but will show up in every user's list under "Claimable virtual machines". After a VM is claimed by a user, it is moved up to their "My virtual machines" area and is no longer claimable by any other user.
 

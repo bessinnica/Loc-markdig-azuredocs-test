@@ -35,7 +35,7 @@ The following list describes the endpoints:
 
 * **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties. IoT Hub properties govern [hub-level security policies][lnk-accesscontrol], as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities][lnk-importexport].
 * **Device identity management**. Each IoT hub exposes a set of HTTPS REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities][lnk-device-identities] are used for device authentication and access control.
-* **Device twin management**. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
+* <strong>Device twin management</strong>. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
 * **Jobs management**. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and manage [jobs][lnk-jobs].
 * **Device endpoints**. For each device in the identity registry, IoT Hub exposes a set of endpoints:
 

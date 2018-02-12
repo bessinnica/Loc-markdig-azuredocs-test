@@ -29,10 +29,10 @@ The following table compares the available service tiers of Event Hubs. The Even
 | Ingress events | Pay per million events | Included |
 | Throughput unit (1 MB/sec ingress, 2 MB/sec egress) | Pay per hour | Included |
 | Message Size | 256 KB | 1 MB |
-| Publisher policies | Yes | Yes |	 
+| Publisher policies | Yes | Yes |   
 | Consumer groups | 20 | 20 |
 | Message replay | Yes | Yes |
-| Maximum throughput units | 20 (flexible to 100)	| 1 Capacity Unit (CU) ≈ 50 |
+| Maximum throughput units | 20 (flexible to 100)   | 1 Capacity Unit (CU) ≈ 50 |
 | Brokered connections | 1,000 included | 100 K included |
 | Additional Brokered connections | Yes | Yes |
 | Message Retention | 1 day included | Up to 7 days included |

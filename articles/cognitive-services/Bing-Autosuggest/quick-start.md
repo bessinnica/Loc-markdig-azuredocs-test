@@ -64,7 +64,7 @@ Host: api.cognitive.microsoft.com
 
 > [!NOTE]
 > V7 Preview request:
-
+> 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  

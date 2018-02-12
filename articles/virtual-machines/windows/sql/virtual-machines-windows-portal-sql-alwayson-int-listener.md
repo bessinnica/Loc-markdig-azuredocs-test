@@ -189,7 +189,7 @@ Test the connection by doing the following:
 1. RDP to a SQL Server instance that is in the same virtual network, but does not own the replica. This server can be the other SQL Server instance in the cluster.
 
 2. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
-   
+
         sqlcmd -S <listenerName> -E
 
 The SQLCMD connection automatically connects to the SQL Server instance that hosts the primary replica. 
@@ -209,7 +209,7 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 4. Verify that the **Virtual network** and the **Subnet** are the same as the SQL Server instances.
 
 5. Set the IP address for the listener. 
-   
+
    >[!TIP]
    >You can set the IP address to static and type an address that is not currently used in the subnet. Alternatively, you can set the IP address to dynamic and save the new front-end IP pool. When you do so, the Azure portal automatically assigns an available IP address to the pool. You can then reopen the front-end IP pool and change the assignment to static. 
 
@@ -217,13 +217,15 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 7. Add a health probe by using the following settings:
 
-   |Setting |Value
-   |:-----|:----
-   |**Name** |A name to identify the probe.
-   |**Protocol** |TCP
-   |**Port** |An unused TCP port, which must be available on all virtual machines. It cannot be used for any other purpose. No two listeners can use the same probe port. 
-   |**Interval** |The amount of time between probe attempts. Use the default (5).
-   |**Unhealthy threshold** |The number of consecutive thresholds that should fail before a virtual machine is considered unhealthy.
+
+   | Setting                              | Value                                                                                                                                                       |
+   |:-------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | <strong>Name</strong>                | A name to identify the probe.                                                                                                                               |
+   | <strong>Protocol</strong>            | TCP                                                                                                                                                         |
+   | <strong>Port</strong>                | An unused TCP port, which must be available on all virtual machines. It cannot be used for any other purpose. No two listeners can use the same probe port. |
+   | <strong>Interval</strong>            | The amount of time between probe attempts. Use the default (5).                                                                                             |
+   | <strong>Unhealthy threshold</strong> | The number of consecutive thresholds that should fail before a virtual machine is considered unhealthy.                                                     |
+
 
 8. Click **OK** to save the probe. 
 
@@ -231,18 +233,18 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 10. Configure the new load balancing rule by using the following settings:
 
-   |Setting |Value
-   |:-----|:----
-   |**Name** |A name to identify the load balancing rule. 
-   |**Frontend IP address** |Select the IP address you created. 
-   |**Protocol** |TCP
-   |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
-   |**Backend port** |Use the same value as **Port**.
-   |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
-   |**Health probe** |Choose the probe you created.
-   |**Session persistence** |None
-   |**Idle timeout (minutes)** |Default (4)
-   |**Floating IP (direct server return)** | Enabled
+    |Setting |Value
+    |:-----|:----
+    |**Name** |A name to identify the load balancing rule. 
+    |**Frontend IP address** |Select the IP address you created. 
+    |**Protocol** |TCP
+    |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
+    |**Backend port** |Use the same value as **Port**.
+    |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
+    |**Health probe** |Choose the probe you created.
+    |**Session persistence** |None
+    |**Idle timeout (minutes)** |Default (4)
+    |**Floating IP (direct server return)** | Enabled
 
 ### Configure the availability group to use the new IP address
 
@@ -262,7 +264,7 @@ After you have added an IP address for the listener, configure the additional av
 4. [Make the SQL Server availability group resource dependent on the client access point](#dependencyGroup).
 
 5. [Make the client access point resource dependent on the IP address](#listname).
- 
+
 6. [Set the cluster parameters in PowerShell](#setparam).
 
 After you configure the availability group to use the new IP address, configure the connection to the listener. 

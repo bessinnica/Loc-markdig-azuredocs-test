@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using PowerShell to setup Application Insights in an Azure  | Microsoft Docs
 description: Automate configuring Azure Diagnostics to pipe to Application Insights.
 services: application-insights
@@ -75,7 +75,6 @@ The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which
       -Package $service_package `
       -Configuration $service_config `
       -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
-
 ``` 
 
 ## Enable diagnostics extension on an existing Cloud Service

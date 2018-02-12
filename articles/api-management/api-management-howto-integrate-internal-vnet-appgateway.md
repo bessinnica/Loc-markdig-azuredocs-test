@@ -19,8 +19,8 @@ ms.author: sasolank
 ---
 # Integrate API Management in an internal VNET with Application Gateway 
 
-##<a name="overview"> </a> Overview
- 
+## <a name="overview"> </a> Overview
+
 The API Management service can be configured in a Virtual Network in internal mode which makes it accessible only from within the Virtual Network. Azure Application Gateway is a PAAS Service which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
 
 Combining API Management provisioned in an internal VNET with the Application Gateway frontend enables the following scenarios:
@@ -39,7 +39,7 @@ To perform the steps described in this article, you must have:
 
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-##<a name="scenario"> </a> Scenario
+## <a name="scenario"> </a> Scenario
 This article covers how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
 
 In the first setup example all your APIs are managed only from within your Virtual Network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to Internet a high performance is delivered via Express Route circuits.
@@ -85,6 +85,7 @@ Login-AzureRmAccount
 ```
 
 Authenticate with your credentials.<BR>
+
 
 ### Step 2
 
@@ -295,7 +296,7 @@ The following example creates a simple rule for the "/echo/" path routing traffi
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-If the path doesn't match the path rules we want to enable from API Management, the rule path map configuration also configures a default back-end address pool named **dummyBackendPool**. For example, http://api.contoso.net/calc/* goes to **dummyBackendPool** as it is defined as the default pool for un-matched traffic.
+If the path doesn't match the path rules we want to enable from API Management, the rule path map configuration also configures a default back-end address pool named <strong>dummyBackendPool</strong>. For example, <http://api.contoso.net/calc/*> goes to <strong>dummyBackendPool</strong> as it is defined as the default pool for un-matched traffic.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
@@ -344,10 +345,10 @@ The Application Gateway's DNS name should be used to create a CNAME record which
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> Summary
+## <a name="summary"> </a> Summary
 Azure API Management configured in a VNET provides a single gateway interface for all configured APIs, whether they are hosted on-prem or in the cloud. Integrating Application Gateway with API Management provides the flexibility of selectively enabling particular APIs to be accessible on the Internet, as well as providing a Web Application Firewall as a frontend to your API Management instance.
 
-##<a name="next-steps"> </a> Next steps
+## <a name="next-steps"> </a> Next steps
 * Learn more about Azure Application Gateway
   * [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

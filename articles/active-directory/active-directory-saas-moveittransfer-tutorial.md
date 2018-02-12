@@ -58,19 +58,19 @@ To configure the integration of MOVEit Transfer - Azure AD integration into Azur
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **MOVEit Transfer - Azure AD integration**, select **MOVEit Transfer - Azure AD integration** from result panel then click **Add** button to add the application.
 
-	![MOVEit Transfer - Azure AD integration in the results list](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
+    ![MOVEit Transfer - Azure AD integration in the results list](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,77 +96,77 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **MOVEit Transfer - Azure AD integration** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_samlbase.png)
 
 3. On the **MOVEit Transfer - Azure AD integration Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://contoso.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://contoso.com`
 
     b. In the **Identifier** textbox, type a URL using the following pattern: `https://contoso.com/<tenatid>`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You can refer these values later in **Service Provider Metadata URL** section or contact [MOVEit Transfer - Azure AD integration Client support team](https://community.ipswitch.com/s/support) to get these values.
+    c. In the **Reply URL** textbox, type a URL using the following pattern: `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
+     
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You can refer these values later in **Service Provider Metadata URL** section or contact [MOVEit Transfer - Azure AD integration Client support team](https://community.ipswitch.com/s/support) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_400.png)
+    
 6. Sign on to your MOVEit Transfer tenant as an administrator.
 
 7. On the left navigation pane, click **Settings**.
 
-	![Settings Section On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+    ![Settings Section On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
 8. Click **Single Signon** link, which is under **Security Policies -> User Auth**.
 
-	![Security Policies On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+    ![Security Policies On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
 9. Click the Metadata URL link to download the metadata document.
 
-	![Service Provider Metadata URL](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
-	
-	* Verify **entityID** matches **Identifier** in the **MOVEit Transfer - Azure AD integration Domain and URLs** section .
-	* Verify **AssertionConsumerService** Location URL matches **REPLY URL** in the **MOVEit Transfer - Azure AD integration Domain and URLs** section.
-	
-	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+    ![Service Provider Metadata URL](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
+    
+   * Verify **entityID** matches **Identifier** in the **MOVEit Transfer - Azure AD integration Domain and URLs** section .
+   * Verify **AssertionConsumerService** Location URL matches **REPLY URL** in the **MOVEit Transfer - Azure AD integration Domain and URLs** section.
+    
+     ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 10. Click **Add Identity Provider** button to add a new Federated Identity Provider.
 
-	![Add Identity Provider](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
+    ![Add Identity Provider](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
 11. Click **Browse...** to select the metadata file which you downloaded from Azure portal, then click **Add Identity Provider** to upload the downloaded file.
 
-	![SAML Identity Provider](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
+    ![SAML Identity Provider](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
 12. Select "**Yes**" as **Enabled** in the **Edit Federated Identity Provider Settings...** page and click **Save**.
 
-	![Federated Identity Provider Settings](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
+    ![Federated Identity Provider Settings](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
 13. In the **Edit Federated Identity Provider User Settings** page, perform the following actions:
-	
-	![Edit Federated Identity Provider Settings](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
-	
-	a. Select **SAML NameID** as **Login name**.
-	
-	b. Select **Other** as **Full name** and in the **Attribute name** textbox put the value: `http://schemas.microsoft.com/identity/claims/displayname`.
-	
-	c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-	
-	d. Select **Yes** as **Auto-create account on signon**.
-	
-	e. Click **Save** button.
+    
+    ![Edit Federated Identity Provider Settings](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+    
+    a. Select **SAML NameID** as **Login name**.
+    
+    b. Select **Other** as **Full name** and in the **Attribute name** textbox put the value: `http://schemas.microsoft.com/identity/claims/displayname`.
+    
+    c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    
+    d. Select **Yes** as **Auto-create account on signon**.
+    
+    e. Click **Save** button.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -220,26 +220,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **MOVEit Transfer - Azure AD integration**.
 
-	![The MOVEit Transfer - Azure AD integration link in the Applications list](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_app.png)  
+    ![The MOVEit Transfer - Azure AD integration link in the Applications list](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD SSO configuration using the Access Panel.

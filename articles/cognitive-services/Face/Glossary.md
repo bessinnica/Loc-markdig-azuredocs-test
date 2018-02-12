@@ -49,7 +49,7 @@ For more details, please refer to the following guides: [Face - Find Similar](ht
 
 #### <a name="Detection-Face-Detection"></a>Detection/Face Detection
 
-Face detection is the action of locating faces in images. Users can upload an image or specify an image URL in the request. The detected faces are returned with [face IDs](#Face-ID)	indicating a unique identity in Face API. The rectangles indicate the face locations in the image in pixels, as well as the optional [attributes](#Attributes) for each face such as [age](#Age-Attribute), [gender](#Gender-Attribute), [head pose](#Head-Pose-Attribute), [facial hair](#Facial-Hair-Attribute) and [smiling](#Smile-Attribute).
+Face detection is the action of locating faces in images. Users can upload an image or specify an image URL in the request. The detected faces are returned with [face IDs](#Face-ID)   indicating a unique identity in Face API. The rectangles indicate the face locations in the image in pixels, as well as the optional [attributes](#Attributes) for each face such as [age](#Age-Attribute), [gender](#Gender-Attribute), [head pose](#Head-Pose-Attribute), [facial hair](#Facial-Hair-Attribute) and [smiling](#Smile-Attribute).
 
 For more details, please refer to the guide [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 

@@ -59,24 +59,24 @@ To summarize here, the following requirements need to meet before you begin the 
 - Log in to your group VSTS server at *https://\<VSTS Server Name\>.visualstudio.com*. 
 - Under **Recent projects & teams**, click **Browse**. A window that pops up lists all team projects on the VSTS server. 
 
-	![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
+    ![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
 
 - Click the team project name in which you are going to create your project repository. In this example, click **MyTeam**. 
 - Then, click **Navigate** to be directed to the home page of the team project **MyTeam**:
 
-	![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
+    ![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
 
 - Click **Collaborate on code** to be directed to the git home page of your team project.  
 
-	![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
+    ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
 - Click the downward arrow at the top left corner, and select **+ New repository**. 
-	
-	![5](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
+    
+    ![5](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
 
 - In the **Create a new repository** window, input a name for your project git repository. Make sure that you select **Git** as the type of the repository. In this example, we use the name *DSProject1*. 
 
-	![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
+    ![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
 - To create your ***DSProject1*** project git repository, click **Create**.
 
@@ -104,9 +104,9 @@ On your local machine, create a directory:
 Change to that directory. Then, run the following command to clone your team project template repository to your local machine. 
 
 **Windows**
-			
-	git clone <the HTTPS URL of the TeamProjectTemplate repository>
-	
+            
+    git clone <the HTTPS URL of the TeamProjectTemplate repository>
+    
 If you are using VSTS as the code-hosting platform, typically, the *HTTPS URL of your team project template repository* is:
 
  ***https://\<VSTS Server Name\>.visualstudio.com/\<Your team project name\>/_git/\<Your team project template repository name\>***. 
@@ -116,11 +116,11 @@ In this example, we have:
 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/MyTeamProjectTemplate***. 
 
 ![7](./media/project-lead-tasks/project-leads-7-clone-team-project-template.png)
-			
+            
 **Linux**
 
-	git clone <the SSH URL of the TeamProjectTemplate repository>
-		
+    git clone <the SSH URL of the TeamProjectTemplate repository>
+        
 ![8](./media/project-lead-tasks/project-leads-8-clone-team-project-template-linux.png)
 
 If you are using VSTS as the code-hosting platform, typically, the *SSH URL of the team project template repository* is:
@@ -136,8 +136,8 @@ In this example, we have:
 Change directory to **GitRepos**, and run the following command to clone your project repository to your local machine. 
 
 **Windows**
-			
-	git clone <the HTTPS URL of the Project repository>
+            
+    git clone <the HTTPS URL of the Project repository>
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
@@ -145,7 +145,7 @@ If you are using VSTS as the code-hosting platform, typically, the _HTTPS URL of
 
 **Linux**
 
-	git clone <the SSH URL of the Project repository>
+    git clone <the SSH URL of the Project repository>
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
@@ -153,13 +153,13 @@ If you are using VSTS as the code-hosting platform, typically, the _SSH URL of t
 
 ### Copy contents of D3 to D5 
 
-Now in your local machine, you need to copy the content of _D3_ to _D5_, except the git metadata in .git directory. The following scripts will do the job. Make sure to type in the correct and full paths to the directories. Source folder is the one for your team (_D3_); destination folder is the one for your project (_D5_).	
+Now in your local machine, you need to copy the content of _D3_ to _D5_, except the git metadata in .git directory. The following scripts will do the job. Make sure to type in the correct and full paths to the directories. Source folder is the one for your team (_D3_); destination folder is the one for your project (_D5_).    
 
 **Windows**
-	
-	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
-	.\tdsp_local_copy_win.ps1 -role 3
-	
+    
+    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
+    .\tdsp_local_copy_win.ps1 -role 3
+    
 ![11](./media/project-lead-tasks/project-leads-11-local-copy-project-lead-new.png)
 
 Now you can see in _DSProject1_ folder, all the files (excluding the .git) are copied from _MyTeamProjectTemplate_.
@@ -167,10 +167,10 @@ Now you can see in _DSProject1_ folder, all the files (excluding the .git) are c
 ![12](./media/project-lead-tasks/project-leads-12-teamprojectTemplate_copied_to_local.png)
 
 **Linux**
-			
-	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
-	bash tdsp_local_copy_linux.sh 3
-		
+            
+    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
+    bash tdsp_local_copy_linux.sh 3
+        
 ![13](./media/project-lead-tasks/project-leads-13-local_copy_project_lead_linux_new.png)
 
 Now you can see in _DSProject1_ folder, all the files (except the metadata in .git) are copied from _MyTeamProjectTemplate_.
@@ -189,18 +189,18 @@ You now need to push contents in **_DSProject1_** to _R5_ repository in your tea
 
 - Change to directory **D5**. 
 - Use the following git commands to add the contents in **D5** to **R5**. The commands are the same for both Windows and Linux systems. 
-	
-	git status
-	git add .
-	git commit -m"push from win DSVM"
-	git push
-	
+    
+    git status
+    git add .
+    git commit -m"push from win DSVM"
+    git push
+    
 - Commit the change and push. 
 
 >[AZURE.NOTE] If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
-		
-	git config --global user.name <your name>
-	git config --global user.email <your email address>
+        
+    git config --global user.name <your name>
+    git config --global user.email <your email address>
  
 > If you are committing to multiple Git repositories, use the same name and email address across all of them. Using the same name and email address proves convenient later on when you build PowerBI dashboards to track your Git activities on multiple repositories.
 

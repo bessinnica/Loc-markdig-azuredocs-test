@@ -23,13 +23,13 @@ ms.author: barbkess
 This article gives recommendations for designing distributed tables in Azure SQL Data Warehouse. Hash-distributed tables improve query performance on large fact tables, and are the focus of this article. Round-robin tables are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
 
 ## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
 
-As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
+As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
-- How large is the table?   
-- How often is the table refreshed?   
-- Do I have fact and dimension tables in a data warehouse?   
+- How large is the table?   
+- How often is the table refreshed?   
+- Do I have fact and dimension tables in a data warehouse?   
 
 ## What is a distributed table?
 A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm. 

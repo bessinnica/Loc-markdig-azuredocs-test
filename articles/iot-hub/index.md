@@ -112,66 +112,68 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
 </ul>
 
 ---
- 
+
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Code samples</h3>
-                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">Code samples</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Code samples</h3>
+                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">Code samples</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Service)</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Service)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p>
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C device SDK</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
-                        <p><a href="/javascript/api/azure-iot-device/">Node.js (Devices)</a></p>
-						<p><a href="/javascript/api/azure-iothub">Node.js (Service)</a></p>
-                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/">Node.js (Devices)</a></p>
+                        <p><a href="/javascript/api/azure-iothub">Node.js (Service)</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/iothubresource">REST (Resource Provider)</a></p>
-                        <p><a href="/rest/api/iothub/deviceapi">REST (Device Identities)</a></p>
-                        <p><a href="/rest/api/iothub/devicetwinapi">REST (Device Twins)</a></p>
-                        <p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p>
-                        <p><a href="/rest/api/iothub/jobapi">REST (Jobs)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (Resource Provider)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (Device Identities)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (Device Twins)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (Jobs)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+

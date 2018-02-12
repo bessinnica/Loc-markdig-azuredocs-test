@@ -58,19 +58,19 @@ To configure the integration of Thoughtworks Mingle into Azure AD, you need to a
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Thoughtworks Mingle**, select **Thoughtworks Mingle** from result panel then click **Add** button to add the application.
 
-	![Thoughtworks Mingle in the results list](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
+    ![Thoughtworks Mingle in the results list](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Thoughtworks Mingle based on a test user called "Britta Simon".
@@ -95,28 +95,28 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Thoughtworks Mingle** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_samlbase.png)
 
 3. On the **Thoughtworks Mingle Domain and URLs** section, perform the following steps:
 
-	![Thoughtworks Mingle Domain and URLs single sign-on information](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_url.png)
+    ![Thoughtworks Mingle Domain and URLs single sign-on information](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_url.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.mingle.thoughtworks.com`
 
-	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Thoughtworks Mingle Client support team](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) to get the value. 
+    > [!NOTE] 
+    > The value is not real. Update the value with the actual Sign-On URL. Contact [Thoughtworks Mingle Client support team](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) to get the value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_400.png)
 
 6. Log in to your **Thoughtworks Mingle** company site as administrator.
 
@@ -145,25 +145,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_01.png) 
+    ![The Azure Active Directory button](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![The "Users and groups" and "All users" links](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_02.png) 
+    
+    ![The "Users and groups" and "All users" links](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![The Add button](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_03.png) 
+    ![The Add button](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![The User dialog box](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_04.png) 
+    ![The User dialog box](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -211,26 +211,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Thoughtworks Mingle**.
 
-	![The Thoughtworks Mingle link in the Applications list](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
+    ![The Thoughtworks Mingle link in the Applications list](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202] 
+    ![The "Users and groups" link][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.

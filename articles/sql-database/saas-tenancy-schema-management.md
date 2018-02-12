@@ -28,7 +28,7 @@ This tutorial explores two scenarios - deploying reference data updates for all 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Create a job account
 > * Query across multiple tenants
 > * Update data in all tenant databases
@@ -82,11 +82,11 @@ Now let’s create a job to update the *VenueTypes* table in all the tenant data
 To create a new job, we use a set of jobs system stored procedures created in the jobaccount database when the job account was created.
 
 1. Open SSMS and connect to the catalog server: catalog-dpt-\<user\>.database.windows.net server
-1. Also connect to the tenant server: tenants1-dpt-\<user\>.database.windows.net
-1. Browse to the *contosoconcerthall* database on the *tenants1-dpt-\<user\>* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
-1. In SSMS, open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip Tickets SaaS Database Per Tenant app
-1. Ensure you are connected to the jobaccount database and press **F5** to run the script
+2. Also connect to the tenant server: tenants1-dpt-\<user\>.database.windows.net
+3. Browse to the *contosoconcerthall* database on the *tenants1-dpt-\<user\>* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
+4. In SSMS, open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
+5. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip Tickets SaaS Database Per Tenant app
+6. Ensure you are connected to the jobaccount database and press **F5** to run the script
 
 Observe the following in the *DeployReferenceData.sql* script:
 * **sp\_add\_target\_group** creates the target group name DemoServerGroup, now we need to add target members.
@@ -121,7 +121,7 @@ Observe the following in the *OnlineReindex.sql* script:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Create a job account to query across multiple tenants
 > * Update data in all tenant databases
 > * Create an index on a table in all tenant databases

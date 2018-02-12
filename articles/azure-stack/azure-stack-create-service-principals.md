@@ -104,7 +104,6 @@ The following information is required as input for the automation parameters:
    Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
 
    $session|remove-pssession
-
    ```
 
 2. After the automation finishes, it displays the required details to use the SPN. 
@@ -119,8 +118,8 @@ The following information is required as input for the automation parameters:
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
-### Assign a role
-Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
+   ### Assign a role
+   Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
 ### Sign in through PowerShell
 Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:

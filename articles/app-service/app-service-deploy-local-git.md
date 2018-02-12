@@ -40,12 +40,12 @@ To complete this tutorial, you need:
 Perform the following tasks to create a new Git repository.
 
 1. Start a command-line tool, such as **Git Bash** (Windows) or **Bash** (Unix Shell). On OS X systems, you can access the commandline through the **Terminal** application.
-1. Navigate to the directory where the content to deploy would be located.
-1. Use the following command to initialize a new Git repository:
+2. Navigate to the directory where the content to deploy would be located.
+3. Use the following command to initialize a new Git repository:
 
-  ```bash
-  git init
-  ```
+   ```bash
+   git init
+   ```
 
 ## <a name="Step2"></a>Step 2: Commit your content
 

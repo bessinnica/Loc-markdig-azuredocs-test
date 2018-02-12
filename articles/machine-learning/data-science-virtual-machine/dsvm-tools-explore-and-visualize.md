@@ -24,6 +24,7 @@ ms.author: gokuma;bradsev
 A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that faciliate this key step. 
 
 ## Apache Drill
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Open source SQL query engine on Big data    |
@@ -34,6 +35,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | Related Tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
 ## Weka
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   |  Weka is a collection of machine learning algorithms for data mining tasks. The algorithms can either be applied directly to a dataset or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
@@ -44,6 +46,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | Related Tools on the DSVM      |LightGBM, Rattle, Xgboost   |
 
 ## Rattle
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   |   A Graphical User Interface for Data Mining using R   |
@@ -54,6 +57,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | Related Tools on the DSVM      |LightGBM, Weka, Xgboost   |
 
 ## PowerBI Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Interactive Data Visualization and BI Tool    |

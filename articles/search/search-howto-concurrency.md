@@ -40,6 +40,7 @@ Every time you update a resource, its ETag changes automatically. When you imple
 > There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 
 
 <a name="samplecode"></a>
+
 ## Use cases and sample code
 
 The following code demonstrates accessCondition checks for key update operations:
@@ -76,7 +77,7 @@ The following code demonstrates accessCondition checks for key update operations
             // blank ETag.
             Console.WriteLine("Creating index...\n");
             index = serviceClient.Indexes.Create(index);
-            
+
             Console.WriteLine($"Test index created; Its ETag should be populated. ETag: '{index.ETag}'");
 
             // ETags let you do some useful things you couldn't do otherwise. For example, by using an If-Match
@@ -199,7 +200,7 @@ The snippet gets the "hotels" index, checks the object version on an update oper
                 }
             }
         }
-        
+
         private static Index AddSynonymMapsToFields(Index index)
         {
             index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };

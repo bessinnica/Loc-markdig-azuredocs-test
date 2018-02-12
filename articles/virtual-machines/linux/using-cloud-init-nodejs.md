@@ -94,6 +94,7 @@ To inject scripts at any time after boot:
 > 
 
 ## Cloud-init availability on Azure VM quick-create image aliases:
+
 | Alias | Publisher | Offer | SKU | Version | cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7.2 |latest |no |

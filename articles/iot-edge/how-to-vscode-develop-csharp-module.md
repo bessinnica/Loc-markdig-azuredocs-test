@@ -258,7 +258,7 @@ The following steps show you how to create an IoT Edge module based on .NET Core
 
 3. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Select **Select Folder as EXE_DIR**.
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. If you are deploying to local registry, it should be `localhost:5000/filtermodule:latest`.
-5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command, and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in the preceding step. Check the console log to make sure the image has been successfully pushed.
+5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command, and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in the preceding step. Check the console log to make sure the image has been successfully pushed.
 
     ![Screenshot of pushing the Docker image](./media/how-to-vscode-develop-csharp-module/push-image.png)
     ![Screenshot of console log](./media/how-to-vscode-develop-csharp-module/pushed-image.png)

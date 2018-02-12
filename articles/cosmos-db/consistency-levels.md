@@ -35,13 +35,13 @@ The following table illustrates the specific guarantees each consistency level p
  
 **Consistency Levels and guarantees**
 
-| Consistency Level	| Guarantees |
+| Consistency Level | Guarantees |
 | --- | --- |
 | Strong | Linearizability. Reads are guaranteed to return the most recent version of an item.|
-| Bounded Staleness	| Consistent Prefix. Reads lag behind writes by k prefixes or t interval |
-| Session	| Consistent Prefix. Monotonic reads, monotonic writes, read-your-writes, write-follows-reads |
-| Consistent Prefix	| Updates returned are some prefix of all the updates, with no gaps |
-| Eventual	| Out of order reads |
+| Bounded Staleness | Consistent Prefix. Reads lag behind writes by k prefixes or t interval |
+| Session   | Consistent Prefix. Monotonic reads, monotonic writes, read-your-writes, write-follows-reads |
+| Consistent Prefix | Updates returned are some prefix of all the updates, with no gaps |
+| Eventual  | Out of order reads |
 
 You can configure the default consistency level on your Cosmos DB account (and later override the consistency on a specific read request). Internally, the default consistency level applies to data within the partition sets, which may span regions. About 73% of Azure Cosmos DB tenants use session consistency and 20% prefer bounded staleness. Approximately 3% of Azure Cosmos DB customers experiment with various consistency levels initially before settling on a specific consistency choice for their application. Only 2% of Azure Cosmos DB tenants override consistency levels on a per request basis. 
 

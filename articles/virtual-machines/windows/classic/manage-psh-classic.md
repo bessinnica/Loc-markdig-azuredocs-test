@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your virtual machines by using Azure PowerShell | Microsoft Docs
 description: Learn commands that you can use to automate tasks in managing your virtual machines.
 services: virtual-machines-windows
@@ -74,7 +74,7 @@ Run this command:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Attach a data disk
-This task requires a few steps. First, you use the ****Add-AzureDataDisk**** cmdlet to add the disk to the $vm object. Then, you use **Update-AzureVM** cmdlet to update the configuration of the VM.
+This task requires a few steps. First, you use the *<strong><em>Add-AzureDataDisk</em></strong>* cmdlet to add the disk to the $vm object. Then, you use <strong>Update-AzureVM</strong> cmdlet to update the configuration of the VM.
 
 You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it.
 

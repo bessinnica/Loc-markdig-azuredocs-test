@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
@@ -53,7 +53,7 @@ This section walks you through creation of the VM and assignment of the user-ass
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-The response contains details for the user-assigned MSI created, similar to the following. The resource `id` value assigned to the MSI is used in the following step.
+   The response contains details for the user-assigned MSI created, similar to the following. The resource `id` value assigned to the MSI is used in the following step.
 
    ```json
    {
@@ -83,7 +83,7 @@ The response contains details for the user-assigned MSI created, similar to the 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-The response contains details for the user-assigned MSI created, similar to the following. The resource `id` value assigned to the MSI is used in the following step.
+   The response contains details for the user-assigned MSI created, similar to the following. The resource `id` value assigned to the MSI is used in the following step.
 
    ```json
    {

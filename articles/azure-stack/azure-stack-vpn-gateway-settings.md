@@ -47,11 +47,11 @@ When you create a virtual network gateway, you need to specify the gateway SKU t
 
 Azure Stack offers the following VPN gateway SKUs:
 
-|	| VPN Gateway throughput |VPN Gateway max IPsec tunnels |
+|   | VPN Gateway throughput |VPN Gateway max IPsec tunnels |
 |-------|-------|-------|
-|**Basic SKU** 	| 100 Mbps	| 10	|
-|**Standard SKU** 		    | 100 Mbps 	| 10	|
-|**High Performance SKU** | 200 Mbps	| 30	|
+|**Basic SKU**  | 100 Mbps  | 10    |
+|**Standard SKU**           | 100 Mbps  | 10    |
+|**High Performance SKU** | 200 Mbps    | 30    |
 
 ### Resizing gateway SKUs
 Azure Stack does not support a resize of SKUs between the supported legacy SKUs.
@@ -143,6 +143,7 @@ When you set up a VPN Connection in Azure Stack, you need to configure the conne
 Unlike Azure, which supports multiple offers as both an initiator and a responder, Azure Stack supports only one offer.
 
 ###  IKE Phase 1 (Main Mode) parameters
+
 | Property              | Value|
 |-|-|
 | IKE Version           | IKEv2 |
@@ -152,12 +153,14 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 |SA Lifetime (Time)     | 28,800 seconds|
 
 ### IKE Phase 2 (Quick Mode) parameters
-| Property| Value|
-|-|-|
-|IKE Version |IKEv2 |
-|Encryption & Hashing Algorithms (Encryption)     | GCMAES256|
-|Encryption & Hashing Algorithms (Authentication) | GCMAES256|
-|SA Lifetime (Time)  | 14,400 seconds |
-|SA Lifetime (Bytes) | 819,200       |
-|Perfect Forward Secrecy (PFS) |PFS2048 |
-|Dead Peer Detection | Supported|  
+
+|                     Property                     |     Value      |
+|--------------------------------------------------|----------------|
+|                   IKE Version                    |     IKEv2      |
+|   Encryption & Hashing Algorithms (Encryption)   |   GCMAES256    |
+| Encryption & Hashing Algorithms (Authentication) |   GCMAES256    |
+|                SA Lifetime (Time)                | 14,400 seconds |
+|               SA Lifetime (Bytes)                |    819,200     |
+|          Perfect Forward Secrecy (PFS)           |    PFS2048     |
+|               Dead Peer Detection                |   Supported    |
+

@@ -58,14 +58,14 @@ Install the following NuGet packages:
 
 Modify the program's using statements.
 
-	using Microsoft.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using ModeratorHelper;
-	using Newtonsoft.Json;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Threading;
+    using Microsoft.CognitiveServices.ContentModerator;
+    using Microsoft.CognitiveServices.ContentModerator.Models;
+    using ModeratorHelper;
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
 
 
 ### Initialize application-specific settings
@@ -202,47 +202,47 @@ Add the following classes and static fields to the **Program** class in Program.
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Writes a message to the log file, and optionally to the console.
-	/// </summary>
-	/// <param name="message">The message.</param>
-	/// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
-	private static void WriteLine(string message = null, bool echo = false)
-	{
-    	writer.WriteLine(message ?? String.Empty);
+    /// <summary>
+    /// Writes a message to the log file, and optionally to the console.
+    /// </summary>
+    /// <param name="message">The message.</param>
+    /// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
+    private static void WriteLine(string message = null, bool echo = false)
+    {
+        writer.WriteLine(message ?? String.Empty);
 
-    	if (echo)
-    	{
-        	Console.WriteLine(message ?? String.Empty);
-    	}
-	}
+        if (echo)
+        {
+            Console.WriteLine(message ?? String.Empty);
+        }
+    }
 
 ## Create a method to create the custom list
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Creates the custom list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <returns>The response object from the operation.</returns>
-	private static ImageList CreateCustomList(ContentModeratorClient client)
-	{
-    	// Create the request body.
-    	listDetails = new Body("MyList", "A sample list",
-        	new BodyMetadata("Acceptable", "Potentially racy"));
+    /// <summary>
+    /// Creates the custom list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <returns>The response object from the operation.</returns>
+    private static ImageList CreateCustomList(ContentModeratorClient client)
+    {
+        // Create the request body.
+        listDetails = new Body("MyList", "A sample list",
+            new BodyMetadata("Acceptable", "Potentially racy"));
 
-    	WriteLine($"Creating list {listDetails.Name}.", true);
+        WriteLine($"Creating list {listDetails.Name}.", true);
 
-    	var result = client.ListManagementImageLists.Create(
-        	"application/json", listDetails);
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImageLists.Create(
+            "application/json", listDetails);
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
-    	return result;
-	}
+        return result;
+    }
 
 ## Create a method to add a collection of images to the list
 
@@ -250,156 +250,156 @@ Add the following method to the **Program** class.
 
 This quickstart does not demonstrate how to apply tags to images in the list. 
 
-	/// <summary>
-	/// Adds images to an image list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <param name="listId">The list identifier.</param>
-	/// <param name="imagesToAdd">The images to add.</param>
-	/// <param name="label">The label to apply to each image.</param>
-	/// <remarks>Images are assigned content IDs when they are added to the list.
-	/// Track the content ID assigned to each image.</remarks>
-	private static void AddImages(
+    /// <summary>
+    /// Adds images to an image list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <param name="listId">The list identifier.</param>
+    /// <param name="imagesToAdd">The images to add.</param>
+    /// <param name="label">The label to apply to each image.</param>
+    /// <remarks>Images are assigned content IDs when they are added to the list.
+    /// Track the content ID assigned to each image.</remarks>
+    private static void AddImages(
     ContentModeratorClient client, int listId,
     IEnumerable<string> imagesToAdd, string label)
-	{
-    	foreach (var imageUrl in imagesToAdd)
-    	{
-        	WriteLine();
-       		WriteLine($"Adding {imageUrl} to list {listId} with label {label}.", true);
-        	try
-        	{
-            	var result = client.ListManagementImage.AddImageUrlInput(
-                	listId.ToString(), "application/json", new BodyModel("URL", imageUrl), null, label);
+    {
+        foreach (var imageUrl in imagesToAdd)
+        {
+            WriteLine();
+            WriteLine($"Adding {imageUrl} to list {listId} with label {label}.", true);
+            try
+            {
+                var result = client.ListManagementImage.AddImageUrlInput(
+                    listId.ToString(), "application/json", new BodyModel("URL", imageUrl), null, label);
 
-            	ImageIdMap.Add(imageUrl, Int32.Parse(result.ContentId));
+                ImageIdMap.Add(imageUrl, Int32.Parse(result.ContentId));
 
-            	WriteLine("Response:");
-            	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
-        	}
-        	catch (Exception ex)
-        	{
-            	WriteLine($"Unable to add image to list. Caught {ex.GetType().FullName}: {ex.Message}", true);
-        	}
-        	finally
-        	{
-            	Thread.Sleep(throttleRate);
-        	}
-    	}
-	}
+                WriteLine("Response:");
+                WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (Exception ex)
+            {
+                WriteLine($"Unable to add image to list. Caught {ex.GetType().FullName}: {ex.Message}", true);
+            }
+            finally
+            {
+                Thread.Sleep(throttleRate);
+            }
+        }
+    }
 
 ## Create a method to remove images from the list
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Removes images from an image list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <param name="listId">The list identifier.</param>
-	/// <param name="imagesToRemove">The images to remove.</param>
-	/// <remarks>Images are assigned content IDs when they are added to the list.
-	/// Use the content ID to remove the image.</remarks>
-	private static void RemoveImages(
-    	ContentModeratorClient client, int listId,
-    	IEnumerable<string> imagesToRemove)
-	{
-    	foreach (var imageUrl in imagesToRemove)
-    	{
-        	if (!ImageIdMap.ContainsKey(imageUrl)) continue;
-        	int imageId = ImageIdMap[imageUrl];
+    /// <summary>
+    /// Removes images from an image list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <param name="listId">The list identifier.</param>
+    /// <param name="imagesToRemove">The images to remove.</param>
+    /// <remarks>Images are assigned content IDs when they are added to the list.
+    /// Use the content ID to remove the image.</remarks>
+    private static void RemoveImages(
+        ContentModeratorClient client, int listId,
+        IEnumerable<string> imagesToRemove)
+    {
+        foreach (var imageUrl in imagesToRemove)
+        {
+            if (!ImageIdMap.ContainsKey(imageUrl)) continue;
+            int imageId = ImageIdMap[imageUrl];
 
-        	WriteLine();
-        	WriteLine($"Removing entry for {imageUrl} (ID = {imageId}) from list {listId}.", true);
+            WriteLine();
+            WriteLine($"Removing entry for {imageUrl} (ID = {imageId}) from list {listId}.", true);
 
-        	var result = client.ListManagementImage.DeleteImage(
-            	listId.ToString(), imageId.ToString());
-        	Thread.Sleep(throttleRate);
+            var result = client.ListManagementImage.DeleteImage(
+                listId.ToString(), imageId.ToString());
+            Thread.Sleep(throttleRate);
 
-        	ImageIdMap.Remove(imageUrl);
+            ImageIdMap.Remove(imageUrl);
 
-        	WriteLine("Response:");
-        	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
-    	}
-	}
+            WriteLine("Response:");
+            WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+        }
+    }
 
 ## Create a method to get all of the content IDs for images in the list
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Gets all image IDs in an image list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <param name="listId">The list identifier.</param>
-	/// <returns>The response object from the operation.</returns>
-	private static ImageIds GetAllImageIds(
-    	ContentModeratorClient client, int listId)
-	{
-    	WriteLine();
-    	WriteLine($"Getting all image IDs for list {listId}.", true);
+    /// <summary>
+    /// Gets all image IDs in an image list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <param name="listId">The list identifier.</param>
+    /// <returns>The response object from the operation.</returns>
+    private static ImageIds GetAllImageIds(
+        ContentModeratorClient client, int listId)
+    {
+        WriteLine();
+        WriteLine($"Getting all image IDs for list {listId}.", true);
 
-    	var result = client.ListManagementImage.GetAllImageIds(listId.ToString());
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImage.GetAllImageIds(listId.ToString());
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
-    	return result;
-	}
+        return result;
+    }
 
 ## Create a method to update the details of the list
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Updates the details of an image list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <param name="listId">The list identifier.</param>
-	/// <returns>The response object from the operation.</returns>
-	private static ImageList UpdateListDetails(
-    	ContentModeratorClient client, int listId)
-	{
-    	WriteLine();
-    	WriteLine($"Updating details for list {listId}.", true);
+    /// <summary>
+    /// Updates the details of an image list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <param name="listId">The list identifier.</param>
+    /// <returns>The response object from the operation.</returns>
+    private static ImageList UpdateListDetails(
+        ContentModeratorClient client, int listId)
+    {
+        WriteLine();
+        WriteLine($"Updating details for list {listId}.", true);
 
-    	listDetails.Name = "Swimsuits and sports";
+        listDetails.Name = "Swimsuits and sports";
 
-    	var result = client.ListManagementImageLists.Update(
-        	listId.ToString(), "application/json", listDetails);
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImageLists.Update(
+            listId.ToString(), "application/json", listDetails);
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
-    	return result;
-	}
+        return result;
+    }
 
 ## Create a method to retrieve the details of the list
 
 Add the following method to the **Program** class.
 
-	/// <summary>
-	/// Gets the details for an image list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <param name="listId">The list identifier.</param>
-	/// <returns>The response object from the operation.</returns>
-	private static ImageList GetListDetails(
-    	ContentModeratorClient client, int listId)
-	{
-    	WriteLine();
-    	WriteLine($"Getting details for list {listId}.", true);
+    /// <summary>
+    /// Gets the details for an image list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <param name="listId">The list identifier.</param>
+    /// <returns>The response object from the operation.</returns>
+    private static ImageList GetListDetails(
+        ContentModeratorClient client, int listId)
+    {
+        WriteLine();
+        WriteLine($"Getting details for list {listId}.", true);
 
-    	var result = client.ListManagementImageLists.GetDetails(listId.ToString());
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImageLists.GetDetails(listId.ToString());
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
-    	return result;
-	}
+        return result;
+    }
 
 ## Create a method to refresh the search index of the list
 
@@ -408,44 +408,44 @@ Add the following method to the **Program** class.
 Any time you update a list, you need to refresh the search index before using the
 list to screen images.
 
-	/// <summary>
-	/// Refreshes the search index for an image list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <param name="listId">The list identifier.</param>
-	/// <returns>The response object from the operation.</returns>
-	private static RefreshIndex RefreshSearchIndex(
-    	ContentModeratorClient client, int listId)
-	{
-    	WriteLine();
-    	WriteLine($"Refreshing the search index for list {listId}.", true);
+    /// <summary>
+    /// Refreshes the search index for an image list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <param name="listId">The list identifier.</param>
+    /// <returns>The response object from the operation.</returns>
+    private static RefreshIndex RefreshSearchIndex(
+        ContentModeratorClient client, int listId)
+    {
+        WriteLine();
+        WriteLine($"Refreshing the search index for list {listId}.", true);
 
-    	var result = client.ListManagementImageLists.RefreshIndexMethod(listId.ToString());
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImageLists.RefreshIndexMethod(listId.ToString());
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
-    	return result;
-	}
+        return result;
+    }
 
 ## Create a method to match images against the list
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
+    /// <summary>
     /// Matches images against an image list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
     /// <param name="listId">The list identifier.</param>
     /// <param name="imagesToMatch">The images to screen.</param>
     private static void MatchImages(
-		ContentModeratorClient client, int listId,
+        ContentModeratorClient client, int listId,
         IEnumerable<string> imagesToMatch)
     {
-    	foreach (var imageUrl in imagesToMatch)
+        foreach (var imageUrl in imagesToMatch)
         {
-        	WriteLine();
+            WriteLine();
             WriteLine($"Matching image {imageUrl} against list {listId}.", true);
 
             var result = client.ImageModeration.MatchUrlInput(
@@ -455,74 +455,74 @@ Add the following method to the **Program** class.
             WriteLine("Response:");
             WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
         }
-	}
+    }
 
 ## Create a method to delete all images from the list
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Deletes all images from an image list.
-	/// </summary>
-	/// <param name="client">The Content Modertor client.</param>
-	/// <param name="listId">The list identifier.</param>
-	private static void DeleteAllImages(
-    	ContentModeratorClient client, int listId)
-	{
-    	WriteLine();
-    	WriteLine($"Deleting all images from list {listId}.", true);
+    /// <summary>
+    /// Deletes all images from an image list.
+    /// </summary>
+    /// <param name="client">The Content Modertor client.</param>
+    /// <param name="listId">The list identifier.</param>
+    private static void DeleteAllImages(
+        ContentModeratorClient client, int listId)
+    {
+        WriteLine();
+        WriteLine($"Deleting all images from list {listId}.", true);
 
-    	var result = client.ListManagementImage.DeleteAllImages(listId.ToString());
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImage.DeleteAllImages(listId.ToString());
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
-	}
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+    }
 
 ## Create a method to delete the list
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Deletes an image list.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <param name="listId">The list identifier.</param>
-	private static void DeleteCustomList(
-    	ContentModeratorClient client, int listId)
-	{
-    	WriteLine();
-    	WriteLine($"Deleting list {listId}.", true);
+    /// <summary>
+    /// Deletes an image list.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <param name="listId">The list identifier.</param>
+    private static void DeleteCustomList(
+        ContentModeratorClient client, int listId)
+    {
+        WriteLine();
+        WriteLine($"Deleting list {listId}.", true);
 
-    	var result = client.ListManagementImageLists.Delete(listId.ToString());
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImageLists.Delete(listId.ToString());
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
-	}
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+    }
 
 ## Create a method to retrieve IDs for all image lists
 
 Add the following method to the **Program** class. 
 
-	/// <summary>
-	/// Gets all list identifiers for the client.
-	/// </summary>
-	/// <param name="client">The Content Moderator client.</param>
-	/// <returns>The response object from the operation.</returns>
-	private static IList<ImageList> GetAllListIds(ContentModeratorClient client)
-	{
-    	WriteLine();
-    	WriteLine($"Getting all image list IDs.", true);
+    /// <summary>
+    /// Gets all list identifiers for the client.
+    /// </summary>
+    /// <param name="client">The Content Moderator client.</param>
+    /// <returns>The response object from the operation.</returns>
+    private static IList<ImageList> GetAllListIds(ContentModeratorClient client)
+    {
+        WriteLine();
+        WriteLine($"Getting all image list IDs.", true);
 
-    	var result = client.ListManagementImageLists.GetAllImageLists();
-    	Thread.Sleep(throttleRate);
+        var result = client.ListManagementImageLists.GetAllImageLists();
+        Thread.Sleep(throttleRate);
 
-    	WriteLine("Response:");
-    	WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+        WriteLine("Response:");
+        WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
-    	return result;
-	}
+        return result;
+    }
 
 ## Add code to simulate the use of an image list
 
@@ -533,19 +533,19 @@ managing the list, as well as using the list to screen images. The logging featu
 allow you to see the response objects generated by the SDK calls to the Content
 Moderator service.
 
-	// Create the text writer to use for logging, and cache a static reference to it.
+    // Create the text writer to use for logging, and cache a static reference to it.
     using (StreamWriter outputWriter = new StreamWriter(OutputFile))
     {
-    	writer = outputWriter;
+        writer = outputWriter;
 
         // Create a Content Moderator client.
         using (var client = Clients.NewClient())
         {
-        	// Create a custom image list and record the ID assigned to it.
+            // Create a custom image list and record the ID assigned to it.
             var creationResult = CreateCustomList(client);
             if (creationResult.Id.HasValue)
             {
-            	// Cache the ID of the new image list.
+                // Cache the ID of the new image list.
                 int listId = creationResult.Id.Value;
 
                 // Perform various operations using the image list.
@@ -588,12 +588,12 @@ Moderator service.
                 // Verify that the list was deleted.
                 GetAllListIds(client);
                 }
-			}
+            }
 
             writer.Flush();
             writer.Close();
             writer = null;
-	}
+    }
 
     Console.WriteLine();
     Console.WriteLine("Press any key to exit...");
@@ -604,419 +604,419 @@ Moderator service.
 The list ID and the image content IDs are different each time you run the application.
 The log file written by the program has the following output:
 
-	Creating list MyList.
-	Response:
-	{
-		"Id": 169642,
-		"Name": "MyList",
-		"Description": "A sample list",
-		"Metadata": {
-    		"Key One": "Acceptable",
-    		"Key Two": "Potentially racy"
-		}
-	}
+    Creating list MyList.
+    Response:
+    {
+        "Id": 169642,
+        "Name": "MyList",
+        "Description": "A sample list",
+        "Metadata": {
+            "Key One": "Acceptable",
+            "Key Two": "Potentially racy"
+        }
+    }
 
-	Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png to list 169642 with label Sports.
-	Response:
-	{
-		"ContentId": "169490",
-		"AdditionalInfo": [
-    	{
-      		"Key": "Source",
-      		"Value": "169642"
-    	},
-    	{
-      		"Key": "ImageDownloadTimeInMs",
-      		"Value": "233"
-    	},
-    	{
-      		"Key": "ImageSizeInBytes",
-      		"Value": "2945548"
-    	}
-		],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_b4d3e20a-0751-4760-8829-475e5da33ce8"
-	}
+    Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png to list 169642 with label Sports.
+    Response:
+    {
+        "ContentId": "169490",
+        "AdditionalInfo": [
+        {
+            "Key": "Source",
+            "Value": "169642"
+        },
+        {
+            "Key": "ImageDownloadTimeInMs",
+            "Value": "233"
+        },
+        {
+            "Key": "ImageSizeInBytes",
+            "Value": "2945548"
+        }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_b4d3e20a-0751-4760-8829-475e5da33ce8"
+    }
 
-	Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png to list 169642 with label Sports.
-	Response:
-	{
-		"ContentId": "169491",
-		"AdditionalInfo": [
-    	{
-      		"Key": "Source",
-      		"Value": "169642"
-    	},
-    	{
-      		"Key": "ImageDownloadTimeInMs",
-      		"Value": "215"
-    	},
-    	{
-      		"Key": "ImageSizeInBytes",
-      		"Value": "2440050"
-    	}
-		],
-		"Status": {
-			"Code": 3000,
-			"Description": "OK",
-			"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_cc1eb6af-2463-4e5e-9145-2a11dcecbc30"
-	}
+    Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png to list 169642 with label Sports.
+    Response:
+    {
+        "ContentId": "169491",
+        "AdditionalInfo": [
+        {
+            "Key": "Source",
+            "Value": "169642"
+        },
+        {
+            "Key": "ImageDownloadTimeInMs",
+            "Value": "215"
+        },
+        {
+            "Key": "ImageSizeInBytes",
+            "Value": "2440050"
+        }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_cc1eb6af-2463-4e5e-9145-2a11dcecbc30"
+    }
 
-	Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample9.png to list 169642 with label Sports.
-	Response:
-	{
-		"ContentId": "169492",
-		"AdditionalInfo": [
-    	{
-      		"Key": "Source",
-      		"Value": "169642"
-    	},
-    	{
-      		"Key": "ImageDownloadTimeInMs",
-      		"Value": "98"
-    	},
-    	{
-      		"Key": "ImageSizeInBytes",
-      		"Value": "1631958"
-    	}
-		],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_01edc1f2-b448-48cf-b7f6-23b64d5040e9"
-	}
+    Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample9.png to list 169642 with label Sports.
+    Response:
+    {
+        "ContentId": "169492",
+        "AdditionalInfo": [
+        {
+            "Key": "Source",
+            "Value": "169642"
+        },
+        {
+            "Key": "ImageDownloadTimeInMs",
+            "Value": "98"
+        },
+        {
+            "Key": "ImageSizeInBytes",
+            "Value": "1631958"
+        }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_01edc1f2-b448-48cf-b7f6-23b64d5040e9"
+    }
 
-	Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg to list 169642 with label Swimsuit.
-	Response:
-	{
-		"ContentId": "169493",
-		"AdditionalInfo": [
-		{
-      		"Key": "Source",
-      		"Value": "169642"
-    	},
-    	{
-      		"Key": "ImageDownloadTimeInMs",
-      		"Value": "27"
-    	},
-    	{
-      		"Key": "ImageSizeInBytes",
-      		"Value": "17280"
-    	}
-		],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_41f7bc6f-8778-4576-ba46-37b43a6c2434"
-	}
+    Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg to list 169642 with label Swimsuit.
+    Response:
+    {
+        "ContentId": "169493",
+        "AdditionalInfo": [
+        {
+            "Key": "Source",
+            "Value": "169642"
+        },
+        {
+            "Key": "ImageDownloadTimeInMs",
+            "Value": "27"
+        },
+        {
+            "Key": "ImageSizeInBytes",
+            "Value": "17280"
+        }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_41f7bc6f-8778-4576-ba46-37b43a6c2434"
+    }
 
-	Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png to list 169642 with label Swimsuit.
-	Response:
-	{
-		"ContentId": "169494",
-		"AdditionalInfo": [
-		{
-      		"Key": "Source",
-      		"Value": "169642"
-    	},
-    	{
-      		"Key": "ImageDownloadTimeInMs",
-      		"Value": "129"
-    	},
-    	{
-      		"Key": "ImageSizeInBytes",
-      		"Value": "1242855"
-    	}
-		],
-		"Status": {
-			"Code": 3000,
-			"Description": "OK",
-			"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_61a48f33-eb55-4fd9-ac97-20eb0f3622a5"
-	}
+    Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png to list 169642 with label Swimsuit.
+    Response:
+    {
+        "ContentId": "169494",
+        "AdditionalInfo": [
+        {
+            "Key": "Source",
+            "Value": "169642"
+        },
+        {
+            "Key": "ImageDownloadTimeInMs",
+            "Value": "129"
+        },
+        {
+            "Key": "ImageSizeInBytes",
+            "Value": "1242855"
+        }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_61a48f33-eb55-4fd9-ac97-20eb0f3622a5"
+    }
 
-	Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png to list 169642 with label Swimsuit.
-	Unable to add image to list. Caught Microsoft.CognitiveServices.ContentModerator.Models.APIErrorException: Operation returned an invalid status code 'Conflict'
+    Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png to list 169642 with label Swimsuit.
+    Unable to add image to list. Caught Microsoft.CognitiveServices.ContentModerator.Models.APIErrorException: Operation returned an invalid status code 'Conflict'
 
-	Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png to list 169642 with label Swimsuit.
-	Response:
-	{
-		"ContentId": "169495",
-		"AdditionalInfo": [
-    	{
-      		"Key": "Source",
-      		"Value": "169642"
-    	},
-    	{
-      		"Key": "ImageDownloadTimeInMs",
-      		"Value": "65"
-    	},
-    	{
-      		"Key": "ImageSizeInBytes",
-      		"Value": "1088127"
-    	}
-		],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_1c1f3de4-58b9-4aa8-82fa-1b0f479f6d7c"
-	}
+    Adding https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png to list 169642 with label Swimsuit.
+    Response:
+    {
+        "ContentId": "169495",
+        "AdditionalInfo": [
+        {
+            "Key": "Source",
+            "Value": "169642"
+        },
+        {
+            "Key": "ImageDownloadTimeInMs",
+            "Value": "65"
+        },
+        {
+            "Key": "ImageSizeInBytes",
+            "Value": "1088127"
+        }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_1c1f3de4-58b9-4aa8-82fa-1b0f479f6d7c"
+    }
 
-	Getting all image IDs for list 169642.
-	Response:
-	{
-		"ContentSource": "169642",
-		"ContentIds": [
-    		169490,
-    		169491,
-    		169492,
-    		169493,
-    		169494,
-    		169495
-	],
-	"Status": {
-    	"Code": 3000,
-    	"Description": "OK",
-    	"Exception": null
-		},
-	"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_0d017deb-38fa-4701-a7b1-5b6608c79da2"
-	}
+    Getting all image IDs for list 169642.
+    Response:
+    {
+        "ContentSource": "169642",
+        "ContentIds": [
+            169490,
+            169491,
+            169492,
+            169493,
+            169494,
+            169495
+    ],
+    "Status": {
+        "Code": 3000,
+        "Description": "OK",
+        "Exception": null
+        },
+    "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_0d017deb-38fa-4701-a7b1-5b6608c79da2"
+    }
 
-	Updating details for list 169642.
-	Response:
-	{
-		"Id": 169642,
-		"Name": "Swimsuits and sports",
-		"Description": "A sample list",
-		"Metadata": {
-    		"Key One": "Acceptable",
-    		"Key Two": "Potentially racy"
-		}
-	}
+    Updating details for list 169642.
+    Response:
+    {
+        "Id": 169642,
+        "Name": "Swimsuits and sports",
+        "Description": "A sample list",
+        "Metadata": {
+            "Key One": "Acceptable",
+            "Key Two": "Potentially racy"
+        }
+    }
 
-	Getting details for list 169642.
-	Response:
-	{
-		"Id": 169642,
-		"Name": "Swimsuits and sports",
-		"Description": "A sample list",
-		"Metadata": {
-    		"Key One": "Acceptable",
-    		"Key Two": "Potentially racy"
-		}
-	}
+    Getting details for list 169642.
+    Response:
+    {
+        "Id": 169642,
+        "Name": "Swimsuits and sports",
+        "Description": "A sample list",
+        "Metadata": {
+            "Key One": "Acceptable",
+            "Key Two": "Potentially racy"
+        }
+    }
 
-	Refreshing the search index for list 169642.
-	Response:
-	{
-		"ContentSourceId": "169642",
-		"IsUpdateSuccess": true,
-		"AdvancedInfo": [],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "RefreshIndex successfully completed.",
-    		"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_c72255cd-55a0-415e-9c18-0b9c08a9f25b"
-	}
-	Waiting 0.5 minutes to allow the server time to propagate the index changes.
+    Refreshing the search index for list 169642.
+    Response:
+    {
+        "ContentSourceId": "169642",
+        "IsUpdateSuccess": true,
+        "AdvancedInfo": [],
+        "Status": {
+            "Code": 3000,
+            "Description": "RefreshIndex successfully completed.",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_c72255cd-55a0-415e-9c18-0b9c08a9f25b"
+    }
+    Waiting 0.5 minutes to allow the server time to propagate the index changes.
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg against list 169642.
-	Response:
-	{
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_ec384878-dbaa-4999-9042-6ac986355967",
-		"CacheID": null,
-		"IsMatch": true,
-		"Matches": [
-			{
-      			"Score": 1.0,
-      			"MatchId": 169493,
-      			"Source": "169642",
-      			"Tags": [],
-      			"Label": "Swimsuit"
-    		}
-		],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg against list 169642.
+    Response:
+    {
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_ec384878-dbaa-4999-9042-6ac986355967",
+        "CacheID": null,
+        "IsMatch": true,
+        "Matches": [
+            {
+                "Score": 1.0,
+                "MatchId": 169493,
+                "Source": "169642",
+                "Tags": [],
+                "Label": "Swimsuit"
+            }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+        }
+    }
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png against list 169642.
-	Response:
-	{
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_e9db4b8f-3067-400f-9552-d3e6af2474c0",
-		"CacheID": null,
-		"IsMatch": true,
-		"Matches": [
-    		{
-      			"Score": 1.0,
-      			"MatchId": 169490,
-      			"Source": "169642",
-      			"Tags": [],
-      			"Label": "Sports"
-    		}
-		],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-			}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png against list 169642.
+    Response:
+    {
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_e9db4b8f-3067-400f-9552-d3e6af2474c0",
+        "CacheID": null,
+        "IsMatch": true,
+        "Matches": [
+            {
+                "Score": 1.0,
+                "MatchId": 169490,
+                "Source": "169642",
+                "Tags": [],
+                "Label": "Sports"
+            }
+        ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+            }
+    }
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png against list 169642.
-	Response:
-	{
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_25991575-05da-4904-89db-abe88270b403",
-		"CacheID": null,
-		"IsMatch": false,
-		"Matches": [],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png against list 169642.
+    Response:
+    {
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_25991575-05da-4904-89db-abe88270b403",
+        "CacheID": null,
+        "IsMatch": false,
+        "Matches": [],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+        }
+    }
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png against list 169642.
-	Response:
-	{
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_c65d1c91-0d8a-4511-8ac6-814e04adc845",
-		"CacheID": null,
-		"IsMatch": true,
-		"Matches": [
-    		{
-      			"Score": 1.0,
-      			"MatchId": 169495,
-      			"Source": "169642",
-      			"Tags": [],
-      			"Label": "Swimsuit"
-    		}
-			],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png against list 169642.
+    Response:
+    {
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_c65d1c91-0d8a-4511-8ac6-814e04adc845",
+        "CacheID": null,
+        "IsMatch": true,
+        "Matches": [
+            {
+                "Score": 1.0,
+                "MatchId": 169495,
+                "Source": "169642",
+                "Tags": [],
+                "Label": "Swimsuit"
+            }
+            ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+        }
+    }
 
-	Removing entry for https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png (ID = 169495) from list 169642.
-	Response:
-	""
+    Removing entry for https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png (ID = 169495) from list 169642.
+    Response:
+    ""
 
-	Refreshing the search index for list 169642.
-	Response:
-	{
-		"ContentSourceId": "169642",
-		"IsUpdateSuccess": true,
-		"AdvancedInfo": [],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "RefreshIndex successfully completed.",
-    		"Exception": null
-			},
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_b55a375e-30a1-4612-aa7b-81edcee5bffb"
-	}
+    Refreshing the search index for list 169642.
+    Response:
+    {
+        "ContentSourceId": "169642",
+        "IsUpdateSuccess": true,
+        "AdvancedInfo": [],
+        "Status": {
+            "Code": 3000,
+            "Description": "RefreshIndex successfully completed.",
+            "Exception": null
+            },
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_b55a375e-30a1-4612-aa7b-81edcee5bffb"
+    }
 
-	Waiting 0.5 minutes to allow the server time to propagate the index changes.
+    Waiting 0.5 minutes to allow the server time to propagate the index changes.
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg against list 169642.
-	Response:
-	{
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_00544948-2936-489c-98c8-b507b654bff5",
-		"CacheID": null,
-		"IsMatch": true,
-		"Matches": [
-    		{
-      			"Score": 1.0,
-      			"MatchId": 169493,
-      			"Source": "169642",
-      			"Tags": [],
-      			"Label": "Swimsuit"
-    		}
-			],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg against list 169642.
+    Response:
+    {
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_00544948-2936-489c-98c8-b507b654bff5",
+        "CacheID": null,
+        "IsMatch": true,
+        "Matches": [
+            {
+                "Score": 1.0,
+                "MatchId": 169493,
+                "Source": "169642",
+                "Tags": [],
+                "Label": "Swimsuit"
+            }
+            ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+        }
+    }
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png against list 169642.
-	Response:
-	{
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_c36ec646-53c2-4705-86b2-d72b5c2273c7",
-		"CacheID": null,
-		"IsMatch": true,
-		"Matches": [
-    		{
-      			"Score": 1.0,
-      			"MatchId": 169490,
-      			"Source": "169642",
-      			"Tags": [],
-      			"Label": "Sports"
-    		}
-			],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample4.png against list 169642.
+    Response:
+    {
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_c36ec646-53c2-4705-86b2-d72b5c2273c7",
+        "CacheID": null,
+        "IsMatch": true,
+        "Matches": [
+            {
+                "Score": 1.0,
+                "MatchId": 169490,
+                "Source": "169642",
+                "Tags": [],
+                "Label": "Sports"
+            }
+            ],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+        }
+    }
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png against list 169642.
-	Response:
-	{
-		TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_22edad74-690d-4fbc-b7d0-bf64867c4cb9",
-		"CacheID": null,
-		"IsMatch": false,
-		"Matches": [],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png against list 169642.
+    Response:
+    {
+        TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_22edad74-690d-4fbc-b7d0-bf64867c4cb9",
+        "CacheID": null,
+        "IsMatch": false,
+        "Matches": [],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+        }
+    }
 
-	Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png against list 169642.
-	Response:
-	{
-		"TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_abd4a178-3238-4601-8e4f-cf9ee66f605a",
-		"CacheID": null,
-		"IsMatch": false,
-		"Matches": [],
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		}
-	}
+    Matching image https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png against list 169642.
+    Response:
+    {
+        "TrackingId": "WE_f0527c49616243c5ac65e1cc3482d390_ContentModerator.Preview_abd4a178-3238-4601-8e4f-cf9ee66f605a",
+        "CacheID": null,
+        "IsMatch": false,
+        "Matches": [],
+        "Status": {
+            "Code": 3000,
+            "Description": "OK",
+            "Exception": null
+        }
+    }
 
-	Deleting all images from list 169642.
-	Response:
-	"Reset Successful."
+    Deleting all images from list 169642.
+    Response:
+    "Reset Successful."
 
-	Deleting list 169642.
-	Response:
-	""
+    Deleting list 169642.
+    Response:
+    ""
 
-	Getting all image list IDs.
-	Response:
-	[]
+    Getting all image list IDs.
+    Response:
+    []
 
 
 ## Next steps

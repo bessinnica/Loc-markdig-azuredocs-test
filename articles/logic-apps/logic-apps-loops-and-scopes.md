@@ -84,33 +84,33 @@ To enable a foreach loop to execute sequentially, the `Sequential` operation opt
   
   This example calls an HTTP endpoint until the response body has the value 'Completed'.  It completes when either: 
   
-  * HTTP Response has status of 'Completed'
-  * It has tried for one hour
-  * It has looped 100 times
+* HTTP Response has status of 'Completed'
+* It has tried for one hour
+* It has looped 100 times
   
   If using code-view, you can specify an until loop like the following example:
   
   ``` json
   {
-      "until_successful":{
-        "type": "until",
-        "expression": "@equals(actions('http')['status'], 'Completed')",
-        "limit": {
-            "count": 100,
-            "timeout": "PT1H"
-        },
-        "actions": {
-            "create_resource": {
-                "type": "http",
-                "inputs": {
-                    "url": "http://provisionRseource.com",
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    }
-                }
-            }
-        }
+    "until_successful":{
+      "type": "until",
+      "expression": "@equals(actions('http')['status'], 'Completed')",
+      "limit": {
+          "count": 100,
+          "timeout": "PT1H"
+      },
+      "actions": {
+          "create_resource": {
+              "type": "http",
+              "inputs": {
+                  "url": "http://provisionRseource.com",
+                  "body": {
+                      "resourceId": "@triggerBody()"
+                  }
+              }
+          }
       }
+    }
   }
   ```
   

@@ -260,22 +260,22 @@ These three steps are coordinated by an Oozie workflow.
 
     ```
     SET hive.exec.dynamic.partition.mode=nonstrict;
-    
+
     INSERT OVERWRITE TABLE flights
     PARTITION (YEAR, MONTH, DAY_OF_MONTH)
-    SELECT 	
-      	FL_DATE,
-      	CARRIER,
-      	FL_NUM,
-      	ORIGIN,
-      	DEST,
-      	DEP_DELAY,
-      	ARR_DELAY,
-      	ACTUAL_ELAPSED_TIME,
-      	DISTANCE,
-    	YEAR,
-      	MONTH,
-      	DAY_OF_MONTH
+    SELECT  
+        FL_DATE,
+        CARRIER,
+        FL_NUM,
+        ORIGIN,
+        DEST,
+        DEP_DELAY,
+        ARR_DELAY,
+        ACTUAL_ELAPSED_TIME,
+        DISTANCE,
+        YEAR,
+        MONTH,
+        DAY_OF_MONTH
     FROM rawflights
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
@@ -289,18 +289,18 @@ These three steps are coordinated by an Oozie workflow.
     CREATE EXTERNAL TABLE ${hiveTableName}
     (
         YEAR INT,
-      	MONTH INT,
-      	DAY_OF_MONTH INT,
-      	CARRIER STRING,
-      	AVG_DEP_DELAY FLOAT,
-      	AVG_ARR_DELAY FLOAT,
-      	TOTAL_DISTANCE FLOAT
+        MONTH INT,
+        DAY_OF_MONTH INT,
+        CARRIER STRING,
+        AVG_DEP_DELAY FLOAT,
+        AVG_ARR_DELAY FLOAT,
+        TOTAL_DISTANCE FLOAT
     )
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE TABLE ${hiveTableName}
-    SELECT 	year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
-    		avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
+    SELECT  year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
+            avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
     FROM flights
     GROUP BY year, month, day_of_month, carrier 
     HAVING year = ${year} AND month = ${month} AND day_of_month = ${day};
@@ -602,7 +602,6 @@ hiveDailyTableNamePrefix=dailyflights
 hiveDataFolderPrefix=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/example/data/flights/day/
 sqlDatabaseConnectionString="jdbc:sqlserver://[SERVERNAME].database.windows.net;user=[USERNAME];password=[PASSWORD];database=[DATABASENAME]"
 sqlDatabaseTableName=dailyflights
-
 ```
 
 The only new properties introduced in this `job.properties` file are:

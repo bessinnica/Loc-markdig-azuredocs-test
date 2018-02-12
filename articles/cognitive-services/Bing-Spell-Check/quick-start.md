@@ -61,7 +61,7 @@ Host: api.cognitive.microsoft.com
 
 > [!NOTE]
 > V7 Preview request:
-
+> 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  

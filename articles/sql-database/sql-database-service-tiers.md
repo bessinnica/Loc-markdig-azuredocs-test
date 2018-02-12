@@ -26,13 +26,14 @@ ms.author: carlrab
 ## Choosing a service tier
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
+
 | | **Basic** | **Standard** |**Premium** |**Premium RS** |
 | :-- | --: |--:| --:| --:| 
 |Target workload|Development and production|Development and production|Development and production|Workload that can tolerate data loss up to 5-minutes due to service failures|
 |Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
 |Backup retention|7 days|35 days|35 days|35 days|
 |CPU|Low|Low, Medium, High|Medium, High|Medium|
-|IO throughput|Low	| Medium | Order of magnitude higher than Standard|Same as Premium|
+|IO throughput|Low  | Medium | Order of magnitude higher than Standard|Same as Premium|
 |IO latency|Higher than Premium|Higher than Premium|Lower than Basic and Standard|Same as Premium|
 |Columnstore indexing and in-memory OLTP|N/A|N/A|Supported|Supported|
 |||||
@@ -74,6 +75,6 @@ For details on specific performance levels and storage size choices available, s
 - Learn about [Single database resources](sql-database-single-database-resources.md).
 - Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
-* Learn more about [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
-* Learn about monitoring DTU usage, see [Monitoring and performance tuning](sql-database-troubleshoot-performance.md).
+- Learn more about [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
+- Learn about monitoring DTU usage, see [Monitoring and performance tuning](sql-database-troubleshoot-performance.md).
 

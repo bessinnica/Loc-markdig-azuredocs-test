@@ -131,7 +131,7 @@ The fields that are used in this query are the GPS coordinates of pickup and dro
         and dropoff_latitude between 30 and 90
         limit 10;
 
-The mathematical equations that calculate the distance between two GPS coordinates can be found on the <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> site, authored by Peter Lapisu. In this Javascript, the function `toRad()` is just *lat_or_lon*pi/180*, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+The mathematical equations that calculate the distance between two GPS coordinates can be found on the <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> site, authored by Peter Lapisu. In this Javascript, the function `toRad()` is just <em>lat_or_lon</em>pi/180<em>, which converts degrees to radians. Here, *lat_or_lon</em> is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Create workspace](./media/create-features-hive/atan2new.png)
 
@@ -147,28 +147,28 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 
     This parameter allocates 4GB memory to Java heap space and also makes sorting more efficient by allocating more memory for it. It is a good idea to play with these allocations if there are any job failure errors related to heap space.
 
-1. **DFS block size**: This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128 MB, then any data of size less than and up to 128 MB is stored in a single block. Data that is larger than 128 MB is allotted extra blocks. 
-2. Choosing a small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is:
+2. **DFS block size**: This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128 MB, then any data of size less than and up to 128 MB is stored in a single block. Data that is larger than 128 MB is allotted extra blocks. 
+3. Choosing a small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is:
 
-		set dfs.block.size=128m;
+        set dfs.block.size=128m;
 
-2. **Optimizing join operation in Hive**: While join operations in the map/reduce framework typically take place in the reduce phase, sometimes, enormous gains can be achieved by scheduling joins in the map phase (also called "mapjoins"). To direct Hive to do this whenever possible, set:
+4. **Optimizing join operation in Hive**: While join operations in the map/reduce framework typically take place in the reduce phase, sometimes, enormous gains can be achieved by scheduling joins in the map phase (also called "mapjoins"). To direct Hive to do this whenever possible, set:
    
        set hive.auto.convert.join=true;
 
-3. **Specifying the number of mappers to Hive**: While Hadoop allows the user to set the number of reducers, the number of mappers is typically not be set by the user. A trick that allows some degree of control on this number is to choose the Hadoop variables *mapred.min.split.size* and *mapred.max.split.size* as the size of each map task is determined by:
+5. **Specifying the number of mappers to Hive**: While Hadoop allows the user to set the number of reducers, the number of mappers is typically not be set by the user. A trick that allows some degree of control on this number is to choose the Hadoop variables *mapred.min.split.size* and *mapred.max.split.size* as the size of each map task is determined by:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-	Typically, the default value of:
-	
-	- *mapred.min.split.size* is 0, that of
-	- *mapred.max.split.size* is **Long.MAX** and that of 
-	- *dfs.block.size* is 64 MB.
+    Typically, the default value of:
+    
+   - *mapred.min.split.size* is 0, that of
+   - *mapred.max.split.size* is **Long.MAX** and that of 
+   - *dfs.block.size* is 64 MB.
 
-	As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used.
+     As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used.
 
-4. Here are a few other more **advanced options** for optimizing Hive performance. These allow you to set the memory allocated to map and reduce tasks, and can be useful in tweaking performance. Keep in mind that the *mapreduce.reduce.memory.mb* cannot be greater than the physical memory size of each worker node in the Hadoop cluster.
+6. Here are a few other more **advanced options** for optimizing Hive performance. These allow you to set the memory allocated to map and reduce tasks, and can be useful in tweaking performance. Keep in mind that the *mapreduce.reduce.memory.mb* cannot be greater than the physical memory size of each worker node in the Hadoop cluster.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

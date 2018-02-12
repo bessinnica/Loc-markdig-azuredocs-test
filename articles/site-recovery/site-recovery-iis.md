@@ -65,12 +65,12 @@ For the purpose of creating this article, VMware virtual machines with IIS Serve
 
 ### Source and target
 
-**Scenario** | **To a secondary site** | **To Azure**
---- | --- | ---
-**Hyper-V** | Yes | Yes
-**VMware** | Yes | Yes
-**Physical server** | No | Yes
-**Azure**|NA|Yes
+|    <strong>Scenario</strong>     | <strong>To a secondary site</strong> | <strong>To Azure</strong> |
+|----------------------------------|--------------------------------------|---------------------------|
+|     <strong>Hyper-V</strong>     |                 Yes                  |            Yes            |
+|     <strong>VMware</strong>      |                 Yes                  |            Yes            |
+| <strong>Physical server</strong> |                  No                  |            Yes            |
+|      <strong>Azure</strong>      |                  NA                  |            Yes            |
 
 ## Replicate virtual machines
 
@@ -108,12 +108,12 @@ The connection string specifies the database that the web site communicates with
 
 If the connection string carries the name of the database virtual machine, no further steps are needed post failover. The application can automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it needs to be updated post failover. For example, the following connection string points to the DB with IP 127.0.1.2
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<configuration>
-		<connectionStrings>
-		<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
-		</connectionStrings>
-		</configuration>
+        <?xml version="1.0" encoding="utf-8"?>
+        <configuration>
+        <connectionStrings>
+        <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+        </connectionStrings>
+        </configuration>
 
 You can update the connection string in web tier by adding [IIS connection update script](https://aka.ms/asr-update-webtier-script-classic) after Group 3 in the recovery plan.
 
@@ -148,20 +148,20 @@ If you have an application-specific dependency based on the IP address of the vi
 ## Doing a test failover
 Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
 
-1.	Go to Azure portal and select your Recovery Service vault.
-1.	Click on the recovery plan created for IIS web farm.
-1.	Click on 'Test Failover'.
-1.	Select recovery point and Azure virtual network to start the test failover process.
-1.	Once the secondary environment is up, you can perform your validations.
-1.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment is cleaned.
+1.  Go to Azure portal and select your Recovery Service vault.
+1.  Click on the recovery plan created for IIS web farm.
+1.  Click on 'Test Failover'.
+1.  Select recovery point and Azure virtual network to start the test failover process.
+1.  Once the secondary environment is up, you can perform your validations.
+1.  Once the validations are complete, you can select ‘Validations complete’ and the test failover environment is cleaned.
 
 ## Doing a failover
 Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 
-1.	Go to Azure portal and select your Recovery Service vault.
-1.	Click on the recovery plan created for IIS web farm.
-1.	Click on 'Failover'.
-1.	Select recovery point to start the failover process.
+1.  Go to Azure portal and select your Recovery Service vault.
+1.  Click on the recovery plan created for IIS web farm.
+1.  Click on 'Failover'.
+1.  Select recovery point to start the failover process.
 
 ## Next steps
 You can learn more about [replicate other applications](site-recovery-workload.md) using Site Recovery.

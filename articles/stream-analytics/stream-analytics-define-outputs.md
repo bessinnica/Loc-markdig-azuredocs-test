@@ -185,10 +185,10 @@ There are a few parameters that are needed to configure Event Hub data streams a
 
 ### Authorize a Power BI account
 1. When Power BI is selected as an output in the Azure portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
-   
+
    ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. Create a new account if you don’t yet have one, then click Authorize Now.  A screen like the following is presented.  
-   
+
    ![Azure Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 3. In this step, provide the work or school account for authorizing the Power BI output. If you are not already signed up for Power BI, choose Sign up now. The work or school account you use for Power BI could be different from the Azure subscription account which you are currently logged in with.
 
@@ -232,13 +232,12 @@ Stream Analytics infers the data model schema based on the first set of events i
 The `SELECT *` query should be avoided to prevent dynamic schema update across rows. In addition to potential performance implications, it could also result in indeterminacy of the time taken for the results. The exact fields that need to be shown on Power BI dashboard should be selected. Additionally, the data values should be compliant with the chosen data type.
 
 
-Previous/Current | Int64 | String | Datetime | Double
------------------|-------|--------|----------|-------
-Int64 | Int64 | String | String | Double
-Double | Double | String | String | Double
-String | String | String | String |  | String | 
-Datetime | String | String |  Datetime | String
-
+| Previous/Current | Int64  | String | Datetime | Double |
+|------------------|--------|--------|----------|--------|
+|      Int64       | Int64  | String |  String  | Double |
+|      Double      | Double | String |  String  | Double |
+|      String      | String | String |  String  |        |
+|     Datetime     | String | String | Datetime | String |
 
 ### Renew Power BI Authorization
 You will need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
@@ -263,7 +262,7 @@ The table below lists the property names and their description for creating a ta
 | Partition Key |The name of the output column containing the partition key. The partition key is a unique identifier for the partition within a given table that forms the first part of an entity's primary key. It is a string value that may be up to 1 KB in size. |
 | Row Key |The name of the output column containing the row key. The row key is a unique identifier for an entity within a given partition. It forms the second part of an entity’s primary key. The row key is a string value that may be up to 1 KB in size. |
 | Batch Size |The number of records for a batch operation. Typically the default is sufficient for most jobs, refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
- 
+
 ## Service Bus Queues
 [Service Bus Queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
 

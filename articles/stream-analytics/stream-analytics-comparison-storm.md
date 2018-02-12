@@ -313,8 +313,7 @@ This article provides a side-by-side comparison of features to help you choose b
             </td>
             <td width="246" valign="top">
                 <p>
-                    Storm supports many outputs in a topology, and each output can have custom logic for downstream processing. Storm includes connectors for Power BI, Azure Event Hubs, Azure Blob storage, Azure Cosmos DB, SQL, and HBase. Users can create additional connectors using custom code.    
-                </p>
+                    Storm supports many outputs in a topology, and each output can have custom logic for downstream processing. Storm includes connectors for Power BI, Azure Event Hubs, Azure Blob storage, Azure Cosmos DB, SQL, and HBase. Users can create additional connectors using custom code.<br/>                </p>
             </td>
         </tr>
         <tr>
@@ -327,8 +326,7 @@ This article provides a side-by-side comparison of features to help you choose b
                 <p>
                     Data must be formatted using UTF-8.
                 </p>
-            </td>   
-            <td width="246" valign="top">
+            </td><br/>            <td width="246" valign="top">
                 <p>
                     Users can implement any data encoding format using custom code.
                 </p>

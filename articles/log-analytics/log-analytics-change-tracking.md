@@ -48,7 +48,7 @@ Use the following steps to configure files to track on Windows computers.
 1. In the OMS portal, click **Settings** (the gear symbol).
 2. On the **Settings** page, click **Data**, and then click **Windows File Tracking**.
 3. Under Windows File Change Tracking, type the entire path, including the file name of the file that you want to track and then click the **Add** symbol. For example: C:\Program Files (x86)\Internet Explorer\iexplore.exe or C:\Windows\System32\drivers\etc\hosts.
-4. Click **Save**.  
+4. Click **Save**.  
    ![Windows File Change Tracking](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### Configure Windows registry keys to track

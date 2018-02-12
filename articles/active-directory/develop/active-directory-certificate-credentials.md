@@ -67,7 +67,6 @@ The signature is computed applying the certificate as described in the [JSON Web
 }
 .
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
 ```
 
 ### Example of an encoded JWT assertion

@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -32,20 +32,24 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 <a id="create-account"></a>
+
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
+
 ## Add a collection
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
+
 ## Add sample data
 
 You can now add data to your new collection using Data Explorer.
@@ -53,7 +57,7 @@ You can now add data to your new collection using Data Explorer.
 1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-  
+
 2. Now add a document to the collection with the following structure.
 
      ```json
@@ -73,7 +77,7 @@ You can now add data to your new collection using Data Explorer.
 4.  Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
      You can now use queries in Data Explorer to retrieve your data. By default, Data Explorer uses `SELECT * FROM c` to retrieve all documents in the collection, but you can change that to a different [SQL query](sql-api-sql-query.md), such as `SELECT * FROM c ORDER BY c._ts DESC`, to return all the documents in descending order based on their timestamp.
- 
+
      You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
 
 ## Clone the sample application
@@ -137,7 +141,7 @@ Now go back to the Azure portal to get your connection string information and co
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `<add key="authKey" value="FILLME" />`
-    
+
 ## Run the web app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 

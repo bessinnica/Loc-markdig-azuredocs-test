@@ -48,28 +48,28 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
     Answer the questions and your project will be ready to go.
 
-1. Add a new file to the folder and name it ```index.js```.
-1. Install the necessary packages using one of the ```npm install``` options:
-    * Mongoose: ```npm install mongoose --save```
-    * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
+2. Add a new file to the folder and name it ```index.js```.
+3. Install the necessary packages using one of the ```npm install``` options:
+   * Mongoose: ```npm install mongoose --save```
+   * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
 
-    >[!Note]
-    > The ```--save``` flag adds the dependency to the package.json file.
+     >[!Note]
+     > The ```--save``` flag adds the dependency to the package.json file.
 
-1. Import the dependencies in your index.js file.
+4. Import the dependencies in your index.js file.
     ```JavaScript
     var mongoose = require('mongoose');
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
+5. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
     COSMOSDB_DBNAME={Your DB Name Here}
     ```
 
-1. Connect to Azure Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
+6. Connect to Azure Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
 
@@ -100,7 +100,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
 
 1. Open your ```index.js``` again.
 
-1. Create the schema definition for 'Family'.
+2. Create the schema definition for 'Family'.
 
     ```JavaScript
     const Family = mongoose.model('Family', new mongoose.Schema({
@@ -127,7 +127,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
     }));
     ```
 
-1. Create an object for 'Family'.
+3. Create an object for 'Family'.
 
     ```JavaScript
     const family = new Family({
@@ -147,7 +147,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
     });
     ```
 
-1. Finally, let's save the object to Azure Cosmos DB. This creates a collection underneath the covers.
+4. Finally, let's save the object to Azure Cosmos DB. This creates a collection underneath the covers.
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -155,32 +155,32 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
     });
     ```
 
-1. Now, let's create another schema and object. This time, let's create one for 'Vacation Destinations' that the families might be interested in.
-    1. Just like last time, let's create the scheme
-    ```JavaScript
-    const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
-        name: String,
-        country: String
-    }));
-    ```
+5. Now, let's create another schema and object. This time, let's create one for 'Vacation Destinations' that the families might be interested in.
+   1. Just like last time, let's create the scheme
+      ```JavaScript
+      const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
+       name: String,
+       country: String
+      }));
+      ```
 
-    1. Create a sample object (You can add multiple objects to this schema) and save it.
-    ```JavaScript
-    const vacaySpot = new VacationDestinations({
-        name: "Honolulu",
-        country: "USA"
-    });
+   2. Create a sample object (You can add multiple objects to this schema) and save it.
+      ```JavaScript
+      const vacaySpot = new VacationDestinations({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacaySpot.save((err, saveVacay) => {
-        console.log(JSON.stringify(saveVacay));
-    });
-    ```
+      vacaySpot.save((err, saveVacay) => {
+       console.log(JSON.stringify(saveVacay));
+      });
+      ```
 
-1. Now, going into the Azure portal, you notice two collections created in Azure Cosmos DB.
+6. Now, going into the Azure portal, you notice two collections created in Azure Cosmos DB.
 
     ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with multiple collection names highlighted - Node database][mutiple-coll]
 
-1. Finally, let's read the data from Azure Cosmos DB. Since we're using the default Mongoose operating model, the reads are the same as any other reads with Mongoose.
+7. Finally, let's read the data from Azure Cosmos DB. Since we're using the default Mongoose operating model, the reads are the same as any other reads with Mongoose.
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -203,13 +203,13 @@ Here, we create a base object model, define a differentiating key and add 'Famil
     };
     ```
 
-1. Next, let's define the common object model
+2. Next, let's define the common object model
 
     ```JavaScript
     const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
     ```
 
-1. We now define the 'Family' model. Notice here that we're using ```commonModel.discriminator``` instead of ```mongoose.model```. Additionally, we're also adding the base config to the mongoose schema. So, here, the discriminatorKey is ```FamilyType```.
+3. We now define the 'Family' model. Notice here that we're using ```commonModel.discriminator``` instead of ```mongoose.model```. Additionally, we're also adding the base config to the mongoose schema. So, here, the discriminatorKey is ```FamilyType```.
 
     ```JavaScript
     const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
@@ -236,7 +236,7 @@ Here, we create a base object model, define a differentiating key and add 'Famil
     }, baseConfig));
     ```
 
-1. Similarly, let's add another schema, this time for the 'VacationDestinations'. Here, the DiscriminatorKey is ```VacationDestinationsType```.
+4. Similarly, let's add another schema, this time for the 'VacationDestinations'. Here, the DiscriminatorKey is ```VacationDestinationsType```.
 
     ```JavaScript
     const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
@@ -245,49 +245,49 @@ Here, we create a base object model, define a differentiating key and add 'Famil
     }, baseConfig));
     ```
 
-1. Finally, let's create objects for the model and save it.
-    1. Let's add object(s) to the 'Family' model.
-    ```JavaScript
-    const family_common = new Family_common({
-        lastName: "Volum",
-        parents: [
-            { firstName: "Thomas" },
-            { firstName: "Mary Kay" }
-        ],
-        children: [
-            { firstName: "Ryan", gender: "male", grade: 8 },
-            { firstName: "Patrick", gender: "male", grade: 7 }
-        ],
-        pets: [
-            { givenName: "Blackie" }
-        ],
-        address: { country: "USA", state: "WA", city: "Seattle" }
-    });
+5. Finally, let's create objects for the model and save it.
+   1. Let's add object(s) to the 'Family' model.
+      ```JavaScript
+      const family_common = new Family_common({
+       lastName: "Volum",
+       parents: [
+           { firstName: "Thomas" },
+           { firstName: "Mary Kay" }
+       ],
+       children: [
+           { firstName: "Ryan", gender: "male", grade: 8 },
+           { firstName: "Patrick", gender: "male", grade: 7 }
+       ],
+       pets: [
+           { givenName: "Blackie" }
+       ],
+       address: { country: "USA", state: "WA", city: "Seattle" }
+      });
 
-    family_common.save((err, saveFamily) => {
-        console.log("Saved: " + JSON.stringify(saveFamily));
-    });
-    ```
+      family_common.save((err, saveFamily) => {
+       console.log("Saved: " + JSON.stringify(saveFamily));
+      });
+      ```
 
-    1. Next, let's add object(s) to the 'VacationDestinations' model and save it.
-    ```JavaScript
-    const vacay_common = new Vacation_common({
-        name: "Honolulu",
-        country: "USA"
-    });
+   2. Next, let's add object(s) to the 'VacationDestinations' model and save it.
+      ```JavaScript
+      const vacay_common = new Vacation_common({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacay_common.save((err, saveVacay) => {
-        console.log("Saved: " + JSON.stringify(saveVacay));
-    });
-    ```
+      vacay_common.save((err, saveVacay) => {
+       console.log("Saved: " + JSON.stringify(saveVacay));
+      });
+      ```
 
-1. Now, if you go back to the Azure portal, you notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
+6. Now, if you go back to the Azure portal, you notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
 
     ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
 
-1. Also, notice that each object has another attribute called as ```__type```, which help you differentiate between the two different object models.
+7. Also, notice that each object has another attribute called as ```__type```, which help you differentiate between the two different object models.
 
-1. Finally, let's read the data that is stored in Azure Cosmos DB. Mongoose takes care of filtering data based on the model. So, you have to do nothing different when reading data. Just specify your model (in this case, ```Family_common```) and Mongoose handles filtering on the 'DiscriminatorKey'.
+8. Finally, let's read the data that is stored in Azure Cosmos DB. Mongoose takes care of filtering data based on the model. So, you have to do nothing different when reading data. Just specify your model (in this case, ```Family_common```) and Mongoose handles filtering on the 'DiscriminatorKey'.
 
     ```JavaScript
     Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){

@@ -177,16 +177,16 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. For example: Table, View for SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: "tds" for SQl Server, "oracle" for Oracle, etc. Refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
-<tr><td></td><td>address</td><td>Dictionary<string, object></td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: &quot;tds&quot; for SQl Server, &quot;oracle&quot; for Oracle, etc. Refer to <a href="data-catalog-dsr.md" data-raw-source="[Data source reference specification - DSL Structure](data-catalog-dsr.md)">Data source reference specification - DSL Structure</a> for the list of currently supported protocols.</td></tr>
+<tr><td></td><td>address</td><td>Dictionary&lt;string, object&gt;</td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
 <tr><td></td><td>authentication</td><td>string</td><td>Optional. The authentication scheme used to communicate with the data source. For example: windows, oauth, etc.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Dictionary<string, object></td><td>Optional. Additional information on how to connect to a data source.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Dictionary&lt;string, object&gt;</td><td>Optional. Additional information on how to connect to a data source.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>The backend does not perform any validation of provided properties against AAD during publishing.</td></tr>
-<tr><td></td><td>upn</td><td>string</td><td>Unique email address of user. Must be specified if objectId is not provided or in the context of "lastRegisteredBy" property, otherwise optional.</td></tr>
+<tr><td></td><td>upn</td><td>string</td><td>Unique email address of user. Must be specified if objectId is not provided or in the context of &quot;lastRegisteredBy&quot; property, otherwise optional.</td></tr>
 <tr><td></td><td>objectId</td><td>Guid</td><td>User or security group AAD identity. Optional. Must be specified if upn is not provided, otherwise optional.</td></tr>
-<tr><td></td><td>firstName</td><td>string</td><td>First name of user (for display purposes). Optional. Only valid in the context of "lastRegisteredBy" property. Cannot be specified when providing security principal for "roles", "permissions" and "experts".</td></tr>
-<tr><td></td><td>lastName</td><td>string</td><td>Last name of user (for display purposes). Optional. Only valid in the context of "lastRegisteredBy" property. Cannot be specified when providing security principal for "roles", "permissions" and "experts".</td></tr>
+<tr><td></td><td>firstName</td><td>string</td><td>First name of user (for display purposes). Optional. Only valid in the context of &quot;lastRegisteredBy&quot; property. Cannot be specified when providing security principal for &quot;roles&quot;, &quot;permissions&quot; and &quot;experts&quot;.</td></tr>
+<tr><td></td><td>lastName</td><td>string</td><td>Last name of user (for display purposes). Optional. Only valid in the context of &quot;lastRegisteredBy&quot; property. Cannot be specified when providing security principal for &quot;roles&quot;, &quot;permissions&quot; and &quot;experts&quot;.</td></tr>
 
 <tr><td>Column</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Name of the column or attribute.</td></tr>

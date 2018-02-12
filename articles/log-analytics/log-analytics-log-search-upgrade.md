@@ -63,21 +63,21 @@ After the upgrade has completed, there will be an **Upgrade Summary** section in
 ## How do I manually perform the upgrade?
 You can upgrade your workspace when you see the banner at the top of the portal.  
 
-1.	Start the upgrade process by clicking on the banner that says **Learn more and upgrade**.
+1.  Start the upgrade process by clicking on the banner that says **Learn more and upgrade**.
 
     ![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
 
-2.	Read through the additional information about the upgrade on the upgrade information page.
+2.  Read through the additional information about the upgrade on the upgrade information page.
 
     ![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
 
-3.	Click **Upgrade Now** to start the upgrade.
+3.  Click **Upgrade Now** to start the upgrade.
 
     ![Upgrade 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>A notification box in the upper right corner shows the status.
     
     ![Upgrade 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
 
-4.	That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.
+4.  That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.
 
     ![Upgrade 6](media/log-analytics-log-search-upgrade/upgrade-06.png)
 

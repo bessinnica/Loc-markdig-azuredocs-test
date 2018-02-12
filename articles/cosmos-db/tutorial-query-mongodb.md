@@ -152,7 +152,7 @@ The next query returns all the families which are registered.
     
     db.families.find( { "isRegistered" : true })
 **Results**
-	No document will be returned. 
+    No document will be returned. 
 
 ## <a id="examplequery4"></a>Example query 4
 
@@ -163,39 +163,39 @@ The next query returns all the families which are not registered.
     db.families.find( { "isRegistered" : false })
 **Results**
 
-	 {
-	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
-	"id": "WakefieldFamily",
-	"parents": [{
-		"familyName": "Wakefield",
-		"givenName": "Robin"
-	}, {
-		"familyName": "Miller",
-		"givenName": "Ben"
-	}],
-	"children": [{
-		"familyName": "Merriam",
-		"givenName": "Jesse",
-		"gender": "female",
-		"grade": 1,
-		"pets": [{
-			"givenName": "Goofy"
-		}, {
-			"givenName": "Shadow"
-		}]
-	}, {
-		"familyName": "Miller",
-		"givenName": "Lisa",
-		"gender": "female",
-		"grade": 8
-	}],
-	"address": {
-		"state": "NY",
-		"county": "Manhattan",
-		"city": "NY"
-	},
-	"creationDate": 1431620462,
-	"isRegistered": false
+     {
+    "_id": ObjectId("58f65e1198f3a12c7090e68c"),
+    "id": "WakefieldFamily",
+    "parents": [{
+        "familyName": "Wakefield",
+        "givenName": "Robin"
+    }, {
+        "familyName": "Miller",
+        "givenName": "Ben"
+    }],
+    "children": [{
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "gender": "female",
+        "grade": 1,
+        "pets": [{
+            "givenName": "Goofy"
+        }, {
+            "givenName": "Shadow"
+        }]
+    }, {
+        "familyName": "Miller",
+        "givenName": "Lisa",
+        "gender": "female",
+        "grade": 8
+    }],
+    "address": {
+        "state": "NY",
+        "county": "Manhattan",
+        "city": "NY"
+    },
+    "creationDate": 1431620462,
+    "isRegistered": false
 }
 
 ## <a id="examplequery5"></a>Example query 5
@@ -208,39 +208,39 @@ The next query returns all the families which are not registered and state is NY
 
 **Results**
 
-	 {
-	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
-	"id": "WakefieldFamily",
-	"parents": [{
-		"familyName": "Wakefield",
-		"givenName": "Robin"
-	}, {
-		"familyName": "Miller",
-		"givenName": "Ben"
-	}],
-	"children": [{
-		"familyName": "Merriam",
-		"givenName": "Jesse",
-		"gender": "female",
-		"grade": 1,
-		"pets": [{
-			"givenName": "Goofy"
-		}, {
-			"givenName": "Shadow"
-		}]
-	}, {
-		"familyName": "Miller",
-		"givenName": "Lisa",
-		"gender": "female",
-		"grade": 8
-	}],
-	"address": {
-		"state": "NY",
-		"county": "Manhattan",
-		"city": "NY"
-	},
-	"creationDate": 1431620462,
-	"isRegistered": false
+     {
+    "_id": ObjectId("58f65e1198f3a12c7090e68c"),
+    "id": "WakefieldFamily",
+    "parents": [{
+        "familyName": "Wakefield",
+        "givenName": "Robin"
+    }, {
+        "familyName": "Miller",
+        "givenName": "Ben"
+    }],
+    "children": [{
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "gender": "female",
+        "grade": 1,
+        "pets": [{
+            "givenName": "Goofy"
+        }, {
+            "givenName": "Shadow"
+        }]
+    }, {
+        "familyName": "Miller",
+        "givenName": "Lisa",
+        "gender": "female",
+        "grade": 8
+    }],
+    "address": {
+        "state": "NY",
+        "county": "Manhattan",
+        "city": "NY"
+    },
+    "creationDate": 1431620462,
+    "isRegistered": false
 }
 
 
@@ -254,39 +254,39 @@ The next query returns all the families where children grades are 8.
 
 **Results**
 
-	 {
-	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
-	"id": "WakefieldFamily",
-	"parents": [{
-		"familyName": "Wakefield",
-		"givenName": "Robin"
-	}, {
-		"familyName": "Miller",
-		"givenName": "Ben"
-	}],
-	"children": [{
-		"familyName": "Merriam",
-		"givenName": "Jesse",
-		"gender": "female",
-		"grade": 1,
-		"pets": [{
-			"givenName": "Goofy"
-		}, {
-			"givenName": "Shadow"
-		}]
-	}, {
-		"familyName": "Miller",
-		"givenName": "Lisa",
-		"gender": "female",
-		"grade": 8
-	}],
-	"address": {
-		"state": "NY",
-		"county": "Manhattan",
-		"city": "NY"
-	},
-	"creationDate": 1431620462,
-	"isRegistered": false
+     {
+    "_id": ObjectId("58f65e1198f3a12c7090e68c"),
+    "id": "WakefieldFamily",
+    "parents": [{
+        "familyName": "Wakefield",
+        "givenName": "Robin"
+    }, {
+        "familyName": "Miller",
+        "givenName": "Ben"
+    }],
+    "children": [{
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "gender": "female",
+        "grade": 1,
+        "pets": [{
+            "givenName": "Goofy"
+        }, {
+            "givenName": "Shadow"
+        }]
+    }, {
+        "familyName": "Miller",
+        "givenName": "Lisa",
+        "gender": "female",
+        "grade": 8
+    }],
+    "address": {
+        "state": "NY",
+        "county": "Manhattan",
+        "city": "NY"
+    },
+    "creationDate": 1431620462,
+    "isRegistered": false
 }
 
 ## <a id="examplequery7"></a>Example query 7

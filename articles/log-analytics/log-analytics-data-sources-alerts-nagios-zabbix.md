@@ -27,18 +27,18 @@ Perform the following steps on the Nagios server to collect alerts.
 
 1. Grant the user **omsagent** read access to the Nagios log file (i.e. `/var/log/nagios/nagios.log`). Assuming the nagios.log file is owned by the group `nagios`, you can add the user **omsagent** to the **nagios** group. 
 
-	sudo usermod -a -G nagios omsagent
+    sudo usermod -a -G nagios omsagent
 
-2.	Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out:  
+2.  Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out:  
 
         <source>  
           type tail  
           #Update path to point to your nagios.log  
-	      path /var/log/nagios/nagios.log  
+          path /var/log/nagios/nagios.log  
           format none  
           tag oms.nagios  
         </source>  
-	  
+      
         <filter oms.nagios>  
           type filter_nagios_log  
         </filter>  
@@ -57,17 +57,17 @@ Perform the following steps on the Nagios server to collect alerts.
 1. Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out.  Change the user name and password to values for your Zabbix environment.
 
         <source>
-	     type zabbix_alerts
-	     run_interval 1m
-	     tag oms.zabbix
-	     zabbix_url http://localhost/zabbix/api_jsonrpc.php
-	     zabbix_username Admin
-	     zabbix_password zabbix
+         type zabbix_alerts
+         run_interval 1m
+         tag oms.zabbix
+         zabbix_url http://localhost/zabbix/api_jsonrpc.php
+         zabbix_username Admin
+         zabbix_password zabbix
         </source>
 
 2. Restart the omsagent daemon
 
-	sudo sh /opt/microsoft/omsagent/bin/service_control restart
+    sudo sh /opt/microsoft/omsagent/bin/service_control restart
 
 
 ## Alert records

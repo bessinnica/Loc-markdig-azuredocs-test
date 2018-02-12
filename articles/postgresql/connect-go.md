@@ -104,56 +104,56 @@ Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameters with your own 
 package main
 
 import (
-	"database/sql"
-	"fmt"
-	_ "github.com/lib/pq"
+    "database/sql"
+    "fmt"
+    _ "github.com/lib/pq"
 )
 
 const (
-	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
-	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
-	PASSWORD = "<server_admin_password>"
+    // Initialize connection constants.
+    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    DATABASE = "mypgsqldb"
+    USER     = "mylogin@mypgserver-20170401"
+    PASSWORD = "<server_admin_password>"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
-	// Initialize connection string.
-	var connectionString string = fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
+    // Initialize connection string.
+    var connectionString string = fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
 
-	// Initialize connection object.
-	db, err := sql.Open("postgres", connectionString)
-	checkError(err)
+    // Initialize connection object.
+    db, err := sql.Open("postgres", connectionString)
+    checkError(err)
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database")
 
-	// Drop previous table of same name if one exists.
-	_, err = db.Exec("DROP TABLE IF EXISTS inventory;")
-	checkError(err)
-	fmt.Println("Finished dropping table (if existed)")
+    // Drop previous table of same name if one exists.
+    _, err = db.Exec("DROP TABLE IF EXISTS inventory;")
+    checkError(err)
+    fmt.Println("Finished dropping table (if existed)")
 
-	// Create table.
-	_, err = db.Exec("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
-	checkError(err)
-	fmt.Println("Finished creating table")
+    // Create table.
+    _, err = db.Exec("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
+    checkError(err)
+    fmt.Println("Finished creating table")
 
-	// Insert some data into table.
-	sql_statement := "INSERT INTO inventory (name, quantity) VALUES ($1, $2);"
-	_, err = db.Exec(sql_statement, "banana", 150)
-	checkError(err)
-	_, err = db.Exec(sql_statement, "orange", 154)
-	checkError(err)
-	_, err = db.Exec(sql_statement, "apple", 100)
-	checkError(err)
-	fmt.Println("Inserted 3 rows of data")
+    // Insert some data into table.
+    sql_statement := "INSERT INTO inventory (name, quantity) VALUES ($1, $2);"
+    _, err = db.Exec(sql_statement, "banana", 150)
+    checkError(err)
+    _, err = db.Exec(sql_statement, "orange", 154)
+    checkError(err)
+    _, err = db.Exec(sql_statement, "apple", 100)
+    checkError(err)
+    fmt.Println("Inserted 3 rows of data")
 }
 ```
 
@@ -171,57 +171,57 @@ Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameters with your own 
 package main
 
 import (
-	"database/sql"
-	"fmt"
-	_ "github.com/lib/pq"
+    "database/sql"
+    "fmt"
+    _ "github.com/lib/pq"
 )
 
 const (
-	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
-	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
-	PASSWORD = "<server_admin_password>"
+    // Initialize connection constants.
+    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    DATABASE = "mypgsqldb"
+    USER     = "mylogin@mypgserver-20170401"
+    PASSWORD = "<server_admin_password>"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
 
-	// Initialize connection string.
-	var connectionString string = fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
+    // Initialize connection string.
+    var connectionString string = fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
 
-	// Initialize connection object.
-	db, err := sql.Open("postgres", connectionString)
-	checkError(err)
+    // Initialize connection object.
+    db, err := sql.Open("postgres", connectionString)
+    checkError(err)
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database")
 
-	// Read rows from table.
-	var id int
-	var name string
-	var quantity int
+    // Read rows from table.
+    var id int
+    var name string
+    var quantity int
 
-	sql_statement := "SELECT * from inventory;"
-	rows, err := db.Query(sql_statement)
-	checkError(err)
+    sql_statement := "SELECT * from inventory;"
+    rows, err := db.Query(sql_statement)
+    checkError(err)
 
-	for rows.Next() {
-		switch err := rows.Scan(&id, &name, &quantity); err {
-		case sql.ErrNoRows:
-			fmt.Println("No rows were returned")
-		case nil:
-			fmt.Printf("Data row = (%d, %s, %d)\n", id, name, quantity)
-		default:
-			checkError(err)
-		}
-	}
+    for rows.Next() {
+        switch err := rows.Scan(&id, &name, &quantity); err {
+        case sql.ErrNoRows:
+            fmt.Println("No rows were returned")
+        case nil:
+            fmt.Printf("Data row = (%d, %s, %d)\n", id, name, quantity)
+        default:
+            checkError(err)
+        }
+    }
 }
 ```
 
@@ -243,38 +243,38 @@ import (
 )
 
 const (
-	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
-	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
-	PASSWORD = "<server_admin_password>"
+    // Initialize connection constants.
+    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    DATABASE = "mypgsqldb"
+    USER     = "mylogin@mypgserver-20170401"
+    PASSWORD = "<server_admin_password>"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
-	
-	// Initialize connection string.
-	var connectionString string = 
-		fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
+    
+    // Initialize connection string.
+    var connectionString string = 
+        fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
 
-	// Initialize connection object.
-	db, err := sql.Open("postgres", connectionString)
-	checkError(err)
+    // Initialize connection object.
+    db, err := sql.Open("postgres", connectionString)
+    checkError(err)
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database")
 
-	// Modify some data in table.
-	sql_statement := "UPDATE inventory SET quantity = $2 WHERE name = $1;"
-	_, err = db.Exec(sql_statement, "banana", 200)
-	checkError(err)
-	fmt.Println("Updated 1 row of data")
+    // Modify some data in table.
+    sql_statement := "UPDATE inventory SET quantity = $2 WHERE name = $1;"
+    _, err = db.Exec(sql_statement, "banana", 200)
+    checkError(err)
+    fmt.Println("Updated 1 row of data")
 }
 ```
 
@@ -296,38 +296,38 @@ import (
 )
 
 const (
-	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
-	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
-	PASSWORD = "<server_admin_password>"
+    // Initialize connection constants.
+    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    DATABASE = "mypgsqldb"
+    USER     = "mylogin@mypgserver-20170401"
+    PASSWORD = "<server_admin_password>"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
-	
-	// Initialize connection string.
-	var connectionString string = 
-		fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
+    
+    // Initialize connection string.
+    var connectionString string = 
+        fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=require", HOST, USER, PASSWORD, DATABASE)
 
-	// Initialize connection object.
-	db, err := sql.Open("postgres", connectionString)
-	checkError(err)
+    // Initialize connection object.
+    db, err := sql.Open("postgres", connectionString)
+    checkError(err)
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database")
 
-	// Delete some data from table.
-	sql_statement := "DELETE FROM inventory WHERE name = $1;"
-	_, err = db.Exec(sql_statement, "orange")
-	checkError(err)
-	fmt.Println("Deleted 1 row of data")
+    // Delete some data from table.
+    sql_statement := "DELETE FROM inventory WHERE name = $1;"
+    _, err = db.Exec(sql_statement, "orange")
+    checkError(err)
+    fmt.Println("Deleted 1 row of data")
 }
 ```
 

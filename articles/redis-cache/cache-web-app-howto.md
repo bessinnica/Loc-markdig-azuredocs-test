@@ -99,84 +99,84 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![Add model class][cache-model-add-class-dialog]
 3. Replace the `using` statements at the top of the `Team.cs` file with the following `using` statements:
 
-	```csharp
-	using System;
-	using System.Collections.Generic;
-	using System.Data.Entity;
-	using System.Data.Entity.SqlServer;
-	```
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.SqlServer;
+    ```
 
 
 1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
 
-	```csharp
-	public class Team
-	{
-	    public int ID { get; set; }
-	    public string Name { get; set; }
-	    public int Wins { get; set; }
-	    public int Losses { get; set; }
-	    public int Ties { get; set; }
-	
-	    static public void PlayGames(IEnumerable<Team> teams)
-	    {
-	        // Simple random generation of statistics.
-	        Random r = new Random();
-	
-	        foreach (var t in teams)
-	        {
-	            t.Wins = r.Next(33);
-	            t.Losses = r.Next(33);
-	            t.Ties = r.Next(0, 5);
-	        }
-	    }
-	}
-	
-	public class TeamContext : DbContext
-	{
-	    public TeamContext()
-	        : base("TeamContext")
-	    {
-	    }
-	
-	    public DbSet<Team> Teams { get; set; }
-	}
-	
-	public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
-	{
-	    protected override void Seed(TeamContext context)
-	    {
-	        var teams = new List<Team>
-	        {
-	            new Team{Name="Adventure Works Cycles"},
-	            new Team{Name="Alpine Ski House"},
-	            new Team{Name="Blue Yonder Airlines"},
-	            new Team{Name="Coho Vineyard"},
-	            new Team{Name="Contoso, Ltd."},
-	            new Team{Name="Fabrikam, Inc."},
-	            new Team{Name="Lucerne Publishing"},
-	            new Team{Name="Northwind Traders"},
-	            new Team{Name="Consolidated Messenger"},
-	            new Team{Name="Fourth Coffee"},
-	            new Team{Name="Graphic Design Institute"},
-	            new Team{Name="Nod Publishers"}
-	        };
-	
-	        Team.PlayGames(teams);
-	
-	        teams.ForEach(t => context.Teams.Add(t));
-	        context.SaveChanges();
-	    }
-	}
-	
-	public class TeamConfiguration : DbConfiguration
-	{
-	    public TeamConfiguration()
-	    {
-	        SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
-	    }
-	}
-	```
+    ```csharp
+    public class Team
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Wins { get; set; }
+        public int Losses { get; set; }
+        public int Ties { get; set; }
+    
+        static public void PlayGames(IEnumerable<Team> teams)
+        {
+            // Simple random generation of statistics.
+            Random r = new Random();
+    
+            foreach (var t in teams)
+            {
+                t.Wins = r.Next(33);
+                t.Losses = r.Next(33);
+                t.Ties = r.Next(0, 5);
+            }
+        }
+    }
+    
+    public class TeamContext : DbContext
+    {
+        public TeamContext()
+            : base("TeamContext")
+        {
+        }
+    
+        public DbSet<Team> Teams { get; set; }
+    }
+    
+    public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
+    {
+        protected override void Seed(TeamContext context)
+        {
+            var teams = new List<Team>
+            {
+                new Team{Name="Adventure Works Cycles"},
+                new Team{Name="Alpine Ski House"},
+                new Team{Name="Blue Yonder Airlines"},
+                new Team{Name="Coho Vineyard"},
+                new Team{Name="Contoso, Ltd."},
+                new Team{Name="Fabrikam, Inc."},
+                new Team{Name="Lucerne Publishing"},
+                new Team{Name="Northwind Traders"},
+                new Team{Name="Consolidated Messenger"},
+                new Team{Name="Fourth Coffee"},
+                new Team{Name="Graphic Design Institute"},
+                new Team{Name="Nod Publishers"}
+            };
+    
+            Team.PlayGames(teams);
+    
+            teams.ForEach(t => context.Teams.Add(t));
+            context.SaveChanges();
+        }
+    }
+    
+    public class TeamConfiguration : DbConfiguration
+    {
+        public TeamConfiguration()
+        {
+            SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
+        }
+    }
+    ```
 
 
 1. In **Solution Explorer**, double-click **web.config** to open it.
@@ -184,23 +184,23 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![Web.config][cache-web-config]
 2. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
 
-	```xml
-	<connectionStrings>
-	    <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-	</connectionStrings>
-	```
+    ```xml
+    <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    ```
 
     The following example shows the new `connectionStrings` section following `configSections` inside the `configuration` section:
 
     ```xml
-	<configuration>
-	  <configSections>
-	    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-	    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-	  </configSections>
-	  <connectionStrings>
-	    <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
-	  </connectionStrings>
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
       ...
       ```
 
@@ -223,17 +223,17 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![Global.asax.cs][cache-global-asax]
 6. Add the following two `using` statements at the top of the file under the other `using` statements:
 
-	```csharp
-	using System.Data.Entity;
-	using ContosoTeamStats.Models;
-	```
+    ```csharp
+    using System.Data.Entity;
+    using ContosoTeamStats.Models;
+    ```
 
 
 1. Add the following line of code at the end of the `Application_Start` method:
 
-	```csharp
-	Database.SetInitializer<TeamContext>(new TeamInitializer());
-	```
+    ```csharp
+    Database.SetInitializer<TeamContext>(new TeamInitializer());
+    ```
 
 
 1. In **Solution Explorer**, expand `App_Start` and double-click `RouteConfig.cs`.
@@ -241,13 +241,13 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Replace `controller = "Home"` in the following code in the `RegisterRoutes` method with `controller = "Teams"` as shown in the following example:
 
-	```csharp
-	routes.MapRoute(
-	    name: "Default",
-	    url: "{controller}/{action}/{id}",
-	    defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
-	);
-	```
+    ```csharp
+    routes.MapRoute(
+        name: "Default",
+        url: "{controller}/{action}/{id}",
+        defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
+    );
+    ```
 
 
 ### Configure the views
@@ -256,9 +256,9 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![_Layout.cshtml][cache-layout-cshtml]
 2. Change the contents of the `title` element and replace `My ASP.NET Application` with `Contoso Team Stats` as shown in the following example:
 
-	```html
-	<title>@ViewBag.Title - Contoso Team Stats</title>
-	```
+    ```html
+    <title>@ViewBag.Title - Contoso Team Stats</title>
+    ```
 
 
 1. In the `body` section, update the first `Html.ActionLink` statement and replace `Application name` with `Contoso Team Stats` and replace `Home` with `Teams`.
@@ -293,29 +293,29 @@ In this section of the tutorial, you configure the sample application to store a
     ![Teams controller][cache-teamscontroller]
 4. Add the following two `using` statements to **TeamsController.cs**:
 
-	```csharp   
-	using System.Configuration;
-	using StackExchange.Redis;
-	```
+    ```csharp   
+    using System.Configuration;
+    using StackExchange.Redis;
+    ```
 
 5. Add the following two properties to the `TeamsController` class:
 
-	```csharp   
-	// Redis Connection string info
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-	    string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-	    return ConnectionMultiplexer.Connect(cacheConnection);
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
-	```
+    ```csharp   
+    // Redis Connection string info
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
+        }
+    }
+    ```
 
 6. Create a file on your computer named `WebAppPlusCacheAppSecrets.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example, the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
    
@@ -349,10 +349,10 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 1. Add the following `using` statements to the `TeamsController.cs` file at the top with the other `using` statements:
 
-	```csharp   
-	using System.Diagnostics;
-	using Newtonsoft.Json;
-	```
+    ```csharp   
+    using System.Diagnostics;
+    using Newtonsoft.Json;
+    ```
 
 2. Replace the current `public ActionResult Index()` method implementation with the following implementation:
 

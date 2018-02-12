@@ -42,9 +42,9 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 
 ### Q: Does the B-Series support Premium Storage data disks?
 **A**: Yes, all B-Series sizes support Premium Storage data disks.   
-	
+    
 
 
-	
+    
 
-	
+    

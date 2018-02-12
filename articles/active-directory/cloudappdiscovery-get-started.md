@@ -31,7 +31,7 @@ Cloud App Discovery in Azure AD is now based on integration with data available 
 
 ## Setup steps
 
-1. [Set up snapshot reports](cloudappdiscovery-set-up-snapshots.md) to check your log format make sure your logs provide usable information to Cloud App Discovery. They can also provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers.
+1. [Set up snapshot reports](cloudappdiscovery-set-up-snapshots.md) to check your log format make sure your logs provide usable information to Cloud App Discovery. They can also provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers.
 
 2. [Set up continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker) to analyze all logs that are forwarded from your network using the Cloud App Security log collector. You can use them to identify new apps and usage trends.
 
@@ -62,12 +62,12 @@ Cloud App Discovery uses the data in your traffic logs. The more detail you can 
 * Source IP address
 * Source user **recommended**
 * Destination IP address
-* Destination URL **recommended** (URLs provide more accuracy for cloud app detection than IP addresses)
+* Destination URL **recommended** (URLs provide more accuracy for cloud app detection than IP addresses)
 * Total amount of data
 * Amount of uploaded or downloaded data, for insights about patterns of cloud app usage
 * Action taken (allowed/blocked)
 
-Cloud App Discovery can't show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, set the information level to 6.1.
+Cloud App Discovery can't show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, set the information level to 6.1.
 
 In order to successfully generate a Cloud App Discovery report, your traffic logs must meet the following conditions:
 
@@ -105,7 +105,7 @@ In order to successfully generate a Cloud App Discovery report, your traffic log
 > [!NOTE]
 > Cloud App Discovery supports both IPv4 and IPv6 addresses.
 
-If your log is not supported, select **Other** as the **Data source** and specify the device and log you are trying to upload. Your log is reviewed by the Cloud App Security cloud analyst team. When support for your log type is added we notify you, but instead, you can define a custom parser that matches your log format. For more information, see [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser).
+If your log is not supported, select **Other** as the **Data source** and specify the device and log you are trying to upload. Your log is reviewed by the Cloud App Security cloud analyst team. When support for your log type is added we notify you, but instead, you can define a custom parser that matches your log format. For more information, see [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser).
 
 ## Data attributes (according to vendor documentation)
 

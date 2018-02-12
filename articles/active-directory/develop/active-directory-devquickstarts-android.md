@@ -78,7 +78,7 @@ To build with Maven, you can use pom.xml at the top level:
 
 1. Clone this repo into a directory of your choice:
 
-  `$ git clone git@github.com:AzureADSamples/NativeClient-Android.git`  
+   `$ git clone git@github.com:AzureADSamples/NativeClient-Android.git`  
 2. Follow the steps in the [prerequisites to set up your Maven environment for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
 3. Set up the emulator with SDK 19.
 4. Go to the root folder where you cloned the repo.
@@ -376,3 +376,4 @@ ADAL version 1.1.0 supports an NTLM dialog box that is processed through the onR
 Learn [how to enable cross-app SSO on Android by using ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+

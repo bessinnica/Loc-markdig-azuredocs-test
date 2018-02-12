@@ -53,17 +53,17 @@ You also have the option of replacing the default implementation of the **AzureA
 1. Create a new C# console application in Visual Studio.
 2. Use the [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) NuGet package to install **Azure Media Services .NET SDK**. 
 
-	To add references by using NuGet, take the following steps: in **Solution Explorer**, right-click the project name, and then select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices** and select **Install**.
-	
-	-or-
+    To add references by using NuGet, take the following steps: in **Solution Explorer**, right-click the project name, and then select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices** and select **Install**.
+    
+    -or-
 
-	Run the following command in **Package Manager Console** in Visual Studio.
+    Run the following command in **Package Manager Console** in Visual Studio.
 
-		Install-Package windowsazure.mediaservices -Version 4.0.0.4
+        Install-Package windowsazure.mediaservices -Version 4.0.0.4
 
 3. Add **using** to your source code.
 
-		using Microsoft.WindowsAzure.MediaServices.Client; 
+        using Microsoft.WindowsAzure.MediaServices.Client; 
 
 ## Use user authentication
 
@@ -79,9 +79,9 @@ The values for these parameters can be found in **AzureEnvironments.AzureCloudEn
 It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, or **AzureGermanCloudEnvironment** respectively.
 
 The following code example creates a token:
-	
-	var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
-	var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+    
+    var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
+    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
   
 To start programming against Media Services, you need to create a **CloudMediaContext** instance that represents the server context. The **CloudMediaContext** includes references to important collections including jobs, assets, files, access policies, and locators. 
 
@@ -89,39 +89,39 @@ You also need to pass the **resource URI for Media REST Services** to the **Clou
 
 The following code example creates a **CloudMediaContext** instance:
 
-	CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+    CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
 
 The following example shows how to create the Azure AD token and the context:
 
-	namespace AADAuthSample
-	{
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-				// Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
-	            var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
-	
-	            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-	
-				// Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".
-	            CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-	
-	            var assets = context.Assets;
-	            foreach (var a in assets)
-	            {
-	                Console.WriteLine(a.Name);
-	            }
-	        }
-	
-	    }
-	}
+    namespace AADAuthSample
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
+                var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
+    
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+    
+                // Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".
+                CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+    
+                var assets = context.Assets;
+                foreach (var a in assets)
+                {
+                    Console.WriteLine(a.Name);
+                }
+            }
+    
+        }
+    }
 
 >[!NOTE]
 >If you get an exception that says "The remote server returned an error: (401) Unauthorized," see the [Access control](media-services-use-aad-auth-to-access-ams-api.md#access-control) section of Accessing Azure Media Services API with Azure AD authentication overview.
 
 ## Use service principal authentication
-	
+    
 To connect to the Azure Media Services API with the service principal option, your middle-tier app (web API or web application) needs to requests an Azure AD token with the following parameters:  
 
 - Azure AD tenant endpoint. The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper-right corner.
@@ -131,56 +131,56 @@ To connect to the Azure Media Services API with the service principal option, yo
 The values for the **Client ID** and **Client secret** parameters can be found in the Azure portal. For more information, see [Getting started with Azure AD authentication using the Azure portal](media-services-portal-get-started-with-aad.md).
 
 The following code example creates a token by using the **AzureAdTokenCredentials** constructor that takes **AzureAdClientSymmetricKey** as a parameter: 
-	
-	var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
-								new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
-								AzureEnvironments.AzureCloudEnvironment);
+    
+    var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
+                                new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
+                                AzureEnvironments.AzureCloudEnvironment);
 
-	var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
 You can also specify the **AzureAdTokenCredentials** constructor that takes **AzureAdClientCertificate** as a parameter. 
 
 For instructions about how to create and configure a certificate in a form that can be used by Azure AD, see [Authenticating to Azure AD in daemon apps with certificates - manual configuration steps](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md).
 
     var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
-								new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
-								AzureEnvironments.AzureCloudEnvironment);
+                                new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
+                                AzureEnvironments.AzureCloudEnvironment);
 
 To start programming against Media Services, you need to create a **CloudMediaContext** instance that represents the server context. You also need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. You can get the **resource URI for Media REST Services** value from the Azure portal as well.
 
 The following code example creates a **CloudMediaContext** instance:
 
-	CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-	
+    CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+    
 The following example shows how to create the Azure AD token and the context:
 
-	namespace AADAuthSample
-	{
-	
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-				var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
-											new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
-											AzureEnvironments.AzureCloudEnvironment);
-			
-				var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-	
-				// Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".		
-				CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-	
-	            var assets = context.Assets;
-	            foreach (var a in assets)
-	            {
-	                Console.WriteLine(a.Name);
-	            }
-	
-	            Console.ReadLine();
-	        }
-	
-	    }
-	}
+    namespace AADAuthSample
+    {
+    
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
+                                            new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
+                                            AzureEnvironments.AzureCloudEnvironment);
+            
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+    
+                // Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
+                CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+    
+                var assets = context.Assets;
+                foreach (var a in assets)
+                {
+                    Console.WriteLine(a.Name);
+                }
+    
+                Console.ReadLine();
+            }
+    
+        }
+    }
 
 ## Next steps
 

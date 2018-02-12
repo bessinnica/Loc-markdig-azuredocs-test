@@ -38,11 +38,11 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
 
 1. On the VM's management pane, select **Create custom image (VHD)**.
 
-	![Create custom image menu item](./media/devtest-lab-create-template/create-custom-image.png)
+    ![Create custom image menu item](./media/devtest-lab-create-template/create-custom-image.png)
 
 1. On the **Custom image** pane, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM.
 
-	![Create custom image pane](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Create custom image pane](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep run when a VM is created from this custom image.
 

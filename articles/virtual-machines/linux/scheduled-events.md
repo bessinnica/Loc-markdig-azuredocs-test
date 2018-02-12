@@ -130,6 +130,7 @@ In the case where there are scheduled events, the response contains an array of 
 ```
 
 ### Event properties
+
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -155,11 +156,11 @@ After you learn of an upcoming event and finish your logic for graceful shutdown
 The following JSON sample is expected in the `POST` request body. The request should contain a list of `StartRequests`. Each `StartRequest` contains `EventId` for the event you want to expedite:
 ```
 {
-	"StartRequests" : [
-		{
-			"EventId": {EventId}
-		}
-	]
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
 }
 ```
 

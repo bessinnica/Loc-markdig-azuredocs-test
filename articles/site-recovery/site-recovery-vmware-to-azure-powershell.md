@@ -69,7 +69,7 @@ ProvisioningState : Succeeded
 Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
 ```
-   
+
 * Create a Recovery services vault. In the example below, the Recovery services vault is named VMwareDRToAzurePs, and is created in the East Asia region and in the resource group created in the previous step.
 
 ```azurepowershell
@@ -107,7 +107,7 @@ Use the downloaded vault registration key and follow the steps in the articles g
 ## Set the vault context
 
 > [!TIP]
-> The Azure Site Recovery PowerShell module (AzureRm.RecoveryServices.SiteRecovery module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* and have equivalent aliases that take the form *\<Operation>-**ASR**\<Object>*. This article uses the cmdlet aliases for ease of reading.
+> The Azure Site Recovery PowerShell module (AzureRm.RecoveryServices.SiteRecovery module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form <em>\<Operation>-</em><em>AzureRmRecoveryServicesAsr</em><em>\<Object></em> and have equivalent aliases that take the form <em>\<Operation>-</em><em>ASR</em><em>\<Object></em>. This article uses the cmdlet aliases for ease of reading.
 
 Set the vault context using the Set-ASRVaultContext cmdlet. Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault. In the example below, the vault details from the $vault variable is used to specify the vault context for the PowerShell session.
  ```azurepowershell
@@ -263,7 +263,6 @@ while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_Associate
         $Job_AssociateFailbackPolicy = Get-ASRJob -Job $Job_AssociateFailbackPolicy
 }
 $Job_AssociateFailbackPolicy.State
-
 ```
 
 ## Add a vCenter server and discover VMware virtual machines
@@ -342,7 +341,7 @@ Now replicate the following virtual machines using the settings specified in thi
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 |CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
- 
+
 ```azurepowershell
 
 #Get the target resource group to be used
@@ -372,7 +371,6 @@ $VM3 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -Friendl
 
 # Enable replication for virtual machine CentOSVM2
 $Job_EnableRepication3 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" 
-
 ```
 
 Once the enable replication job completes successfully, initial replication is started for the virtual machines. Initial replication may take a while depending on the amount of data to be replicated and the bandwidth available for replication. After initial replication completes, the virtual machine moves to a protected state. Once the virtual machine reaches a protected state you can perform a test failover for the virtual machine, add it to recovery plans etc.

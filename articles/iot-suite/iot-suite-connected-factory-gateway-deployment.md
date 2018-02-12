@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy your Connected factory gateway - Azure | Microsoft Docs
 description: How to deploy a gateway on either Windows or Linux to enable connectivity to the Connected factory preconfigured solution.
 services: ''
@@ -22,9 +22,9 @@ ms.author: dobett
 
 You need two software components to deploy an edge gateway for the *Connected factory* preconfigured solution:
 
-- The *OPC Proxy* establishes a connection to Connected factory. The OPC Proxy then waits for command and control messages from the integrated OPC Browser that runs in the Connected factory solution portal.
+- The *OPC Proxy* establishes a connection to Connected factory. The OPC Proxy then waits for command and control messages from the integrated OPC Browser that runs in the Connected factory solution portal.
 
-- The *OPC Publisher* connects to existing on-premises OPC UA servers and forwards telemetry messages from them to Connected factory. You can connect an OPC classic device using the [OPC classic adapter for OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+- The *OPC Publisher* connects to existing on-premises OPC UA servers and forwards telemetry messages from them to Connected factory. You can connect an OPC classic device using the [OPC classic adapter for OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Both components are open-source and are available as source on GitHub and as Docker containers on DockerHub:
 
@@ -35,27 +35,27 @@ Both components are open-source and are available as source on GitHub and as Doc
 
 You do not need a public-facing IP address or open inbound ports in the gateway firewall for either component. The OPC Proxy and OPC Publisher components only use outbound port 443.
 
-The steps in this article show you how to deploy an edge gateway using Docker on either Windows or Linux. The gateway enables connectivity to the Connected factory preconfigured solution. You can also use the components without Connected factory.
+The steps in this article show you how to deploy an edge gateway using Docker on either Windows or Linux. The gateway enables connectivity to the Connected factory preconfigured solution. You can also use the components without Connected factory.
 
 > [!NOTE]
-> Both components can be used as modules in [Azure IoT Edge](https://github.com/Azure/iot-edge).
+> Both components can be used as modules in [Azure IoT Edge](https://github.com/Azure/iot-edge).
 
 ## Choose a gateway device
 
-If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
+If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
 
 Alternatively, use the following instructions to manually configure an existing gateway device.
 
 ## Install and configure Docker
 
-Install [Docker for Windows](https://www.docker.com/docker-windows) on your Windows-based gateway device or use a package manager to install docker on your Linux-based gateway device.
+Install [Docker for Windows](https://www.docker.com/docker-windows) on your Windows-based gateway device or use a package manager to install docker on your Linux-based gateway device.
 
 During Docker for Windows setup, select a drive on your host machine to share with Docker. The following screenshot shows sharing the **D** drive on your Windows system to allow access to the host drive from inside a docker container:
 
 ![Install Docker for Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> You can also perform this step after installing docker from the **Settings** dialog. Right-click on the **Docker** icon in the Windows system tray and choose **Settings**. If major Windows updates have been deployed to the system, such as the Windows Fall Creators update, unshare the drives and share them again to refresh the access rights.
+> You can also perform this step after installing docker from the **Settings** dialog. Right-click on the **Docker** icon in the Windows system tray and choose **Settings**. If major Windows updates have been deployed to the system, such as the Windows Fall Creators update, unshare the drives and share them again to refresh the access rights.
 
 If you are using Linux, no additional configuration is required to enable access to the file system.
 
@@ -73,11 +73,11 @@ For more information see the [Use volumes](https://docs.docker.com/engine/admin/
 
 Before you install the OPC components, complete the following steps to prepare your environment:
 
-1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected factory deployment. In the [Azure portal](http://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
+1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected factory deployment. In the [Azure portal](http://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
 
     ![Find the IoT Hub connection string](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
-    Copy the **Connection string-primary key** value.
+    Copy the **Connection string-primary key** value.
 
 1. To allow communication between docker containers, you need a user-defined bridge network. To create a bridge network for your containers, run the following commands at a command prompt:
 
@@ -143,9 +143,9 @@ OPC Proxy saves the connection string during the installation. On subsequent run
 
 Complete the following steps to enable your gateway in the Connected factory preconfigured solution:
 
-1. When both components are running, browse to the **Connect your own OPC UA Server** page in the Connected factory solution portal. This page is only available to Administrators in the solution. Enter the publisher endpoint URL (opc.tcp://publisher:62222) and click **Connect**.
+1. When both components are running, browse to the **Connect your own OPC UA Server** page in the Connected factory solution portal. This page is only available to Administrators in the solution. Enter the publisher endpoint URL (opc.tcp://publisher:62222) and click **Connect**.
 
-1. Establish a trust relationship between the Connected factory portal and OPC Publisher. When you see a certificate warning, click **Proceed**. Next, you see an error that the OPC Publisher doesn’t trust the UA Web client. To resolve this error, copy the **UA Web Client** certificate from the `<SharedFolder>/CertificateStores/rejected/certs` folder to the `<SharedFolder>/CertificateStores/trusted/certs` folder on the gateway. You do not need to restart the gateway.
+1. Establish a trust relationship between the Connected factory portal and OPC Publisher. When you see a certificate warning, click **Proceed**. Next, you see an error that the OPC Publisher doesn’t trust the UA Web client. To resolve this error, copy the **UA Web Client** certificate from the `<SharedFolder>/CertificateStores/rejected/certs` folder to the `<SharedFolder>/CertificateStores/trusted/certs` folder on the gateway. You do not need to restart the gateway.
 
 You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
 
@@ -153,7 +153,7 @@ You can now connect to the gateway from the cloud, and you are ready to add OPC 
 
 To add your own OPC UA servers to the Connected factory preconfigured solution:
 
-1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal.
+1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal.
 
     1. Start the OPC UA server you want to connect to. Ensure that your OPC UA server can be reached from OPC Publisher and OPC Proxy running in the container (see the previous comments about name resolution).
     1. Enter the endpoint URL of your OPC UA server (`opc.tcp://<host>:<port>`) and click **Connect**.
@@ -162,12 +162,12 @@ To add your own OPC UA servers to the Connected factory preconfigured solution:
 
         ![Solution portal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
-1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes you want to send values to Connected factory, and select **publish**.
+1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes you want to send values to Connected factory, and select **publish**.
 
-1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the Connected factory portal under **New Factory**.
+1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the Connected factory portal under **New Factory**.
 
 ## Next steps
 
-To learn more about the architecture of the Connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+To learn more about the architecture of the Connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).
+Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

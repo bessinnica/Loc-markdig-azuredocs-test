@@ -50,13 +50,13 @@ There are two ways to create a **Template** resource in the Azure portal.
 3. Select the **Save to Template** command button.
    <br /><br />
 4. Enter the following information:
-   
+
    * Name – Name of the template object (NOTE: This field is an Azure Resource Manager based name. All naming restrictions apply and it cannot be changed once created).
    * Description – Quick summary about the template.
-     
+
      ![Save Template](media/save-template-portal1.PNG)
 5. Click **Save**.
-   
+
    > [!NOTE]
    > The portal shows notifications when the exported Resource Manager template has errors, but you will still be able to save this Resource Manager template to the Templates. Ensure that you check and fix any Resource Manager template issues before redeploying the exported Resource Manager template.
    > 
@@ -103,6 +103,7 @@ You can deploy any **Template** that you have **Read** permissions on. Fill out 
 A **Template** resource can be shared with your peers. Sharing behaves similarly to [role assignment for any resource on Azure](../active-directory/role-based-access-control-configure.md). The **Template** owner provides permissions to other users who can interact with a Template resource. The person or group of people you share the **Template** are able to see the Resource Manager template and its gallery properties.
 
 ### Access control for the Microsoft.Gallery resources
+
 | Role | Permissions |
 | --- | --- |
 | Owner |Allows full control on the Template resource including Share |

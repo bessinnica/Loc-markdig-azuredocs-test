@@ -54,7 +54,7 @@ You can install Giraph on any type of cluster (Hadoop, Storm, HBase, Spark) on A
         <tr><td>Name</td>
             <td>Specify a name for the script action. For example, <b>Install Giraph</b>.</td></tr>
         <tr><td>Script URI</td>
-            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i><a href="https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1" data-raw-source="https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1">https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</a></i></td></tr>
         <tr><td>Node Type</td>
             <td>Specify the nodes on which the customization script is run. You can choose <b>All nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
         <tr><td>Parameters</td>

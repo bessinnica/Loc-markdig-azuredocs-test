@@ -106,6 +106,7 @@ Each blob has records on all the operation that took place during the same hour.
 | properties |object |see the following table |Object containing operation-specific data |
 
 **Properties schema**
+
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
@@ -114,6 +115,7 @@ Each blob has records on all the operation that took place during the same hour.
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 
 #### Metrics schema
+
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource id |

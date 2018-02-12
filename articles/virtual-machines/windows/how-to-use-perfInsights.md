@@ -27,7 +27,7 @@ If you are experiencing performance problems with virtual machines, before conta
 
 PerfInsights can collect and analyze several kinds of information. The following sections cover common scenarios.
 
-### Collect basic configuration 
+### Collect basic configuration 
 
 This scenario collects the disk configuration and other important information, including:
 
@@ -57,27 +57,27 @@ This is a passive collection of information that shouldn't affect the system.
 
 ### Benchmarking
 
-This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
+This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
-### Slow VM analysis 
+### Slow VM analysis 
 
 This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the Generalcounters.txt file. If the VM is identified as a server that is running SQL Server, it runs a performance counter trace. It does so by using the counters that are found in the Sqlcounters.txt file, and it also includes performance diagnostics data.
 
 ### Slow VM analysis and benchmarking
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [Diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
+This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [Diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
-### Azure Files analysis 
+### Azure Files analysis 
 
-This scenario runs a special performance counter capture together with a network trace. The capture includes all the Server Message Block (SMB) client shares counters. The following are some key SMB client share performance counters that are part of the capture:
+This scenario runs a special performance counter capture together with a network trace. The capture includes all the Server Message Block (SMB) client shares counters. The following are some key SMB client share performance counters that are part of the capture:
 
 | **Type**     | **SMB client shares counter** |
 |--------------|-------------------------------|
@@ -97,7 +97,7 @@ This scenario runs a special performance counter capture together with a network
 |              | Avg. Write Queue Length       |
 |              | Avg. Data Queue Length        |
 
-### Custom slow VM analysis 
+### Custom slow VM analysis 
 
 When you run a custom slow VM analysis, you select traces to run in parallel. You can run them all (Performance Counter, Xperf, Network, and StorPort) if you want. After tracing is completed, the tool runs the Diskspd benchmark, if it is selected. 
 
@@ -172,7 +172,7 @@ Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
 #### Script requirements
 
--  This script must be run on the VM that has the performance issue. 
+-  This script must be run on the VM that has the performance issue. 
 
 -  The following operating systems are supported: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016; Windows 8.1 and Windows 10.
 

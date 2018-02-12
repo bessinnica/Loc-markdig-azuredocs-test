@@ -68,9 +68,9 @@ There is often a need to have multiple users load data into a data warehouse. Lo
 For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
-```   
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+```   
 
 User_A and user_B are now locked out from the other dept’s schema.
 

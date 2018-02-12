@@ -79,7 +79,7 @@ The `one-of` element specifies alternative expansions among one of the child `it
 
 ### ruleref Element
 The `ruleref` element specifies valid expansions via references to another `rule` element.  Through the use of `ruleref` elements, more complex expressions can be built from simpler rules.  The required `uri` attribute indicates the name of the referenced `rule` using the syntax "#*rulename*".  To capture the semantic output of the referenced rule, use the optional `name` attribute to specify the name of a variable to which the semantic output is assigned.
- 
+
 ```xml
 <ruleref uri="#GetPaperYear" name="year"/>
 ```
@@ -146,6 +146,7 @@ The probability of an interpretation path through the grammar is the cumulative 
 Given a probability *p* between 0 and 1, the corresponding log probability can be computed as log(*p*), where log() is the natural log function.  Using log probabilities allows the system to accumulate the joint probability of an interpretation path through simple addition.  It also avoids floating-point underflow common to such joint probability calculations.  Note that by design, the log probability is always a negative floating-point value or 0, where larger values indicate higher likelihood.
 
 <a name="example"></a>
+
 ## Example
 The following is an example XML from the academic publications domain that demonstrates the various elements of a grammar:
 
@@ -154,29 +155,29 @@ The following is an example XML from the academic publications domain that demon
 
   <!-- Import academic data schema-->
   <import schema="academic.schema" name="academic"/>
-  
+
   <!-- Define root rule-->
   <rule id="GetPapers">
     <example>papers about machine learning by michael jordan</example>
-    
+
     papers
     <tag>
       yearOnce = false;
       isBeyondEndOfQuery = false;
       query = All();
     </tag>
-  
+
     <item repeat="1-" repeat-logprob="-10">
       <!-- Do not complete additional attributes beyond end of query -->
       <tag>AssertEquals(isBeyondEndOfQuery, false);</tag>
-		
+
       <one-of>
         <!-- about <keyword> -->
         <item logprob="-0.5">
           about <attrref uri="academic#Keyword" name="keyword"/>
           <tag>query = And(query, keyword);</tag>
         </item>
-        
+
         <!-- by <authorName> [while at <authorAffiliation>] -->
         <item logprob="-1">
           by <attrref uri="academic#Author.Name" name="authorName"/>
@@ -190,7 +191,7 @@ The following is an example XML from the academic publications domain that demon
             query = And(query, authorQuery);
           </tag>
         </item>
-        
+
         <!-- written (in|before|after) <year> -->
         <item logprob="-1.5">
           <!-- Allow this grammar path to be traversed only once -->
@@ -208,7 +209,7 @@ The following is an example XML from the academic publications domain that demon
     </item>
     <tag>out = query;</tag>
   </rule>
-  
+
   <rule id="GetPaperYear">
     <tag>year = All();</tag>
     written

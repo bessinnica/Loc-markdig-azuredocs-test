@@ -161,7 +161,7 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)]
 
 ### Configure an environment variable
 
@@ -367,6 +367,7 @@ By default, the portal shows your web app's **Overview** page. This page gives y
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 ## Next steps
 
 What you learned:

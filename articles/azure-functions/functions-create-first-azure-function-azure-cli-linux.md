@@ -84,3 +84,4 @@ Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+

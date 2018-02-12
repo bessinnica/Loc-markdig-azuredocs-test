@@ -48,6 +48,7 @@ With features:
     C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
 #### Format details
+
 | Name | Mandatory | Type | Description |
 |:--- |:--- |:--- |:--- |
 | Item ID |Yes |[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 |Unique identifier of an item. |

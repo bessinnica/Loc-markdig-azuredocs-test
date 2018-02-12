@@ -27,7 +27,7 @@ As a consumer of Azure Stack services, you can use the Azure Stack portal to sub
 
 Your Azure Stack operator (either a service provider or an administrator in your organization), will let you know the correct URL to access the portal. 
 
-- For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+- For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;<em>region</em>&gt;.&lt;<em>FQDN</em>&gt;.
 - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
 ![Screenshot of the Azure Stack user portal](media/azure-stack-use-portal/UserPortal.png)

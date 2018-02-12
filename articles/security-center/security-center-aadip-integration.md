@@ -29,12 +29,12 @@ If your organization is already using Azure AD Identity Protection, follow the s
 1. Open **Security Center** dashboard.
 2. On the left pane, click **Security Solutions**. Security Center automatically discovers if Azure AD Identity Protection is enabled for your organization.
 
-	![AADIP](./media/security-center-aadip-integration/security-center-aadip-integration-fig1.png)
+    ![AADIP](./media/security-center-aadip-integration/security-center-aadip-integration-fig1.png)
 
 3. Click **CONNECT**.
 4. In the **Integrate Azure AD Identity Protection** page, scroll down, and select the appropriate workspace:
 
-	![workspace](./media/security-center-aadip-integration/security-center-aadip-integration-fig2.png)
+    ![workspace](./media/security-center-aadip-integration/security-center-aadip-integration-fig2.png)
 
 5. Click **Connect**.
 
@@ -49,7 +49,7 @@ In this document, you learned how to connect Azure AD Identity Protection to Sec
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center data security](security-center-data-security.md) - Learn how data is managed and safeguarded in Security Center.
+* [Azure Security Center data security](security-center-data-security.md) - Learn how data is managed and safeguarded in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
 

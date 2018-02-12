@@ -63,13 +63,13 @@ The following example shows you how to create and post a job with one task set t
 
 Request:
 
-	POST https://media.windows.net/API/Jobs HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.17
-	Authorization: Bearer <token value>
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 

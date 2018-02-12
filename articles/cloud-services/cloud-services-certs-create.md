@@ -48,6 +48,7 @@ There is a limit of 100 management certificates per subscription. There is also 
 Before adding more than 100 certificates, see if you can reuse an existing certificate. Using co-administrators adds potentially unneeded complexity to your certificate management process.
 
 <a name="create"></a>
+
 ## Create a new self-signed certificate
 You can use any tool available to create a self-signed certificate as long as they adhere to these settings:
 

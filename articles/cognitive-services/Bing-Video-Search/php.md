@@ -61,8 +61,8 @@ function BingVideoSearch ($url, $key, $query) {
     // http://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
-			'header' => $headers,
-			'method' => 'GET' ));
+            'header' => $headers,
+            'method' => 'GET' ));
 
     // Perform the Web request and get the JSON response
     $context = stream_context_create($options);

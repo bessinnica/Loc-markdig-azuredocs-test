@@ -35,8 +35,6 @@ When you add this Connector to your logic apps, enter the following Twilio value
 | Access Token |Yes |Enter your Twilio access token |
 
 > [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
-> 
-> 
 
 If you don't have a Twilio access token, see [User Identity & Access Tokens](https://www.twilio.com/docs/api/chat/guides/identity).
 

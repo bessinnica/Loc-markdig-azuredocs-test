@@ -19,6 +19,7 @@ ms.author: rodsan
 ---
 
 # Security Frame: Configuration Management | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application** | <ul><li>[Implement Content Security Policy (CSP), and disable inline javascript](#csp-js)</li><li>[Enable browser's XSS filter](#xss-filter)</li><li>[ASP.NET applications must disable tracing and debugging prior to deployment](#trace-deploy)</li><li>[Access third-party javascripts from trusted sources only](#js-trusted)</li><li>[Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses](#ui-defenses)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web Applications](#cors-aspnet)</li><li>[Enable ValidateRequest attribute on ASP.NET Pages](#validate-aspnet)</li><li>[Use locally-hosted latest versions of JavaScript libraries](#local-js)</li><li>[Disable automatic MIME sniffing](#mime-sniff)</li><li>[Remove standard server headers on Windows Azure Web Sites to avoid fingerprinting](#standard-finger)</li></ul> |

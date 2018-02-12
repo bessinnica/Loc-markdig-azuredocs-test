@@ -12,11 +12,11 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Video Search SDK C# quickstart (Preview)
+# Video Search SDK C# quickstart (Preview)
 
 The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Video Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
 
@@ -26,24 +26,20 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
 * Newtonsoft.Json
 
 
-##Video Search client
+## Video Search client
 To create an instance of the `VideoSearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
-
 ```
 Then, instantiate the client:
 ```
 var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-
 ```
 Use the client to search with a query text "NASA CubeSat" for videos.
 ```
 var videoResults = client.Videos.SearchAsync(query: "NASA CubeSat").Result;
 Console.WriteLine("Search videos for query \"NASA CubeSat\"");
-
 ```
 
 Parse the results, then verify number of results and print out ID, name, and url of first video result.
@@ -68,9 +64,8 @@ else
         Console.WriteLine("Couldn't find video results!");
     }
 }
-
 ```
-##Complete console application
+## Complete console application
 
 The following console application executes the previously defined query and parses results.
 
@@ -131,9 +126,8 @@ namespace VideoSrchSDK
             Console.ReadKey();
 
         }
-
 ```
-##URL parameters
+## URL parameters
 
 Search on query text "Interstellar Trailer" for videos that are unchanged, short, and 1080p resolution.  Verify the number of results, and print out ID, name, and url of first video result.
 
@@ -173,10 +167,8 @@ Search on query text "Interstellar Trailer" for videos that are unchanged, short
             }
 
         }
-
-
 ```
-##Trending videos
+## Trending videos
 Search for trending videos, then verify banner tiles and categories.
 ```
         public static void VideoTrending(VideoSearchAPI client)
@@ -248,10 +240,8 @@ Search for trending videos, then verify banner tiles and categories.
             }
 
         }
-
-
 ```
-##Details
+## Details
 Search videos for "Interstellar Trailer", and then search for detailed information of the first video.
 ```
         public static void VideoDetail(VideoSearchAPI client)
@@ -311,9 +301,8 @@ Search videos for "Interstellar Trailer", and then search for detailed informati
             }
         }
     }
-
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

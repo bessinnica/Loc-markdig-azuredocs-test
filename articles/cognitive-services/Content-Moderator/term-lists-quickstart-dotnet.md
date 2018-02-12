@@ -58,17 +58,17 @@ Install the following NuGet packages for the TermLists project:
 
 Modify the program's using statements.
 
-	using System;
-	using System.Threading;
-	using Microsoft.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using ModeratorHelper;
+    using System;
+    using System.Threading;
+    using Microsoft.CognitiveServices.ContentModerator;
+    using Microsoft.CognitiveServices.ContentModerator.Models;
+    using ModeratorHelper;
 
 ### Add private properties
 
 Add the following private properties to namespace TermLists, class Program.
 
-	/// <summary>
+    /// <summary>
     /// The language of the terms in the term lists.
     /// </summary>
     private const string lang = "eng";
@@ -97,29 +97,29 @@ Add the following method definition to namespace TermLists, class Program.
 >
 > A free tier key has a one RPS rate limit.
 
-	/// <summary>
+    /// <summary>
     /// Creates a new term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
     /// <returns>The term list ID.</returns>
     static string CreateTermList (ContentModeratorClient client)
     {
-    	Console.WriteLine("Creating term list.");
+        Console.WriteLine("Creating term list.");
 
         Body body = new Body("Term list name", "Term list description");
         TermList list = client.ListManagementTermLists.Create("application/json", body);
         if (false == list.Id.HasValue)
         {
-        	throw new Exception("TermList.Id value missing.");
+            throw new Exception("TermList.Id value missing.");
         }
         else
         {
-        	string list_id = list.Id.Value.ToString();
+            string list_id = list.Id.Value.ToString();
             Console.WriteLine("Term list created. ID: {0}.", list_id);
             Thread.Sleep(throttleRate);
             return list_id;
         }
-	}
+    }
 
 ## Update term list name and description
 
@@ -127,7 +127,7 @@ You update the term list information with **ContentModeratorClient.ListManagemen
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Update the information for the indicated term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
@@ -136,17 +136,17 @@ Add the following method definition to namespace TermLists, class Program.
     /// <param name="description">The new description for the term list.</param>
     static void UpdateTermList (ContentModeratorClient client, string list_id, string name = null, string description = null)
     {
-		Console.WriteLine("Updating information for term list with ID {0}.", list_id);
+        Console.WriteLine("Updating information for term list with ID {0}.", list_id);
         Body body = new Body(name, description);
         client.ListManagementTermLists.Update(list_id, "application/json", body);
         Thread.Sleep(throttleRate);
-	}
+    }
 
 ## Add a term to a term list
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Add a term to the indicated term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
@@ -154,31 +154,31 @@ Add the following method definition to namespace TermLists, class Program.
     /// <param name="term">The term to add to the term list.</param>
     static void AddTerm (ContentModeratorClient client, string list_id, string term)
     {
-    	Console.WriteLine("Adding term \"{0}\" to term list with ID {1}.", term, list_id);
+        Console.WriteLine("Adding term \"{0}\" to term list with ID {1}.", term, list_id);
         client.ListManagementTerm.AddTerm(list_id, term, lang);
         Thread.Sleep(throttleRate);
-	}
+    }
 
 ## Get all terms in a term list
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Get all terms in the indicated term list.
-	/// </summary>
+    /// </summary>
     /// <param name="client">The Content Moderator client.</param>
     /// <param name="list_id">The ID of the term list from which to get all terms.</param>
     static void GetAllTerms(ContentModeratorClient client, string list_id)
     {
-    	Console.WriteLine("Getting terms in term list with ID {0}.", list_id);
+        Console.WriteLine("Getting terms in term list with ID {0}.", list_id);
         Terms terms = client.ListManagementTerm.GetAllTerms(list_id, lang);
         TermsData data = terms.Data;
         foreach (TermsInList term in data.Terms)
         {
-        	Console.WriteLine(term.Term);
+            Console.WriteLine(term.Term);
         }
         Thread.Sleep(throttleRate);
-	}
+    }
 
 ## Add code to refresh the search index
 
@@ -188,17 +188,17 @@ You refresh a term list search index with **ContentModeratorClient.ListManagemen
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
-	/// Refresh the search index for the indicated term list.
+    /// <summary>
+    /// Refresh the search index for the indicated term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
     /// <param name="list_id">The ID of the term list to refresh.</param>
     static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
     {
-    	Console.WriteLine("Refreshing search index for term list with ID {0}.", list_id);
+        Console.WriteLine("Refreshing search index for term list with ID {0}.", list_id);
         client.ListManagementTermLists.RefreshIndexMethod(list_id, lang);
         Thread.Sleep((int)(latencyDelay * 60 * 1000));
-	}
+    }
 
 ## Screen text using a term list
 
@@ -217,29 +217,29 @@ For more information, see the [API reference](https://westus2.dev.cognitive.micr
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
-	/// Screen the indicated text for terms in the indicated term list.
+    /// <summary>
+    /// Screen the indicated text for terms in the indicated term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
     /// <param name="list_id">The ID of the term list to use to screen the text.</param>
     /// <param name="text">The text to screen.</param>
     static void ScreenText (ContentModeratorClient client, string list_id, string text)
     {
-    	Console.WriteLine("Screening text: \"{0}\" using term list with ID {1}.", text, list_id);
+        Console.WriteLine("Screening text: \"{0}\" using term list with ID {1}.", text, list_id);
         Screen screen = client.TextModeration.ScreenText(lang, "text/plain", text, false, false, list_id);
         if (null == screen.Terms)
         {
-        	Console.WriteLine("No terms from the term list were detected in the text.");
+            Console.WriteLine("No terms from the term list were detected in the text.");
         }
         else
         {
-        	foreach (DetectedTerms term in screen.Terms)
+            foreach (DetectedTerms term in screen.Terms)
             {
-            	Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
+                Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
             }
         }
         read.Sleep(throttleRate);
-	}
+    }
 
 ## Delete terms and lists
 
@@ -253,7 +253,7 @@ Deleting a term or a list is straightforward. You use the SDK to do the followin
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Delete a term from the indicated term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
@@ -261,23 +261,23 @@ Add the following method definition to namespace TermLists, class Program.
     /// <param name="term">The term to delete.</param>
     static void DeleteTerm (ContentModeratorClient client, string list_id, string term)
     {
-    	Console.WriteLine("Removed term \"{0}\" from term list with ID {1}.", term, list_id);
+        Console.WriteLine("Removed term \"{0}\" from term list with ID {1}.", term, list_id);
         client.ListManagementTerm.DeleteTerm(list_id, term, lang);
         Thread.Sleep(throttleRate);
-	}
+    }
 
 ### Delete all terms in a term list
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Delete all terms from the indicated term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
     /// <param name="list_id">The ID of the term list from which to delete all terms.</param>
     static void DeleteAllTerms (ContentModeratorClient client, string list_id)
     {
-    	Console.WriteLine("Removing all terms from term list with ID {0}.", list_id);
+        Console.WriteLine("Removing all terms from term list with ID {0}.", list_id);
         client.ListManagementTerm.DeleteAllTerms(list_id, lang);
         Thread.Sleep(throttleRate);
     }
@@ -286,14 +286,14 @@ Add the following method definition to namespace TermLists, class Program.
 
 Add the following method definition to namespace TermLists, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Delete the indicated term list.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
     /// <param name="list_id">The ID of the term list to delete.</param>
     static void DeleteTermList (ContentModeratorClient client, string list_id)
     {
-	    Console.WriteLine("Deleting term list with ID {0}.", list_id);
+        Console.WriteLine("Deleting term list with ID {0}.", list_id);
         client.ListManagementTermLists.Delete(list_id);
         Thread.Sleep(throttleRate);
     }
@@ -302,11 +302,11 @@ Add the following method definition to namespace TermLists, class Program.
 
 Add the **Main** method definition to namespace TermLists, class Program. Finally, close the Program class and the TermLists namespace.
 
-	static void Main(string[] args)
+    static void Main(string[] args)
     {
-    	using (var client = Clients.NewClient())
+        using (var client = Clients.NewClient())
         {
-        	string list_id = CreateTermList(client);
+            string list_id = CreateTermList(client);
 
             UpdateTermList(client, list_id, "name", "description");
             AddTerm(client, list_id, "term1");
@@ -334,40 +334,40 @@ Add the **Main** method definition to namespace TermLists, class Program. Finall
             Console.WriteLine("Press ENTER to close the application.");
             Console.ReadLine();
         }
-	}
+    }
 
 ## Run the application to see the output
 
 Your output will be on the following lines but the data may vary.
 
-	Creating term list.
-	Term list created. ID: 252.
-	Updating information for term list with ID 252.
-	
-	Adding term "term1" to term list with ID 252.
-	Adding term "term2" to term list with ID 252.
-	
-	Getting terms in term list with ID 252.
-	term1
-	term2
-	
-	Refreshing search index for term list with ID 252.
-	
-	Screening text: "This text contains the terms "term1" and "term2"." using term list with ID 252.
-	Found term: "term1" from list ID 252 at index 32.
-	Found term: "term2" from list ID 252 at index 46.
-	
-	Removed term "term1" from term list with ID 252.
-	
-	Refreshing search index for term list with ID 252.
-	
-	Screening text: "This text contains the terms "term1" and "term2"." using term list with ID 252.
-	Found term: "term2" from list ID 252 at index 46.
-	
-	Removing all terms from term list with ID 252.
-	Deleting term list with ID 252.
-	Press ENTER to close the application.
-	
+    Creating term list.
+    Term list created. ID: 252.
+    Updating information for term list with ID 252.
+    
+    Adding term "term1" to term list with ID 252.
+    Adding term "term2" to term list with ID 252.
+    
+    Getting terms in term list with ID 252.
+    term1
+    term2
+    
+    Refreshing search index for term list with ID 252.
+    
+    Screening text: "This text contains the terms "term1" and "term2"." using term list with ID 252.
+    Found term: "term1" from list ID 252 at index 32.
+    Found term: "term2" from list ID 252 at index 46.
+    
+    Removed term "term1" from term list with ID 252.
+    
+    Refreshing search index for term list with ID 252.
+    
+    Screening text: "This text contains the terms "term1" and "term2"." using term list with ID 252.
+    Found term: "term2" from list ID 252 at index 46.
+    
+    Removing all terms from term list with ID 252.
+    Deleting term list with ID 252.
+    Press ENTER to close the application.
+    
 ## Next steps
 
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.

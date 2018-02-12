@@ -33,7 +33,6 @@ To create Logic apps with Wunderlist, you must first create a **connection** the
 After you create the connection, you can use it to execute the actions and listen for the triggers.
 
 > [!INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
-> 
 
 ## Connector-specific details
 

@@ -190,8 +190,6 @@ Filters                 : [
                               "RemotePort": ""
                             }
                           ]
-
-
 ```
 
 ## Get a packet capture

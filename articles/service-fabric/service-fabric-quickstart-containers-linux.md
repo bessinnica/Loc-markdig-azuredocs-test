@@ -121,7 +121,7 @@ To scale the web front-end service, do the following steps:
 
     ![containersquickstartscale][containersquickstartscale]
 
-  You can now choose to scale the number of instances of the web front-end service.
+   You can now choose to scale the number of instances of the web front-end service.
 
 3. Change the number to **2** and click **Scale Service**.
 4. Click on the **fabric:/Voting/azurevotefront** node in the tree-view and expand the partition node (represented by a GUID).

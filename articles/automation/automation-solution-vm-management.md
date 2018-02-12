@@ -34,7 +34,7 @@ This solution provides a decentralized automation option for users who want to r
 - This solution manages only VMs that are in the same subscription as your Azure Automation account.  
 
 - This solution is deployed only to the following Azure regions: Australia Southeast, Canada Central, Central India, East US, Japan East, Southeast Asia, UK South, and West Europe.  
-    
+
     > [!NOTE]
     > The runbooks managing the VM schedule can target VMs in any region.  
 
@@ -43,7 +43,7 @@ This solution provides a decentralized automation option for users who want to r
     > [!IMPORTANT]
     > SendGrid is a third-party service. For support, contact [SendGrid](https://sendgrid.com/contact/).  
     >
-   
+
     Limitations with SendGrid are:
 
     * A maximum of one SendGrid account per user per subscription.
@@ -57,7 +57,7 @@ This solution includes preconfigured runbooks, schedules, and integration with L
 
 ### Runbooks
 
-The following table lists the runbooks deployed to your Automation account.  You should not make changes to the runbook code. Instead, write your own runbook for new functionality.
+The following table lists the runbooks deployed to your Automation account.  You should not make changes to the runbook code. Instead, write your own runbook for new functionality.
 
 > [!IMPORTANT]
 > Do not directly run any runbook with “child” appended to its name.
@@ -104,23 +104,25 @@ The following table lists the variables created in your Automation account.  You
 
 <br>
 
+
 Across all scenarios, the **External_Start_ResourceGroupNames**,  **External_Stop_ResourceGroupNames**, and **External_ExcludeVMNames** variables are necessary for targeting VMs, with the exception of providing a comma-separated list of VMs for the **AutoStop_CreateAlert_Parent** runbook. That is, your VMs must reside in target resource groups for start and stop actions to occur. The logic works a bit like Azure policy, in that you can target the subscription or resource group and have actions inherited by  newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
 
 ### Schedules
 
-The following table lists each of the default schedules created in your Automation account.  You can modify them or create your own custom schedules.  By default, each of these are disabled except for **Scheduled_StartVM** and **Scheduled_StopVM**.
+The following table lists each of the default schedules created in your Automation account.  You can modify them or create your own custom schedules.  By default, each of these are disabled except for **Scheduled_StartVM** and **Scheduled_StopVM**.
 
 You should not enable all schedules, because this might create overlapping schedule actions. It's best to determine which optimizations you want to perform and modify accordingly.  See the example scenarios in the overview section for further explanation.   
 
 |**Schedule name** | **Frequency** | **Description**|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the AutoStop_CreateAlert_Parent runbook every 8 hours, which in turn stops the VM-based values in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables.  Alternatively, you can specify a comma-separated list of VMs by using the VMList parameter.|  
-|Scheduled_StopVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Stop* every day at the specified time.  Automatically stops all VMs that meet the rules defined by asset variables. You should enable the related schedule, **Scheduled-StartVM**.|  
-|Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time.  Automatically starts all VMs that meet the rules defined by the appropriate variables.  You should enable the related schedule, **Scheduled-StopVM**.|
-|Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of *Stop* every Friday at the specified time.  Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables.  Refer to the Runbooks section for more details on tag values and asset variables.  You should enable the related schedule, **Sequenced-StartVM**.|
+|Scheduled_StopVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Stop* every day at the specified time.  Automatically stops all VMs that meet the rules defined by asset variables. You should enable the related schedule, **Scheduled-StartVM**.|  
+|Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time.  Automatically starts all VMs that meet the rules defined by the appropriate variables.  You should enable the related schedule, **Scheduled-StopVM**.|
+|Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of *Stop* every Friday at the specified time.  Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables.  Refer to the Runbooks section for more details on tag values and asset variables.  You should enable the related schedule, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the Sequenced_Parent runbook with a parameter of *Start* every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables.  Refer to the Runbooks section for more details on tag values and asset variables.  You should enable the related schedule, **Sequenced-StopVM**.|
 
 <br>
+
 
 ## Configuration
 
@@ -130,23 +132,24 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 2. In the Marketplace pane, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter.  Select **Start/Stop VMs during off-hours [Preview]** from the search results.  
 3. In the **Start/Stop VMs during off-hours [Preview]** pane for the selected solution, review the summary information and then click **Create**.  
 4. The **Add Solution** pane appears. You are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
-5.  On the **Add Solution** pane, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** pane, perform the following: 
+5. On the **Add Solution** pane, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** pane, perform the following: 
    - Specify a name for the new **OMS Workspace**.
    - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.  
    - Select a **Location**.  Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, and **West Europe**.
    - Select a **Pricing tier**.  The solution offers two tiers: free and OMS paid.  The free tier has a limit on the amount of data collected daily, the retention period, and the runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily.  
 
-        > [!NOTE]
-        > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it  fails.  This will be addressed when this solution is officially released.<br>This solution only uses automation job minutes and log ingestion.  It does not add additional OMS nodes to your environment.  
+       > [!NOTE]
+       > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it  fails.  This will be addressed when this solution is officially released.<br>This solution only uses automation job minutes and log ingestion.  It does not add additional OMS nodes to your environment.  
 
 6. After providing the required information on the **OMS workspace** pane, click **Create**.  You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** pane when done.  
 7. On the **Add Solution** pane, select **Automation account**.  If you're creating a new OMS workspace, you need to also create a new Automation account to be associated with it.  Select **Create an Automation account**, and on the **Add Automation account** pane, provide the following: 
-  - In the **Name** field, enter the name of the Automation account.
+   - In the **Name** field, enter the name of the Automation account.
 
-    All other options are automatically populated based on the OMS workspace selected. These options cannot be modified.  An Azure Run As account is the default authentication method for the runbooks included in this solution.  After you click **OK**, the configuration options are validated and the Automation account is created.  You can track its progress under **Notifications** from the menu. 
+     All other options are automatically populated based on the OMS workspace selected. These options cannot be modified.  An Azure Run As account is the default authentication method for the runbooks included in this solution.  After you click **OK**, the configuration options are validated and the Automation account is created.  You can track its progress under **Notifications** from the menu. 
 
-    Otherwise, you can select an existing Automation Run As account.  Note that the account you select cannot already be linked to another OMS workspace. If it is already linked, you receive a message and need to select a different Automation Run As account or create a new one.<br><br> ![Automation Account Already Linked to OMS Workspace](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
+     Otherwise, you can select an existing Automation Run As account.  Note that the account you select cannot already be linked to another OMS workspace. If it is already linked, you receive a message and need to select a different Automation Run As account or create a new one.<br><br> ![Automation Account Already Linked to OMS Workspace](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
+
 
 8. Finally, on the **Add Solution** pane, select **Configuration**. The **Parameters** pane appears.<br><br> ![Parameters pane for solution](media/automation-solution-vm-management/azure-portal-add-solution-02.png)<br><br>  Here, you're prompted to:  
    - Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution.  You can enter more than one name and separate each by using a comma (values are not case sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
@@ -312,7 +315,7 @@ The Automation account and Log Analytics workspace are not deleted as part of th
 1.    From the  Azure portal home screen, select **Log Analytics**.
 2. On the **Log Analytics** pane, select the workspace.
 3. Select **Delete** from the menu on the workspace settings pane.  
-      
+
 ## Next steps
 
 - To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
@@ -324,5 +327,5 @@ The Automation account and Log Analytics workspace are not deleted as part of th
 
 
 
-   
+
 

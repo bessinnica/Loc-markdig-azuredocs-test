@@ -56,6 +56,7 @@ If you aren't sure which Azure Backup component works for your needs, see the fo
 | Azure IaaS VM Backup |<li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric-level backup with no backup infrastructure needed |<li>Back up VMs once-a-day <li>Restore VMs only at disk level<li>Cannot back up on-premises |<li>VMs, <li>All disks (using PowerShell) |<p>Recovery Services vault</p> |
 
 ## What are the deployment scenarios for each component?
+
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported |
 | --- | --- | --- | --- |
 | Azure Backup (MARS) agent |<p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> |<p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> |<p>Recovery Services vault</p> |
@@ -116,14 +117,15 @@ Azure Backup allows you to restore a complete VM with managed disks, or restore 
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
 
 ### Storage
-| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
-| --- | --- | --- | --- | --- |
-| Recovery Services vault |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
-| Disk storage | |![Yes][green] |![Yes][green] | |
-| Tape storage | |![Yes][green] | | |
-| Compression <br/>(in Recovery Services vault) |![Yes][green] |![Yes][green] |![Yes][green] | |
-| Incremental backup |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
-| Disk deduplication | |![Partially][yellow] |![Partially][yellow] | | |
+
+|                    Feature                    | Azure Backup agent |  System Center DPM   | Azure Backup Server  | Azure IaaS VM Backup |
+|-----------------------------------------------|--------------------|----------------------|----------------------|----------------------|
+|            Recovery Services vault            |   ![Yes][green]    |    ![Yes][green]     |    ![Yes][green]     |    ![Yes][green]     |
+|                 Disk storage                  |                    |    ![Yes][green]     |    ![Yes][green]     |                      |
+|                 Tape storage                  |                    |    ![Yes][green]     |                      |                      |
+| Compression <br/>(in Recovery Services vault) |   ![Yes][green]    |    ![Yes][green]     |    ![Yes][green]     |                      |
+|              Incremental backup               |   ![Yes][green]    |    ![Yes][green]     |    ![Yes][green]     |    ![Yes][green]     |
+|              Disk deduplication               |                    | ![Partially][yellow] | ![Partially][yellow] |                      |
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -157,6 +159,7 @@ With **Full Backup**, each backup copy contains the entire data source. Full bac
 **Incremental Backup** achieves high storage and network efficiency by storing only the blocks of data that changed since the previous backup. With incremental backup, there is no need to take regular full backups. In the example, after the full backup is taken for the first month, changed blocks A2, A3, A4, and A9 are marked as changed and transferred for the second month. In the third month, only changed block A5 is marked and transferred. Moving less data saves storage and network resources, which decreases TCO.   
 
 ### Security
+
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Network security<br/> (to Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Partially][yellow] |
@@ -176,6 +179,7 @@ All backup traffic from your servers to the Recovery Services vault is encrypted
 Backing up Azure VMs requires setting up encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. Azure Backup does not automatically encrypt backup data that comes through this path.
 
 ### Network
+
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Network compression <br/>(to **backup server**) | |![Yes][green] |![Yes][green] | |

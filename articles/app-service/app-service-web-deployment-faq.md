@@ -28,7 +28,7 @@ This article has answers to frequently asked questions (FAQs) about deployment i
 
 Here are some options for publishing your web app code:
 
-*   Deploy by using Visual Studio. If you have the Visual Studio solution, right-click the web application project, and then select **Publish**.
+*   Deploy by using Visual Studio. If you have the Visual Studio solution, right-click the web application project, and then select **Publish**.
 *   Deploy by using an FTP client. In the Azure portal, download the publish profile for the web app that you want to deploy your code to. Then, upload the files to \site\wwwroot by using the same publish profile FTP credentials.
 
 For more information, see [Deploy your app to App Service](app-service-deploy-local-git.md).
@@ -41,6 +41,7 @@ To resolve this error, upgrade to the [latest SDK](https://azure.microsoft.com/d
 
 ## How do I deploy an ASP.NET application from Visual Studio to App Service?
 <a id="deployasp"></a>
+
 
 The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-service-web-get-started-dotnet.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio 2017.
 

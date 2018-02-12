@@ -65,9 +65,10 @@ Learn more about [Integrating your on-premises identities with Azure Active Dire
 
 ## Related documentation
 
-| Topic | Link |
-| --- | --- |
-| Azure AD Connect overview | [Integrate your on-premises directories with Azure Active Directory](active-directory-aadconnect.md)
-| Install using customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
-| Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
+|               Topic               |                                                      Link                                                      |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------------|
+|     Azure AD Connect overview     |      [Integrate your on-premises directories with Azure Active Directory](active-directory-aadconnect.md)      |
+| Install using customized settings |          [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)          |
+|       Upgrade from DirSync        |   [Upgrade from Azure AD sync tool (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)    |
+|  Accounts used for installation   | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
+

@@ -40,13 +40,13 @@ The following steps are needed to enable telemetry:
 - Get the credentials of the storage account attached to the Media Services account. 
 - Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPointAddress pointing to the storage table.
 
-	    INotificationEndPoint notificationEndPoint = 
-	                  _context.NotificationEndPoints.Create("monitoring", 
-	                  NotificationEndPointType.AzureTable,
-	                  "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+        INotificationEndPoint notificationEndPoint = 
+                      _context.NotificationEndPoints.Create("monitoring", 
+                      NotificationEndPointType.AzureTable,
+                      "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 
 - Create a monitoring configuration setting for the services you want to monitor. No more than one monitoring configuration setting is allowed. 
-  
+
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
@@ -64,10 +64,10 @@ For information about consuming telemetry information, see [this](media-services
 
 2. Add the following element to **appSettings** defined in your app.config file:
 
-	<add key="StorageAccountName" value="storage_name" />
- 
+    <add key="StorageAccountName" value="storage_name" />
+
 ## Example  
-	
+
 The following example shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  
 
 ```
@@ -224,3 +224,4 @@ namespace AMSMetrics
 ## Provide feedback
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

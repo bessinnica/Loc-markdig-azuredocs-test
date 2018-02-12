@@ -88,7 +88,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
    * **Delete**: Deletes the cluster.
    * **Quickstart**: Displays information that will help you get started using HDInsight.
-   * **Users: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
+   * <em>*Users: Allows you to set permissions for *portal management</em> of this cluster for other users on your Azure subscription.
 
      > [!IMPORTANT]
      > This *only* affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
@@ -283,7 +283,7 @@ The HDInsight Query console includes the following features:
 
     ![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    On the screenshot, the **<Account>** type indicates the item is an Azure storage account.  Click the account name to browse the files.
+    On the screenshot, the <strong><Account></strong> type indicates the item is an Azure storage account.  Click the account name to browse the files.
 * **Hadoop UI**.
 
     ![HDInsight portal Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)

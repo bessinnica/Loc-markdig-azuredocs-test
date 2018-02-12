@@ -58,19 +58,19 @@ To configure the integration of Boomi into Azure AD, you need to add Boomi from 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Boomi**, select **Boomi** from result panel then click **Add** button to add the application.
 
-	![Boomi in the results list](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
+    ![Boomi in the results list](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,56 +96,56 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Boomi** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_samlbase.png)
 
 3. On the **Boomi Domain and URLs** section, perform the following steps:
 
-	![Boomi Domain and URLs single sign-on information](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
+    ![Boomi Domain and URLs single sign-on information](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
     a. In the **Identifier** textbox, type a URL: `https://platform.boomi.com/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
-	> [!NOTE] 
-	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Boomi support team](https://boomi.com/company/contact/) to get the value.
+    > [!NOTE] 
+    > The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Boomi support team](https://boomi.com/company/contact/) to get the value.
  
 4. Boomi application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_attribute.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_attribute.png)
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, for each row shown in the table below, perform the following steps:
 
-	| Attribute Name | Attribute Value |
-	| -------------- | --------------- |
-	| FEDERATION_ID | user.mail |
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_officespace_04.png)
-	
-	![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
+    | Attribute Name | Attribute Value |
+    | -------------- | --------------- |
+    | FEDERATION_ID | user.mail |
+    
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_officespace_04.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_05.png)
+    
+    b. In the **Name** textbox, type the attribute name shown for that row.
+    
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**.
 
 6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_certificate.png) 
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-boomi-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-boomi-tutorial/tutorial_general_400.png)
 
 8. On the **Boomi Configuration** section, click **Configure Boomi** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Boomi Configuration](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_configure.png) 
+    ![Boomi Configuration](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_configure.png) 
 
 9. In a different web browser window, log into your Boomi company site as an administrator. 
 
@@ -153,17 +153,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 11. Click the **SSO Options** tab and perform below steps.
 
-	![Configure Single Sign-On On App Side](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_11.png)
+    ![Configure Single Sign-On On App Side](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_11.png)
 
-	a. Check **Enable SAML Single Sign-On** checkbox.
+    a. Check **Enable SAML Single Sign-On** checkbox.
 
-	b. Click **Import** to upload the downloaded certificate from Azure AD to **Identity Provider Certificate**.
-	
-	c. In the **Identity Provider Login URL** textbox, put the value of **SAML Single Sign-On Service URL** from Azure AD application configuration window.
+    b. Click **Import** to upload the downloaded certificate from Azure AD to **Identity Provider Certificate**.
+    
+    c. In the **Identity Provider Login URL** textbox, put the value of **SAML Single Sign-On Service URL** from Azure AD application configuration window.
 
-	d. As **Federation Id Location**, select **Federation Id is in FEDERATION_ID Attribute element** radio button. 
+    d. As **Federation Id Location**, select **Federation Id is in FEDERATION_ID Attribute element** radio button. 
 
-	e. Click **Save** button.
+    e. Click **Save** button.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -210,28 +210,28 @@ In order to enable Azure AD users to log in to Boomi, they must be provisioned i
 
 2. After logging in, navigate to **User Management** and go to **Users**.
 
-	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "Users")
+    ![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "Users")
 
 3. Click **+**  icon and the **Add/Maintain User Roles** dialog opens.
 
-	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "Users")
+    ![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "Users")
 
-	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "Users")
+    ![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "Users")
 
-	a. In the **User e-mail address** textbox, type the email of user like BrittaSimon@contoso.com.
-	
-	b. In the **First name** textbox, type the First name of user like Britta.
+    a. In the **User e-mail address** textbox, type the email of user like BrittaSimon@contoso.com.
+    
+    b. In the **First name** textbox, type the First name of user like Britta.
 
-	c. In the **Last name** textbox, type the Last name of user like Simon.
-	
-	d. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account.
-	
-	e. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal Atmosphere access as well as single sign-on access.
-	
-	f. Click **OK**.
-	
-	> [!NOTE]
-	> The user will not receive a welcome notification email containing a password that can be used to log in to the AtomSphere account because his password is managed through the identity provider. You may use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts.
+    c. In the **Last name** textbox, type the Last name of user like Simon.
+    
+    d. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account.
+    
+    e. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal Atmosphere access as well as single sign-on access.
+    
+    f. Click **OK**.
+    
+    > [!NOTE]
+    > The user will not receive a welcome notification email containing a password that can be used to log in to the AtomSphere account because his password is managed through the identity provider. You may use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts.
 
 ### Assign the Azure AD test user
 
@@ -243,32 +243,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Boomi**.
 
-	![The Boomi link in the Applications list](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png)  
+    ![The Boomi link in the Applications list](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Boomi tile in the Access Panel, you should get automatically signed-on to your Boomi application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

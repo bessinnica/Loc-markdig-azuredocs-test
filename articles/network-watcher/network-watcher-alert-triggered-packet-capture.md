@@ -106,19 +106,19 @@ To use Network Watcher PowerShell cmdlets, upload the latest PowerShell module t
 
     This example gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules that are used in this scenario are:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![PowerShell folders][functions5]
+     ![PowerShell folders][functions5]
 
-1. Select **Function app settings** > **Go to App Service Editor**.
+2. Select **Function app settings** > **Go to App Service Editor**.
 
     ![Function app settings][functions2]
 
-1. Right-click the **AlertPacketCapturePowershell** folder, and then create a folder called **azuremodules**. 
+3. Right-click the **AlertPacketCapturePowershell** folder, and then create a folder called **azuremodules**. 
 
 4. Create a subfolder for each module that you need.
 
@@ -130,7 +130,7 @@ To use Network Watcher PowerShell cmdlets, upload the latest PowerShell module t
 
     * AzureRM.Resources
 
-1. Right-click the **AzureRM.Network** subfolder, and then select **Upload Files**. 
+5. Right-click the **AzureRM.Network** subfolder, and then select **Upload Files**. 
 
 6. Go to your Azure modules. In the local **AzureRM.Network** folder, select all the files in the folder. Then select **OK**. 
 
@@ -138,7 +138,7 @@ To use Network Watcher PowerShell cmdlets, upload the latest PowerShell module t
 
     ![Upload files][functions6]
 
-1. After you've finished, each folder should have the PowerShell module files from your local machine.
+8. After you've finished, each folder should have the PowerShell module files from your local machine.
 
     ![PowerShell files][functions7]
 
@@ -337,15 +337,16 @@ Alerts can be configured to notify individuals when a specific metric crosses a 
 
 Go to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the **Alert rule** blade, and then select **OK**.
 
-  |**Setting** | **Value** | **Details** |
-  |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|Name of the alert rule.|
-  |**Description**|TCP segments sent exceeded threshold|The description for the alert rule.||
-  |**Metric**|TCP segments sent| The metric to use to trigger the alert. |
-  |**Condition**|Greater than| The condition to use when evaluating the metric.|
-  |**Threshold**|100| The  value of the metric that triggers the alert. This value should be set to a valid value for your environment.|
-  |**Period**|Over the last five minutes| Determines the period in which to look for the threshold on the metric.|
-  |**Webhook**|[webhook URL from function app]| The webhook URL from the function app that was created in the previous steps.|
+
+|   <strong>Setting</strong>   |        <strong>Value</strong>        |                                             <strong>Details</strong>                                              |
+|------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+|    <strong>Name</strong>     |      TCP_Segments_Sent_Exceeded      |                                              Name of the alert rule.                                              |
+| <strong>Description</strong> | TCP segments sent exceeded threshold |                                        The description for the alert rule.                                        |
+|   <strong>Metric</strong>    |          TCP segments sent           |                                      The metric to use to trigger the alert.                                      |
+|  <strong>Condition</strong>  |             Greater than             |                                 The condition to use when evaluating the metric.                                  |
+|  <strong>Threshold</strong>  |                 100                  | The  value of the metric that triggers the alert. This value should be set to a valid value for your environment. |
+|   <strong>Period</strong>    |      Over the last five minutes      |                      Determines the period in which to look for the threshold on the metric.                      |
+|   <strong>Webhook</strong>   |   [webhook URL from function app]    |                   The webhook URL from the function app that was created in the previous steps.                   |
 
 > [!NOTE]
 > The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

@@ -44,10 +44,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     John|Doe
     Jane|Doe
     ```
-2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and **input** folder in the container. Then, upload the **input.txt** file to the **input** folder.
+2.  Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and **input** folder in the container. Then, upload the **input.txt** file to the **input** folder.
 
 ## Install the Python package
-1. Open a terminal or command prompt with administrator privileges. 
+1. Open a terminal or command prompt with administrator privileges. 
 2. First, install the Python package for Azure management resources:
 
     ```

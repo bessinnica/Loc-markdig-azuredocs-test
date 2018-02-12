@@ -40,37 +40,37 @@ In the following example, the GetMetadata activity returns metadata about the da
 
 ```json
 {
-	"name": "MyActivity",
-	"type": "GetMetadata",
-	"typeProperties": {
-		"fieldList" : ["size", "lastModified", "structure"],
-		"dataset": {
-			"referenceName": "MyDataset",
-			"type": "DatasetReference"
-		}
-	}
+    "name": "MyActivity",
+    "type": "GetMetadata",
+    "typeProperties": {
+        "fieldList" : ["size", "lastModified", "structure"],
+        "dataset": {
+            "referenceName": "MyDataset",
+            "type": "DatasetReference"
+        }
+    }
 }
 ```
 ### Dataset definition:
 
 ```json
 {
-	"name": "MyDataset",
-	"properties": {
-	"type": "AzureBlob",
-		"linkedService": {
-			"referenceName": "StorageLinkedService",
-			"type": "LinkedServiceReference"
-		},
-		"typeProperties": {
-			"folderPath":"container/folder",
-			"Filename": "file.json",
-			"format":{
-				"type":"JsonFormat"
-				"nestedSeperator": ","
-			}
-		}
-	}
+    "name": "MyDataset",
+    "properties": {
+    "type": "AzureBlob",
+        "linkedService": {
+            "referenceName": "StorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "folderPath":"container/folder",
+            "Filename": "file.json",
+            "format":{
+                "type":"JsonFormat"
+                "nestedSeperator": ","
+            }
+        }
+    }
 }
 ```
 
@@ -93,8 +93,8 @@ Currently GetMetadata activity can fetch the following types of metadata informa
 
 Property | Description | Allowed Values | Required
 -------- | ----------- | -------------- | --------
-fieldList | Lists the types of metadata information required.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |	No<br/>If empty, activity returns all 3 supported metadata information. 
-dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. <br/><br/>Currently supported dataset type is Azure Blob. Two sub properties are: <ul><li><b>referenceName</b>: reference to an existing Azure Blob Dataset</li><li><b>type</b>: since the dataset is being referenced, it is of the type "DatasetReference"</li></ul> |	<ul><li>String</li><li>DatasetReference</li></ul> |	Yes
+fieldList | Lists the types of metadata information required.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    No<br/>If empty, activity returns all 3 supported metadata information. 
+dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. <br/><br/>Currently supported dataset type is Azure Blob. Two sub properties are: <ul><li><b>referenceName</b>: reference to an existing Azure Blob Dataset</li><li><b>type</b>: since the dataset is being referenced, it is of the type "DatasetReference"</li></ul> |    <ul><li>String</li><li>DatasetReference</li></ul> | Yes
 
 ## Next steps
 See other control flow activities supported by Data Factory: 

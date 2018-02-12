@@ -120,6 +120,7 @@ These limits apply to a single logic app definition.
 
 <a name="custom-connector-limits"></a>
 
+
 ### Custom connector limits
 
 These limits apply to custom connectors that you can create from web APIs.
@@ -173,6 +174,7 @@ These limits apply to B2B protocols.
 |||| 
 
 <a name="configuration"></a>
+
 
 ## Configuration: IP Addresses
 

@@ -107,13 +107,13 @@ Set values for the variables that haven't been defined already. For example: Fir
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
-  -ServerName $SQLServerName `
-    -Location $DataFactoryLocation `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SQLServerAdmin, $(ConvertTo-SecureString -String $SQLServerPass -AsPlainText -Force))
+  -ServerName $SQLServerName `
+    -Location $DataFactoryLocation `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SQLServerAdmin, $(ConvertTo-SecureString -String $SQLServerPass -AsPlainText -Force))
 
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
-    -ServerName $SQLServerName `
-    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
+    -ServerName $SQLServerName `
+    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
 
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SQLServerName -AllowAllAzureIPs
 ```

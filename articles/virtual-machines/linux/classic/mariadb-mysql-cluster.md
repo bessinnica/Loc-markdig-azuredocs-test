@@ -224,29 +224,29 @@ Create three VMs with the template you created, and then configure and start the
 
 1. Create the first CentOS 7 VM from the mariadb-galera-image image you created, providing the following information:
 
- - Virtual network name: mariadbvnet
- - Subnet: mariadb
- - Machine size: medium
- - Cloud service name: mariadbha (or whatever name you want to be accessed through mariadbha.cloudapp.net)
- - Machine name: mariadb1
- - Username: azureuser
- - SSH access: enabled
- - Passing the SSH certificate .pem file and replacing /path/to/key.pem with the path where you stored the generated .pem SSH key.
+   - Virtual network name: mariadbvnet
+   - Subnet: mariadb
+   - Machine size: medium
+   - Cloud service name: mariadbha (or whatever name you want to be accessed through mariadbha.cloudapp.net)
+   - Machine name: mariadb1
+   - Username: azureuser
+   - SSH access: enabled
+   - Passing the SSH certificate .pem file and replacing /path/to/key.pem with the path where you stored the generated .pem SSH key.
 
    > [!NOTE]
    > The following commands are split over multiple lines for clarity, but you should enter each as one line.
-   >
-   >
-        azure vm create
-        --virtual-network-name mariadbvnet
-        --subnet-names mariadb
-        --availability-set clusteravset
-        --vm-size Medium
-        --ssh-cert "/path/to/key.pem"
-        --no-ssh-password
-        --ssh 22
-        --vm-name mariadb1
-        mariadbha mariadb-galera-image azureuser
+   > 
+   > 
+   >      azure vm create
+   >      --virtual-network-name mariadbvnet
+   >      --subnet-names mariadb
+   >      --availability-set clusteravset
+   >      --vm-size Medium
+   >      --ssh-cert "/path/to/key.pem"
+   >      --no-ssh-password
+   >      --ssh 22
+   >      --vm-name mariadb1
+   >      mariadbha mariadb-galera-image azureuser
 2. Create two more virtual machines by connecting them to the mariadbha cloud service. Change the VM name and the SSH port to a unique port not conflicting with other VMs in the same cloud service.
 
         azure vm create
@@ -259,7 +259,7 @@ Create three VMs with the template you created, and then configure and start the
         --ssh 23
         --vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-  For MariaDB3:
+   For MariaDB3:
 
         azure vm create
         --virtual-network-name mariadbvnet

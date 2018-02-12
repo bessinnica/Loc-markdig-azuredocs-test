@@ -155,7 +155,7 @@ your requirements.
 1. Click **Settings** to view the target and replication settings.
 2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability Sets**.
 
-  ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Target location**: The target region used for disaster recovery. We recommend that the target
@@ -193,10 +193,10 @@ To override the default replication policy settings, click **Customize** next to
   Click **Customize** next to **Replication policy** and then select **Yes** for multi-VM consistency to make VMs part of a replication group. You can create a new replication group or use an existing replication group. Select the VMs to be part of the replication group and click **OK**.
 
 > [!IMPORTANT]
-  All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance and should be used only if machines are running the same workload and you need consistency across multiple machines.
-
+>   All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance and should be used only if machines are running the same workload and you need consistency across multiple machines.
+> 
 > [!IMPORTANT]
-  If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004. If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
+>   If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004. If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
 
 ### Track replication status
 

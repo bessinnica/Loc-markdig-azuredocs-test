@@ -45,7 +45,7 @@ The following properties are supported for Square linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Square** | Yes |
-| host | The URL of the Square instance. (i.e. mystore.mysquare.com)  | Yes |
+| host | The URL of the Square instance. (i.e. mystore.mysquare.com)  | Yes |
 | clientId | The client ID associated with your Square application.  | Yes |
 | clientSecret | The client secret associated with your Square application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | redirectUri | The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)  | Yes |

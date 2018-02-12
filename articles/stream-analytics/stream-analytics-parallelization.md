@@ -32,21 +32,21 @@ Scaling a Stream Analytics job takes advantage of partitions in the input or out
 
 ### Inputs
 All Azure Stream Analytics input can take advantage of partitioning:
--	EventHub (need to set the partition key explicitly)
--	IoT Hub  (need to set the partition key explicitly)
--	Blob storage
+-   EventHub (need to set the partition key explicitly)
+-   IoT Hub  (need to set the partition key explicitly)
+-   Blob storage
 
 ### Outputs
 
 When you work with Stream Analytics, you can take advantage of partitioning in the outputs:
--	Azure Data Lake Storage
--	Azure Functions
--	Azure Table
--	Blob storage
--	CosmosDB  (need to set the partition key explicitly)
--	EventHub (need to set the partition key explicitly)
--	IoT Hub  (need to set the partition key explicitly)
--	Service Bus
+-   Azure Data Lake Storage
+-   Azure Functions
+-   Azure Table
+-   Blob storage
+-   CosmosDB  (need to set the partition key explicitly)
+-   EventHub (need to set the partition key explicitly)
+-   IoT Hub  (need to set the partition key explicitly)
+-   Service Bus
 
 PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-a-grouping-key) 
 

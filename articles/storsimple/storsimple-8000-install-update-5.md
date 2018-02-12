@@ -99,6 +99,7 @@ You may also need to install disk firmware updates on top of all the updates sho
 
 <br></br>
 
+
 > [!IMPORTANT]
 > * If updating from Update 4, the total install time is close to 4 hours.
 > * Before using this procedure to apply the update, make sure that both the device controllers are online and all the hardware components are healthy.

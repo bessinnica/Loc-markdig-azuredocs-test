@@ -41,14 +41,14 @@ As of September 2017, the following capabilities have been added to Azure Data C
 ## What's new for August 2017 
 As of August 2017, the following capabilities have been added to Azure Data Catalog:
 
-*	A new developer sample is available for creating and managing relationship metadata by using the Data Catalog REST API. The *Import relationship information into Data Catalog* sample is available on the [Data Catalog code samples page](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0). 
+*   A new developer sample is available for creating and managing relationship metadata by using the Data Catalog REST API. The *Import relationship information into Data Catalog* sample is available on the [Data Catalog code samples page](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0). 
 * Support for extracting join relationship metadata from Teradata data sources when registering related tables using the data source registration tool.
 * Support for SQL Server table valued function (TVF) objects when registering SQL Server data sources using the data source registration tool.
 * Multiple updates and refinements to increase the performance and usability of the Data Catalog portal.
 
 ## What's new for July 2017 
 As of July 2017, the following capabilities have been added to Azure Data Catalog:
-*	Support for more granular control over permited metadata operations including:
+*   Support for more granular control over permited metadata operations including:
     - Catalog administrators can restrict users’ ability to contribute tags and related metadata to the catalog, enabling read-only access to the catalog.
     - Catalog administrators can restrict users’ ability to register new data sources in the catalog.
     - Catalog administrators can restrict users’ ability to take ownership of data asset metadata in the catalog.
@@ -63,48 +63,48 @@ For additional details on relationships in Data Catalog, see [How to view relate
 
 ## What's new for June 2017 
 As of June 2017, the following capabilities have been added to Azure Data Catalog:
-*	Support for Sybase, Apache Cassandra, and MongoDB data sources. Users can now register and discover Cassandra and MongoDB databases and tables, and Sybase databases, tables, and views.
+*   Support for Sybase, Apache Cassandra, and MongoDB data sources. Users can now register and discover Cassandra and MongoDB databases and tables, and Sybase databases, tables, and views.
 
 > [!NOTE]
 > When registering MongoDB and Cassandra tables that include columns with complex data types such as records and arrays, these columns will not be included in the metadata added to Data Catalog.
 
 ## What's new for May 2017 
 As of May 2017, the following capabilities have been added to Azure Data Catalog:
-*	A new developer sample is available for the bulk importing of business glossary terms. The Glossary Bulk Import sample is available on the [Data Catalog developer samples page](https://docs.microsoft.com/azure/data-catalog/data-catalog-samples). 
-*	Support for editing ODBC connection information in the Azure Data Catalog portal. Data asset owners and Data Catalog administrators can now edit the connection information for registered ODBC data sources without needing to re-register the data sources.
-*	Support for clickable URLs in business glossary definitions and descriptions. When URLs are included in the description and definition properties for business glossary terms, the URLs will be displayed as hyperlinks in the Data Catalog portal.
-*	Support for displaying expert names in addition to expert email addresses. When viewing experts in the properties for a data asset in the Data Catalog portal, the expert’s full name from Azure Active Directory will be displayed in the tooltip.
+*   A new developer sample is available for the bulk importing of business glossary terms. The Glossary Bulk Import sample is available on the [Data Catalog developer samples page](https://docs.microsoft.com/azure/data-catalog/data-catalog-samples). 
+*   Support for editing ODBC connection information in the Azure Data Catalog portal. Data asset owners and Data Catalog administrators can now edit the connection information for registered ODBC data sources without needing to re-register the data sources.
+*   Support for clickable URLs in business glossary definitions and descriptions. When URLs are included in the description and definition properties for business glossary terms, the URLs will be displayed as hyperlinks in the Data Catalog portal.
+*   Support for displaying expert names in addition to expert email addresses. When viewing experts in the properties for a data asset in the Data Catalog portal, the expert’s full name from Azure Active Directory will be displayed in the tooltip.
 
 ## What's new for April 2017 
 As of April 2017, the following capabilities have been added to Azure Data Catalog:
-*	Support for ODBC data sources. Users can now register and discover ODBC databases, tables, and views using the Data Catalog data source registration tool.
+*   Support for ODBC data sources. Users can now register and discover ODBC databases, tables, and views using the Data Catalog data source registration tool.
 
 ## What's new for March 2017 
 As of March 2017, the following capabilities have been added to Azure Data Catalog:
-*	Support for using AAD security groups for Data Catalog administrators.
-*	Azure Data Catalog is now available in a new Azure region. Customers can provision the Azure Data Catalog in the West Central US region, in addition to East US, West US, West Europe, and Australia East, North Europe, and Southeast Asia. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
+*   Support for using AAD security groups for Data Catalog administrators.
+*   Azure Data Catalog is now available in a new Azure region. Customers can provision the Azure Data Catalog in the West Central US region, in addition to East US, West US, West Europe, and Australia East, North Europe, and Southeast Asia. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 ## What's new for February 2017 
 As of February 2017, the following capabilities have been added to Azure Data Catalog:
-*	Support for advanced settings in the Data Catalog data source registration tool. Users can specify command timeout values when registering large data sources.
-*	Support for FTP and PostgreSQL data sources. Users can now register and discover FTP files and directories, and PostgreSQL databases, tables, and views.
+*   Support for advanced settings in the Data Catalog data source registration tool. Users can specify command timeout values when registering large data sources.
+*   Support for FTP and PostgreSQL data sources. Users can now register and discover FTP files and directories, and PostgreSQL databases, tables, and views.
 
 ## What's new for January 2017 
 As of January 2017, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification) compliant.
-*	Integration with [Get & Transform in Excel 2016 and Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605). Excel users can share queries and discover queries using Azure Data Catalog from inside Excel. This functionality is available to users with Power BI Pro licenses.
+*   Azure Data Catalog is now [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification) compliant.
+*   Integration with [Get & Transform in Excel 2016 and Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605). Excel users can share queries and discover queries using Azure Data Catalog from inside Excel. This functionality is available to users with Power BI Pro licenses.
 
 ## What's new for December 2016
 As of December 2016, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) and [EU Model Clauses](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses) compliant.
-*	Support for editing data source connection information. Data asset owners and Data Catalog administrators can now edit the connection information for registered data sources without needing to re-register the data sources.
-*	Support for Salesforce.com data sources. Users can now register and discover Salesforce objects.
+*   Azure Data Catalog is now [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) and [EU Model Clauses](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses) compliant.
+*   Support for editing data source connection information. Data asset owners and Data Catalog administrators can now edit the connection information for registered data sources without needing to re-register the data sources.
+*   Support for Salesforce.com data sources. Users can now register and discover Salesforce objects.
 
 
 ## What's new for November 2016
 As of November 2016, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) and [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018) compliant.
-*	Support for the manual registration of ODBC data sources using the Data Catalog portal and REST API.
+*   Azure Data Catalog is now [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) and [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018) compliant.
+*   Support for the manual registration of ODBC data sources using the Data Catalog portal and REST API.
 
 ## What's new for September 2016
 As of September 2016, the following capabilities have been added to Azure Data Catalog:

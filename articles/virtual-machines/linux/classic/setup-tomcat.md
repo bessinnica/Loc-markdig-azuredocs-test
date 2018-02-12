@@ -241,41 +241,43 @@ After connecting, you should see something similar to the following:
   Tomcat is running but you can’t see the Tomcat default page with your browser.
 #### Possible root cause   
 
-  * The Tomcat listen port is not the same as the private port of your virtual machine's endpoint for Tomcat traffic.  
+* The Tomcat listen port is not the same as the private port of your virtual machine's endpoint for Tomcat traffic.  
 
-     Check your public port and private port endpoint settings and make sure the private port is the same as the Tomcat listen port. See "Phase 1: Create an image" section of this article for instructions on configuring endpoints for your virtual machine.  
+   Check your public port and private port endpoint settings and make sure the private port is the same as the Tomcat listen port. See "Phase 1: Create an image" section of this article for instructions on configuring endpoints for your virtual machine.  
 
-     To determine the Tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release), or /etc/tomcat7/server.xml (Debian release). By default, the Tomcat listen port is 8080. Here is an example:  
+   To determine the Tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release), or /etc/tomcat7/server.xml (Debian release). By default, the Tomcat listen port is 8080. Here is an example:  
 
-        <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
+      <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
-     If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the operating system. First, open the profile:  
+   If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the operating system. First, open the profile:  
 
-        sudo vi /etc/default/tomcat7  
+      sudo vi /etc/default/tomcat7  
 
-     Then uncomment the last line and change “no” to “yes”.  
+   Then uncomment the last line and change “no” to “yes”.  
 
-        AUTHBIND=yes
-  2. The firewall has disabled the listen port of Tomcat.
+      AUTHBIND=yes
+* The firewall has disabled the listen port of Tomcat.
 
-     You can only see the Tomcat default page from the local host. The problem is most likely that the port, which is listened to by Tomcat, is blocked by the firewall. You can use the w3m tool to browse the webpage. The following commands install w3m and browse to the Tomcat default page:  
-
-
-        sudo yum  install w3m w3m-img
+  You can only see the Tomcat default page from the local host. The problem is most likely that the port, which is listened to by Tomcat, is blocked by the firewall. You can use the w3m tool to browse the webpage. The following commands install w3m and browse to the Tomcat default page:  
 
 
-        w3m http://localhost:8080  
+~~~
+    sudo yum  install w3m w3m-img
+
+
+    w3m http://localhost:8080  
+~~~
 #### Solution
 
-  * If the Tomcat listen port is not the same as the private port of the endpoint for traffic to the virtual machine, you need change the private port to be the same as the Tomcat listen port.   
-  2. If the issue is caused by firewall/iptables, add the following lines to /etc/sysconfig/iptables. The second line is only needed for https traffic:  
+* If the Tomcat listen port is not the same as the private port of the endpoint for traffic to the virtual machine, you need change the private port to be the same as the Tomcat listen port.   
+* If the issue is caused by firewall/iptables, add the following lines to /etc/sysconfig/iptables. The second line is only needed for https traffic:  
 
-      -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+   -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 
-      -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
+   -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
-     > [!IMPORTANT]
-     > Make sure the previous lines are positioned above any lines that would globally restrict access, such as the following: -A INPUT -j REJECT --reject-with icmp-host-prohibited
+  > [!IMPORTANT]
+  > Make sure the previous lines are positioned above any lines that would globally restrict access, such as the following: -A INPUT -j REJECT --reject-with icmp-host-prohibited
 
 
 

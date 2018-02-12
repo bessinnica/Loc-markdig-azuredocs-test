@@ -51,30 +51,30 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
 #### To create hierarchies in the DimDate table  
   
-1.  In the **DimDate** table, create a hierarchy named **Calendar**.  
+1. In the **DimDate** table, create a hierarchy named **Calendar**.  
   
-3.  Add the following columns in-order:
+2. Add the following columns in-order:
 
-    *  CalendarYear
-    *  CalendarSemester
-    *  CalendarQuarter
-    *  MonthCalendar
-    *  DayNumberOfMonth
+   *  CalendarYear
+   *  CalendarSemester
+   *  CalendarQuarter
+   *  MonthCalendar
+   *  DayNumberOfMonth
     
-4.  In the **DimDate** table, create a **Fiscal** hierarchy. Include the following columns in-order:  
+3. In the **DimDate** table, create a **Fiscal** hierarchy. Include the following columns in-order:  
   
-    *  FiscalYear
-    *  FiscalSemester
-    *  FiscalQuarter
-    *  MonthCalendar
-    *  DayNumberOfMonth
+   *  FiscalYear
+   *  FiscalSemester
+   *  FiscalQuarter
+   *  MonthCalendar
+   *  DayNumberOfMonth
   
-5.  Finally, in the **DimDate** table, create a **ProductionCalendar** hierarchy. Include the following columns in-order:  
-    *  CalendarYear
-    *  WeekNumberOfYear
-    *  DayNumberOfWeek
+4. Finally, in the **DimDate** table, create a **ProductionCalendar** hierarchy. Include the following columns in-order:  
+   *  CalendarYear
+   *  WeekNumberOfYear
+   *  DayNumberOfWeek
   
- ## What's next?
-[Lesson 10: Create partitions](../tutorials/aas-lesson-10-create-partitions.md). 
+   ## What's next?
+   [Lesson 10: Create partitions](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

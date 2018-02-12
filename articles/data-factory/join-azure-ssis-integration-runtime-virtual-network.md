@@ -23,10 +23,10 @@ Join your Azure-SSIS integration runtime (IR) to an Azure virtual network (VNet)
 - You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
 - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
 
- Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a classic or an Azure Resource Manager VNet. 
+  Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a classic or an Azure Resource Manager VNet. 
 
- > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
+  > [!NOTE]
+  > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
 
 ## Access on-premises data stores
 If SSIS packages access only public cloud data stores, you don't need to join Azure-SSIS IR to a VNet. If SSIS packages access on-premises data stores, you must join Azure-SSIS IR to a VNet that is connected to the on-premises network. 
@@ -68,32 +68,32 @@ You first need to configure VNet before you can join an Azure-SSIS IR to the VNe
 4. Filter for and select your **virtual network** in the list. 
 5. In the Virtual network (classic) page, select **Properties**. 
 
-	![classic VNet resource ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
-5. Click the copy button for the **RESOURCE ID** to copy the resource ID for the classic network to the clipboard. Save the ID from the clipboard in OneNote or a file.
-6. Click **Subnets** on the left menu, and ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime.
+    ![classic VNet resource ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
+6. Click the copy button for the **RESOURCE ID** to copy the resource ID for the classic network to the clipboard. Save the ID from the clipboard in OneNote or a file.
+7. Click **Subnets** on the left menu, and ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime.
 
-	![Number of available addresses in VNet](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
-7. Join **MicrosoftAzureBatch** to **Classic Virtual Machine Contributor** role for the VNet. 
-	1. Click Access control (IAM) on the left menu, and click **Add** in the toolbar.
-	
-		![Access control -> Add](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png) 
-	2. In **Add permissions** page, select **Classic Virtual Machine Contributor** for **Role**. Copy/paste **ddbf3205-c6bd-46ae-8127-60eb93363864** in the **Select** text box, and then select **Microsoft Azure Batch** from the list of search results. 
-	
-		![Add permissions - search](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
-	3. Click Save to save the settings and to close the page.
-	
-		![Save access settings](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
-	4. Confirm that you see **MicrosoftAzureBatch** in the list of contributors.
-	
-		![Confirm AzureBatch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
-5. Verify that Azure Batch provider is registered in the Azure subscription that has the VNet or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
-	1. In Azure portal, click **Subscriptions** on the left menu. 
-	2. Select your **subscription**. 
-	3. Click **Resource providers** on the left, and confirm that `Microsoft.Batch` is a registered provider. 
-	
-		![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+    ![Number of available addresses in VNet](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
+8. Join **MicrosoftAzureBatch** to **Classic Virtual Machine Contributor** role for the VNet. 
+    1. Click Access control (IAM) on the left menu, and click **Add** in the toolbar.
 
-	If you don't see `Microsoft.Batch` is in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later. 
+        ![Access control -> Add](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png) 
+    2. In **Add permissions** page, select **Classic Virtual Machine Contributor** for **Role**. Copy/paste **ddbf3205-c6bd-46ae-8127-60eb93363864** in the **Select** text box, and then select **Microsoft Azure Batch** from the list of search results. 
+
+        ![Add permissions - search](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    3. Click Save to save the settings and to close the page.
+
+        ![Save access settings](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
+    4. Confirm that you see **MicrosoftAzureBatch** in the list of contributors.
+
+        ![Confirm AzureBatch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
+9. Verify that Azure Batch provider is registered in the Azure subscription that has the VNet or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
+   1. In Azure portal, click **Subscriptions** on the left menu. 
+   2. Select your **subscription**. 
+   3. Click **Resource providers** on the left, and confirm that `Microsoft.Batch` is a registered provider. 
+
+       ![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+
+      If you don't see `Microsoft.Batch` is in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later. 
 
 ### Use portal to configure an Azure Resource Manager VNet
 You first need to configure VNet before you can join an Azure-SSIS IR to the VNet.
@@ -106,39 +106,39 @@ You first need to configure VNet before you can join an Azure-SSIS IR to the VNe
 6. Click the copy button for the **RESOURCE ID** to copy the resource ID for the virtual network to the clipboard. Save the ID from the clipboard in OneNote or a file.
 7. Click **Subnets** on the left menu, and ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime.
 8. Verify that Azure Batch provider is registered in the Azure subscription that has the VNet or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
-	1. In Azure portal, click **Subscriptions** on the left menu. 
-	2. Select your **subscription**. 
-	3. Click **Resource providers** on the left, and confirm that `Microsoft.Batch` is a registered provider. 
-	
-		![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+   1. In Azure portal, click **Subscriptions** on the left menu. 
+   2. Select your **subscription**. 
+   3. Click **Resource providers** on the left, and confirm that `Microsoft.Batch` is a registered provider. 
 
-	If you don't see `Microsoft.Batch` is in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later.
+       ![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+
+      If you don't see `Microsoft.Batch` is in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later.
 
 ### Join the Azure SSIS IR to a VNet
 
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. In the [Azure portal](https://portal.azure.com), select **Data factories** on the left menu. If you do not see **Data factories** on the menu, select **More services**,  select **Data factories** in the **INTELLIGENCE + ANALYTICS** section. 
-    
-	![Data factories list](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
+
+    ![Data factories list](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Select your data factory with Azure SSIS integration runtime in the list. You see the home page for your data factory. Select **Author & Deploy** tile. You see the Data Factory user interface (UI) in a separate tab. 
 
-	![Data factory home page](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
+    ![Data factory home page](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 3. In the Data Factory UI, switch to the **Edit** tab, select **Connections**, and switch to the **Integration Runtimes** tab. 
 
-	![Integration runtimes tab](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
+    ![Integration runtimes tab](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 4. If your Azure SSIS IR is running, in the integration runtime list, select **Stop** button in the **Actions** column for your Azure SSIS IR. You cannot edit an IR until you stop it. 
 
-	![Stop IR](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
+    ![Stop IR](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
 1. In the integration runtime list, select **Edit** button in the **Actions** column for your Azure SSIS IR.
 
-	![Edit integration runtime](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
+    ![Edit integration runtime](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 5. On the **General settings** page of the **Integration Runtime Setup** window, select **Next**. 
 
-	![IR setup - general settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
+    ![IR setup - general settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
 6. On the **SQL Settings** page, enter administrator **password**, and select **Next**.
 
-	![IR setup - SQL settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
+    ![IR setup - SQL settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
 7. On the **Advanced Settings** page, do the following actions: 
 
     1. Select the checkbox for the **Select a VNet for your Azure-SSIS Integration Runtime to join and allow Azure services to configure VNet permissions/settings**. 
@@ -147,7 +147,7 @@ You first need to configure VNet before you can join an Azure-SSIS IR to the VNe
     4. For **Subnet Name**, select your subnet in the VNet. 
     5. Select **Update**. 
 
-	    ![IR setup - Advanced settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
+        ![IR setup - Advanced settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
 8. Now, you can start the IR by using the **Start** button in the **Actions** column for your Azure SSIS IR. It takes approximately 20 minutes to start an Azure SSIS IR. 
 
 
@@ -245,7 +245,6 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force
-
 ```
 This command takes from **20 to 30 minutes** to complete.
 

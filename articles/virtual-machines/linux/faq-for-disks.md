@@ -18,3 +18,4 @@ ms.author: iainfou
 
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]
+

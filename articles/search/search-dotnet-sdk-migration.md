@@ -30,6 +30,7 @@ Version 3 of the Azure Search .NET SDK contains some changes from earlier versio
 
 <a name="WhatsNew"></a>
 
+
 ## What's new in version 3
 Version 3 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API, specifically 2016-09-01. This makes it possible to use many new features of Azure Search from a .NET application, including the following:
 
@@ -41,6 +42,7 @@ Version 3 of the Azure Search .NET SDK targets the latest generally available ve
 * Support for .NET Core and .NET Portable Profile 111
 
 <a name="UpgradeSteps"></a>
+
 
 ## Steps to upgrade
 First, update your NuGet reference for `Microsoft.Azure.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
@@ -58,6 +60,7 @@ You may see additional build warnings related to obsolete methods or properties.
 Once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. New features in the SDK are detailed in [What's new in version 3](#WhatsNew).
 
 <a name="ListOfChanges"></a>
+
 
 ## Breaking changes in version 3
 There a small number of breaking changes in version 3 that may require code changes in addition to rebuilding your application.
@@ -88,7 +91,7 @@ If your code looks like this:
 var customTokenizerName = TokenizerName.Create("my_tokenizer"); 
 var customTokenFilterName = TokenFilterName.Create("my_tokenfilter"); 
 var customCharFilterName = CharFilterName.Create("my_charfilter"); 
- 
+
 var index = new Index();
 index.Analyzers = new Analyzer[] 
 { 
@@ -106,7 +109,7 @@ You can change it to this to fix any build errors:
 const string CustomTokenizerName = "my_tokenizer"; 
 const string CustomTokenFilterName = "my_tokenfilter"; 
 const string CustomCharFilterName = "my_charfilter"; 
- 
+
 var index = new Index();
 index.Analyzers = new Analyzer[] 
 { 

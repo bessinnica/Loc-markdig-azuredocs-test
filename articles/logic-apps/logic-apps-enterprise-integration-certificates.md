@@ -1,4 +1,3 @@
-
 ---
 title: Using certificates with Enterprise Integration Pack | Microsoft Docs
 description: Learn how to use certificates with the Enterprise Integration Pack | Azure Logic Apps

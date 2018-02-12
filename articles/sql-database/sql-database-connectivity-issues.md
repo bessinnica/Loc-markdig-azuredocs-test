@@ -23,6 +23,7 @@ This article describes how to prevent, troubleshoot, diagnose, and mitigate conn
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
+
 ## Transient errors (transient faults)
 A transient error, also known as a transient fault, has an underlying cause that soon resolves itself. An occasional cause of transient errors is when the Azure system quickly shifts hardware resources to better load-balance various workloads. Most of these reconfiguration events finish in less than 60 seconds. During this reconfiguration time span, you might have connectivity issues to SQL Database. Applications that connect to SQL Database should be built to expect these transient errors. To handle them, implement retry logic in their code instead of surfacing them to users as application errors.
 
@@ -30,6 +31,7 @@ If your client program uses ADO.NET, your program is told about the transient er
 [SQL error codes for SQL Database client applications](sql-database-develop-error-messages.md).
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
+
 
 ### Connection vs. command
 Retry the SQL connection or establish it again, depending on the following:
@@ -40,12 +42,14 @@ Retry the SQL connection or establish it again, depending on the following:
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
+
 ## Retry logic for transient errors
 Client programs that occasionally encounter a transient error are more robust when they contain retry logic.
 
 When your program communicates with SQL Database through third-party middleware, ask the vendor whether the middleware contains retry logic for transient errors.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
+
 
 ### Principles for retry
 * If the error is transient, retry to open a connection.
@@ -73,6 +77,7 @@ Code examples with retry logic are available at:
 - [Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
+
 
 ### Test your retry logic
 To test your retry logic, you must simulate or cause an error that can be corrected while your program is still running.
@@ -113,6 +118,7 @@ To make this test practical, your program recognizes a runtime parameter that ca
 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
+
 ## .NET SqlConnection parameters for connection retry
 If your client program connects to SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, use .NET 4.6.1 or later (or .NET Core) so that you can use its connection retry feature. For more information on the feature, see [this webpage](http://go.microsoft.com/fwlink/?linkid=393996).
 
@@ -134,6 +140,7 @@ For example, if the count equals 3 and the interval equals 10 seconds, a timeout
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
+
 ## Connection vs. command
 The **ConnectRetryCount** and **ConnectRetryInterval** parameters let your **SqlConnection** object retry the connect operation without telling or bothering your program, such as returning control to your program. The retries can occur in the following situations:
 
@@ -148,8 +155,10 @@ Suppose your application has robust custom retry logic. It might retry the conne
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
+
 ## Connections to SQL Database
 <a id="c-connection-string" name="c-connection-string"></a>
+
 
 ### Connection: Connection string
 The connection string that's necessary to connect to SQL Database is slightly different from the string used to connect to SQL Server. You can copy the connection string for your database from the [Azure portal](https://portal.azure.com/).
@@ -157,6 +166,7 @@ The connection string that's necessary to connect to SQL Database is slightly di
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
+
 
 ### Connection: IP address
 You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. To set up this configuration, edit the firewall settings through the [Azure portal](https://portal.azure.com/).
@@ -168,6 +178,7 @@ If you forget to configure the IP address, your program fails with a handy error
 For more information, see
 [Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
+
 
 ### Connection: Ports
 Typically, you need to ensure that only port 1433 is open for outbound communication on the computer that hosts your client program.
@@ -185,6 +196,7 @@ For background information about configuration of ports and IP addresses, see
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
+
 ### Connection: ADO.NET 4.6.1
 If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to SQL Database, we recommend that you use .NET Framework version 4.6.1 or later.
 
@@ -199,8 +211,10 @@ If you use ADO.NET 4.0 or earlier, we recommend that you upgrade to the latest A
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
+
 ## Diagnostics
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
+
 
 ### Diagnostics: Test whether utilities can connect
 If your program fails to connect to SQL Database, one diagnostic option is to try to connect with a utility program. Ideally, the utility connects by using the same library that your program uses.
@@ -213,6 +227,7 @@ On any Windows computer, you can try these utilities:
 After your program is connected, test whether a short SQL SELECT query works.
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
+
 
 ### Diagnostics: Check the open ports
 If you suspect that connection attempts fail due to port issues, you can run a utility on your computer that reports on the port configurations.
@@ -245,6 +260,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
+
 ### Diagnostics: Log your errors
 An intermittent problem is sometimes best diagnosed by detection of a general pattern over days or weeks.
 
@@ -253,6 +269,7 @@ Your client can assist in a diagnosis by logging all errors it encounters. You m
 Enterprise Library 6 (EntLib60) offers .NET managed classes to assist with logging. For more information, see [5 - As easy as falling off a log: Use the Logging Application Block](http://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
+
 
 ### Diagnostics: Examine system logs for errors
 Here are some Transact-SQL SELECT statements that query error logs and other information.
@@ -263,6 +280,7 @@ Here are some Transact-SQL SELECT statements that query error logs and other inf
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |The [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) view offers aggregated counts of event types for additional diagnostics.<br/><br/>You must connect to the *master* database to run this query. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
+
 
 ### Diagnostics: Search for problem events in the SQL Database log
 You can search for entries about problem events in the SQL Database log. Try the following Transact-SQL SELECT statement in the *master* database:
@@ -305,6 +323,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
+
 ## Enterprise Library 6
 Enterprise Library 6 (EntLib60) is a framework of .NET classes that helps you implement robust clients of cloud services, one of which is the SQL Database service. To locate topics dedicated to each area in which EntLib60 can assist, see [Enterprise Library 6 - April 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
@@ -317,18 +336,19 @@ Retry logic for handling transient errors is one area in which EntLib60 can assi
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
+
 ### EntLib60 classes for transient errors and retry
 The following EntLib60 classes are particularly useful for retry logic. All these classes are found in or under the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
 
 In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 
 * **RetryPolicy** class
-  
+
   * **ExecuteAction** method
 * **ExponentialBackoff** class
 * **SqlDatabaseTransientErrorDetectionStrategy** class
 * **ReliableSqlConnection** class
-  
+
   * **ExecuteCommand** method
 
 In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
@@ -344,9 +364,10 @@ Here are some links to information about EntLib60:
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
+
 ### EntLib60: The logging block
 * The logging block is a highly flexible and configurable solution that you can use to:
-  
+
   * Create and store log messages in a wide variety of locations.
   * Categorize and filter messages.
   * Collect contextual information that is useful for debugging and tracing, as well as for auditing and general logging requirements.
@@ -356,6 +377,7 @@ For more information, see
 [5 - As easy as falling off a log: Use the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
+
 
 ### EntLib60 IsTransient method source code
 Next, from the **SqlDatabaseTransientErrorDetectionStrategy** class, is the C# source code for the **IsTransient** method. The source code clarifies which errors were considered transient and worthy of retry, as of April 2013.

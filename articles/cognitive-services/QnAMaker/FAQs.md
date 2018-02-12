@@ -91,7 +91,7 @@ However, it's still easy to share your knowledge base and use it in chats. Check
 Current transaction limits are 10 calls per minute and 10,000 calls per month. If you require higher limits, a free premium tier is available with limits of 1,000 calls per minute and 500,000 calls per month. To sign up for this option, fill in the [request form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yh9o_uvdhPnJy8sn_XBGRUMktKRFNYME1VUkVRRVkwV0hDWUNWMVVNRC4u). Note that these tiers are subject to change when the tool goes to general availability.
 
 ### How can I change the default message when no good match is found?
-If QnA Maker doesn't match any of the questions, it shows a default "Sorry, no match found" message. You can change this default message in the code-behind by using the `QnAMakerDialog` object. For more information, see [Create a bot using the Question and Answer template](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle).
+If QnA Maker doesn't match any of the questions, it shows a default "Sorry, no match found" message. You can change this default message in the code-behind by using the `QnAMakerDialog` object. For more information, see [Create a bot using the Question and Answer template](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle).
 
 ### Why is my SharePoint link not getting extracted?
 The tool parses only public URLs and does not support authenticated data sources at this time. Alternately, you can download the file and use the file-upload option to extract questions and answers.

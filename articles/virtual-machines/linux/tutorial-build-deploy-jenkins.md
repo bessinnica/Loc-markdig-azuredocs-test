@@ -41,15 +41,16 @@ You will:
 * You need access to a Jenkins server. If you have not yet created a Jenkins server,
   see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
-* Sign in to your Team Services account (**https://{youraccount}.visualstudio.com**). 
-  You can get a [free Team Services account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+* Sign in to your Team Services account (<strong>https://{youraccount}.visualstudio.com</strong>). 
+  You can get a 
+  [free Team Services account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
   > For more information, see [Connect to Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
+* You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+* Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## Get the sample app
 
@@ -94,21 +95,21 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 
 > [!NOTE]
 > Ensure that the personal access token (PAT) you use for the following steps contains the *Release* (read, write, execute and manage) permission in Team Services.
- 
-1.  Create a PAT in your Team Services account if you don't already have one. Jenkins requires this information to access your Team Services account. Be sure to store the token information for upcoming steps in this section.
-  
-    To learn how to generate a token, read [How do I create a personal access token for VSTS and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+
+1. Create a PAT in your Team Services account if you don't already have one. Jenkins requires this information to access your Team Services account. Be sure to store the token information for upcoming steps in this section.
+
+   To learn how to generate a token, read [How do I create a personal access token for VSTS and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 2. In the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, select **Add post-build action**.
-5. Select **Trigger release in TFS/Team Services**. Enter the URI for your Team Services account, such as **https://{your-account-name}.visualstudio.com**.
+5. Select <strong>Trigger release in TFS/Team Services</strong>. Enter the URI for your Team Services account, such as <strong>https://{your-account-name}.visualstudio.com</strong>.
 6. Enter the **Team Project** name.
 7. Choose a name for the release definition. (You create this release definition later in Team Services.)
 8. Choose credentials to connect to your Team Services or Team Foundation Server environment:
    - Leave **Username** blank if you are using Team Services. 
    - Enter a username and password if you are using an on-premises version of Team Foundation Server.    
    ![Configuring Jenkins post-build actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
-5. Save the Jenkins project.
+9. Save the Jenkins project.
 
 
 ## Create a Jenkins service endpoint
@@ -118,7 +119,7 @@ A service endpoint allows Team Services to connect to Jenkins.
 1. Open the **Services** page in Team Services, open the **New Service Endpoint** list, and select **Jenkins**.
    ![Add a Jenkins endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. Enter a name for the connection.
-3. Enter the URL of your Jenkins server, and select the **Accept untrusted SSL certificates** option. An example URL is	**http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com**.
+3. Enter the URL of your Jenkins server, and select the <strong>Accept untrusted SSL certificates</strong> option. An example URL is <strong>http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com</strong>.
 4. Enter the username and password for your Jenkins account.
 5. Select **Verify connection** to check that the information is correct.
 6. Select **OK** to create the service endpoint.
@@ -153,7 +154,7 @@ To create the release definition in Team Services:
 5. Choose your deployment group.
 5. Select **+** to add a task to **Deployment group phase**.
 6. Select the **Shell Script** task and select **Add**. The **Shell Script** task provides the configuration for a script to run on each server in order to install Node.js and start the app.
-8. For **Script Path**, enter	**$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
+8. For **Script Path**, enter   **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
 9. Select **Advanced**, and then enable **Specify Working Directory**.
 10. For **Working Directory**, enter **$(System.DefaultWorkingDirectory)/Fabrikam-Node**.
 11. Edit the name of the release definition to the name that you specified on the **Post-build Actions** tab of the build in Jenkins. Jenkins requires this name to be able to trigger a new release when the source artifacts are updated.
@@ -165,7 +166,7 @@ To create the release definition in Team Services:
 2. Select the build that you completed in the highlighted drop-down list, and select **Queue**.
 3. Choose the release link in the pop-up message. For example: "Release **Release-1** has been created."
 4. Open the **Logs** tab to watch the release console output.
-5. In your browser, open the URL of one of the servers that you added to your deployment group. For example, enter **http://{your-server-ip-address}**.
+5. In your browser, open the URL of one of the servers that you added to your deployment group. For example, enter <strong>http://{your-server-ip-address}</strong>.
 6. Go to the source Git repository and modify the contents of the **h1** heading in the file app/views/index.jade with some changed text.
 7. Commit your change.
 8. After a few minutes, you will see a new release created on the **Releases** page of Team Services or Team Foundation Server. Open the release to see the deployment taking place. Congratulations!

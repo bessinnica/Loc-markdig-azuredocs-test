@@ -139,115 +139,115 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 
 1. Create a **linked service** for your **Azure Storage**. If the input and output files are in different storage accounts, you need two linked services. Here is a JSON example:
 
-	```JSON
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
-	    }
-	  }
-	}
-	```
+    ```JSON
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
+        }
+      }
+    }
+    ```
 2. Create the **input** Azure Data Factory **dataset**. Unlike some other Data Factory datasets, these datasets must contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You may need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the **external** and **externalData** settings shown in the following example, and your DecisionTreeInputBlob would be the output dataset of a different Activity.
 
-	```JSON
-	{
-	  "name": "DecisionTreeInputBlob",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "azuremltesting/input",
-	      "fileName": "in.csv",
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": ","
-	      }
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
-	```
+    ```JSON
+    {
+      "name": "DecisionTreeInputBlob",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "azuremltesting/input",
+          "fileName": "in.csv",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
+    ```
 
     Your input csv file must have the column header row. If you are using the **Copy Activity** to create/move the csv into the blob storage, you should set the sink property **blobWriterAddHeader** to **true**. For example:
 
-	```JSON
-	sink:
+    ```JSON
+    sink:
     {
-    	"type": "BlobSink",     
+        "type": "BlobSink",     
         "blobWriterAddHeader": true
-	}
-	```
+    }
+    ```
 
     If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
 3. Create the **output** Azure Data Factory **dataset**. This example uses partitioning to create a unique output path for each slice execution. Without the partitioning, the activity would overwrite the file.
 
-	```JSON
-	{
-	  "name": "DecisionTreeResultBlob",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "azuremltesting/scored/{folderpart}/",
-	      "fileName": "{filepart}result.csv",
-	      "partitionedBy": [
-	        {
-	          "name": "folderpart",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyyMMdd"
-	          }
-	        },
-	        {
-	          "name": "filepart",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "HHmmss"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": ","
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 15
-	    }
-	  }
-	}
-	```
+    ```JSON
+    {
+      "name": "DecisionTreeResultBlob",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "azuremltesting/scored/{folderpart}/",
+          "fileName": "{filepart}result.csv",
+          "partitionedBy": [
+            {
+              "name": "folderpart",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyyMMdd"
+              }
+            },
+            {
+              "name": "filepart",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "HHmmss"
+              }
+            }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
+          }
+        },
+        "availability": {
+          "frequency": "Day",
+          "interval": 15
+        }
+      }
+    }
+    ```
 4. Create a **linked service** of type: **AzureMLLinkedService**, providing the API key and model batch execution URL.
 
-	```JSON
-	{
-	  "name": "MyAzureMLLinkedService",
-	  "properties": {
-	    "type": "AzureML",
-	    "typeProperties": {
-	      "mlEndpoint": "https://[batch execution endpoint]/jobs",
-	      "apiKey": "[apikey]"
-	    }
-	  }
-	}
-	```
+    ```JSON
+    {
+      "name": "MyAzureMLLinkedService",
+      "properties": {
+        "type": "AzureML",
+        "typeProperties": {
+          "mlEndpoint": "https://[batch execution endpoint]/jobs",
+          "apiKey": "[apikey]"
+        }
+      }
+    }
+    ```
 5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. At runtime, pipeline performs the following steps:
 
    1. Gets the location of the input file from your input datasets.
@@ -259,47 +259,47 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       >
       >
 
-	```JSON
-	{
-		"name": "PredictivePipeline",
-	 	"properties": {
-			"description": "use AzureML model",
-	   		"activities": [
-	     	{
-	       		"name": "MLActivity",
-	       		"type": "AzureMLBatchExecution",
-	       		"description": "prediction analysis on batch input",
-	       		"inputs": [
-	         	{
-	           		"name": "DecisionTreeInputBlob"
-	         	}
-	       		],
-	       		"outputs": [
-	         	{
-	           		"name": "DecisionTreeResultBlob"
-	         	}
-	       		],
-	       		"linkedServiceName": "MyAzureMLLinkedService",
-	       		"typeProperties":
-	       		{
-	           		"webServiceInput": "DecisionTreeInputBlob",
-	           		"webServiceOutputs": {
-	               		"output1": "DecisionTreeResultBlob"
-	           		}                
-	       		},
-	       		"policy": {
-	        		"concurrency": 3,
-	         		"executionPriorityOrder": "NewestFirst",
-	         		"retry": 1,
-	         		"timeout": "02:00:00"
-	       		}
-     		}
-	   		],
-	   		"start": "2016-02-13T00:00:00Z",
-	   		"end": "2016-02-14T00:00:00Z"
-	 	}
-	}
-	```
+      ```JSON
+      {
+        "name": "PredictivePipeline",
+        "properties": {
+            "description": "use AzureML model",
+            "activities": [
+            {
+                "name": "MLActivity",
+                "type": "AzureMLBatchExecution",
+                "description": "prediction analysis on batch input",
+                "inputs": [
+                {
+                    "name": "DecisionTreeInputBlob"
+                }
+                ],
+                "outputs": [
+                {
+                    "name": "DecisionTreeResultBlob"
+                }
+                ],
+                "linkedServiceName": "MyAzureMLLinkedService",
+                "typeProperties":
+                {
+                    "webServiceInput": "DecisionTreeInputBlob",
+                    "webServiceOutputs": {
+                        "output1": "DecisionTreeResultBlob"
+                    }                
+                },
+                "policy": {
+                    "concurrency": 3,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "02:00:00"
+                }
+            }
+            ],
+            "start": "2016-02-13T00:00:00Z",
+            "end": "2016-02-14T00:00:00Z"
+        }
+      }
+      ```
 
       Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
@@ -333,7 +333,7 @@ You can also use [Data Factory Functions](data-factory-functions-variables.md) i
 
 ```JSON
 "typeProperties": {
-	"globalParameters": {
+    "globalParameters": {
        "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     }
 }

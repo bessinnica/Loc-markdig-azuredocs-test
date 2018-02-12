@@ -51,14 +51,14 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
 
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
-  ```bash
-  sudo npm install -g yo
-  ```
+   ```bash
+   sudo npm install -g yo
+   ```
 3. Install the Service Fabric Yeo Java application generator from NPM
 
-  ```bash
-  sudo npm install -g generator-azuresfcsharp
-  ```
+   ```bash
+   sudo npm install -g generator-azuresfcsharp
+   ```
 
 ## Create the application
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](http://yeoman.io/) generator for C#, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.

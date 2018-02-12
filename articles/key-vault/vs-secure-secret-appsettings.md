@@ -104,12 +104,12 @@ If you are writing a quick prototype and don't want to provision Azure resources
 
     ```xml
 
-	   <root>
-	          <secrets ver="1.0">
-	                 <secret name="secret1" value="foo_one" />
-	                    <secret name="secret2" value="foo_two" />
-	                   </secrets>
-	  </root>
+       <root>
+              <secrets ver="1.0">
+                     <secret name="secret1" value="foo_one" />
+                        <secret name="secret2" value="foo_two" />
+                       </secrets>
+      </root>
       ```
 
 3. Define the secret file to be a configuration builder in your Web.config file. Put this section before *appSettings* section.
@@ -142,9 +142,9 @@ If you are writing a quick prototype and don't want to provision Azure resources
 Follow instructions from ASP.NET core section to configure a Key Vault for your project.
 
 1. Install the following NuGet package to your project
-```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+   ```
 
 2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in public Azure, or full URI if you are using Sovereign cloud.
 
@@ -158,16 +158,16 @@ Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
         </builders>
     </configBuilders>
     ```
-3.  Specify appSettings section is using the Key Vault configuration builder. Make sure there is any entry for the secret setting with a dummy value.
+3. Specify appSettings section is using the Key Vault configuration builder. Make sure there is any entry for the secret setting with a dummy value.
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. Start debugging the project. It should run successfully.

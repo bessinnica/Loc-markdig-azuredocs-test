@@ -31,22 +31,21 @@ For example, you provision a new BizTalk service. When it completes successfully
 
 The following tables list the operations or actions that can be done when the BizTalk Service is in a specific state. A ✔ means the operation is allowed while in that state. A blank entry means the operation cannot be performed while in that state.
 
-| Service state | Start | Stop | Restart | Suspend | Resume | Delete | Scale | Update <br/> Configuration | Backup |
-| --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
-| Active |  | ✔ | ✔ | ✔ |  | ✔ |✔ |✔ |✔ |
-| Disabled |  |  |  |  |  | ✔ | |  |  | 
-| Suspended |  |  |  |  | ✔ | ✔ | |  | ✔ |
-| Stopped | ✔ |  | ✔ |  |  | ✔ | |  | ✔ |
-| Service Update Failed |  |  |  |  |  | ✔ | |  |  | 
-| DisableFailed |  |  |  |  |  | ✔ | |  |  | 
-| EnableFailed |  |  |  |  |  | ✔ | |  |  | 
-| StartFailed <br/> StopFailed <br/> RestartFailed | ✔ | ✔ | ✔ |  |  | ✔ | | ✔ | |
-| SuspendedFailed <br/> ResumeFailed|  |  |  | ✔ | ✔ | ✔ | |  |  | 
-| CreatedFailed <br/> RestoreFailed |  |  |  |  |  | ✔ | |  |  | 
-| ConfigUpdateFailed  |  |  | ✔ |  |  | ✔ | |✔ | |
-| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |  | 
 
-
+|                  Service state                   | Start | Stop | Restart | Suspend | Resume | Delete | Scale | Update <br/> Configuration | Backup |
+|--------------------------------------------------|-------|------|---------|---------|--------|--------|-------|----------------------------|--------|
+|                      Active                      |       |  ✔   |    ✔    |    ✔    |        |   ✔    |   ✔   |             ✔              |   ✔    |
+|                     Disabled                     |       |      |         |         |        |   ✔    |       |                            |        |
+|                    Suspended                     |       |      |         |         |   ✔    |   ✔    |       |                            |   ✔    |
+|                     Stopped                      |   ✔   |      |    ✔    |         |        |   ✔    |       |                            |   ✔    |
+|              Service Update Failed               |       |      |         |         |        |   ✔    |       |                            |        |
+|                  DisableFailed                   |       |      |         |         |        |   ✔    |       |                            |        |
+|                   EnableFailed                   |       |      |         |         |        |   ✔    |       |                            |        |
+| StartFailed <br/> StopFailed <br/> RestartFailed |   ✔   |  ✔   |    ✔    |         |        |   ✔    |       |             ✔              |        |
+|        SuspendedFailed <br/> ResumeFailed        |       |      |         |    ✔    |   ✔    |   ✔    |       |                            |        |
+|        CreatedFailed <br/> RestoreFailed         |       |      |         |         |        |   ✔    |       |                            |        |
+|                ConfigUpdateFailed                |       |      |    ✔    |         |        |   ✔    |       |             ✔              |        |
+|                   ScaleFailed                    |       |      |         |         |        |   ✔    |   ✔   |                            |        |
 
 ## See Also
 * [What you can do in the dashboard, monitor and scale tabs in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>

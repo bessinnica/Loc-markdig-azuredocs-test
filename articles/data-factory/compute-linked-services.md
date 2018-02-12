@@ -95,6 +95,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 > 
 
 ### Properties
+
 | Property                     | Description                              | Required |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | The type property should be set to **HDInsightOnDemand**. | Yes      |
@@ -235,7 +236,7 @@ If you want to create D4 sized head nodes and worker nodes, specify **Standard_D
 "dataNodeSize": "Standard_D4",
 ```
 
-If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article.  	 	
+If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article.        
 
 ## Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory. The computing environment is managed by the user and the Data Factory service uses it to execute the activities.
@@ -279,6 +280,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 ```
 
 ### Properties
+
 | Property          | Description                              | Required |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | The type property should be set to **HDInsight**. | Yes      |
@@ -332,15 +334,16 @@ See following topics if you are new to Azure Batch service:
 
 
 ### Properties
-| Property          | Description                              | Required |
-| ----------------- | ---------------------------------------- | -------- |
-| type              | The type property should be set to **AzureBatch**. | Yes      |
-| accountName       | Name of the Azure Batch account.         | Yes      |
-| accessKey         | Access key for the Azure Batch account.  | Yes      |
-| batchUri          | URL to your Azure Batch account, in format of https://*batchaccountname.region*.batch.azure.com. | Yes      |
-| poolName          | Name of the pool of virtual machines.    | Yes      |
-| linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity. | Yes      |
-| connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
+
+|     Property      |                                                                                                           Description                                                                                                            | Required |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+|       type        |                                                                                 The type property should be set to <strong>AzureBatch</strong>.                                                                                  |   Yes    |
+|    accountName    |                                                                                                 Name of the Azure Batch account.                                                                                                 |   Yes    |
+|     accessKey     |                                                                                             Access key for the Azure Batch account.                                                                                              |   Yes    |
+|     batchUri      |                                                             URL to your Azure Batch account, in format of https://<em>batchaccountname.region</em>.batch.azure.com.                                                              |   Yes    |
+|     poolName      |                                                                                              Name of the pool of virtual machines.                                                                                               |   Yes    |
+| linkedServiceName |                              Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity.                               |   Yes    |
+|    connectVia     | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. |    No    |
 
 ## Azure Machine Learning linked service
 You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
@@ -368,6 +371,7 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 ```
 
 ### Properties
+
 | Property               | Description                              | Required                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | The type property should be set to: **AzureML**. | Yes                                      |

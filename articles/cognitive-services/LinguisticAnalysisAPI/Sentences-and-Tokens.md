@@ -66,4 +66,4 @@ This tokenization allows us to handle the word *didn't* and the phrase *did not*
 ## Specification
 
 It is important to make consistent decisions about what comprises a sentence and a token.
-We rely on the specification from the [Penn Treebank](https://www.cis.upenn.edu/~treebank/) (some additional details are available  here: [https://www.cis.upenn.edu/~treebank/tokenization.html]).
+We rely on the specification from the [Penn Treebank](https://www.cis.upenn.edu/~treebank/) (some additional details are available  here: [<https://www.cis.upenn.edu/~treebank/tokenization.html>]).

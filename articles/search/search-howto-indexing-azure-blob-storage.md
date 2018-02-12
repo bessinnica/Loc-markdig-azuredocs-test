@@ -65,6 +65,7 @@ To create a data source:
 For more on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
+
 #### How to specify credentials ####
 
 You can provide the credentials for the blob container in one of these ways:
@@ -152,6 +153,7 @@ You don't need to define fields for all of the above properties in your search i
 >
 
 <a name="DocumentKeys"></a>
+
 ### Defining document keys and field mappings
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
 
@@ -195,6 +197,7 @@ To bring this all together, here's how you can add field mappings and enable bas
 >
 
 <a name="WhichBlobsAreIndexed"></a>
+
 ## Controlling which blobs are indexed
 You can control which blobs are indexed, and which are skipped.
 
@@ -225,6 +228,7 @@ You can exclude blobs with specific file name extensions from indexing by using 
 If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
 
 <a name="PartsOfBlobToIndex"></a>
+
 ## Controlling which parts of the blob are indexed
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
@@ -254,11 +258,12 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 | AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
 <a name="DealingWithErrors"></a>
+
 ## Dealing with errors
 
 By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
 
-	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -273,10 +278,10 @@ For some blobs, Azure Search is unable to determine the content type, or unable 
 
 You can also continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. To ignore a specific number of errors, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to the desired values. For example:
 
-	{
-	  ... other parts of indexer definition
-	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-	}
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## Incremental indexing and deletion detection
 When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
@@ -315,14 +320,14 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 - Partition your data into multiple blob containers or virtual folders
 - Set up several Azure Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
 
-	```
-	{
-	    "name" : "blob-datasource",
-	    "type" : "azureblob",
-	    "credentials" : { "connectionString" : "<your storage connection string>" },
-		"container" : { "name" : "my-container", "query" : "my-folder" }
-	}
-	```
+    ```
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : "my-folder" }
+    }
+    ```
 
 - Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
 
@@ -335,6 +340,7 @@ You may want to "assemble" documents from multiple sources in your index. For ex
 For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
+
 ## Indexing plain text 
 
 If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
@@ -350,13 +356,14 @@ If all your blobs contain plain text in the same encoding, you can significantly
 
 By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
 
-	{
+    {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
     }
 
 
 <a name="ContentSpecificMetadata"></a>
+
 ## Content type-specific metadata properties
 The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Search.
 

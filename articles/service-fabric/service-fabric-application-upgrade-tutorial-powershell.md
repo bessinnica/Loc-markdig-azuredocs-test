@@ -1,4 +1,4 @@
-﻿---
+---
 title: Service Fabric App upgrade using PowerShell| Microsoft Docs
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade using PowerShell.
 services: service-fabric
@@ -26,6 +26,7 @@ ms.author: subramar
 
 <br/>
 
+
 The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Azure Service Fabric monitors the health of the application being upgraded based on a set of health policies. Once an update domain (UD) is upgraded, Service Fabric evaluates the application health and either proceeds to the next update domain or fails the upgrade depending on the health policies.
 
 A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST. For instructions on performing an upgrade using Visual Studio, see [Upgrading your application using Visual Studio](service-fabric-application-upgrade-tutorial.md).
@@ -34,6 +35,7 @@ With Service Fabric monitored rolling upgrades, the application administrator ca
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
 
 ## Step 1: Build and deploy the Visual Objects sample
 Build and publish the application by right-clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command.  For more information, see [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md).  Alternatively, you can use PowerShell to deploy your application.

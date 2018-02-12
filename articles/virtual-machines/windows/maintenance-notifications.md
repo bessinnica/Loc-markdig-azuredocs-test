@@ -44,7 +44,7 @@ You can use the Azure portal, PowerShell, REST API, and CLI to query for the mai
  > If you try to start maintenance and the request fails, Azure marks your VM as **skipped**. You will no longer be able to use the Customer Initiated Maintenance option. Your VM will have to be rebooted by Azure during the scheduled maintenance phase.
 
 
- 
+
 ## Should you start maintenance using during the self-service window?  
 
 The following guidelines should help you to decide whether you should use this capability and start maintenance at your own time.
@@ -54,31 +54,31 @@ The following guidelines should help you to decide whether you should use this c
 
 
 Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
-	- Let Azure trigger the maintenance, but be aware that the order of update domains being impacted does not necessarily happen sequentially and that there is a 30-minute pause between update domains.
-	- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating addition instances during the maintenance period
-**Don't** use self-service maintenance in the following scenarios: 
-	- If you shut down your VMs frequently, either manually, using DevTest labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
-	- On short-lived VMs which you know will be deleted before the end of the maintenance wave. 
-	- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
-	- For cases where you resize your VM often, as it could revert the maintenance status. 
-	- If you have adopted scheduled events which enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown
+- Let Azure trigger the maintenance, but be aware that the order of update domains being impacted does not necessarily happen sequentially and that there is a 30-minute pause between update domains.
+- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating addition instances during the maintenance period
+  **Don't** use self-service maintenance in the following scenarios: 
+- If you shut down your VMs frequently, either manually, using DevTest labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
+- On short-lived VMs which you know will be deleted before the end of the maintenance wave. 
+- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
+- For cases where you resize your VM often, as it could revert the maintenance status. 
+- If you have adopted scheduled events which enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown
 
 **Use** self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
 
 It is best to use self-service maintenance in the following cases:
-	- You need to communicate an exact maintenance window to your management or end-customer. 
-	- You need to complete the maintenance by a given date. 
-	- You need to control the sequence of maintenance, e.g., multi-tier application to guarantee safe recovery.
-	- You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
+    - You need to communicate an exact maintenance window to your management or end-customer. 
+    - You need to complete the maintenance by a given date. 
+    - You need to control the sequence of maintenance, e.g., multi-tier application to guarantee safe recovery.
+    - You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
 
- 
+
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
 
 ## Check maintenance status using PowerShell
 
 You can also use Azure Powershell to see when VMs are scheduled for maintenance. Planned maintenance information is available from the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) cmdlet when you use the `-status` parameter.
- 
+
 Maintenance information is returned only if there is maintenance planned. If there is no maintenance scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
 ```powershell
@@ -86,19 +86,18 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 The following properties are returned under MaintenanceRedeployStatus: 
-| Value	| Description	|
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time ||
-| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM ||
-| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM ||
-| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM ||
-| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM ||
-| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM ||
 
-
+|                 Value                 |                                            Description                                            |
+|---------------------------------------|---------------------------------------------------------------------------------------------------|
+| IsCustomerInitiatedMaintenanceAllowed |                Indicates whether you can start maintenance on the VM at this time                 |
+|     PreMaintenanceWindowStartTime     | The beginning of the maintenance self-service window when you can initiate maintenance on your VM |
+|      PreMaintenanceWindowEndTime      |    The end of the maintenance self-service window when you can initiate maintenance on your VM    |
+|      MaintenanceWindowStartTime       |    The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM     |
+|       MaintenanceWindowEndTime        |    The end of the maintenance scheduled window in which Azure initiates maintenance on your VM    |
+|        LastOperationResultCode        |                 The result of the last attempt to initiate maintenance on the VM                  |
 
 You can also get the maintenance status for all VMs in a resource group by using [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) and not specifying a VM.
- 
+
 ```powershell
 Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
@@ -116,7 +115,7 @@ function MaintenanceIterator
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
         $rg = $rgList[$rgIdx]        
-	$vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -128,7 +127,6 @@ function MaintenanceIterator
           }
     }
 }
-
 ```
 
 ### Start maintenance on your VM using PowerShell
@@ -196,17 +194,17 @@ For more information about high availability, see [Regions and availability for 
 **Q: I don’t see any maintenance information on my VMs. What went wrong?**
 
 **A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
-1.	You are using a subscription marked as Microsoft internal.
-2.	Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled or modified so that your VMs are no longer impacted by it.
-3.	You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
+1.  You are using a subscription marked as Microsoft internal.
+2.  Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled or modified so that your VMs are no longer impacted by it.
+3.  You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
 **Q: My VM is scheduled for maintenance for the second time. Why?**
 
 **A:** There are several use cases where you will see your VM scheduled for maintenance after you have already completed your maintenance-redeploy:
-1.	We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
-2.	Your VM was *service healed* to another node due to a hardware fault
-3.	You have selected to stop (deallocate) and restart the  VM
-4.	You have **auto shutdown** turned on for the VM
+1.  We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
+2.  Your VM was *service healed* to another node due to a hardware fault
+3.  You have selected to stop (deallocate) and restart the  VM
+4.  You have **auto shutdown** turned on for the VM
 
 
 **Q: Maintenance of my availability set takes a long time, and I now see “skipped” status on some of my availability set instances. Why?** 

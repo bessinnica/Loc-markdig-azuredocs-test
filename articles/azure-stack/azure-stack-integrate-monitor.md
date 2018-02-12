@@ -72,23 +72,24 @@ The plugin works with Nagios Enterprise and Nagios Core. You can download it [he
 
 Configure the plugin file “Azurestack_plugin.py” with the following parameters:
 
-| Parameter | Description | Example |
-|---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administrator) endpoint |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | Admin subscription ID | Retrieve via the administrator portal or PowerShell |
-| *User_name* | Operator subscription username | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | Operator subscription password | mypassword |
-| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Azure Stack region name | local |
-|  |  |
+
+|       Parameter        |                   Description                   |                       Example                       |
+|------------------------|-------------------------------------------------|-----------------------------------------------------|
+| <em>arm_endpoint</em>  | Azure Resource Manager (administrator) endpoint |  https://adminmanagement.local.azurestack.external  |
+| <em>api_endpoint</em>  | Azure Resource Manager (administrator) endpoint |  https://adminmanagement.local.azurestack.external  |
+|   <em>Tenant_id</em>   |              Admin subscription ID              | Retrieve via the administrator portal or PowerShell |
+|   <em>User_name</em>   |         Operator subscription username          |      operator@myazuredirectory.onmicrosoft.com      |
+| <em>User_password</em> |         Operator subscription password          |                     mypassword                      |
+|   <em>Client_id</em>   |                     Client                      |        0a7bdc5c-7b57-40be-9939-d4c5fc7cd417*        |
+|    <em>region</em>     |             Azure Stack region name             |                        local                        |
+|                        |                                                 |                                                     |
 
 *The PowerShell GUID that’s provided is universal. You can use it for each deployment.
 
 ## Use PowerShell to monitor health and alerts
 
 If you're not using Operations Manager, Nagios, or a Nagios-based solution, you can use PowerShell to enable a broad range of monitoring solutions to integrate with Azure Stack.
- 
+
 1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
 
 2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
@@ -133,20 +134,21 @@ You can use REST API calls to get alerts, close alerts, and get the health of re
 The request gets all active and closed alerts for the default provider subscription. There is no request body.
 
 
-|Method  |Request URI  |
-|---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
-|     |         |
+| Method |                                                                                        Request URI                                                                                        |
+|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  GET   | https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01" |
+|        |                                                                                                                                                                                           |
 
 **Arguments**
 
-|Argument  |Description  |
-|---------|---------|
-|armendpoint     |  The Azure Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is *azurestack.external* and region name is *local*, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.       |
-|subid     |   Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.      |
-|RegionName     |    The region name of the Azure Stack deployment.     |
-|api-version     |  Version of the protocol that is used to make this request. You must use 2016-05-01.      |
-|     |         |
+
+|  Argument   |                                                                                                                                                              Description                                                                                                                                                               |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| armendpoint | The Azure Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is <em>azurestack.external</em> and region name is <em>local</em>, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external. |
+|    subid    |                                                                                      Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.                                                                                       |
+| RegionName  |                                                                                                                                             The region name of the Azure Stack deployment.                                                                                                                                             |
+| api-version |                                                                                                                          Version of the protocol that is used to make this request. You must use 2016-05-01.                                                                                                                           |
+|             |                                                                                                                                                                                                                                                                                                                                        |
 
 **Response**
 
@@ -204,7 +206,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*id*     |      Unique ID of the alert.   |
 |*name*     |     Internal name of the alert.   |
 |*type*     |     Resource definition.    |
-|*location*     |    	Region name.     |
+|*location*     |       Region name.     |
 |*tags*     |   Resource tags.     |
 |*closedtimestamp*    |  UTC time when the alert was closed.    |
 |*createdtimestamp*     |     UTC time when the alert was created.   |
@@ -236,20 +238,21 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 The request closes an alert by its unique ID.
 
-|Method    |Request URI  |
-|---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
+
+| Method |                                                                                            Request URI                                                                                            |
+|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  PUT   | https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01" |
 
 **Arguments**
 
 
-|Argument  |Description  |
-|---------|---------|
-|*armendpoint*     |   Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is *azurestack.external* and region name is *local*, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.      |
-|*subid*     |    Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.     |
-|*RegionName*     |   The region name of the Azure Stack deployment.      |
-|*api-version*     |    Version of the protocol that is used to make this request. You must use 2016-05-01.     |
-|*alertid*     |    Unique ID of the alert.     |
+|       Argument       |                                                                                                                                                         Description                                                                                                                                                          |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <em>armendpoint</em> | Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is <em>azurestack.external</em> and region name is <em>local</em>, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external. |
+|    <em>subid</em>    |                                                                                 Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.                                                                                  |
+| <em>RegionName</em>  |                                                                                                                                        The region name of the Azure Stack deployment.                                                                                                                                        |
+| <em>api-version</em> |                                                                                                                     Version of the protocol that is used to make this request. You must use 2016-05-01.                                                                                                                      |
+|   <em>alertid</em>   |                                                                                                                                                   Unique ID of the alert.                                                                                                                                                    |
 
 **Body**
 
@@ -347,7 +350,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*id*     |      Unique ID of the alert.   |
 |*name*     |     Internal name of the alert.   |
 |*type*     |     Resource definition.    |
-|*location*     |    	Region name.     |
+|*location*     |       Region name.     |
 |*tags*     |   Resource tags.     |
 |*closedtimestamp*    |  UTC time when the alert was closed.    |
 |*createdtimestamp*     |     UTC time when the alert was created.   |
@@ -380,21 +383,19 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 The request gets health status for all registered resource providers.
 
 
-|Method  |Request URI  |
-|---------|---------|
-|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
-
+| Method |                                                                                            Request URI                                                                                            |
+|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  GET   | https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01" |
 
 **Arguments**
 
 
-|Arguments  |Description  |
-|---------|---------|
-|*armendpoint*     |    The Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is azurestack.external and region name is local, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.     |
-|*subid*     |     Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.    |
-|*RegionName*     |     The region name of the Azure Stack deployment.    |
-|*api-version*     |   Version of the protocol that is used to make this request. You must use 2016-05-01.      |
-
+|      Arguments       |                                                                                                                                                  Description                                                                                                                                                   |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <em>armendpoint</em> | The Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is azurestack.external and region name is local, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external. |
+|    <em>subid</em>    |                                                                          Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.                                                                           |
+| <em>RegionName</em>  |                                                                                                                                 The region name of the Azure Stack deployment.                                                                                                                                 |
+| <em>api-version</em> |                                                                                                              Version of the protocol that is used to make this request. You must use 2016-05-01.                                                                                                               |
 
 **Response**
 
@@ -451,19 +452,21 @@ The request gets health status for a specific registered resource provider.
 
 **Request**
 
-|Method  |Request URI  |
-|---------|---------|
-|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
+
+| Method |                                                                                                            Request URI                                                                                                             |
+|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  GET   | https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01" |
 
 **Arguments**
 
-|Arguments  |Description  |
-|---------|---------|
-|*armendpoint*     |    The Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is azurestack.external and region name is local, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.     |
-|*subid*     |Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.         |
-|*RegionName*     |  The region name of the Azure Stack deployment.       |
-|*api-version*     |  Version of the protocol that is used to make this request. You must use 2016-05-01.       |
-|*RegistrationID* |Registration ID for a specific resource provider. |
+
+|        Arguments        |                                                                                                                                                  Description                                                                                                                                                   |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <em>armendpoint</em>   | The Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is azurestack.external and region name is local, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external. |
+|     <em>subid</em>      |                                                                          Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.                                                                           |
+|   <em>RegionName</em>   |                                                                                                                                 The region name of the Azure Stack deployment.                                                                                                                                 |
+|  <em>api-version</em>   |                                                                                                              Version of the protocol that is used to make this request. You must use 2016-05-01.                                                                                                               |
+| <em>RegistrationID</em> |                                                                                                                               Registration ID for a specific resource provider.                                                                                                                                |
 
 **Response**
 

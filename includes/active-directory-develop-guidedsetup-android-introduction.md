@@ -30,6 +30,8 @@ MSAL manages caching and refreshing access tokens for you, so that your applicat
 
 This guide uses the following libraries:
 
-|Library|Description|
-|---|---|
-|[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
+
+|                                          Library                                          |               Description               |
+|-------------------------------------------------------------------------------------------|-----------------------------------------|
+| [com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal) | Microsoft Authentication Library (MSAL) |
+

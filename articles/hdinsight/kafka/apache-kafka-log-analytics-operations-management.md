@@ -47,26 +47,26 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
 2. Select __Log Search__. From here, you can search the data collected from Kafka. The following are some example searches:
 
-    * Disk usage: `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
-    * CPU usage: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
-    * Incoming messages per second: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
-    * Incoming bytes per second: `Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
-    * Outgoing bytes per second: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
+   * Disk usage: `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
+   * CPU usage: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
+   * Incoming messages per second: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
+   * Incoming bytes per second: `Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
+   * Outgoing bytes per second: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
 
-    > [!IMPORTANT]
-    > Replace the query values with your cluster specific information. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
+     > [!IMPORTANT]
+     > Replace the query values with your cluster specific information. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
 
-    You can also enter `*` to search all types logged. Currently the following logs are available for queries:
+     You can also enter `*` to search all types logged. Currently the following logs are available for queries:
 
-    | Log type | Description |
-    | ---- | ---- |
-    | log\_kafkaserver\_CL | Kafka broker server.log |
-    | log\_kafkacontroller\_CL | Kafka broker controller.log |
-    | metrics\_kafka\_CL | Kafka JMX metrics |
+     | Log type | Description |
+     | ---- | ---- |
+     | log\_kafkaserver\_CL | Kafka broker server.log |
+     | log\_kafkacontroller\_CL | Kafka broker controller.log |
+     | metrics\_kafka\_CL | Kafka JMX metrics |
 
-    ![Image of the CPU usage search](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
+     ![Image of the CPU usage search](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## Next steps
+   ## Next steps
 
 For more information on log analytics, see the [Get started with a Log Analytics workspace](../../log-analytics/log-analytics-get-started.md) document.
 

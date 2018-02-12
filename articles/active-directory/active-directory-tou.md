@@ -28,9 +28,9 @@ The remainder of this document describes how to get going with Azure AD Terms of
 Finding it difficult to get employee’s or guests to agree to your terms of use before getting access? Need help figuring out who has or hasn’t agreed to your company terms of use?  Azure AD Terms of Use provides a simple method organizations can use to present information to end users.  This ensures that they see relevant disclaimers for legal or compliance requirements.
 
 Azure AD Terms of Use can be used in the following scenarios:
--	General terms of use for all users in your organization.
--	Specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, done by [dynamic groups](https://azure.microsoft.com/updates/azure-active-directory-dynamic-membership-for-groups)).
--	Specific terms of use based on accessing high business impact apps, like Salesforce.
+-   General terms of use for all users in your organization.
+-   Specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, done by [dynamic groups](https://azure.microsoft.com/updates/azure-active-directory-dynamic-membership-for-groups)).
+-   Specific terms of use based on accessing high business impact apps, like Salesforce.
 
 
 ## Prerequisites
@@ -85,9 +85,9 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 
 ## What users see
 Users, who are in scope, will see the following once a terms of use is created and enforced.  They will see these screens during sign in.
--	Best practice is to have the font within the PDF at size 24.
+-   Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
--	This screen is how it appears on mobiles</br></br>
+-   This screen is how it appears on mobiles</br></br>
 ![Audit Event](media/active-directory-tou/tou11.png)
 
 ### Review terms of use

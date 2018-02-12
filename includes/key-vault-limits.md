@@ -8,6 +8,7 @@ Key transactions (Max transactions allowed in 10 seconds, per vault per region<s
 |
 
 Secrets, Managed Storage Account Keys, and vault transactions:
+
 | Transactions Type | Max transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
 | --- | --- |
 | All transactions |2000 |

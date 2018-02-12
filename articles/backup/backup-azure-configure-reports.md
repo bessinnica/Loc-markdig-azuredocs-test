@@ -89,19 +89,19 @@ After configuring storage account for reports using recovery services vault, it 
 5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal. 
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
-     
+
 6. Click **Sign in** button. After sign-in is successful, you get **Importing data** notification.
 
     ![Importing content pack](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
-    
+
     After some time, you get **Success** notification after the import is complete. It might take little longer to import the content pack, if there is a lot of data in the storage account.
-    
+
     ![Import success content pack](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
-    
+
 7. Once data is imported successfully, **Azure Backup** content pack is visible in **Apps** in the navigation pane. The list now shows Azure Backup dashboard, reports, and dataset with a yellow star indicating newly imported reports. 
 
      ![Azure Backup content pack](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
-     
+
 8. Click **Azure Backup** under Dashboards, which shows a set of pinned key reports.
 
       ![Azure Backup dashboard](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
@@ -115,18 +115,18 @@ After configuring storage account for reports using recovery services vault, it 
 
 ## Frequently asked questions
 1. **How do I check if reporting data has started flowing in to storage account?**
-    
+
     You can go to the storage account configured and select containers. If the container has an entry for insights-logs-azurebackupreport, it indicates that reporting data has started flowing in.
 
 2. **What is the frequency of data push to storage account and Azure Backup content pack in Power BI?**
 
    For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, data is refreshed with the following frequency shown in the figure below. 
-      * Data related to **Jobs, Alerts, Backup Items, Vaults, Protected Servers and Policies** is pushed to customer storage account as and when it is logged.
-      * Data related to **Storage** is pushed to customer storage account every 24 hours.
-   
-    ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+   * Data related to **Jobs, Alerts, Backup Items, Vaults, Protected Servers and Policies** is pushed to customer storage account as and when it is logged.
+   * Data related to **Storage** is pushed to customer storage account every 24 hours.
 
-  Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack.
+     ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+
+   Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack.
 
 3. **How long can I retain the reports?** 
 
@@ -143,8 +143,9 @@ After configuring storage account for reports using recovery services vault, it 
 6. **Can I view reports across vaults and across subscriptions?** 
 
    Yes, you can configure the same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. You can then use this storage account while connecting to Azure Backup content pack in Power BI to view the reports. However, the storage account selected should be in the same region as recovery services vault.
-   
+
 ## Troubleshooting errors
+
 | Error details | Resolution |
 | --- | --- |
 | After setting up the storage account for Backup Reports, **Storage Account** still shows **Not Configured**. | If you configured storage account successfully, your reporting data will flow in despite this issue. To resolve this issue, go to Azure portal > More Services > Diagnostic settings > RS vault > Edit Setting. Delete the previously configured setting and create a new setting from the same blade. This time set the field **Name** to **service**. This should show the configured storage account. |

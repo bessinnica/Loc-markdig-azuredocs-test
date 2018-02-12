@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analyzing Trends in Visual Studio | Microsoft Docs
 description: Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio.
 services: application-insights
@@ -98,6 +98,7 @@ The Trends tool can highlight bubbles of events that are anomalous compared to o
 > 
 
 ## <a name="next"></a>Next steps
+
 |  |  |
 | --- | --- |
 | **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-trends/34.png) |

@@ -167,7 +167,7 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.10
    -AccountName "MyStorageAccount").Key1
 
    ```
-   For more information, see [Get-​Azure​Rm​Storage​Account​Key](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+   For more information, see [Get- Azure Rm Storage Account Key](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
 ## Azure CLI
 The Azure CLI is Azure’s command-line experience for managing Azure resources. You can install it on macOS, Linux, and Windows and run it from the command line. 

@@ -34,6 +34,7 @@ Once the cloud service is running in Azure, you can reconfigure it through the *
 
 <a name="csdef"></a>
 
+
 ## ServiceDefinition.csdef
 The **ServiceDefinition.csdef** file specifies the settings that are used by Azure to configure a cloud service. The [Azure Service Definition Schema (.csdef File)](https://msdn.microsoft.com/library/azure/ee758711.aspx) provides the allowable format for a service definition file. The following example shows the settings that can be defined for the Web and Worker roles:
 
@@ -113,6 +114,7 @@ Contains the definitions for imported modules. The previous code example shows t
 Contains tasks that are run when the role starts. The tasks are defined in a .cmd or executable file.
 
 <a name="cscfg"></a>
+
 
 ## ServiceConfiguration.cscfg
 The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx) provides the allowable format for a service configuration file.
@@ -217,6 +219,7 @@ The [Azure Runtime Library](https://msdn.microsoft.com/library/azure/mt419365.as
 > 
 
 <a name="cspkg"></a>
+
 
 ## ServicePackage.cspkg
 To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](https://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.

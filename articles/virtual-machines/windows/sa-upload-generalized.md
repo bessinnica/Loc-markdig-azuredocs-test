@@ -151,7 +151,7 @@ You can now use the uploaded VHD to create a new VM.
 
 ### Set the URI of the VHD
 
-The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
+The URI for the VHD to use is in the format: https://<strong>mystorageaccount</strong>.blob.core.windows.net/<strong>mycontainer</strong>/<strong>MyVhdName</strong>.vhd. In this example the VHD named <strong>myVHD</strong> is in the storage account <strong>mystorageaccount</strong> in the container <strong>mycontainer</strong>.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"

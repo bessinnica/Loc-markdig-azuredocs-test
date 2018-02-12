@@ -1,4 +1,4 @@
-﻿---
+---
 title: Roles in Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension.
 services: active-directory

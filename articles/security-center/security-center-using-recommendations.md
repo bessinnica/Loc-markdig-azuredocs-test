@@ -91,8 +91,8 @@ Jeff learns that [Microsoft Security Response Center (MSRC)](../security/azure-s
    ![Security contact details][6]
 3. Under **Provide security contact details**, Jeff enters:
 
-  - the security contact email addresses separated by commas (there is not a limit to the number of email addresses that he can enter)
-  - one security contact phone number
+   - the security contact email addresses separated by commas (there is not a limit to the number of email addresses that he can enter)
+   - one security contact phone number
 
 4. Jeff also turns on the option **Send me emails about alerts** to receive emails about high severity alerts.
 5. Jeff selects **OK** to apply the security contact information to Contoso’s subscription.

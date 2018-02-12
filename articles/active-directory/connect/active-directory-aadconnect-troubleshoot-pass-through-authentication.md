@@ -57,7 +57,7 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 | --- | --- | ---
 | 50144 | User's Active Directory password has expired. | Reset the user's password in your on-premises Active Directory.
 | 80001 | No Authentication Agent available. | Install and register an Authentication Agent.
-| 80002	| Authentication Agent's password validation request timed out. | Check if your Active Directory is reachable from the Authentication Agent.
+| 80002 | Authentication Agent's password validation request timed out. | Check if your Active Directory is reachable from the Authentication Agent.
 | 80003 | Invalid response received by Authentication Agent. | If the problem is consistently reproducible across multiple users, check your Active Directory configuration.
 | 80004 | Incorrect User Principal Name (UPN) used in sign-in request. | Ask the user to sign in with the correct username.
 | 80005 | Authentication Agent: Error occurred. | Transient error. Try again later.
@@ -138,9 +138,9 @@ For detailed analytics, enable the "Session" log. Don't run the Authentication A
 To troubleshoot user sign-in failures, look for trace logs at **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
 
 ```
-	AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
-	    ThreadId=5
-	    DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
+    AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+        ThreadId=5
+        DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
 You can get descriptive details of the error ('1328' in the preceding example) by opening up the command prompt and running the following command (Note: Replace '1328' with the actual error number that you see in your logs):

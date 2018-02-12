@@ -33,49 +33,52 @@ backups to be performed than **Standard** tier.
 
 <a name="PreviousBackup"></a>
 
+
 ## Restore an app from an existing backup
 1. On the **Settings** page of your app in the Azure portal, click **Backups** to display the **Backups** page. Then click **Restore**.
-   
+
     ![Choose restore now][ChooseRestoreNow]
 2. In the **Restore** page, first select the backup source.
-   
+
     ![](./media/web-sites-restore/021ChooseSource1.png)
-   
+
     The **App backup** option shows you all the existing backups of the current app, and you can easily select one.
     The **Storage** option lets you select any backup ZIP file from any existing Azure Storage account and container in your subscription.
     If you're trying to restore a backup of another app, use the **Storage** option.
 3. Then, specify the destination for the app restore in **Restore destination**.
-   
+
     ![](./media/web-sites-restore/022ChooseDestination1.png)
-   
+
    > [!WARNING]
    > If you choose **Overwrite**, all existing data in your current app is erased and overwritten. Before you click **OK**,
    > make sure that it is exactly what you want to do.
    > 
    > 
-   
+
     You can select **Existing App** to restore the app backup to another app in the same resoure group. Before you use this option, you should have already created another app in your resource group with mirroring database configuration to the one defined in the app backup. You can also Create a **New** app to restore your content to.
 
 4. Click **OK**.
 
 <a name="StorageAccount"></a>
 
+
 ## Download or delete a backup from a storage account
 1. From the main **Browse** page of the Azure portal, select **Storage accounts**. A list of your existing storage accounts is displayed.
 2. Select the storage account that contains the backup that you want to download or delete. The page for the storage account is displayed.
 3. In the storage account page, select the container you want
-   
+
     ![View Containers][ViewContainers]
 4. Select backup file you want to download or delete.
-   
+
     ![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
 5. Click **Download** or **Delete** depending on what you want to do.  
 
 <a name="OperationLogs"></a>
 
+
 ## Monitor a restore operation
 To see details about the success or failure of the app restore operation, navigate to the **Activity Log** page in the Azure portal.  
- 
+
 
 Scroll down to find the desired restore operation and click to select it.
 

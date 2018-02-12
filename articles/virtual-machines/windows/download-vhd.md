@@ -30,18 +30,18 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 
 To use the VHD as an image to create other VMs, complete these steps:
 
-1.	If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
-2.	[Connect to the VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-3.	On the VM, open the Command Prompt window as an administrator.
-4.	Change the directory to *%windir%\system32\sysprep* and run sysprep.exe.
-5.	In the System Preparation Tool dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that **Generalize** is selected.
-6.	In Shutdown Options, select **Shutdown**, and then click **OK**. 
+1.  If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
+2.  [Connect to the VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+3.  On the VM, open the Command Prompt window as an administrator.
+4.  Change the directory to *%windir%\system32\sysprep* and run sysprep.exe.
+5.  In the System Preparation Tool dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that **Generalize** is selected.
+6.  In Shutdown Options, select **Shutdown**, and then click **OK**. 
 
 To use the VHD as a disk for a new instance of an existing VM or data disk, complete these steps:
 
-1.	On the Hub menu in the Azure portal, click **Virtual Machines**.
-2.	Select the VM from the list.
-3.	On the blade for the VM, click **Stop**.
+1.  On the Hub menu in the Azure portal, click **Virtual Machines**.
+2.  Select the VM from the list.
+3.  On the blade for the VM, click **Stop**.
 
     ![Stop VM](./media/download-vhd/export-stop.png)
 
@@ -49,10 +49,10 @@ To use the VHD as a disk for a new instance of an existing VM or data disk, comp
 
 To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
-1.	On the menu of the blade for the VM, click **Disks**.
-2.	Select the operating system disk for the VM, and then click **Export**.
-3.	Set the expiration time of the URL to *36000*.
-4.	Click **Generate URL**.
+1.  On the menu of the blade for the VM, click **Disks**.
+2.  Select the operating system disk for the VM, and then click **Export**.
+3.  Set the expiration time of the URL to *36000*.
+4.  Click **Generate URL**.
 
     ![Generate URL](./media/download-vhd/export-generate.png)
 
@@ -63,11 +63,11 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 ## Download VHD
 
-1.	Under the URL that was generated, click Download the VHD file.
+1.  Under the URL that was generated, click Download the VHD file.
 
     ![Download VHD](./media/download-vhd/export-download.png)
 
-2.	You may need to click **Save** in the browser to start the download. The default name for the VHD file is *abcd*.
+2.  You may need to click **Save** in the browser to start the download. The default name for the VHD file is *abcd*.
 
     ![Click Save in the browser](./media/download-vhd/export-save.png)
 

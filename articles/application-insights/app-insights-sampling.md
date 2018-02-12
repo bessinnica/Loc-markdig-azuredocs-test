@@ -82,36 +82,36 @@ Update your project's NuGet packages to the latest *pre-release* version of Appl
 In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
-  
+
     The target rate that the adaptive algorithm aims for **on each server host**. If your web app runs on many hosts, reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
-  
+
     The interval at which the current rate of telemetry is re-evaluated. Evaluation is performed as a moving average. You might want to shorten this interval if your telemetry is liable to sudden bursts.
 * `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
-  
+
     When sampling percentage value changes, how soon after are we allowed to lower sampling percentage again to capture less data.
 * `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageIncreaseTimeout>`
-  
+
     When sampling percentage value changes, how soon after are we allowed to increase sampling percentage again to capture more data.
 * `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
-  
+
     As sampling percentage varies, what is the minimum value we're allowed to set.
 * `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
-  
+
     As sampling percentage varies, what is the maximum value we're allowed to set.
 * `<MovingAverageRatio>0.25</MovingAverageRatio>` 
-  
+
     In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes.
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
-  
+
     The value assigned when the app has just started. Don't reduce this while you're debugging. 
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
-  
+
     A semi-colon delimited list of types that you do not want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
-  
+
     A semi-colon delimited list of types that you want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. The specified types are sampled; all instances of the other types will always be transmitted.
 
 
@@ -160,12 +160,12 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
     builder.Use((next) => new AnotherProcessor(next));
 
     builder.Build();
-
 ```
 
 ([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
 <a name="other-web-pages"></a>
+
 
 ## Sampling for web pages with JavaScript
 You can configure web pages for fixed-rate sampling from any server. 
@@ -203,11 +203,11 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 2. **Disable adaptive sampling**: In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remove or comment out the `AdaptiveSamplingTelemetryProcessor` node.
-   
+
     ```xml
-   
+
     <TelemetryProcessors>
-   
+
     <!-- Disabled adaptive sampling:
       <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
         <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
@@ -217,18 +217,18 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```
 
 1. **Enable the fixed-rate sampling module.** Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
-   
+
     ```XML
-   
+
     <TelemetryProcessors>
      <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-   
+
       <!-- Set a percentage close to 100/N where N is an integer. -->
      <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
       <SamplingPercentage>10</SamplingPercentage>
       </Add>
     </TelemetryProcessors>
-   
+
     ```
 
 > [!NOTE]
@@ -254,7 +254,6 @@ Instead of setting the sampling parameter in the .config file, you can programma
     builder.Use((next) => new AnotherProcessor(next));
 
     builder.Build();
-
 ```
 
 ([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
@@ -335,7 +334,7 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 *If I use fixed-rate sampling, how do I know which sampling percentage will work the best for my app?*
 
 * One way is to start with adaptive sampling, find out what rate it settles on (see the above question), and then switch to fixed-rate sampling using that rate. 
-  
+
     Otherwise, you have to guess. Analyze your current telemetry usage in Application Insights, observe any throttling that is occurring, and estimate the volume of the collected telemetry. These three inputs, together with your selected pricing tier, suggest how much you might want to reduce the volume of the collected telemetry. However, an increase in the number of your users or some other shift in the volume of telemetry might invalidate your estimate.
 
 *What happens if I configure sampling percentage too low?*

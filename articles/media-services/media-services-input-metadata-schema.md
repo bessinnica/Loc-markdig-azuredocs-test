@@ -44,6 +44,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
  See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Name**<br /><br /> Required |**xs:string** |Asset file name. |
@@ -61,6 +62,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 > 
 
 ### Child elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Programs**<br /><br /> minOccurs="0" | |Collection of all [Programs element](media-services-input-metadata-schema.md#Programs) when the asset file is in MPEG-TS format. |
@@ -72,6 +74,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Id**<br /><br /> Required |**xs:int** |Zero-based index of this audio or video track.<br /><br /> This is not necessarily that the TrackID as used in an MP4 file. |
@@ -88,6 +91,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 > 
 
 ### Child elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Contains presentation information (for example, whether a particular audio track is for visually impaired viewers). |
@@ -101,6 +105,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
  See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |Sample format. |
@@ -118,6 +123,7 @@ The type represents a specific video track in the asset file.
 See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Required |**xs:string** |Video codec FourCC code. |
@@ -142,6 +148,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **key**<br /><br /> Required |**xs:string** |The key in the key/value pair. |
@@ -151,6 +158,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 **ProgramType** is a global complex type that describes a program.  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **ProgramId**<br /><br /> Required |**xs:int** |Program Id |
@@ -166,6 +174,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Default**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this is the default presentation. |
@@ -184,6 +193,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 Wrapper element holding multiple **Program** elements.  
 
 ### Child elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |For asset files that are in MPEG-TS format, contains information about programs in the asset file. |
@@ -194,6 +204,7 @@ Wrapper element holding multiple **Program** elements.
  See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Child elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (inherits from TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Contains information about video tracks in the asset file. |
@@ -204,6 +215,7 @@ Wrapper element holding multiple **Program** elements.
  See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### elements
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (inherits from TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Contains information about audio tracks in the asset file. |

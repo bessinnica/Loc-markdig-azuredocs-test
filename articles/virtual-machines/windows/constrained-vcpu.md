@@ -23,7 +23,6 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-constrained-vcpu.md)]
 
-
 ## Other sizes
 - [Compute optimized](../windows/sizes-compute.md)
 - [Memory optimized](sizes-memory.md)

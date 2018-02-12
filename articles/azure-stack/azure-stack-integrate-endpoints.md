@@ -55,14 +55,13 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 Azure Stack supports only transparent proxy servers. In a deployment where a transparent proxy uplinks to a traditional proxy server, you must allow the following ports and URLs for outbound communication:
 
 
-|Purpose|URL|Protocol|Ports|
-|---------|---------|---------|---------|
-|Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
-|Marketplace syndication|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
-|Patch & Update|https://&#42;.azureedge.net|HTTPS|443|
-|Registration|https://management.azure.com|HTTPS|443|
-|Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
-
+|         Purpose         |                                                                   URL                                                                   |   Protocol    |   Ports   |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------|-----------|
+|        Identity         |                                   login.windows.net<br>login.microsoftonline.com<br>graph.windows.net                                   | HTTP<br>HTTPS | 80<br>443 |
+| Marketplace syndication | https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com |     HTTPS     |    443    |
+|     Patch & Update      |                                                       https://&#42;.azureedge.net                                                       |     HTTPS     |    443    |
+|      Registration       |                                                      https://management.azure.com                                                       |     HTTPS     |    443    |
+|          Usage          |                                  https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com                                  |     HTTPS     |    443    |
 
 ## Next steps
 [Azure Stack PKI requirements](azure-stack-pki-certs.md)

@@ -58,7 +58,7 @@ Perform the following general steps when you encrypt your assets with AES by usi
 
 5. [Configure the delivery policy for an asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). The delivery policy configuration includes the key acquisition URL and an initialization vector (IV). (AES-128 requires the same IV for encryption and decryption.) The configuration also includes the delivery protocol (for example, MPEG-DASH, HLS, Smooth Streaming, or all) and the type of dynamic encryption (for example, envelope or no dynamic encryption).
 
-	You can apply a different policy to each protocol on the same asset. For example, you can apply PlayReady encryption to Smooth/DASH and an AES envelope to HLS. Any protocols that aren't defined in a delivery policy are blocked from streaming. (An example is if you add a single policy that specifies only HLS as the protocol.) The exception is if you have no asset delivery policy defined at all. Then, all protocols are allowed in the clear.
+    You can apply a different policy to each protocol on the same asset. For example, you can apply PlayReady encryption to Smooth/DASH and an AES envelope to HLS. Any protocols that aren't defined in a delivery policy are blocked from streaming. (An example is if you add a single policy that specifies only HLS as the protocol.) The exception is if you have no asset delivery policy defined at all. Then, all protocols are allowed in the clear.
 
 6. [Create an OnDemand locator](media-services-protect-with-aes128.md#create_locator) to get a streaming URL.
 
@@ -156,7 +156,7 @@ The client needs to extract the URL (that also contains content key ID [kid]) va
 
 In the case of HLS, the root manifest is broken into segment files. 
 
-For example, the root manifest is: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). It contains a list of segment file names.
+For example, the root manifest is: <http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl>). It contains a list of segment file names.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -165,7 +165,7 @@ For example, the root manifest is: http://test001.origin.mediaservices.windows.n
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-If you open one of the segment files in a text editor (for example, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), it contains #EXT-X-KEY, which indicates that the file is encrypted.
+If you open one of the segment files in a text editor (for example, <http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl>), it contains #EXT-X-KEY, which indicates that the file is encrypted.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -236,8 +236,8 @@ The following code shows how to send a request to the Media Services key deliver
 
 2. Add the following elements to appSettings, as defined in your app.config file:
 
-		<add key="Issuer" value="http://testacs.com"/>
-		<add key="Audience" value="urn:test"/>
+        <add key="Issuer" value="http://testacs.com"/>
+        <add key="Audience" value="urn:test"/>
 
 ### <a id="example"></a>Example
 

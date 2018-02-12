@@ -54,10 +54,10 @@ Here's how to add an HTTP Response action:
 1. Select the **New Step** button.
 2. Choose **Add an action**.
 3. In the action search box, type **response** to list the Response action.
-   
+
     ![Select the response action](./media/connectors-native-reqres/using-action-1.png)
 4. Add in any parameters that are required for the HTTP response message.
-   
+
     ![Complete the response action](./media/connectors-native-reqres/using-action-2.png)
 5. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
@@ -86,6 +86,7 @@ The following is an input field for the trigger from an incoming HTTP request.
 | JSON Schema |schema |The JSON schema of the HTTP request body |
 
 <br>
+
 
 **Output details**
 

@@ -32,25 +32,27 @@ For more information, see [Logic Apps Pricing](https://azure.microsoft.com/prici
 
 <a name="triggers"></a>
 
+
 ## Triggers
 
 Triggers are special actions that create a logic app instance when a specific event happens. 
 Triggers act in different ways, which affect how the logic app is metered.
 
 * **Polling trigger** – This trigger continually checks an endpoint for messages 
-that satisfy the criteria for creating a logic app instance and starting the workflow. 
-Each polling request counts as an execution and is metered, even when no logic app instance is created. 
-To specify the polling interval, set up the trigger through the Logic App Designer.
+  that satisfy the criteria for creating a logic app instance and starting the workflow. 
+  Each polling request counts as an execution and is metered, even when no logic app instance is created. 
+  To specify the polling interval, set up the trigger through the Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
+
 * **Webhook trigger** – This trigger waits for a client to send a request to a specific endpoint. 
-Each request sent to the webhook endpoint counts as an action execution. 
-For example, the Request and HTTP Webhook trigger are both webhook triggers.
+  Each request sent to the webhook endpoint counts as an action execution. 
+  For example, the Request and HTTP Webhook trigger are both webhook triggers.
 
 * **Recurrence trigger** – This trigger creates a logic app instance based 
-on the recurrence interval that you set up in the trigger. 
-For example, you can set up a recurrence trigger that runs every three days or on a more complex schedule.
+  on the recurrence interval that you set up in the trigger. 
+  For example, you can set up a recurrence trigger that runs every three days or on a more complex schedule.
 
 You can find trigger executions in your logic app's Overview pane 
 under the Trigger History section.

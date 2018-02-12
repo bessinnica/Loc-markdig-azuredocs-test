@@ -116,7 +116,6 @@ A dataset in Data Factory is defined in JSON format as follows:
         }
     }
 }
-
 ```
 The following table describes properties in the above JSON:
 
@@ -145,7 +144,6 @@ In the following example, the dataset represents a table named MyTable in a SQL 
         },
     }
 }
-
 ```
 Note the following points:
 
@@ -169,7 +167,7 @@ In the example in the previous section, the type of the dataset is set to **Azur
                 "referenceName": "MyAzureStorageLinkedService",
                  "type": "LinkedServiceReference",
         }, 
- 
+
         "typeProperties": {
             "fileName": "input.log",
             "folderPath": "adfgetstarted/inputdata",

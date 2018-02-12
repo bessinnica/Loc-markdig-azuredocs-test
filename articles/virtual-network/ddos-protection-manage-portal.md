@@ -88,14 +88,14 @@ There are three options available for logging:
 
 Telemetry for an attack is provided through Azure Monitor in real-time. The telemetry is available only for the duration that a public IP address is under mitigation. You will not see telemetry before or after an attack is mitigated.
 
-1. Click **Monitor**, and then click **Metrics**. 
-2. On the *Metrics* screen, select the resource group, resource type of **Public IP Address**, and your Azure public IP address. A series of **Available Metrics** appears on the left side of the screen. These metrics, when selected, are graphed in the **Azure Monitor Metrics Chart** on the overview screen. 
+1. Click **Monitor**, and then click **Metrics**. 
+2. On the *Metrics* screen, select the resource group, resource type of **Public IP Address**, and your Azure public IP address. A series of **Available Metrics** appears on the left side of the screen. These metrics, when selected, are graphed in the **Azure Monitor Metrics Chart** on the overview screen. 
 
 The metric names present different packet types, and bytes vs. packets, with a basic construct of tag names on each metric as follows:
 
 - **Dropped tag name (e.g. Inbound Packets Dropped DDoS)**: The number of packets dropped/scrubbed by the DDoS protection system.
 - **Forwarded tag name (e.g: Inbound Packets Forwarded DDoS)**: The number of packets forwarded by the DDoS system to the destination VIP – traffic that was not filtered.
-- **No tag name (e.g:  Inbound Packets DDoS):** The total number of packets that came into the scrubbing system – representing the sum of the packets dropped and forwarded.
+- **No tag name (e.g:  Inbound Packets DDoS):** The total number of packets that came into the scrubbing system – representing the sum of the packets dropped and forwarded.
 
 ## Next steps
 

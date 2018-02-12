@@ -41,6 +41,7 @@ Visual authoring with VSTS Git integration supports source control and collabora
 You can configure a VSTS GIT repository with a data factory through two methods.
 
 <a name="method1"></a>
+
 #### Configuration method 1: Let's get started page
 In Azure Data Factory, go to the **Let's get started** page. Select **Configure Code Repository**:
 

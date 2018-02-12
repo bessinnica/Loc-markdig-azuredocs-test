@@ -41,25 +41,25 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
 
 ```json
 {
-	"type": "extensions",
-	"name": "OMSExtension",
-	"apiVersion": "[variables('apiVersion')]",
-	"location": "[resourceGroup().location]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"properties": {
-		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
-		"type": "MicrosoftMonitoringAgent",
-		"typeHandlerVersion": "1.0",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"workspaceId": "myWorkSpaceId"
-		},
-		"protectedSettings": {
-			"workspaceKey": "myWorkspaceKey"
-		}
-	}
+    "type": "extensions",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
 }
 ```
 ### Property values
@@ -84,25 +84,25 @@ The following example assumes the OMS extension is nested inside the virtual mac
 
 ```json
 {
-	"type": "extensions",
-	"name": "OMSExtension",
-	"apiVersion": "[variables('apiVersion')]",
-	"location": "[resourceGroup().location]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"properties": {
-		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
-		"type": "MicrosoftMonitoringAgent",
-		"typeHandlerVersion": "1.0",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"workspaceId": "myWorkSpaceId"
-		},
-		"protectedSettings": {
-			"workspaceKey": "myWorkspaceKey"
-		}
-	}
+    "type": "extensions",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
 }
 ```
 
@@ -110,25 +110,25 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ```json
 {
-	"type": "Microsoft.Compute/virtualMachines/extensions",
-	"name": "<parentVmResource>/OMSExtension",
-	"apiVersion": "[variables('apiVersion')]",
-	"location": "[resourceGroup().location]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"properties": {
-		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
-		"type": "MicrosoftMonitoringAgent",
-		"typeHandlerVersion": "1.0",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"workspaceId": "myWorkSpaceId"
-		},
-		"protectedSettings": {
-			"workspaceKey": "myWorkspaceKey"
-		}
-	}
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "<parentVmResource>/OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
 }
 ```
 

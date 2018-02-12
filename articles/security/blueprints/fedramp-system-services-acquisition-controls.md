@@ -704,7 +704,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to produce a design specification and security architecture. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                                     |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The customer is responsible for requiring the developer of customer-deployed resources to produce a design specification and security architecture. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                                   Not Applicable                                                                    |
+

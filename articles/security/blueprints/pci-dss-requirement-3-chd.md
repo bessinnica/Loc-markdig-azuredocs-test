@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - CHD requirements
 description: PCI DSS Requirement 3
@@ -208,12 +208,11 @@ necessary.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
-|||
-|---|---|
-| **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Key Vault supports granular access policies, that allow a Key Vault owner to grant access to specific functionality to perform specific operations to specific entities. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
 
-
+|                                                               |                                                                                                                                                                                                                                     |
+|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     <strong>Provider<br />(Microsoft&nbsp;Azure)</strong>     | <strong>For customers using Key Vault:</strong><br /><br />Key Vault supports granular access policies, that allow a Key Vault owner to grant access to specific functionality to perform specific operations to specific entities. |
+| <strong>Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)</strong> |                                                                   Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).                                                                    |
 
 ### PCI DSS Requirement 3.5.3
 
@@ -369,12 +368,11 @@ fewest possible locations.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
-|||
-|---|---|
-| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
 
-
+|                                                               |                                                                                                  |
+|---------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+|     <strong>Provider<br />(Microsoft&nbsp;Azure)</strong>     |                                         Not applicable.                                          |
+| <strong>Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)</strong> | Contoso Webstore key management is isolated to one user account (admin##@"contosowebstore.com)". |
 
 ## PCI DSS Requirement 3.7
 

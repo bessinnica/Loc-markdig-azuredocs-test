@@ -204,7 +204,6 @@ ms.custom: H1Hack27Feb2017
 # Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure
 
 > ![Windows][Logo_Windows] Windows
->
 
 Windows Server failover clustering is the foundation of a high-availability SAP ASCS/SCS installation and DBMS in Windows.
 
@@ -308,8 +307,9 @@ To use a scale-out file share, your system must meet the following requirements:
 * You must use Azure Premium disks.
 * We recommend that you use Azure Managed Disks.
 * We recommend that you format volumes by using Resilient File System (ReFS).
-    * For more information, see [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
-    * Be sure that you install [Microsoft KB4025334 cumulative update][kb4025334].
+  * For more information, see [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
+  * Be sure that you install [Microsoft KB4025334 cumulative update][kb4025334].
+
 * You can use DS-Series or DSv2-Series Azure VM sizes.
 * For good network performance between VMs, which is needed for Storage Spaces Direct disk sync, use a VM type that has at least a “high” network bandwidth.
     For more information, see the [DSv2-Series][dv2-series] and [DS-Series][ds-series] specifications.
@@ -320,7 +320,7 @@ To use a scale-out file share, your system must meet the following requirements:
 
 > [!IMPORTANT]
 > You cannot rename the SAPMNT file share, which points to \<SAP global host\>. SAP supports only the share name "sapmnt."
-
+> 
 > For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395]
 
 ### Configure SAP ASCS/SCS instances and a scale-out file share in two clusters

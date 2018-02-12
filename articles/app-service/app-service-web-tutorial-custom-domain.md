@@ -1,4 +1,4 @@
-﻿---
+---
 title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
 description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
@@ -71,6 +71,7 @@ You see the management page of the App Service app.
 
 <a name="checkpricing"></a>
 
+
 ### Check the pricing tier
 
 In the left navigation of the app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
@@ -85,6 +86,7 @@ If the App Service plan is not **Free**, close the **Choose your pricing tier** 
 
 <a name="scaleup"></a>
 
+
 ### Scale up the App Service plan
 
 Select any of the non-free tiers (**Shared**, **Basic**, **Standard**, or **Premium**). 
@@ -98,6 +100,7 @@ When you see the following notification, the scale operation is complete.
 ![Scale operation confirmation](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 <a name="cname"></a>
+
 
 ## Map a CNAME record
 
@@ -133,7 +136,7 @@ Select **Validate**.
 
 The **Add hostname** button is activated. 
 
-Make sure that **Hostname record type** is set to **CNAME (www.example.com or any subdomain)**.
+Make sure that <strong>Hostname record type</strong> is set to <strong>CNAME (www.example.com or any subdomain)</strong>.
 
 Select **Add hostname**.
 
@@ -149,11 +152,13 @@ If you missed a step or made a typo somewhere earlier, you see a verification er
 
 <a name="a"></a>
 
+
 ## Map an A record
 
 In the tutorial example, you add an A record for the root domain (for example, `contoso.com`). 
 
 <a name="info"></a>
+
 
 ### Copy the app's IP address
 
@@ -189,6 +194,7 @@ When the records are added, the DNS records page looks like the following exampl
 
 <a name="enable-a"></a>
 
+
 ### Enable the A record mapping in the app
 
 Back in the app's **Custom domains** page in the Azure portal, add the fully qualified custom DNS name (for example, `contoso.com`) to the list.
@@ -218,6 +224,7 @@ If you missed a step or made a typo somewhere earlier, you see a verification er
 ![Verification error](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
+
 
 ## Map a wildcard domain
 
@@ -251,7 +258,7 @@ Type a fully qualified domain name that matches the wildcard domain (for example
 
 The **Add hostname** button is activated. 
 
-Make sure that **Hostname record type** is set to **CNAME record (www.example.com or any subdomain)**.
+Make sure that <strong>Hostname record type</strong> is set to <strong>CNAME record (www.example.com or any subdomain)</strong>.
 
 Select **Add hostname**.
 
@@ -277,6 +284,7 @@ If you receive an HTTP 404 (Not Found) error when browsing to the URL of your cu
 - The browser client has cached the old IP address of your domain. Clear the cache and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
+
 
 ## Direct default URL to a custom directory
 

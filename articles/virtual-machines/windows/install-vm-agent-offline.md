@@ -1,4 +1,4 @@
-﻿---
+---
 title: Install the Azure VM Agent in offline mode | Microsoft Docs
 description: Learn how to install the Azure VM Agent in offline mode.
 services: virtual-machines-windows
@@ -42,66 +42,66 @@ Use the following steps to install the VM Agent in offline mode.
 
 ### Step 2: Modify the OS disk to install the Azure VM Agent
 
-1.  Make a remote desktop connection to the troubleshooter VM.
+1. Make a remote desktop connection to the troubleshooter VM.
 
-2.  On the OS disk that you attached, browse to the \windows\system32\config folder. Copy all of the files in this folder as a backup, in case a rollback is required.
+2. On the OS disk that you attached, browse to the \windows\system32\config folder. Copy all of the files in this folder as a backup, in case a rollback is required.
 
-3.  Start the **Registry Editor** (regedit.exe).
+3. Start the **Registry Editor** (regedit.exe).
 
-4.  Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
+4. Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
 
-    ![Load the hive](./media/install-vm-agent-offline/load-hive.png)
+   ![Load the hive](./media/install-vm-agent-offline/load-hive.png)
 
-5.  Browse to the \windows\system32\config\SYSTEM folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key.
+5. Browse to the \windows\system32\config\SYSTEM folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key.
 
-6.  Browse to the \windows\system32\config\SOFTWARE folder on the OS disk that you attached. For the name of the hive software, enter **BROKENSOFTWARE**.
+6. Browse to the \windows\system32\config\SOFTWARE folder on the OS disk that you attached. For the name of the hive software, enter **BROKENSOFTWARE**.
 
-7.  If the VM Agent isn't working, back up the current configuration.
+7. If the VM Agent isn't working, back up the current configuration.
 
-    >[!NOTE]
-    >If the VM doesn't have the agent installed, proceed to step 8. 
+   >[!NOTE]
+   >If the VM doesn't have the agent installed, proceed to step 8. 
       
-    1. Rename the \windowsazure folder to \windowsazure.old.
+   1. Rename the \windowsazure folder to \windowsazure.old.
 
-    2. Export the following registries:
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
+   2. Export the following registries:
+       - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+       - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
+       - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.	Use the existing files on the troubleshooter VM as a repository for the VM Agent installation. Complete the following steps:
+8. Use the existing files on the troubleshooter VM as a repository for the VM Agent installation. Complete the following steps:
 
-    1. From the troubleshooter VM, export the following subkeys in registry format (.reg): 
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
+   1. From the troubleshooter VM, export the following subkeys in registry format (.reg): 
+      - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+      - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
+      - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
         ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file.
+   2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file.
 
-        ![Change the registry subkey values](./media/install-vm-agent-offline/change-reg.png)
+       ![Change the registry subkey values](./media/install-vm-agent-offline/change-reg.png)
 
-    3. Import the registry files into the repository by double-clicking each registry file.
+   3. Import the registry files into the repository by double-clicking each registry file.
 
-    4. Confirm that the following three subkeys are successfully imported into the **BROKENSYSTEM** hive:
-        - WindowsAzureGuestAgent
-        - WindowsAzureTelemetryService
-        - RdAgent
+   4. Confirm that the following three subkeys are successfully imported into the **BROKENSYSTEM** hive:
+       - WindowsAzureGuestAgent
+       - WindowsAzureTelemetryService
+       - RdAgent
 
-9.  Copy the VM Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
+9. Copy the VM Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
 
-    ![Copy the VM Agent files to the OS disk](./media/install-vm-agent-offline/copy-package.png)
+   ![Copy the VM Agent files to the OS disk](./media/install-vm-agent-offline/copy-package.png)
       
-    >[!NOTE]
-    >Don’t copy the **logs** folder. After the service starts, new logs are generated.
+   >[!NOTE]
+   >Don’t copy the **logs** folder. After the service starts, new logs are generated.
 
-10.  Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive**​.
+10. Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive** .
 
-11.  Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive**​.
+11. Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive** .
 
-12.  Detach the OS disk, and then recreate the VM by using the OS disk.
+12. Detach the OS disk, and then recreate the VM by using the OS disk.
 
-13.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
+13. Access the VM. Notice that the RdAgent is running and the logs are being generated.
 
 If you created the VM by using the classic deployment model, you're done.
 

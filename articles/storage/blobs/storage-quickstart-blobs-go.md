@@ -106,7 +106,7 @@ In this section, you create a new container. The container is called **quickstar
 // From the Azure portal, get your storage account name and key and set environment variables.
 accountName, accountKey := os.Getenv("AZURE_STORAGE_ACCOUNT"), os.Getenv("AZURE_STORAGE_ACCESS_KEY")
 if len(accountName) == 0 || len(accountKey) == 0 {
-	log.Fatal("Either the AZURE_STORAGE_ACCOUNT or AZURE_STORAGE_ACCESS_KEY environment variable is not set")
+    log.Fatal("Either the AZURE_STORAGE_ACCOUNT or AZURE_STORAGE_ACCESS_KEY environment variable is not set")
 }
 
 // Create a default request pipeline using your storage account name and account key.
@@ -118,7 +118,7 @@ containerName := fmt.Sprintf("quickstart-%s", randomString())
 
 // From the Azure portal, get your storage account blob service URL endpoint.
 URL, _ := url.Parse(
-	fmt.Sprintf("https://%s.blob.core.windows.net/%s", accountName, containerName))
+    fmt.Sprintf("https://%s.blob.core.windows.net/%s", accountName, containerName))
 
 // Create a ContainerURL object that wraps the container URL and a request
 // pipeline to make requests.
@@ -156,8 +156,8 @@ handleErrors(err)
 // This function calls PutBlock/PutBlockList for files larger 256 MBs, and calls PutBlob for any file smaller
 fmt.Printf("Uploading the file with blob name: %s\n", fileName)
 _, err = azblob.UploadFileToBlockBlob(ctx, file, blobURL, azblob.UploadToBlockBlobOptions{
-	BlockSize:   4 * 1024 * 1024,
-	Parallelism: 16})
+    BlockSize:   4 * 1024 * 1024,
+    Parallelism: 16})
 handleErrors(err)
 ```
 
@@ -168,18 +168,18 @@ Get a list of files in the container using the **ListBlobs** method on a **Conta
 ```go
 // List the blobs in the container
 for marker := (azblob.Marker{}); marker.NotDone(); {
-	// Get a result segment starting with the blob indicated by the current Marker.
-	listBlob, err := containerURL.ListBlobs(ctx, marker, azblob.ListBlobsOptions{})
-	handleErrors(err)
+    // Get a result segment starting with the blob indicated by the current Marker.
+    listBlob, err := containerURL.ListBlobs(ctx, marker, azblob.ListBlobsOptions{})
+    handleErrors(err)
 
-	// ListBlobs returns the start of the next segment; you MUST use this to get
-	// the next segment (after processing the current result segment).
-	marker = listBlob.NextMarker
+    // ListBlobs returns the start of the next segment; you MUST use this to get
+    // the next segment (after processing the current result segment).
+    marker = listBlob.NextMarker
 
-	// Process the blobs returned in this result segment (if the segment is empty, the loop body won't execute)
-	for _, blobInfo := range listBlob.Blobs.Blob {
-		fmt.Print("Blob name: " + blobInfo.Name + "\n")
-	}
+    // Process the blobs returned in this result segment (if the segment is empty, the loop body won't execute)
+    for _, blobInfo := range listBlob.Blobs.Blob {
+        fmt.Print("Blob name: " + blobInfo.Name + "\n")
+    }
 }
 ```
 

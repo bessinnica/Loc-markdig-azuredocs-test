@@ -118,10 +118,8 @@ We strongly recommend that you develop your VHD in the cloud by using Remote Des
 > [!IMPORTANT]
 > **Do not use discs managed.** The virtual machine used to develop the VHD to the cloud must not be based on disks managed as it currently does not support the creation of an image from them.
 > Creating the virtual machine in the optional feature change the default for disks managed.
-
+> 
 > If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
->
->
 
 **Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
 
@@ -303,9 +301,9 @@ Note:The following instructions are applicable only for unmanaged disks which ar
 SAS URL can be generated in multiple ways to share your VHD for Azure Marketplace.
 Following are the 3 recommended tools:
 
-1.	Azure Storage Explorer
-2.	Microsoft Storage Explorer
-3.	Azure CLI
+1.  Azure Storage Explorer
+2.  Microsoft Storage Explorer
+3.  Azure CLI
 
 **Azure Storage Explorer (Recommended for Windows Users)**
 
@@ -336,15 +334,15 @@ Following are the steps for generating SAS URL by using Azure Storage Explorer
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.	After selecting the .vhd file in the container, click the **Security** tab.
+8.  After selecting the .vhd file in the container, click the **Security** tab.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.	In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click **Shared Access Signatures** tab.
+9.  In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click **Shared Access Signatures** tab.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10.	Follow the steps below to generate a shared access signature URI for the .vhd image:
+10. Follow the steps below to generate a shared access signature URI for the .vhd image:
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
@@ -364,45 +362,45 @@ Following are the steps for generating SAS URL by using Azure Storage Explorer
        - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
        - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
 
-11.	To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
+11. To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
 
-12.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+12. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
 
-13.	Repeat steps 6-10 for each VHD in the SKU.
+13. Repeat steps 6-10 for each VHD in the SKU.
 
 **Microsoft Azure Storage Explorer (Windows/MAC/Linux)**
 
 Following are the steps for generating SAS URL by using Microsoft Azure Storage Explorer
 
-1.	Download Microsoft Azure Storage Explorer form [http://storageexplorer.com/](http://storageexplorer.com/) website. Go to [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) and click **“Download for Windows”**.
+1.  Download Microsoft Azure Storage Explorer form [http://storageexplorer.com/](http://storageexplorer.com/) website. Go to [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) and click **“Download for Windows”**.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.	After it is installed, open the application.
+2.  After it is installed, open the application.
 
-3.	Click **Add Account**.
+3.  Click **Add Account**.
 
-4.	Configure Microsoft Azure Storage Explorer to your subscription by sign in to your account
+4.  Configure Microsoft Azure Storage Explorer to your subscription by sign in to your account
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.	Go to storage account and select the Container
+5.  Go to storage account and select the Container
 
-6.	Select **“Get Share Access Signature..”** by using Right Click of the **container**
+6.  Select **“Get Share Access Signature..”** by using Right Click of the **container**
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.	Update Start time, Expiry time and Permissions as per following
+7.  Update Start time, Expiry time and Permissions as per following
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.	**Start Time:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+    a.  **Start Time:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
 
-    b.	**Expiry Time:** Select a date that is at least 3 weeks after the **Start Time** date.
+    b.  **Expiry Time:** Select a date that is at least 3 weeks after the **Start Time** date.
 
-    c.	**Permissions:** Select the **List** and **Read** permissions
+    c.  **Permissions:** Select the **List** and **Read** permissions
 
-8.	Copy Container shared access signature URI
+8.  Copy Container shared access signature URI
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
@@ -424,21 +422,21 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
     - In middle of the signature, make sure that **"sp=rl"** appears. This demonstrates that Read and List access was provided successfully.
     - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
 
-9.	To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
+9.  To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
 
-10.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+10. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
 
-11.	Repeat these steps for each VHD in the SKU.
+11. Repeat these steps for each VHD in the SKU.
 
 **Azure CLI (Recommended for Non-Windows & Continuous Integration)**
 
 Following are the steps for generating SAS URL by using Azure CLI
 
-1.	Download Microsoft Azure CLI from [here](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](http://aka.ms/webpi-azure-cli)** and **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Download Microsoft Azure CLI from [here](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](http://aka.ms/webpi-azure-cli)** and **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
-2.	Once it is downloaded, please install
+2.  Once it is downloaded, please install
 
-3.	Create a PowerShell (or other script executable) file with following code and save it locally
+3.  Create a PowerShell (or other script executable) file with following code and save it locally
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -460,21 +458,21 @@ Following are the steps for generating SAS URL by using Azure CLI
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.	Open Powershell editor with “Run as Administrator” mode and open file in step #3. You can use any script editor that is available on your OS.
+4.  Open Powershell editor with “Run as Administrator” mode and open file in step #3. You can use any script editor that is available on your OS.
 
-5.	Run the script and it will provide you the SAS URL for container level access
+5.  Run the script and it will provide you the SAS URL for container level access
 
     Following will be the output of the SAS Signature and copy the highlighted part in a notepad
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.	Now you will get container level SAS URL and you need to add VHD name in it.
+6.  Now you will get container level SAS URL and you need to add VHD name in it.
 
     Container level SAS URL #
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.	Insert VHD name after the container name in SAS URL as shown below
+7.  Insert VHD name after the container name in SAS URL as shown below
     `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Example:
@@ -484,14 +482,14 @@ Following are the steps for generating SAS URL by using Azure CLI
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     - Make sure that your image file name and ".vhd" are in the URI.
-    -	In middle of the signature, make sure that "sp=rl" appears. This demonstrates that Read and List access was provided successfully.
-    -	In middle of the signature, make sure that "sr=c" appears. This demonstrates that you have container level access
+    -   In middle of the signature, make sure that "sp=rl" appears. This demonstrates that Read and List access was provided successfully.
+    -   In middle of the signature, make sure that "sr=c" appears. This demonstrates that you have container level access
 
-8.	To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
+8.  To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
 
-9.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+9.  Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
 
-10.	Repeat these steps for each VHD in the SKU.
+10. Repeat these steps for each VHD in the SKU.
 
 
 ### 5.3 Provide information about the VM image and request certification in the Publishing Portal

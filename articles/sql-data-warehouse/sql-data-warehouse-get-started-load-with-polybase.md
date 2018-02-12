@@ -44,7 +44,7 @@ To step through this tutorial, you need
 * A SQL Data Warehouse database.
 * An Azure storage account of type Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS), or Standard Read-Access Geo-Redundant Storage (Standard-RAGRS).
 * AzCopy Command-Line Utility. Download and install the [latest version of AzCopy][latest version of AzCopy] which is installed with the Microsoft Azure Storage Tools.
-  
+
     ![Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 ## Step 1: Add sample data to Azure blob storage
@@ -76,10 +76,10 @@ To find your blob service endpoint:
 1. From the Azure Portal select **Browse** > **Storage Accounts**.
 2. Click the storage account you want to use.
 3. In the Storage account blade, click Blobs
-   
+
     ![Click Blobs](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 4. Save your blob service endpoint URL for later.
-   
+
     ![Blob service endpoint](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### C. Find your Azure storage key
@@ -89,19 +89,19 @@ To find your Azure storage key:
 2. Click on the storage account you want to use.
 3. Select **All settings** > **Access keys**.
 4. Click the copy box to copy one of your access keys to the clipboard.
-   
+
     ![Copy Azure storage key](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
 ### D. Copy the sample file to Azure blob storage
 To copy your data to Azure blob storage:
 
 1. Open a command prompt, and change directories to the AzCopy installation directory. This command changes to the default installation directory on a 64-bit Windows client.
-   
+
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 2. Run the following command to upload the file. Specify your blob service endpoint URL for <blob service endpoint URL> and your Azure storage account key for <azure_storage_account_key>.
-   
+
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
@@ -116,7 +116,7 @@ To see the file you uploaded to blob storage:
 3. To explore the path to your data, click the folder **datedimension** and you will see your uploaded file **DimDate2.txt**.
 4. To view properties, click **DimDate2.txt**.
 5. Note that in the Blob properties blade, you can download or delete the file.
-   
+
     ![View Azure storage blob](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 ## Step 2: Create an external table for the sample data
@@ -199,7 +199,6 @@ WITH (
 -- Run a query on the external table
 
 SELECT count(*) FROM dbo.DimDate2External;
-
 ```
 
 

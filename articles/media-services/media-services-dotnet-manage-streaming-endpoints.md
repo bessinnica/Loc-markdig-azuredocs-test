@@ -30,19 +30,19 @@ The code in this article shows how to do the following tasks using the Azure Med
 - Examine the default streaming endpoint.
 - Create/add new streaming endpoint.
 
-	You might want to have multiple streaming endpoints if you plan to have different CDNs or a CDN and direct access.
+    You might want to have multiple streaming endpoints if you plan to have different CDNs or a CDN and direct access.
 
-	> [!NOTE]
-	> You are only billed when your Streaming Endpoint is in running state.
-	
+    > [!NOTE]
+    > You are only billed when your Streaming Endpoint is in running state.
+    
 - Update the streaming endpoint.
-	
-	Make sure to call the Update() function.
+    
+    Make sure to call the Update() function.
 
 - Delete the streaming endpoint.
 
-	>[!NOTE]
-	>The default streaming endpoint cannot be deleted.
+    >[!NOTE]
+    >The default streaming endpoint cannot be deleted.
 
 For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) article.
 
@@ -51,7 +51,7 @@ For information about how to scale the streaming endpoint, see [this](media-serv
 Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 
 ## Add code that manages streaming endpoints
-	
+    
 Replace the code in the Program.cs with the following code:
 
 ```

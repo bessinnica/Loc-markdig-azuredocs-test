@@ -121,6 +121,7 @@ Following is a list of available images in the Azure Germany Marketplace. Note t
 
 
 ## Images for deployments with Azure Service Manager ("classic")
+
 | Publisher | Image Name | OS |
 |  ---  |  ---  |  ---  |
 |  Credativ  |  Debian 7 "Wheezy"  |  Linux  |

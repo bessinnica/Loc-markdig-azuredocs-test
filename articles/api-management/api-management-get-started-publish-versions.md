@@ -91,7 +91,7 @@ For callers to see your new version, it must be added to a **product** (products
 3. Select **v1**.
 4. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
 
-	![API Context menu - add version](media/api-management-getstarted-publish-versions/developer_portal.png)
+    ![API Context menu - add version](media/api-management-getstarted-publish-versions/developer_portal.png)
 
 ## Next steps
 

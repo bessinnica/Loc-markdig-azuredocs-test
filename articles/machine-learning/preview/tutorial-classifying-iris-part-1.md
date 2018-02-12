@@ -101,17 +101,17 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 
 10. To count distinct values, select the **Species** column, and then right-click to select it. Select **Value Counts** from the drop-down menu. 
 
-   ![Select Value Counts](media/tutorial-classifying-iris/value_count.png)
+    ![Select Value Counts](media/tutorial-classifying-iris/value_count.png)
 
-   This action opens the **Inspectors** pane, and displays a histogram with four bars. The target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
+    This action opens the **Inspectors** pane, and displays a histogram with four bars. The target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
 
 11. To filter out nulls, select the bar from the graph that represents the null value. There is one row with a **(null)** value. To remove this row, select the minus sign (**-**).
 
-   ![Value count histogram](media/tutorial-classifying-iris/filter_out.png)
+    ![Value count histogram](media/tutorial-classifying-iris/filter_out.png)
 
 12. Notice the individual steps detailed in the **STEPS** pane. As you renamed the columns and filtered the null value rows, each action was recorded as a data-preparation step. You can edit individual steps to adjust the settings, reorder the steps, and remove steps.
 
-   ![Steps](media/tutorial-classifying-iris/steps.png)
+    ![Steps](media/tutorial-classifying-iris/steps.png)
 
 13. Close the data preparation editor. Select **Close** (x) on the **iris-1** tab with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
 

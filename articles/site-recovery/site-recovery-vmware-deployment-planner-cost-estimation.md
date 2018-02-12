@@ -103,9 +103,9 @@ Cost duration:  You can view all costs either for the month or for the whole yea
 The table lists the cost breakup for each compatible VM. 
 You can also use this table to get estimated Azure DR cost of non-profiled VMs by manually adding VMs. It is useful in cases where you need to estimate Azure costs for a new disaster recovery deployment without detailed profiling being done.
 To manually add VMs: 
-1.	Click on the 'Insert row' button to insert a new row between the Start and End rows.
+1.  Click on the 'Insert row' button to insert a new row between the Start and End rows.
 
-2.	Fill the following columns based on approximate VM size and number of VMs that match this configuration: 
+2.  Fill the following columns based on approximate VM size and number of VMs that match this configuration: 
 
 * Number of VMs, IaaS size (Your selection)
 * Storage Type (Standard/Premium)
@@ -116,9 +116,9 @@ To manually add VMs:
 * Data redundancy 
 * Azure Hybrid Use Benefit
 
-3.	You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
+3.  You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
 
-4.	Click 'Re-calculate cost' to update cost.
+4.  Click 'Re-calculate cost' to update cost.
 
 **VM Name**: The name of the VM.
 

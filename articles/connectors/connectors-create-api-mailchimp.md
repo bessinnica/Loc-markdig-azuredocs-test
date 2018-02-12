@@ -31,7 +31,6 @@ To create Logic apps with MailChimp, you must first create a **connection** then
 | Token |Yes |Provide MailChimp Credentials |
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
-> 
 
 
 ## Connector-specific details

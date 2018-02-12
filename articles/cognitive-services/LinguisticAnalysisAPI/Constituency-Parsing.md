@@ -58,32 +58,32 @@ There are several such phrases: *I*, *a new hybrid automobile*, *Bluetooth*, and
 
 | Label | Description | Example |
 |-------|-------------|---------|
-|ADJP	| Adjective Phrase | "so rude" |
-|ADVP	| Adverb Phrase | "clear through" |
-|CONJP	| Conjunction Phrase | "as well as" |
-|FRAG	| Fragment, used for incomplete or fragmentary inputs | "Highly recommended..." |
-|INTJ	| Interjection | "Hooray" |
-|LST	| List marker, including punctuation | "#4)" |
-|NAC	| Not A Constituent, used to indicate scoping of a non-constituent phrase |  "and for a good deal" in "you get things and for a good deal" |
-|NP	| Noun Phrase | "a tasty potato pancake" |
-|NX	| Used within certain complex NPs to mark the head| |
-|PP	| Prepositional Phrase| "in the pool" |
-|PRN	| Parenthetical| "(so called)" |
-|PRT	| Particle| "out" in "ripped out" |
-|QP	| Quantity Phrase (i.e., complex measure/amount) within a Noun Phrase| "around $75" |
-|RRC	| Reduced Relative Clause.| "still unresolved" in "many issues still unresolved" |
-|S	| Sentence or clause. | "This is a sentence."
-|SBAR	| Subordinate clause, often introduced by a subordinating conjunction | "as I left" in "I looked around as I left."|
-|SBARQ	| Direct question introduced by a wh-word or -phrase | "What was the point?" |
-|SINV	| Inverted declarative sentence | "At no time were they aware." (note how the normal subject "they" was moved to after the verb "were") |
-|SQ	| Inverted yes/no question, or main clause of a wh- question | "Did they get the car?" |
-|UCP	| Unlike Coordinated Phrase| "small and with bugs" (note how an adjective and a preposition phrase are conjoined with "and")|
-|VP	| Verb Phrase | "ran into the woods" |
-|WHADJP	| Wh-adjective Phrase | "how uncomfortable" |
-|WHADVP	| Wh-adverb Phrase| "when" |
-|WHNP	| Wh-noun Phrase| "which potato", "how much soup"|
-|WHPP	| Wh-prepositional Phrase| "in which country"|
-|X	| Unknown, uncertain, or unbracketable.| first "the" in "the... the soup" |
+|ADJP   | Adjective Phrase | "so rude" |
+|ADVP   | Adverb Phrase | "clear through" |
+|CONJP  | Conjunction Phrase | "as well as" |
+|FRAG   | Fragment, used for incomplete or fragmentary inputs | "Highly recommended..." |
+|INTJ   | Interjection | "Hooray" |
+|LST    | List marker, including punctuation | "#4)" |
+|NAC    | Not A Constituent, used to indicate scoping of a non-constituent phrase |  "and for a good deal" in "you get things and for a good deal" |
+|NP | Noun Phrase | "a tasty potato pancake" |
+|NX | Used within certain complex NPs to mark the head| |
+|PP | Prepositional Phrase| "in the pool" |
+|PRN    | Parenthetical| "(so called)" |
+|PRT    | Particle| "out" in "ripped out" |
+|QP | Quantity Phrase (i.e., complex measure/amount) within a Noun Phrase| "around $75" |
+|RRC    | Reduced Relative Clause.| "still unresolved" in "many issues still unresolved" |
+|S  | Sentence or clause. | "This is a sentence."
+|SBAR   | Subordinate clause, often introduced by a subordinating conjunction | "as I left" in "I looked around as I left."|
+|SBARQ  | Direct question introduced by a wh-word or -phrase | "What was the point?" |
+|SINV   | Inverted declarative sentence | "At no time were they aware." (note how the normal subject "they" was moved to after the verb "were") |
+|SQ | Inverted yes/no question, or main clause of a wh- question | "Did they get the car?" |
+|UCP    | Unlike Coordinated Phrase| "small and with bugs" (note how an adjective and a preposition phrase are conjoined with "and")|
+|VP | Verb Phrase | "ran into the woods" |
+|WHADJP | Wh-adjective Phrase | "how uncomfortable" |
+|WHADVP | Wh-adverb Phrase| "when" |
+|WHNP   | Wh-noun Phrase| "which potato", "how much soup"|
+|WHPP   | Wh-prepositional Phrase| "in which country"|
+|X  | Unknown, uncertain, or unbracketable.| first "the" in "the... the soup" |
 
 
 ## Specification

@@ -1,4 +1,4 @@
-﻿---
+---
 title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 services: application-insights
@@ -48,6 +48,7 @@ Status Monitor Configuration - needed only when making changes.
 | Installation |`packages.nuget.org` | |`443` |
 
 ## HockeyApp
+
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
 | Crash data |gate.hockeyapp.net |104.45.136.42 |80, 443 |
@@ -180,10 +181,10 @@ East US
 52.170.38.79
 52.170.80.61
 52.179.9.26
-
 ```  
 
 ## Application Insights API
+
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
@@ -191,6 +192,7 @@ East US
 | Internal API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamic|443 |
 
 ## Log Analytics API
+
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | API |api.loganalytics.io<br/>*.api.loganalytics.io |dynamic |80,443 |
@@ -239,8 +241,9 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 ## Snapshot Debugger
 
-| Purpose | URI | IP | Ports |
-| --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
-| Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
-| Storage | *.core.windows.net | dynamic | 443
+| Purpose |                               URI                               |                                    IP                                    | Ports |
+|---------|-----------------------------------------------------------------|--------------------------------------------------------------------------|-------|
+|  Agent  | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> |  443  |
+| Portal  |              ppe.gateway.azureserviceprofiler.net               |                                 dynamic                                  |  443  |
+| Storage |                       *.core.windows.net                        |                                 dynamic                                  |  443  |
+

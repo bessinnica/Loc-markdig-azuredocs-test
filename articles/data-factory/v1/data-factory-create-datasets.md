@@ -200,14 +200,14 @@ Each column in the structure contains the following properties:
 The following guidelines help you determine when to include structure information, and what to include in the **structure** section.
 
 * **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure table. 
-  
+
     As type information is already available for structured data sources, you should not include type information when you do include the structure section.
 * **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. 
-	
-	Data Factory supports the following values for providing type information in structure: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan**. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
+
+    Data Factory supports the following values for providing type information in structure: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan**. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
 
 Data Factory automatically performs type conversions when moving data from a source data store to a sink data store. 
-  
+
 
 ## Dataset availability
 The **availability** section in a dataset defines the processing window (for example, hourly, daily, or weekly) for the dataset. For more information about activity windows, see [Scheduling and execution](data-factory-scheduling-and-execution.md).
@@ -225,7 +225,7 @@ The following availability section specifies that the output dataset is either p
 If the pipeline has the following start and end times:  
 
 ```json
-	"start": "2016-08-25T00:00:00Z",
+    "start": "2016-08-25T00:00:00Z",
     "end": "2016-08-25T05:00:00Z",
 ```
 
@@ -269,10 +269,10 @@ The following dataset is monthly, and is produced on the 3rd of every month at 8
 
 ```json
 "availability": {
-	"frequency": "Month",
-	"interval": 1,
-	"offset": "3.08:00:00",	
-	"style": "StartOfInterval"
+    "frequency": "Month",
+    "interval": 1,
+    "offset": "3.08:00:00", 
+    "style": "StartOfInterval"
 }
 ```
 
@@ -280,6 +280,7 @@ The following dataset is monthly, and is produced on the 3rd of every month at 8
 The **policy** section in the dataset definition defines the criteria or the condition that the dataset slices must fulfill.
 
 ### Validation policies
+
 | Policy name | Description | Applied to | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validates that the data in **Azure Blob storage** meets the minimum size requirements (in megabytes). |Azure Blob storage |No |NA |
@@ -336,7 +337,7 @@ You can create datasets by using one of these tools or SDKs:
 - .NET API
 
 See the following tutorials for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs:
- 
+
 - [Build a pipeline with a data transformation activity](data-factory-build-your-first-pipeline.md)
 - [Build a pipeline with a data movement activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 

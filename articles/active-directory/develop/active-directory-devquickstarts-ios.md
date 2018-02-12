@@ -63,8 +63,8 @@ To set up your app to get tokens, you first need to register it in your Azure AD
 3. Click **More Services** in the leftmost navigation pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a new **Native Client Application**.
-  * The **Name** of the application describes your application to end users.
-  * The **Redirect Uri** is a scheme and string combination that Azure AD uses to return token responses.  Enter a value that is specific to your application and is based on the previous redirect URI information.
+   * The **Name** of the application describes your application to end users.
+   * The **Redirect Uri** is a scheme and string combination that Azure AD uses to return token responses.  Enter a value that is specific to your application and is based on the previous redirect URI information.
 6. After you've completed the registration, Azure AD assigns your app a unique application ID.  You'll need this value in the next sections, so copy it from the application tab.
 7. From the **Settings** page, select **Required Permissions** and then select **Add**. Select **Microsoft Graph** as the API, and then add the **Read Directory Data** permission under **Delegated Permissions**.  This sets up your application to query the Azure AD Graph API for users.
 
@@ -95,9 +95,9 @@ Now that you have an application in Azure AD, you can install ADAL and write you
     ```
 
 4. In the QuickStart project, open the plist file `settings.plist`.  Replace the values of the elements in the section to reflect the values that you entered in the Azure portal. Your code references these values whenever it uses ADAL.
-  * The `tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com.
-  * The `clientId` is the client ID of your application that you copied from the portal.
-  * The `redirectUri` is the redirect URL that you registered in the portal.
+   * The `tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com.
+   * The `clientId` is the client ID of your application that you copied from the portal.
+   * The `redirectUri` is the redirect URL that you registered in the portal.
 
 ## 4.    Use ADAL to get tokens from Azure AD
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken : `, and ADAL does the rest.  

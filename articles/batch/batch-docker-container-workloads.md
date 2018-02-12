@@ -178,7 +178,7 @@ You can also prefetch container images by authenticating to a private container 
 ```csharp
 // Specify a container registry
 ContainerRegistry containerRegistry = new ContainerRegistry (
-	registryServer: "myContainerRegistry.azurecr.io",
+    registryServer: "myContainerRegistry.azurecr.io",
     username: "myUserName",
     password: "myPassword");
 

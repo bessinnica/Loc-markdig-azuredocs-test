@@ -77,6 +77,7 @@ It is a good idea to check how your data is distributed in partitions. To check 
 The left image shows the result of a bad partition key and the right image shows the result of a good partition key. In left image, you can see the data is not evenly distributed among partitions. You should strive to distribute your data so your graph looks similar to right image.
 
 <a name="prerequisites"></a>
+
 ## Prerequisites for partitioning
 
 For physical partitions to auto-split into **p1** and **p2** as described in [How does partitioning work](#how-does-partitioning-work), the container must be created with a throughput of 1,000 RU/s or more, and a partition key must be provided. When creating a container in the Azure portal, select the **Unlimited** storage capacity option to take advantage of partitioning and auto-scaling. 
@@ -94,6 +95,7 @@ Azure Cosmos DB is designed for predictable performance. When you create a conta
 > 
 
 <a name="designing-for-partitioning"></a>
+
 ## Work with the Azure Cosmos DB APIs
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
 
@@ -131,7 +133,7 @@ In the Mongo Shell:
 ```
 db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
 ```
-    
+
 Results:
 
 ```JSON
@@ -188,6 +190,7 @@ For more information, see [Gremlin support for Azure Cosmos DB](gremlin-support.
 
 
 <a name="designing-for-partitioning"></a>
+
 ## Design for partitioning
 To scale effectively with Azure Cosmos DB, you need to pick a good partition key when you create your container. There are two main considerations for choosing a partition key:
 

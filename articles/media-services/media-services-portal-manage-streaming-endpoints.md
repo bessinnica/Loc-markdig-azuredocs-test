@@ -50,7 +50,7 @@ To add/delete streaming endpoint using the Azure portal, do the following:
 
 1. To add a streaming endpoint, click the **+ Endpoint** at the top of the page. 
 
-	You might want multiple Streaming Endpoints if you plan to have different CDNs or a CDN and direct access.
+    You might want multiple Streaming Endpoints if you plan to have different CDNs or a CDN and direct access.
 
 2. To delete a streaming endpoint, press **Delete** button.      
 3. Click the **Start** button to start the streaming endpoint.
@@ -95,7 +95,7 @@ If you later want to disable/enable the CDN, your streaming endpoint must be in 
 
 CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
 
-Once it is enabled, the **Access Control**, **Custom hostname, and **Akamai Signature authentication** configuration gets disabled.
+Once it is enabled, the <strong>Access Control</strong>, <strong>Custom hostname, and **Akamai Signature authentication</strong> configuration gets disabled.
  
 > [!IMPORTANT]
 > Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. For more information about Azure CDN features, see the [CDN overview](../cdn/cdn-overview.md).

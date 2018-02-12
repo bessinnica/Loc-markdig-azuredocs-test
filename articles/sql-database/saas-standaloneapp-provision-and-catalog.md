@@ -43,7 +43,7 @@ The tenant catalog holds a mapping between a tenant identifier and a tenant data
 In the Wingtip sample application, the catalog is implemented by the shard management features of the [Elastic Database Client Library](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  The library enables an application to create, manage, and use a shard map that is stored in a database. In the Wingtip Tickets sample, the catalog is stored in the *tenant catalog* database.  The shard maps a tenant key to the shard (database) in which that tenant’s data is stored.  EDCL functions manage a *global shard map* stored in tables in the *tenant catalog* database and a *local shard map* stored in each shard.
 
 EDCL functions can be called from applications or PowerShell scripts to create and manage the entries in the shard map. Other EDCL functions can be used to retrieve the set of shards or connect to the correct database for given tenant key. 
-    
+
 > [!IMPORTANT] 
 > Do not edit the data in the catalog database or the local shard map in the tenant databases directly. Direct updates are not supported due to the high risk of data corruption. Instead, edit the mapping data by using EDCL APIs only.
 
@@ -71,7 +71,7 @@ In this task, you learn how to provision the catalog used to register all the te
 * **Provision the catalog database** using an Azure resource management template. The database is initialized by importing a bacpac file.  
 * **Register the sample tenant apps** that you deployed earlier.  Each tenant is registered using a key constructed from a hash of the tenant name.  The tenant name is also stored in an extension table in the catalog.
 
-1. In PowerShell ISE, open *...\Learning Modules\UserConfig.psm* and update the **\<user\>** value to the value you used when deploying the three sample applications.  **Save the file**.	
+1. In PowerShell ISE, open *...\Learning Modules\UserConfig.psm* and update the **\<user\>** value to the value you used when deploying the three sample applications.  **Save the file**.  
 1. In PowerShell ISE, open *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* and set **$Scenario = 1**. Deploy the tenant catalog and register the pre-defined tenants.
 
 1. Add a breakpoint by putting your cursor anywhere on the line that says, `& $PSScriptRoot\New-Catalog.ps1`, and then press **F9**.
@@ -79,29 +79,31 @@ In this task, you learn how to provision the catalog used to register all the te
     ![setting a breakpoint for tracing](media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
 1. Run the script by pressing **F5**. 
-1.	After script execution stops at the breakpoint, press **F11** to step into the New-Catalog.ps1 script.
-1.	Trace the script's execution using the Debug menu options, F10 and F11, to step over or into called functions.
-    *	For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+1.  After script execution stops at the breakpoint, press **F11** to step into the New-Catalog.ps1 script.
+1.  Trace the script's execution using the Debug menu options, F10 and F11, to step over or into called functions.
+    *   For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Once the script completes, the catalog will exist and all the sample tenants will be registered. 
 
 Now look at the resources you created.
 
 1. Open the [Azure portal](https://portal.azure.com/) and browse the resource groups.  Open the **wingtip-sa-catalog-\<user\>** resource group and note the catalog server and database.
-1. Open the database in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password = **P@ssword1**.
+2. Open the database in the portal and select <em>Data explorer</em> from the left-hand menu.  Click the Login command and then enter the Password = <strong>P<xref href="ssword1" data-throw-if-not-resolved="False" data-raw-source="@ssword1"></xref></strong>.
 
 
-1. Explore the schema of the *tenantcatalog* database.  
+3. Explore the schema of the *tenantcatalog* database.  
    * The objects in the `__ShardManagement` schema are all provided by the Elastic Database Client Library.
    * The `Tenants` table and `TenantsExtended` view are extensions added in the sample that demonstrate how you can extend the catalog to provide additional value.
-1. Run the query, `SELECT * FROM dbo.TenantsExtended`.          
+4. Run the query, `SELECT * FROM dbo.TenantsExtended`.          
 
    ![data explorer](media/saas-standaloneapp-provision-and-catalog/data-explorer-tenantsextended.png)
 
     As an alternative to using the Data Explorer you can connect to the database from SQL Server Management Studio. To do this, connect to the server wingtip- 
 
-    
-    Note that you should not edit data directly in the catalog - always use the shard management APIs. 
+
+~~~
+Note that you should not edit data directly in the catalog - always use the shard management APIs. 
+~~~
 
 ## Provision a new tenant application
 
@@ -115,8 +117,8 @@ In this task, you learn how to provision a single tenant application. You will:
 
 1. Add a breakpoint in the script by putting your cursor anywhere on line 49 that says, `& $PSScriptRoot\New-TenantApp.ps1`, and then press **F9**.
 1. Run the script by pressing **F5**. 
-1.	After script execution stops at the breakpoint, press **F11** to step into the New-Catalog.ps1 script.
-1.	Trace the script's execution using the Debug menu options, F10 and F11, to step over or into called functions.
+1.  After script execution stops at the breakpoint, press **F11** to step into the New-Catalog.ps1 script.
+1.  Trace the script's execution using the Debug menu options, F10 and F11, to step over or into called functions.
 
 After the tenant has been provisioned, the new tenant's events website is opened.
 

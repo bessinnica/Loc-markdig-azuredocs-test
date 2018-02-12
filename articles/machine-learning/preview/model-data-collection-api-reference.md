@@ -48,6 +48,7 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 See Class and Parameter details:
 
 ### Class
+
 | Name | Description |
 |--------------------|--------------------|
 | ModelDataCollector | A class in azureml.datacollector namespace. An instance of this class will be used to collect model data. A single scoring file can contain multiple ModelDataCollectors. Each instance should be used for collecting data in one discrete location in the scoring file so that the schema of collected data remains consistent (that is, inputs and prediction)|
@@ -67,7 +68,7 @@ See Class and Parameter details:
 
 
 
- 
+
 
 ## Collecting the model data
 
@@ -78,6 +79,7 @@ You can collect the model data using an instance of the ModelDataCollector creat
 See Method and Parameter details:
 
 ### Method
+
 | Name | Description |
 |--------------------|--------------------|
 | collect | Used to collect the data for a model input or prediction|

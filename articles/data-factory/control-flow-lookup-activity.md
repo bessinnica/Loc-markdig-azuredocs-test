@@ -57,6 +57,7 @@ The maximum number of rows returned by Lookup activity is **5000**, and up to **
 ```
 
 ## Type properties
+
 Name | Description | Type | Required?
 ---- | ----------- | ---- | --------
 dataset | Provides the dataset reference for the lookup. Currently, the supported dataset types are:<ul><li>`AzureBlobDataset` for [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) as source</li><li>`FileShareDataset` for [File System](connector-file-system.md#dataset-properties) as source</li><li>`AzureSqlTableDataset` for [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) or [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) as source</li><li>`SqlServerTable` for [SQL Server](connector-sql-server.md#dataset-properties) as source</li><li>`AzureTableDataset` for [Azure Table storage](connector-azure-table-storage.md#dataset-properties) as source</li> | Key/value pair | Yes
@@ -159,7 +160,7 @@ This pipeline contains two activities: *lookup* and *copy*.
                 ]
             }
         ]
-	}
+    }
 }
 ```
 
@@ -168,22 +169,22 @@ The lookup dataset refers to the *sourcetable.json* file in the Azure Storage lo
 
 ```json
 {
-	"name": "LookupDataset",
-	"properties": {
-		"type": "AzureBlob",
-		"typeProperties": {
-			"folderPath": "lookup",
-			"fileName": "sourcetable.json",
-			"format": {
-				"type": "JsonFormat",
-				"filePattern": "SetOfObjects"
-			}
-		},
-		"linkedServiceName": {
-			"referenceName": "AzureStorageLinkedService",
-			"type": "LinkedServiceReference"
-		}
-	}
+    "name": "LookupDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "lookup",
+            "fileName": "sourcetable.json",
+            "format": {
+                "type": "JsonFormat",
+                "filePattern": "SetOfObjects"
+            }
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        }
+    }
 }
 ```
 
@@ -193,16 +194,16 @@ The source dataset uses the output of the lookup activity, which is the name of 
 ```json
 {
     "name": "SourceDataset",
-	"properties": {
-		"type": "AzureSqlTable",
-		"typeProperties":{
-			"tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
-		},
-		"linkedServiceName": {
-			"referenceName": "AzureSqlLinkedService",
-			"type": "LinkedServiceReference"
-		}
-	}
+    "properties": {
+        "type": "AzureSqlTable",
+        "typeProperties":{
+            "tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureSqlLinkedService",
+            "type": "LinkedServiceReference"
+        }
+    }
 }
 ```
 
@@ -211,21 +212,21 @@ The copy activity copies data from the SQL table to the *filebylookup.csv* file 
 
 ```json
 {
-	"name": "SinkDataset",
-	"properties": {
-		"type": "AzureBlob",
-		"typeProperties": {
-			"folderPath": "csv",
-			"fileName": "filebylookup.csv",
-			"format": {
-				"type": "TextFormat"                                                                    
-			}
-		},
-		"linkedServiceName": {
-			"referenceName": "AzureStorageLinkedService",
-			"type": "LinkedServiceReference"
-		}
-	}
+    "name": "SinkDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "csv",
+            "fileName": "filebylookup.csv",
+            "format": {
+                "type": "TextFormat"                                                                    
+            }
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        }
+    }
 }
 ```
 
@@ -256,13 +257,13 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
     "properties": {
         "type": "AzureSqlDatabase",
         "description": "",
-		"typeProperties": {
-			"connectionString": {
-				"value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-				"type": "SecureString"
-			}
-		}
-	}
+        "typeProperties": {
+            "connectionString": {
+                "value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
+                "type": "SecureString"
+            }
+        }
+    }
 }
 ```
 

@@ -31,13 +31,14 @@ When you enable Enterprise State Roaming, your organization is automatically gra
 2. Select **Azure Active Directory** &gt; **Devices** &gt; **Device settings**.
 
 3. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
-  
-  ![image of device setting labeled Users may sync settings and app data across devices](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
-  
+
+   ![image of device setting labeled Users may sync settings and app data across devices](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
+
 For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [connect the domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md).
 
 ## Data storage
 Enterprise State Roaming data is hosted in one or more [Azure regions](https://azure.microsoft.com/regions/) that best align with the country/region value set in the Azure Active Directory instance. Enterprise State Roaming data is partitioned based on three major geographic regions: North America, EMEA, and APAC. Enterprise State Roaming data for the tenant is locally located with the geographical region, and is not replicated across regions.  For example::
+
 Country/region value | has their data hosted in
 ---------------------|-------------------------
 An EMEA country such as “France” or “Zambia" | one or of the Azure regions within Europe 
@@ -57,12 +58,12 @@ Follow these steps to view a per-user device sync status report.
 3. Select the user, and then select **Devices**.
 
 4. Under **Show**, select **Devices syncing settings and app data** to show sync status.
-  
-  ![image of device sync data setting](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
-  
+
+   ![image of device sync data setting](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
+
 5. If there are devices syncing for this user, you see the devices as shown here.
-  
-  ![image of device sync columnar data](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
+
+   ![image of device sync columnar data](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 
 ## Data retention
 Data synced to Azure using Enterprise State Roaming is retained until it is manually deleted or until the data in question is determined to be stale. 

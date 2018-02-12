@@ -46,11 +46,11 @@ This section walks through setting up the development environment. This includes
 
 1. In the **New Project** dialog box, select **Web** > **ASP.NET Core Web Application** > **AspNetCoreStorage**. Then select **OK**.
 
-	![Screenshot of Visual Studio New Project dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
+    ![Screenshot of Visual Studio New Project dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
 1. In the **New ASP.NET Core Web Application** dialog box, select **.NET Core** > **ASP.NET Core 2.0** > **Web Application (Model-View-Controller)**. Then select **OK**.
 
-	![Screenshot of New ASP.NET Core Web Application dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
+    ![Screenshot of New ASP.NET Core Web Application dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 
 ### Use connected services to connect to an Azure storage account
 
@@ -60,7 +60,7 @@ This section walks through setting up the development environment. This includes
 
 1. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
 
-	![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/connected-services.png)
+    ![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/connected-services.png)
 
 1. In the **Azure Storage** dialog box, select the Azure storage account to be used for this tutorial. To create a new Azure storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage, and a storage connection string to **appsettings.json**.
 
@@ -76,15 +76,15 @@ This section walks through setting up the development environment. This includes
 
 2. From the context menu, select **Add** > **Controller**.
 
-	![Screenshot of Solution Explorer](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-menu.png)
+    ![Screenshot of Solution Explorer](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-menu.png)
 
 1. In the **Add Scaffold** dialog box, select **MVC Controller - Empty**, and select **Add**.
 
-	![Screenshot of Add Scaffold dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
+    ![Screenshot of Add Scaffold dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
 
 1. In the **Add Empty MVC Controller** dialog box, name the controller *BlobsController*, and select **Add**.
 
-	![Screenshot of Add Empty MVC Controller dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
+    ![Screenshot of Add Empty MVC Controller dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
 
 1. Add the following `using` directives to the `BlobsController.cs` file:
 
@@ -93,7 +93,7 @@ This section walks through setting up the development environment. This includes
     using Microsoft.Extensions.Configuration;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
-	```
+    ```
 
 ## Connect to a storage account and get a container reference
 
@@ -132,7 +132,7 @@ The following steps illustrate how to create a blob container:
     ```csharp
     public ActionResult CreateBlobContainer()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
@@ -153,7 +153,7 @@ The following steps illustrate how to create a blob container:
 1. Update `ViewBag` with the name of the blob container.
 
     ```csharp
-	ViewBag.BlobContainerName = container.Name;
+    ViewBag.BlobContainerName = container.Name;
     ```
     
     The following shows the completed `CreateBlobContainer` method:
@@ -196,14 +196,14 @@ The following steps illustrate how to create a blob container:
 1. Look for the unordered list that looks like this: `<ul class="nav navbar-nav">`.  After the last `<li>` element in the list, add the following HTML to add another navigation menu item:
 
     ```html
-	<li><a asp-area="" asp-controller="Blobs" asp-action="CreateBlobContainer">Create blob container</a></li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="CreateBlobContainer">Create blob container</a></li>
     ```
 
 1. Run the application, and select **Create Blob Container** to see results similar to the following screenshot:
   
-	![Screenshot of Create blob container](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
+    ![Screenshot of Create blob container](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
 
-	As mentioned previously, the `CloudBlobContainer.CreateIfNotExists` method returns **true** only when the container doesn't exist and is created. Therefore, if the app is run when the container exists, the method returns **false**.
+    As mentioned previously, the `CloudBlobContainer.CreateIfNotExists` method returns **true** only when the container doesn't exist and is created. Therefore, if the app is run when the container exists, the method returns **false**.
 
 ## Upload a blob into a blob container
 
@@ -216,7 +216,7 @@ When the [blob container is created](#create-a-blob-container), upload files int
     ```csharp
     public string UploadBlob()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return "success!";
     }
@@ -266,7 +266,7 @@ When the [blob container is created](#create-a-blob-container), upload files int
 1. After the last `<li>` element in the list, add the following HTML to add another navigation menu item:
 
     ```html
-	<li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
     ```
 
 1. Run the application, and select **Upload blob**. The word *success!* should appear.
@@ -284,7 +284,7 @@ This section illustrates how to list the blobs in a blob container. The sample c
     ```csharp
     public ActionResult ListBlobs()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
     }
     ```
@@ -319,7 +319,7 @@ This section illustrates how to list the blobs in a blob container. The sample c
         }
     }
 
-	return View(blobs);
+    return View(blobs);
     ```
     The following shows the completed `ListBlobs` method:
 
@@ -381,12 +381,12 @@ This section illustrates how to list the blobs in a blob container. The sample c
 1. After the last `<li>` element in the list, add the following HTML to add another navigation menu item:
 
     ```html
-	<li><a asp-area="" asp-controller="Blobs" asp-action="ListBlobs">List blobs</a></li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="ListBlobs">List blobs</a></li>
     ```
 
 1. Run the application, and select **List blobs** to see results similar to the following screenshot:
   
-	![Screenshot of List blobs](./media/vs-storage-aspnet-core-getting-started-blobs/listblobs.png)
+    ![Screenshot of List blobs](./media/vs-storage-aspnet-core-getting-started-blobs/listblobs.png)
 
 ## Download blobs
 
@@ -399,7 +399,7 @@ This section illustrates how to download a blob. You can either persist it to lo
     ```csharp
     public string DownloadBlob()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return "success!";
     }
@@ -446,7 +446,7 @@ This section illustrates how to download a blob. You can either persist it to lo
 1. After the last `<li>` element in the list, add the following HTML to add another navigation menu item:
 
     ```html
-	<li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
 1. Run the application, and select **Download blob** to download the blob. The blob specified in the `CloudBlobContainer.GetBlockBlobReference` method call downloads to the location specified in the `File.OpenWrite` method call. The text *success!* should appear in the browser. 
@@ -462,7 +462,7 @@ The following steps illustrate how to delete a blob:
     ```csharp
     public string DeleteBlob()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return "success!";
     }

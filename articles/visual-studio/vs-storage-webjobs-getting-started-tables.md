@@ -28,7 +28,7 @@ The Azure Table storage service enables you to store large amounts of structured
 Some of the code snippets show the **Table** attribute used in functions that are called manually, that is, not by using one of the trigger attributes.
 
 ## How to add entities to a table
-To add entities to a table, use the **Table** attribute with an **ICollector<T>** or **IAsyncCollector<T>** parameter where **T** specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table.
+To add entities to a table, use the <strong>Table</strong> attribute with an <strong>ICollector<T></strong> or <strong>IAsyncCollector<T></strong> parameter where <strong>T</strong> specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table.
 
 The following code sample adds **Person** entities to a table named *Ingress*.
 
@@ -77,7 +77,7 @@ When the function finishes, the **Invocation Details** page reports the number o
 ![Ingress function finished](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## How to read multiple entities from a table
-To read a table, use the **Table** attribute with an **IQueryable<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.
+To read a table, use the <strong>Table</strong> attribute with an <strong>IQueryable<T></strong> parameter where type <strong>T</strong> derives from <strong>TableEntity</strong> or implements <strong>ITableEntity</strong>.
 
 The following code sample reads and logs all rows from the **Ingress** table:
 

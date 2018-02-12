@@ -43,16 +43,16 @@ The application requirements and review process vary by [province](https://wacnd
 The review application and results are posted on the [21Vianet application website](http://icp.cloud.21vianet.com/), and 21Vianet notifies you of the result by email or phone. The following example outlines the steps in the process for a business registered in Shanghai City.
 
 ### Apply for ICP
-1.	Register a new account using your email address to sign in to the [application website](http://icp.cloud.21vianet.com/). 
-2.	Follow the instructions to fill in the required information for ICP filing, including details about your website and ICP.
-3.	Upload soft copies of the required materials as color scans or photos.
-4.	Within two working days, the first review feedback will be sent to you. If the application passes this first review, you will receive an email request for an onsite interview in the 21Vianet office in either Beijing or Shanghai:
+1.  Register a new account using your email address to sign in to the [application website](http://icp.cloud.21vianet.com/). 
+2.  Follow the instructions to fill in the required information for ICP filing, including details about your website and ICP.
+3.  Upload soft copies of the required materials as color scans or photos.
+4.  Within two working days, the first review feedback will be sent to you. If the application passes this first review, you will receive an email request for an onsite interview in the 21Vianet office in either Beijing or Shanghai:
     - No. 1, Rd. Jiuxiangqiao East, District Chaoyang, Beijing<br>
     Phone: 400-089-0365
     - Room 657, Building 3, No. 88, Rd. Keyuan, District Pudong, Shanghai<br>
     Phone: 400-089-0365 <br>
     If you cannot attend in person, 21Vianet can use their support phone number to conduct an offsite interview.
-5.	The materials you submitted are sent for a second review conducted by 21Vianet, which takes about one-and-a-half working days. After passing this review, all materials are provided to the MIIT for final review. If your documents are rejected by the MIIT, you can revise and resubmit them.
+5.  The materials you submitted are sent for a second review conducted by 21Vianet, which takes about one-and-a-half working days. After passing this review, all materials are provided to the MIIT for final review. If your documents are rejected by the MIIT, you can revise and resubmit them.
 
 ### Qualifications for ICP
 To obtain an ICP license or ICP filing, you may have to establish a legal presence in China.

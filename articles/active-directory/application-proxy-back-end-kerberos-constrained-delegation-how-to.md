@@ -127,29 +127,29 @@ If Kerberos is not available, then check the application’s authentication sett
 
    ![Windows authentication providers](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
--   With Kerberos and NTLM in place, lets now temporarily disable pre-authentication for the application in the portal. See if you can access it from the internet using the external URL. You should be prompted to authenticate and should be able to do so with the same account used in the previous step. If not, this indicates a problem with the backend application and not KCD at all.
+- With Kerberos and NTLM in place, lets now temporarily disable pre-authentication for the application in the portal. See if you can access it from the internet using the external URL. You should be prompted to authenticate and should be able to do so with the same account used in the previous step. If not, this indicates a problem with the backend application and not KCD at all.
 
--   Now re-enable pre-authentication in the portal and authenticate through Azure by attempting to connect to the application via its external URL. If SSO has failed, then you should see a forbidden error message in the browser, plus event 13022 in the log:
+- Now re-enable pre-authentication in the portal and authenticate through Azure by attempting to connect to the application via its external URL. If SSO has failed, then you should see a forbidden error message in the browser, plus event 13022 in the log:
 
-    *Microsoft AAD Application Proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
+  *Microsoft AAD Application Proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
 
-    ![HTTTP 401 forbidden error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+  ![HTTTP 401 forbidden error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
--   Check the IIS application to ensure the configured application pool is configured to use the same account that the SPN has been configured against in AD, by navigating in IIS as in the following illustration
+- Check the IIS application to ensure the configured application pool is configured to use the same account that the SPN has been configured against in AD, by navigating in IIS as in the following illustration
 
-    ![IIS application configuration window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
+  ![IIS application configuration window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-    Once you know the identity, issue the following from a cmd prompt to make sure this account is definitely configured with the SPN in question. For example,  `setspn –q http/spn.wacketywack.com`
+  Once you know the identity, issue the following from a cmd prompt to make sure this account is definitely configured with the SPN in question. For example,  `setspn –q http/spn.wacketywack.com`
 
-    ![SetSPN command window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
+  ![SetSPN command window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
--   Check that the SPN defined against the application’s settings in the portal is the same SPN configured against the target AD account used by the application’s app pool
+- Check that the SPN defined against the application’s settings in the portal is the same SPN configured against the target AD account used by the application’s app pool
 
-   ![SPN configuration in Azure Portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+  ![SPN configuration in Azure Portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
--   Go into IIS and select the **Configuration Editor** option for the application, and navigate to **system.webServer/security/authentication/windowsAuthentication** to make sure the value **UseAppPoolCredentials** is **True**
+- Go into IIS and select the **Configuration Editor** option for the application, and navigate to **system.webServer/security/authentication/windowsAuthentication** to make sure the value **UseAppPoolCredentials** is **True**
 
-   ![IIS configuration app pools credential option](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+  ![IIS configuration app pools credential option](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
 While being useful in improving the performance of Kerberos operations, leaving Kernel mode enabled also causes the ticket for the requested service to be decrypted using machine account. This is also called the Local system, so having this set to true break KCD when the application is hosted across multiple servers in a farm.
 

@@ -12,7 +12,7 @@ ms.date: 12/19/2016
 ms.author: juliakuz
 ---
 
-##86-Categories Taxonomy
+## 86-Categories Taxonomy
 abstract_
 
 abstract_net

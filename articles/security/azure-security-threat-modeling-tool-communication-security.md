@@ -19,6 +19,7 @@ ms.author: rodsan
 ---
 
 # Security Frame: Communication Security | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Secure communication to Event Hub using SSL/TLS](#comm-ssltls)</li></ul> |
@@ -250,7 +251,7 @@ namespace CertificatePinningExample
 
                 var targetKeyAlgorithm = new Oid(certificate.GetKeyAlgorithm()).FriendlyName;
                 var targetPublicKey = certificate.GetPublicKeyString();
-                
+
                 if (targetKeyAlgorithm == PINNED_ALGORITHM &&
                     targetPublicKey == PINNED_PUBLIC_KEY)
                 {
@@ -368,7 +369,7 @@ public class ValuesController : ApiController
     public HttpResponseMessage Get() { ... }
 }
 ```
- 
+
 ## <a id="redis-ssl"></a>Ensure that communication to Azure Redis Cache is over SSL
 
 | Title                   | Details      |
@@ -395,11 +396,12 @@ Please note that Redis is designed to be accessed by trusted clients inside trus
 
 ## <a id="device-cloud"></a>Secure Device to Cloud Gateway communication using SSL/TLS
 
-| Title                   | Details      |
-| ----------------------- | ------------ |
-| **Component**               | IoT Cloud Gateway | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Generic |
-| **Attributes**              | N/A  |
-| **References**              | [Choose your Communication Protocol](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
-| **Steps** | Secure HTTP/AMQP or MQTT protocols using SSL/TLS. |
+|                  Title                   |                                                       Details                                                        |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+|        <strong>Component</strong>        |                                                  IoT Cloud Gateway                                                   |
+|        <strong>SDL Phase</strong>        |                                                        Build                                                         |
+| <strong>Applicable Technologies</strong> |                                                       Generic                                                        |
+|       <strong>Attributes</strong>        |                                                         N/A                                                          |
+|       <strong>References</strong>        | [Choose your Communication Protocol](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
+|          <strong>Steps</strong>          |                                  Secure HTTP/AMQP or MQTT protocols using SSL/TLS.                                   |
+

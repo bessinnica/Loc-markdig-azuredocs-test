@@ -15,6 +15,7 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Translator Text API with Node.js
 <a name="HOLTop"></a>
 
+
 This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/NodeJS).
 
 ## Prerequisites
@@ -24,6 +25,7 @@ You will need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Text API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Translate"></a>
+
 
 ## Translate text
 
@@ -60,7 +62,7 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-		console.log (body);
+        console.log (body);
     });
     response.on ('error', function (e) {
         console.log ('Error: ' + e.message);
@@ -68,17 +70,17 @@ let response_handler = function (response) {
 };
 
 let Translate = function () {
-	let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + params,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + params,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
 
-	let req = https.request (request_params, response_handler);
-	req.end ();
+    let req = https.request (request_params, response_handler);
+    req.end ();
 }
 
 Translate ();

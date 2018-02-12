@@ -399,13 +399,13 @@ The definition of the following network is designed to recognize numbers, and it
 * The net has a third hidden layer, *Hid3*, which is fully connected to the second hidden layer, *Conv2*.
 * The output layer, *Digit*, is connected only to the third hidden layer, *Hid3*. The keyword **all** indicates that the output layer is fully connected to *Hid3*.
 * The arity of the convolution is three (the length of the tuples **InputShape**, **KernelShape**, **Stride**, and **Sharing**). 
-* The number of weights per kernel is *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Or 26 * 50 = 1300*.
+* The number of weights per kernel is <em>1 + **KernelShape</em><em>\[0] * **KernelShape</em><em>\[1] * **KernelShape</em><em>\[2] = 1 + 1 * 5 * 5 = 26. Or 26 * 50 = 1300</em>.
 * You can calculate the nodes in each hidden layer as follows:
   * **NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
   * **NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
   * **NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
-* The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5], as follows: ***MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
-* Because **Sharing**[d] is False only for *d == 0*, the number of kernels is ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
+* The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5], as follows: <strong><em>MapCount</em>* * **NodeCount</strong>\[0] * <strong>NodeCount</strong>\[1] * <strong>NodeCount</strong>\[2] = 10 * 5 * 5 * 5*
+* Because <strong>Sharing</strong>[d] is False only for <em>d == 0</em>, the number of kernels is <strong><em>MapCount</em>* * **NodeCount</strong>\[0] = 10 * 5 = 50*. 
 
 ## Acknowledgements
 The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

@@ -60,16 +60,16 @@ To configure Service Map integration, do the following:
 4. In the **Machine Group Selection** window, you choose which Service Map Machine Groups you want to sync to Operations Manager. Click **Add/Remove Machine Groups**, choose groups from the list of **Available Machine Groups**, and click **Add**.  When you are finished selecting groups, click **Ok** to finish.
     
     ![The Operations Manager Configuration Machine Groups](media/oms-service-map/scom-config-machine-groups.png)
-	
+    
 5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
     
     For the integration to build a distributed application diagram for a server, the server must be:
 
-    * Managed by Operations Manager
-    * Managed by Service Map
-    * Listed in the Service Map Servers Group
+   * Managed by Operations Manager
+   * Managed by Service Map
+   * Listed in the Service Map Servers Group
 
-    ![The Operations Manager Configuration Group](media/oms-service-map/scom-config-group.png)
+     ![The Operations Manager Configuration Group](media/oms-service-map/scom-config-group.png)
 
 6. Optional: Select the Management Server resource pool to communicate with Operations Management Suite, and then click **Add Workspace**.
 

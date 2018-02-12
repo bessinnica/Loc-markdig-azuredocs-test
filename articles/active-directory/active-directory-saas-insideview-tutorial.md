@@ -57,23 +57,23 @@ To configure the integration of InsideView in to Azure AD, you need to add Insid
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **InsideView**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_search.png)
 
 5. In the results panel, select **InsideView**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with InsideView based on a test user called "Britta Simon."
@@ -98,32 +98,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **InsideView** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_samlbase.png)
 
 3. On the **InsideView Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_url.png)
-	
-   	In the **Reply URL** textbox, type a URL using the following pattern: `https://my.insideview.com/iv/<STS Name>/login.iv`
+    ![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_url.png)
+    
+    In the **Reply URL** textbox, type a URL using the following pattern: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@insideview.com) to get this value.
+    > [!NOTE] 
+    > This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@insideview.com) to get this value.
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_general_400.png)
 
 6. On the **InsideView Configuration** section, click **Configure InsideView** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_configure.png) 
 
 7. In a different web browser window, log in to your InsideView company site as an administrator.
 
@@ -133,23 +133,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. In the **Add a New SAML** section, perform the following steps:
 
-	![Add a New SAML](./media/active-directory-saas-insideview-tutorial/ic794136.png "Add a New SAML")
+    ![Add a New SAML](./media/active-directory-saas-insideview-tutorial/ic794136.png "Add a New SAML")
    
-	a. In the **STS Name** textbox, type a name for your configuration.
+    a. In the **STS Name** textbox, type a name for your configuration.
 
-	b. In **SamlP/WS-Fed Unsolicited EndPoint** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
-	
-	c. Open your base-64 encoded certificate, which you have downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox.
+    b. In **SamlP/WS-Fed Unsolicited EndPoint** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    
+    c. Open your base-64 encoded certificate, which you have downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox.
 
-	d. In the **Crm User Id Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-		
-	e. In the **Crm Email Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. In the **Crm User Id Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+        
+    e. In the **Crm Email Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-	f. In the **Crm First Name Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-	
-	g. In the **Crm lastName Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    f. In the **Crm First Name Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    
+    g. In the **Crm lastName Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
-	h. Click **Save**.
+    h. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -164,25 +164,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -205,26 +205,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **InsideView**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

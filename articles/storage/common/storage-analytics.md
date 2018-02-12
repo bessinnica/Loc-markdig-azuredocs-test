@@ -74,15 +74,16 @@ Each log will be written in the following format.
 
 The following table describes each attribute in the log name.
 
-| Attribute | Description |
-| --- | --- |
-| <service-name> |The name of the storage service. For example: blob, table, or queue. |
-| YYYY |The four-digit year for the log. For example: 2011. |
-| MM |The two-digit month for the log. For example: 07. |
-| DD |The two-digit month for the log. For example: 07. |
-| hh |The two-digit hour that indicates the starting hour for the logs, in 24-hour UTC format. For example: 18. |
-| mm |The two-digit number that indicates the starting minute for the logs. This value is unsupported in the current version of Storage Analytics, and its value will always be 00. |
-| <counter> |A zero-based counter with six digits that indicates the number of log blobs generated for the storage service in an hour time period. This counter starts at 000000. For example: 000001. |
+
+|   Attribute    |                                                                                        Description                                                                                        |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <service-name> |                                                           The name of the storage service. For example: blob, table, or queue.                                                            |
+|      YYYY      |                                                                    The four-digit year for the log. For example: 2011.                                                                    |
+|       MM       |                                                                     The two-digit month for the log. For example: 07.                                                                     |
+|       DD       |                                                                     The two-digit month for the log. For example: 07.                                                                     |
+|       hh       |                                         The two-digit hour that indicates the starting hour for the logs, in 24-hour UTC format. For example: 18.                                         |
+|       mm       |       The two-digit number that indicates the starting minute for the logs. This value is unsupported in the current version of Storage Analytics, and its value will always be 00.       |
+|   <counter>    | A zero-based counter with six digits that indicates the number of log blobs generated for the storage service in an hour time period. This counter starts at 000000. For example: 000001. |
 
 The following is a complete sample log name that combines the previous examples.
 

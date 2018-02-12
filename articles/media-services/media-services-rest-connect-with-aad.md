@@ -55,12 +55,13 @@ In this tutorial, you learn how to:
 
 To access Media Services API, you need to collect the following data points.
 
-|Setting|Example|Description|
-|---|-------|-----|
-|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
-|REST API endpoint|https://amshelloworld.restv2.westus.media.azure.net/api/|This is the endpoint against which all Media Services REST API calls in your application are made.|
-|Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
-|Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
+
+|               Setting                |                         Example                          |                                                                                                                      Description                                                                                                                      |
+|--------------------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Active Directory tenant domain |                microsoft.onmicrosoft.com                 | Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token). |
+|          REST API endpoint           | https://amshelloworld.restv2.westus.media.azure.net/api/ |                                                                          This is the endpoint against which all Media Services REST API calls in your application are made.                                                                           |
+|      Client ID (Application ID)      |           f7fbbb29-a02d-4d91-bbc6-59a2579259d2           |                                                                                 Azure AD application (client) ID. The client ID is required to get the access token.                                                                                  |
+|            Client Secret             |       +mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=       |                                                                           Azure AD application keys (client secret). The client secret is required to get the access token.                                                                           |
 
 ### Get AAD auth info from the Azure portal
 
@@ -79,34 +80,34 @@ To get the information, follow these steps:
     > For the Azure Media REST request to succeed, the calling user must have a **Contributor** or **Owner** role for the Media Services account it is trying to access. If you get an exception that says "The remote server returned an error: (401) Unauthorized," see [Access control](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     If you need to create a new AD app, follow these steps:
-    
-    1. Press **Create New**.
-    2. Enter a name.
-    3. Press **Create New** again.
-    4. Press **Save**.
 
-    ![API access](./media/connect-with-rest/new-app.png)
+   1. Press **Create New**.
+   2. Enter a name.
+   3. Press **Create New** again.
+   4. Press **Save**.
 
-    The new app shows up on the page.
+      ![API access](./media/connect-with-rest/new-app.png)
+
+      The new app shows up on the page.
 
 6. Get the **Client ID** (Application ID).
-    
-    1. Select the application.
-    2. Get the **Client ID** from the window on the right. 
 
-    ![API access](./media/connect-with-rest/existing-client-id.png).
+   1. Select the application.
+   2. Get the **Client ID** from the window on the right. 
 
-7.  Get the application's **Key** (client secret). 
+      ![API access](./media/connect-with-rest/existing-client-id.png).
 
-    1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
-    2. Press **Keys**.
-    
-        ![API access](./media/connect-with-rest/manage-app.png)
-    3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
-    
-        Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
+7. Get the application's **Key** (client secret). 
 
-    ![API access](./media/connect-with-rest/connect-with-rest03.png)
+   1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
+   2. Press **Keys**.
+
+       ![API access](./media/connect-with-rest/manage-app.png)
+   3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
+
+       Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
+
+   ![API access](./media/connect-with-rest/connect-with-rest03.png)
 
 You can add values for AD connection parameters to your web.config or app.config file, to later use in your code.
 
@@ -115,7 +116,7 @@ You can add values for AD connection parameters to your web.config or app.config
 
 ## Get the access token using Postman
 
-This section shows how to use **Postman** to execute a REST API that returns a JWT Bearer Token (access token). To call any Media Services REST API, you need to add the "Authorization" header to the calls, and add the value of "Bearer *your_access_token*" to each call (as shown in the next section of this tutorial). 
+This section shows how to use **Postman** to execute a REST API that returns a JWT Bearer Token (access token). To call any Media Services REST API, you need to add the "Authorization" header to the calls, and add the value of "Bearer *your_access_token*" to each call (as shown in the next section of this tutorial). 
 
 1. Open **Postman**.
 2. Select **POST**.

@@ -83,7 +83,7 @@ With soft-delete enabled:
 
 - When a key vault is deleted, it is removed from its resource group and placed in a reserved namespace that is only associated with the location where it was created. 
 - Objects in a deleted key vault, such as keys, secrets and, certificates, are inaccessible and remain so while their containing key vault is in the deleted state. 
-- The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
+- The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
 
 You may view deleted state key vaults, associated with your subscription, using the following command:
 
@@ -164,24 +164,24 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 Like keys, secrets in a key vault are operated on with their own commands. Following, are the commands for deleting, listing, recovering, and purging secrets.
 
 - Delete a secret named SQLPassword: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - Recover a secret in the deleted state: 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - Purge a secret in deleted state: 
-```azurecli
-az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
+  ```
 
 >[!NOTE]
 >Purging a secret will permanently delete it, meaning it will not be recoverable.

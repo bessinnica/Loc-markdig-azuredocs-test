@@ -33,11 +33,11 @@ requests an IDOC over HTTP and sends the response back.
 - Install and configure the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) version 1.15.6150.1 or newer. [How to connect to the on-premises data gateway in a logic app](http://aka.ms/logicapps-gateway) lists the steps. The gateway must be installed on an on-premises machine before you can proceed.
 
 - Download and install the latest SAP client library on the same machine where you installed the data gateway. Use any of the following SAP versions: 
-	- SAP Server
-		- Any SAP Server that support the .NET Connector (NCo) 3.0
+    - SAP Server
+        - Any SAP Server that support the .NET Connector (NCo) 3.0
  
-	- SAP Client
-		- SAP .NET Connector (NCo) 3.0
+    - SAP Client
+        - SAP .NET Connector (NCo) 3.0
 
 ## Add triggers and actions for connecting to your SAP system
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Service Fabric application deployment | Microsoft Docs
 description: Use the FabricClient APIs to deploy and remove applications in Service Fabric.
 services: service-fabric
@@ -28,6 +28,7 @@ ms.author: ryanwi
 
 <br/>
 
+
 Once an [application type has been packaged][10], it's ready for deployment into an Azure Service Fabric cluster. Deployment involves the following three steps:
 
 1. Upload the application package to the image store
@@ -41,7 +42,7 @@ After an application is deployed and an instance is running in the cluster, you 
 2. Unregister the application type if you no longer need it
 
 If you use Visual Studio for deploying and debugging applications on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
- 
+
 ## Connect to the cluster
 Connect to the cluster by creating a [FabricClient](/dotnet/api/system.fabric.fabricclient) instance before you run any of the code examples in this article. For examples of connecting to a local development cluster or a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). To connect to the local development cluster, run the following:
 
@@ -325,7 +326,6 @@ static void Main(string[] args)
 }        
 }
 }
-
 ```
 
 ## Next steps

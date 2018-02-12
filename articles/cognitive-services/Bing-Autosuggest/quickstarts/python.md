@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Bing Autosuggest API with Python 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Python. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+
+This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Python. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
@@ -51,13 +52,13 @@ query = 'sail'
 params = '?mkt=' + mkt + '&q=' + query
 
 def get_suggestions ():
-	"Gets Autosuggest results for a query and returns the information."
+    "Gets Autosuggest results for a query and returns the information."
 
-	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-	conn = http.client.HTTPSConnection(host)
-	conn.request ("GET", path + params, None, headers)
-	response = conn.getresponse ()
-	return response.read ()
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    conn = http.client.HTTPSConnection(host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read ()
 
 result = get_suggestions ()
 print (json.dumps(json.loads(result), indent=4))

@@ -49,19 +49,19 @@ Open Fiddler, select **Rules** and **Customize Rules**.
 The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file is used to customize Fiddler. Paste the following code sample in the `OnBeforeResponse` function. The new code is commented out to ensure that the logic it creates is not implemented immediately. Once complete select **File** and **Save** to save your changes.
 
 ```javascript
-	/*
-		// Simulate data center failure
-		// After it is successfully downloading the blob, pause the code in the sample,
-		// uncomment these lines of script, and save the script.
-		// It will intercept the (probably successful) responses and send back a 503 error. 
-		// When you're ready to stop sending back errors, comment these lines of script out again 
-		//     and save the changes.
+    /*
+        // Simulate data center failure
+        // After it is successfully downloading the blob, pause the code in the sample,
+        // uncomment these lines of script, and save the script.
+        // It will intercept the (probably successful) responses and send back a 503 error. 
+        // When you're ready to stop sending back errors, comment these lines of script out again 
+        //     and save the changes.
 
-		if ((oSession.hostname == "contosoragrs.blob.core.windows.net") 
-	    	&& (oSession.PathAndQuery.Contains("HelloWorld"))) {
-			oSession.responseCode = 503;  
-		}
-	*/
+        if ((oSession.hostname == "contosoragrs.blob.core.windows.net") 
+            && (oSession.PathAndQuery.Contains("HelloWorld"))) {
+            oSession.responseCode = 503;  
+        }
+    */
 ```
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)

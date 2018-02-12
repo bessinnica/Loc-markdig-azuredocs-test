@@ -10,11 +10,11 @@ This section walks through setting up the development environment. This includes
 
 1. In the **New Project** dialog box, select **Web** > **ASP.NET Web Application (.NET Framework)**. In the **Name** field, specify **StorageAspNet**. Select **OK**.
 
-	![Screenshot of New Project dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+    ![Screenshot of New Project dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
 1. In the **New ASP.NET Web Application** dialog box, select **MVC**, and then select **OK**.
 
-	![Screenshot of New ASP.NET Web Application dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+    ![Screenshot of New ASP.NET Web Application dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
 ### Use connected services to connect to an Azure storage account
 
@@ -24,7 +24,7 @@ This section walks through setting up the development environment. This includes
 
 1. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
 
-	![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
+    ![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
 1. In the **Azure Storage** dialog box, select the Azure storage account to be used for this tutorial. To create a new Azure storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage and a storage connection string to **Web.config**.
 

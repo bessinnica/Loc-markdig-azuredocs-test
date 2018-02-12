@@ -40,8 +40,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
     5. For **Priority**, select as **1**. This results in all traffic going to this endpoint if it is healthy.
     6. Keep **Add as disabled** unchecked.
     7. Click **OK**
-6.	Repeat steps 4 and 5 to add the next Azure endpoint. Make sure to add it with its **Priority** value set at **2**.
-7.	When the addition of both endpoints is complete, they are displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
+6.  Repeat steps 4 and 5 to add the next Azure endpoint. Make sure to add it with its **Priority** value set at **2**.
+7.  When the addition of both endpoints is complete, they are displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
 
 > [!NOTE]
 > After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).

@@ -89,8 +89,7 @@ Learn how to use Active Directory Domain Services to join Azure virtual machines
             </div>
         </div>
         </a>
-    </li>    
-    <li>
+    </li><br/>    <li>
         <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-enableaadds">
         <div class="cardSize">
             <div class="cardPadding">

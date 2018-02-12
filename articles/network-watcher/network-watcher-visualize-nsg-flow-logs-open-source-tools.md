@@ -84,16 +84,16 @@ For further instructions on installing Elastic search, refer to the page [Instal
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
+2. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. Add the following content to the file:
+3. Add the following content to the file:
 
-  ```
-input {
+   ```
+   input {
    azureblob
      {
          storage_account_name => "mystorageaccount"
@@ -116,7 +116,7 @@ input {
      split { field => "[records][properties][flows][flows]"}
      split { field => "[records][properties][flows][flows][flowTuples]"}
 
-  mutate{
+   mutate{
    split => { "[records][resourceId]" => "/"}
    add_field => {"Subscription" => "%{[records][resourceId][2]}"
                  "ResourceGroup" => "%{[records][resourceId][4]}"
@@ -138,20 +138,20 @@ input {
    convert => {"unixtimestamp" => "integer"}
    convert => {"srcPort" => "integer"}
    convert => {"destPort" => "integer"}        
-  }
+   }
 
-  date{
+   date{
     match => ["unixtimestamp" , "UNIX"]
-  }
- }
-output {
-  stdout { codec => rubydebug }
-  elasticsearch {
+   }
+   }
+   output {
+   stdout { codec => rubydebug }
+   elasticsearch {
     hosts => "localhost"
     index => "nsg-flow-logs"
-  }
-}  
-  ```
+   }
+   }  
+   ```
 
 For further instructions on installing Logstash, refer to the [official documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
@@ -175,22 +175,22 @@ For more information about this plugin, refer to documentation [here](https://gi
 
 1. Run the following commands to install Kibana:
 
-  ```
-  curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
-  tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
-  ```
+   ```
+   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
+   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+   ```
 
-1. To run Kibana use the commands:
+2. To run Kibana use the commands:
 
-  ```
-  cd kibana-5.2.0-linux-x86_64/
-  ./bin/kibana
-  ```
+   ```
+   cd kibana-5.2.0-linux-x86_64/
+   ./bin/kibana
+   ```
 
-1. To view your Kibana web interface, navigate to `http://localhost:5601`
-1. For this scenario, the index pattern used for the flow logs is "nsg-flow-logs". You may change the index pattern in the "output" section of your logstash.conf file.
+3. To view your Kibana web interface, navigate to `http://localhost:5601`
+4. For this scenario, the index pattern used for the flow logs is "nsg-flow-logs". You may change the index pattern in the "output" section of your logstash.conf file.
 
-1. If you want to view the Kibana dashboard remotely, create an inbound NSG rule allowing access to **port 5601**.
+5. If you want to view the Kibana dashboard remotely, create an inbound NSG rule allowing access to **port 5601**.
 
 ### Create a Kibana dashboard
 
@@ -210,27 +210,27 @@ The sample dashboard provides several visualizations of the flow logs:
 
 1. Flows by Decision/Direction Over Time - time series graphs showing the number of flows over the time period. You can edit the unit of time and span of both these visualizations. Flows by Decision shows the proportion of allow or deny decisions made, while Flows by Direction shows the proportion of inbound and outbound traffic. With these visuals you can examine traffic trends over time and look for any spikes or unusual patterns.
 
-  ![figure2][2]
+   ![figure2][2]
 
-1. Flows by Destination/Source Port – pie charts showing the breakdown of flows to their respective ports. With this view you can see your most commonly used ports. If you click on a specific port within the pie chart, the rest of the dashboard will filter down to flows of that port.
+2. Flows by Destination/Source Port – pie charts showing the breakdown of flows to their respective ports. With this view you can see your most commonly used ports. If you click on a specific port within the pie chart, the rest of the dashboard will filter down to flows of that port.
 
-  ![figure3][3]
+   ![figure3][3]
 
-1. Number of Flows and Earliest Log Time – metrics showing you the number of flows recorded and the date of the earliest log captured.
+3. Number of Flows and Earliest Log Time – metrics showing you the number of flows recorded and the date of the earliest log captured.
 
-  ![figure4][4]
+   ![figure4][4]
 
-1. Flows by NSG and Rule – a bar graph showing you the distribution of flows within each NSG, as well as the distribution of rules within each NSG. From here you can see which NSG and rules generated the most traffic.
+4. Flows by NSG and Rule – a bar graph showing you the distribution of flows within each NSG, as well as the distribution of rules within each NSG. From here you can see which NSG and rules generated the most traffic.
 
-  ![figure5][5]
+   ![figure5][5]
 
-1. Top 10 Source/Destination IPs – bar charts showing the top 10 source and destination IPs. You can adjust these charts to show more or less top IPs. From here you can see the most commonly occurring IPs as well as the traffic decision (allow or deny) being made towards each IP.
+5. Top 10 Source/Destination IPs – bar charts showing the top 10 source and destination IPs. You can adjust these charts to show more or less top IPs. From here you can see the most commonly occurring IPs as well as the traffic decision (allow or deny) being made towards each IP.
 
-  ![figure6][6]
+   ![figure6][6]
 
-1. Flow Tuples – this table shows you the information contained within each flow tuple, as well as its corresponding NGS and rule.
+6. Flow Tuples – this table shows you the information contained within each flow tuple, as well as its corresponding NGS and rule.
 
-  ![figure7][7]
+   ![figure7][7]
 
 Using the query bar at the top of the dashboard, you can filter down the dashboard based on any parameter of the flows, such as subscription ID, resource groups, rule, or any other variable of interest. For more about Kibana's queries and filters, refer to the [official documentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 

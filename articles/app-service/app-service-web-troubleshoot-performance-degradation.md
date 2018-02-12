@@ -46,6 +46,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 <a name="observe" />
 
+
 ### 1. Observe and monitor application behavior
 #### Track Service health
 Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure portal](https://portal.azure.com/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
@@ -94,6 +95,7 @@ To use Application Insights, see [Monitor performance in web applications](../ap
 To use New Relic, see [New Relic Application Performance Management on Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
 <a name="collect" />
+
 
 ### 2. Collect data
 The Web Apps environment provides diagnostic functionality for logging information from both the web server and the web application. The information is separated into web server diagnostics and application diagnostics.
@@ -162,6 +164,7 @@ For more information on features available in Kudu, see
 [Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
+
 
 ### 3. Mitigate the issue
 #### Scale the web app

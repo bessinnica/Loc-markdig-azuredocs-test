@@ -48,10 +48,10 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
 1. Launch **Notepad**. Copy the following text and save it in a file named **inputEmp.txt** on your disk:
 
-	```
+    ```
     John|Doe
     Jane|Doe
-	```
+    ```
 
 2. Create a container named **adfv2tutorial** and upload the inputEmp.txt file to the container. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
 
@@ -108,7 +108,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 8. Select **Create**.
 9. On the dashboard, the **Deploying Data Factory** tile shows the process status.
 
-	![Deploying data factory tile](media/tutorial-copy-data-tool/deploying-data-factory.png)
+    ![Deploying data factory tile](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. After creation is finished, the **Data Factory** home page is displayed.
    
     ![Data factory home page](./media/tutorial-copy-data-tool/data-factory-home-page.png)

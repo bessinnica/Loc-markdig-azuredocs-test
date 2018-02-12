@@ -79,12 +79,12 @@ The following is a non-exhaustive list of terms for various Azure technologies w
 * **Virtual IP address**: An internet-facing IP address that is not bound to a specific computer or network interface card. Cloud services are assigned a virtual IP address for receiving network traffic which is redirected to an Azure VM. A virtual IP address is a property of a cloud-service which can contain one or more Azure virtual machines. Also note that an Azure virtual network can contain one or more cloud-services. Virtual IP addresses provide native load-balancing capabilities.
 * **Dynamic IP address**: This is the IP address that is internal only. It should be configured as a static IP address (by using the Set-AzureStaticVNetIP cmdlet) for VMs that host the DC/DNS server roles.
 * **Service healing**: The process in which Azure automatically returns a service to a running state again after it detects that the service has failed. Service healing is one of the aspects of Azure that supports availability and resiliency. While unlikely, the result following a service healing incident for a DC running on a VM is similar to an unplanned reboot, but has a few side-effects:
-  
+
   * The virtual network adapter in the VM will change
   * The MAC address of the virtual network adapter will change
   * The Processor/CPU ID of the VM will change
   * The IP configuration of the virtual network adapter will not change as long as the VM is attached to a virtual network and the VM’s IP address is static.
-  
+
   None of these behaviors affect Windows Server Active Directory because it has no dependency on the MAC address or Processor/CPU ID, and all Windows Server Active Directory deployments on Azure are recommended to be run on an Azure virtual network as outlined above.
 
 ## Is it safe to virtualize Windows Server Active Directory domain controllers?
@@ -137,21 +137,21 @@ Finally, you may want to deploy a network application on Azure, such as SharePoi
 Yes, you can deploy Windows Server AD FS on Azure virtual machines, and the [best practices for AD FS deployment](https://technet.microsoft.com/library/dn151324.aspx) on-premises apply equally to AD FS deployment on Azure. But some of the best practices such as load balancing and high availability require technologies beyond what AD FS offers itself. They must be provided by the underlying infrastructure. Let’s review some of those best practices and see how they can be achieved by using Azure VMs and an Azure virtual network.
 
 1. **Never expose security token service (STS) servers directly to the Internet.**
-   
+
     This is important because the STS issues security tokens. As a result, STS servers such as AD FS servers should be treated with the same level of protection as a domain controller. If an STS is compromised, malicious users have the ability to issue access tokens potentially containing claims of their choosing to relying party applications and other STS servers in trusting organizations.
 2. **Deploy Active Directory domain controllers for all user domains in the same network as the AD FS servers.**
-   
+
     AD FS servers use Active Directory Domain Services to authenticate users. It is recommended to deploy domain controllers on the same network as the AD FS servers. This provides business continuity in case the link between the Azure network and your on-premises network is broken, and enables lower latency and increased performance for logins.
 3. **Deploy multiple AD FS nodes for high availability and balancing the load.**
-   
+
     In most cases, the failure of an application that AD FS enables is unacceptable because the applications that require security tokens are often mission critical. As a result, and because AD FS now resides in the critical path to accessing mission critical applications, the AD FS service must be highly available through multiple AD FS proxies and AD FS servers. To achieve distribution of requests, load balancers are typically deployed in front of both the AD FS Proxies and the AD FS servers.
 4. **Deploy one or more Web Application Proxy nodes for internet access.**
-   
+
     When users need to access applications protected by the AD FS service, the AD FS service needs to be available from the internet. This is achieved by deploying the Web Application Proxy service. It is strongly recommended to deploy more than one node for the purposes of high availability and load balancing.
 5. **Restrict access from the Web Application Proxy nodes to internal network resources.**
-   
+
     To allow external users to access AD FS from the internet, you need to deploy Web Application Proxy nodes (or AD FS Proxy in earlier versions of Windows Server). The Web Application proxy nodes are directly exposed to the Internet. They are not required to be domain-joined and they only need access to the AD FS servers over TCP ports 443 and 80. It is strongly recommended that communication to all other computers (especially domain controllers) is blocked.
-   
+
     This is typically achieved on-premises by means of a DMZ. Firewalls use a whitelist mode of operation to restrict traffic from the DMZ to the on-premises network (that is, only traffic from the specified IP addresses and over specified ports is allowed, and all other traffic is blocked).
 
 The following diagram shows a traditional on-premises AD FS deployment.
@@ -171,11 +171,11 @@ The high-level steps to deploy AD FS in this case are as follows:
 2. Deploy domain controllers on the virtual network. This step is optional but recommended.
 3. Deploy domain-joined AD FS servers on the virtual network.
 4. Create an [internal load balanced set](http://azure.microsoft.com/blog/internal-load-balancing/) that includes the AD FS servers and uses a new private IP address within the virtual network (a dynamic IP address).
-   
+
    1. Update DNS to create the FQDN to point to the private (dynamic) IP address of the internal load balanced set.
 5. Create a cloud service (or a separate virtual network) for the Web Application Proxy nodes.
 6. Deploy the Web Application Proxy nodes in the cloud service or virtual network
-   
+
    1. Create an external load balanced set that includes the Web Application Proxy nodes.
    2. Update the external DNS name (FQDN) to point to the cloud service public IP address (the virtual IP address).
    3. Configure AD FS proxies to use the FQDN that corresponds to the internal load balanced set for the AD FS servers.
@@ -213,17 +213,18 @@ There is another alternative to deploying AD FS altogether if your goal is only 
 
 The following table compares how the sign-in processes work with and without deploying AD FS.
 
-| Office 365 single sign-on using AD FS and DirSync | Office 365 same sign-on using DirSync + Password Sync |
-| --- | --- |
-| 1. The user logs on to a corporate network, and is authenticated to Windows Server Active Directory. |1. The user logs on to a corporate network, and is authenticated to Windows Server Active Directory. |
-| 2. The user tries to access Office 365 (I am @contoso.com). |2. The user tries to access Office 365 (I am @contoso.com). |
-| 3. Office 365 redirects the user to Azure AD. |3. Office 365 redirects the user to Azure AD. |
-| 4. Since Azure AD can’t authenticate the user and understands there is a trust with AD FS on-premises, it redirects the user to AD FS. |4. Azure AD can’t accept Kerberos tickets directly and no trust relationship exists so it requests that the user enter credentials. |
-| 5. The user sends a Kerberos ticket to the AD FS STS. |5. The user enters the same on-premises password, and Azure AD validates them against the user name and password that was synchronized by DirSync. |
-| 6. AD FS transforms the Kerberos ticket to the required token format/claims and redirects the user to Azure AD. |6. Azure AD redirects the user to Office 365. |
-| 7. The user authenticates to Azure AD (another transformation occurs). |7. The user can sign in to Office 365 and OWA using the Azure AD token. |
-| 8. Azure AD redirects the user to Office 365. | |
-| 9. The user is silently signed on to Office 365. | |
+
+|                                           Office 365 single sign-on using AD FS and DirSync                                            |                                               Office 365 same sign-on using DirSync + Password Sync                                                |
+|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|                  1. The user logs on to a corporate network, and is authenticated to Windows Server Active Directory.                  |                        1. The user logs on to a corporate network, and is authenticated to Windows Server Active Directory.                        |
+|                                      2. The user tries to access Office 365 (I am @contoso.com).                                       |                                            2. The user tries to access Office 365 (I am @contoso.com).                                             |
+|                                             3. Office 365 redirects the user to Azure AD.                                              |                                                   3. Office 365 redirects the user to Azure AD.                                                    |
+| 4. Since Azure AD can’t authenticate the user and understands there is a trust with AD FS on-premises, it redirects the user to AD FS. |        4. Azure AD can’t accept Kerberos tickets directly and no trust relationship exists so it requests that the user enter credentials.         |
+|                                         5. The user sends a Kerberos ticket to the AD FS STS.                                          | 5. The user enters the same on-premises password, and Azure AD validates them against the user name and password that was synchronized by DirSync. |
+|            6. AD FS transforms the Kerberos ticket to the required token format/claims and redirects the user to Azure AD.             |                                                   6. Azure AD redirects the user to Office 365.                                                    |
+|                                 7. The user authenticates to Azure AD (another transformation occurs).                                 |                                      7. The user can sign in to Office 365 and OWA using the Azure AD token.                                       |
+|                                             8. Azure AD redirects the user to Office 365.                                              |                                                                                                                                                    |
+|                                            9. The user is silently signed on to Office 365.                                            |                                                                                                                                                    |
 
 In the Office 365 with DirSync with password sync scenario (no AD FS), single sign-on is replaced by “same sign-on” where “same” simply means that users must re-enter their same on-premises credentials when accessing Office 365. Note that this data can be remembered by the user’s browser to help reduce subsequent prompts.
 
@@ -242,13 +243,13 @@ In the Office 365 with DirSync with password sync scenario (no AD FS), single si
 The following section outlines commonplace deployment scenarios to draw attention to important considerations that must be taken into account. Each scenario has links to more details about the decisions and factors to consider.
 
 1. [AD DS: Deploy an AD DS-aware application with no requirement for corporate network connectivity](#BKMK_CloudOnly)
-   
+
     For example, an Internet-facing SharePoint service is deployed on an Azure virtual machine. The application has no dependencies on corporate-network resources. The application does require Windows Server AD DS but does NOT require the corporate Windows Server AD DS.
 2. [AD FS: Extend a claims-aware on-premises front-end application to the Internet](#BKMK_CloudOnlyFed)
-   
+
     For example, a claims-aware application that has been successfully deployed on-premises and used by corporate users needs to become accessible from the Internet. The application needs to be accessed directly over the Internet both by business partners using their own corporate identities and by existing corporate users.
 3. [AD DS: Deploy a Windows Server AD DS-aware application that requires connectivity to the corporate network](#BKMK_HybridExt)
-   
+
     For example, an LDAP-aware application that supports Windows-integrated authentication and uses Windows Server AD DS as a repository for configuration and user-profile data is deployed on an Azure virtual machine. It is desirable for the application to leverage the existing corporate Windows Server AD DS and provide single sign-on. The application is not claims-aware.
 
 ### <a name="BKMK_CloudOnly"></a>1. AD DS: Deploy an AD DS-aware application with no requirement for corporate network connectivity
@@ -263,7 +264,7 @@ SharePoint is deployed on an Azure virtual machine and the application has no de
 * [DC deployment configuration](#BKMK_DeploymentConfig): Deploy a new domain controller into a new, single-domain, Windows Server Active Directory forest. This should be deployed along with the Windows DNS server.
 * [Windows Server Active Directory site topology](#BKMK_ADSiteTopology): Use the default Windows Server Active Directory site (all computers will be in Default-First-Site-Name).
 * [IP addressing and DNS](#BKMK_IPAddressDNS):
-  
+
   * Set a static IP address for the DC by using the Set-AzureStaticVNetIP Azure PowerShell cmdlet.
   * Install and configure Windows Server DNS on the domain controller(s) on Azure.
   * Configure the virtual network properties with the name and IP address of the VM that hosts the DC and DNS server roles.
@@ -282,14 +283,14 @@ In an effort to simplify and meet the deployment and configuration needs of this
 
 #### Scenario considerations and how technology areas apply to the scenario
 * [Network topology](#BKMK_NetworkTopology): Create an Azure virtual network and [configure cross-premises connectivity](../vpn-gateway/vpn-gateway-site-to-site-create.md).
-  
+
   > [!NOTE]
   > For each of the Windows Server AD FS certificates, ensure that the URL defined within the certificate template and the resulting certificates can be reached by the Windows Server AD FS instances running on Azure. This may require cross-premises connectivity to parts of your PKI infrastructure. For example if the CRL's endpoint is LDAP-based and hosted exclusively on-premises, then cross-premises connectivity will be required. If this is not desirable, it may be necessary to use certificates issued by a CA whose CRL is accessible over the Internet.
   > 
   > 
 * [Cloud services configuration](#BKMK_CloudSvcConfig): Ensure you have two cloud services in order provide two load-balanced virtual IP addresses. The first cloud service’s virtual IP address will be directed to the two Windows Server AD FS proxy VMs on ports 80 and 443. The Windows Server AD FS proxy VMs will be configured to point to the IP address of the on-premises load-balancer that fronts the Windows Server AD FS STSs. The second cloud service’s virtual IP address will be directed to the two VMs running the web frontend again on ports 80 and 443. Configure a custom probe to ensure the load-balancer only directs traffic to functioning Windows Server AD FS proxy and web frontend VMs.
 * [Federation server configuration](#BKMK_FedSrvConfig): Configure Windows Server AD FS as a federation server (STS) to generate security tokens for the Windows Server Active Directory forest created in the cloud. Set federation claims provider trust relationships with the different partners you wish to accept identities from, and configure relying party trust relationships with the different applications you want to generate tokens to.
-  
+
     In most scenarios, Windows Server AD FS proxy servers are deployed in an Internet-facing capacity for security purposes while their Windows Server AD FS federation counterparts remain isolated from direct Internet connectivity. Regardless of your deployment scenario, you must configure your cloud service with a virtual IP address that will provide a publicly exposed IP address and port that is able to load-balance across either your two Windows Server AD FS STS instances or proxy instances.
 * [Windows Server AD FS high availability configuration](#BKMK_ADFSHighAvail): It is advisable to deploy a Windows Server AD FS farm with at least two servers for failover and load balancing. You might want to consider using the Windows Internal Database (WID) for Windows Server AD FS configuration data, and use the internal load balancing capability of Azure to distribute incoming requests across the servers in the farm.
 
@@ -307,14 +308,14 @@ An LDAP-aware application is deployed on an Azure virtual machine. It supports W
 * [Installation method](#BKMK_InstallMethod): Deploy replica DCs from the corporate Windows Server Active Directory domain. For a replica DC, you can install Windows Server AD DS on the VM, and optionally use the Install From Media (IFM) feature to reduce the amount of data that needs to be replicated to the new DC during installation. For a tutorial, see [Install a replica Active Directory domain controller on Azure](active-directory-install-replica-active-directory-domain-controller.md). Even if you use IFM, it may be more efficient to build the virtual DC on-premises and move the entire Virtual Hard Disk (VHD) to the cloud instead of replicating Windows Server AD DS during installation. For safety, it is recommended that you delete the VHD from the on-premises network once it has been copied to Azure.
 * [Windows Server Active Directory site topology](#BKMK_ADSiteTopology): Create a new Azure site in Active Directory Sites and Services. Create a Windows Server Active Directory subnet object to represent the Azure virtual network and add the subnet to the site. Create a new site link that includes the new Azure site and the site in which the Azure virtual network VPN endpoint is located in order to control and optimize Windows Server Active Directory traffic to and from Azure.
 * [IP addressing and DNS](#BKMK_IPAddressDNS):
-  
+
   * Set a static IP address for the DC by using the Set-AzureStaticVNetIP Azure PowerShell cmdlet.
   * Install and configure Windows Server DNS on the domain controller(s) on Azure.
   * Configure the virtual network properties with the name and IP address of the VM that hosts the DC and DNS server roles.
 * [Geo-distributed DCs](#BKMK_DistributedDCs): Configure additional virtual networks as needed. If your Active Directory site topology requires DCs in geographies that correspond to different Azure regions, than you want to create Active Directory sites accordingly.
 * [Read-only DCs](#BKMK_RODC): You might deploy an RODC in the Azure site, depending on your requirements for performing write operations against the DC and the compatibility of applications and services in the site with RODCs. For more information about application compatibility, see the [Read-Only domain controllers application compatibility guide](https://technet.microsoft.com/library/cc755190).
 * [Global Catalog](#BKMK_GC): GCs are needed to service logon requests in multidomain forests. If you do not deploy a GC in the Azure site, you will incur egress traffic costs as authentication requests cause queries GCs in other sites. To minimize that traffic, you can enable universal group membership caching for the Azure site in Active Directory Sites and Services.
-  
+
     If you deploy a GC, configure site links and site links costs so that the GC in the Azure site is not preferred as a source DC by other GCs that need to replicate the same partial domain partitions.
 * [Placement of the Windows Server AD DS database and SYSVOL](#BKMK_PlaceDB): Add a data disk to DCs running on Azure VMs in order to store the Windows Server Active Directory database, logs, and SYSVOL.
 * [Backup and Restore](#BKMK_BUR): Determine where you want to store system state backups. If necessary, add another data disk to the DC VM to store backups.
@@ -361,12 +362,12 @@ Requirements for availability and fault tolerance also affect your choice. For e
 You need to correctly define sites and site links in order to optimize traffic and minimize cost. Sites, site-links, and subnets affect the replication topology between DCs and the flow of authentication traffic. Consider the following traffic charges and then deploy and configure DCs according to the requirements of your deployment scenario:
 
 * There is a nominal fee per hour for the gateway itself:
-  
+
   * It can be started and stopped as you see fit
   * If stopped, Azure VMs are isolated from the corporate network
 * Inbound traffic is free
 * Outbound traffic is charged, according to [Azure pricing at-a-glance](http://azure.microsoft.com/pricing/). You can optimize site link properties between on-premises sites and the cloud sites as follows:
-  
+
   * If you are using multiple virtual networks, configure the site-links and their costs appropriately to prevent Windows Server AD DS from prioritizing the Azure site over one that can provide the same levels of service at no charge. You might also consider disabling the Bridge all site link (BASL) option (which is enabled by default). This ensures that only directly-connected sites replicate with one another. DCs in transitively connected sites are no longer able to replicate directly with each other, but must replicate through a common site or sites. If the intermediary sites become unavailable for some reason, replication between DCs in transitively connected sites will not occur even if connectivity between the sites is available. Finally, where sections of transitive replication behavior remain desirable, create site link bridges that contain the appropriate site-links and sites, such as on-premises, corporate network sites.
   * [Configure site link costs](https://technet.microsoft.com/library/cc794882) appropriately to avoid unintended traffic. For example, if **Try Next Closest Site** setting is enabled, make sure the virtual network sites are not the next closest by increasing the cost associated of the site-link object that connects the Azure site back to the corporate network.
   * Configure site link [intervals](https://technet.microsoft.com/library/cc794878) and [schedules](https://technet.microsoft.com/library/cc816906) according to consistency requirements and rate of object changes. Align replication schedule with latency tolerance. DCs replicate only the last state of a value, so decreasing the replication interval can save costs if there is a sufficient object change rate.
@@ -405,7 +406,7 @@ You need to choose whether to deploy read-only or writeable DCs. You might be in
 
 Azure does not present the physical security risk of a branch office, but RODCs might still prove to be more cost effective because the features they provide are well-suited to these environments albeit for very different reasons. For example, RODCs have no outbound replication and are able to selectively populate secrets (passwords). On the downside, the lack of these secrets might require on-demand outbound traffic to validate them as a user or computer authenticates. But secrets can be selectively prepopulated and cached.
 
-RODCs provide an additional advantage in and around HBI and PII concerns because you can add attributes that contain sensitive data to the RODC filtered attribute set (FAS). The FAS is a customizable set of attributes that are not replicated to RODCs. You can use the FAS as a safeguard in case you are not permitted or do not want to store PII or HBI on Azure. For more information, see [RODC filtered attribute set[(https://technet.microsoft.com/library/cc753459)].
+RODCs provide an additional advantage in and around HBI and PII concerns because you can add attributes that contain sensitive data to the RODC filtered attribute set (FAS). The FAS is a customizable set of attributes that are not replicated to RODCs. You can use the FAS as a safeguard in case you are not permitted or do not want to store PII or HBI on Azure. For more information, see [RODC filtered attribute set[(<https://technet.microsoft.com/library/cc753459>)].
 
 Make sure that applications will be compatible with RODCs you plan to use. Many Windows Server Active Directory-enabled applications work well with RODCs, but some applications can perform inefficiently or fail if they do not have access to a writable DC. For more information, see [Read-Only DCs application compatibility guide](https://technet.microsoft.com/library/cc755190).
 

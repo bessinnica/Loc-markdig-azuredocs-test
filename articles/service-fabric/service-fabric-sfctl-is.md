@@ -49,13 +49,13 @@ For clusters that have one or more instances of the Infrastructure Service confi
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug          | Increase logging verbosity to show all debug logs.|
-| --help -h        | Show this help message and exit.|
-| --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query          | JMESPath query string. For more information and      examples, see http://jmespath.org/.|
-| --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                       Description                                        |
+|-------------|------------------------------------------------------------------------------------------|
+|   --debug   |                    Increase logging verbosity to show all debug logs.                    |
+|  --help -h  |                             Show this help message and exit.                             |
+| --output -o |         Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.         |
+|   --query   | JMESPath query string. For more information and      examples, see http://jmespath.org/. |
+|  --verbose  |               Increase logging verbosity. Use --debug for full debug logs.               |
 
 ## sfctl is query
 Invokes a read-only query on the given infrastructure service instance.
@@ -76,13 +76,13 @@ For clusters that have one or more instances of the Infrastructure Service confi
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug          | Increase logging verbosity to show all debug logs.|
-| --help -h        | Show this help message and exit.|
-| --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query          | JMESPath query string. For more information, see http://jmespath.org/.|
-| --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                               Description                                |
+|-------------|--------------------------------------------------------------------------|
+|   --debug   |            Increase logging verbosity to show all debug logs.            |
+|  --help -h  |                     Show this help message and exit.                     |
+| --output -o | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json. |
+|   --query   |  JMESPath query string. For more information, see http://jmespath.org/.  |
+|  --verbose  |       Increase logging verbosity. Use --debug for full debug logs.       |
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

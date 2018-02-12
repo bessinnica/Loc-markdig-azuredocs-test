@@ -288,9 +288,9 @@ In this section, you create a Java console app that handles the desired properti
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. At your command prompt, navigate to the `simulated-device` folder.
+2. At your command prompt, navigate to the `simulated-device` folder.
 
-1. Using a text editor, open the `pom.xml` file in the `simulated-device` folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub:
+3. Using a text editor, open the `pom.xml` file in the `simulated-device` folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub:
 
     ```xml
     <dependency>
@@ -303,7 +303,7 @@ In this section, you create a Java console app that handles the desired properti
     > [!NOTE]
     > You can check for the latest version of **iot-device-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+4. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
     ```xml
     <build>
@@ -321,11 +321,11 @@ In this section, you create a Java console app that handles the desired properti
     </build>
     ```
 
-1. Save and close the `pom.xml` file.
+5. Save and close the `pom.xml` file.
 
-1. Using a text editor, open the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
+6. Using a text editor, open the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
 
-1. Add the following **import** statements to the file:
+7. Add the following **import** statements to the file:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -336,7 +336,7 @@ In this section, you create a Java console app that handles the desired properti
     import java.util.Scanner;
     ```
 
-1. Add the following class-level variables to the **App** class. Replacing `{youriothubname}` with your IoT hub name, and `{yourdevicekey}` with the device key value you generated in the *Create a device identity* section:
+8. Add the following class-level variables to the **App** class. Replacing `{youriothubname}` with your IoT hub name, and `{yourdevicekey}` with the device key value you generated in the *Create a device identity* section:
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -347,7 +347,7 @@ In this section, you create a Java console app that handles the desired properti
 
     This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
 
-1. To print device twin notifications to the console, add the following nested class to the **App** class:
+9. To print device twin notifications to the console, add the following nested class to the **App** class:
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -358,101 +358,101 @@ In this section, you create a Java console app that handles the desired properti
     }
     ```
 
-1. To print direct method notifications to the console, add the following nested class to the **App** class:
+10. To print direct method notifications to the console, add the following nested class to the **App** class:
 
-    ```java
-    // Handler for direct method notifications from IoT Hub
-    protected static class DirectMethodStatusCallback implements IotHubEventCallback {
-      public void execute(IotHubStatusCode status, Object context) {
-        System.out.println("IoT Hub responded to direct method operation with status " + status.name());
-      }
-    }
-    ```
+     ```java
+     // Handler for direct method notifications from IoT Hub
+     protected static class DirectMethodStatusCallback implements IotHubEventCallback {
+       public void execute(IotHubStatusCode status, Object context) {
+         System.out.println("IoT Hub responded to direct method operation with status " + status.name());
+       }
+     }
+     ```
 
-1. To handle direct method calls from IoT Hub, add the following nested class to the **App** class:
+11. To handle direct method calls from IoT Hub, add the following nested class to the **App** class:
 
-    ```java
-    // Handler for direct method calls from IoT Hub
-    protected static class DirectMethodCallback
-        implements DeviceMethodCallback {
-      @Override
-      public DeviceMethodData call(String methodName, Object methodData, Object context) {
-        DeviceMethodData deviceMethodData;
-        switch (methodName) {
-          case "lockDoor": {
-            System.out.println("Executing direct method: " + methodName);
-            deviceMethodData = new DeviceMethodData(METHOD_SUCCESS, "Executed direct method " + methodName);
-            break;
-          }
-          default: {
-            deviceMethodData = new DeviceMethodData(METHOD_NOT_DEFINED, "Not defined direct method " + methodName);
-          }
-        }
-        // Notify IoT Hub of result
-        return deviceMethodData;
-      }
-    }
-    ```
+     ```java
+     // Handler for direct method calls from IoT Hub
+     protected static class DirectMethodCallback
+         implements DeviceMethodCallback {
+       @Override
+       public DeviceMethodData call(String methodName, Object methodData, Object context) {
+         DeviceMethodData deviceMethodData;
+         switch (methodName) {
+           case "lockDoor": {
+             System.out.println("Executing direct method: " + methodName);
+             deviceMethodData = new DeviceMethodData(METHOD_SUCCESS, "Executed direct method " + methodName);
+             break;
+           }
+           default: {
+             deviceMethodData = new DeviceMethodData(METHOD_NOT_DEFINED, "Not defined direct method " + methodName);
+           }
+         }
+         // Notify IoT Hub of result
+         return deviceMethodData;
+       }
+     }
+     ```
 
-1. Update the **main** method signature to include the following `throws` clause:
+12. Update the **main** method signature to include the following `throws` clause:
 
-    ```java
-    public static void main( String[] args ) throws IOException, URISyntaxException
-    ```
+     ```java
+     public static void main( String[] args ) throws IOException, URISyntaxException
+     ```
 
-1. Add the following code to the **main** method to:
+13. Add the following code to the **main** method to:
     * Create a device client to communicate with IoT Hub.
     * Create a **Device** object to store the device twin properties.
 
-    ```java
-    // Create a device client
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      // Create a device client
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // An object to manage device twin desired and reported properties
-    Device dataCollector = new Device() {
+      // An object to manage device twin desired and reported properties
+      Device dataCollector = new Device() {
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context)
       {
         System.out.println("Received desired property change: " + propertyKey + " " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
-1. To start the device client services, add the following code to the **main** method:
+14. To start the device client services, add the following code to the **main** method:
 
-    ```java
-    try {
-      // Open the DeviceClient
-      // Start the device twin services
-      // Subscribe to direct method calls
-      client.open();
-      client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
-      client.subscribeToDeviceMethod(new DirectMethodCallback(), null, new DirectMethodStatusCallback(), null);
-    } catch (Exception e) {
-      System.out.println("Exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
-      dataCollector.clean();
-      client.closeNow();
-      System.out.println("Shutting down...");
-    }
-    ```
+     ```java
+     try {
+       // Open the DeviceClient
+       // Start the device twin services
+       // Subscribe to direct method calls
+       client.open();
+       client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
+       client.subscribeToDeviceMethod(new DirectMethodCallback(), null, new DirectMethodStatusCallback(), null);
+     } catch (Exception e) {
+       System.out.println("Exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+       dataCollector.clean();
+       client.closeNow();
+       System.out.println("Shutting down...");
+     }
+     ```
 
-1. To wait for the user to press the **Enter** key before shutting down, add the following code to the end of the **main** method:
+15. To wait for the user to press the **Enter** key before shutting down, add the following code to the end of the **main** method:
 
-    ```java
-    // Close the app
-    System.out.println("Press any key to exit...");
-    Scanner scanner = new Scanner(System.in);
-    scanner.nextLine();
-    dataCollector.clean();
-    client.closeNow();
-    scanner.close();
-    ```
+     ```java
+     // Close the app
+     System.out.println("Press any key to exit...");
+     Scanner scanner = new Scanner(System.in);
+     scanner.nextLine();
+     dataCollector.clean();
+     client.closeNow();
+     scanner.close();
+     ```
 
-1. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
+16. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
 
-1. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the `simulated-device` folder and run the following command:
+17. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the `simulated-device` folder and run the following command:
 
-    `mvn clean package -DskipTests`
+     `mvn clean package -DskipTests`
 
 ## Run the apps
 

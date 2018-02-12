@@ -40,7 +40,7 @@ The following administrator roles are available:
 * **Conditional Access Administrator**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
   > [!NOTE]
   > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be Global Administrator.
-  
+
 * **CRM Service Administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Device Administrators**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
@@ -78,7 +78,7 @@ The following administrator roles are available:
   > In Microsoft Graph API, Azure AD Graph API and Azure AD PowerShell, this role is identified as "Helpdesk Administrator". It is "Password Administrator" in the [Azure portal](https://portal.azure.com/).
   >
   >
-  
+
 * **Power BI Service Administrator**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Privileged Role Administrator**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management.
@@ -117,11 +117,13 @@ The following administrator roles are available:
 |<p>View company and user information</p><p>Manage conditional access settings</p> |<p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p>|
 
 ### Global administrator
+
 | Can do | Cannot do |
 | --- | --- |
 |<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p><p>Reset user passwords</p><p>Reset other administrator’s passwords</p> <p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |N/A |
 
 ### Password administrator / Helpdesk administrator
+
 | Can do | Cannot do |
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users and other Helpdesk administrators only</p>|<p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>|
@@ -131,13 +133,15 @@ In | Can do
 -------- | ---------
 Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
 Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
- 
+
 ### Reports Reader 
+
 Can do | Cannot do
 ------ | ----------
 View Azure AD sign-in Reports and audit logs<br>View company and user information<br>Access Office 365 usage dashboard | Create and manage user views<br>Create, edit, and delete users and groups, and manage user licenses<br>Delegate administrative roles to others<br>Manage company information
 
 ### Security Reader
+
 | In | Can do |
 | --- | --- |
 | Identity Protection Center |Read all security reports and settings information for security features<ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mailflow rules |
@@ -145,6 +149,7 @@ View Azure AD sign-in Reports and audit logs<br>View company and user informatio
 | <p>Monitor Office 365 Service Health</p><p>Office 365 Security & Compliance Center</p> |<ul><li>Read and manage alerts<li>Read security policies<li>Read threat intelligence, Cloud App Discovery, and Quarantine in Search and Investigate<li>Read all reports |
 
 ### Security Administrator
+
 | In | Can do |
 | --- | --- |
 | Identity Protection Center |<ul><li>All permissions of the Security Reader role.<li>Additionally, the ability to perform all IPC operations except for resetting passwords. |
@@ -152,11 +157,13 @@ View Azure AD sign-in Reports and audit logs<br>View company and user informatio
 | <p>Monitor Office 365 Service Health</p><p>Office 365 Security & Compliance Center |<ul><li>All permissions of the Security Reader role.<li>Can configure all settings in the Advanced Threat Protection feature (malware & virus protection, malicious URL config, URL tracing, etc.). |
 
 ### Service administrator
+
 | Can do | Cannot do |
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p> |<p>Reset user passwords</p><p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p> |
 
 ### User Account administrator
+
 | Can do | Cannot do |
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users, Helpdesk administrators, and other User Account administrators only</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.</p> |<p>Perform billing and purchasing operations for Office products</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |
@@ -172,7 +179,7 @@ View Azure AD sign-in Reports and audit logs<br>View company and user informatio
 3. Find the user you want to designate as a global administrator and open the blade for that user.
 
 4. On the user blade, select **Directory role**.
- 
+
 5. On the directory role blade, select the **Global administrator** role, and save.
 
 ## Deprecated roles

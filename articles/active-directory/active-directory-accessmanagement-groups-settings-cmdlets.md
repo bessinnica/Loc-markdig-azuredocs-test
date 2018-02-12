@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure group settings using PowerShell in Azure Active Directory | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
@@ -25,7 +25,7 @@ This article contains instructions for using Azure Active Directory (Azure AD) P
 > [!IMPORTANT]
 > Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
 
-For more information on how to prevent non-administrator users to create *security* groups, set `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+For more information on how to prevent non-administrator users to create *security* groups, set `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you don't see any Settings objects in your directory, because your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure Office 365 group settings for your directory, you use the template named "Group.Unified". To configure Office 365 group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to an Office 365 group. 
 
@@ -43,41 +43,41 @@ These steps create settings at directory level, which apply to all Office 365 gr
 
 1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
-  ```
-  PS C:> Get-AzureADDirectorySettingTemplate
-  ```
-  This cmdlet call returns all templates that are available:
+   ```
+   PS C:> Get-AzureADDirectorySettingTemplate
+   ```
+   This cmdlet call returns all templates that are available:
   
-  ```
-  Id                                   DisplayName         Description
-  --                                   -----------         -----------
-  62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
-  16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
-  4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
-  898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
-  5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule       Settings ...
-  ```
+   ```
+   Id                                   DisplayName         Description
+   --                                   -----------         -----------
+   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
+   08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
+   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
+   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
+   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule       Settings ...
+   ```
 2. To add a usage guideline URL, first you need to get the SettingsTemplate object that defines the usage guideline URL value; that is, the Group.Unified template:
   
-  ```
-  $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
-  ```
+   ```
+   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   ```
 3. Next, create a new settings object based on that template:
   
-  ```
-  $Setting = $template.CreateDirectorySetting()
-  ```  
+   ```
+   $Setting = $template.CreateDirectorySetting()
+   ```  
 4. Then update the usage guideline value:
   
-  ```
-  $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
-  ```  
+   ```
+   $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
+   ```  
 5. Finally, apply the settings:
   
-  ```
-  New-AzureADDirectorySetting -DirectorySetting $setting
-  ```
+   ```
+   New-AzureADDirectorySetting -DirectorySetting $setting
+   ```
 
 Upon successful completion, the cmdlet returns the ID of the new settings object:
   ```
@@ -109,102 +109,102 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 These steps read settings at directory level, which apply to all Office groups in the directory.
 
 1. Read all existing directory settings:
-  ```
-  Get-AzureADDirectorySetting -All $True
-  ```
-  This cmdlet returns a list of all directory settings:
-  ```
-  Id                                   DisplayName   TemplateId                           Values
-  --                                   -----------   ----------                           ------
-  c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
-  ```
+   ```
+   Get-AzureADDirectorySetting -All $True
+   ```
+   This cmdlet returns a list of all directory settings:
+   ```
+   Id                                   DisplayName   TemplateId                           Values
+   --                                   -----------   ----------                           ------
+   c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
+   ```
 
 2. Read all settings for a specific group:
-  ```
-  Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
-  ```
+   ```
+   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
+   ```
 
 3. Read all directory settings values of a specific directory settings object, using Settings Id GUID:
-  ```
-  (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
-  ```
-  This cmdlet returns the names and values in this settings object for this specific group:
-  ```
-  Name                          Value
-  ----                          -----
-  ClassificationDescriptions
-  DefaultClassification
-  PrefixSuffixNamingRequirement
-  AllowGuestsToBeGroupOwner     False 
-  AllowGuestsToAccessGroups     True
-  GuestUsageGuidelinesUrl
-  GroupCreationAllowedGroupId
-  AllowToAddGuests              True
-  UsageGuidelinesUrl            <https://guideline.com>
-  ClassificationList
-  EnableGroupCreation           True
-  ```
+   ```
+   (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
+   ```
+   This cmdlet returns the names and values in this settings object for this specific group:
+   ```
+   Name                          Value
+   ----                          -----
+   ClassificationDescriptions
+   DefaultClassification
+   PrefixSuffixNamingRequirement
+   AllowGuestsToBeGroupOwner     False 
+   AllowGuestsToAccessGroups     True
+   GuestUsageGuidelinesUrl
+   GroupCreationAllowedGroupId
+   AllowToAddGuests              True
+   UsageGuidelinesUrl            <https://guideline.com>
+   ClassificationList
+   EnableGroupCreation           True
+   ```
 
 ## Update settings for a specific group
 
 1. Search for the settings template named "Groups.Unified.Guest"
-  ```
-  Get-AzureADDirectorySettingTemplate
+   ```
+   Get-AzureADDirectorySettingTemplate
   
-  Id                                   DisplayName            Description
-  --                                   -----------            -----------
-  62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
-  4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
-  898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
-  5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
-  ```
+   Id                                   DisplayName            Description
+   --                                   -----------            -----------
+   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
+   08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
+   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
+   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
+   ```
 2. Retrieve the template object for the Groups.Unified.Guest template:
-  ```
-  $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
-  ```
+   ```
+   $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   ```
 3. Create a new settings object from the template:
-  ```
-  $Setting = $Template.CreateDirectorySetting()
-  ```
+   ```
+   $Setting = $Template.CreateDirectorySetting()
+   ```
 
 4. Set the setting to the required value:
-  ```
-  $Setting["AllowToAddGuests"]=$False
-  ```
+   ```
+   $Setting["AllowToAddGuests"]=$False
+   ```
 5. Create the new setting for the required group in the directory:
-  ```
-  New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
+   ```
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
   
-  Id                                   DisplayName TemplateId                           Values
-  --                                   ----------- ----------                           ------
-  25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
-  ```
+   Id                                   DisplayName TemplateId                           Values
+   --                                   ----------- ----------                           ------
+   25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
+   ```
 
 ## Update settings at the directory level
 
 These steps update settings at directory level, which apply to all Unified groups in the directory. These examples assume there is already a Settings object in your directory.
 
 1. Find the existing Settings object:
-  ```
-  Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ
+   ```
+   Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ
   
-  Id                                   DisplayName   TemplateId                           Values
-  --                                   -----------   ----------                           ------
-  c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
+   Id                                   DisplayName   TemplateId                           Values
+   --                                   -----------   ----------                           ------
+   c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   
-  $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323
-  ```
+   $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323
+   ```
 2. Update the value:
   
-  ```
-  $Setting["AllowToAddGuests"] = "false"
-  ```
+   ```
+   $Setting["AllowToAddGuests"] = "false"
+   ```
 3. Update the setting:
   
-  ```
-  Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
+   ```
 
 ## Remove settings at the directory level
 This step removes settings at directory level, which apply to all Office groups in the directory.

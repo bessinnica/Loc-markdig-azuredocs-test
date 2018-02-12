@@ -28,9 +28,9 @@ We are working on improved methods for communication processing status, such as 
 
 **Answer**: There is no limit to how many models are in your collection but only one can be created at a time on each page.
 For example, you cannot start a language model creation process if there is currently a language model in the process stage.
-You can, however, have an acoustic model and a language model processing at the same time. 
+You can, however, have an acoustic model and a language model processing at the same time. 
 
-**Question**: I realized I made a mistake. How do I cancel my data import or model creation that’s in progress? 
+**Question**: I realized I made a mistake. How do I cancel my data import or model creation that’s in progress? 
 
 **Answer**: Currently you cannot roll back a acoustic or language adaptation process.
 Imported data can be deleted after the import has been completed
@@ -64,11 +64,11 @@ Please contact us if you require higher than that.
 
 ## Importing Data
 
-**Question**: What is the limit on the size of the data set? Why? 
+**Question**: What is the limit on the size of the data set? Why? 
 
-**Answer**: The current limit for a data set is 2 GB, due to the restriction on the size of a file for HTTP upload. 
+**Answer**: The current limit for a data set is 2 GB, due to the restriction on the size of a file for HTTP upload. 
 
-**Question**: Can I zip my text files in order to upload a larger text file? 
+**Question**: Can I zip my text files in order to upload a larger text file? 
 
 **Answer**: No, currently only uncompressed text files are allowed.
 
@@ -77,7 +77,7 @@ Please contact us if you require higher than that.
 **Answer**: If only a few utterances failed to be imported successfully, this is not a problem.
 If the vast majority of the utterances in an acoustic or language data set (e.g. >95%) are successfully imported,
 the data set can be usable. However, it is recommended that you try to understand why the utterances failed and fix the problems.
-Most common problems, such as formatting errors, are easy to fix. 
+Most common problems, such as formatting errors, are easy to fix. 
 
 ## Creating AM
 
@@ -89,23 +89,23 @@ Most common problems, such as formatting errors, are easy to fix. 
 
 **Answer**: You should collect data that's as close to the application scenario and use case as possible.
 This means the data collection should match the target application and users in terms of device or devices,
-environments, and types of speakers. In general, you should collect data from as broad a range of speakers as possible. 
+environments, and types of speakers. In general, you should collect data from as broad a range of speakers as possible. 
 
-**Question**: How should I collect it? 
+**Question**: How should I collect it? 
 
 **Answer**: You can create a standalone data collection application or use some off the shelf audio recording software.
-You can also create a version of your application that logs the audio data and uses that. 
+You can also create a version of your application that logs the audio data and uses that. 
 
-**Question**: Do I need to transcribe adaptation data myself? 
+**Question**: Do I need to transcribe adaptation data myself? 
 
 **Answer**: The data must be transcribed. You can transcribe it yourself
 or use a professional transcription service. Some of these use professional transcribers and others
-use crowdsourcing. We can also recommend a transcription service upon request.
+use crowdsourcing. We can also recommend a transcription service upon request.
 
 **Question**: How long does it take to create a custom acoustic model?
 
 **Answer**: The processing time for creating a custom acoustic model is about the same as the length of the acoustic data set.
-So, a customized acoustic model created from a five hour data set will take about five hours to process. 
+So, a customized acoustic model created from a five hour data set will take about five hours to process. 
 
 ## Offline Testing
 
@@ -127,7 +127,7 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 **Answer**: The results show a comparison between the baseline model and the one you customized.
 You should aim to beat the baseline model to make the customization worthwhile
 
-**Question**: How do I figure out the WER of the base models, so I can see if there was improvement? 
+**Question**: How do I figure out the WER of the base models, so I can see if there was improvement? 
 
 **Answer**: The offline test results show accuracy of baseline accuracy of the custom model and the improvement over baseline
 
@@ -147,7 +147,7 @@ Also if certain types * of queries are expected to be more common than others, y
 **Answer**: Uploading a list of words will get the words into to vocabulary but not teach the system how the words are typically used.
 By providing full or partial utterances (sentences or phrases of things users are likely to say) the language model can learn
 the new words and how they are used. The custom language model is good not just for getting new words in the system
-but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn this. 
+but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn this. 
 
 -----
 

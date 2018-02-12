@@ -22,22 +22,23 @@ Name|Value|Description
 ----|-----|-----------
 expr | Text string | Structured query expression that specifies the index entities over which to calculate histograms.
 attributes | Text string (default="") | Comma-delimited list of attribute to included in the response.
-count	| Number (default=10) | Number of results to return.
-offset	| Number (default=0) | Index of the first result to return.
+count   | Number (default=10) | Number of results to return.
+offset  | Number (default=0) | Index of the first result to return.
 
 ## Response (JSON)
+
 JSONPath | Description
 ----|----
 $.expr | *expr* parameter from the request.
 $.num_entities | Total number of matching entities.
-$.histograms |	Array of histograms, one for each requested attribute.
+$.histograms |  Array of histograms, one for each requested attribute.
 $.histograms[\*].attribute | Name of the attribute over which the histogram was computed.
 $.histograms[\*].distinct_values | Number of distinct values among matching entities for this attribute.
 $.histograms[\*].total_count | Total number of value instances among matching entities for this attribute.
 $.histograms[\*].histogram | Histogram data for this attribute.
 $.histograms[\*].histogram[\*].value | Attribute value.
-$.histograms[\*].histogram[\*].logprob	| Total natural log probability of matching entities with this attribute value.
-$.histograms[\*].histogram[\*].count	| Number of matching entities with this attribute value.
+$.histograms[\*].histogram[\*].logprob  | Total natural log probability of matching entities with this attribute value.
+$.histograms[\*].histogram[\*].count    | Number of matching entities with this attribute value.
 $.aborted | True if the request timed out.
 
 ### Example
@@ -105,4 +106,4 @@ The histogram for *Keyword* shows that there are 34 distinct keywords. As a pape
     }
   ]
 }
-```	
+``` 

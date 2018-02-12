@@ -73,7 +73,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)]
 
 Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 
@@ -85,7 +85,7 @@ Here is what your new web app should look like:
 
 ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 2, done.

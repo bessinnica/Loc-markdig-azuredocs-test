@@ -80,6 +80,7 @@ Here's what this example does:
 
 <a name="streamingpy"></a>
 
+
 ### Create the hiveudf.py file
 
 
@@ -150,6 +151,7 @@ Here's what this example does:
 On your development environment, create a text file named `pigudf.py`. Use the following code as the contents of the file:
 
 <a name="streamingpy"></a>
+
 
 ```python
 # Uncomment the following if using C Python

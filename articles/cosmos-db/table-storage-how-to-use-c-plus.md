@@ -19,6 +19,7 @@ ms.author: mimig
 ---
 # How to use Azure Table storage with C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
@@ -40,7 +41,7 @@ To install the Azure Storage Client Library for C++, you can use the following m
 
 * **Linux:** Follow the instructions given on the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
 * **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press Enter.  
-  
+
      Install-Package wastorage
 
 ## Configure your application to access Table storage

@@ -139,7 +139,7 @@ Initialize the Terraform environment by running the following command in the dir
 ```bash
 terraform init 
 ```
- 
+
 The provider plugins download  from the Terraform registry into the ```.terraform``` folder in the directory where you ran the command.
 
 Run the following command to deploy the infrastructure in Azure.
@@ -159,7 +159,7 @@ The resource group contains the following resources:
 
 ## Create an Azure image using Packer
 Create a custom Linux image using the steps outlined in the tutorial, [How to use Packer to create Linux virtual machine images in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer).
- 
+
 Follow the tutorial to create a deprovisioned Ubuntu image with NGINX installed.
 
 ![Once you create the Packer image, you have an image](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
@@ -287,12 +287,11 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
     }
   }
-  
+
   tags {
     environment = "codelab"
   }
 }
-
 ```
 
 Customize the deployment by adding the following code to `variables.tf`:

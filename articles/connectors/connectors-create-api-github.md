@@ -33,7 +33,6 @@ To create Logic apps with GitHub, you must first create a **connection** then pr
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
-> 
 
 ## Connector-specific details
 

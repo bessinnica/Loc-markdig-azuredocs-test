@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure the Connected factory topology | Microsoft Docs
 description: How to configure the topology of a Connected factory preconfigured solution.
 services: ''
@@ -88,7 +88,7 @@ The following snippet shows an outline of the `ContosoTopologyDescription.json` 
 }
 ```
 
-The common properties of `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, and `<station_configuration>` are:
+The common properties of `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, and `<station_configuration>` are:
 
 * **Name** (type string)
 

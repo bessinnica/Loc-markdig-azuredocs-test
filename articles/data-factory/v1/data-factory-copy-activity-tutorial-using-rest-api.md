@@ -58,24 +58,24 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
     
-	```PowerShell 
-	Login-AzureRmAccount
-	```   
+     ```PowerShell 
+     Login-AzureRmAccount
+     ```   
   2. Run the following command to view all the subscriptions for this account:
 
-	```PowerShell     
-	Get-AzureRmSubscription
-	``` 
+     ```PowerShell     
+     Get-AzureRmSubscription
+     ``` 
   3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription. 
      
-	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-	```
+     ```PowerShell
+     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+     ```
   4. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:  
 
-	```PowerShell     
+     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-	```
+     ```
      
       If the resource group already exists, you specify whether to update it (Y) or keep it as (N). 
      
@@ -328,22 +328,22 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 
 1. Assign the command to variable named **cmd**. 
    
-	> [!IMPORTANT]
-	> Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
+    > [!IMPORTANT]
+    > Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
    
-	```PowerShell
+    ```PowerShell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
    
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.  
    
-	```
-	Write-Host $results
-	```
+    ```
+    Write-Host $results
+    ```
 
 Note the following points:
 
@@ -360,14 +360,14 @@ Note the following points:
   
   * In Azure PowerShell, run the following command to register the Data Factory provider: 
 
-	```PowerShell    
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```PowerShell    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
-	You can run the following command to confirm that the Data Factory provider is registered. 
+    You can run the following command to confirm that the Data Factory provider is registered. 
     
-	```PowerShell
-	Get-AzureRmResourceProvider
-	```
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link source and destination data stores to your data store. Then, define input and output datasets to represent data in linked data stores. Finally, create the pipeline with an activity that uses these datasets.
@@ -384,38 +384,38 @@ In this step, you link your Azure storage account to your data factory. You spec
 
 1. Assign the command to variable named **cmd**. 
 
-	```PowerShell   
+    ```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell   
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
-	```PowerShell   
-	Write-Host $results
-	```
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 ### Create Azure SQL linked service
 In this step, you link your Azure SQL database to your data factory. You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.
 
 1. Assign the command to variable named **cmd**. 
    
-	```PowerShell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
-	```
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
    
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
    
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## Create datasets
 In the previous step, you created linked services to link your Azure Storage account and Azure SQL database to your data factory. In this step, you define two datasets named AzureBlobInput and AzureSqlOutput that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
@@ -429,38 +429,38 @@ In this step, you create a dataset named AzureBlobInput that points to a blob fi
 
 1. Assign the command to variable named **cmd**. 
 
-	```PowerSHell   
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
-	```
+    ```PowerSHell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
    
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
    
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### Create output dataset
 The Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. The output SQL table dataset (OututDataset) you create in this step specifies the table in the database to which the data from the blob storage is copied.
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell   
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
-	```
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
-	
-	```PowerShell   
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
    
-	```PowerShell
-	Write-Host $results
-	``` 
+    ```PowerShell
+    Write-Host $results
+    ``` 
 
 ## Create pipeline
 In this step, you create a pipeline with a **copy activity** that uses **AzureBlobInput** as an input and **AzureSqlOutput** as an output.
@@ -469,19 +469,19 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell   
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
-	```
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell   
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.  
 
-	```PowerShell   
-	Write-Host $results
-	```
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 **Congratulations!** You have successfully created an Azure data factory, with a pipeline that copies data from Azure Blob Storage to Azure SQL database.
 

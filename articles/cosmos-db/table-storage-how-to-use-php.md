@@ -19,6 +19,7 @@ ms.author: mimig
 ---
 # How to use Azure Table storage from PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview

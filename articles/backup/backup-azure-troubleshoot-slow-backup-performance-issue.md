@@ -34,6 +34,7 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 
 <a id="cause1"></a>
 
+
 ## Cause: Performance bottlenecks on the computer
 Bottlenecks on the computer that's being backed up can cause delays. For example, the computer's ability to read or write to disk, or available bandwidth to send data over the network, can cause bottlenecks.
 
@@ -58,6 +59,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 <a id="cause2"></a>
 
+
 ## Cause: Another process or antivirus software interfering with Azure Backup
 We've seen several instances where other processes in the Windows system have negatively affected performance of the Azure Backup agent process. For example, if you use both the Azure Backup agent and another program to back up data, or if antivirus software is running and has a lock on files to be backed up, the multiple locks on files might cause contention. In this situation, the backup might fail, or the job might take longer than expected.
 
@@ -71,10 +73,12 @@ For antivirus programs, we recommend that you exclude the following files and lo
 
 <a id="cause3"></a>
 
+
 ## Cause: Backup agent running on an Azure virtual machine
 If you're running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected due to IOPS limitations.  However, you can optimize the performance by switching the data drives that are being backed up to Azure Premium Storage. We're working on fixing this issue, and the fix will be available in a future release.
 
 <a id="cause4"></a>
+
 
 ## Cause: Backing up a large number (millions) of files
 Moving a large volume of data will take longer than moving a smaller volume of data. In some cases, backup time is related to not only the size of the data, but also the number of files or folders. This is especially true when millions of small files (a few bytes to a few kilobytes) are being backed up.

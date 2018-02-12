@@ -64,14 +64,16 @@ The model registration step registers your Machine Learning model with the Azure
 
 ### Request
 
-| Method | Request URI |
-|------------|------------|
-| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
- |
+| Method |                                             Request URI                                              |
+|--------|------------------------------------------------------------------------------------------------------|
+|  POST  | /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models |
+|        |                                                                                                      |
+
 ### Description
 Registers a model.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -83,6 +85,7 @@ Registers a model.
 
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | OK. The model registration succeeded. | [Model](#model) |
@@ -90,14 +93,17 @@ Registers a model.
 
 ## Query the list of models in an account
 ### Request
-| Method | Request URI |
-|------------|------------|
-| GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
- |
+
+| Method |                                             Request URI                                              |
+|--------|------------------------------------------------------------------------------------------------------|
+|  GET   | /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models |
+|        |                                                                                                      |
+
 ### Description
 Queries the list of models in an account. You can filter the result list by tag and name. If no filter is passed, the query lists all the models in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -111,6 +117,7 @@ Queries the list of models in an account. You can filter the result list by tag 
 | $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [PaginatedModelList](#paginatedmodellist) |
@@ -118,6 +125,7 @@ Queries the list of models in an account. You can filter the result list by tag 
 
 ## Get model details
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models/{id}  
@@ -127,6 +135,7 @@ Queries the list of models in an account. You can filter the result list by tag 
 Gets a model by ID.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -137,6 +146,7 @@ Gets a model by ID.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [Model](#model) |
@@ -145,6 +155,7 @@ Gets a model by ID.
 ## Register a manifest with the registered model and all dependencies
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
@@ -153,6 +164,7 @@ Gets a model by ID.
 Registers a manifest with the registered model and all its dependencies.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -163,6 +175,7 @@ Registers a manifest with the registered model and all its dependencies.
 | manifestRequest | body | Payload that is used to register a manifest. | Yes | [Manifest](#manifest) |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Manifest registration was successful. | [Manifest](#manifest) |
@@ -171,6 +184,7 @@ Registers a manifest with the registered model and all its dependencies.
 ## Query the list of manifests in an account
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
@@ -179,6 +193,7 @@ Registers a manifest with the registered model and all its dependencies.
 Queries the list of manifests in an account. You can filter the result list by model ID and manifest name. If no filter is passed, the query lists all the manifests in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -192,6 +207,7 @@ Queries the list of manifests in an account. You can filter the result list by m
 | $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [PaginatedManifestList](#paginatedmanifestlist) |
@@ -200,6 +216,7 @@ Queries the list of manifests in an account. You can filter the result list by m
 ## Get manifest details
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests/{id} | 
@@ -208,6 +225,7 @@ Queries the list of manifests in an account. You can filter the result list by m
 Gets the manifest by ID.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -218,6 +236,7 @@ Gets the manifest by ID.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [Manifest](#manifest) |
@@ -226,6 +245,7 @@ Gets the manifest by ID.
 ## Create an image
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
@@ -234,6 +254,7 @@ Gets the manifest by ID.
 Creates an image as a Docker image in Azure Container Registry.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -244,6 +265,7 @@ Creates an image as a Docker image in Azure Container Registry.
 | imageRequest | body | Payload that is used to create an image. | Yes | [ImageRequest](#imagerequest) |
 
 ### Responses
+
 | Code | Description | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Async operation location URL. A GET call will show you the status of the image creation task. | Operation-Location |
@@ -252,6 +274,7 @@ Creates an image as a Docker image in Azure Container Registry.
 ## Query the list of images in an account
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
@@ -260,6 +283,7 @@ Creates an image as a Docker image in Azure Container Registry.
 Queries the list of images in an account. You can filter the result list by manifest ID and name. If no filter is passed, the query lists all the images in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -273,6 +297,7 @@ Queries the list of images in an account. You can filter the result list by mani
 | $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [PaginatedImageList](#paginatedimagelist) |
@@ -281,6 +306,7 @@ Queries the list of images in an account. You can filter the result list by mani
 ## Get image details
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images/{id} | 
@@ -289,6 +315,7 @@ Queries the list of images in an account. You can filter the result list by mani
 Gets an image by ID.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -299,6 +326,7 @@ Gets an image by ID.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [Image](#image) |
@@ -308,6 +336,7 @@ Gets an image by ID.
 ## Create a service
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
@@ -316,6 +345,7 @@ Gets an image by ID.
 Creates a service from an image.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -326,6 +356,7 @@ Creates a service from an image.
 | serviceRequest | body | Payload that is used to create a service. | Yes | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### Responses
+
 | Code | Description | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Async operation location URL. A GET call will show you the status of the service creation task. | Operation-Location |
@@ -335,6 +366,7 @@ Creates a service from an image.
 ## Query the list of services in an account
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
@@ -343,6 +375,7 @@ Creates a service from an image.
 Queries the list of services in an account. You can filter the result list by model name/ID, manifest name/ID, image ID, service name, or Machine Learning compute resource ID. If no filter is passed, the query lists all services in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -361,6 +394,7 @@ Queries the list of services in an account. You can filter the result list by mo
 | $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [PaginatedServiceList](#paginatedservicelist) |
@@ -369,6 +403,7 @@ Queries the list of services in an account. You can filter the result list by mo
 ## Get service details
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
@@ -377,6 +412,7 @@ Queries the list of services in an account. You can filter the result list by mo
 Gets a service by ID.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -387,6 +423,7 @@ Gets a service by ID.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [ServiceResponse](#serviceresponse) |
@@ -395,6 +432,7 @@ Gets a service by ID.
 ## Update a service
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | PUT |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
@@ -403,6 +441,7 @@ Gets a service by ID.
 Updates an existing service.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -414,6 +453,7 @@ Updates an existing service.
 | serviceUpdateRequest | body | Payload that is used to update an existing service. | Yes |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### Responses
+
 | Code | Description | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Async operation location URL. A GET call will show you the status of the update service task. | Operation-Location |
@@ -423,6 +463,7 @@ Updates an existing service.
 ## Delete a service
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | DELETE |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
@@ -431,6 +472,7 @@ Updates an existing service.
 Deletes a service.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -441,6 +483,7 @@ Deletes a service.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. |  |
@@ -450,6 +493,7 @@ Deletes a service.
 ## Get service keys
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
@@ -458,6 +502,7 @@ Deletes a service.
 Gets service keys.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -468,6 +513,7 @@ Gets service keys.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [AuthKeys](#authkeys)
@@ -476,6 +522,7 @@ Gets service keys.
 ## Regenerate service keys
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
@@ -484,6 +531,7 @@ Gets service keys.
 Regenerates service keys and returns them.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -495,6 +543,7 @@ Regenerates service keys and returns them.
 | regenerateKeyRequest | body | Payload that is used to update an existing service. | Yes | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [AuthKeys](#authkeys)
@@ -503,6 +552,7 @@ Regenerates service keys and returns them.
 ## Query the list of deployments in an account
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments | 
@@ -511,6 +561,7 @@ Regenerates service keys and returns them.
 Queries the list of deployments in an account. You can filter the result list by service ID, which will return only the deployments that are created for the particular service. If no filter is passed, the query lists all the deployments in the account.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -521,6 +572,7 @@ Queries the list of deployments in an account. You can filter the result list by
 | serviceId | query | Service ID. | No | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [DeploymentList](#deploymentlist) |
@@ -529,6 +581,7 @@ Queries the list of deployments in an account. You can filter the result list by
 ## Get deployment details
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments/{id} | 
@@ -537,6 +590,7 @@ Queries the list of deployments in an account. You can filter the result list by
 Gets the deployment by ID.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -547,6 +601,7 @@ Gets the deployment by ID.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [Deployment](#deployment) |
@@ -555,6 +610,7 @@ Gets the deployment by ID.
 ## Get operation details
 
 ### Request
+
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/operations/{id} | 
@@ -563,6 +619,7 @@ Gets the deployment by ID.
 Gets the async operation status by operation ID.
 
 ### Parameters
+
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Azure subscription ID. | Yes | string |
@@ -573,6 +630,7 @@ Gets the async operation status by operation ID.
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
+
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success. | [OperationStatus](#asyncoperationstatus) |
@@ -581,9 +639,11 @@ Gets the async operation status by operation ID.
 
 
 <a name="definitions"></a>
+
 ## Definitions
 
 <a name="asset"></a>
+
 ### Asset
 The asset object that will be needed during Docker image creation.
 
@@ -597,6 +657,7 @@ The asset object that will be needed during Docker image creation.
 
 
 <a name="asyncoperationstate"></a>
+
 ### AsyncOperationState
 The async operation state.
 
@@ -604,6 +665,7 @@ The async operation state.
 
 
 <a name="asyncoperationstatus"></a>
+
 ### AsyncOperationStatus
 The operation status.
 
@@ -620,6 +682,7 @@ The operation status.
 
 
 <a name="authkeys"></a>
+
 ### AuthKeys
 The authentication keys for a service.
 
@@ -631,6 +694,7 @@ The authentication keys for a service.
 
 
 <a name="autoscaler"></a>
+
 ### AutoScaler
 Settings for the autoscaler.
 
@@ -645,6 +709,7 @@ Settings for the autoscaler.
 
 
 <a name="computeresource"></a>
+
 ### ComputeResource
 The Machine Learning compute resource.
 
@@ -656,6 +721,7 @@ The Machine Learning compute resource.
 
 
 <a name="containerresourcereservation"></a>
+
 ### ContainerResourceReservation
 Configuration to reserve resources for a container in the cluster.
 
@@ -667,6 +733,7 @@ Configuration to reserve resources for a container in the cluster.
 
 
 <a name="deployment"></a>
+
 ### Deployment
 An instance of an Azure Machine Learning deployment.
 
@@ -682,6 +749,7 @@ An instance of an Azure Machine Learning deployment.
 
 
 <a name="deploymentlist"></a>
+
 ### DeploymentList
 An array of deployment objects.
 
@@ -689,6 +757,7 @@ An array of deployment objects.
 
 
 <a name="errordetail"></a>
+
 ### ErrorDetail
 Model Management service error detail.
 
@@ -700,6 +769,7 @@ Model Management service error detail.
 
 
 <a name="errorresponse"></a>
+
 ### ErrorResponse
 A Model Management service error object.
 
@@ -713,6 +783,7 @@ A Model Management service error object.
 
 
 <a name="image"></a>
+
 ### Image
 The Azure Machine Learning image.
 
@@ -734,6 +805,7 @@ The Azure Machine Learning image.
 
 
 <a name="imagerequest"></a>
+
 ### ImageRequest
 A request to create an Azure Machine Learning image.
 
@@ -748,6 +820,7 @@ A request to create an Azure Machine Learning image.
 
 
 <a name="imagetype"></a>
+
 ### ImageType
 Specifies the type of the image.
 
@@ -755,6 +828,7 @@ Specifies the type of the image.
 
 
 <a name="manifest"></a>
+
 ### Manifest
 The Azure Machine Learning manifest.
 
@@ -775,6 +849,7 @@ The Azure Machine Learning manifest.
 
 
 <a name="model"></a>
+
 ### Model
 An instance of an Azure Machine Learning model.
 
@@ -793,6 +868,7 @@ An instance of an Azure Machine Learning model.
 
 
 <a name="modeldatacollection"></a>
+
 ### ModelDataCollection
 The model data collection information.
 
@@ -804,6 +880,7 @@ The model data collection information.
 
 
 <a name="paginatedimagelist"></a>
+
 ### PaginatedImageList
 A paginated list of images.
 
@@ -815,6 +892,7 @@ A paginated list of images.
 
 
 <a name="paginatedmanifestlist"></a>
+
 ### PaginatedManifestList
 A paginated list of manifests.
 
@@ -826,6 +904,7 @@ A paginated list of manifests.
 
 
 <a name="paginatedmodellist"></a>
+
 ### PaginatedModelList
 A paginated list of models.
 
@@ -837,6 +916,7 @@ A paginated list of models.
 
 
 <a name="paginatedservicelist"></a>
+
 ### PaginatedServiceList
 A paginated list of services.
 
@@ -848,6 +928,7 @@ A paginated list of services.
 
 
 <a name="servicecreaterequest"></a>
+
 ### ServiceCreateRequest
 A request to create a service.
 
@@ -866,6 +947,7 @@ A request to create a service.
 
 
 <a name="serviceregeneratekeyrequest"></a>
+
 ### ServiceRegenerateKeyRequest
 A request to regenerate a key for a service.
 
@@ -876,6 +958,7 @@ A request to regenerate a key for a service.
 
 
 <a name="serviceresponse"></a>
+
 ### ServiceResponse
 The detailed status of the service.
 
@@ -902,6 +985,7 @@ The detailed status of the service.
 
 
 <a name="serviceupdaterequest"></a>
+
 ### ServiceUpdateRequest
 A request to update a service.
 
@@ -918,6 +1002,7 @@ A request to update a service.
 
 
 <a name="targetruntime"></a>
+
 ### TargetRuntime
 The type of the target runtime.
 

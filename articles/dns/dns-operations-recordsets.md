@@ -208,21 +208,21 @@ To add a record to an existing record set, follow the following three steps:
 
 1. Get the existing record set
 
-	```powershell
-	$rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
-	```
+    ```powershell
+    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    ```
 
 2. Add the new record to the local record set. This is an off-line operation.
 
-	```powershell
-	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
-	```
+    ```powershell
+    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    ```
 
 3. Commit the change back to the Azure DNS service. 
 
-	```powershell
-	Set-AzureRmDnsRecordSet -RecordSet $rs
-	```
+    ```powershell
+    Set-AzureRmDnsRecordSet -RecordSet $rs
+    ```
 
 Using `Set-AzureRmDnsRecordSet` *replaces* the existing record set in Azure DNS (and all records it contains) with the record set specified. [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
 
@@ -242,21 +242,21 @@ The process to remove a record from a record set is similar to the process to ad
 
 1. Get the existing record set
 
-	```powershell
-	$rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
-	```
+    ```powershell
+    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    ```
 
 2. Remove the record from the local record set object. This is an off-line operation. The record that's being removed must be an exact match with an existing record across all parameters.
 
-	```powershell
-	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
-	```
+    ```powershell
+    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    ```
 
 3. Commit the change back to the Azure DNS service. Use the optional `-Overwrite` switch to suppress [Etag checks](dns-zones-records.md#etags) for concurrent changes.
 
-	```powershell
-	Set-AzureRmDnsRecordSet -RecordSet $Rs
-	```
+    ```powershell
+    Set-AzureRmDnsRecordSet -RecordSet $Rs
+    ```
 
 Using the above sequence to remove the last record from a record set does not delete the record set, rather it leaves an empty record set. To remove a record set entirely, see [Delete a record set](#delete-a-record-set).
 

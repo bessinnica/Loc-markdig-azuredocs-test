@@ -219,18 +219,19 @@ GO
 
 To copy data to Azure SQL Data Warehouse, set the sink type in the copy activity to **SqlDWSink**. The following properties are supported in the copy activity **sink** section:
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to: **SqlDWSink** | Yes |
-| allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into SQL Data Warehouse.** See [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are: **True** (default), and **False**.  |No |
-| polyBaseSettings |A group of properties that can be specified when the **allowPolybase** property is set to **true**. |No |
-| rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about the PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. <br/><br/>Allowed values are: 0 (default), 1, 2, … |No |
-| rejectType |Specifies whether the rejectValue option is specified as a literal value or a percentage.<br/><br/>Allowed values are: **Value** (default), and **Percentage**. |No |
-| rejectSampleValue |Determines the number of rows to retrieve before the PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are: 1, 2, … |Yes, if **rejectType** is **percentage** |
-| useTypeDefault |Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are: **True**, **False** (default). |No |
-| writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. Applies only when PolyBase is not used.<br/><br/>Allowed values are: integer (number of rows). |No (default is 10000) |
-| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. Applies only when PolyBase is not used.<br/><br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
-| preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into Azure SQL Data Warehouse in each run. You can use this property to clean up the pre-loaded data. |No |(#repeatability-during-copy). |A query statement. |No |
+
+| Property          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         | Required                                                           |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
+| type              | The type property of the copy activity sink must be set to: <strong>SqlDWSink</strong>                                                                                                                                                                                                                                                                                                                                                              | Yes                                                                |
+| allowPolyBase     | Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> <strong>Using PolyBase is the recommended way to load data into SQL Data Warehouse.</strong> See [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are: <strong>True</strong> (default), and <strong>False</strong>. | No                                                                 |
+| polyBaseSettings  | A group of properties that can be specified when the <strong>allowPolybase</strong> property is set to <strong>true</strong>.                                                                                                                                                                                                                                                                                                                       | No                                                                 |
+| rejectValue       | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about the PolyBase’s reject options in the <strong>Arguments</strong> section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. <br/><br/>Allowed values are: 0 (default), 1, 2, …                                                                                                     | No                                                                 |
+| rejectType        | Specifies whether the rejectValue option is specified as a literal value or a percentage.<br/><br/>Allowed values are: <strong>Value</strong> (default), and <strong>Percentage</strong>.                                                                                                                                                                                                                                                           | No                                                                 |
+| rejectSampleValue | Determines the number of rows to retrieve before the PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are: 1, 2, …                                                                                                                                                                                                                                                                                                    | Yes, if <strong>rejectType</strong> is <strong>percentage</strong> |
+| useTypeDefault    | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are: <strong>True</strong>, <strong>False</strong> (default).                                                                         | No                                                                 |
+| writeBatchSize    | Inserts data into the SQL table when the buffer size reaches writeBatchSize. Applies only when PolyBase is not used.<br/><br/>Allowed values are: integer (number of rows).                                                                                                                                                                                                                                                                         | No (default is 10000)                                              |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. Applies only when PolyBase is not used.<br/><br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes).                                                                                                                                                                                                                                                          | No                                                                 |
+| preCopyScript     | Specify a SQL query for Copy Activity to execute before writing data into Azure SQL Data Warehouse in each run. You can use this property to clean up the pre-loaded data.                                                                                                                                                                                                                                                                          | No                                                                 |
 
 **Example:**
 
@@ -275,22 +276,22 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` are not specified.
    5. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
-	```json
-	"typeProperties": {
-	   "folderPath": "<blobpath>",
-	   "format": {
-	       "type": "TextFormat",
-	       "columnDelimiter": "<any delimiter>",
-	       "rowDelimiter": "\n",
-	       "nullValue": "",
-	       "encodingName": "utf-8"
-	   },
-	   "compression": {
-	       "type": "GZip",
-	       "level": "Optimal"
-	   }
-	},
-	```
+      ```json
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. There is no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for the Copy activity in the pipeline.
 4. There is no `sliceIdentifierColumnName` setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use `sqlWriterCleanupScript`).

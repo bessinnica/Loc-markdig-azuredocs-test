@@ -45,6 +45,7 @@ This topic covers the following information about Azure updates:
 
 <a name="AllowedChanges"></a>
 
+
 ## Allowed service changes during an update
 The following table shows the allowed changes to a service during an update:
 
@@ -82,6 +83,7 @@ If you are making other updates to your service's definition, such as decreasing
 
 <a name="howanupgradeproceeds"></a>
 
+
 ## How an upgrade proceeds
 You can decide whether you want to update all of the roles in your service or a single role in the service. In either case, all instances of each role that is being upgraded and belong to the first upgrade domain are stopped, upgraded, and brought back online. Once they are back online, the instances in the second upgrade domain are stopped, upgraded, and brought back online. A cloud service can have at most one upgrade active at a time. The upgrade is always performed against the latest version of the cloud service.
 
@@ -115,6 +117,7 @@ Note that, in the above list, the E: drive represents the role’s root drive, a
 To minimize the downtime when upgrading a single-instance service, deploy a new multi-instance service to the staging server and perform a VIP swap.
 
 <a name="RollbackofanUpdate"></a>
+
 
 ## Rollback of an update
 Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
@@ -151,6 +154,7 @@ During the rollout of the upgrade you call [Upgrade Deployment](https://msdn.mic
 
 <a name="multiplemutatingoperations"></a>
 
+
 ## Initiating multiple mutating operations on an ongoing deployment
 In some cases you may want to initiate multiple simultaneous mutating operations on an ongoing deployment. For example, you may perform a service update and, while that update is being rolled out across your service, you want to make some change, e.g. to roll the update back, apply a different update, or even delete the deployment. A case in which this might be necessary is if a service upgrade contains buggy code which causes an upgraded role instance to repeatedly crash. In this case, the Azure Fabric Controller will not be able to make progress in applying that upgrade because an insufficient number of instances in the upgraded domain are healthy. This state is referred to as a *stuck deployment*. You can unstick the deployment by rolling back the update or applying a fresh update over top of the failing one.
 
@@ -165,6 +169,7 @@ Two operations, [Get Deployment](https://msdn.microsoft.com/library/azure/ee4608
 In order to call the version of these methods which returns the Locked flag, you must set request header to “x-ms-version: 2011-10-01” or a later. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 <a name="distributiondfroles"></a>
+
 
 ## Distribution of roles across upgrade domains
 Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](cloud-services-model-and-package.md#csdef).

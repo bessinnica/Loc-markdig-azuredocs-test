@@ -71,22 +71,22 @@ The vCenter account-access procedure is as follows:
 
 2. Assign the following permissions to this role:
 
-    * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
+   * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
 
-    * **Network**: Network assign
+   * **Network**: Network assign
 
-    * **Resource**: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
+   * **Resource**: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
 
-    * **Tasks**: Create task, Update task
+   * **Tasks**: Create task, Update task
 
-    * **Virtual machine**:
-        * Configuration > all
-        * Interaction > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
-        * Inventory > Create from existing, Create new, Register, Unregister
-        * Provisioning > Allow virtual machine download, Allow virtual machine files upload
-        * Snapshot management > Remove snapshots
+   * **Virtual machine**:
+       * Configuration > all
+       * Interaction > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
+       * Inventory > Create from existing, Create new, Register, Unregister
+       * Provisioning > Allow virtual machine download, Allow virtual machine files upload
+       * Snapshot management > Remove snapshots
 
-	![The Edit Role dialog box](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
+     ![The Edit Role dialog box](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
 
 3. Assign access levels to the vCenter account (used in the tenant CS) for various objects, as follows:
 

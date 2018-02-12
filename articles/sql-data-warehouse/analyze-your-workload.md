@@ -45,6 +45,7 @@ The following table shows the importance mappings for each workload group.
 From the **Allocation and consumption of concurrency slots** chart, you can see that a DW500 uses 1, 4, 8 or 16 concurrency slots for smallrc, mediumrc, largerc, and xlargerc, respectively. You can look those values up in the preceding chart to find the importance for each resource class.
 
 ### DW500 mapping of resource classes to importance
+
 | Resource class | Workload group | Concurrency slots used | MB / Distribution | Importance |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Medium     |

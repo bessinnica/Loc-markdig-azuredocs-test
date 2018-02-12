@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell examples for managing groups in Azure Active Directory  | Microsoft Docs
 description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
@@ -215,15 +215,15 @@ To disable group creation for non-admin users:
 
 1. Verify that non-admin users are allowed to create groups:
    
-  ````
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ````
+   ````
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ````
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-  ```` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ````
+   ```` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ````
   
 ## Manage owners of groups
 To add owners to a group, use the Add-AzureADGroupOwner cmdlet:
@@ -247,8 +247,8 @@ If you want to remove an owner from a group, use the Remove-AzureADGroupOwner cm
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## Reserved aliases 
-When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group. Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
-  
+When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group. Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
+  
 * abuse 
 * admin 
 * administrator 

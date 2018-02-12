@@ -1,5 +1,5 @@
 ---
-title: Get started with the Device Simulation solution - Azure | Microsoft Docs 
+title: Get started with the Device Simulation solution - Azure | Microsoft Docs 
 description: The IoT Suite simulation solution is a tool that can be used to assist in the development and testing of an IoT solution. The simulation service is a standalone offering that can be used in conjunction with other preconfigured solutions or used with your own custom solutions.
 services: iot device simulation
 suite: iot-suite

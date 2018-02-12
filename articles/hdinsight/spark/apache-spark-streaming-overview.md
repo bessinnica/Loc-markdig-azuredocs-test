@@ -134,14 +134,14 @@ We can then query the DataFrame periodically to see the current set of values pr
 
 The resulting output looks like the following:
 
-| value	| time |
+| value | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
-|12	| 1497314475289 |
-|13	| 1497314480310 |
-|14	| 1497314485327 |
-|15	| 1497314490346 |
+|12 | 1497314475289 |
+|13 | 1497314480310 |
+|14 | 1497314485327 |
+|15 | 1497314490346 |
 
 We expect to see six values, since the DummySource creates a value every 5 seconds and we emit a batch every 30 seconds.
 
@@ -179,17 +179,17 @@ In the following example, we update the code that uses the DummySource to collec
 
 After the first minute, this will yield 12 entries - six entries from each of the two batches collected in the window.
 
-| value	| time |
+| value | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158
-| 3	| 1497316304178
-| 4	| 1497316309204
-| 5	| 1497316314224
-| 6	| 1497316319243
-| 7	| 1497316324260
-| 8	| 1497316329278
-| 9	| 1497316334293
+| 3 | 1497316304178
+| 4 | 1497316309204
+| 5 | 1497316314224
+| 6 | 1497316319243
+| 7 | 1497316324260
+| 8 | 1497316329278
+| 9 | 1497316334293
 | 10 | 1497316339314
 | 11 | 1497316344339
 | 12 | 1497316349361

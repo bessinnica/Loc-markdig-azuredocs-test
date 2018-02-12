@@ -25,8 +25,8 @@ ms.reviewer: jairoc
 
 **A:** To register macOS device:
 
-1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.	[Define a conditional access policy for macOS devices](active-directory-conditional-access-azure-portal.md) 
+1.  [Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Define a conditional access policy for macOS devices](active-directory-conditional-access-azure-portal.md) 
 
 **Remarks:**
 
@@ -75,17 +75,17 @@ If you want to remove the device and register again, a manual action must be to 
 
 For Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:
 
-1.	Open the command prompt as an administrator.
+1.  Open the command prompt as an administrator.
 
-2.	Type `dsregcmd.exe /debug /leave`
+2.  Type `dsregcmd.exe /debug /leave`
 
-3.	Sign out and sign in to trigger the scheduled task that registers the device again. 
+3.  Sign out and sign in to trigger the scheduled task that registers the device again. 
 
 For other Windows platforms that are on-premises AD domain-joined:
 
-1.	Open the command prompt as an administrator.
-2.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.  Open the command prompt as an administrator.
+2.  Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.  Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -93,13 +93,13 @@ For other Windows platforms that are on-premises AD domain-joined:
 
 **A:**
 
--	For Windows 10 and Windows Server 2016, if they are repeated attempts to unjoin and re-join the same device, there might be duplicate entries. 
+-   For Windows 10 and Windows Server 2016, if they are repeated attempts to unjoin and re-join the same device, there might be duplicate entries. 
 
--	If you have used Add Work or School Account, each windows user who uses Add Work or School Account will create a new device record with the same device name.
+-   If you have used Add Work or School Account, each windows user who uses Add Work or School Account will create a new device record with the same device name.
 
--	Other Windows platforms that are on-premises AD domain-joined using automatic registration will create a new device record with the same device name for each domain user who logs into the device. 
+-   Other Windows platforms that are on-premises AD domain-joined using automatic registration will create a new device record with the same device name for each domain user who logs into the device. 
 
--	An AADJ machine that has been wiped, re-installed and re-joined with the same name, will show up as another record with the same device name.
+-   An AADJ machine that has been wiped, re-installed and re-joined with the same name, will show up as another record with the same device name.
 
 ---
 

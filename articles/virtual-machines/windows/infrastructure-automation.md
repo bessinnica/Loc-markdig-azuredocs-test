@@ -19,3 +19,4 @@ ms.author: iainfou
 ---
 
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]
+

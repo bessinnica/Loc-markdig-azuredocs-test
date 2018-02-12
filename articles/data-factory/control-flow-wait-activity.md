@@ -32,7 +32,6 @@ When you use a Wait activity in a pipeline, the pipeline waits for the specified
         "waitTimeInSeconds": 1
     }
 }
-
 ```
 
 ## Type properties
@@ -96,7 +95,6 @@ In this example, the pipeline has two activities: **Until** and **Wait**. The Wa
         ]
     }
 }
-
 ```
 
 ## Next steps

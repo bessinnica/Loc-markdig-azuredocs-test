@@ -746,7 +746,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The customer is responsible for conforming to the profiles issued by the Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                                                            |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The customer is responsible for conforming to the profiles issued by the Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                                               Not Applicable                                                                               |
+

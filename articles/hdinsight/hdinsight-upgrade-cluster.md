@@ -42,11 +42,11 @@ Once you have verified that everything works as expected, schedule
 downtime for the migration. During this downtime, do the following
 actions:
 
-1.	Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
-2.	Delete the existing cluster.
-3.	Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
-4.	Import any transient data you backed up.
-5.	Start jobs/continue processing using the new cluster.
+1.  Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
+2.  Delete the existing cluster.
+3.  Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
+4.  Import any transient data you backed up.
+5.  Start jobs/continue processing using the new cluster.
 
 ## Next Steps
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

@@ -225,7 +225,7 @@ A place result includes the place's name, address, telephone number, and URL to 
         }]
 ```
 
-  
+
 > [!NOTE]
 > You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Entities API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature.  
 
@@ -237,16 +237,14 @@ A place result includes the place's name, address, telephone number, and URL to 
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-
-
 ## Data attribution  
 
 Bing Entity API responses contain information owned by third parties. You are responsible to ensure your use is appropriate, for example by complying with any creative commons license your user experience may rely on.  
-  
+
 If an answer or result includes the `contractualRules`, `attributions`, or `provider` fields, you must attribute the data. If the answer does not include any of these fields, no attribution is required. If the answer includes the `contractualRules` field and the `attributions` and/or `provider` fields, you must use the contractual rules to attribute the data.  
-  
+
 The following example shows an entity that includes a MediaAttribution contractual rule and an Image that includes a `provider` field. The MediaAttribution rule identifies the image as the target of the rule, so you'd ignore the image's `provider` field and instead use the MediaAttribution rule to provide attribution.  
-  
+
 ```  
         "value" : [{
             "contractualRules" : [
@@ -273,12 +271,12 @@ The following example shows an entity that includes a MediaAttribution contractu
             . . .
         }]
 ```  
-  
+
 If a contractual rule includes the `targetPropertyName` field, the rule applies only to the targeted field. Otherwise, the rule applies to the parent object that contains the `contractualRules` field.  
-  
-  
+
+
 In the following example, the `LinkAttribution` rule includes the `targetPropertyName` field, so the rule applies to the `description` field. For rules that apply to specific fields, you must include a line immediately following the targeted data that contains a hyperlink to the provider's website. For example, to attribute the description, include a line immediately following the description text that contains a hyperlink to the data on the provider's website, in this case create a link to en.wikipedia.org.  
-  
+
 ```  
 "entities" : {  
     "value" : [{  
@@ -293,55 +291,55 @@ In the following example, the `LinkAttribution` rule includes the `targetPropert
                     "url" : "http:\/\/www.bing.com\/cr?IG=B8AD73..."  
                  },  
             . . .  
-  
+
 ```  
 
 ### License Attribution  
 
 If the list of contractual rules includes a [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) rule, you must display the notice on the line immediately following the content that the license applies to. The `LicenseAttribution` rule uses the `targetPropertyName` field to identify the property that the license applies to.  
-  
+
 The following shows an example that includes a `LicenseAttribution` rule.  
-  
+
 ![License attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)  
-  
+
 The license notice that you display must include a hyperlink to the website that contains information about the license. Typically, you make the name of the license a hyperlink. For example, if the notice is **Text under CC-BY-SA license** and CC-BY-SA is the name of the license, you would make CC-BY-SA a hyperlink.  
-  
+
 ### Link and Text Attribution  
 
 The [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) and [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) rules are typically used to identify the provider of the data. The `targetPropertyName` field identifies the field that the rule applies to.  
-  
+
 To attribute the providers, include a line immediately following the content that the attributions apply to (for example, the targeted field). The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: en.wikipedia.org". For `LinkAttribution` rules, you must create a hyperlink to the provider's website.  
-  
+
 The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.  
-  
+
 ![Link text attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)  
 
 ### Media Attribution  
 
 If the entity includes an image and you display it, you must provide a click-through link to the provider's website. If the entity includes a [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) rule, use the rule's URL to create the click-through link. Otherwise, use the URL included in the image's `provider` field to create the click-through link.  
-  
+
 The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you will ignore the image's `provider` field and apply the `MediaAttribution` rule.  
-  
+
 ![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
 
 
 ### United States-Based queries only  
 
 Entity Search API is intended for use only within the United States. Partners must use reasonable and best effort to ensure that all users for whom they are originating calls to the API are physically located within the United States. If the user is not physically located within the United States, then do not call this API.  
-  
+
 ### Search or search-like experience  
 
 Just like with Bing Web Search API, the Entity Search API may only be used as a result of a direct user query or search, or as a result of an action within an app or experience that logically can be interpreted as a user’s search request. For illustration purposes, the following are some examples of acceptable Search or Search-like experiences.  
-  
--   User enters a query directly into a search box in an app  
-  
--   User selects specific text or image and requests “more information” or “additional information”  
-  
--   User asks a search bot about a particular topic  
-  
--   User dwells on a particular object or entity in a visual search type scenario  
-  
- If you are not sure if your experience can be considered a search-like experience, it is recommended that you check with Microsoft.  
+
+- User enters a query directly into a search box in an app  
+
+- User selects specific text or image and requests “more information” or “additional information”  
+
+- User asks a search bot about a particular topic  
+
+- User dwells on a particular object or entity in a visual search type scenario  
+
+  If you are not sure if your experience can be considered a search-like experience, it is recommended that you check with Microsoft.  
 
 
 

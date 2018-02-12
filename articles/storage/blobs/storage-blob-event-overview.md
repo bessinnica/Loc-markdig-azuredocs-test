@@ -78,7 +78,6 @@ Here is an example of a BlobCreated event:
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 For more information, see [Blob storage events schema](../../event-grid/event-schema-blob-storage.md).

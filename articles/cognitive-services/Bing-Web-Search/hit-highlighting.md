@@ -16,3 +16,4 @@ ms.author: scottwhi
 # Using decoration markers to highlight text
 
 [!INCLUDE [cognitive-services-bing-hit-highlighting](../../../includes/cognitive-services-bing-hit-highlighting.md)]
+

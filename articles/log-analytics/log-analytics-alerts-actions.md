@@ -25,7 +25,7 @@ When an [alert is created in Log Analytics](log-analytics-alerts.md), you have t
 
 | Action | Description |
 |:--|:--|
-| [Email](#email-actions) |	Send an e-mail with the details of the alert to one or more recipients. |
+| [Email](#email-actions) | Send an e-mail with the details of the alert to one or more recipients. |
 | [Webhook](#webhook-actions) | Invoke an external process through a single HTTP POST request. |
 | [Runbook](#runbook-actions) | Start a runbook in Azure Automation. |
 

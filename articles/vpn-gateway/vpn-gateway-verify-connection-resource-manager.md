@@ -38,7 +38,6 @@ To verify a VPN gateway connection for the Resource Manager deployment model usi
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-
 ## Azure portal (classic)
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]

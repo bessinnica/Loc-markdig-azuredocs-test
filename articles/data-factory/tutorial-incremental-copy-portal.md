@@ -48,17 +48,17 @@ Here is the high-level solution diagram:
 Here are the important steps to create this solution: 
 
 1. **Select the watermark column**.
-	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
+    Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
 2. **Prepare a data store to store the watermark value**. In this tutorial, you store the watermark value in a SQL database.
-	
+    
 3. **Create a pipeline with the following workflow**: 
-	
-	The pipeline in this solution has the following activities:
+    
+    The pipeline in this solution has the following activities:
   
-	* Create two Lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity. 
-	* Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Blob storage as a new file. 
-	* Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
+    * Create two Lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity. 
+    * Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Blob storage as a new file. 
+    * Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -73,33 +73,33 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. Run the following SQL command against your SQL database to create a table named `data_source_table` as the data source store: 
     
     ```sql
-	create table data_source_table
-	(
-		PersonID int,
-		Name varchar(255),
-		LastModifytime datetime
-	);
+    create table data_source_table
+    (
+        PersonID int,
+        Name varchar(255),
+        LastModifytime datetime
+    );
 
-	INSERT INTO data_source_table
-	(PersonID, Name, LastModifytime)
-	VALUES
-	(1, 'aaaa','9/1/2017 12:56:00 AM'),
-	(2, 'bbbb','9/2/2017 5:23:00 AM'),
-	(3, 'cccc','9/3/2017 2:36:00 AM'),
-	(4, 'dddd','9/4/2017 3:21:00 AM'),
-	(5, 'eeee','9/5/2017 8:06:00 AM');
+    INSERT INTO data_source_table
+    (PersonID, Name, LastModifytime)
+    VALUES
+    (1, 'aaaa','9/1/2017 12:56:00 AM'),
+    (2, 'bbbb','9/2/2017 5:23:00 AM'),
+    (3, 'cccc','9/3/2017 2:36:00 AM'),
+    (4, 'dddd','9/4/2017 3:21:00 AM'),
+    (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-	In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
+    In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
 
-	```
-	PersonID | Name | LastModifytime
-	-------- | ---- | --------------
-	1 | aaaa | 2017-09-01 00:56:00.000
-	2 | bbbb | 2017-09-02 05:23:00.000
-	3 | cccc | 2017-09-03 02:36:00.000
-	4 | dddd | 2017-09-04 03:21:00.000
-	5 | eeee | 2017-09-05 08:06:00.000
-	```
+    ```
+    PersonID | Name | LastModifytime
+    -------- | ---- | --------------
+    1 | aaaa | 2017-09-01 00:56:00.000
+    2 | bbbb | 2017-09-02 05:23:00.000
+    3 | cccc | 2017-09-03 02:36:00.000
+    4 | dddd | 2017-09-04 03:21:00.000
+    5 | eeee | 2017-09-05 08:06:00.000
+    ```
 
 ### Create another table in your SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value:  
@@ -141,10 +141,10 @@ AS
 
 BEGIN
     
-	UPDATE watermarktable
-	SET [WatermarkValue] = @LastModifiedtime 
+    UPDATE watermarktable
+    SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
-	
+    
 END
 ```
 
@@ -174,7 +174,7 @@ END
 7. Click **Create**.      
 8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-	![deploying data factory tile](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
+    ![deploying data factory tile](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
    ![Data factory home page](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
@@ -217,10 +217,10 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
         ![New linked service window](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
 10. Select **[dbo].[watermarktable]** for **Table**. If you want to preview data in the table, click **Preview data**.
 
-	![Watermark dataset - connection settings](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
+    ![Watermark dataset - connection settings](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
 11. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **WatermarkDataset** is selected for the **Source Dataset** field. 
 
-	![Pipeline - old watermark dataset](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
+    ![Pipeline - old watermark dataset](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
 12. In the **Activities** toolbox, expand **SQL Database**, and drag-drop another **Lookup** activity to the pipeline designer surface, and set the name to **LookupNewWaterMarkActivity** in the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table with the source data to be copied to the destination. 
 
     ![Second lookup activity - name](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
@@ -348,15 +348,15 @@ Click **Trigger** on the toolbar, and click **Trigger Now**.
     ```
 3. Check the latest value from `watermarktable`. You see that the watermark value was updated.
 
-	```sql
-	Select * from watermarktable
-	```
-	
-	Here is the output:
+    ```sql
+    Select * from watermarktable
+    ```
+    
+    Here is the output:
  
-	| TableName | WatermarkValue |
-	| --------- | -------------- |
-	| data_source_table | 2017-09-05	8:06:00.000 | 
+    | TableName | WatermarkValue |
+    | --------- | -------------- |
+    | data_source_table | 2017-09-05    8:06:00.000 | 
 
 ## Add more data to source
 
@@ -368,7 +368,7 @@ VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
 
 INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
-```	
+``` 
 
 The updated data in the SQL database is:
 
@@ -412,14 +412,14 @@ PersonID | Name | LastModifytime
     ```
 2. Check the latest value from `watermarktable`. You see that the watermark value was updated again.
 
-	```sql
-	Select * from watermarktable
-	```
-	sample output: 
-	
-	| TableName | WatermarkValue |
-	| --------- | --------------- |
-	| data_source_table | 2017-09-07 09:01:00.000 |
+    ```sql
+    Select * from watermarktable
+    ```
+    sample output: 
+    
+    | TableName | WatermarkValue |
+    | --------- | --------------- |
+    | data_source_table | 2017-09-07 09:01:00.000 |
 
 
      

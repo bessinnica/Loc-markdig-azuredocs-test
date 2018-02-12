@@ -28,13 +28,15 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 ## Management Tools
 The compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MySQL, as long as the database manipulation operates within the confines of user permissions. Three common database management tools that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 are listed in the following table:
 
-|                                     | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| Create, Update, Read, Write, Delete | X | X | X |
-| SSL Connection | X | X | X |
-| SQL Query Auto Completion | X | X |  |
-| Import and Export Data | X | X | X |
-| Export to Multiple Formats | X | X | X |
-| Backup and Restore |  | X |  |
-| Display Server Parameters | X | X | X |
-| Display Client Connections | X | X | X |
+
+|                                     | <strong>MySQL Workbench 6.x and up</strong> | <strong>Navicat 12</strong> | <strong>PHPMyAdmin 4.x and up</strong> |
+|:------------------------------------|:--------------------------------------------|:----------------------------|:---------------------------------------|
+| Create, Update, Read, Write, Delete | X                                           | X                           | X                                      |
+| SSL Connection                      | X                                           | X                           | X                                      |
+| SQL Query Auto Completion           | X                                           | X                           |                                        |
+| Import and Export Data              | X                                           | X                           | X                                      |
+| Export to Multiple Formats          | X                                           | X                           | X                                      |
+| Backup and Restore                  |                                             | X                           |                                        |
+| Display Server Parameters           | X                                           | X                           | X                                      |
+| Display Client Connections          | X                                           | X                           | X                                      |
+

@@ -36,7 +36,7 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 > 
 
 1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
-You can do this by **running the following Powershell command:**
+   You can do this by **running the following Powershell command:**
 
    ```PowerShell
    Get-AzureRmResourceProvider
@@ -96,13 +96,13 @@ The Quickstarts below will help you to get started with the APIs available throu
 * Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio         2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** >          **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
-    
+
 ### Variations
 * The URI for accessing the Face API in Azure Government is :
    - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
@@ -148,9 +148,9 @@ namespace VisionApp1
 
             //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string "/analyze" at the end. 
             //Example: https://virginia.api.cognitive.microsoft.us/vision/v1.0/analyze
-  
+
             const string uriBase = "<endpoint>/analyze";
-            
+
             static void Main()
             {
                 // Get the path and filename to process from the user.
@@ -364,13 +364,13 @@ For more information, please see [public documentation](../cognitive-services/co
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio         2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** >          **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
-    
+
 ### Variations 
 * The URI for accessing the Face API in Azure Government is :
    - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
@@ -411,7 +411,7 @@ namespace FaceApp1
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
-         
+
         // Replace the subscriptionKey string value with your valid subscription key.
         const string subscriptionKey = "<subscription key>";
 
@@ -607,13 +607,13 @@ For more information, please see [public documentation](../cognitive-services/Fa
 ### Prerequisites
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio         2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** >          **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
-    
+
 ### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
    - `https://api.microsofttranslator.us/v2/http.svc`
@@ -767,7 +767,6 @@ namespace TextTranslationApp1
         }       
     }
 }
-
 ```
 ### Text Translation response
 

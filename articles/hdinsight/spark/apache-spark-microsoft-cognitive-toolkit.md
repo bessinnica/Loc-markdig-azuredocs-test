@@ -78,11 +78,11 @@ To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, y
 
 2. From the Azure Portal, open the Spark cluster blade that you already provisioned, click **Cluster Dashboard**, and then click **Jupyter notebook**.
 
-	You can also launch the Jupyter notebook by going to the URL `https://<clustername>.azurehdinsight.net/jupyter/`. Replace \<clustername> with the name of your HDInsight cluster.
+    You can also launch the Jupyter notebook by going to the URL `https://<clustername>.azurehdinsight.net/jupyter/`. Replace \<clustername> with the name of your HDInsight cluster.
 
 3. From the Jupyter notebook, click **Upload** in the top-right corner and then navigate to the location where you cloned the GitHub repository.
 
-	![Upload Jupyter notebook to Azure HDInsight Spark cluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Upload Jupyter notebook to Azure HDInsight Spark cluster")
+    ![Upload Jupyter notebook to Azure HDInsight Spark cluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Upload Jupyter notebook to Azure HDInsight Spark cluster")
 
 4. Click **Upload** again.
 

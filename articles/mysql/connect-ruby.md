@@ -73,13 +73,13 @@ Replace the `host`, `database`, `username`, and `password` strings with your own
 require 'mysql2'
 
 begin
-	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
-	database = String('quickstartdb')
+    # Initialize connection variables.
+    host = String('myserver4demo.mysql.database.azure.com')
+    database = String('quickstartdb')
     username = String('myadmin@myserver4demo')
-	password = String('yourpassword')
+    password = String('yourpassword')
 
-	# Initialize connection object.
+    # Initialize connection object.
     client = Mysql2::Client.new(:host => host, :username => username, :database => database, :password => password)
     puts 'Successfully created connection to database.'
 
@@ -119,13 +119,13 @@ Replace the `host`, `database`, `username`, and `password` strings with your own
 require 'mysql2'
 
 begin
-	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
-	database = String('quickstartdb')
+    # Initialize connection variables.
+    host = String('myserver4demo.mysql.database.azure.com')
+    database = String('quickstartdb')
     username = String('myadmin@myserver4demo')
-	password = String('yourpassword')
+    password = String('yourpassword')
 
-	# Initialize connection object.
+    # Initialize connection object.
     client = Mysql2::Client.new(:host => host, :username => username, :database => database, :password => password)
     puts 'Successfully created connection to database.'
 
@@ -158,13 +158,13 @@ Replace the `host`, `database`, `username`, and `password` strings with your own
 require 'mysql2'
 
 begin
-	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
-	database = String('quickstartdb')
+    # Initialize connection variables.
+    host = String('myserver4demo.mysql.database.azure.com')
+    database = String('quickstartdb')
     username = String('myadmin@myserver4demo')
-	password = String('yourpassword')
+    password = String('yourpassword')
 
-	# Initialize connection object.
+    # Initialize connection object.
     client = Mysql2::Client.new(:host => host, :username => username, :database => database, :password => password)
     puts 'Successfully created connection to database.'
 
@@ -195,13 +195,13 @@ Replace the `host`, `database`, `username`, and `password` strings with your own
 require 'mysql2'
 
 begin
-	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
-	database = String('quickstartdb')
+    # Initialize connection variables.
+    host = String('myserver4demo.mysql.database.azure.com')
+    database = String('quickstartdb')
     username = String('myadmin@myserver4demo')
-	password = String('yourpassword')
+    password = String('yourpassword')
 
-	# Initialize connection object.
+    # Initialize connection object.
     client = Mysql2::Client.new(:host => host, :username => username, :database => database, :password => password)
     puts 'Successfully created connection to database.'
 

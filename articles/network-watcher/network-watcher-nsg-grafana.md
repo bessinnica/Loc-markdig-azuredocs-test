@@ -125,8 +125,8 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
     output {
       stdout { codec => rubydebug }
       elasticsearch {
-	    hosts => "localhost"
-	    index => "nsg-flow-logs"
+        hosts => "localhost"
+        index => "nsg-flow-logs"
       }
     }
     ```

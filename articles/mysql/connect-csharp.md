@@ -93,7 +93,6 @@ namespace driver
 
     }
 }
-
 ```
 
 ## Read data
@@ -149,8 +148,6 @@ namespace driver
         }
     }
 }
-
-
 ```
 
 ## Update data
@@ -196,9 +193,6 @@ namespace driver
         }
     }
 }
-
-
-
 ```
 
 
@@ -244,7 +238,6 @@ namespace driver
         }
     }
 }
-
 ```
 
 ## Next steps

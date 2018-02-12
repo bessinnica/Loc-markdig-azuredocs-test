@@ -18,7 +18,7 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight SDK Release Notes
-##3.3.1 (11/03/2016)
+## 3.3.1 (11/03/2016)
 Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.1**
 
 * Stability improvements.

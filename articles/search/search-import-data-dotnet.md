@@ -156,6 +156,7 @@ Finally, the code in the example above delays for two seconds. Indexing happens 
 
 <a name="HotelClass"></a>
 
+
 ### How the .NET SDK handles documents
 You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like `Hotel` to the index. To help answer that question, let's look at the `Hotel` class, which maps to the index schema defined in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#DefineIndex):
 

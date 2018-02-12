@@ -51,7 +51,7 @@ azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t tar
 ```
 
 > [!NOTE]
-If the VM has multiple NICs and IP forwarding is enabled on any of the NICs, then the NIC parameter (-i nic-id) must be specified. Otherwise it is optional.
+> If the VM has multiple NICs and IP forwarding is enabled on any of the NICs, then the NIC parameter (-i nic-id) must be specified. Otherwise it is optional.
 
 ## Review results
 

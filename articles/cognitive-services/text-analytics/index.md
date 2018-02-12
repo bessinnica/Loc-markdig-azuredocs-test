@@ -59,13 +59,18 @@ ms.author: kamrani
 </div>
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
+
 <p>Develop applications using the Text Analytics API:</p>
+
 <ol>
    <a href="/azure/cognitive-services/Text-Analytics/Tutorials/tutorial-power-bi-key-phrases">Text Analytics with Power BI </a>
-   
+
+
 </ol>
 
+
 <h2 style="margin-top: 36px">Reference</h2>
+
 <ul class="panelContent cardsD">
     <li>
         <div class="cardSize">
@@ -85,11 +90,12 @@ ms.author: kamrani
                 <div class="card">
                     <div class="cardText">
                         <h3>SDKs</h3>
-                        <p><a href="https://aka.ms/tasdkdotnet">Windows</a></p>           
-                    </div>
+                        <p><a href="https://aka.ms/tasdkdotnet">Windows</a></p><br/>                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
+
 </div>
+

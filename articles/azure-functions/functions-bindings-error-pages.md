@@ -24,7 +24,6 @@ This topic provides general guidance for handling errors that occur when your fu
 ## Handing errors in functions
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
- 
 ## Binding error codes
 
 When integrating with Azure services, you may have errors raised that originate from the APIs of the underlying services. Links to the error code documentation for these services can be found in the **Exceptions and return codes** section of the following trigger and binding reference topics:

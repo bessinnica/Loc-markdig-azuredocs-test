@@ -60,8 +60,8 @@ Before setting up audit auditing check if you are using a ["Downlevel Client."](
    
     ![][3]
 4. In the auditing configuration panel, select **STORAGE DETAILS** to open the Audit Logs Storage panel. Select the Azure storage account for the logs, and the retention period. 
->[!TIP]
->Use the same storage account for all audited databases to get the most out of the pre-configured reports templates.
+   >[!TIP]
+   >Use the same storage account for all audited databases to get the most out of the pre-configured reports templates.
    
     ![][4]
 5. Click the **OK** button to save the storage details configuration.

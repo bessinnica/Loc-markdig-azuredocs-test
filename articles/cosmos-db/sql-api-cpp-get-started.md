@@ -28,7 +28,7 @@ ms.author: aasthan
 >  
 > 
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the C++ tutorial for the Azure Cosmos DB SQL API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
 
@@ -55,6 +55,7 @@ Please make sure you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
+
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/), with the C++ language components installed. If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 ## Step 1: Create an Azure Cosmos DB account
@@ -65,16 +66,16 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 ## <a id="SetupC++"></a>Step 2: Set up your C++ application
 1. Open Visual Studio, and then on the **File** menu, click **New**, and then click **Project**. 
 2. In the **New Project** window, in the **Installed** pane, expand **Visual C++**, click **Win32**, and then click **Win32 Console Application**. Name the project hellodocumentdb and then click **OK**. 
-   
+
     ![Screenshot of the New project wizard](media/sql-api-cpp-get-started/hello.png)
 3. When the Win32 Application Wizard starts, click **Finish**.
 4. Once the project has been created, open the NuGet package manager by right-clicking the **hellodocumentdb** project in **Solution Explorer** and clicking **Manage NuGet Packages**. 
-   
+
     ![Screenshot showing Manage NuGet Package on the project menu](media/sql-api-cpp-get-started/nuget.png)
 5. In the **NuGet: hellodocumentdb** tab, click **Browse**, and then search for *documentdbcpp*. In the results, select DocumentDbCPP, as shown in the following screenshot. This package installs references to C++ REST SDK, which is a dependency for the DocumentDbCPP.  
-   
+
     ![Screenshot showing the DocumentDbCpp package highlighted](media/sql-api-cpp-get-started/cpp.png)
-   
+
     Once the packages have been added to your project, we are all set to start writing some code.   
 
 ## <a id="Config"></a>Step 3: Copy connection details from Azure portal for your Azure Cosmos DB database
@@ -84,7 +85,7 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the Azure Cosm
 
 ## <a id="Connect"></a>Step 4: Connect to an Azure Cosmos DB account
 1. Add the following headers and namespaces to your source code, after `#include "stdafx.h"`.
-   
+
         #include <cpprest/json.h>
         #include <documentdbcpp\DocumentClient.h>
         #include <documentdbcpp\exceptions.h>
@@ -94,10 +95,10 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the Azure Cosm
         using namespace std;
         using namespace web::json;
 2. Next add the following code to your main function and replace the account configuration and primary key to match your Azure Cosmos DB settings from step 3. 
-   
+
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
-   
+
     Now that you have the code to initialize the client, let's take a look at working with Azure Cosmos DB resources.
 
 ## <a id="CreateDBColl"></a>Step 5: Create a C++ database and collection

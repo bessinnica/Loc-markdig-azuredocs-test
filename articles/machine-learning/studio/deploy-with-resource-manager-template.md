@@ -71,7 +71,6 @@ The following template uses the name of the resource group to generate the stora
         "mlWorkspaceWorkspaceLink": {"type": "string", "value": "[concat('https://studio.azureml.net/Home/ViewWorkspace/', reference(variables('mlResourceId'), variables('mlVersion')).WorkspaceId)]"}
     }
 }
-
 ```
 Save this template as mlworkspace.json file under c:\temp\.
 

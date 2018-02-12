@@ -47,7 +47,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 You can contact us by using one of these options:
 
 * Post your questions in our [API Management MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Send an email to <mailto:apimgmt@microsoft.com>.
+* Send an email to <apimgmt@microsoft.com>.
 * Send us a feature request in the [Azure feedback forum](https://feedback.azure.com/forums/248703-api-management).
 
 ### What does it mean when a feature is in preview?
@@ -135,8 +135,8 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 ```
 
 #### Direct API update method ####
-1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity by using API Management.		
-2. Set the **skipCertificateChainValidation** property to **true**.		
+1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity by using API Management.       
+2. Set the **skipCertificateChainValidation** property to **true**.     
 3. If you no longer want to allow self-signed certificates, delete the Backend entity, or set the **skipCertificateChainValidation** property to **false**.
 
 ### Why do I get an authentication failure when I try to clone a Git repository?

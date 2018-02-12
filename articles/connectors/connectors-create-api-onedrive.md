@@ -36,26 +36,24 @@ Before your logic app can access any service, you first create a *connection* to
 
 ### Create the connection
 > [!INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
-> 
-> 
 
 ## Use a trigger
 A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. In the logic app, type "onedrive" to get a list of the triggers:  
-   
+
     ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. Select **When a file is modified**. If a connection already exists, then select the Show Picker button to select a folder.
-   
+
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
-   
+
     If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic lists the steps. 
-   
+
    > [!NOTE]
    > In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
 
 3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
-   
+
     ![](./media/connectors-create-api-onedrive/trigger-properties.png)
 4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
@@ -63,18 +61,18 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
-   
+
     ![](./media/connectors-create-api-onedrive/add-action.png)
 2. Choose **Add an action**.
 3. In the text box, type “onedrive” to get a list of all the available actions.
-   
+
     ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 4. In our example, choose **OneDrive - Create file**. If a connection already exists, then select the **Folder Path** to put the file, enter the **File Name**, and choose the **File Content** you want:  
-   
+
     ![](./media/connectors-create-api-onedrive/sample-action.png)
-   
+
     If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic describes these properties. 
-   
+
    > [!NOTE]
    > In this example, we create a new file in a OneDrive folder. You can use output from another trigger to create the OneDrive file. For example, add the Office 365 Outlook *When a new email arrives* trigger. Then add the OneDrive *Create file* action that uses the Attachments and Content-Type fields within a ForEach to create the new file in OneDrive. 
    > 

@@ -136,6 +136,7 @@ The following table contains properties and descriptions for commonly used param
 | KeyType |Specifies which access key to regenerate when renewing access keys. Valid values are: Primary, Secondary | |
 
 ### RedisConfiguration properties
+
 | Property | Description | Pricing tiers |
 | --- | --- | --- |
 | rdb-backup-enabled |Whether [Redis data persistence](cache-how-to-premium-persistence.md) is enabled |Premium only |
@@ -251,6 +252,7 @@ To specify values for the `RedisConfiguration` parameter, enclose the values ins
 
 <a name="databases"></a>
 
+
 ## To configure the databases setting during cache creation
 The `databases` setting can be configured only during cache creation. The following example creates a premium P3 (26 GB) cache with 48 databases using the [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
 
@@ -322,6 +324,7 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
     Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
 <a name="scale"></a>
+
 
 ## To scale a Redis cache
 `Set-AzureRmRedisCache` can be used to scale an Azure Redis cache instance when the `Size`, `Sku`, or `ShardCount` properties are modified. 

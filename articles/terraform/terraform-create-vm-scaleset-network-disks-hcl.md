@@ -116,7 +116,6 @@ resource "azurerm_public_ip" "vmss" {
     environment = "codelab"
   }
 }
-
 ``` 
 
 > [!NOTE]

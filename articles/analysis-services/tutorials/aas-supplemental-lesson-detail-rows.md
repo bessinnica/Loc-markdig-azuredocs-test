@@ -55,13 +55,13 @@ What we would like to see here is a table containing columns and rows of data th
 
     ```
     SELECTCOLUMNS(
-	FactInternetSales,
-	"Sales Order Number", FactInternetSales[SalesOrderNumber],
-	"Customer First Name", RELATED(DimCustomer[FirstName]),
-	"Customer Last Name", RELATED(DimCustomer[LastName]),
-	"City", RELATED(DimGeography[City]),
-	"Order Date", FactInternetSales[OrderDate],
-	"Internet Total Sales", [InternetTotalSales]
+    FactInternetSales,
+    "Sales Order Number", FactInternetSales[SalesOrderNumber],
+    "Customer First Name", RELATED(DimCustomer[FirstName]),
+    "Customer Last Name", RELATED(DimCustomer[LastName]),
+    "City", RELATED(DimGeography[City]),
+    "Order Date", FactInternetSales[OrderDate],
+    "Internet Total Sales", [InternetTotalSales]
     )
 
     ```

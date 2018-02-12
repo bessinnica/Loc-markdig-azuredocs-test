@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Disk Encryption troubleshooting| Microsoft Docs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -92,15 +92,15 @@ To workaround this issue, copy the following 4 files from a Windows Server 2016 
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-   2. Enter the following command:
+1. Enter the following command:
 
    ```
    bdehdcfg.exe -target default
    ```
 
-   3. This command creates a 550-MB system partition. Reboot the system.
+2. This command creates a 550-MB system partition. Reboot the system.
 
-   4. Use DiskPart to check the volumes, and then proceed.  
+3. Use DiskPart to check the volumes, and then proceed.  
 
 For example:
 

@@ -105,10 +105,10 @@ High availability is best met by using managed disks in an availability set alon
 
 Your choices for high availability, backup, and DR at application or infrastructure levels can be represented as follows:
 
-| Level |	High availability	| Backup or DR |
+| Level |   High availability   | Backup or DR |
 | --- | --- | --- |
-| Application | SQL Server AlwaysOn	| Azure Backup |
-| Infrastructure	| Availability set	| Geo-redundant storage with consistent snapshots |
+| Application | SQL Server AlwaysOn | Azure Backup |
+| Infrastructure    | Availability set  | Geo-redundant storage with consistent snapshots |
 
 ### Using Azure Backup 
 
@@ -126,21 +126,21 @@ To restore, you can view the available backups through Azure Backup and then ini
 
 Use the following steps to enable backups of your VMs by using the [Azure portal](https://portal.azure.com/). There is some variation depending on your exact scenario. Refer to the [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) documentation for full details. Azure Backup also [supports VMs with managed disks](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
 
-1.	Create a recovery services vault for a VM:
+1.  Create a recovery services vault for a VM:
 
     a. In the [Azure portal](https://portal.azure.com/), browse **All resources** and find **Recovery Services vaults**.
 
     b. On the **Recovery Services vaults** menu, click **Add** and follow the steps to create a new vault in the same region as the VM. For example, if your VM is in the West US region, pick West US for the vault.
 
-2.	Verify the storage replication for the newly created vault. Access the vault under **Recovery Services vaults** and go to **Settings** > **Backup Configuration**. Ensure the **geo-redundant storage** option is selected by default. This ensures that your vault is automatically replicated to a secondary datacenter. For example, your vault in West US is automatically replicated to East US.
+2.  Verify the storage replication for the newly created vault. Access the vault under **Recovery Services vaults** and go to **Settings** > **Backup Configuration**. Ensure the **geo-redundant storage** option is selected by default. This ensures that your vault is automatically replicated to a secondary datacenter. For example, your vault in West US is automatically replicated to East US.
 
-3.	Configure the backup policy and select the VM from the same UI.
+3.  Configure the backup policy and select the VM from the same UI.
 
-4.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+4.  Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+5.  Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-6.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
+6.  After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
 
 For automating Azure Backup by using scripts, refer to [PowerShell cmdlets for VM backup](../articles/backup/backup-azure-vms-automation.md).
 
@@ -148,9 +148,9 @@ For automating Azure Backup by using scripts, refer to [PowerShell cmdlets for V
 
 If you need to repair or rebuild a VM, you can restore the VM from any of the backup recovery points in the vault. There are a couple of different options for performing the recovery:
 
--	You can create a new VM as a point-in-time representation of your backed-up VM.
+-   You can create a new VM as a point-in-time representation of your backed-up VM.
 
--	You can restore the disks, and then use the template for the VM to customize and rebuild the restored VM. 
+-   You can restore the disks, and then use the template for the VM to customize and rebuild the restored VM. 
 
 For more information, see the instructions to [use the Azure portal to restore virtual machines](../articles/backup/backup-azure-arm-restore-vms.md). This document also explains the specific steps for restoring backed-up VMs to a paired datacenter by using your geo-redundant backup vault if there is a disaster at the primary datacenter. In that case, Azure Backup uses the Compute service from the secondary region to create the restored virtual machine.
 
@@ -170,11 +170,11 @@ Although you can take a snapshot at any time, if the VM is running, there is sti
 
 To avoid this situation, the backup process must implement the following steps:
 
-1.	Freeze all the disks.
+1.  Freeze all the disks.
 
-2.	Flush all the pending writes.
+2.  Flush all the pending writes.
 
-3.	[Create a blob snapshot](../articles/storage/blobs/storage-blob-snapshots.md) for all the disks.
+3.  [Create a blob snapshot](../articles/storage/blobs/storage-blob-snapshots.md) for all the disks.
 
 Some Windows applications, like SQL Server, provide a coordinated backup mechanism via a volume shadow service to create application-consistent backups. On Linux, you can use a tool like fsfreeze for coordinating the disks. This tool provides file-consistent backups, but not application-consistent snapshots. This process is complex, so you should consider using [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) or a third-party backup solution that already implements this procedure.
 

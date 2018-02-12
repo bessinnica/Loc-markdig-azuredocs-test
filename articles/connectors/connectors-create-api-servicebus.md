@@ -37,6 +37,7 @@ which must exist in the same Azure subscription so that they're visible to each 
 
 <a name="permissions-connection-string"></a>
 
+
 ## Connect to Azure Service Bus
 
 Before your logic app can access any service, 
@@ -64,21 +65,21 @@ choose the copy button. Save the connection string for later use.
    > [!TIP]
    > To confirm whether your connection string is 
    > associated with your Service Bus namespace or with a specific entity, 
-   > check the connection string for the `EntityPath` parameter. 
+   > check the connection string for the `EntityPath` parameter. 
    > If you find this parameter, the connection string is for a specific entity, 
    > and is not the correct string to use with your logic app.
 
 ## Trigger workflow when your Service Bus gets new messages
 
 A [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-is an event that starts a workflow in your logic app. To start a workflow
+is an event that starts a workflow in your logic app. To start a workflow
 when new messages are sent to your Service Bus, follow these steps for adding 
 the trigger that detects these messages.
 
 1. In the [Azure portal](https://portal.azure.com "Azure portal"), 
 go to your existing logic app or create a blank logic app.
 
-2. In Logic Apps Designer, enter "service bus" in the search box as your filter. 
+2. In Logic Apps Designer, enter "service bus" in the search box as your filter. 
 Select the **Service Bus** connector. 
 
    ![Select Service Bus connector](./media/connectors-create-api-azure-service-bus/select-service-bus-connector.png) 
@@ -123,7 +124,7 @@ To send a message to your Service Bus messaging entity from your logic app, foll
 
 1. In Logic Apps Designer, under your trigger, choose **+ New step** > **Add an action**.
 
-2. In the search box, enter "service bus" as your filter. 
+2. In the search box, enter "service bus" as your filter. 
 Select this connector: **Service Bus**
 
    ![Select Service Bus connector](./media/connectors-create-api-azure-service-bus/select-service-bus-connector-for-action.png) 

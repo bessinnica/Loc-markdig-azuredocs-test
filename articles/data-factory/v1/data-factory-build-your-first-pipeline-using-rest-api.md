@@ -58,9 +58,9 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
   3. Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
 * Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:
 
-	```PowerShell
-	New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-	```
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
    Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 
@@ -296,19 +296,19 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
 
     Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**.
 
-	```PowerShell
+    ```PowerShell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.
 
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 
 Note the following points:
 
@@ -322,14 +322,14 @@ Note the following points:
 
   * In Azure PowerShell, run the following command to register the Data Factory provider:
 
-	```PowerShell
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-	```
+    ```PowerShell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
       You can run the following command to confirm that the Data Factory provider is registered:
-	```PowerShell
-	Get-AzureRmResourceProvider
-	```
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores.
@@ -342,38 +342,38 @@ In this step, you link your Azure Storage account to your data factory. With thi
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell
+    ```PowerShell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### Create Azure HDInsight linked service
 In this step, you link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
-	```
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## Create datasets
 In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.
@@ -383,38 +383,38 @@ In this step, you create the input dataset to represent input data stored in the
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
-	```
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### Create output dataset
 In this step, you create the output dataset to represent output data stored in the Azure Blob storage.
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
-	```
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## Create pipeline
 In this step, you create your first pipeline with a **HDInsightHive** activity. Input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly. The settings for the output dataset and the activity scheduler must match. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
@@ -423,19 +423,19 @@ Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** f
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
-	```
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
-	```PowerShell
-	Write-Host $results
-	```
+    ```PowerShell
+    Write-Host $results
+    ```
 4. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
 
 ## Monitor pipeline
@@ -485,10 +485,12 @@ In this tutorial, you created an Azure data factory to process data by running H
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand Azure HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure Blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## See Also
-| Topic | Description |
-|:--- |:--- |
-| [Data Factory REST API Reference](/rest/api/datafactory/) |See comprehensive documentation on Data Factory cmdlets |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
-| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Scheduling and Execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
-| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
+
+| Topic                                                                                   | Description                                                                                                                                                                       |
+|:----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Data Factory REST API Reference](/rest/api/datafactory/)                               | See comprehensive documentation on Data Factory cmdlets                                                                                                                           |
+| [Pipelines](data-factory-create-pipelines.md)                                           | This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
+| [Datasets](data-factory-create-datasets.md)                                             | This article helps you understand datasets in Azure Data Factory.                                                                                                                 |
+| [Scheduling and Execution](data-factory-scheduling-and-execution.md)                    | This article explains the scheduling and execution aspects of Azure Data Factory application model.                                                                               |
+| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App.                                                                         |
+

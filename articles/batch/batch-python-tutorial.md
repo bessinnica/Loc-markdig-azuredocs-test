@@ -31,6 +31,7 @@ Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_s
 
 ![Batch solution workflow (basic)][11]<br/>
 
+
 ## Prerequisites
 This article assumes that you have a working knowledge of Python and familiarity with Linux. It also assumes that you're able to satisfy the account creation requirements that are specified below for Azure and the Batch and Storage services.
 
@@ -99,6 +100,7 @@ The following diagram illustrates the primary operations that are performed by t
 
 ![Batch example workflow][8]<br/>
 
+
 [**Step 1.**](#step-1-create-storage-containers) Create **containers** in Azure Blob Storage.<br/>
 [**Step 2.**](#step-2-upload-task-script-and-data-files) Upload task script and input files to containers.<br/>
 [**Step 3.**](#step-3-create-batch-pool) Create a Batch **pool**.<br/>
@@ -136,6 +138,7 @@ You can find your Batch and Storage account credentials within the account blade
 ![Batch credentials in the portal][9]
 ![Storage credentials in the portal][10]<br/>
 
+
 In the following sections, we analyze the steps used by the scripts to process a workload in the Batch service. We encourage you to refer regularly to the scripts in your editor while you work your way through the rest of the article.
 
 Navigate to the following line in **python_tutorial_client.py** to start with Step 1:
@@ -147,6 +150,7 @@ if __name__ == '__main__':
 ## Step 1: Create Storage containers
 ![Create containers in Azure Storage][1]
 <br/>
+
 
 Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
 
@@ -185,6 +189,7 @@ Once the containers have been created, the application can now upload the files 
 ## Step 2: Upload task script and data files
 ![Upload task application and input (data) files to containers][2]
 <br/>
+
 
 In the file upload operation, *python_tutorial_client.py* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
 
@@ -279,6 +284,7 @@ Shared access signatures are strings that provide secure access to containers an
 ## Step 3: Create Batch pool
 ![Create a Batch pool][3]
 <br/>
+
 
 A Batch **pool** is a collection of compute nodes (virtual machines) on which Batch executes a job's tasks.
 
@@ -383,6 +389,7 @@ Also notable in the code snippet above is the use of two environment variables i
 
 ## Step 4: Create Batch job
 ![Create Batch job][4]<br/>
+
 
 A Batch **job** is a collection of tasks, and is associated with a pool of compute nodes. The tasks in a job execute on the associated pool's compute nodes.
 
@@ -533,6 +540,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 
 ## Step 7: Download task output
 ![Download task output from Storage][7]<br/>
+
 
 Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `download_blobs_from_container` in *python_tutorial_client.py*:
 

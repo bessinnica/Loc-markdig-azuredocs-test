@@ -5,7 +5,7 @@ services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -167,6 +167,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -206,4 +207,5 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
         </div>
     </li>
 </ul>
+
 

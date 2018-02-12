@@ -23,6 +23,7 @@ Service Map automatically discovers application components on Windows and Linux 
 This article describes the details of configuring Service Map and onboarding agents. For information on using Service Map, see [Use the Service Map solution in Operations Management Suite](operations-management-suite-service-map.md).
 
 ## Dependency Agent downloads
+
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.0 | 13CE5E232311010A6E63B21615F669C63B5DF450F26F7BA092F951E924656611 |
@@ -55,7 +56,7 @@ If you are a System Center Operations Manager customer with a management group c
 
 - If your System Center Operations Manager agents can access the Internet to connect to Operations Management Suite, no additional configuration is required.  
 - If your System Center Operations Manager agents cannot access Operations Management Suite over the Internet, you need to configure the OMS Gateway to work with System Center Operations Manager.
-  
+
 If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to Operations Management Suite or to your OMS Gateway. The OMS Gateway can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### Management packs
@@ -71,15 +72,15 @@ The Dependency Agent is installed on Windows computers through InstallDependency
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md).
-2.	Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
-3.	Follow the wizard to install the agent.
-4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
+1.  Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md).
+2.  Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
+3.  Follow the wizard to install the agent.
+4.  If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
 
 #### Windows command line
 Use options from the following table to install from a command line. To see a list of the installation flags, run the installer by using the /? flag as follows.
 
-	InstallDependencyAgent-Windows.exe /?
+    InstallDependencyAgent-Windows.exe /?
 
 | Flag | Description |
 |:--|:--|
@@ -92,16 +93,16 @@ Files for the Windows Dependency Agent are placed in C:\Program Files\Microsoft 
 Root access is required to install or configure the agent.
 
 The Dependency Agent is installed on Linux computers through InstallDependencyAgent-Linux64.bin, a shell script with a self-extracting binary. You can run the file by using sh or add execute permissions to the file itself.
- 
+
 Use the following steps to install the Dependency Agent on each Linux computer:
 
-1.	Install the OMS Agent by using the instructions at [Collect and manage data from Linux computers](https://technet.microsoft.com/library/mt622052.aspx).
-2.	Install the Linux Dependency agent as root by using the following command:<br>`sh InstallDependencyAgent-Linux64.bin`
-3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is /var/opt/microsoft/dependency-agent/log.
+1.  Install the OMS Agent by using the instructions at [Collect and manage data from Linux computers](https://technet.microsoft.com/library/mt622052.aspx).
+2.  Install the Linux Dependency agent as root by using the following command:<br>`sh InstallDependencyAgent-Linux64.bin`
+3.  If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is /var/opt/microsoft/dependency-agent/log.
 
 To see a list of the installation flags, run the installation program with the -help flag as follows.
 
-	InstallDependencyAgent-Linux64.bin -help
+    InstallDependencyAgent-Linux64.bin -help
 
 | Flag | Description |
 |:--|:--|
@@ -151,17 +152,17 @@ $rmgroup = "<Your Resource Group Here>"
 
 Get-AzureRmVM -ResourceGroupName $rmgroup |
 ForEach-Object {
-	""
-	$name = $_.Name
-	$os = $_.StorageProfile.OsDisk.OsType
-	$location = $_.Location
-	$vmRmGroup = $_.ResourceGroupName
-	"${name}: ${os} (${location})"
-	Date -Format o
-	$ext = $OsExtensionMap.($os.ToString())
-	$result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
-	-Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
-	$result.IsSuccessStatusCode
+    ""
+    $name = $_.Name
+    $os = $_.StorageProfile.OsDisk.OsType
+    $location = $_.Location
+    $vmRmGroup = $_.ResourceGroupName
+    "${name}: ${os} (${location})"
+    Date -Format o
+    $ext = $OsExtensionMap.($os.ToString())
+    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+    $result.IsSuccessStatusCode
 }
 ```
 
@@ -175,12 +176,11 @@ An even easier way to ensure the the Dependency Agent is on each of your VMs is 
 "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
 ],
 "properties": {
-	"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-	"type": "DependencyAgentWindows",
-	"typeHandlerVersion": "9.1",
-	"autoUpgradeMinorVersion": true
+    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+    "type": "DependencyAgentWindows",
+    "typeHandlerVersion": "9.1",
+    "autoUpgradeMinorVersion": true
 }
-
 ```
 
 
@@ -266,8 +266,8 @@ If your Dependency Agent installation succeeded, but you don't see your server i
 
 * Is your server sending log and perf data to Operations Management Suite? Go to Log Search and run the following query for your computer: 
 
-		* Computer="<your computer name here>" | measure count() by Type
-		
+        * Computer="<your computer name here>" | measure count() by Type
+
   Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with the Operations Management Suite service. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### Server appears in Service Map but has no processes
@@ -312,6 +312,7 @@ The following sections list the supported operating systems for the Dependency A
 
 
 #### Red Hat Linux 7
+
 | OS version | Kernel version |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
@@ -321,6 +322,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.4 | 3.10.0-693 |
 
 #### Red Hat Linux 6
+
 | OS version | Kernel version |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
@@ -335,6 +337,7 @@ The following sections list the supported operating systems for the Dependency A
 | 6.9 | 2.6.32-696 |
 
 #### Red Hat Linux 5
+
 | OS version | Kernel version |
 |:--|:--|
 | 5.8 | 2.6.18-308 |
@@ -352,6 +355,7 @@ The following sections list the supported operating systems for the Dependency A
 
 ### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
 #### Oracle Linux 6
+
 | OS version | Kernel version
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
@@ -370,6 +374,7 @@ The following sections list the supported operating systems for the Dependency A
 #### SUSE Linux Enterprise Server
 
 #### SUSE Linux 11
+
 | OS version | Kernel version
 |:--|:--|
 | 11 SP2 | 3.0.101-0.7 |

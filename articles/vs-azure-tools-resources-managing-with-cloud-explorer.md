@@ -36,47 +36,47 @@ To view the resources associated with an Azure account, you must first add the a
 
 1. In **Cloud Explorer**, select **Azure account settings**.
 
-	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
+    ![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
 1. Select **Add new account**. 
 
-	![Cloud Explorer add-account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+    ![Cloud Explorer add-account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
 
 1. Log in to the Azure account whose resources you want to browse. 
 
 1. Once logged in to an Azure account, the subscriptions associated with that account display. Select the check boxes for the account subscriptions you want to browse and then select **Apply**. 
  
-	![Cloud Explorer: select Azure subscriptions to display](media/vs-azure-tools-resources-managing-with-cloud-explorer/select-subscriptions.png)
+    ![Cloud Explorer: select Azure subscriptions to display](media/vs-azure-tools-resources-managing-with-cloud-explorer/select-subscriptions.png)
 
 1. After selecting the subscriptions whose resources you want to browse, those subscriptions and resources display in the Cloud Explorer.
 
-	![Cloud Explorer resource listing for an Azure account](media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-listed.png)
+    ![Cloud Explorer resource listing for an Azure account](media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-listed.png)
 
 ## Remove an Azure account from Cloud Explorer 
 
 1. In **Cloud Explorer**, select **Azure account settings**.
 
-	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
+    ![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
 1. Next to the account you want to remove, select **Remove**.
 
-	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+    ![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
 
 ## View resource types or resource groups
 To view your Azure resources, you can choose either **Resource Types** or **Resource Groups** view.
 
 1. In **Cloud Explorer**, select the resource view dropdown.
 
-	![Cloud Explorer dropdown list to select the desired resources view](media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-view-dropdown.png)
+    ![Cloud Explorer dropdown list to select the desired resources view](media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-view-dropdown.png)
 
-1. From the context menu, select the desired view: 
+2. From the context menu, select the desired view: 
 
-	- **Resource Types** view - The common view used on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), shows your Azure resources categorized by their type, such as web apps, storage accounts, and virtual machines. 
-	- **Resource Groups** view - Categorizes Azure resources by the Azure resource group with which they're associated. A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](./azure-resource-manager/resource-group-overview.md).
+   - **Resource Types** view - The common view used on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), shows your Azure resources categorized by their type, such as web apps, storage accounts, and virtual machines. 
+   - **Resource Groups** view - Categorizes Azure resources by the Azure resource group with which they're associated. A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](./azure-resource-manager/resource-group-overview.md).
 
-	The following image shows a comparison of the two resource views:
+     The following image shows a comparison of the two resource views:
 
-	![Cloud Explorer resource views comparison](media/vs-azure-tools-resources-managing-with-cloud-explorer/resource-views-comparison.png)
+     ![Cloud Explorer resource views comparison](media/vs-azure-tools-resources-managing-with-cloud-explorer/resource-views-comparison.png)
 
 ## View and navigate resources in Cloud Explorer
 To navigate to an Azure resource and view its information in Cloud Explorer, expand the item's type or associated resource group and then select the resource. When you select a resource, information appears in the two tabs - **Actions** and **Properties** - at the bottom of Cloud Explorer. 

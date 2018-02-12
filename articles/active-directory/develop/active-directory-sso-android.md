@@ -89,9 +89,9 @@ For Android and Windows the account chooser is displayed on top of your applicat
 
 #### How the broker gets invoked
 If a compatible broker is installed on the device, like the Microsoft Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This account could be a personal Microsoft Account, a work or school account, or an account that you provide and host in Azure using our B2C and B2B products. 
- 
+
  #### How we ensure the application is valid
- 
+
  The need to ensure the identity of an application call the broker is crucial to the security we provide in broker assisted logins. Neither iOS nor Android enforces unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure we are always communicating with the right application at runtime, we ask the developer to provide a custom redirectURI when registering their application with Microsoft. **How developers should craft this redirect URI is discussed in detail below.** This custom redirectURI contains the certificate thumbprint of the application and is ensured to be unique to the application by the Google Play Store. When an application calls the broker, the broker asks the Android operating system to provide it with the certificate thumbprint that called the broker. The broker provides this certificate thumbprint to Microsoft in the call to our identity system. If the certificate thumbprint of the application does not match the certificate thumbprint provided to us by the developer during registration, we will deny access to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
 
 **The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of using SSO credentials that the user may have already added on the device and prevents their application from being used with business features Microsoft provides its customers such as Conditional Access, Intune Management capabilities, and certificate-based authentication.
@@ -132,7 +132,6 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
               |   Storage   |
               |             |
               +-------------+
-
 ```
 
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
@@ -187,7 +186,6 @@ These are nested under the same client ID / application ID and looked up based o
                       |  App 3 Redirect URI               |
                       |                                   |
                       +-----------------------------------+
-
 ```
 
 

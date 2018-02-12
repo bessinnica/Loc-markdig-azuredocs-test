@@ -53,8 +53,10 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 <li><p>Choose the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then select <b>Save</b>.</p>
 </li>
+
 </ol>
-&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+&emsp;&emsp;
+![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 Your notification hub is configured to work with FCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
@@ -62,24 +64,24 @@ Your notification hub is configured to work with FCM, and you have the connectio
 First, you create a new project. 
 
 1. In Visual Studio, choose **New Solution** > **Android App** and then select **Next**.
-   
+
       ![Visual Studio- Create new Android project][22]
 
 2. Enter your **App Name** and **Identifier**. Choose the **Target Platforms** you want to support and then choose **Next** and **Create**.
-   
+
       ![Visual Studio- Android app configuration][23]
 
     This creates a new Android project.
 
 3. Open the project properties by right-clicking your new project in the Solution view and choosing **Options**. Select the **Android Application** item in the **Build** section.
-   
+
     Ensure that the first letter of your **Package name** is lowercase.
-   
+
    > [!IMPORTANT]
    > The first letter of the package name must be lowercase. Otherwise, you will receive application manifest errors when you register your app for push notifications below.
    > 
    > 
-   
+
       ![Visual Studio- Android project options][24]
 4. Optionally, set the **Minimum Android version** to another API Level.
 5. Optionally, set the **Target Android version** to another API version that you want to target (must be API level 8 or higher).
@@ -93,12 +95,12 @@ First, you create a new project.
 
 ### Set up notification hubs in your project
 1. Gather the following information for your Android app and notification hub:
-   
+
    * **Listen connection string**: On the dashboard in the [Azure portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
    * **Hub name**: This is the name of your hub from the [Azure portal]. For example, *mynotificationhub2*.
-     
+
 2. Create a **Constants.cs** class for your Xamarin project and define the following constant values in the class. Replace the placeholders with your values.
-    
+
     ```csharp
         public static class Constants
         {
@@ -108,13 +110,13 @@ First, you create a new project.
     ```
 
 3. Add the following using statements to **MainActivity.cs**:
-   
+
     ```csharp
         using Android.Util;
     ```
 
 4. Add an instance variable to **MainActivity.cs** that will be used to show an alert dialog when the app is running:
-   
+
     ```csharp
         public const string TAG = "MainActivity";
     ```
@@ -142,7 +144,7 @@ First, you create a new project.
 7. Create a new class, **MyFirebaseIIDService**.
 
 8. Add the following using statements to **MyFirebaseIIDService.cs**:
-   
+
     ```csharp
         using System;
         using Android.App;
@@ -153,7 +155,7 @@ First, you create a new project.
     ```
 
 9. In **MyFirebaseIIDService.cs**, add the following above the **class** declaration, and have your class inherit from **FirebaseInstanceIdService**:
-   
+
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
@@ -161,7 +163,7 @@ First, you create a new project.
     ```
 
 10. In **MyFirebaseIIDService.cs**, add the following code:
-   
+
     ```csharp
         const string TAG = "MyFirebaseIIDService";
         NotificationHub hub;
@@ -189,7 +191,7 @@ First, you create a new project.
 11. Create another new class for your project, name it **MyFirebaseMessagingService**.
 
 12. Add the following using statements to **MyFirebaseMessagingService.cs**.
-    
+
     ```csharp
         using System;
         using System.Linq;
@@ -201,15 +203,15 @@ First, you create a new project.
     ```
 
 13. Add the following above your class declaration, and have your class inherit from **FirebaseMessagingService**:
-    
+
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
         public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
-    
+
 14. Add the following code to **MyFirebaseMessagingService.cs**:
-    
+
     ```csharp
         const string TAG = "MyFirebaseMsgService";
         public override void OnMessageReceived(RemoteMessage message)

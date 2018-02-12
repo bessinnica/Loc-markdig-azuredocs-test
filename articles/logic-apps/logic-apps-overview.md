@@ -74,7 +74,7 @@ in JavaScript Object Notation (JSON) by working in "code view" mode.
 You can also use Azure PowerShell commands and Azure Resource Manager 
 templates for select tasks. Logic apps deploy and run in the cloud on Azure. 
 For a more detailed introduction, watch this video: 
-[Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/)
+[Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
 ## Why use Logic Apps?
 
@@ -181,7 +181,7 @@ Here are more details about the capabilities and benefits that you get with Logi
   that you can call from logic apps.
 
 * **Pay only for what you use**
-  
+
   Logic Apps uses consumption-based [pricing and metering](../logic-apps/logic-apps-pricing.md) 
   unless you have logic apps previously created with App Service plans.
 
@@ -191,6 +191,7 @@ Learn more about Logic Apps with these introductory videos:
 * [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179)
 
 <a name="logic-app-concepts"></a>
+
 
 ## Key terms
 

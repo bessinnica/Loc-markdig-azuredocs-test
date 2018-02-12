@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Storage metrics in Azure Monitor | Microsoft Docs
 description: Learn about the new metrics offered from Azure Monitor.
 services: storage
@@ -54,7 +54,6 @@ The following example shows how to list metric definition at account level:
 > armclient login
 
 > armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
-
 ```
 
 If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
@@ -89,7 +88,6 @@ The response contains the metric definition in JSON format:
     ... next metric definition
   ]
 }
-
 ```
 
 #### Read account-level metric values with the REST API
@@ -98,7 +96,6 @@ The following example shows how to read metric data at account level:
 
 ```
 > armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
-
 ```
 
 In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
@@ -133,7 +130,6 @@ The following response contains metric values in JSON format:
     }
   ]
 }
-
 ```
 
 ## Billing for metrics
@@ -253,7 +249,7 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | BlobType | The type of blob for Blob metrics only. The supported values are **BlockBlob** and **PageBlob**. Append Blob is included in BlockBlob. |
-| ResponseType | Transaction response type. The available values include: <br/><br/> <li>ServerOtherError: All other server-side errors except described ones </li> <li> ServerBusyError: Authenticated request that returned an HTTP 503 status code. (Not Supported yet) </li> <li> ServerTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li> ThrottlingError: Sum of client-side and server-side throttling error (It will be removed once ServerBusyError and ClientThrottlingError are supported) </li> <li> AuthorizationError: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li> NetworkError: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li> 	ClientThrottlingError: Client-side throttling error (Not supported yet) </li> <li> ClientTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. If the client’s network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li> ClientOtherError: All other client-side errors except described ones. </li> <li> Success: Successful request|
+| ResponseType | Transaction response type. The available values include: <br/><br/> <li>ServerOtherError: All other server-side errors except described ones </li> <li> ServerBusyError: Authenticated request that returned an HTTP 503 status code. (Not Supported yet) </li> <li> ServerTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li> ThrottlingError: Sum of client-side and server-side throttling error (It will be removed once ServerBusyError and ClientThrottlingError are supported) </li> <li> AuthorizationError: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li> NetworkError: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li>  ClientThrottlingError: Client-side throttling error (Not supported yet) </li> <li> ClientTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. If the client’s network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li> ClientOtherError: All other client-side errors except described ones. </li> <li> Success: Successful request|
 | GeoType | Transaction from Primary or Secondary cluster. The available values include Primary and Secondary. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
 | ApiName | The name of operation. For example: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> For all operation names, see [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 

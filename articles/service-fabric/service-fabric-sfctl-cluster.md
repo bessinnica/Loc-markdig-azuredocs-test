@@ -144,6 +144,7 @@ Unprovision the code or configuration packages of a Service Fabric    cluster.
 Unprovision the code or configuration packages of a Service Fabric cluster.
 
 ### Arguments
+
 |Argument|Description|
 | --- | --- |
 |--code-version  | The cluster code package version.|
@@ -151,6 +152,7 @@ Unprovision the code or configuration packages of a Service Fabric cluster.
 |    --timeout -t    | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
+
 |Argument|Description|
 | --- | --- |
 |--debug         | Increase logging verbosity to show all debug logs.|
@@ -165,6 +167,7 @@ Start upgrading the code or configuration version of a Service Fabric cluster.
 Validate the supplied upgrade parameters and start upgrading the code or configuration version of a Service Fabric cluster if the parameters are valid.
 
 ### Arguments
+
 |Argument|Description|
 | --- | --- |
 |    --app-health-map                      | JSON encoded dictionary of pairs of application name and maximum percentage unhealthy before raising error.|
@@ -189,6 +192,7 @@ Validate the supplied upgrade parameters and start upgrading the code or configu
  |   --warning-as-error                    | Warnings are treated with the same severity as errors.|
 
 ### Global Arguments
+
 |Argument|Description|
 | --- | --- |
 |--debug                               | Increase logging verbosity to show all debug logs.|

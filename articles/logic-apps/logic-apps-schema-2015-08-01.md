@@ -23,12 +23,13 @@ ms.author: LADocs; stepsic
 This new schema and API version for Azure Logic Apps includes key improvements that make logic apps 
 more reliable and easier to use:
 
-*	The **APIApp** action type is updated to a new [**APIConnection**](#api-connections) action type.
-*	**Repeat** is renamed to [**Foreach**](#foreach).
-*	The [**HTTP Listener** API App](#http-listener) is no longer required.
-*	Calling child workflows uses a [new schema](#child-workflows).
+*   The **APIApp** action type is updated to a new [**APIConnection**](#api-connections) action type.
+*   **Repeat** is renamed to [**Foreach**](#foreach).
+*   The [**HTTP Listener** API App](#http-listener) is no longer required.
+*   Calling child workflows uses a [new schema](#child-workflows).
 
 <a name="api-connections"></a>
+
 ## Move to API connections
 
 The biggest change is that you no longer have to deploy API Apps into 
@@ -332,6 +333,7 @@ This approach should work for all API App actions. However, remember that these 
 So you should move to one of the two other previous options, a managed API or hosting your custom Web API.
 
 <a name="foreach"></a>
+
 ## Renamed 'repeat' to 'foreach'
 
 For the previous schema version, we received much customer feedback that **Repeat** was confusing 
@@ -455,6 +457,7 @@ Now you can do instead:
 With these changes, the functions `@repeatItem()`, `@repeatBody()`, and `@repeatOutputs()` are removed.
 
 <a name="http-listener"></a>
+
 ## Native HTTP listener
 
 The HTTP Listener capabilities are now built in. So you no longer need to deploy an HTTP Listener API App. 
@@ -466,6 +469,7 @@ If you want to `/run` the workflow, you must have one of these triggers: `manual
 or `httpWebhook`.
 
 <a name="child-workflows"></a>
+
 ## Call child workflows
 
 Previously, calling child workflows required going to the workflow, 

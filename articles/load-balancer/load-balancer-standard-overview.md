@@ -50,7 +50,7 @@ You can use Load Balancer Standard either in a public or internal configuration 
 ### <a name = "enterprisescale"></a>Enterprise scale
 
  Use Load Balancer Standard to design your high-performance virtual data center and support any TCP or UDP application. Use standalone VM instances, or up to 1,000 instances of virtual machine scale sets in a back-end pool. Continue to use low forwarding latency, high throughput performance, and scale to millions of flows on a fully managed Azure service.
- 
+
 Load Balancer Standard can forward traffic to any VM instance in a virtual network in a region. Back-end pool sizes can be up to 1,000 instances with any combination of the following VM scenarios:
 
 - Standalone VMs without availability sets
@@ -367,6 +367,7 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
 >Registration of the Load Balancer Standard feature can take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones), a [separate sign-up](https://aka.ms/availabilityzones) is required for the AZ Preview.
 
 <a name="additionalpreviewregions"></a>
+
 >[!IMPORTANT]
 > For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
 
@@ -380,7 +381,7 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
     az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
     az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
-    
+
 2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
     ```cli
@@ -388,9 +389,9 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
     az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
     az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
-    
+
     Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
-   
+
     ```json
     {
        "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
@@ -401,13 +402,13 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
        "type": "Microsoft.Features/providers/features"
     }
     ```
-    
+
 4. Complete the preview sign-up by re-registering your subscription with the resource provider:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
-    
+
 
 ### Sign up by using PowerShell
 
@@ -418,7 +419,7 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
     Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
     Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
-    
+
 2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
     ```powershell
@@ -427,20 +428,20 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
     Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-  Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
+   Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
 
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
     AllowLBPreview   Microsoft.Network   Registered
     ```
-    
+
 3. Complete the preview sign-up by re-registering your subscription with the resource provider:
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     ```
- 
+
 ## Pricing
 
 Load Balancer Standard SKU billing is based on configured rules and processed data. No charges are incurred during the preview period. For more information, review the [Load Balancer](https://aka.ms/lbpreviewpricing) and [Public IP](https://aka.ms/lbpreviewpippricing) pricing pages.

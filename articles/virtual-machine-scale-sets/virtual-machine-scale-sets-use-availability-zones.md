@@ -24,7 +24,6 @@ To protect your virtual machine scale sets from datacenter-level failures, you c
 
 [!INCLUDE [availability-zones-preview-statement.md](../../includes/availability-zones-preview-statement.md)]
 
-
 ## Single-zone and zone-redundant scale sets
 When you deploy a virtual machine scale set, you can choose to use a single Availability Zone in a region, or multiple zones.
 
@@ -78,7 +77,7 @@ To create a zone-redundant scale set, you use a *Standard* SKU public IP address
     az feature register --name MultipleAvailabilityZones --namespace Microsoft.Compute
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
-    
+
 2. It may take a few minutes to register for the features. You can check on the status of the operation with [az feature show](/cli/azure/feature#az_feature_show):
 
     ```azurecli
@@ -87,7 +86,7 @@ To create a zone-redundant scale set, you use a *Standard* SKU public IP address
     ```
 
     The following example shows the desired status of feature as *Registered*:
-    
+
     ```json
     "properties": {
           "state": "Registered"
@@ -142,7 +141,7 @@ To create a zone-redundant scale set, you use a *Standard* SKU public IP address
     Register-AzureRmProviderFeature -FeatureName MultipleAvailabilityZones -ProviderNamespace Microsoft.Compute
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
-    
+
 2. It may take a few minutes to register for the features. You can check on the status of the operation with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature):
 
     ```powershell
@@ -151,7 +150,7 @@ To create a zone-redundant scale set, you use a *Standard* SKU public IP address
     ```
 
     The following example shows the desired status of feature as *Registered*:
-    
+
     ```powershell
     RegistrationState
     -----------------

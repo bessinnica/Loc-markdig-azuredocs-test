@@ -56,7 +56,6 @@ New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 # Assign Reader role to the newly created service principal
 New-AzureRmRoleAssignment -RoleDefinitionName Reader `
                           -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-
 ```
 
 To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
@@ -94,7 +93,7 @@ Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/r
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+<strong>Request URI</strong>: https://management.azure.com/subscriptions/<em>{subscriptionId}</em>/resourceGroups/<em>{resourceGroupName}</em>/providers/<em>{resourceProviderNamespace}</em>/<em>{resourceType}</em>/<em>{resourceName</em>/providers/microsoft.insights/metricDefinitions?api-version=<em>{apiVersion}</em>
 
 For example, to retrieve the metric definitions for an Azure Storage account, the request would appear as follows:
 
@@ -106,7 +105,6 @@ Invoke-RestMethod -Uri $request `
                   -Method Get `
                   -OutFile ".\contosostorage-metricdef-results.json" `
                   -Verbose
-
 ```
 > [!NOTE]
 > To retrieve metric definitions using the multi-dimensional Azure Monitor metrics REST API, use "2017-05-01-preview" as the API version.
@@ -191,7 +189,7 @@ Once the available metric definitions are known, there may be some metrics that 
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+<strong>Request URI</strong>: https://management.azure.com/subscriptions/<em>{subscription-id}</em>/resourceGroups/<em>{resource-group-name}</em>/providers/<em>{resource-provider-namespace}</em>/<em>{resource-type}</em>/<em>{resource-name}</em>/providers/microsoft.insights/metrics?metric=<em>{metric}</em>&timespan=<em>{starttime/endtime}</em>&$filter=<em>{filter}</em>&resultType=metadata&api-version=<em>{apiVersion}</em>
 
 For example, to retrieve the list of potential values the 'API Name dimension' for the 'Transactions' metric during a given time range, the request would be as follows:
 
@@ -280,7 +278,7 @@ Once the available metric definitions and possible dimension values are known, i
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+<strong>Request URI</strong>: https://management.azure.com/subscriptions/<em>{subscription-id}</em>/resourceGroups/<em>{resource-group-name}</em>/providers/<em>{resource-provider-namespace}</em>/<em>{resource-type}</em>/<em>{resource-name}</em>/providers/microsoft.insights/metrics?metric=<em>{metric}</em>&timespan=<em>{starttime/endtime}</em>&$filter=<em>{filter}</em>&interval=<em>{timeGrain}</em>&aggregation=<em>{aggreation}</em>&api-version=<em>{apiVersion}</em>
 
 For example, to retrieve the metric values the storage 'Transactions' metric during a 5 min range, for all transactions to the API name 'GetBlobProperties', the request would be as follows:
 
@@ -354,7 +352,7 @@ Use the [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/l
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+<strong>Request URI</strong>: https://management.azure.com/subscriptions/<em>{subscriptionId}</em>/resourceGroups/<em>{resourceGroupName}</em>/providers/<em>{resourceProviderNamespace}</em>/<em>{resourceType}</em>/<em>{resourceName}</em>/providers/microsoft.insights/metricDefinitions?api-version=<em>{apiVersion}</em>
 
 For example, to retrieve the metric definitions for an Azure Logic App, the request would appear as follows:
 
@@ -424,7 +422,7 @@ Once the available metric definitions are known, it is then possible to retrieve
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*
+<strong>Request URI</strong>: https://management.azure.com/subscriptions/<em>{subscription-id}</em>/resourceGroups/<em>{resource-group-name}</em>/providers/<em>{resource-provider-namespace}</em>/<em>{resource-type}</em>/<em>{resource-name}</em>/providers/microsoft.insights/metrics?$filter=<em>{filter}</em>&api-version=<em>{apiVersion}</em>
 
 For example, to retrieve the RunsSucceeded metric data points for the given time range and for a time grain of 1 hour, the request would be as follows:
 

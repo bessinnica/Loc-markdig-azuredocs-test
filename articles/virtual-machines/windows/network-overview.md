@@ -22,3 +22,4 @@ ms.author: davidmu
 # Virtual networks and virtual machines in Azure 
 
 [!INCLUDE [virtual-machines-common-network-overview](../../../includes/virtual-machines-common-network-overview.md)]
+

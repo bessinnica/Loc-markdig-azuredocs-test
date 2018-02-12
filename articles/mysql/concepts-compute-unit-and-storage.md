@@ -35,7 +35,7 @@ Performance levels are calibrated and governed to provide resources to run your 
 
 If your workload reaches the maximum limits in either the Compute Units or provisioned IOPS limits, you can continue to use the resources at the maximum allowed level, but your queries are likely to encounter increased latencies. These limits result in a slowdown in the workload rather than errors, unless the slowdown becomes so severe that queries time out. 
 
-If your workload reaches the maximum limits on number of connections, explicit errors are raised. For more information on resources limits, see [Limitations in Azure Database for MySQL](concepts-limits.md).
+If your workload reaches the maximum limits on number of connections, explicit errors are raised. For more information on resources limits, see [Limitations in Azure Database for MySQL](concepts-limits.md).
 
 ## Next steps
-For more information on pricing tiers, see [Azure Database for MySQL pricing tiers](./concepts-service-tiers.md).
+For more information on pricing tiers, see [Azure Database for MySQL pricing tiers](./concepts-service-tiers.md).

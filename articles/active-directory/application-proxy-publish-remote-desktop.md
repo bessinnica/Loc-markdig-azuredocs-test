@@ -76,7 +76,7 @@ Connect to the RDS deployment as an administrator and change the RD Gateway serv
 6. In the RD Gateway tab, change the **Server name** field to the External URL that you set for the RD host endpoint in Application Proxy.
 7. Change the **Logon method** field to **Password Authentication**.
 
-  ![Deployment Properties screen on RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
+   ![Deployment Properties screen on RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
 8. Run this command for each collection. Replace *\<yourcollectionname\>* and *\<proxyfrontendurl\>* with your own information. This command enables single sign-on between RD Web and RD Gateway, and optimizes performance:
 

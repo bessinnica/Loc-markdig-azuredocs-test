@@ -60,11 +60,11 @@ These endpoint differences must be taken into account when you connect to storag
 1. Open up Visual Studio and create a new project. Add a reference to the [WindowsAzure.Storage NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage/). This NuGet package contains classes we will need to connect to your storage account.
 
 2. Add these two lines of C# code to connect:
-	```cs
-	var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
+    ```cs
+    var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
 
-    var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
-	```
+    var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
+    ```
 
     -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor?view=azure-dotnet) – enabling us to explicitly pass in the endpoint suffix of “core.usgovcloudapi.net”. This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
 
@@ -105,50 +105,50 @@ These endpoint differences must be taken into account when you connect to storag
                 this.email = email;
             }
     
-    	}
-	``` 
+        }
+    ``` 
 3. Create a "test" class where we will access Azure Table Storage using the Azure Storage API. 
  Copy and paste the code below, and **paste** your Storage Account connection string into the storageConnectionString variable. 
 
     ```java
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.table.*;
-	
+    
     public class test {
 
-	    public static final String storageConnectionString = //Paste in your Storage Account connection string
+        public static final String storageConnectionString = //Paste in your Storage Account connection string
 
-	    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-		try
-		{
-		    // Retrieve storage account from connection-string.
-		    CloudStorageAccount storageAccount =
-			CloudStorageAccount.parse(storageConnectionString);
+        try
+        {
+            // Retrieve storage account from connection-string.
+            CloudStorageAccount storageAccount =
+            CloudStorageAccount.parse(storageConnectionString);
 
-		    // Create the table client.
-		    CloudTableClient tableClient = storageAccount.createCloudTableClient();
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-		    // Create the table if it doesn't exist.
-		    String tableName = "Contacts";
-		    CloudTable cloudTable = tableClient.getTableReference(tableName);
-		    cloudTable.createIfNotExists();
-		    // Create a new customer entity.
-		    CustomerEntity customer1 = new CustomerEntity("Brown", "Walter");
-		    customer1.setEmail("Walter@contoso.com");
+            // Create the table if it doesn't exist.
+            String tableName = "Contacts";
+            CloudTable cloudTable = tableClient.getTableReference(tableName);
+            cloudTable.createIfNotExists();
+            // Create a new customer entity.
+            CustomerEntity customer1 = new CustomerEntity("Brown", "Walter");
+            customer1.setEmail("Walter@contoso.com");
 
-		    // Create an operation to add the new customer to the people table.
-		    TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
+            // Create an operation to add the new customer to the people table.
+            TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
-		    // Submit the operation to the table service.
-		    cloudTable.execute(insertCustomer1);
-		}
-		catch (Exception e)
-		{
-		    // Output the stack trace.
-		    e.printStackTrace();
-		}
-	  }	
+            // Submit the operation to the table service.
+            cloudTable.execute(insertCustomer1);
+        }
+        catch (Exception e)
+        {
+            // Output the stack trace.
+            e.printStackTrace();
+        }
+      } 
     }   
     ```
 
@@ -157,30 +157,30 @@ These endpoint differences must be taken into account when you connect to storag
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
     **Paste** your Azure Storage account connection string into the storageConnectionString variable below. 
 
-	```nodejs
-	var azure = require('azure-storage');
-	var storageConnectionString = //Paste Azure Storage connection string here
-	var blobSvc = azure.createBlobService(storageConnectionString);
-	blobSvc.createContainerIfNotExists('testing', function(error, result, response){
-	if(!error){
-	// Container exists and is private
-	}
-	});
-	```
+    ```nodejs
+    var azure = require('azure-storage');
+    var storageConnectionString = //Paste Azure Storage connection string here
+    var blobSvc = azure.createBlobService(storageConnectionString);
+    blobSvc.createContainerIfNotExists('testing', function(error, result, response){
+    if(!error){
+    // Container exists and is private
+    }
+    });
+    ```
 
 #### Python
 1. Download the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
 2. When using the Storage SDK for Python to connect to Azure Government, you **must separately define an "endpoint_suffix" parameter**. 
     **Paste** in your Azure storage account name and key in the placeholders below.
     
-	```python
-	# Create the BlockBlockService that is used to call the Blob service for the storage account
-	block_blob_service = BlockBlobService(account_name='#your account name', account_key='#your account key', endpoint_suffix="core.usgovcloudapi.net") 
-	container_name ='ml-gov-demo'
-	generator = block_blob_service.list_blobs(container_name)
-	for blob in generator:
-		print(blob.name)
-	```
+    ```python
+    # Create the BlockBlockService that is used to call the Blob service for the storage account
+    block_blob_service = BlockBlobService(account_name='#your account name', account_key='#your account key', endpoint_suffix="core.usgovcloudapi.net") 
+    container_name ='ml-gov-demo'
+    generator = block_blob_service.list_blobs(container_name)
+    for blob in generator:
+        print(blob.name)
+    ```
 
 #### PHP
 1. Download the [Azure Storage SDK for PHP](../php-download-sdk.md).
@@ -188,32 +188,32 @@ These endpoint differences must be taken into account when you connect to storag
    In the `connectionString` variable you will notice that there is a `TableEndpoint` parameter. 
    Depending on which service you are using, you must define the parameter and set it to the endpoint for that service:
    
-	- BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
-	- QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
-	- TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-	>[!Note]
-	> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
-	> **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
-	>
-	
-	```php
-	<?php
-	require_once "vendor/autoload.php";
-	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;	
-	$connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
+   - BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
+   - QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
+   - TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
+     >[!Note]
+     > You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
+     > **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
+     >
+    
+     ```php
+     <?php
+     require_once "vendor/autoload.php";
+     use WindowsAzure\Common\ServicesBuilder;
+     use MicrosoftAzure\Storage\Common\ServiceException; 
+     $connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
 
-	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	try {
-	// Create table.
-	$tableRestProxy->createTable("test");
-	}
-	catch(ServiceException $e){
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	}
-	?>
-	```
+     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+     try {
+     // Create table.
+     $tableRestProxy->createTable("test");
+     }
+     catch(ServiceException $e){
+     $code = $e->getCode();
+     $error_message = $e->getMessage();
+     }
+     ?>
+     ```
 
 ## Next steps
 * Read more about [Azure Storage](https://docs.microsoft.com/azure/storage/). 

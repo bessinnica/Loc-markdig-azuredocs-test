@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Bing Entity Search API with Ruby 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Ruby.
+
+This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Ruby.
 
 ## Prerequisites
 

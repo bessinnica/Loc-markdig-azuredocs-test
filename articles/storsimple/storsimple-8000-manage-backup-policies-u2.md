@@ -72,13 +72,11 @@ You can add or modify a schedule that is attached to an existing backup policy o
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 
-
 ## Add or remove a volume
 
 You can add or remove a volume assigned to a backup policy on your StorSimple device. Perform the following steps in the Azure portal to add or remove a volume.
 
 [!INCLUDE [storsimple-8000-add-volume-backup-policy-u2](../../includes/storsimple-8000-add-remove-volume-backup-policy-u2.md)]
-
 
 ## Delete a backup policy
 

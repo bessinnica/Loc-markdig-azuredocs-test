@@ -99,6 +99,7 @@ In this section, you create a Node.js console app that creates a device identity
 
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
+
 7. Save and close **CreateDeviceIdentity.js** file.
 
 8. To run the `createdeviceidentity` application, execute the following command at the command prompt in the `createdeviceidentity` folder:
@@ -113,6 +114,7 @@ In this section, you create a Node.js console app that creates a device identity
 > The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. For more information, see the [IoT Hub developer guide][lnk-devguide-identity].
 
 <a id="D2C_node"></a>
+
 ## Receive device-to-cloud messages
 
 In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information that is applicable to the IoT Hub Event Hub-compatible endpoints.

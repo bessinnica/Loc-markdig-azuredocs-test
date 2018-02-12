@@ -39,7 +39,7 @@ When you use Azure AD authentication with Azure Media Services, you have two aut
 1. In the [Azure portal](https://portal.azure.com/), select your Media Services account.
 2. Select how to connect to the Media Services API.
 
-	![Select connection method page](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started01.png)
+    ![Select connection method page](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started01.png)
 
 ## User authentication
 

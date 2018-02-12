@@ -22,11 +22,11 @@ ms.author: LADocs; jehollan
 A workflow definition contains the actual logic that executes as a part of your logic app. 
 This definition includes one or more triggers that start the logic app, 
 and one or more actions for the logic app to take.  
-  
+
 ## Basic workflow definition structure
 
 Here is the basic structure of a workflow definition:  
-  
+
 ```json
 {
     "$schema": "<schema-of the-definition>",
@@ -37,11 +37,11 @@ Here is the basic structure of a workflow definition:
     "outputs": { <output-of-definition> }
 }
 ```
-  
+
 > [!NOTE]
 > The [Workflow Management REST API](https://docs.microsoft.com/rest/api/logic/workflows) 
 > documentation has information on how to create and manage logic app workflows.
-  
+
 |Element name|Required|Description|  
 |------------------|--------------|-----------------|  
 |$schema|No|Specifies the location for the JSON schema file that describes the version of the definition language. This location is required when you reference a definition externally. Here is the location for this document: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
@@ -50,12 +50,12 @@ Here is the basic structure of a workflow definition:
 |triggers|No|Specifies information for the triggers that initiate the workflow. A maximum of 10 triggers can be defined.|  
 |actions|No|Specifies actions that are taken as the flow executes. A maximum of 250 actions can be defined.|  
 |outputs|No|Specifies information about the deployed resource. A maximum of 10 outputs can be defined.|  
-  
+
 ## Parameters
 
 This section specifies all the parameters that are used in the workflow definition at deployment time. 
 All parameters must be declared in this section before they can be used in other sections of the definition.  
-  
+
 The following example shows the structure of a parameter definition:  
 
 ```json
@@ -75,9 +75,9 @@ The following example shows the structure of a parameter definition:
 |defaultValue|No|Specifies the default value for the parameter when no value is specified at the time the resource is created.|  
 |allowedValues|No|Specifies an array of allowed values for the parameter.|  
 |metadata|No|Specifies additional information about the parameter, such as a readable description or design-time data used by Visual Studio or other tools.|  
-  
+
 This example shows how you can use a parameter in the body section of an action:  
-  
+
 ```json
 "body" :
 {
@@ -86,12 +86,12 @@ This example shows how you can use a parameter in the body section of an action:
 ```
 
  Parameters can also be used in outputs.  
-  
+
 ## Triggers and actions  
 
 Triggers and actions specify the calls that can participate in workflow execution. 
 For details about this section, see [Workflow Actions and Triggers](logic-apps-workflow-actions-triggers.md).
-  
+
 ## Outputs  
 
 Outputs specify information that can be returned from a workflow run. 
@@ -101,7 +101,7 @@ and in the management UI for that run in the Azure portal.
 You can also flow these outputs to other external systems like PowerBI for creating dashboards. 
 Outputs are *not* used to respond to incoming requests on the Service REST API. 
 To respond to an incoming request using the `response` action type, here's an example:
-  
+
 ```json
 "outputs": {  
   "key1": {  
@@ -116,19 +116,19 @@ To respond to an incoming request using the `response` action type, here's an ex
 |key1|Yes|Specifies the key identifier for the output. Replace **key1** with a name that you want to use to identify the output.|  
 |value|Yes|Specifies the value of the output.|  
 |type|Yes|Specifies the type for the value that was specified. Possible types of values are: <ul><li>`string`</li><li>`securestring`</li><li>`int`</li><li>`bool`</li><li>`array`</li><li>`object`</li></ul>|
-  
+
 ## Expressions  
 
 JSON values in the definition can be literal, 
 or they can be expressions that are evaluated when the definition is used. 
 For example:  
-  
+
 ```json
 "name": "value"
 ```
 
  or  
-  
+
 ```json
 "name": "@parameters('password') "
 ```
@@ -137,62 +137,64 @@ For example:
 > Some expressions get their values from runtime actions 
 > that might not exist at the beginning of the execution. 
 > You can use **functions** to help retrieve some of these values.  
-  
+
 Expressions can appear anywhere in a JSON string value and always result in another JSON value. 
 When a JSON value has been determined to be an expression, 
 the body of the expression is extracted by removing the at-sign (@). If a literal string is needed that starts with @, 
 that string must be escaped by using @@. The following examples show how expressions are evaluated.  
-  
+
 |JSON value|Result|  
 |----------------|------------|  
 |"parameters"|The characters 'parameters' are returned.|  
 |"parameters[1]"|The characters 'parameters[1]' are returned.|  
 |"@@"|A 1 character string that contains '@' is returned.|  
 |" @"|A 2 character string that contains ' @' is returned.|  
-  
+
 With *string interpolation*, expressions can also appear inside strings where expressions are wrapped in `@{ ... }`. 
 For example: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 The result is always a string, which makes this feature similar to the `concat` function. 
 Suppose you defined `myNumber` as `42` and `myString` as `sampleString`:  
-  
-|JSON value|Result|  
-|----------------|------------|  
-|"@parameters('myString')"|Returns `sampleString` as a string.|  
-|"@{parameters('myString')}"|Returns `sampleString` as a string.|  
-|"@parameters('myNumber')"|Returns `42` as a *number*.|  
-|"@{parameters('myNumber')}"|Returns `42` as a *string*.|  
-|"Answer is: @{parameters('myNumber')}"|Returns the string `Answer is: 42`.|  
-|"@concat('Answer is: ', string(parameters('myNumber')))"|Returns the string `Answer is: 42`|  
-|"Answer is: @@{parameters('myNumber')}"|Returns the string `Answer is: @{parameters('myNumber')}`.|  
-  
+
+
+|                        JSON value                        |                           Result                           |
+|----------------------------------------------------------|------------------------------------------------------------|
+|               "@"parameters("'myString')"                |            Returns `sampleString` as a string.             |
+|               "@{parameters('myString')}"                |            Returns `sampleString` as a string.             |
+|                "@parameters('myNumber')"                 |             Returns `42` as a <em>number</em>.             |
+|               "@{parameters('myNumber')}"                |             Returns `42` as a <em>string</em>.             |
+|          "Answer is: @{parameters('myNumber')}"          |            Returns the string `Answer is: 42`.             |
+| "@concat('Answer is: ', string(parameters('myNumber')))" |             Returns the string `Answer is: 42`             |
+|         "Answer is: @@{parameters('myNumber')}"          | Returns the string `Answer is: @{parameters('myNumber')}`. |
+
 ## Operators  
 
 Operators are the characters that you can use inside expressions or functions. 
-  
+
 |Operator|Description|  
 |--------------|-----------------|  
 |.|The dot operator allows you to reference properties of an object|  
 |?|The question mark operator lets you reference null properties of an object without a runtime error. For example, you can use this expression to handle null trigger outputs: <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
 |'|The single quotation mark is the only way to wrap string literals. You cannot use double-quotes inside expressions because this punctuation conflicts with the JSON quote that wraps the whole expression.|  
 |[]|The square brackets can be used to get a value from an array with a specific index. For example, if you have an action that passes `range(0,10)`in to the `forEach` function, you can use this function to get items out of arrays:  <p>`myArray[item()]`|  
-  
+
 ## Functions  
 
 You can also call functions within expressions. The following table shows the functions that can be used in an expression.  
-  
-|Expression|Evaluation|  
-|----------------|----------------|  
-|"@function('Hello')"|Calls the function member of the definition with the literal string Hello as the first parameter.|  
-|"@function('It''s Cool!')"|Calls the function member of the definition with the literal string 'It's Cool!' as the first parameter|  
-|"@function().prop1"|Returns the value of the prop1 property of the `myfunction` member of the definition.|  
-|"@function('Hello').prop1"|Calls the function member of the definition with the literal string 'Hello' as the first parameter and returns the prop1 property of the object.|  
-|"@function(parameters('Hello'))"|Evaluates the Hello parameter and passes the value to function|  
-  
+
+
+|            Expression            |                                                                    Evaluation                                                                    |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+|       "@function('Hello')"       |                        Calls the function member of the definition with the literal string Hello as the first parameter.                         |
+|    "@function('It''s Cool!')"    |                     Calls the function member of the definition with the literal string 'It's Cool!' as the first parameter                      |
+|       "@function().prop1"        |                              Returns the value of the prop1 property of the `myfunction` member of the definition.                               |
+|    "@function('Hello').prop1"    | Calls the function member of the definition with the literal string 'Hello' as the first parameter and returns the prop1 property of the object. |
+| "@function(parameters('Hello'))" |                                          Evaluates the Hello parameter and passes the value to function                                          |
+
 ### Referencing functions  
 
 You can use these functions to reference outputs from other actions in the logic app or values passed in when the logic app was created. For example, you can reference the data from one step to use it in another.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |parameters|Returns a parameter value that is defined in the definition. <p>`parameters('password')` <p> **Parameter number**: 1 <p> **Name**: Parameter <p> **Description**: Required. The name of the parameter whose values you want.|  
@@ -204,11 +206,11 @@ You can use these functions to reference outputs from other actions in the logic
 |triggerOutputs|This function is shorthand for `trigger().outputs`|  
 |triggerBody|This function is shorthand for `trigger().outputs.body`|  
 |item|When used inside a repeating action, this function returns the item that is in the array for this iteration of the action. For example, if you have an action that runs for each item an array of messages, you can use this syntax: <p>`"input1" : "@item().subject"`| 
-  
+
 ### Collection functions  
 
 These functions operate over collections and generally apply to Arrays, Strings, and sometimes Dictionaries.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |contains|Returns true if dictionary contains a key, list contains value, or string contains substring. For example, this function returns `true`: <p>`contains('abacaba','aca')` <p> **Parameter number**: 1 <p> **Name**: Within collection <p> **Description**: Required. The collection to search within. <p> **Parameter number**: 2 <p> **Name**: Find object <p> **Description**: Required. The object to find inside the **Within collection**.|  
@@ -221,11 +223,11 @@ These functions operate over collections and generally apply to Arrays, Strings,
 |take|Returns the first **Count** elements from the array or string passed in. For example, this function returns `[1, 2]`:  <p>`take([1, 2, 3, 4], 2)` <p> **Parameter number**: 1 <p> **Name**: Collection <p> **Description**: Required. The collection from where to take the first **Count** objects. <p> **Parameter number**: 2 <p> **Name**: Count <p> **Description**: Required. The number of objects to take from the **Collection**. Must be a positive integer.|  
 |skip|Returns the elements in the array starting at index **Count**. For example, this function returns `[3, 4]`: <p>`skip([1, 2 ,3 ,4], 2)` <p> **Parameter number**: 1 <p> **Name**: Collection <p> **Description**: Required. The collection to skip the first **Count** objects from. <p> **Parameter number**: 2 <p> **Name**: Count <p> **Description**: Required. The number of objects to remove from the front of **Collection**. Must be a positive integer.|  
 |join|Returns a string with each item of an array joined by a delimiter, for example this returns `"1,2,3,4"`:<br /><br /> `join([1, 2, 3, 4], ',')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Collection<br /><br /> **Description**: Required. The collection to join items from.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Delimiter<br /><br /> **Description**: Required. The string to delimit items with.|  
-  
+
 ### String functions
 
 The following functions only apply to strings. You can also use some collection functions on strings.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |concat|Combines any number of strings together. For example, if parameter 1 is `p1`, this function returns `somevalue-p1-somevalue`: <p>`concat('somevalue-',parameters('parameter1'),'-somevalue')` <p> **Parameter number**: 1 ... *n* <p> **Name**: String *n* <p> **Description**: Required. The strings to combine into a single string.|  
@@ -239,11 +241,11 @@ The following functions only apply to strings. You can also use some collection 
 |startswith|Checks if the string starts with a value case insensitively. For example, this function returns `true`: <p>`startswith('hello, world', 'hello')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value the string may start with.|  
 |endswith|Checks if the string ends with a value case insensitively. For example, this function returns `true`: <p>`endswith('hello, world', 'world')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value the string may end with.|  
 |split|Splits the string using a separator. For example, this function returns `["a", "b", "c"]`: <p>`split('a;b;c',';')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that is split. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The separator.|  
-  
+
 ### Logical functions  
 
 These functions are useful inside conditions and can be used to evaluate any type of logic.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |equals|Returns true if two values are equal. For example, if parameter1 is someValue, this function returns `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Parameter number**: 1 <p> **Name**: Object 1 <p> **Description**: Required. The object to compare to **Object 2**. <p> **Parameter number**: 2 <p> **Name**: Object 2 <p> **Description**: Required. The object to compare to **Object 1**.|  
@@ -255,25 +257,25 @@ These functions are useful inside conditions and can be used to evaluate any typ
 |or|Returns true if either parameter is true. Both arguments need to be Booleans. For example, this function returns `true`: <p>`or(greater(1,10),equals(0,0))` <p> **Parameter number**: 1 <p> **Name**: Boolean 1 <p> **Description**: Required. The first argument that may be `true`. <p> **Parameter number**: 2 <p> **Name**: Boolean 2 <p> **Description**: Required. The second argument may be `true`.|  
 |not|Returns true if the parameters are `false`. Both arguments need to be Booleans. For example, this function returns `true`: <p>`not(contains('200 Success','Fail'))` <p> **Parameter number**: 1 <p> **Name**: Boolean <p> **Description**: Returns true if the parameters are `false`. Both arguments need to be Booleans. This function returns `true`:  `not(contains('200 Success','Fail'))`|  
 |if|Returns a specified value based on whether the expression resulted in `true` or `false`.  For example, this function returns `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Parameter number**: 1 <p> **Name**: Expression <p> **Description**: Required. A boolean value that determines which value the expression should return. <p> **Parameter number**: 2 <p> **Name**: True <p> **Description**: Required. The value to return if the expression is `true`. <p> **Parameter number**: 3 <p> **Name**: False <p> **Description**: Required. The value to return if the expression is `false`.|  
-  
+
 ### Conversion functions  
 
 These functions are used to convert between each of the native types in the language:  
-  
+
 - string  
-  
+
 - integer  
-  
+
 - float  
-  
+
 - boolean  
-  
+
 - arrays  
-  
+
 - dictionaries  
 
 -   forms  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |int|Convert the parameter to an integer. For example, this function returns 100 as a number, rather than a string: <p>`int('100')` <p> **Parameter number**: 1 <p> **Name**: Value <p> **Description**: Required. The value that is converted to an integer.|  
@@ -306,9 +308,9 @@ These functions are used to convert between each of the native types in the lang
 |multipartBody|Returns the body for a part in a multipart output of an action.<br /><br />**Parameter number**: 1<br /><br />**Name**: Action Name<br /><br />**Description**: Required. The name of the action with a multipart response.<br /><br />**Parameter number**: 2<br /><br />**Name**: Index<br /><br />**Description**: Required. The index of the part to retrieve.|
 
 ### Manipulation functions
- 
+
 These functions apply to XML and objects.
- 
+
 |Function name|Description|  
 |-------------------|-----------------| 
 |coalesce|Returns the first non-null object in the arguments passed in. **Note**: An empty string is not null. For example, if parameters 1 and 2 are not defined, this function returns `fallback`:  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **Parameter number**: 1 ... *n* <p> **Name**: Object*n* <p> **Description**: Required. The objects to check for null.|
@@ -320,7 +322,7 @@ These functions apply to XML and objects.
 ### Math functions  
 
 These functions can be used for either types of numbers: **integers** and **floats**.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |add|Returns the result from adding the two numbers. For example, this function returns `20.333`: <p>`add(10,10.333)` <p> **Parameter number**: 1 <p> **Name**: Summand 1 <p> **Description**: Required. The number to add to **Summand 2**. <p> **Parameter number**: 2 <p> **Name**: Summand 2 <p> **Description**: Required. The number to add to **Summand 1**.|  
@@ -332,7 +334,7 @@ These functions can be used for either types of numbers: **integers** and **floa
 |max|There are two different patterns for calling this function. <p>Here `max` takes an array, and the function returns `2`: <p>`max([0,1,2])` <p>Alternatively, this function can take a comma-separated list of values and also returns `2`: <p>`max(0,1,2)` <p> **Note**: All values must be numbers, so if the parameter is an array, the array has to only have numbers. <p> **Parameter number**: 1 <p> **Name**: Collection or Value <p> **Description**: Required. Either an array of values to find the maximum value, or the first value of a set. <p> **Parameter number**: 2 ... *n* <p> **Name**: Value *n* <p> **Description**: Optional. If the first parameter is a Value, then you can pass additional values and the maximum of all passed values is returned.|  
 |range|Generates an array of integers starting from a certain number. You define the length of the returned array. <p>For example, this function returns `[3,4,5,6]`: <p>`range(3,4)` <p> **Parameter number**: 1 <p> **Name**: Start index <p> **Description**: Required. The first integer in the array. <p> **Parameter number**: 2 <p> **Name**: Count <p> **Description**: Required. This value is the number of integers that is in the array.|  
 |rand|Generates a random integer within the specified range (inclusive only on first end). For example, this function can return either `0` or '1': <p>`rand(0,2)` <p> **Parameter number**: 1 <p> **Name**: Minimum <p> **Description**: Required. The lowest integer that can be returned. <p> **Parameter number**: 2 <p> **Name**: Maximum <p> **Description**: Required. This value is the next integer after the highest integer that could be returned.|  
- 
+
 ### Date functions  
 
 |Function name|Description|  
@@ -350,11 +352,11 @@ These functions can be used for either types of numbers: **integers** and **floa
 |dayOfMonth|Returns the day of month component of a string timestamp. For example `15`:<br /><br /> `dayOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. This is a string that contains the time.| 
 |dayOfYear|Returns the day of year component of a string timestamp. For example `74`:<br /><br /> `dayOfYear('2017-03-15T13:27:36Z')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. This is a string that contains the time.| 
 |ticks|Returns the ticks property of a string timestamp. For example `1489603019`:<br /><br /> `ticks('2017-03-15T18:36:59Z')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. This is a string that contains the time.| 
-  
+
 ### Workflow functions  
 
 These functions help you get information about the workflow itself at run time.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |listCallbackUrl|Returns a string to call to invoke the trigger or action. <p> **Note**: This function can only be used in an **httpWebhook** and **apiConnectionWebhook**, not in a **manual**, **recurrence**, **http**, or **apiConnection**. <p>For example, the `listCallbackUrl()` function returns: <p>`https://prod-01.westus.logic.azure.com:443/workflows/1235...ABCD/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxx...xxx` |  

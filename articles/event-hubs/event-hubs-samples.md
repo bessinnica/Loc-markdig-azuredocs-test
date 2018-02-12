@@ -43,7 +43,7 @@ The [Get started sending](https://github.com/Azure/azure-event-hubs/tree/master/
 
 The [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) sample is a .NET Core console application that receives messages from an event hub using the Event Processor Host.
 
-## .NET Framework	
+## .NET Framework   
 
 These samples demonstrate various other features of Azure Event Hubs, targeting the [.NET Framework library](/dotnet/framework/index).
  

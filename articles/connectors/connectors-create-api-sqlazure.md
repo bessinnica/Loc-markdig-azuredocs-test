@@ -35,8 +35,6 @@ Before your logic app can access any service, you first create a *connection* to
 
 #### Create the connection
 > [!INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
-> 
-> 
 
 ## Use a trigger
 This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) provides an example.
@@ -45,18 +43,18 @@ This connector does not have any triggers. Use other triggers to start the logic
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
-   
+
     ![](./media/connectors-create-api-sqlazure/add-action.png)
 2. Choose **Add an action**.
 3. In the text box, type “sql” to get a list of all the available actions.
-   
+
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
 4. In our example, choose **SQL Server - Get row**. If a connection already exists, then select the **Table name** from the drop-down list, and enter the **Row ID** you want to return.
-   
+
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
-   
+
     If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-sqlazure.md#create-the-connection) in this topic describes these properties. 
-   
+
    > [!NOTE]
    > In this example, we return a row from a table. To see the data in this row, add another action that creates a file using the fields from the table. For example, add a OneDrive action that uses the FirstName and LastName fields to create a new file in the cloud storage account. 
    > 

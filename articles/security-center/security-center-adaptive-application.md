@@ -36,7 +36,7 @@ Adaptive application controls help you define a set of applications that are all
 1. Open the **Security Center** dashboard.
 2. In the left pane, select **Adaptive application controls** located under **Advanced cloud defense**.
 
-	![Defense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
+    ![Defense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
 The **Adaptive application controls** page appears.
 
@@ -51,26 +51,26 @@ The **Resource groups** section contains three tabs:
 ### Configure a new application control policy
 1. Click on the **Recommended** tab for a list of resource groups with application control recommendations:
 
-  ![Recommended](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Recommended](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  The list includes:
+   The list includes:
 
-  - **NAME**: the name of the subscription and resource group
-  - **VMs**: the number of virtual machines in the resource group
-  - **STATE**: the state of the recommendations, which in most cases will be open
-  - **SEVERITY**: the severity level of the recommendations
+   - **NAME**: the name of the subscription and resource group
+   - **VMs**: the number of virtual machines in the resource group
+   - **STATE**: the state of the recommendations, which in most cases will be open
+   - **SEVERITY**: the severity level of the recommendations
 
 2. Select a resource group to open the **Create application control rules** option.
 
-  ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply application control to. In the **Select processes for whitelisting rules**, review the list of recommended applications, and uncheck any you do not want to apply. The list includes:
 
-  - **NAME**: the full application path
-  - **PROCESSES**: how many applications reside within every path
-  - **COMMON**: "Yes" indicates that these processes have been executed on most VMs in this resource group.
-  - **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval.
-  - **USERS**: users allowed to run application
+   - **NAME**: the full application path
+   - **PROCESSES**: how many applications reside within every path
+   - **COMMON**: "Yes" indicates that these processes have been executed on most VMs in this resource group.
+   - **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval.
+   - **USERS**: users allowed to run application
 
 4. Once you finish your selections, select **Create**.
 
@@ -86,66 +86,66 @@ Security Center relies on a minimum of two weeks of data in order to create a ba
 
 1. To edit and monitor a group configured with application control, return to the **Adaptive application controls** page and select **CONFIGURED** under **Resource Groups**:
 
-  ![Resource groups](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![Resource groups](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  The list includes:
+   The list includes:
 
-  - **NAME**: the name of the subscription and resource group
-  - **VMs**: the number of virtual machines in the resource group
-  - **MODE**: Audit mode will log attempts to run non-whitelisted applications; Block will not allow non-whitelisted applications to run
-  - **ISSUES**: any current violations
+   - **NAME**: the name of the subscription and resource group
+   - **VMs**: the number of virtual machines in the resource group
+   - **MODE**: Audit mode will log attempts to run non-whitelisted applications; Block will not allow non-whitelisted applications to run
+   - **ISSUES**: any current violations
 
 2. Select a resource group to make changes in the **Edit application control policy** page.
 
-  ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. Under **Protection mode**, you have the option to select between the following:
 
-  - **Audit**: in this mode, the application control solution does not enforce the rules, and only audits the activity on the protected VMs. This is recommended for scenarios where you want to first observe the overall behavior before blocking an app to run in the target VM.
-  - **Enforce**: in this mode, the application control solution does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
+   - **Audit**: in this mode, the application control solution does not enforce the rules, and only audits the activity on the protected VMs. This is recommended for scenarios where you want to first observe the overall behavior before blocking an app to run in the target VM.
+   - **Enforce**: in this mode, the application control solution does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
 
-  As previously mentioned, by default a new application control policy is always configured in *Audit* mode. Under **Policy extension**, you can add your own application paths that you want to whitelist. Once you add these paths, Security Center creates the proper rules for these applications, in addition to the rules that are already in place.
+   As previously mentioned, by default a new application control policy is always configured in *Audit* mode. Under **Policy extension**, you can add your own application paths that you want to whitelist. Once you add these paths, Security Center creates the proper rules for these applications, in addition to the rules that are already in place.
 
-  In the **Recent Issues** section, any current violations are listed.
+   In the **Recent Issues** section, any current violations are listed.
 
-  ![Issues](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
+   ![Issues](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
 
-  This list includes:
-  - **ISSUES**: any violations that were logged, which can include the following:
+   This list includes:
+   - **ISSUES**: any violations that were logged, which can include the following:
 
-	  - **ViolationsBlocked**: when the solution is turned on Enforce mode, and an application that is not whitelisted tries to execute.
-	  - **ViolationsAudited**: when the solution is turned on Audit mode, and an application that is not whitelisted executes.
-	  - **RulesViolatedManually**: when a user tried to manually configure rules on the VMs and not via the ASC management portal.
+      - **ViolationsBlocked**: when the solution is turned on Enforce mode, and an application that is not whitelisted tries to execute.
+      - **ViolationsAudited**: when the solution is turned on Audit mode, and an application that is not whitelisted executes.
+      - **RulesViolatedManually**: when a user tried to manually configure rules on the VMs and not via the ASC management portal.
 
- - **NO. OF VMS**: the number of virtual machines with this issue type.
+   - **NO. OF VMS**: the number of virtual machines with this issue type.
 
-  If you click on each line, you are redirected to [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) page where you can see information about all VMs with this type of violation. If you click on the three dots at the end of each line, you are able to delete that particular entry. The **Configured virtual machines** section lists the VMs to which these rules apply.
+   If you click on each line, you are redirected to [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) page where you can see information about all VMs with this type of violation. If you click on the three dots at the end of each line, you are able to delete that particular entry. The **Configured virtual machines** section lists the VMs to which these rules apply.
 
-  ![Configured virtual machines](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
+   ![Configured virtual machines](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
 
-  Under **Publisher whitelisting rules**, the list contains:
+   Under **Publisher whitelisting rules**, the list contains:
 
-  - **RULE**: applications for which a publisher rule was created based on the certificate information that was found for each application
-  - **USERS**: number of users allowed to run each application
+   - **RULE**: applications for which a publisher rule was created based on the certificate information that was found for each application
+   - **USERS**: number of users allowed to run each application
 
-  See [Understanding Publisher Rules in Applocker](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker) for more information.
+   See [Understanding Publisher Rules in Applocker](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker) for more information.
 
-  ![Whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
+   ![Whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-  If you click on the three dots at the end of each line you are able to delete that specific rule or edit the allowed users.
+   If you click on the three dots at the end of each line you are able to delete that specific rule or edit the allowed users.
 
-  The **Path whitelisting rules** section, lists the entire application path (including the executable) for the applications that are not signed with a digital certificate, but are still current in the whitelisting rules.
+   The **Path whitelisting rules** section, lists the entire application path (including the executable) for the applications that are not signed with a digital certificate, but are still current in the whitelisting rules.
 
-  > [!NOTE]
-  > By default, as a security best practice, Security Center will always try to create a publisher rule for the EXEs that should be whitelisted, and only if an EXE doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
+   > [!NOTE]
+   > By default, as a security best practice, Security Center will always try to create a publisher rule for the EXEs that should be whitelisted, and only if an EXE doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
 
-  ![Path whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
+   ![Path whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
 
-  The list contains:
-  - **NAME**: the full patch of the executable
-  - **USERS**: number of users allowed to run each application
+   The list contains:
+   - **NAME**: the full patch of the executable
+   - **USERS**: number of users allowed to run each application
 
-  If you click on the three dots at the end of each line, you are able to delete that specific rule or edit the allowed users.
+   If you click on the three dots at the end of each line, you are able to delete that specific rule or edit the allowed users.
 
 4. After making changes on the **Adaptive application controls** page, click the **Save** button. If you decide to not apply the changes, click **Discard**.
 

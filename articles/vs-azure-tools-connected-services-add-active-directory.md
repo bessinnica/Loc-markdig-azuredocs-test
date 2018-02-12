@@ -38,7 +38,7 @@ By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO)
 
 1. On the **Single-Sign On** page of the **Configure Azure AD Authentication** wizard, select a domain from the **Domain** drop-down list. The list of domains contains all domains accessible by the accounts listed in the Account Settings dialog. As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as `mydomain.onmicrosoft.com`. You can choose the option to create an Azure Active Directory app or use the settings from an existing Azure Active Directory app. Select **Next** when done.
    
-	![Single-sign on page](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
+    ![Single-sign on page](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 
 1. On the **Directory Access** page of the **Configure Azure AD Authentication** wizard, ensure that the **Read directory data** option is checked. 
    

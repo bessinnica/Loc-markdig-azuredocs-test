@@ -74,22 +74,22 @@ You [configure an Azure Recovery Services vault to retain automated backups](sql
 
 11. On the **Recovery services vault** page, click the vault and then click **Select**.
 
-   ![select existing vault](./media/sql-database-get-started-backup-recovery/select-existing-vault.png)
+    ![select existing vault](./media/sql-database-get-started-backup-recovery/select-existing-vault.png)
 
 12. On the **Configure** page, provide a valid name for the new retention policy, modify the default retention policy as appropriate, and then click **OK**.
 
-   ![define retention policy](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+    ![define retention policy](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
    
-   >[!NOTE]
-   >Retention policy names don't allow some characters, including spaces.
+    >[!NOTE]
+    >Retention policy names don't allow some characters, including spaces.
 
 13. On the **Long-term backup retention** page for your database, click **Save** and then click **OK** to apply the long-term backup retention policy to all selected databases.
 
-   ![define retention policy](./media/sql-database-get-started-backup-recovery/save-retention-policy.png)
+    ![define retention policy](./media/sql-database-get-started-backup-recovery/save-retention-policy.png)
 
 14. Click **Save** to enable long-term backup retention using this new policy to the Azure Recovery Services vault that you configured.
 
-   ![define retention policy](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
+    ![define retention policy](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
 
 > [!IMPORTANT]
 > Once configured, backups show up in the vault within next seven days. Do not continue this tutorial until backups show up in the vault.

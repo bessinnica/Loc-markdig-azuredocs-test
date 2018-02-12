@@ -858,7 +858,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The virtual machines deployed by this blueprint run Windows operating systems. Windows has protections in place for preventing code execution in restricted memory locations: No Execute (NX), Address Space Layout Randomization (ASLR), and Data Execution Prevention (DEP). |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                                                                                                                                                                |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The virtual machines deployed by this blueprint run Windows operating systems. Windows has protections in place for preventing code execution in restricted memory locations: No Execute (NX), Address Space Layout Randomization (ASLR), and Data Execution Prevention (DEP). |
+| <strong>Provider (Microsoft Azure)</strong> |                                                                                                                                 Not Applicable                                                                                                                                 |
+

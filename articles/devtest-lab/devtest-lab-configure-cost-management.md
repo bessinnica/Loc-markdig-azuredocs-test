@@ -58,15 +58,15 @@ Additionally, the following are *not* included in the cost calculation:
 DevTest Labs lets you better manage the costs in  your lab by setting a spending target that you can then view in the Monthly Estimated Cost Trend chart. DevTest Labs can also send you a notification when the specified target spending or threshold is reached. 
 
 1. On your lab's **Overview** pane, select **Configuration and policies**.
-1. On the left under **COST TRACKING**, select **Cost trend**.
+2. On the left under **COST TRACKING**, select **Cost trend**.
 
     ![Manage target button](./media/devtest-lab-configure-cost-management/cost-trend.png)
 
-1. In the **Cost trend** pane, select **Manage target**.
+3. In the **Cost trend** pane, select **Manage target**.
 
     ![Manage target button](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
 
-1. In the Manage target pane, specify your desired spending target and thresholds. You can also set whether each selected threshold is reported on the cost trend chart or through a webhook notification.
+4. In the Manage target pane, specify your desired spending target and thresholds. You can also set whether each selected threshold is reported on the cost trend chart or through a webhook notification.
 
     ![Manage target pane](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
@@ -83,11 +83,11 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
 
        ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
-      - If you specify **Notify**, you must define a webhook URL.
-      - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.
-      - You must create a webhook prior to entering it here.  
+     - If you specify **Notify**, you must define a webhook URL.
+     - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.
+     - You must create a webhook prior to entering it here.  
 
-      For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
  
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

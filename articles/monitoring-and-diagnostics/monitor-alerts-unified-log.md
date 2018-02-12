@@ -23,7 +23,7 @@ This article provides details of how alert rules in Analytics queries work in Az
 Currently Azure Alerts (Preview), supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-
+> 
 > Currently, log alerts in Azure Alerts (Preview) doesn't support cross-workspace or cross-app queries.
 
 ## Log Alert rules
@@ -70,14 +70,14 @@ In some cases, you may want to create an alert in the absence of an event.  For 
 **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval.
 
 > [!NOTE]
-
+> 
 > Aggregate function in query must be named/called: AggregatedValue and provide a numeric value.
 
 
 **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**   
 
 > [!NOTE]
-
+> 
 > For Metric measurement alert rules that are based on Application Insights, you can specify the field for grouping the data. To do this, use the **Aggregate on** option in the rule definition.   
 
 **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time window specified for the alert.
@@ -87,11 +87,16 @@ In some cases, you may want to create an alert in the absence of an event.  For 
 #### Example
 Consider a scenario where you wanted an alert if any computer exceeded processor utilization of 90% three times over 30 minutes.  You would create an alert rule with the following details:  
 
-**Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
-**Time window:** 30 minutes<br>
-**Alert frequency:** five minutes<br>
-**Aggregate value:** Great than 90<br>
-**Trigger alert based on:** Total breaches Greater than 5<br>
+<strong>Query:</strong> Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
+
+<strong>Time window:</strong> 30 minutes<br>
+
+<strong>Alert frequency:</strong> five minutes<br>
+
+<strong>Aggregate value:</strong> Great than 90<br>
+
+<strong>Trigger alert based on:</strong> Total breaches Greater than 5<br>
+
 
 The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
 

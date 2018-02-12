@@ -106,7 +106,8 @@ Permission is granted if an end user has access either at the directory or servi
 ### Allow users or groups access to Azure AD Connect Health
 The following steps show how to allow access.
 #### Step 1: Select the appropriate access scope
-To allow a user access at the *all service instances* level within Azure AD Connect Health, open the main blade in Azure AD Connect Health.<br>
+To allow a user access at the <em>all service instances</em> level within Azure AD Connect Health, open the main blade in Azure AD Connect Health.<br>
+
 
 #### Step 2: Add users and groups, and assign roles
 1. From the **Configure** section, click **Users**.<br>

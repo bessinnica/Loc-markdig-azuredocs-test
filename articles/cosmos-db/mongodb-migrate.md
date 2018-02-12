@@ -119,24 +119,24 @@ Example:
 
 5. Calculate the approximate *batchSize* and *numInsertionWorkers* values:
 
-    * For *batchSize*, divide the total provisioned RUs by the RUs consumed from your single document write in step 3.
+   * For *batchSize*, divide the total provisioned RUs by the RUs consumed from your single document write in step 3.
     
-    * If the calculated *batchSize* <= 24, use that number as your *batchSize* value.
+   * If the calculated *batchSize* <= 24, use that number as your *batchSize* value.
     
-    * If the calculated *batchSize* > 24, set the *batchSize* value to 24.
+   * If the calculated *batchSize* > 24, set the *batchSize* value to 24.
     
-    * For *numInsertionWorkers*, use this equation:
-        *numInsertionWorkers =  (provisioned throughput * latency in seconds) / (batch size * consumed RUs for a single write)*.
+   * For *numInsertionWorkers*, use this equation:
+       *numInsertionWorkers =  (provisioned throughput * latency in seconds) / (batch size * consumed RUs for a single write)*.
         
-    |Property|Value|
-    |--------|-----|
-    |batchSize| 24 |
-    |RUs provisioned | 10000 |
-    |Latency | 0.100 s |
-    |RU charged for 1 doc write | 10 RUs |
-    |numInsertionWorkers | ? |
+     |Property|Value|
+     |--------|-----|
+     |batchSize| 24 |
+     |RUs provisioned | 10000 |
+     |Latency | 0.100 s |
+     |RU charged for 1 doc write | 10 RUs |
+     |numInsertionWorkers | ? |
     
-    *numInsertionWorkers = (10000 RUs x 0.1 s) / (24 x 10 RUs) = 4.1666*
+     *numInsertionWorkers = (10000 RUs x 0.1 s) / (24 x 10 RUs) = 4.1666*
 
 6. Run the final migration command:
 

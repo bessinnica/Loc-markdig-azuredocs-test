@@ -50,16 +50,16 @@ To enable MFA, the users must be in Azure Active Directory (Synced from on-premi
 1. On the NPS server, [install the NPS extension for Azure MFA](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
 2. Open NSP console, right-click **RADUIS Clients**, select **New**. Create a RADUIS client with the following settings:
 
-    - **Friendly Name**: type any name.
-    - **Address (IP or DNS)**: type the gateway subnet you created in the step 1.
-    - **Shared secret**: type any secret and remember it. We will use it later.
+   - **Friendly Name**: type any name.
+   - **Address (IP or DNS)**: type the gateway subnet you created in the step 1.
+   - **Shared secret**: type any secret and remember it. We will use it later.
 
-    ![The image about RADUIS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+     ![The image about RADUIS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
-3.  In the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **additional options** are not selected.
+3. In the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **additional options** are not selected.
 
-    ![The image about RADUIS client Advanced settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+   ![The image about RADUIS client Advanced settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. Go to **Policies** > **Network Policies**, double-click **Connections to Microsoft Routing and Remote Access server** policy, select **Grant access**, and then click **OK**.
 
@@ -69,11 +69,11 @@ To enable MFA, the users must be in Azure Active Directory (Synced from on-premi
 2. Open the virtual network gateway you created, make sure that the gateway type is **VPN** and the VPN type is **route-based**.
 3. Click **Point to site configuration** > **Configure now**, and then add the following settings:
 
-    - **Address pool**: type the gateway subnet you created in the step 1.
-    - **Authentication type**: select **RADIUS authentication**.
-    - **Server IP address**: type the IP address of the NPS server.
+   - **Address pool**: type the gateway subnet you created in the step 1.
+   - **Authentication type**: select **RADIUS authentication**.
+   - **Server IP address**: type the IP address of the NPS server.
 
-    ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+     ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## Next steps
 

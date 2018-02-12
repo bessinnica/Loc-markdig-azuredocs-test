@@ -8,7 +8,7 @@ manager: mtillman
 editor: billmath
 
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory  
+ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -63,10 +63,10 @@ After you've confirmed the information about AD FS farm servers, Azure AD Connec
 
 After you provide the certificate, Azure AD Connect goes through a series of prerequisites. Verify the certificate to ensure that the certificate is correct for the AD FS farm:
 
--	The subject name/alternate subject name for the certificate is either the same as the federation service name, or it's a wildcard certificate.
--	The certificate is valid for more than 30 days.
--	The certificate trust chain is valid.
--	The certificate is password protected.
+-   The subject name/alternate subject name for the certificate is either the same as the federation service name, or it's a wildcard certificate.
+-   The certificate is valid for more than 30 days.
+-   The certificate trust chain is valid.
+-   The certificate is password protected.
 
 ## Step 3: Select servers for the update
 

@@ -98,7 +98,7 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
-In the command output, the **RegistrationState** should set to **Registered**. If not, just re-run the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet shown above.
+   In the command output, the **RegistrationState** should set to **Registered**. If not, just re-run the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet shown above.
 
 The following tasks can be automated with PowerShell:
 
@@ -365,12 +365,12 @@ After you have restored the disks, use these steps to create and configure the v
 
 1. Query the restored disk properties for the job details.
 
-  ```
-  PS C:\> $properties = $details.properties
-  PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
-  PS C:\> $containerName = $properties["Config Blob Container Name"]
-  PS C:\> $blobName = $properties["Config Blob Name"]
-  ```
+   ```
+   PS C:\> $properties = $details.properties
+   PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
+   PS C:\> $containerName = $properties["Config Blob Container Name"]
+   PS C:\> $blobName = $properties["Config Blob Name"]
+   ```
 
 2. Set the Azure storage context and restore the JSON configuration file.
 

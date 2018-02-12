@@ -46,10 +46,10 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 
 1. Launch Notepad. Copy the following text, and save it as an **emp.txt** file on your disk:
 
-	```
+    ```
     John,Doe
     Jane,Doe
-	```
+    ```
 
 2. Create a container named **adftutorial** in your Blob storage. Create a folder named **input** in this container. Then, upload the **emp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](http://storageexplorer.com/) to do these tasks.
 
@@ -105,7 +105,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 9. Select **Create**. 
 10. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
 
-	![Deploying data factory tile](media/tutorial-copy-data-portal/deploying-data-factory.png)
+    ![Deploying data factory tile](media/tutorial-copy-data-portal/deploying-data-factory.png)
 11. After the creation is finished, you see the **Data factory** page as shown in the image.
    
     ![Data factory home page](./media/tutorial-copy-data-portal/data-factory-home-page.png)

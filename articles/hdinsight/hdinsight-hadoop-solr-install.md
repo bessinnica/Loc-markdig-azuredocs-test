@@ -54,7 +54,7 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
         <tr><td>Name</td>
             <td>Specify a name for the script action. For example, <b>Install Solr</b>.</td></tr>
         <tr><td>Script URI</td>
-            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
+            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i><a href="https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1" data-raw-source="https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1">https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</a></i></td></tr>
         <tr><td>Node Type</td>
             <td>Specify the nodes on which the customization script is run. You can choose <b>All nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
         <tr><td>Parameters</td>
@@ -156,7 +156,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
              </lst>
              <str name="status">OK</str>
            </response>
-   2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
+   2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be <strong>C:\apps\dist\solr-4.7.2\example\solr\collection1\data</strong>. At this location, you should see a snapshot folder created with a name similar to <strong>snapshot.*timestamp</strong>*.
    3. Zip the snapshot folder and upload it to Azure Blob storage. From the Hadoop command line, navigate to the location of the snapshot folder by using the following command:
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data

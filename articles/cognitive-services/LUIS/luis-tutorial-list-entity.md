@@ -19,9 +19,9 @@ This tutorial demonstrates the use of a [list entity](luis-concept-entity-types.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Create a list entity 
-* Add normalized values and synonyms
-* Validate improved entity identification
+> * Create a list entity 
+> * Add normalized values and synonyms
+> * Validate improved entity identification
 
 ## Prerequisites
 
@@ -115,7 +115,6 @@ The output of the run is the status of each iteration of the training of the LUI
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
   { modelId: '8e16a660-8781-4abf-bf3d-f296ebe1bf2d',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } } ]
-
 ```
 ## Publish the model
 Publish so the list entity is available from the endpoint.

@@ -25,6 +25,7 @@ This topic is the home for **Azure AD Connect sync** (also called **sync engine*
 The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**.
 
 ## Azure AD Connect sync topics
+
 | Topic | What it covers and when to read |
 | --- | --- |
 | **Azure AD Connect sync fundamentals** | |

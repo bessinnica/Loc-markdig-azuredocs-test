@@ -42,7 +42,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![Link to download the trusted root CA certificates](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
 
-  If you don't see the vSphere Web Client login page, check your browser's proxy settings.
+   If you don't see the vSphere Web Client login page, check your browser's proxy settings.
 
 2. Click **Download trusted root CA certificates**.
 
@@ -57,7 +57,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 4. Right-click **download.zip**, and then select **Extract All** to extract the contents.
 
     The .zip file extracts its contents to a folder named **certs**. Two types of files appear in the certs folder. The root certificate file has an extension that begins with a numbered sequence like .0 and .1.
-    
+
     The CRL file has an extension that begins with a sequence like .r0 or .r1. The CRL file is associated with a certificate.
 
     ![Download file extracted locally ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
@@ -102,9 +102,9 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
 11. Sign in to the vCenter Server to confirm that your connection is secure.
 
-  If the certificate import is not successful, and you cannot establish a secure connection, consult the VMware vSphere documentation on [obtaining server certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
+    If the certificate import is not successful, and you cannot establish a secure connection, consult the VMware vSphere documentation on [obtaining server certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
 
-  If you have secure boundaries within your organization, and don't want to turn on the HTTPS protocol, use the following procedure to disable the secure communications.
+    If you have secure boundaries within your organization, and don't want to turn on the HTTPS protocol, use the following procedure to disable the secure communications.
 
 ### Disable secure communication protocol
 
@@ -112,11 +112,11 @@ If your organization doesn't require the HTTPS protocol, use the following steps
 
 1. Copy and paste the following text into a .txt file.
 
-  ```
-  Windows Registry Editor Version 5.00
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-  "IgnoreCertificateValidation"=dword:00000001
-  ```
+   ```
+   Windows Registry Editor Version 5.00
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+   "IgnoreCertificateValidation"=dword:00000001
+   ```
 
 2. Save the file to your Azure Backup Server computer. For the file name, use DisableSecureAuthentication.reg.
 
@@ -147,33 +147,35 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
 4. Select the privileges for the appropriate version of vCenter, and then click **OK**. The following table identifies the required privileges for vCenter 6.0 and vCenter 5.5.
 
-  When you select the privileges, click the icon next to the parent label to expand the parent and view the child privileges. To select the VirtualMachine privileges, you need to go several levels into the parent child hierarchy. You don't need to select all child privileges within a parent privilege.
+   When you select the privileges, click the icon next to the parent label to expand the parent and view the child privileges. To select the VirtualMachine privileges, you need to go several levels into the parent child hierarchy. You don't need to select all child privileges within a parent privilege.
 
-  ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+   ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
-  After you click **OK**, the new role appears in the list on the Roles panel.
+   After you click **OK**, the new role appears in the list on the Roles panel.
 
-|Privileges for vCenter 6.0| Privileges for vCenter 5.5|
-|--------------------------|---------------------------|
-|Datastore.AllocateSpace   | Datastore.AllocateSpace|
-|Global.ManageCustomFields | Global.ManageCustomerFields|
-|Global.SetCustomFields    |   |
-|Host.Local.CreateVM       | Network.Assign |
-|Network.Assign            |  |
-|Resource.AssignVMToPool   |  |
-|VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk   |
-|VirtualMachine.Config.AdvanceConfig| VirtualMachine.Config.AdvancedConfig|
-|VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking |
-|VirtualMachine.Config.HostUSBDevice||
-|VirtualMachine.Config.QueryUnownedFiles|    |
-|VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement |
-|VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff |
-|VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create |
-|VirtualMachine.Provisioning.DiskRandomAccess| |
-|VirtualMachine.Provisioning.DiskRandomRead|VirtualMachine.Provisioning.DiskRandomRead |
-|VirtualMachine.State.CreateSnapshot| VirtualMachine.State.CreateSnapshot|
-|VirtualMachine.State.RemoveSnapshot|VirtualMachine.State.RemoveSnapshot |
+|          Privileges for vCenter 6.0          |         Privileges for vCenter 5.5         |
+|----------------------------------------------|--------------------------------------------|
+|           Datastore.AllocateSpace            |          Datastore.AllocateSpace           |
+|          Global.ManageCustomFields           |        Global.ManageCustomerFields         |
+|            Global.SetCustomFields            |                                            |
+|             Host.Local.CreateVM              |               Network.Assign               |
+|                Network.Assign                |                                            |
+|           Resource.AssignVMToPool            |                                            |
+|       VirtualMachine.Config.AddNewDisk       |      VirtualMachine.Config.AddNewDisk      |
+|     VirtualMachine.Config.AdvanceConfig      |    VirtualMachine.Config.AdvancedConfig    |
+|     VirtualMachine.Config.ChangeTracking     |    VirtualMachine.Config.ChangeTracking    |
+|     VirtualMachine.Config.HostUSBDevice      |                                            |
+|   VirtualMachine.Config.QueryUnownedFiles    |                                            |
+|     VirtualMachine.Config.SwapPlacement      |    VirtualMachine.Config.SwapPlacement     |
+|       VirtualMachine.Interact.PowerOff       |      VirtualMachine.Interact.PowerOff      |
+|       VirtualMachine.Inventory.Create        |      VirtualMachine.Inventory.Create       |
+| VirtualMachine.Provisioning.DiskRandomAccess |                                            |
+|  VirtualMachine.Provisioning.DiskRandomRead  | VirtualMachine.Provisioning.DiskRandomRead |
+|     VirtualMachine.State.CreateSnapshot      |    VirtualMachine.State.CreateSnapshot     |
+|     VirtualMachine.State.RemoveSnapshot      |    VirtualMachine.State.RemoveSnapshot     |
+
 </br>
+
 
 
 
@@ -223,7 +225,7 @@ After the role with privileges is set up, create a user account. The user accoun
 
     ![Assign user to role](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
 
-  On the **Manage** tab in the **Global Permissions** panel, the new user account and the associated role appear in the list.
+   On the **Manage** tab in the **Global Permissions** panel, the new user account and the associated role appear in the list.
 
 
 ## Establish vCenter Server credentials on Azure Backup Server
@@ -251,7 +253,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for A
     ![Azure Backup Server Add Credential dialog box](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the **Manage Credentials** dialog box.
-    
+
     ![Azure Backup Server Manage Credentials dialog box](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. To close the **Manage Credentials** dialog box, click the **X** in the upper-right corner.
@@ -291,11 +293,11 @@ To open Production Server Addition Wizard, complete the following procedure:
 
     ![Add VMware server to Azure Backup Server](./media/backup-azure-backup-server-vmware/tasks-screen.png)
 
-  The VMware server backup is an agentless backup, and the new server is added immediately. The **Finish** page shows you the results.
+   The VMware server backup is an agentless backup, and the new server is added immediately. The **Finish** page shows you the results.
 
-  ![Finish page](./media/backup-azure-backup-server-vmware/summary-screen.png)
+   ![Finish page](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
-  To add multiple instances of vCenter Server to Azure Backup Server, repeat the previous steps in this section.
+   To add multiple instances of vCenter Server to Azure Backup Server, repeat the previous steps in this section.
 
 After you add the vCenter Server to Azure Backup Server, the next step is to create a protection group. The protection group specifies the various details for short or long-term retention, and it is where you define and apply the backup policy. The backup policy is the schedule for when backups occur, and what is backed up.
 
@@ -334,15 +336,15 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
 6. On the **Review Disk Allocation** page, review and if necessary, modify the disk space for the VMs. The recommended disk allocations are based on the retention range that is specified in the **Specify Short-Term Goals** page, the type of workload, and the size of the protected data (identified in step 3).  
 
-  - **Data size:** Size of the data in the protection group.
-  - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
-  - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
-  - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, System Center Data Protection Manager tries to increase the disk size by 25 percent.
-  - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
+   - **Data size:** Size of the data in the protection group.
+   - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
+   - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
+   - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, System Center Data Protection Manager tries to increase the disk size by 25 percent.
+   - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
-    ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+     ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
-    When you are satisfied with the space allocation, click **Next**.
+     When you are satisfied with the space allocation, click **Next**.
 
 7. On the **Choose Replica Creation Method** page, specify how you want to generate the initial copy, or replica, of the protected data on Azure Backup Server.
 

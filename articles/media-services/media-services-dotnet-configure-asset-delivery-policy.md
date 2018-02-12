@@ -64,15 +64,15 @@ The following **ConfigureClearAssetDeliveryPolicy** method specifies to not appl
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
-	static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
-	{
-		IAssetDeliveryPolicy policy =
-		_context.AssetDeliveryPolicies.Create("Clear Policy",
-		AssetDeliveryPolicyType.NoDynamicEncryption,
-		AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-		
-		asset.DeliveryPolicies.Add(policy);
-	}
+    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
+    {
+        IAssetDeliveryPolicy policy =
+        _context.AssetDeliveryPolicies.Create("Clear Policy",
+        AssetDeliveryPolicyType.NoDynamicEncryption,
+        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+        
+        asset.DeliveryPolicies.Add(policy);
+    }
 
 ## DynamicCommonEncryption asset delivery policy
 
@@ -80,29 +80,29 @@ The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPo
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
-	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-	{
-		Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-		
-		Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-	            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-	        {
-	            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-	        };
-	
-	        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-	                "AssetDeliveryPolicy",
-	            AssetDeliveryPolicyType.DynamicCommonEncryption,
-	            AssetDeliveryProtocol.SmoothStreaming,
-	            assetDeliveryPolicyConfiguration);
-	
-	        // Add AssetDelivery Policy to the asset
-	        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-	
-	        Console.WriteLine();
-	        Console.WriteLine("Adding Asset Delivery Policy: " +
-	            assetDeliveryPolicy.AssetDeliveryPolicyType);
-	 }
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    {
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+            {
+                {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+            };
+    
+            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                    "AssetDeliveryPolicy",
+                AssetDeliveryPolicyType.DynamicCommonEncryption,
+                AssetDeliveryProtocol.SmoothStreaming,
+                assetDeliveryPolicyConfiguration);
+    
+            // Add AssetDelivery Policy to the asset
+            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+    
+            Console.WriteLine();
+            Console.WriteLine("Adding Asset Delivery Policy: " +
+                assetDeliveryPolicy.AssetDeliveryPolicyType);
+     }
 
 Azure Media Services also enables you to add Widevine encryption. The following example demonstrates both PlayReady and Widevine being added to the asset delivery policy.
 

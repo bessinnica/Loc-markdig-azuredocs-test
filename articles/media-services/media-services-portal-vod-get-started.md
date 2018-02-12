@@ -56,17 +56,17 @@ To stream videos by using Media Services, you upload the source videos, encode t
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. Select **Settings** > **Assets**. Then, select the **Upload** button.
-   
+
     ![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
-   
+
     The **Upload a video asset** window appears.
-   
+
    > [!NOTE]
    > Media Services doesn't limit the file size for uploading videos.
    > 
    > 
 3. On your computer, go to the video that you want to upload. Select the video, and then select **OK**.  
-   
+
     The upload begins. You can see the progress under the file name.  
 
 When the upload is finished, the new asset is listed in the **Assets** pane. 
@@ -81,9 +81,9 @@ To encode your content by using Media Encoder Standard in the Azure portal:
 2. Select **Settings** > **Assets**. Select the asset that you want to encode.
 3. Select the **Encode** button.
 4. In the **Encode an asset** pane, select the **Media Encoder Standard** processor and a preset. For information about presets, see [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) and [Task presets for Media Encoder Standard](media-services-mes-presets-overview.md). It's important to choose the preset that will work best for your input video. For example, if you know your input video has a resolution of 1920 &#215; 1080 pixels, you might choose the **H264 Multiple Bitrate 1080p** preset. If you have a low-resolution (640 &#215; 360) video, you shouldn't use the **H264 Multiple Bitrate 1080p** preset.
-   
+
    To help you manage your resources, you can edit the name of the output asset and the name of the job.
-   
+
    ![Encode assets](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Select **Create**.
 
@@ -130,7 +130,7 @@ To update an expiration date on a locator, you can use a [REST API](https://docs
 3. Select the **Publish** button.
 4. Select the locator type.
 5. Select **Add**.
-   
+
     ![Publish the video](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
 The URL is added to the list of **Published URLs**.
@@ -153,3 +153,4 @@ Some considerations apply:
 
 ## Next steps
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+

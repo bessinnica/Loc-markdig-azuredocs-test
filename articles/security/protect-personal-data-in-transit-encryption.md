@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protect personal data in transit with encryption in Azure | Microsoft Docs
 description: Using encryption in Azure to protect personal data
 services: security
@@ -20,7 +20,7 @@ ms.custom:
 ---
 # Azure encryption technologies: Protect personal data in transit with encryption
 
-This article will help you understand and use Azure encryption technologies to secure data in transit. 
+This article will help you understand and use Azure encryption technologies to secure data in transit. 
 
 Protecting the privacy of personal data as it travels across the network is an essential part of a multi-layered defense-in-depth security strategy. Encryption in transit is designed to prevent an attacker who intercepts transmissions from being able to view or use the data.
 
@@ -135,7 +135,7 @@ A site-to-site VPN connects multiple users on the corporate network to Azure. To
 
 8. Verify the VPN connection.
 
-For more detailed instructions on how to create a site-to-site connection in the Azure portal, see [Create a Site-to-Site  connection in the Azure Portal.] (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+For more detailed instructions on how to create a site-to-site connection in the Azure portal, see [Create a Site-to-Site  connection in the Azure Portal.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
 #### How do I create a point-to-site VPN connection?
 
@@ -177,7 +177,7 @@ Microsoft uses encryption to protect data in transit between customers and Azure
 
 [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) is also employed so that each connection between customers’ client systems and Microsoft’s cloud services use unique keys. Connections to Microsoft cloud services also take advantage of RSA based 2,048-bit encryption key lengths. The combination of TLS, RSA 2,048-bit key lengths, and PFS makes it much  more difficult for someone to intercept and access data that is in transit between Microsoft cloud services and customers.
 
-Data in transit is always encrypted in [Data Lake Store] (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). In addition to encrypting data prior to storing to persistent media, the data is also always secured in transit by using HTTPS. HTTPS is the only protocol that
+Data in transit is always encrypted in [Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). In addition to encrypting data prior to storing to persistent media, the data is also always secured in transit by using HTTPS. HTTPS is the only protocol that
 is supported for the Data Lake Store REST interfaces.
 
 ## Summary

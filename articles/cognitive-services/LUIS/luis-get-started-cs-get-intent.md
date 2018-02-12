@@ -42,7 +42,7 @@ You can use C# to access the same results you saw in the browser window in the p
 1. Create a new console application in Visual Studio. Copy the code that follows and save it into an .cs file:
     
    [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/csharp/Program.cs)]
-1. Replace the value of the `subscriptionKey` variable with your LUIS subscription key.
+2. Replace the value of the `subscriptionKey` variable with your LUIS subscription key.
 
 3. In the Visual Studio project, add a reference to **System.Web**.
 

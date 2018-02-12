@@ -78,22 +78,22 @@ Add the following output plugin configuration to the main configuration in `/etc
 ### Restart OMS Agent for Linux
 Restart the OMS Agent for Linux service with the following command.
 
-	sudo /opt/microsoft/omsagent/bin/service_control restart 
+    sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## Output
 The data will be collected in Log Analytics with a record type of `<FLUENTD_TAG>_CL`.
 
 For example, the custom tag `tag oms.api.tomcat` in Log Analytics with a record type of `tomcat_CL`.  You could retrieve all records of this type with the following log search.
 
-	Type=tomcat_CL
+    Type=tomcat_CL
 
 Nested JSON data sources are supported, but are indexed based off of parent field. For example, the following JSON data is returned from a Log Analytics search as `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
     "tag": [{
-    	"a":"1",
-    	"b":"2"
+        "a":"1",
+        "b":"2"
     }]
 }
 ```

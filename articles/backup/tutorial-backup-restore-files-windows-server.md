@@ -68,7 +68,7 @@ A helpful user interface wizard named Microsoft Azure Backup is installed with t
 
     ![Backup pending](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.	Click **Yes** to confirm that you want to unmount the volume.
+4.  Click **Yes** to confirm that you want to unmount the volume.
 
     Once the snapshot is unmounted, **Job Completed** appears in the **Jobs** pane in the agent console.
 

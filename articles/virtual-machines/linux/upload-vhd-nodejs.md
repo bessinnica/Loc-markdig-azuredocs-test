@@ -108,6 +108,7 @@ In the following examples, replace example parameter names with your own values.
 
 <a id="prepimage"> </a>
 
+
 ## Prepare the image to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
 
@@ -163,7 +164,6 @@ data:    ----  -----------------------------------------------------------------
 data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
-
 ```
 Make a note of `key1` as you will use it to interact with your storage account in the next steps.
 

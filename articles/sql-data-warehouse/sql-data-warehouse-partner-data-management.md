@@ -22,6 +22,7 @@ ms.author: kevin;barbkess
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with data management tools and solutions supporting Azure SQL Data Warehouse.
 
 ## Our data management partners
+
 | Partner | Description | Links | Videos |
 | --- | --- | --- | --- |
 | ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing provides Nexus Chameleon, a tool with 10 years of design dedicated to querying systems. Nexus is available as a query tool for SQL Data Warehouse. Use Nexus to query in-house and cloud computers and join data across different platforms. Point-Click-Report! |[Marketplace][coffing_marketplace]<br>[Website][coffing_website]<br>[Press Release][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![coffing video](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |

@@ -218,26 +218,26 @@ In this section, you:
     }
     ```
  
-9.  Add the following method to simulate waiting to download the firmware image. Update status to **waiting** and clear other firmware update properties on the twin. These properties are cleared to remove any existing values from prior firmware updates. This is necessary because reported properties are sent as a PATCH operation (a delta) and not a PUT operation (a complete set of properties that replaces all of the previous values). Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. 
+9. Add the following method to simulate waiting to download the firmware image. Update status to **waiting** and clear other firmware update properties on the twin. These properties are cleared to remove any existing values from prior firmware updates. This is necessary because reported properties are sent as a PATCH operation (a delta) and not a PUT operation (a complete set of properties that replaces all of the previous values). Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. 
         
-    ```csharp   
-    static async Task waitToDownload(Twin twin, string fwUpdateUri)
-    {
-        var now = DateTime.Now;
-        TwinCollection status = new TwinCollection();
-        status["fwPackageUri"] = fwUpdateUri;
-        status["status"] = "waiting";
-        status["error"] = null;
-        status["startedWaitingTime"] = DateTime.Now;
-        status["downloadCompleteTime"] = null;
-        status["startedApplyingImage"] = null;
-        status["lastFirmwareUpdate"] = null;
+   ```csharp   
+   static async Task waitToDownload(Twin twin, string fwUpdateUri)
+   {
+       var now = DateTime.Now;
+       TwinCollection status = new TwinCollection();
+       status["fwPackageUri"] = fwUpdateUri;
+       status["status"] = "waiting";
+       status["error"] = null;
+       status["startedWaitingTime"] = DateTime.Now;
+       status["downloadCompleteTime"] = null;
+       status["startedApplyingImage"] = null;
+       status["lastFirmwareUpdate"] = null;
 
-        await reportFwUpdateThroughTwin(twin, status);
+       await reportFwUpdateThroughTwin(twin, status);
 
-        await Task.Delay(2000);
-    }
-    ```
+       await Task.Delay(2000);
+   }
+   ```
 
 10. Add the following method to perform the download. It updates the status to **downloading** through the device twin, calls the simulate download method, and reports a status of **downloadComplete** or **downloadFailed** through the twin depending on the results of the download operation. 
         
@@ -337,10 +337,10 @@ In this section, you:
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
     ```
-> [!NOTE]
-> This method triggers the simulated update to run as a **Task** and then immediately responds to the method call, informing the service that the firmware update has been started. Update status and completion will be sent to the service through the reported properties of the device twin. We respond to the method call when starting the update, rather than after its completion, because:
-> * A real update process is very likely to take longer than the method call timeout.
-> * A real update process is very likely to require a reboot, which would re-launch this app making the **MetodRequest** object unavailable. (Updating reported properties, however, is possible even after a reboot.) 
+    > [!NOTE]
+    > This method triggers the simulated update to run as a **Task** and then immediately responds to the method call, informing the service that the firmware update has been started. Update status and completion will be sent to the service through the reported properties of the device twin. We respond to the method call when starting the update, rather than after its completion, because:
+    > * A real update process is very likely to take longer than the method call timeout.
+    > * A real update process is very likely to require a reboot, which would re-launch this app making the **MetodRequest** object unavailable. (Updating reported properties, however, is possible even after a reboot.) 
 
 14. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    

@@ -31,7 +31,6 @@ To create Logic apps with ProjectOnline, you must first create a **connection** 
 | Token |Yes |Provide ProjectOnline Credentials |
 
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
-> 
 
 ## Connector-specific details
 

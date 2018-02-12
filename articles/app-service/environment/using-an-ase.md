@@ -48,7 +48,7 @@ To create a web app in an ASE:
 
 2. Enter a name for the web app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE.
 
-	![Web app name selection][1]
+    ![Web app name selection][1]
 
 3. Select a subscription.
 
@@ -56,17 +56,17 @@ To create a web app in an ASE:
 
 5. Select an existing App Service plan in your ASE, or create a new one by following these steps:
 
-	a. Select **Create New**.
+    a. Select **Create New**.
 
-	b. Enter the name for your App Service plan.
+    b. Enter the name for your App Service plan.
 
-	c. Select your ASE in the **Location** drop-down list.
+    c. Select your ASE in the **Location** drop-down list.
 
-	d. Select an **Isolated** pricing tier. Select **Select**.
+    d. Select an **Isolated** pricing tier. Select **Select**.
 
-	e. Select **OK**.
-	
-	![Isolated pricing tiers][2]
+    e. Select **OK**.
+    
+    ![Isolated pricing tiers][2]
 
 6. Select **Create**.
 
@@ -148,7 +148,7 @@ To delete an ASE:
 
 2. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you delete all of the content within it as well. 
 
-	![ASE deletion][3]
+    ![ASE deletion][3]
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

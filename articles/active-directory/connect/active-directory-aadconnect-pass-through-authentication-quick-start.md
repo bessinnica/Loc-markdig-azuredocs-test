@@ -48,29 +48,29 @@ Ensure that the following prerequisites are in place.
 4. If there is a firewall between your servers and Azure AD, configure the following items:
    - Ensure that Authentication Agents can make *outbound* requests to Azure AD over the following ports:
    
-    | Port number | How it's used |
-    | --- | --- |
-    | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
-    | **443** | Handles all outbound communication with the service |
+     | Port number | How it's used |
+     | --- | --- |
+     | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
+     | **443** | Handles all outbound communication with the service |
    
-    If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
+     If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration. Open your firewall for those URLs as well.
-   - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www.microsoft.com:80**. These URLs are used for certificate validation with other Microsoft products. You might already have these URLs unblocked.
+   - For certificate validation, unblock the following URLs: <strong>mscrl.microsoft.com:80</strong>, <strong>crl.microsoft.com:80</strong>, <strong>ocsp.msocsp.com:80</strong>, and <strong>www.microsoft.com:80</strong>. These URLs are used for certificate validation with other Microsoft products. You might already have these URLs unblocked.
 
 ## Step 2: Enable Exchange ActiveSync support (optional)
 
 Follow these instructions to enable Exchange ActiveSync support:
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
-```
-Get-OrganizationConfig | fl per*
-```
+   ```
+   Get-OrganizationConfig | fl per*
+   ```
 
 2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is properly configured. This is generally the case for most customers. If the value is **false**, run the following command:
-```
-Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
-```
+   ```
+   Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
+   ```
 
 3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**. Wait an hour before moving on to the next step.
 

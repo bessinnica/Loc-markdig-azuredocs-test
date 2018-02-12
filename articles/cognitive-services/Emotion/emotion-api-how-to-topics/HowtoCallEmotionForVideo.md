@@ -41,7 +41,7 @@ When using a client library, the subscription key is passed in through the const
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-To obtain a subscription key, see [Subscriptions] (https://azure.microsoft.com/en-us/try/cognitive-services/). 
+To obtain a subscription key, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). 
 
 ### <a name="Step2">Step 2: Upload a video to the service and check the status</a>
 The most basic way to perform any of the Emotion API for Video calls is by uploading a video directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from a video file. The maximum size of the video is 100MB.
@@ -65,7 +65,6 @@ Using the client library, stabilization by means of an URL can easily be execute
 ```
 var videoUrl = "http://www.example.com/sample.mp4";
 Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUrl, OperationType. recognizeInVideo);
-
 ```
 
 This upload method will be the same for all the Emotion API for Video calls. 
@@ -77,7 +76,6 @@ Using the client library, you can retrieve the operation status and result using
 
 ```
 var operationResult = await videoServiceClient.GetOperationResultAsync(videoOperation);
-
 ```
 Typically, the client side should periodically retrieve the operation status until the status is shown as “Succeeded” or “Failed”.
 
@@ -93,7 +91,6 @@ while (true)
 
       Task.Delay(30000).Wait();
 }
-
 ```
 
 When the status of VideoOperationResult is shown as “Succeeded” the result can be retrieved by casting the VideoOperationResult to a VideoOperationInfoResult<VideoAggregateRecognitionResult> and accessing the ProcessingResult field.
@@ -110,24 +107,24 @@ As explained in Step 2, the JSON output is available in the ProcessingResult fie
 
 The face detection and tracking JSON includes the following attributes:
 
-Attribute |	Description
+Attribute | Description
 -------------|-------------
-Version	| Refers to the version of the Emotion API for Video JSON.
-Timescale |	“Ticks” per second of the video.
-Offset	|The time offset for timestamps. In version 1.0 of Emotion API for Videos, this will always be 0. In future supported scenarios, this value may change.
-Framerate |	Frames per second of the video.
-Fragments	| The metadata is cut up into different smaller pieces called fragments. Each fragment contains a start, duration, interval number, and event(s).
-Start	| The start time of the first event, in ticks.
-Duration |	The length of the fragment, in ticks.
-Interval |	The length of each event within the fragment, in ticks.
-Events	| An array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time.
-windowFaceDistribution |	Percent faces to have a particular emotion during the event.
-windowMeanScores |	Mean scores for each emotion of the faces in the image.
+Version | Refers to the version of the Emotion API for Video JSON.
+Timescale | “Ticks” per second of the video.
+Offset  |The time offset for timestamps. In version 1.0 of Emotion API for Videos, this will always be 0. In future supported scenarios, this value may change.
+Framerate | Frames per second of the video.
+Fragments   | The metadata is cut up into different smaller pieces called fragments. Each fragment contains a start, duration, interval number, and event(s).
+Start   | The start time of the first event, in ticks.
+Duration |  The length of the fragment, in ticks.
+Interval |  The length of each event within the fragment, in ticks.
+Events  | An array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time.
+windowFaceDistribution |    Percent faces to have a particular emotion during the event.
+windowMeanScores |  Mean scores for each emotion of the faces in the image.
 
 The reason for formatting the JSON this way is to set up the APIs for future scenarios, where it will be important to retrieve metadata quickly and manage a large stream of results. This formatting is using both the techniques of fragmentation (allowing you to break up the metadata in time-based portions, where you can download only what you need), and segmentation (allowing you to break up the events if they get too large). Some simple calculations can help you transform the data. For example, if an event started at 6300 (ticks), with a timescale of 2997 (ticks/sec) and a framerate of 29.97 (frames/sec), then:
 
-*	Start/Timescale = 2.1 seconds
-*	Seconds x (Framerate/Timescale) = 63 frames
+*   Start/Timescale = 2.1 seconds
+*   Seconds x (Framerate/Timescale) = 63 frames
 
 Below is a simple example of extracting the JSON into a per frame format for face detection and tracking:
 

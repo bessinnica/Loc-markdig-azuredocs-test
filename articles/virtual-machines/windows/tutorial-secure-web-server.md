@@ -1,4 +1,3 @@
-
 ---
 title: Secure IIS with SSL certificates in Azure | Microsoft Docs
 description: Learn how to secure the IIS web server with SSL certificates on a Windows VM in Azure 
@@ -47,7 +46,7 @@ $location = "East US"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Next, create a Key Vault with [New-​Azure​Rm​Key​Vault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `<mykeyvault>` in the following example with your own unique Key Vault name:
+Next, create a Key Vault with [New- Azure Rm Key Vault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `<mykeyvault>` in the following example with your own unique Key Vault name:
 
 ```powershell
 $keyvaultName="<mykeyvault>"
@@ -58,7 +57,7 @@ New-AzureRmKeyVault -VaultName $keyvaultName `
 ```
 
 ## Generate a certificate and store in Key Vault
-For production use, you should import a valid certificate signed by trusted provider with [Import-​Azure​Key​Vault​Certificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) that uses the default certificate policy from [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
+For production use, you should import a valid certificate signed by trusted provider with [Import- Azure Key Vault Certificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) that uses the default certificate policy from [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
 
 ```powershell
 $policy = New-AzureKeyVaultCertificatePolicy `

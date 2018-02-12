@@ -165,10 +165,10 @@ Every time that a user clicks on a document, that's a signal that must be logged
 *JavaScript*
 
     appInsights.TrackEvent("Click", {
-    	SearchServiceName: <service name>,
-    	SearchId: <search id>,
-    	ClickedDocId: <clicked document id>,
-    	Rank: <clicked document position>
+        SearchServiceName: <service name>,
+        SearchId: <search id>,
+        ClickedDocId: <clicked document id>,
+        Rank: <clicked document position>
     });
 
 ### 3. Analyze with Power BI Desktop
@@ -182,11 +182,11 @@ To instantiate the Power BI desktop template, you need three pieces of informati
 
 Metrics included in the Power BI desktop template:
 
-*	Click through Rate (CTR): ratio of users who click on a specific document to the number of total searches.
-*	Searches without clicks: terms for top queries that register no clicks
-*	Most clicked documents: most clicked documents by ID in the last 24 hours, 7 days, and 30 days.
-*	Popular term-document pairs: terms that result in the same document clicked, ordered by clicks.
-*	Time to click: clicks bucketed by time since the search query
+*   Click through Rate (CTR): ratio of users who click on a specific document to the number of total searches.
+*   Searches without clicks: terms for top queries that register no clicks
+*   Most clicked documents: most clicked documents by ID in the last 24 hours, 7 days, and 30 days.
+*   Popular term-document pairs: terms that result in the same document clicked, ordered by clicks.
+*   Time to click: clicks bucketed by time since the search query
 
 ![Power BI template for reading from Application Insights][3]
 

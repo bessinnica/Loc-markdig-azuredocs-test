@@ -6,6 +6,7 @@ This article requires the Azure CLI version 2.0.4 or later. Run `az --version` t
 For more detailed help with specific command line switches and options, you can use the online command help and options by typing `az <command> <subcommand> --help`.
 
 ### Create VMs
+
 | Task | Azure CLI commands |
 | --- | --- |
 | Create a resource group | `az group create --name myResourceGroup --location eastus` |
@@ -13,6 +14,7 @@ For more detailed help with specific command line switches and options, you can 
 | Create a Windows VM | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### Manage VM state
+
 | Task | Azure CLI commands |
 | --- | --- |
 | Start a VM | `az vm start --resource-group myResourceGroup --name myVM` |
@@ -23,6 +25,7 @@ For more detailed help with specific command line switches and options, you can 
 | Delete a VM | `az vm delete --resource-group myResourceGroup --name myVM` |
 
 ### Get VM info
+
 | Task | Azure CLI commands |
 | --- | --- |
 | List VMs | `az vm list` |
@@ -31,6 +34,7 @@ For more detailed help with specific command line switches and options, you can 
 | Get all available VM sizes | `az vm list-sizes --location eastus` |
 
 ## Disks and images
+
 | Task | Azure CLI commands |
 | --- | --- |
 | Add a data disk to a VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |

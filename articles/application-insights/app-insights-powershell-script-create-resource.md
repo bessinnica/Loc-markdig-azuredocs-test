@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell script to create an Application Insights resource | Microsoft Docs
 description: Automate creation of Application Insights resources.
 services: application-insights
@@ -92,7 +92,6 @@ New-AzureRmRoleAssignment `
 # Display iKey
 Write-Host "App Insights Name = " $resource.Name
 Write-Host "IKey = " $resource.Properties.InstrumentationKey
-
 ```
 
 ## What to do with the iKey

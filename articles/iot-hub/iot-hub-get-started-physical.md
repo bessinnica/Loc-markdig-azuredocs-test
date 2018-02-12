@@ -32,7 +32,6 @@ These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorial
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
-
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
 [Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md

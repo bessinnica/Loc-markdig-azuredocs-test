@@ -24,7 +24,7 @@ In Azure Media Services (AMS), a **Channel** represents a pipeline for processin
 
 * An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 * An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
-  
+
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
   > 
@@ -86,25 +86,25 @@ The following are general steps involved in creating common live streaming appli
 > 
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). 
-   
+
     This step could also be performed after you create your Channel.
 2. Create and start a Channel. 
 3. Retrieve the Channel ingest URL. 
-   
+
     The ingest URL is used by the live encoder to send the stream to the Channel.
 4. Retrieve the Channel preview URL. 
-   
+
     Use this URL to verify that your channel is properly receiving the live stream.
 5. Create a program. 
-   
+
     When using the Azure portal, creating a program also creates an asset. 
-   
+
     When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 6. Publish the asset associated with the program.   
-   
+
     >[!NOTE]
-	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
-	
+    >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
+
 7. Start the program when you are ready to start streaming and archiving.
 8. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 9. Stop the program whenever you want to stop streaming and archiving the event.
@@ -135,29 +135,29 @@ Considerations:
 * The video stream should have an average bitrate below 15 Mbps
 * The aggregate average bitrate of the audio streams should be below 1 Mbps
 * Following are the supported codecs:
-  
+
   * MPEG-2 / H.262 Video 
-    
+
     * Main Profile (4:2:0)
     * High Profile (4:2:0, 4:2:2)
     * 422 Profile (4:2:0, 4:2:2)
   * MPEG-4 AVC / H.264 Video  
-    
+
     * Baseline, Main, High Profile (8-bit 4:2:0)
     * High 10 Profile (10-bit 4:2:0)
     * High 422 Profile (10-bit 4:2:2)
   * MPEG-2 AAC-LC Audio 
-    
+
     * Mono, Stereo, Surround (5.1, 7.1)
     * MPEG-2 style ADTS packaging
   * Dolby Digital (AC-3) Audio 
-    
+
     * Mono, Stereo, Surround (5.1, 7.1)
   * MPEG Audio (Layer II and III) 
-    
+
     * Mono, Stereo
 * Recommended broadcast encoders include:
-  
+
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
   * Elemental Live
@@ -265,6 +265,7 @@ Note that if you need custom presets, you should contact  amslived@microsoft.com
 **Default720p** will encode the video into the following 7 layers.
 
 #### Output Video Stream
+
 | BitRate | Width | Height | MaxFPS | Profile | Output Stream Name |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |High |Video_1280x720_3500kbps |
@@ -408,7 +409,7 @@ Review Media Services learning paths.
 [Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Media Services Concepts](media-services-concepts.md)
 
 [Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)

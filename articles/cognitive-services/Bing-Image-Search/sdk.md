@@ -14,10 +14,10 @@ ms.author: v-gedod
 ---
 # Bing Search SDK preview
 The Bing Image Search API samples include senarios that:
-1.	Query for a simple image.
-2.	Search restricting to specific image types and aspect ratios, showing image filtering capabilities.
-3.	Search for images trending on various social networks at the moment.
-4.	Query for rich details of an image, such as the source of the image, representative query text, etc.
+1.  Query for a simple image.
+2.  Search restricting to specific image types and aspect ratios, showing image filtering capabilities.
+3.  Search for images trending on various social networks at the moment.
+4.  Query for rich details of an image, such as the source of the image, representative query text, etc.
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

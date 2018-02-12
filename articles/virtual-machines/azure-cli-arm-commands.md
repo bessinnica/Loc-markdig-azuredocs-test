@@ -966,7 +966,9 @@ Parameter options:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    network lb address-pool delete [options] <resource-group> <lb-name> <name>
+    network lb address-pool delete 
+[options] <resource-group> <lb-name> <name>
+
 
 Removes the backend IP pool range resource from load balancer.
 
@@ -1290,6 +1292,7 @@ Parameter options:
     -s, --subscription <subscription>            the subscription identifier
 <br>
 
+
     network public-ip set [options] <resource-group> <name>
 Updates the properties of an existing public ip resource. In the following example we changed the public IP address from Dynamic to Static.
 
@@ -1352,7 +1355,9 @@ Parameter options:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    network public-ip show [options] <resource-group> <name>
+    network public-ip show 
+[options] <resource-group> <name>
+
 
 Displays public ip properties for a public ip resource within a resource group.
 

@@ -1,9 +1,9 @@
 1. Sign in to the [Azure portal][lnk-portal].
-1. Select **New** > **Internet of Things** > **IoT Hub**.
+2. Select **New** > **Internet of Things** > **IoT Hub**.
    
     ![Azure portal Jumpbar][1]
 
-1. In the **IoT hub** pane, enter the following information for your IoT hub:
+3. In the **IoT hub** pane, enter the following information for your IoT hub:
 
    * **Name**: Create a name for your IoT hub. If the name you enter is valid, a green check mark appears.
 
@@ -17,10 +17,10 @@
 
    * **Pin to dashboard**: Check this option for easy access to your IoT hub from the dashboard.
 
-    ![IoT hub window][2]
+     ![IoT hub window][2]
 
-1. Click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
-<!-- Images -->
+4. Click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
+   <!-- Images -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
 <!-- Links -->

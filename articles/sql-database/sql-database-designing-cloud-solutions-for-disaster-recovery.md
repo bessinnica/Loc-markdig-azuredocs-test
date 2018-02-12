@@ -26,12 +26,12 @@ When building and deploying highly available services on Azure SQL Database, you
 
 ## Scenario 1: Using two Azure regions for business continuity with minimal downtime
 In this scenario, the applications have the following characteristics: 
-*	Application is active in one Azure region
-*	All database sessions require read and write access (RW) to data
-*	Web tier and data tier must be collocated to reduce latency and traffic cost 
-*	Fundamentally, downtime is a higher business risk for these applications than data loss
+*   Application is active in one Azure region
+*   All database sessions require read and write access (RW) to data
+*   Web tier and data tier must be collocated to reduce latency and traffic cost 
+*   Fundamentally, downtime is a higher business risk for these applications than data loss
 
-In this case, the application deployment topology is optimized for handling regional disasters when all application components need to failover together. The diagram below shows this topology. For geographic redundancy, the application’s resources are deployed to Region A and B. However, the resources in Region B are not utilized until Region A fails. A failover group is configured between the two regions to manage database connectivity, replication and failover. The web service in both regions is configured to access the database via the read-write listener **&lt;failover-group-name&gt;.database.windows.net** (1). Traffic manager is set up to use [priority routing method](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+In this case, the application deployment topology is optimized for handling regional disasters when all application components need to failover together. The diagram below shows this topology. For geographic redundancy, the application’s resources are deployed to Region A and B. However, the resources in Region B are not utilized until Region A fails. A failover group is configured between the two regions to manage database connectivity, replication and failover. The web service in both regions is configured to access the database via the read-write listener **&lt;failover-group-name&gt;.database.windows.net** (1). Traffic manager is set up to use [priority routing method](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) is used throughout this article for illustration purposes only. You can use any load-balancing solution that supports priority routing method.    

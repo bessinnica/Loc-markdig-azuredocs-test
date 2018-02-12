@@ -75,7 +75,6 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –Point
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
 > [!NOTE]

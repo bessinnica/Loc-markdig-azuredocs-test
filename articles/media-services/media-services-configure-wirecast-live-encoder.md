@@ -44,11 +44,11 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 ## Create a channel
 1. In the AMSE tool, navigate to the **Live** tab, and right-click within the channel area. Select **Create channel…** from the menu.
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is.
 
-	Make sure the **Start the new channel now** is selected.
+    Make sure the **Start the new channel now** is selected.
 
 3. Click **Create Channel**.
 
@@ -106,7 +106,7 @@ In this tutorial, the following output settings are used. The rest of this secti
    * Profile: Main
    * Key frame every: 60 frames
 
-    **Audio**
+     **Audio**
 
    * Target bit rate: 192 kbits/sec
    * Sample Rate: 44.100 kHz
@@ -129,10 +129,10 @@ In this tutorial, the following output settings are used. The rest of this secti
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-1. Select **OK**.
-2. On the main **Wirecast** screen, confirm input sources for video and audio are ready and then hit **Stream** in the top left-hand corner.
+9. Select **OK**.
+10. On the main **Wirecast** screen, confirm input sources for video and audio are ready and then hit **Stream** in the top left-hand corner.
 
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Before you click **Stream**, you **must** ensure that the Channel is ready.
@@ -160,7 +160,7 @@ If an error is received, the channel needs to be reset and encoder settings adju
 
    >[!NOTE]
    >Program creation takes less time than channel creation.
-       
+
 5. Once the program is running, confirm playback by right-clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
 6. Once confirmed, right-click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu).
 
@@ -174,3 +174,4 @@ See the [troubleshooting](media-services-troubleshooting-live-streaming.md) arti
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

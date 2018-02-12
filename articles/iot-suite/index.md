@@ -69,12 +69,12 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
             </div>
         </div>
         </a>
-    </li>    
-</ul>
+    </li><br/></ul>
 
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -92,5 +92,6 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </div>
     </li>
 </ul>
+
 
 

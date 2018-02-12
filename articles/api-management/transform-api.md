@@ -72,11 +72,11 @@ To see the original response:
 7. Select **Code editor**.
     
      ![Edit policy](./media/set-edit-policies/set-edit-policies01.png)
-9. Position the cursor inside the **<outbound>** element.
-10. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
+8. Position the cursor inside the <strong><outbound></strong> element.
+9. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
 
-    ![Policies](./media/transform-api/transform-api.png)
-11. Modify your **<outbound>** code to look like this:
+   ![Policies](./media/transform-api/transform-api.png)
+10. Modify your <strong><outbound></strong> code to look like this:
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -108,9 +108,9 @@ To see the original response:
 5. On the top of the screen, select **Design** tab.
 6. In the **Outbound processing** window, click the triangle (next to the pencil).
 7. Select **Code editor**.
-8. Position the cursor inside the **<outbound>** element.
+8. Position the cursor inside the <strong><outbound></strong> element.
 9. In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
-10. Modify your **<find-and-replace** code (in the **<outbound>** element) to replace the URL to match your APIM gateway. For example:
+10. Modify your <strong><find-and-replace</strong> code (in the <strong><outbound></strong> element) to replace the URL to match your APIM gateway. For example:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -125,9 +125,9 @@ This section shows how to add protection for your backend API by configuring rat
 5. On the top of the screen, select **Design** tab.
 6. In the **Inbound processing** window, click the triangle (next to the pencil).
 7. Select **Code editor**.
-8. Position the cursor inside the **<inbound>** element.
+8. Position the cursor inside the <strong><inbound></strong> element.
 9. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
-10. Modify your **<rate-limit-by-key** code (in the **<inbound>** element) to the following code:
+10. Modify your <strong><rate-limit-by-key</strong> code (in the <strong><inbound></strong> element) to the following code:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -135,24 +135,24 @@ This section shows how to add protection for your backend API by configuring rat
         
 At this point your polices code looks like this:
 
-	<policies>
-	    <inbound>
-	        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
-	        <base />
-	    </inbound>
-	    <backend>
-	        <base />
-	    </backend>
-	    <outbound>
-	        <set-header name="X-Powered-By" exists-action="delete" />
-	        <set-header name="X-AspNet-Version" exists-action="delete" />
-	        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
-	        <base />
-	    </outbound>
-	    <on-error>
-	        <base />
-	    </on-error>
-	</policies>
+    <policies>
+        <inbound>
+            <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <set-header name="X-Powered-By" exists-action="delete" />
+            <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
 
 The rest of this section tests policy transformations that you set in this article.
 
@@ -191,10 +191,10 @@ The rest of this section tests policy transformations that you set in this artic
 5. Select the **Test** tab.
 6. Press **Send** three times in a row.
 
-	After sending the request 3 times, you get **429 Too many requests** response.
+    After sending the request 3 times, you get **429 Too many requests** response.
 7. Wait 15 seconds or so and press **Send** again. This time you should get a **200 OK** response.
 
-	![Throttling](./media/transform-api/test-throttling.png)
+    ![Throttling](./media/transform-api/test-throttling.png)
 
 ## Video
 

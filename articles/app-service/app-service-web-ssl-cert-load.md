@@ -83,6 +83,7 @@ certStore.Close();
 ```
 
 <a name="file"></a>
+
 ## Alternative: load certificate as a file
 
 This section shows how to and load a certificate file that is in your application directory. 

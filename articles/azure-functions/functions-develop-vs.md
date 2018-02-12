@@ -48,13 +48,12 @@ To create and deploy functions, you also need:
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
 ## Configure the project for local development
 
 When you create a new project using the Azure Functions template, you get an empty C# project that contains the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
-    
+
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. 
@@ -78,9 +77,9 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 2. Choose your trigger, set the binding properties, and click **Create**. The following example shows the settings when creating a Queue storage triggered function. 
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
-    
+
     This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file. 
- 
+
 3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function. 
 
     For example, the following C# class represents a basic Queue storage triggered function:
@@ -89,7 +88,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
-    
+
     namespace FunctionApp1
     {
         public static class Function1
@@ -102,7 +101,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
         }
     } 
     ````
- 
+
     A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute.
 
 ## Testing functions

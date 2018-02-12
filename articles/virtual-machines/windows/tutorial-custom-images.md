@@ -90,7 +90,7 @@ Create the image.
 
 ```powershell
 New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
-```	
+``` 
 
  
 ## Create VMs from the image
@@ -188,7 +188,7 @@ Delete an image. This example deletes the image named *myOldImage* from the *myR
 ```powershell
 Remove-AzureRmImage `
     -ImageName myOldImage `
-	-ResourceGroupName myResourceGroup
+    -ResourceGroupName myResourceGroup
 ```
 
 ## Next steps

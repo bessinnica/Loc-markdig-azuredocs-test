@@ -29,11 +29,11 @@ ms.reviewer: dhanyahk
 
 Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
--	The latest releases
--	Known issues
--	Bug fixes
--	Deprecated functionality
--	Plans for changes
+-   The latest releases
+-   Known issues
+-   Bug fixes
+-   Deprecated functionality
+-   Plans for changes
 
 This page is updated monthly, so revisit it regularly.
 

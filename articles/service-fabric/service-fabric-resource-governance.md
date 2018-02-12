@@ -74,12 +74,12 @@ Here is an example of how to instruct Service Fabric to use 50% of available CPU
 If you need full manual setup of node capacities, you can use the regular mechanism for describing the nodes in the cluster. Here is an example of how to set up the node with four cores and 2 GB of memory: 
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 When auto-detection of available resources is enabled, and node capacities are manually defined in the cluster manifest, Service Fabric checks that the node has enough resources to support the capacity that the user has defined:
@@ -98,8 +98,8 @@ Auto-detection of available resources can be turned off if it is not required. T
 For optimal performance, the following setting should also be turned on in the cluster manifest: 
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -127,7 +127,7 @@ Resource governance limits are specified in the application manifest (ServiceMan
     </Policies>
   </ServiceManifestImport>
 ```
-  
+  
 In this example, the service package called **ServicePackageA** gets one core on the nodes where it is placed. This service package contains two code packages (**CodeA1** and **CodeA2**), and both specify the `CpuShares` parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. 
 
 Thus, in this example, CodeA1 gets two-thirds of a core, and CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). If CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
@@ -176,8 +176,8 @@ In this example, default parameter values are set for the production environment
 </Application>
 ```
 
-> [!IMPORTANT] 
-> Specifying resource governance with application parameters is available starting with Service Fabric version 6.1.<br> 
+> [!IMPORTANT] 
+> Specifying resource governance with application parameters is available starting with Service Fabric version 6.1.<br> 
 >
 > When application parameters are used to specify resource governance, Service Fabric cannot be downgraded to a version prior to version 6.1. 
 

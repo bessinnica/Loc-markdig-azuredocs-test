@@ -82,11 +82,11 @@ The concept of creating secure clusters is the same, whether they are Linux or W
 In this document, we would use the service fabric RM powershell and CLI module to deploy a cluster, the powershell or the CLI module command allows for multiple scenarios. Let us go through each of the them. Pick the scenario that you feel best meets your needs. 
 
 - Create a new cluster - using a system generated self signed certificate
-	- Use a default cluster template
-	- use a template that you already have
+    - Use a default cluster template
+    - use a template that you already have
 - Create a new cluster - using a certificate you already own
-	- Use a default cluster template
-	- use a template that you already have
+    - Use a default cluster template
+    - use a template that you already have
 
 ### Create new cluster  - using a system generated self signed certificate
 
@@ -98,14 +98,12 @@ Use the following command to create cluster, if you have want the system to gene
 
 Login-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
-
 ```
 
 ```CLI
 
 azure login
 az account set --subscription $subscriptionId
-
 ```
 #### Use the default 5 Node 1 nodetype template that ships in the module to set up the cluster
 
@@ -130,7 +128,6 @@ $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
-
 ```
 
 ```CLI
@@ -149,11 +146,10 @@ declare certOutputFolder="c:\certificates"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-	--certificate-output-folder $certOutputFolder --certificate-password $certpassword  \
-	--vault-name $vaultName --vault-resource-group $resourceGroupName  \
+    --certificate-output-folder $certOutputFolder --certificate-password $certpassword  \
+    --vault-name $vaultName --vault-resource-group $resourceGroupName  \
     --template-file $templateFilePath --parameter-file $parametersFilePath --vm-os $vmOs  \
-	--vm-password $vmpassword --vm-user-name $vmuser
-
+    --vm-password $vmpassword --vm-user-name $vmuser
 ```
 
 #### Use the custom template that you already have 
@@ -189,7 +185,6 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
-
 ```
 
 Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values. CLI supports all the other parameters that the above powershell command supports.
@@ -206,10 +201,9 @@ declare certOutputFolder="c:\certificates"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-	--certificate-output-folder $certOutputFolder --certificate-password $certPassword  \
-	--certificate-subject-name $certSubjectName \
+    --certificate-output-folder $certOutputFolder --certificate-password $certPassword  \
+    --certificate-subject-name $certSubjectName \
     --template-file $templateFilePath --parameter-file $parametersFilePath
-
 ```
 
 
@@ -235,7 +229,6 @@ $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
-
 ```
 
 ```CLI
@@ -252,11 +245,10 @@ declare vmOs="UbuntuServer1604"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-	--certificate-file $certificate-file --certificate-password $certPassword  \
-	--vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
+    --certificate-file $certificate-file --certificate-password $certPassword  \
+    --vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
     --vm-os vmOs \
-	--vm-password $vmPassword --vm-user-name $vmUser
-
+    --vm-password $vmPassword --vm-user-name $vmUser
 ```
 
 #### Use the custom template that you have 
@@ -291,7 +283,6 @@ $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
-
 ```
 
 Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values.
@@ -307,8 +298,8 @@ declare parameterFilePath="c:\mytemplates\linuxtemplateparm.json"
 declare templateFilePath="c:\mytemplates\linuxtemplate.json"
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-	--certificate-file $certificate-file --certificate-password $password  \
-	--vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
+    --certificate-file $certificate-file --certificate-password $password  \
+    --vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
@@ -327,7 +318,6 @@ $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc6
 
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
-
 ```
 Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values.
 
@@ -339,12 +329,12 @@ declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-	--secret-identifieraz $secretID  \
+    --secret-identifieraz $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
-
 ```
 
 <a id="add-AAD-for-client"></a>
+
 
 ## Set up Azure Active Directory for client authentication
 
@@ -364,7 +354,6 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 
 ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
-
 ```
 
 You can find your TenantId by executing the PowerShell command `Get-AzureSubscription`. Executing this command displays the TenantId for every subscription.
@@ -391,6 +380,7 @@ The script prints the JSON required by the Azure Resource Manager template when 
 ```
 
 <a id="customize-arm-template" ></a>
+
 
 ## Create a Service Fabric cluster Resource Manager template
 This section is for users who want to custom author a Service Fabric cluster Resource Manager template. once you have a template, you can still go back and use the powershell or CLI modules to deploy it. 
@@ -612,6 +602,7 @@ In case you run into issues and get cryptic messages, then use "-Debug" as an op
 
 
 <a name="assign-roles"></a>
+
 
 ## Assign users to roles
 After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure portal][azure-portal].

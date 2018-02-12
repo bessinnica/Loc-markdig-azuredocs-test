@@ -29,48 +29,48 @@ Security playbook is a collection of procedures that can be executed from Securi
 ## How to create a security playbook from Security Center?
 Follow these steps to create a new security playbook from Security Center:
 
-1.	Open **Security Center** dashboard.
-2.	Under **Automation & Orchestration** section in the left pane, click **Playbooks (Preview)**.
+1. Open **Security Center** dashboard.
+2. Under **Automation & Orchestration** section in the left pane, click **Playbooks (Preview)**.
 
-	![Logic App](./media/security-center-playbooks/security-center-playbooks-fig17.png)
+   ![Logic App](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. In the **Security Center - Playbooks (Preview)** page, click **Add** button.
 
-	![Create logic app](./media/security-center-playbooks/security-center-playbooks-fig2.png)
+    ![Create logic app](./media/security-center-playbooks/security-center-playbooks-fig2.png)
 
 4. In the **Create Logic app** page, type the requested information to create your new logic app, and click **Create** button. Once it finishes creating, the new playbook will appear in the list. If it doesn’t appear, click **Refresh** button. Once you see it, click on it to start editing this playbook.
 
-	![Create logic app](./media/security-center-playbooks/security-center-playbooks-fig3.png)
+    ![Create logic app](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
-5. The **Logic App Designer** appears. Click **Blank Logic App **to create a new playbook. You can also select **Security** under the categories and use one of the templates.
- 	
-	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig4.png)
+5. The <strong>Logic App Designer</strong> appears. Click <strong>Blank Logic App **to create a new playbook. You can also select **Security</strong> under the categories and use one of the templates.
+    
+    ![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 
 6. In the **Search all connectors and triggers** field, type *Azure Security Center*, and select **When a response to an Azure Security Center alert is triggered**.
 
-	![Trigger](./media/security-center-playbooks/security-center-playbooks-fig12.png)
+    ![Trigger](./media/security-center-playbooks/security-center-playbooks-fig12.png)
 
 7. Now you can define what happens when you trigger the playbook. You can add an action, logical condition, switch case conditions or loops.
 
-	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig5.png)
-	 
+    ![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig5.png)
+     
 ## How to run a security playbook in Security Center?
 
 You can run a security playbook in Security Center when you would like to orchestrate, obtain more information from other services, or when you would like to remediate. To access the playbooks follow these steps:
 
-1.	Open **Security Center** dashboard.
-2.	In the left pane, under **Threat Detection** click **Security incidents & alerts**.
+1.  Open **Security Center** dashboard.
+2.  In the left pane, under **Threat Detection** click **Security incidents & alerts**.
 
-	![Alerts](./media/security-center-playbooks/security-center-playbooks-fig6.png)
+    ![Alerts](./media/security-center-playbooks/security-center-playbooks-fig6.png)
 
-3.	Click the alert that you want to investigate.
-4.	In the top of the alert’s page click **Run playbooks** button.
+3.  Click the alert that you want to investigate.
+4.  In the top of the alert’s page click **Run playbooks** button.
 
-	![Run playbook](./media/security-center-playbooks/security-center-playbooks-fig7.png)
+    ![Run playbook](./media/security-center-playbooks/security-center-playbooks-fig7.png)
 
 5. In the Playbooks page, select the playbook that you want to run, and click **Run** button. If you wish to see the playbook before triggering, you can click on it, and the designer will open.
 
-	![Playbooks](./media/security-center-playbooks/security-center-playbooks-fig13.png)
+    ![Playbooks](./media/security-center-playbooks/security-center-playbooks-fig13.png)
 
 ### History
 

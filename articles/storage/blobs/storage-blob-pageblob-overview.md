@@ -87,8 +87,8 @@ The below diagram shows 2 separate write operations:
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
-1.	A Write operation starting at offset 0 of length 1024 bytes 
-2.	A Write operation starting at offset 4096 of length 1024 
+1.  A Write operation starting at offset 0 of length 1024 bytes 
+2.  A Write operation starting at offset 4096 of length 1024 
 
 #### Reading Pages from a Page Blob
 To read pages, use the [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) method to read a range of bytes from the page blob. This allows you to download the full blob or range of bytes starting from any offset in the blob. When reading, the offset does not have to start on a multiple of 512. When reading bytes from a NUL page, the service returns zero bytes.

@@ -187,7 +187,6 @@ These are nested under the same client ID / application ID and looked up based o
                       |  App 3 Redirect URI               |
                       |                                   |
                       +-----------------------------------+
-
 ```
 
 
@@ -292,6 +291,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
 
 <key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+
 
 ### You've configured SSO!
 Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.

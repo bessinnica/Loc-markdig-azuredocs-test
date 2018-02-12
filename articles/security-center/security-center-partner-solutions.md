@@ -25,11 +25,11 @@ To monitor the health status of connected security solutions and perform basic m
 
 1. Under **Security Center - Overview**, select **Security solutions**.
 
-  ![Select security solutions][1]
+   ![Select security solutions][1]
 
-  The **Connected solutions** section includes security solutions that are connected to Security Center and information about the health status of each solution.
+   The **Connected solutions** section includes security solutions that are connected to Security Center and information about the health status of each solution.
 
-  ![Partner solutions][2]
+   ![Partner solutions][2]
 
    The status of a partner solution can be:
 
@@ -45,10 +45,10 @@ To monitor the health status of connected security solutions and perform basic m
 
 2. Select **VIEW** for additional information and options, which includes:
 
-  - **Solution console**. Opens the management experience for this solution.
-  - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
-  - **Delete solution**.
-  - **Configure**.
+   - **Solution console**. Opens the management experience for this solution.
+   - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
+   - **Delete solution**.
+   - **Configure**.
 
    ![Partner solution detail][3]
 

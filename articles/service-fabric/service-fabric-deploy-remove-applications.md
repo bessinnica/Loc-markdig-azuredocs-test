@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Service Fabric application deployment | Microsoft Docs
 description: How to deploy and remove applications in Service Fabric using PowerShell.
 services: service-fabric
@@ -26,6 +26,7 @@ ms.author: ryanwi
 
 <br/>
 
+
 Once an [application type has been packaged][10], it's ready for deployment into an Azure Service Fabric cluster. Deployment involves the following three steps:
 
 1. Upload the application package to the image store.
@@ -51,7 +52,7 @@ For cleanup, remove the application instances and unregister the application typ
 >[!NOTE]
 > Visual Studio does not currently support external provision.
 
- 
+
 ## Connect to the cluster
 Before you run any PowerShell commands in this article, always start by using [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) to connect to the Service Fabric cluster. To connect to the local development cluster, run the following:
 

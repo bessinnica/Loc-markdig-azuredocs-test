@@ -60,8 +60,8 @@ These steps are are shown in the Azure App Service repository as [an example](ht
     # SSH Server support
     # ------------------------
     RUN apt-get update \
-    	&& apt-get install -y --no-install-recommends openssh-server \
-    	&& echo "root:Docker!" | chpasswd
+        && apt-get install -y --no-install-recommends openssh-server \
+        && echo "root:Docker!" | chpasswd
     ```
 
 1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).

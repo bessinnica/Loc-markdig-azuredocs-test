@@ -19,6 +19,7 @@ ms.author: rodsan
 ---
 
 # Security Frame: Exception Management | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF- Do not include serviceDebug node in configuration file](#servicedebug)</li><li>[WCF- Do not include serviceMetadata node in configuration file](#servicemetadata)</li></ul> |

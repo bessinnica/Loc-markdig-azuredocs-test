@@ -22,6 +22,7 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 
 <a name="feature-drilldown"></a>
 
+
 ## Feature summary
 
 | Category | Features |
@@ -105,16 +106,16 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 2. Step through one or more of the following tutorials. 
 
-  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main steps in managed code.  
-  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API.  
-  + [Create your first index in the portal](search-get-started-portal.md) using built-in indexing and prototype features.   
+   + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main steps in managed code.  
+   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API.  
+   + [Create your first index in the portal](search-get-started-portal.md) using built-in indexing and prototype features.   
 
 Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Search gives you tools for creating a search experience similar to those on large commercial web sites.
 
 In this 9-minute video from program manager Liam Cavanagh, learn how integrating a search engine can benefit your app. Short demos cover key features in Azure Search, and what a typical workflow looks like. 
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
+
 + 0-3 minutes covers key features and use-cases.
 + 3-4 minutes covers service provisioning. 
 + 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.

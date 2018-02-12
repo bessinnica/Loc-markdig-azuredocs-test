@@ -28,7 +28,7 @@ The different ways that you will use log searches in Log Analytics include the f
 - **Alert rules.** [Alert rules](log-analytics-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](log-analytics-view-designer.md).  Log searches provide the data used by [tiles](log-analytics-view-designer-tiles.md) and [visualization parts](log-analytics-view-designer-parts.md) in each view.  You can drill down from visualization parts into the Log Search page to perform further analysis on the data.
 - **Export.**  When you export data from the Log Analytics workspace to Excel or [Power BI](log-analytics-powerbi.md), you create a log search to define the data to export.
-- **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
+- **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get- Azure Rm Operational Insights Search Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
 - **Log Analytics API.**  The [Log Analytics log search API](log-analytics-log-search-api.md) allows any REST API client to retrieve data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
 
 ![Log searches](media/log-analytics-log-search-new/log-search-overview.png)
@@ -46,34 +46,34 @@ The basic structure of a query is a source table followed by a series of operato
 
 For example, suppose you wanted to find the top ten computers with the most error events over the past day.
 
-	Event
-	| where (EventLevelName == "Error")
-	| where (TimeGenerated > ago(1days))
-	| summarize ErrorCount = count() by Computer
-	| top 10 by ErrorCount desc
+    Event
+    | where (EventLevelName == "Error")
+    | where (TimeGenerated > ago(1days))
+    | summarize ErrorCount = count() by Computer
+    | top 10 by ErrorCount desc
 
 Or maybe you want to find computers that haven't had a heartbeat in the last day.
 
-	Heartbeat
-	| where TimeGenerated > ago(7d)
-	| summarize max(TimeGenerated) by Computer
-	| where max_TimeGenerated < ago(1d)  
+    Heartbeat
+    | where TimeGenerated > ago(7d)
+    | summarize max(TimeGenerated) by Computer
+    | where max_TimeGenerated < ago(1d)  
 
 How about a line chart with the processor utilization for each computer from last week?
 
-	Perf
-	| where ObjectName == "Processor" and CounterName == "% Processor Time"
-	| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-	| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-	| render timechart    
+    Perf
+    | where ObjectName == "Processor" and CounterName == "% Processor Time"
+    | where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
+    | summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
+    | render timechart    
 
 You can see from these quick samples that regardless of the kind of data that you're working with, the structure of the query is similar.  You can break it down into distinct steps where the resulting data from one command is sent through the pipeline to the next command.
 
 You can also query data across Log Analytics workspaces within your subscription.
 
-	union Update, workspace("contoso-workspace").Update
-	| where TimeGenerated >= ago(1h)
-	| summarize dcount(Computer) by Classification 
+    union Update, workspace("contoso-workspace").Update
+    | where TimeGenerated >= ago(1h)
+    | summarize dcount(Computer) by Classification 
 
 
 For complete documentation on the Azure Log Analytics query language including tutorials and language reference, see the [Azure Log Analytics query language documentation](https://docs.loganalytics.io/).

@@ -62,23 +62,23 @@ To configure the integration of Land Gorilla Client into Azure AD, you need to a
 
 1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. Click **Add** button on the top of the dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **Land Gorilla Client**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_search.png)
 
 5. In the results panel, select **Land Gorilla Client**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -104,43 +104,43 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 1. In the Azure Management portal, on the **Land Gorilla Client** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_samlbase.png)
 
 3. On the **Land Gorilla Client Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_url_02.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_url_02.png)
 
     a. In the **Identifier** textbox, type the value using one of the following pattern: 
-	
-	`https://<customer domain>.landgorilla.com/` 
-	
-	`https://www.<customer domain>.landgorilla.com`
+    
+    `https://<customer domain>.landgorilla.com/` 
+    
+    `https://www.<customer domain>.landgorilla.com`
 
-	b. In the **Reply URL** textbox, type a URL using one of the following pattern:
+    b. In the **Reply URL** textbox, type a URL using one of the following pattern:
 
-	`https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+    `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
 
-	`https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+    `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
 
-	`https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
-	
-	`https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
+    `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
+    
+    `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
 
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Land Gorilla Client 
-	>  team](https://www.landgorilla.com/support/) to get these values. 
+    > [!NOTE] 
+    > Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Land Gorilla Client 
+    >  team](https://www.landgorilla.com/support/) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_general_400.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_general_400.png) 
 
 6. To get SSO configuration complete for your application at Land Gorilla end, Contact [Land Gorilla Client support team](https://www.landgorilla.com/support/) and provide them with the downloaded **“Metadata XML** file.
 
@@ -154,25 +154,25 @@ The objective of this section is to create a test user in the Azure Management p
 
 1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_01.png) 
 
 2. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_02.png) 
 
 3. At the top of the dialog click **Add** to open the **User** dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-landgorilla-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**. 
 
@@ -190,26 +190,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Land Gorilla Client**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 
 
 ### Testing single sign-on

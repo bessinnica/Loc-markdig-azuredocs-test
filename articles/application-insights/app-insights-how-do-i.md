@@ -1,4 +1,4 @@
-﻿---
+---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
 services: application-insights
@@ -98,6 +98,7 @@ Or
 * Use SharePoint as your dashboard, displaying data in SharePoint web parts. [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database, and create a SharePoint web part for PowerView.
 
 <a name="search-specific-users"></a>
+
 
 ### Filter out anonymous or authenticated users
 If your users sign in, you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)

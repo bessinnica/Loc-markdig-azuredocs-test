@@ -52,26 +52,26 @@ sudo apt-get install -y maven
 
 To deploy to Web App for Containers, install Docker on the Jenkins Master or on the VM agent that is used for the build. For instructions, see [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Add an Azure service principal to the Jenkins credentials
+## <a name="service-principal"></a> Add an Azure service principal to the Jenkins credentials
 
 You need an Azure service principal to deploy to Azure. 
 
 
-1. To create an Azure service principal, use the [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) or the [Azure portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+1. To create an Azure service principal, use the [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) or the [Azure portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. On the Jenkins dashboard, select **Credentials** > **System**. Then, select **Global credentials(unrestricted)**.
 3. To add a Microsoft Azure service principal, select **Add Credentials**. Supply values for the **Subscription ID**, **Client ID**, **Client Secret**, and **OAuth 2.0 Token Endpoint** fields. Set the **ID** field to **mySp**. We use this ID in subsequent steps in this article.
 
 
 ## Configure Jenkins to deploy Web Apps by uploading files
 
-To deploy your project to Web Apps, you can upload your build artifacts (for example, a WAR file in Java) by using Git or FTP.
+To deploy your project to Web Apps, you can upload your build artifacts (for example, a WAR file in Java) by using Git or FTP.
 
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 
 
 1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az_appservice_plan_create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
 2. Create a web app. You can use the [Azure portal](/azure/app-service-web/web-sites-configure) or the following `az` Azure CLI command:
-    ```azurecli-interactive	
+    ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
@@ -88,7 +88,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
 ### Set up the Jenkins job
 
 1. Create a new **freestyle** project on the Jenkins Dashboard.
-2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure the <strong>Source Code Management</strong> field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the <strong>Repository URL</strong> value. For example: http://github.com/&lt;your_ID>/javawebappsample.
 3. Add a step to build the project by using Maven by adding the **Execute shell** command. For this example, we need an additional command to rename the \*.war file in the target folder to **ROOT.war**:   
     ```bash
     mvn clean package
@@ -98,7 +98,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
 4. Add a post-build action by selecting **Publish an Azure Web App**.
 5. Supply **mySp** as the Azure service principal. This principal was stored as the [Azure Credentials](#service-principal) in a previous step.
 6. In the **App Configuration** section, choose the resource group and web app in your subscription. The Jenkins plugin automatically detects whether the web app is based on Windows or Linux. For a Windows web app, the **Publish Files** option is presented.
-7. Fill in the files that you want to deploy. For example, specify the WAR package if you're using Java. Use the optional **Source Directory** and **Target Directory** parameters to specify the source and target folders to use for file upload. The Java web app on Azure is run in a Tomcat server. So for Java, you upload your WAR package to the webapps folder. For this example, set the **Source Directory** value to **target** and the **Target Directory** value to **webapps**.
+7. Fill in the files that you want to deploy. For example, specify the WAR package if you're using Java. Use the optional **Source Directory** and **Target Directory** parameters to specify the source and target folders to use for file upload. The Java web app on Azure is run in a Tomcat server. So for Java, you upload your WAR package to the webapps folder. For this example, set the **Source Directory** value to **target** and the **Target Directory** value to **webapps**.
 8. If you want to deploy to a slot other than production, you can also set the **Slot** name.
 9. Save the project and build it. Your web app is deployed to Azure when the build is complete.
 
@@ -129,7 +129,7 @@ The Azure App Service Jenkins plugin is pipeline-ready. You can refer to the fol
 
 ## Configure Jenkins to deploy Web App for Containers
 
-Web Apps on Linux supports deployment by using Docker. To deploy your web app by using Docker, you need to provide a Dockerfile that packages your web app with a service runtime into a Docker image. The Jenkins plugin then builds the image, pushes it to a Docker registry, and deploys the image to your web app.
+Web Apps on Linux supports deployment by using Docker. To deploy your web app by using Docker, you need to provide a Dockerfile that packages your web app with a service runtime into a Docker image. The Jenkins plugin then builds the image, pushes it to a Docker registry, and deploys the image to your web app.
 
 Web Apps on Linux also supports traditional deployment methods, like Git and FTP, but only for built-in languages (.NET Core, Node.js, PHP, and Ruby). For other languages, you need to package your application code and service runtime together into a Docker image and use Docker to deploy.
 
@@ -141,7 +141,7 @@ Before setting up the job in Jenkins, you need a web app on Linux. You also need
 ### Set up the Jenkins job for Docker
 
 1. Create a new **freestyle** project on the Jenkins Dashboard.
-2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure the <strong>Source Code Management</strong> field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the <strong>Repository URL</strong> value. For example: http://github.com/&lt;your_ID>/javawebappsample.
 3. Add a step to build the project by using Maven by adding an **Execute shell** command. Include the following line in the command:
     ```bash
     mvn clean package
@@ -152,14 +152,14 @@ Before setting up the job in Jenkins, you need a web app on Linux. You also need
 6. In the **App Configuration** section, choose the resource group and a Linux web app in your subscription.
 7. Choose **Publish via Docker**.
 8. Fill in the **Dockerfile** path value. You can keep the default value /Dockerfile.
-For the **Docker registry URL** value, supply the URL by using the format https://&lt;yourRegistry>.azurecr.io if you use Azure Container Registry. If you use DockerHub, leave the value blank.
+   For the **Docker registry URL** value, supply the URL by using the format https://&lt;yourRegistry>.azurecr.io if you use Azure Container Registry. If you use DockerHub, leave the value blank.
 9. For the **Registry credentials** value, add the credential for the container registry. You can get the userid and password by running the following commands in the Azure CLI. The first command enables the administrator account:
     ```azurecli-interactive
     az acr update -n <yourRegistry> --admin-enabled true
     az acr credential show -n <yourRegistry>
     ```
 
-10. The Docker image name and tag value in the **Advanced** tab are optional. By default, the value for the image name is obtained from the image name that you configured in the Azure portal in the **Docker Container** setting. The tag is generated from $BUILD_NUMBER.
+10. The Docker image name and tag value in the **Advanced** tab are optional. By default, the value for the image name is obtained from the image name that you configured in the Azure portal in the **Docker Container** setting. The tag is generated from $BUILD_NUMBER.
     > [!NOTE]
     > Be sure to specify the image name in the Azure portal or supply a **Docker Image** value in the **Advanced** tab. For this example, set the **Docker image** value to &lt;your_Registry>.azurecr.io/calculator and leave the **Docker Image Tag** value blank.
 

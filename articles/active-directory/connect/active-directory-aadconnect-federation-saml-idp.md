@@ -23,16 +23,16 @@ This topic contains information on using a SAML 2.0 compliant SP-Lite profile ba
 
 Microsoft supports this sign-on experience as the integration of a Microsoft cloud service, such as Office 365, with your properly configured SAML 2.0 profile based IdP. SAML 2.0 identity providers are third-party products and therefore Microsoft does not provide support for the deployment, configuration, troubleshooting best practices regarding them. Once properly configured, the integration with the SAML 2.0 identity provider can be tested for proper configuration by using the Microsoft Connectivity Analyzer Tool which is described in more detail below. For more information about your SAML 2.0 SP-Lite profile based identity provider, ask the organization that supplied it.
 
->[!IMPORTANT]
->Only a limited set of clients are available in this sign-on scenario with SAML 2.0 identity providers, this includes:
-
->- Web-based clients such as Outlook Web Access and SharePoint Online
-- Email-rich clients that use basic authentication and a supported Exchange access method such as IMAP, POP, Active Sync, MAPI, etc. (the Enhanced Client Protocol end point is required to be deployed), including:
-	- Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (various iOS versions)
-	- Various Google Android Devices
-	- Windows Phone 7, Windows Phone 7.8, and Windows Phone 8.0
-	- Windows 8 Mail Client and Windows 8.1 Mail Client
-	- Windows 10 Mail Client
+> [!IMPORTANT]
+> Only a limited set of clients are available in this sign-on scenario with SAML 2.0 identity providers, this includes:
+> 
+> - Web-based clients such as Outlook Web Access and SharePoint Online
+> - Email-rich clients that use basic authentication and a supported Exchange access method such as IMAP, POP, Active Sync, MAPI, etc. (the Enhanced Client Protocol end point is required to be deployed), including:
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (various iOS versions)
+>     - Various Google Android Devices
+>     - Windows Phone 7, Windows Phone 7.8, and Windows Phone 8.0
+>     - Windows 8 Mail Client and Windows 8.1 Mail Client
+>     - Windows 10 Mail Client
 
 All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to login into the service with your SAML 2.0 Identity Provider configured for single sign-on.
 
@@ -53,21 +53,21 @@ Azure AD can be configured to work with identity providers that use the SAML 2.0
 Within the SAML Response message the Signature node contains information about the digital signature for the message itself. The signature block has the following requirements:
 
 1. The assertion node itself must be signed
-2.	The RSA-sha1 algorithm must be used as the DigestMethod. Other digital signature algorithms are not accepted.
+2.  The RSA-sha1 algorithm must be used as the DigestMethod. Other digital signature algorithms are not accepted.
    `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
-3.	You may also sign the XML document. 
-4.	The Transform Algorithm must match the values in the following sample:
+3.  You may also sign the XML document. 
+4.  The Transform Algorithm must match the values in the following sample:
        `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.	The SignatureMethod Algorithm must match the following sample:
+9.  The SignatureMethod Algorithm must match the following sample:
       `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## Supported bindings
 Bindings are the transport related communications parameters that are required. The following requirements apply to the bindings
 
 1. HTTPS is the required transport.
-2.	Azure AD will require HTTP POST for token submission during logon
-3.	Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the Logoff message to the identity provider.
+2.  Azure AD will require HTTP POST for token submission during logon
+3.  Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the Logoff message to the identity provider.
 
 ## Required attributes
 This table shows requirements for specific attributes in the SAML 2.0 message.
@@ -85,10 +85,10 @@ This table shows requirements for specific attributes in the SAML 2.0 message.
 A request and response message pair is shown for the sign-on message exchange.
 This is a sample request message that is sent from Azure AD to a sample SAML 2.0 identity provider. The sample SAML 2.0 identity provider is Active Directory Federation Services (AD FS) configured to use SAML-P protocol. Interoperability testing has also been completed with other SAML 2.0 identity providers.
 
-	`<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
+    `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
     <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
     <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
-	</samlp:AuthnRequest>`
+    </samlp:AuthnRequest>`
 
 This is a sample response message that is sent from the sample SAML 2.0 compliant identity provider to Azure AD / Office 365.
 
@@ -174,17 +174,17 @@ The following procedure walks you through converting an existing standard domain
 
 
 1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService .
-2.	Configure your desired Office 365 domain to use federation with SAML 2.0:
-	`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  Configure your desired Office 365 domain to use federation with SAML 2.0:
+    `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  You can obtain the signing certificate base64 encoded string from your IDP metadata file. An example of this location has been provided but may differ slightly based on your implementation.
 
-	`<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
+    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
 For more information about “Set-MsolDomainAuthentication”, see: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
 
->[!NOTE]
->You must run use “$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS“” only if you set up an ECP extension for your identity provider. Exchange Online clients, excluding Outlook Web Application (OWA), rely on a POST based active end point. If your SAML 2.0 STS implements an active end point similar to Shibboleth’s ECP implementation of an active end point it may be possible for these rich clients to interact with the Exchange Online service.
+> [!NOTE]
+> You must run use “$ecpUrl = “<https://WS2012R2-0.contoso.com/PAOS“”> only if you set up an ECP extension for your identity provider. Exchange Online clients, excluding Outlook Web Application (OWA), rely on a POST based active end point. If your SAML 2.0 STS implements an active end point similar to Shibboleth’s ECP implementation of an active end point it may be possible for these rich clients to interact with the Exchange Online service.
 
 Once federation has been configured you can switch back to “non-federated” (or “managed”), however this change takes up to two hours to complete and it requires assigning new random passwords for cloud based sign-in to each user. Switching back to “managed” may be required in some scenarios to reset an error in your settings. For more information on Domain conversion see: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
@@ -199,16 +199,16 @@ This procedure shows how to add a single user to Azure AD.
 
 
 1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService.
-2.	Create a new user principal:
-	` New-MsolUser
-		-UserPrincipalName elwoodf1@contoso.com
-		-ImmutableId ABCDEFG1234567890
-		-DisplayName "Elwood Folk"
-		-FirstName Elwood 
-		-LastName Folk 
-		-AlternateEmailAddresses "Elwood.Folk@contoso.com" 
-		-LicenseAssignment "samlp2test:ENTERPRISEPACK" 
-		-UsageLocation "US" ` 
+2.  Create a new user principal:
+    ` New-MsolUser
+        -UserPrincipalName elwoodf1@contoso.com
+        -ImmutableId ABCDEFG1234567890
+        -DisplayName "Elwood Folk"
+        -FirstName Elwood 
+        -LastName Folk 
+        -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
+        -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
+        -UsageLocation "US" ` 
 
 For more information about “New-MsolUser” check out, [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
 
@@ -220,11 +220,11 @@ As the administrator, before you verify and manage single sign-on (also called i
 
 
 1.  You have reviewed the Azure AD SAML 2.0 Protocol Requirements
-2.	You have configured your SAML 2.0 identity provider
-3.	Install Windows PowerShell for single sign-on with SAML 2.0 identity provider
-4.	Set up a trust between SAML 2.0 identity provider and Azure AD
-5.	Provisioned a known test user principal to Azure Active Directory (Office 365) either through Windows PowerShell or Azure AD Connect.
-6.	Configure directory synchronization using [Azure AD Connect](active-directory-aadconnect.md).
+2.  You have configured your SAML 2.0 identity provider
+3.  Install Windows PowerShell for single sign-on with SAML 2.0 identity provider
+4.  Set up a trust between SAML 2.0 identity provider and Azure AD
+5.  Provisioned a known test user principal to Azure Active Directory (Office 365) either through Windows PowerShell or Azure AD Connect.
+6.  Configure directory synchronization using [Azure AD Connect](active-directory-aadconnect.md).
 
 After setting up single sign-on with your SAML 2.0 SP-Lite based identity Provider, you should verify that it is working correctly.
 
@@ -243,10 +243,10 @@ Microsoft has provided a tool that you can use to test your SAML 2.0 based ident
 
 
 1. Download the Connectivity Analyzer from, [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
-2.	Click Install Now to begin downloading and installing the tool.
-3.	Select “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory”.
-4.	Once the tool is downloaded and running, you will see the Connectivity Diagnostics window. The tool will step you through testing your federation connection.
-5.	The Connectivity Analyzer will open your SAML 2.0 IDP for you to logon, enter the credentials for the user principal you are testing:
+2.  Click Install Now to begin downloading and installing the tool.
+3.  Select “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory”.
+4.  Once the tool is downloaded and running, you will see the Connectivity Diagnostics window. The tool will step you through testing your federation connection.
+5.  The Connectivity Analyzer will open your SAML 2.0 IDP for you to logon, enter the credentials for the user principal you are testing:
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
 6.  At the Federation test sign-in window you should enter an account name and password for the Azure AD tenant that is configured to be federated with your SAML 2.0 identity provider. The tool will attempt to sign-in using those credentials and detailed results of tests performed during the sign-in attempt will be provided as output.
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml2.png)
@@ -261,8 +261,8 @@ To verify that single sign-on has been set up correctly, complete the following 
 
 
 1. On a domain-joined computer, sign in to your cloud service using the same logon name that you use for your corporate credentials.
-2.	Click inside the password box. If single sign-on is set up, the password box will be shaded, and you will see the following message: “You are now required to sign in at <your company>.”
-3.	Click the Sign in at <your company> link. If you are able to sign in, then single sign-on has been set up.
+2.  Click inside the password box. If single sign-on is set up, the password box will be shaded, and you will see the following message: “You are now required to sign in at <your company>.”
+3.  Click the Sign in at <your company> link. If you are able to sign in, then single sign-on has been set up.
 
 ## Next Steps
 

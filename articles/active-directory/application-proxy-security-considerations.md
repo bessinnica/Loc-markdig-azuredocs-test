@@ -74,7 +74,7 @@ You don’t have to worry about maintaining and patching on-premises servers.
 
 Unpatched software still accounts for a large number of attacks. Azure AD Application Proxy is an Internet-scale service that Microsoft owns, so you always get the latest security patches and upgrades.
 
-To improve the security of applications published by Azure AD Application Proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes `User-agent: * Disallow: /`.
+To improve the security of applications published by Azure AD Application Proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes `User-agent: * Disallow: /`.
 
 ### DDOS prevention
 
@@ -106,8 +106,8 @@ The connector uses a client certificate to authenticate to the Application Proxy
 
 When the connector is first set up, the following flow events take place:
 
-1. The connector registration to the service happens as part of the installation of the connector. Users are prompted to enter their Azure AD admin credentials. The token acquired from this authentication is then presented to the Azure AD Application Proxy service.
-2. The Application Proxy service evaluates the token. It checks whether the user is a company administrator in the tenant. If the user is not an administrator, the process is terminated.
+1. The connector registration to the service happens as part of the installation of the connector. Users are prompted to enter their Azure AD admin credentials. The token acquired from this authentication is then presented to the Azure AD Application Proxy service.
+2. The Application Proxy service evaluates the token. It checks whether the user is a company administrator in the tenant. If the user is not an administrator, the process is terminated.
 3. The connector generates a client certificate request and passes it, along with the token, to the Application Proxy service. The service in turn verifies the token and signs the client certificate request.
 4. The connector uses the client certificate for future communication with the Application Proxy service.
 5. The connector performs an initial pull of the system configuration data from the service using its client certificate, and it is now ready to take requests.
@@ -172,7 +172,7 @@ After the request and transmission of all content to the back end is complete, t
 
 After it receives a response, the connector makes an outbound connection to the Application Proxy service, to return the header details and begin streaming the return data.
 
-#### 5. The service streams data to the user. 
+#### 5. The service streams data to the user. 
 
 Some processing of the application may occur here. If you configured Application Proxy to translate headers or URLs in your application, that processing happens as needed during this step.
 

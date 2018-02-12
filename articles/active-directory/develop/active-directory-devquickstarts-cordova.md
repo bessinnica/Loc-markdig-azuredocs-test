@@ -89,8 +89,8 @@ Azure AD issues tokens to only known applications. Before you can use Azure AD f
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts and create a **Native Client Application**. (Although Cordova apps are HTML based, we're creating a native client application here. The **Native Client Application** option must be selected, or the application won't work.)
-  * **Name** describes your application to users.
-  * **Redirect URI** is the URI that's used to return tokens to your app. Enter **http://MyDirectorySearcherApp**.
+   * **Name** describes your application to users.
+   * **Redirect URI** is the URI that's used to return tokens to your app. Enter **http://MyDirectorySearcherApp**.
 
 After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next sections. You can find it on the application tab of the newly created app.
 
@@ -119,8 +119,8 @@ There are multiple ways to create Cordova applications. In this tutorial, we'll 
 
 3. Copy the content of the starter project in the www subfolder by using a file manager or the following command in your shell:
 
-  * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
-  * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
+   * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
+   * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
 4. Add the whitelist plug-in. This is necessary for invoking the Graph API.
 
@@ -230,7 +230,6 @@ Now that we have the token, we can finally invoke the Graph API and perform the 
 
         req.send();
     },
-
 ```
 The starting-point files supplied a simple UX for entering a user's alias in a text box. This method uses that value to construct a query, combine it with the access token, send it to Microsoft Graph, and parse the results. The `renderData` method, already present in the starting-point file, takes care of visualizing the results.
 
@@ -289,3 +288,4 @@ For reference, the completed sample (without your configuration values) is avail
 You can now move on to more advanced (and more interesting) scenarios. You might want to try: [Secure a Node.js Web API with Azure AD](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+

@@ -60,7 +60,7 @@ The following code example demonstrates how to achieve the following tasks:
 
 >[!IMPORTANT]
 >Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
-	
+    
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
@@ -155,9 +155,9 @@ namespace AMSLiveTest
                     new IPRange
                     {
                     Name = "TestChannelInput001",
-					// Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-					// will allow access to IP addresses.
-					Address = IPAddress.Parse("0.0.0.0"),
+                    // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
+                    // will allow access to IP addresses.
+                    Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
                 }
@@ -176,9 +176,9 @@ namespace AMSLiveTest
                     new IPRange
                     {
                     Name = "TestChannelPreview001",
-					// Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-					// will allow access to IP addresses.
-					Address = IPAddress.Parse("0.0.0.0"),
+                    // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
+                    // will allow access to IP addresses.
+                    Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
                 }
@@ -190,24 +190,24 @@ namespace AMSLiveTest
         {
             var clientPolicy =
             @"<?xml version=""1.0"" encoding=""utf-8""?>
-			<access-policy>
-			    <cross-domain-access>
-				<policy>
-				    <allow-from http-request-headers=""*"" http-methods=""*"">
-					<domain uri=""*""/>
-				    </allow-from>
-				    <grant-to>
-				       <resource path=""/"" include-subpaths=""true""/>
-				    </grant-to>
-				</policy>
-			    </cross-domain-access>
-			</access-policy>";
+            <access-policy>
+                <cross-domain-access>
+                <policy>
+                    <allow-from http-request-headers=""*"" http-methods=""*"">
+                    <domain uri=""*""/>
+                    </allow-from>
+                    <grant-to>
+                       <resource path=""/"" include-subpaths=""true""/>
+                    </grant-to>
+                </policy>
+                </cross-domain-access>
+            </access-policy>";
 
             var xdomainPolicy =
             @"<?xml version=""1.0"" ?>
-			<cross-domain-policy>
-			    <allow-access-from domain=""*"" />
-			</cross-domain-policy>";
+            <cross-domain-policy>
+                <allow-access-from domain=""*"" />
+            </cross-domain-policy>";
 
             channel.CrossSiteAccessPolicies.ClientAccessPolicy = clientPolicy;
             channel.CrossSiteAccessPolicies.CrossDomainPolicy = xdomainPolicy;
@@ -322,24 +322,24 @@ namespace AMSLiveTest
         {
             var clientPolicy =
             @"<?xml version=""1.0"" encoding=""utf-8""?>
-			<access-policy>
-			    <cross-domain-access>
-				<policy>
-				    <allow-from http-request-headers=""*"" http-methods=""*"">
-					<domain uri=""*""/>
-				    </allow-from>
-				    <grant-to>
-				       <resource path=""/"" include-subpaths=""true""/>
-				    </grant-to>
-				</policy>
-			    </cross-domain-access>
-			</access-policy>";
+            <access-policy>
+                <cross-domain-access>
+                <policy>
+                    <allow-from http-request-headers=""*"" http-methods=""*"">
+                    <domain uri=""*""/>
+                    </allow-from>
+                    <grant-to>
+                       <resource path=""/"" include-subpaths=""true""/>
+                    </grant-to>
+                </policy>
+                </cross-domain-access>
+            </access-policy>";
 
             var xdomainPolicy =
             @"<?xml version=""1.0"" ?>
-			<cross-domain-policy>
-			    <allow-access-from domain=""*"" />
-			</cross-domain-policy>";
+            <cross-domain-policy>
+                <allow-access-from domain=""*"" />
+            </cross-domain-policy>";
 
             streamingEndpoint.CrossSiteAccessPolicies.ClientAccessPolicy = clientPolicy;
             streamingEndpoint.CrossSiteAccessPolicies.CrossDomainPolicy = xdomainPolicy;

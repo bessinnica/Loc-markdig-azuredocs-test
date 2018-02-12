@@ -33,12 +33,12 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 
 ### New
 * Your existing Storage Explorer window will be re-used when:
-	* Opening direct links generated in Storage Explorer.
-	* Opening Storage Explorer from portal.
-	* Opening Storage Explorer from Azure Storage VS Code extension (coming soon).
+    * Opening direct links generated in Storage Explorer.
+    * Opening Storage Explorer from portal.
+    * Opening Storage Explorer from Azure Storage VS Code extension (coming soon).
 * Added ability to open a new Storage Explorer window from within Storage Explorer.
-	* For Windows, there is a 'New Window' option under File Menu and in the context menu of the task bar.
-	* For Mac, there is a 'New Window' option under App Menu.
+    * For Windows, there is a 'New Window' option under File Menu and in the context menu of the task bar.
+    * For Mac, there is a 'New Window' option under App Menu.
 
 ### Fixes
 * Fixed a security issue. Please upgrade to 0.9.4 at you earliest convenience.
@@ -55,23 +55,23 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
-```
-./StorageExplorer --disable-gpu
-```
+  ```
+  ./StorageExplorer --disable-gpu
+  ```
 * For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-	sudo apt-get update
-	sudo apt-get upgrade
-	sudo apt-get dist-upgrade
-	```
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo apt-get install libgconf-2-4
-	```
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## Version 0.9.2
 11/01/2017
@@ -92,21 +92,21 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/storage-explorer.md)
-	* Create databases and collections
-	* Manipulate data
-	* Query, create, or delete documents
-	* Update stored procedures, user defined functions, or triggers
-	* Use connection strings to connect to and manage your databases
+    * [Online Documentation](./cosmos-db/storage-explorer.md)
+    * Create databases and collections
+    * Manipulate data
+    * Query, create, or delete documents
+    * Update stored procedures, user defined functions, or triggers
+    * Use connection strings to connect to and manage your databases
 * Improved the performance of uploading/downloading many small blobs.
 * Added a "Retry All" action if there are failures in a blob upload group or blob download group.
 * Storage Explorer will now pause iteration during blob upload/download if it detects your network connection has been lost. You can then resume iteration once the network connection has been re-established.
 * Added the ability to "Close All", "Close Others", and "Close" tabs via context menu.
 * Storage Explorer now uses native dialogs and native context menus.
 * Storage Explorer is now more accessible. Improvements include:
-	* Improved screen reader support, for NVDA on Windows, and for VoiceOver on Mac
-	* Improved high contrast theming
-	* Keyboard tabbing and keyboard focus fixes
+    * Improved screen reader support, for NVDA on Windows, and for VoiceOver on Mac
+    * Improved high contrast theming
+    * Keyboard tabbing and keyboard focus fixes
 
 ### Fixes
 * If you tried to open or download a blob with an invalid Windows file name, the operation would fail. Storage Explorer will now detect if a blob name is invalid and ask if you would like to either encode it or skip the blob. Storage Explorer will also detect if a file name appears to be encoded and ask you if want to decode it before uploading.
@@ -124,23 +124,23 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
-```
-./StorageExplorer --disable-gpu
-```
+  ```
+  ./StorageExplorer --disable-gpu
+  ```
 * For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-	sudo apt-get update
-	sudo apt-get upgrade
-	sudo apt-get dist-upgrade
-	```
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo apt-get install libgconf-2-4
-	```
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 
 
@@ -172,21 +172,21 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 10/20/2017
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/storage-explorer.md)
-	* Create databases and collections
-	* Manipulate data
-	* Query, create, or delete documents
-	* Update stored procedures, user defined functions, or triggers
-	* Use connection strings to connect to and manage your databases
+    * [Online Documentation](./cosmos-db/storage-explorer.md)
+    * Create databases and collections
+    * Manipulate data
+    * Query, create, or delete documents
+    * Update stored procedures, user defined functions, or triggers
+    * Use connection strings to connect to and manage your databases
 * Improved the performance of uploading/downloading many small blobs.
 * Added a "Retry All" action if there are failures in a blob upload group or blob download group.
 * Storage Explorer will now pause iteration during blob upload/download if it detects your network connection has been lost. You can then resume iteration once the network connection has been re-established.
 * Added the ability to "Close All", "Close Others", and "Close" tabs via context menu.
 * Storage Explorer now uses native dialogs and native context menus.
 * Storage Explorer is now more accessible. Improvements include:
-	* Improved screen reader support, for NVDA on Windows, and for VoiceOver on Mac
-	* Improved high contrast theming
-	* Keyboard tabbing and keyboard focus fixes
+    * Improved screen reader support, for NVDA on Windows, and for VoiceOver on Mac
+    * Improved high contrast theming
+    * Keyboard tabbing and keyboard focus fixes
 
 ### Fixes
 * If you tried to open or download a blob with an invalid Windows file name, the operation would fail. Storage Explorer will now detect if a blob name is invalid and ask if you would like to either encode it or skip the blob. Storage Explorer will also detect if a file name appears to be encoded and ask you if want to decode it before uploading.
@@ -204,23 +204,23 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
-```
-./StorageExplorer --disable-gpu
-```
+  ```
+  ./StorageExplorer --disable-gpu
+  ```
 * For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-	sudo apt-get update
-	sudo apt-get upgrade
-	sudo apt-get dist-upgrade
-	```
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo apt-get install libgconf-2-4
-	```
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## Version 0.8.16
 8/21/2017
@@ -249,18 +249,18 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-	sudo apt-get update
-	sudo apt-get upgrade
-	sudo apt-get dist-upgrade
-	```
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
-	sudo apt-get install libgconf-2-4
-	```
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ### Version 0.8.14
 06/22/2017

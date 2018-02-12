@@ -62,9 +62,9 @@ This Oracle connector support two versions of drivers:
 
 - **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
 
-	If you choose “XCopy Installation”, follow steps in the readme.htm. We recommend you choose the installer with UI (non-XCopy one).
+    If you choose “XCopy Installation”, follow steps in the readme.htm. We recommend you choose the installer with UI (non-XCopy one).
 
-	After installing the provider, **restart** the Data Management Gateway host service on your machine using Services applet (or) Data Management Gateway Configuration Manager.  
+    After installing the provider, **restart** the Data Management Gateway host service on your machine using Services applet (or) Data Management Gateway Configuration Manager.  
 
 If you use copy wizard to author the copy pipeline, the driver type will be auto-determined. Microsoft driver will be used by default, unless your gateway version is lower than 2.7 or you choose Oracle as sink.
 

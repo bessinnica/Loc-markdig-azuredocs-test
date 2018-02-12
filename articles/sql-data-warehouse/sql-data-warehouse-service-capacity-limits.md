@@ -22,6 +22,7 @@ ms.author: kevin;barbkess
 The following tables contain the maximum values allowed for various components of Azure SQL Data Warehouse.
 
 ## Workload management
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Max DWU for a single SQL Data Warehouse | Optimized for Elasticity [performance tier](performance-tiers.md): DW6000<br></br>Optimized for Compute [performance tier](performance-tiers.md): DW30000c |
@@ -32,6 +33,7 @@ The following tables contain the maximum values allowed for various components o
 | [tempdb][Tempdb] |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB |
 
 ## Database objects
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Database |Max size |240 TB compressed on disk<br/><br/>This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). |
@@ -53,11 +55,13 @@ The following tables contain the maximum values allowed for various components o
 | View |Columns per view |1,024 |
 
 ## Loads
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Polybase Loads |MB per row |1<br/><br/>Polybase loads only to rows that are smaller than 1 MB, and cannot load to VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).<br/><br/> |
 
 ## Queries
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Query |Queued queries on user tables. |1000 |
@@ -73,6 +77,7 @@ The following tables contain the maximum values allowed for various components o
 | Identifiers and constants per statement |Number of referenced identifiers and constants. |65,535<br/><br/>SQL Data Warehouse limits the number of identifiers and constants that can be contained in a single expression of a query. This limit is 65,535. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached][Internal error: An expression services limit has been reached]. |
 
 ## Metadata
+
 | System view | Maximum rows |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |

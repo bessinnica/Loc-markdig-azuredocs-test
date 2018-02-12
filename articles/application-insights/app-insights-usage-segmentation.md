@@ -42,10 +42,10 @@ Explore different groups of users by adjusting the query options at the top of t
 * Who used: Choose custom events and page views.
 * During: Choose a time range.
 * By: Choose how to bucket the data, either by a period of time or by another property such as browser or city.
-* Split By: Choose a property by which to split or segment the data. 
-* Add Filters: Limit the query to certain users, sessions, or events based on their properties, such as browser or city. 
- 
-## Saving and sharing reports 
+* Split By: Choose a property by which to split or segment the data. 
+* Add Filters: Limit the query to certain users, sessions, or events based on their properties, such as browser or city. 
+ 
+## Saving and sharing reports 
 You can save Users reports, either private just to you in the My Reports section, or shared with everyone else with access to this Application Insights resource in the Shared Reports section.
 
 To share a link to a Users, Sessions, or Events report; click **Share** in the toolbar, then copy the link.

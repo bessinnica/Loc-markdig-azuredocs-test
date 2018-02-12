@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Restore a deleted Office 365 group in Azure Active Directory | Microsoft Docs
 description: How to restore a deleted group, view restorable groups, and permamnently delete a group in Azure Active Directory
@@ -40,26 +40,26 @@ User | Can restore any deleted Office 365 group that they owned
 ## View the deleted Office 365 groups that are available to restore
 The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) article.
 
-1.	Run the following cmdlet to display all deleted Office 365 groups in your tenant that are still available to restore.
-  ```
-  Get-AzureADMSDeletedGroup
-  ```
+1. Run the following cmdlet to display all deleted Office 365 groups in your tenant that are still available to restore.
+   ```
+   Get-AzureADMSDeletedGroup
+   ```
 
-2.	Alternately, if you know the objectID of a specific group (and you can get it from the cmdlet in step 1), run the following cmdlet to verify that the specific deleted group has not yet been permanently purged.
-  ```
-  Get-AzureADMSDeletedGroup –Id <objectId>
-  ```
+2. Alternately, if you know the objectID of a specific group (and you can get it from the cmdlet in step 1), run the following cmdlet to verify that the specific deleted group has not yet been permanently purged.
+   ```
+   Get-AzureADMSDeletedGroup –Id <objectId>
+   ```
 
 
 
 ## How to restore your deleted Office 365 group
 Once you have verified that the group is still available to restore, restore the deleted group with one of the following steps. If the group contains documents, SP sites, or other persistent objects, it might take up to 24 hours to fully restore a group and its contents.
 
-1.	Run the following cmdlet to restore the group and its contents.
+1. Run the following cmdlet to restore the group and its contents.
   
-  ```
-  Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
-  ``` 
+   ```
+   Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
+   ``` 
 
 Alternatively, the following cmdlet can be run to permanently remove the deleted group.
   ```

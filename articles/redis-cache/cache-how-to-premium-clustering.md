@@ -61,6 +61,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 
 <a name="cluster-size"></a>
 
+
 ## Change the cluster size on a running premium cache
 To change the cluster size on a running premium cache with clustering enabled, click **Redis Cluster Size** from the **Resource menu**.
 
@@ -94,10 +95,10 @@ The following list contains answers to commonly asked questions about Azure Redi
 
 ### Do I need to make any changes to my client application to use clustering?
 * When clustering is enabled, only database 0 is available. If your client application uses multiple databases and it tries to read or write to a database other than 0, the following exception is thrown. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
-  
+
   For more information, see [Redis Cluster Specification - Implemented subset](http://redis.io/topics/cluster-spec#implemented-subset).
 * If you are using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache that does not have clustering enabled. The only difference is that all reads and writes must be done to database 0.
-  
+
   * Other clients may have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
 * If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 * If you are using Redis ASP.NET Session State provider you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
@@ -152,6 +153,7 @@ Clustering is only available for premium caches.
 * **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 <a name="move-exceptions"></a>
+
 
 ### I am getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 If you are using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you are using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).

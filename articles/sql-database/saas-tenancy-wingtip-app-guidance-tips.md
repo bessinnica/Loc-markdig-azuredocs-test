@@ -53,7 +53,7 @@ Setting these values here simply keeps you from having to update these deploymen
 
 ### Execute the scripts by pressing F5
 
-Several scripts use *$PSScriptRoot* to navigate folders, and *$PSScriptRoot* is only evaluated when scripts are executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running scripts.
+Several scripts use *$PSScriptRoot* to navigate folders, and *$PSScriptRoot* is only evaluated when scripts are executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running scripts.
 
 ### Step through the scripts to examine the implementation
 
@@ -90,7 +90,7 @@ To ensure a successful demo connection, all servers have a [firewall rule](sql-d
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Demo credentials are: Login = *developer*, Password = *P@ssword1*
+3. Demo credentials are: Login = <em>developer</em>, Password = <em>P<xref href="ssword1" data-throw-if-not-resolved="False" data-raw-source="@ssword1"></xref></em>
 
     The image below demonstrates the login for the *Database per tenant* pattern. 
     ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

@@ -39,19 +39,19 @@ This tutorial requires:
 To use Baidu, you must have a Baidu account. If you already have one, log in to the [Baidu portal] and skip to the next step. Otherwise, see the following instructions on how to create a Baidu account.  
 
 1. Go to the [Baidu portal] and click the **登录** (**Login**) link. Click **立即注册** (**Register Now**) to start the account registration process.
-   
+
     ![Baidu Registration](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
 2. Enter the required details—phone/email address, password, and verification code—and click 注册 (**Signup**).
-   
+
     ![Baidu Registration Input](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 
 3. You are sent an email to the email address that you entered with a link to activate your Baidu account.
-   
+
     ![Baidu Registration Confirmation](./media/notification-hubs-baidu-get-started/BaiduConfirmation.png)
 
 4. Log in to your email account, open the Baidu activation mail, and click the activation link to activate your Baidu account.
-   
+
     ![Baidu Activation e-mail](./media/notification-hubs-baidu-get-started/BaiduActivationEmail.png)
 
 Once you have an activated Baidu account, log in to the [Baidu portal].
@@ -60,15 +60,15 @@ Once you have an activated Baidu account, log in to the [Baidu portal].
 When you create a Baidu cloud push project, you receive your app ID, API key, and secret key.
 
 1. Once you have logged in to the [Baidu portal], click **更多>>** (**more**).
-   
+
     ![Registration - More](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
 2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度云推送** (**Baidu Cloud Push**).
-   
+
     ![Baidu Open Cloud Platform](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
 3. On the next page, click **登录** (**Login**) on the top-right corner.
-   
+
     ![Baidu Login](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
 4. Then, click **创建应用** (**Create Application**) on this page.
@@ -76,25 +76,24 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
     ![Baidu Create Application](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
 5. On the next page, click 创建新应用 (**Create New Application**).
-   
+
     ![Baidu Create New Application](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
 
 6. Enter an application name and click 创建 (**Create**).
-   
+
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
 
 7. Upon successful creation of a Baidu cloud push project, you see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we use later.
-   
+
     ![Baidu Push Secrets](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
 8. Configure the project for push notifications by clicking 创建通知 (**Create Notification**)  on the left pane.
-   
+
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
 
 ## Configure a new notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
 
 &emsp;&emsp;6. In your notification hub, select **Notification Services** and then **Baidu (Android China)**.
 
@@ -113,18 +112,18 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
     ![Azure Notification Hubs - Baidu New Project](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.	Enter an Application Name and ensure that the Minimum Required SDK version is set to API 16: Android 4.1. **Also please make sure your package name (应用包名) is the same as in the Baidu Cloud Push Portal**
+2.  Enter an Application Name and ensure that the Minimum Required SDK version is set to API 16: Android 4.1. **Also please make sure your package name (应用包名) is the same as in the Baidu Cloud Push Portal**
 
     ![Azure Notification Hubs - Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
     ![Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
-3.	Click Next and continue following the wizard until the Create Activity window appears. Make sure that Empty Activity is selected, and finally select Finish to create a new Android Application.
+3.  Click Next and continue following the wizard until the Create Activity window appears. Make sure that Empty Activity is selected, and finally select Finish to create a new Android Application.
 
     ![Azure Notification Hubs - Baidu Add Activity](./media/notification-hubs-baidu-get-started/AndroidAddActivity.png)
 
-4.	Make sure that the Project Build Target is set correctly.
+4.  Make sure that the Project Build Target is set correctly.
 
-5.	Then add Azure Notification Hubs libraries. In the `Build.Gradle` file for the app, add the following lines in the dependencies section.
+5.  Then add Azure Notification Hubs libraries. In the `Build.Gradle` file for the app, add the following lines in the dependencies section.
 
     ```javascript
     compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
@@ -156,7 +155,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6.	Download and unzip the [Baidu Push Android SDK]. Copy the `pushservice-x.y.z jar` file in the libs folder. Then copy the `.so` files in the `src/main/jniLibs` (create a new folder) folders of your Android application.
+6.  Download and unzip the [Baidu Push Android SDK]. Copy the `pushservice-x.y.z jar` file in the libs folder. Then copy the `.so` files in the `src/main/jniLibs` (create a new folder) folders of your Android application.
 
     ![Azure Notification Hubs - Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -197,7 +196,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
         android:configChanges="orientation|keyboardHidden"
         android:label="MediaListActivity"
         android:launchMode="singleTask" />
- 
+
     <!-- Push application definition message -->
     <receiver android:name=".MyPushMessageReceiver">
         <intent-filter>
@@ -276,12 +275,12 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
         public static String NotificationHubConnectionString = "...";
     }
     ```
-    
+
     Set the value of the `API_KEY` string with the API_KEY from the Baidu Cloud Project.
-    
+
     Set the value of the `NotificationHubName` string with your notification hub name from the [Azure portal]; and then `NotificationHubConnectionString` with `DefaultListenSharedAccessSignature` from the [Azure portal].
 
-11.	Open MainActivity.java, and add the following to the onCreate method:
+11. Open MainActivity.java, and add the following to the onCreate method:
 
     ```java
     PushManager.startWork(this, PushConstants.LOGIN_TYPE_API_KEY,  API_KEY );
@@ -481,25 +480,25 @@ Here are different approaches for sending notifications:
 In this section, we show sending a notification using a .NET console app.
 
 1. Create a new Visual C# console application:
-   
+
     ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
-   
+
         Install-Package Microsoft.Azure.NotificationHubs
-   
+
     This instruction adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
-   
+
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Open the file `Program.cs` and add the following using statement:
-   
+
     ```csharp
     using Microsoft.Azure.NotificationHubs;
     ```
 
 4. In your `Program` class, add the following method and replace `DefaultFullSharedAccessSignatureSASConnectionString` and `NotificationHubName` with the values that you have.
-   
+
     ```csharp
     private static async void SendNotificationAsync()
     {

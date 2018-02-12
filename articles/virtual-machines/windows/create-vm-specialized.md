@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Windows VM from a specialized VHD in Azure | Microsoft Docs
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk using in the Resource Manager deployment model.
 services: virtual-machines-windows
@@ -60,7 +60,7 @@ You can upload the VHD from a specialized VM created with an on-premises virtual
 
 ### Prepare the VM
 If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
-  
+
   * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (like VMware tools).
   * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
@@ -80,7 +80,7 @@ If you want to use an existing storage account, proceed to the [Upload the VHD](
 If you need to create a storage account, follow these steps:
 
 1. You need the name of the resource group where the storage account should be created. To find out all the resource groups that are in your subscription, type:
-   
+
     ```powershell
     Get-AzureRmResourceGroup
     ```
@@ -89,19 +89,19 @@ If you need to create a storage account, follow these steps:
 
     ```powershell
     New-AzureRmResourceGroup `
-	   -Name myResourceGroup `
-	   -Location "West US"
+       -Name myResourceGroup `
+       -Location "West US"
     ```
 
 2. Create a storage account named *mystorageaccount* in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
-   
+
     ```powershell
     New-AzureRmStorageAccount `
-	   -ResourceGroupName myResourceGroup `
-	   -Name mystorageaccount `
-	   -Location "West US" `
+       -ResourceGroupName myResourceGroup `
+       -Name mystorageaccount `
+       -Location "West US" `
        -SkuName "Standard_LRS" `
-	   -Kind "Storage"
+       -Kind "Storage"
     ```
 
 ### Upload the VHD to your storage account 
@@ -151,7 +151,7 @@ $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.v
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType StandardLRS  `
-	-Location $location -CreateOption Import `
+    -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
 ```
@@ -232,7 +232,7 @@ Create the managed disk.
 ```powershell
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
-	-SourceResourceId $snapshot.Id) `
+    -SourceResourceId $snapshot.Id) `
     -ResourceGroupName $destinationResourceGroup
 ```
 
@@ -246,7 +246,7 @@ Create networking and other VM resources to be used by the new VM.
 Create the vNet and subNet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
 Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myDestinationResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
-   
+
 ```powershell
 $subnetName = 'mySubNet'
 $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -255,7 +255,7 @@ $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 ```
 
 Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
-   
+
 ```powershell
 $vnetName = "myVnetName"
 $vnet = New-AzureRmVirtualNetwork `
@@ -282,7 +282,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
    -ResourceGroupName $destinationResourceGroup `
    -Location $location `
    -Name $nsgName -SecurityRules $rdpRule
-	
 ```
 
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -291,7 +290,7 @@ For more information about endpoints and NSG rules, see [Opening ports to a VM i
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
 Create the public IP. In this example, the public IP address name is set to **myIP**.
-   
+
 ```powershell
 $ipName = "myIP"
 $pip = New-AzureRmPublicIpAddress `
@@ -301,7 +300,7 @@ $pip = New-AzureRmPublicIpAddress `
 ```       
 
 Create the NIC. In this example, the NIC name is set to **myNicName**.
-   
+
 ```powershell
 $nicName = "myNicName"
 $nic = New-AzureRmNetworkInterface -Name $nicName `
@@ -323,16 +322,16 @@ $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### Add the NIC
-	
+
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
-	
+
 
 ### Add the OS disk 
 
 Add the OS disk to the configuration using [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). This example sets the size of the disk to *128 GB* and attaches the managed disk as a *Windows* OS disk.
- 
+
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
@@ -352,7 +351,6 @@ If this command was successful, you'll see output like this:
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK   
-
 ```
 
 ### Verify that the VM was created

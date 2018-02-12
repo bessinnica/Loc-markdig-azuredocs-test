@@ -172,7 +172,7 @@ In the fabricSettings section, you can set the root directories for the Service 
 We recommend that you use a non-OS drive as the FabricDataRoot and FabricLogRoot. It provides more reliability in avoiding situations when the OS stops responding. If you customize only the data root, the log root is placed one level below the data root.
 
 ### Stateful Reliable Services settings
-In the KtlLogger section, you can set the global configuration settings for Reliable Services. For more information on these settings, see [Configure Stateful Reliable Services](service-fabric-reliable-services-configuration.md). The following example shows how to change the shared transaction log that gets created to back any reliable collections for stateful services:
+In the KtlLogger section, you can set the global configuration settings for Reliable Services. For more information on these settings, see [Configure Stateful Reliable Services](service-fabric-reliable-services-configuration.md). The following example shows how to change the shared transaction log that gets created to back any reliable collections for stateful services:
 
     "fabricSettings": [{
         "name": "KtlLogger",

@@ -53,6 +53,7 @@ You configure Local Cache by using a combination of reserved app settings. You c
 ### Configure Local Cache by using the Azure portal
 <a name="Configure-Local-Cache-Portal"></a>
 
+
 You enable Local Cache on a per-web-app basis by using this app setting:
 `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
@@ -60,6 +61,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 
 ### Configure Local Cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
+
 
 ```
 

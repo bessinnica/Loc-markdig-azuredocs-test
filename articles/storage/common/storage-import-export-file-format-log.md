@@ -77,7 +77,7 @@ page-range-list ::=
 <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
 </PageRangeList>  
   
@@ -85,7 +85,7 @@ block-list ::=
 <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        [Hash="md5-hash"] Status="block-status"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        [Hash="md5-hash"] Status="block-status"/>]  
 </BlockList>  
   

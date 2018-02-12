@@ -16,15 +16,16 @@ ms.date: 02/01/2018
 # Supported matrix for this release 
 When your code loads data by using Azure Machine Learning Data Sources or Azure Machine Learning Data Preparations, getting either a Pandas or Spark dataframe, the following combinations of experiment compute environments and data locations are supported:
 
-|     |Local files  |Azure Blob storage  |SQL Server database***  |
-|---------|---------|---------|---------|---------|
-|Local Python    |     Supported    |Not supported         | Not supported        |         |
-|Docker (Linux VM) Python     |Supported in project files only*         | Not supported        |        Not supported |         |
-|Docker (Linux VM) PySpark     |Supported in project files only*     |Supported         | Supported**        |         |
-|Azure Data Science Virtual Machine Python     |Supported in project files only*         |Not supported         |Not supported         |         |
-|Azure Data Science Virtual Machine PySPark     | Supported in project files only*        |Not supported         |Not supported         |         |
-|Azure HDInsight PySpark     | Not supported        |Supported         |Supported**         |         |
-|Azure HDInsight Python     | Not supported        | Not supported        | Not supported        |         |
+
+|                                            |           Local files            | Azure Blob storage | SQL Server database*** |
+|--------------------------------------------|----------------------------------|--------------------|------------------------|
+|                Local Python                |            Supported             |   Not supported    |     Not supported      |
+|          Docker (Linux VM) Python          | Supported in project files only* |   Not supported    |     Not supported      |
+|         Docker (Linux VM) PySpark          | Supported in project files only* |     Supported      |      Supported**       |
+| Azure Data Science Virtual Machine Python  | Supported in project files only* |   Not supported    |     Not supported      |
+| Azure Data Science Virtual Machine PySPark | Supported in project files only* |   Not supported    |     Not supported      |
+|          Azure HDInsight PySpark           |          Not supported           |     Supported      |      Supported**       |
+|           Azure HDInsight Python           |          Not supported           |   Not supported    |     Not supported      |
 
 Azure Data Lake Store is not currently supported for any compute target.
 

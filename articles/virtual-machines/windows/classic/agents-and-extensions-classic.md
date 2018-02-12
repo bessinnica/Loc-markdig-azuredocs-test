@@ -26,3 +26,4 @@ ms.custom: H1Hack27Feb2017
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about VM agents and extensions using Resource Manager, see [here](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
+

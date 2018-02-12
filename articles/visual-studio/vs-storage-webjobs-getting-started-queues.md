@@ -174,7 +174,7 @@ For more information, see [WebJobs Graceful Shutdown](http://blog.amitapple.com/
 To write a function that creates a new queue message, use the **Queue** attribute. Like **QueueTrigger**, you pass in the queue name as a string or you can [set the queue name dynamically](#how-to-set-configuration-options).
 
 ### String queue messages
-The following non-async code sample creates a new queue message in the queue named "outputqueue" with the same content as the queue message received in the queue named "inputqueue". (For async functions use **IAsyncCollector<T>** as shown later in this section.)
+The following non-async code sample creates a new queue message in the queue named "outputqueue" with the same content as the queue message received in the queue named "inputqueue". (For async functions use <strong>IAsyncCollector<T></strong> as shown later in this section.)
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -196,7 +196,7 @@ To create a queue message that contains a POCO rather than a string, pass the PO
 The SDK automatically serializes the object to JSON. A queue message is always created, even if the object is null.
 
 ### Create multiple messages or in async functions
-To create multiple messages, make the parameter type for the output queue **ICollector<T>** or **IAsyncCollector<T>**, as shown in the following example.
+To create multiple messages, make the parameter type for the output queue <strong>ICollector<T></strong> or <strong>IAsyncCollector<T></strong>, as shown in the following example.
 
         public static void CreateQueueMessages(
             [QueueTrigger("inputqueue")] string queueMessage,

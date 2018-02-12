@@ -22,13 +22,13 @@ Currently, Event Grid supports the following regions:
 * Asia Southeast
 * Asia East
 * Central US
-*	East US
-*	East US 2
+*   East US
+*   East US 2
 * Europe West
 * Europe North
-*	West Central US
-*	West US
-*	West US 2
+*   West Central US
+*   West US
+*   West US 2
 
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects publishers and handlers, but it does not provide a comprehensive list of supported options.
 

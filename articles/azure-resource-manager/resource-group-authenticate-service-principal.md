@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create identity for Azure app with PowerShell | Microsoft Docs
 description: Describes how to use Azure PowerShell to create an Azure Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
 services: azure-resource-manager
@@ -43,8 +43,8 @@ To set up a service principal, you use:
 
 | Command | Description |
 | ------- | ----------- | 
-| [New-​Azure​Rm​AD​Service​Principal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Creates an Azure Active Directory service principal |
-| [New-​Azure​Rm​Role​Assignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Assigns the specified RBAC role to the specified principal, at the specified scope. |
+| [New- Azure Rm AD Service Principal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Creates an Azure Active Directory service principal |
+| [New- Azure Rm Role Assignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Assigns the specified RBAC role to the specified principal, at the specified scope. |
 
 
 ## Create service principal with password

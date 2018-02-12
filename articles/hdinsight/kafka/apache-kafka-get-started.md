@@ -46,16 +46,16 @@ Use the following steps to create a Kafka on HDInsight cluster:
         > [!IMPORTANT]
         > For high availability of data, we recommend selecting a location (region) that contains __three fault domains__. For more information, see the [Data high availability](#data-high-availability) section.
    
- ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
+   ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
 3. Select **Cluster type**, and then set the following values from **Cluster configuration**:
    
-    * **Cluster Type**: Kafka
-    * **Version**: Kafka 0.10.0 (HDI 3.6)
+   * **Cluster Type**: Kafka
+   * **Version**: Kafka 0.10.0 (HDI 3.6)
 
-    Finally, use the **Select** button to save settings.
+     Finally, use the **Select** button to save settings.
      
- ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+   ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
 4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
 

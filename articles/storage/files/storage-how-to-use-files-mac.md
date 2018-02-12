@@ -50,7 +50,7 @@ ms.author: renash
     ![A snapshot of a mounted Azure File share](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## Mount an Azure File share via Terminal
-1. Replace `<storage-account-name>` with the name of your storage account. Provide Storage Account Key as password when prompted. 
+1. Replace `<storage-account-name>` with the name of your storage account. Provide Storage Account Key as password when prompted. 
 
     ```
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>

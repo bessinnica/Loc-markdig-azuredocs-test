@@ -98,7 +98,7 @@ After you have updated your sources, you can install the SDK. Install the Servic
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   The following commands automate accepting the license for Service Fabric packages:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
@@ -108,26 +108,26 @@ sudo apt-get install servicefabricsdkcommon
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
 
-  1. Run the cluster setup script.
+1. Run the cluster setup script.
 
-      ```bash
-      sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-      ```
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
-  2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer). If the cluster has started, you should see the Service Fabric Explorer dashboard.
+2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer). If the cluster has started, you should see the Service Fabric Explorer dashboard.
 
-      ![Service Fabric Explorer on Linux][sfx-linux]
+    ![Service Fabric Explorer on Linux][sfx-linux]
 
-  At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
-
-
-  > [!NOTE]
-  > Standalone clusters aren't supported in Linux.
-  >
+   At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
 
 
->   [!TIP]
-    If you have an SSD disk avaiable, it is recommended to pass an SSD folder path using `--clusterdataroot` with devclustersetup.sh for superior performance.
+> [!NOTE]
+> Standalone clusters aren't supported in Linux.
+> 
+> 
+> 
+> [!TIP]
+>     If you have an SSD disk avaiable, it is recommended to pass an SSD folder path using `--clusterdataroot` with devclustersetup.sh for superior performance.
 
 ## Set up the Service Fabric CLI
 
@@ -149,15 +149,15 @@ Ubuntu
 
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
-  ```bash
-  sudo npm install -g yo
-  ```
+   ```bash
+   sudo npm install -g yo
+   ```
 3. Install the Service Fabric Yeo container generator and guest executable generator from NPM
 
-  ```bash
-  sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-  sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
-  ```
+   ```bash
+   sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+   sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+   ```
 
 After you have installed the generators, you should be able to create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
 

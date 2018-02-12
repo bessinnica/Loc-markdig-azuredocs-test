@@ -89,9 +89,9 @@ The template uses three data sets as inputs, in the files PM_train.txt, PM_test.
 
 ## Scenario structure
 
-The content for the scenario is available in the [GitHub repository] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance). 
+The content for the scenario is available in the [GitHub repository](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance). 
 
-In the repository, a [readme] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/blob/master/README.md) file outlines the processes, from preparing the data, to building and operationalizing the model. The three Jupyter notebooks are available in the [Code] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/tree/master/Code) folder in the repository. 
+In the repository, a [readme](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/blob/master/README.md) file outlines the processes, from preparing the data, to building and operationalizing the model. The three Jupyter notebooks are available in the [Code](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/tree/master/Code) folder in the repository. 
 
 Next, we describe the step-by-step scenario workflow.
 

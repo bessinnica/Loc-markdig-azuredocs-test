@@ -215,33 +215,33 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 1. Launch **PowerShell**.
 2. Run the **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status of **Failed**.        
 
-	```powershell   
-	Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-	```   
+    ```powershell   
+    Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    ```   
    For example:
 
-	```powershell   
-	Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-	```
+    ```powershell   
+    Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    ```
 
    Replace **StartDateTime** with start time of your pipeline. 
 3. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about the activity run for the slice.
 
-	```powershell   
-	Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
-	<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
-	```
+    ```powershell   
+    Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
+    <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
+    ```
 
     For example:
 
-	```powershell   
+    ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
-	```
+    ```
 
     The value of StartDateTime is the start time for the error/problem slice that you noted from the previous step. The date-time should be enclosed in double quotes.
 4. You should see output with details about the error that is similar to the following:
 
-	```   
+    ```   
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
     ResourceGroupName       : ADF
     DataFactoryName         : LogProcessingFactory3
@@ -262,12 +262,12 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
     ActivityName            : PigEnrichLogs
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
-	```
+    ```
 5. You can run the **Save-AzureRmDataFactoryLog** cmdlet with the Id value that you see from the output, and download the log files by using the **-DownloadLogsoption** for the cmdlet.
 
-	```powershell
-	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
-	```
+    ```powershell
+    Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    ```
 
 ## Rerun failures in a pipeline
 

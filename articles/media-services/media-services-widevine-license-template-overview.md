@@ -55,6 +55,7 @@ A Widevine license request is formatted as a JSON message.
     }
 
 ## JSON message
+
 | Name | Value | Description |
 | --- | --- | --- |
 | payload |Base64-encoded string |The license request sent by a client. |
@@ -82,6 +83,7 @@ Each content_key_specs value must be specified for all tracks, regardless of the
 | content_key_specs.key_id |Base64-encoded string binary, 16 bytes |Unique identifier for the key. |
 
 ## Policy overrides
+
 | Name | Value | Description |
 | --- | --- | --- |
 | policy_overrides. can_play |Boolean, true or false |Indicates that playback of the content is allowed. Default is false. |
@@ -97,6 +99,7 @@ Each content_key_specs value must be specified for all tracks, regardless of the
 | policy_overrides. renew_with_usage |Boolean, true or false |Indicates that the license is sent for renewal when usage starts. This field is used only if can_renew is true. |
 
 ## Session initialization
+
 | Name | Value | Description |
 | --- | --- | --- |
 | provider_session_token |Base64-encoded string |This session token is passed back in the license and exists in subsequent renewals. The session token doesn't persist beyond sessions. |

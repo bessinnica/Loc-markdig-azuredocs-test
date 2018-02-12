@@ -46,12 +46,12 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 5. Click **+ Add** in the blade that opens for IP configurations.
 6. Specify the following, then click **OK** to close the **Add IP configuration** blade:
 
-	|Setting|Required?|Details|
-	|---|---|---|
-	|Name|Yes|Must be unique for the network interface|
-	|Type|Yes|Since you're adding an IP configuration to an existing network interface, and each network interface must have a [primary](#primary) IP configuration, your only option is **Secondary**.|
-	|Private IP address assignment method|Yes|[**Dynamic**](#dynamic): Azure assigns the next available address for the subnet address range the network interface is deployed in. [**Static**](#static): You assign an unused address for the subnet address range the network interface is deployed in.|
-	|Public IP address|No|**Disabled:** No public IP address resource is currently associated to the IP configuration. **Enabled:** Select an existing IPv4 Public IP address, or create a new one. To learn how to create a public IP address, read the [Public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address) article.|
+    |Setting|Required?|Details|
+    |---|---|---|
+    |Name|Yes|Must be unique for the network interface|
+    |Type|Yes|Since you're adding an IP configuration to an existing network interface, and each network interface must have a [primary](#primary) IP configuration, your only option is **Secondary**.|
+    |Private IP address assignment method|Yes|[**Dynamic**](#dynamic): Azure assigns the next available address for the subnet address range the network interface is deployed in. [**Static**](#static): You assign an unused address for the subnet address range the network interface is deployed in.|
+    |Public IP address|No|**Disabled:** No public IP address resource is currently associated to the IP configuration. **Enabled:** Select an existing IPv4 Public IP address, or create a new one. To learn how to create a public IP address, read the [Public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address) article.|
 7. Manually add secondary private IP addresses to the virtual machine operating system by completing the instructions in the [Assign multiple IP addresses to virtual machine operating systems](virtual-network-multiple-ip-addresses-portal.md#os-config) article. See [private](#private) IP addresses for special considerations before manually adding IP addresses to a virtual machine operating system. Do not add any public IP addresses to the virtual machine operating system.
 
 **Commands**
@@ -143,7 +143,7 @@ There are scenarios where it's necessary to manually set the IP address of a net
 3. Change the IP address for the IP configuration within Azure.
 4. Start the virtual machine.
 5. [Manually configure](virtual-network-multiple-ip-addresses-portal.md#os-config) the secondary IP addresses within the operating system (and also the primary IP address within Windows) to match what you set within Azure.
- 
+
 By following the previous steps, the private IP address assigned to the network interface within Azure, and within a virtual machine's operating system, remain the same. To keep track of which virtual machines within your subscription that you've manually set IP addresses within an operating system for, consider adding an Azure [tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) to the virtual machines. You might use "IP address assignment: Static", for example. This way, you can easily find the virtual machines within your subscription that you've manually set the IP address for within the operating system.
 
 In addition to enabling a virtual machine to communicate with other resources within the same, or connected virtual networks, a private IP address also enables a virtual machine to communicate outbound to the Internet. Outbound connections are source network address translated by Azure to an unpredictable public IP address. To learn more about Azure outbound Internet connectivity, read the [Azure outbound Internet connectivity](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article. You cannot communicate inbound to a virtual machine's private IP address from the Internet. If your outbound connections require a predictable public IP address, associate a public IP address resource to a network interface.
@@ -202,8 +202,10 @@ A public IP address is created with the basic or standard SKU.  For more details
 ## Next steps
 To create a virtual machine with different IP configurations, read the following articles:
 
-|Task|Tool|
-|---|---|
-|Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+
+|                                        Task                                        |                                                                                                                                                                          Tool                                                                                                                                                                           |
+|------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                           Create a VM with multiple NICs                           |                                                                            [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)                                                                            |
+|                Create a single NIC VM with multiple IPv4 addresses                 |                                                                                                                 [CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)                                                                                                                  |
+| Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer) | [CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
+

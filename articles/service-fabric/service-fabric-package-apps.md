@@ -1,4 +1,4 @@
-﻿---
+---
 title: Package an Azure Service Fabric app | Microsoft Docs
 description: How to package a Service Fabric application before deploying to a cluster.
 services: service-fabric
@@ -53,6 +53,7 @@ Typical scenarios for using **SetupEntryPoint** are when you need to run an exec
 For more information on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
+
 ## Configure
 ### Build a package by using Visual Studio
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
@@ -160,7 +161,6 @@ D:\TEMP\MYAPPLICATIONTYPE
        MyCode.zip
        MyConfig.zip
        MyData.zip
-
 ```
 
 Alternatively, you can compress and copy the package with [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) in one step.

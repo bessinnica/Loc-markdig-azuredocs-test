@@ -33,11 +33,11 @@ Even though Data Factory is available in only **West US**, **East US**, and **No
 Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) and processing of data using [compute services](data-factory-compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to [monitor and manage workflows](data-factory-monitor-manage-pipelines.md) using both programmatic and UI mechanisms.
 
 Data movement using Azure Data Factory has been **certified** for:
--	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
--	[ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--	[ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--	[CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
-	 
+-   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+-   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+
 If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
 In this article, we review security considerations in the following two data movement scenarios: 
@@ -46,7 +46,7 @@ In this article, we review security considerations in the following two data mov
 - **Hybrid scenario**- In this scenario, either your source or destination is behind a firewall or inside an on-premises corporate network or the data store is in a private network/ virtual network (most often the source) and is not publicly accessible. Database servers hosted on virtual machines also fall under this scenario.
 
 ## Cloud scenarios
-###Securing data store credentials
+### Securing data store credentials
 Azure Data Factory protects your data store credentials by **encrypting** them by using **certificates managed by Microsoft**. These certificates are rotated every **two years** (which includes renewal of certificate and migration of credentials). These encrypted credentials are securely stored in an **Azure Storage managed by Azure Data Factory management services**. For more information about Azure Storage security, refer [Azure Storage Security Overview](../../security/security-storage-overview.md).
 
 ### Data encryption in transit
@@ -101,26 +101,26 @@ You can encrypt data store credentials using [JavaScript Cryptography library](h
 
 #### Click-once credentials manager app
 You can launch the click-once based credential manager app from Azure portal/Copy Wizard when authoring pipelines. This application ensures that credentials are not transferred in plain text over the wire. By default, it uses the port **8050** on the machine with gateway for secure communication. If necessary, this port can be changed.  
-  
+
 ![HTTPS port for the gateway](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
 Currently, Data Management Gateway uses a single **certificate**. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate. This certificate is used by the click-once credential manager application to securely connect to the gateway machine for setting data store credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) on the machine with gateway. 
 
 > [!NOTE]
 > Older gateways that were installed before November 2016 or of version 2.3.xxxx.x continue to use credentials encrypted and stored on cloud. Even if you upgrade the gateway to the latest version, the credentials are not migrated to an on-premises machine    
-  
+
 | Gateway version (during creation) | Credentials Stored | Credential encryption/ security | 
 | --------------------------------- | ------------------ | --------- |  
 | < = 2.3.xxxx.x | On cloud | Encrypted using certificate (different from the one used by Credential manager app) | 
 | > = 2.4.xxxx.x | On premises | Secured via DPAPI | 
-  
+
 
 ### Encryption in transit
 All data transfers are via secure channel **HTTPS** and **TLS over TCP** to prevent man-in-the-middle attacks during communication with Azure services.
- 
+
 You can also use [IPSec VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) or [Express Route](../../expressroute/expressroute-introduction.md) to further secure the communication channel between your on-premises network and Azure.
 
-Virtual network is a logical representation of your network in the cloud. You can connect an on-premises network to your Azure virtual network (VNet) by setting up IPSec VPN (site-to-site) or Express Route (Private Peering)		
+Virtual network is a logical representation of your network in the cloud. You can connect an on-premises network to your Azure virtual network (VNet) by setting up IPSec VPN (site-to-site) or Express Route (Private Peering)     
 
 The following table summarizes the network and gateway configuration recommendations based on different combinations of source and destination locations for hybrid data movement.
 
@@ -133,7 +133,7 @@ The following table summarizes the network and gateway configuration recommendat
 The following images show the usage of Data Management Gateway for moving data between an on-premises database and Azure services using Express route and IPSec VPN (with Virtual Network):
 
 **Express Route:**
- 
+
 ![Use Express Route with gateway](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
 
 **IPSec VPN:**
@@ -142,7 +142,7 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ### Firewall configurations and whitelisting IP address of gateway
 
-#### Firewall requirements for on-premises/private network	
+#### Firewall requirements for on-premises/private network  
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.
@@ -152,7 +152,7 @@ The following table provides **outbound port** and domain requirements for the *
 | `*.servicebus.windows.net` | 443, 80 | Required by the gateway to connect to data movement services in Data Factory |
 | `*.core.windows.net` | 443 | Used by the gateway to connect to Azure Storage Account when you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) feature. | 
 | `*.frontend.clouddatahub.net` | 443 | Required by the gateway to connect to the Azure Data Factory service. | 
-| `*.database.windows.net` | 1433	| (OPTIONAL) needed when your destination is Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. | 
+| `*.database.windows.net` | 1433   | (OPTIONAL) needed when your destination is Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPTIONAL) needed when your destination is Azure Data Lake store | 
 
 > [!NOTE] 
@@ -182,8 +182,9 @@ The following cloud data stores require whitelisting of IP address of the gatewa
 **Question:** Can the Gateway be shared across different data factories?
 **Answer:** We do not support this feature yet. We are actively working on it.
 
-**Question:** What are the port requirements for the gateway to work?
-**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
+<strong>Question:</strong> What are the port requirements for the gateway to work?
+
+<strong>Answer:</strong> Gateway makes HTTP-based connections to open internet. The <strong>outbound ports 443 and 80</strong> must be opened for gateway to make this connection. Open <strong>Inbound Port 8050</strong> only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open <strong>1433</strong> port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
 
 **Question:** What are certificate requirements for Gateway?
 **Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/ SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 
@@ -191,4 +192,4 @@ The following cloud data stores require whitelisting of IP address of the gatewa
 ## Next steps
 For information about performance of copy activity, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md).
 
- 
+

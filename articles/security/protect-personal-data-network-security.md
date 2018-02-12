@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protect personal data with Azure network security features | Microsoft Docs
 description: Protect personal data using Azure network security features
 services: security
@@ -108,8 +108,8 @@ To update an existing application gateway to support WAF in prevention mode, do 
 1. In the Azure portal **Favorites** pane, click **All resources**.
 
 2. Click the existing Application Gateway in the **All resources** blade. 
->[!NOTE]
-Note: If the subscription you selected already has several resources in it, you can enter the name in the Filter by name… box to easily access the DNS zone.
+   > [!NOTE]
+   > Note: If the subscription you selected already has several resources in it, you can enter the name in the Filter by name… box to easily access the DNS zone.
 3. Click **Web application firewall** and update the application gateway settings: **Upgrade to WAF Tier** (checked), **Firewall status** (enabled),     **Firewall mode** (Prevention). You also need to configure the rule set, and configure disabled rules.
 
 For more detailed information on how to create a new application gateway with WAF and how to add WAF to an existing application gateway, see [Create an application gateway with web application firewall by using the portal.](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal)
@@ -119,8 +119,8 @@ For more detailed information on how to create a new application gateway with WA
 A [network security group](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) contains a list of security rules that allow or deny network traffic to resources connected to [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/) (VNet). NSGs can be associated to subnets or individual VMs. When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet. Traffic can further be restricted by also associating an NSG to a VM or NIC.
 
 NSGs contain four properties: Name, Region, Resource group, and Rules.
->[!Note]
-Although an NSG exists in a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG.
+> [!Note]
+> Although an NSG exists in a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG.
 
 NSG rules contain nine properties: Name, Protocol (TCP, UDP, or \*, which includes ICMP as well as UDP and TCP), Source port range, Destination port
 range, Source address prefix, Destination address prefix, Direction (inbound or outbound), Priority (between 100 and 4096) and Access type (allow or deny). All NSGs contain a set of default rules that can be deleted, or overridden by the rules you create.

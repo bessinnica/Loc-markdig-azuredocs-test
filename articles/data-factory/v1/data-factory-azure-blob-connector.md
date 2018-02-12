@@ -173,23 +173,23 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 ### Prerequisites
 1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 2. Create a blob container named **adfblobconnector** in the storage account. 
-4. Create a folder named **input** in the **adfblobconnector** container.
-5. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+3. Create a folder named **input** in the **adfblobconnector** container.
+4. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
     ```json
     John, Doe
     Jane, Doe
     ```
-### Create the data factory
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ NEW** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
-3. In the **New data factory** blade:   
+   ### Create the data factory
+5. Sign in to the [Azure portal](https://portal.azure.com).
+6. Click **+ NEW** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
+7. In the **New data factory** blade:   
     1. Enter **ADFBlobConnectorDF** for the **name**. The name of the Azure data factory must be globally unique. If you receive the error: `*Data factory name “ADFBlobConnectorDF” is not available`, change the name of the data factory (for example, yournameADFBlobConnectorDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
     2. Select your Azure **subscription**.
     3. For Resource Group, select **Use existing** to select an existing resource group (or) select **Create new** to enter a name for a resource group.
     4. Select a **location** for the data factory.
     5. Select **Pin to dashboard** check box at the bottom of the blade.
     6. Click **Create**.
-3. After the creation is complete, you see the **Data Factory** blade as shown in the following image:
+8. After the creation is complete, you see the **Data Factory** blade as shown in the following image:
    ![Data factory home page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### Copy Wizard
@@ -260,9 +260,9 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     ![Copy Tool - File format settings for destination](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. On the **Performance settings** page, confirm that **cloud units** and **parallel copies** are set to **Auto**, and click Next. For details about these settings, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md#parallel-copy).
     ![Copy Tool - Performance settings](media/data-factory-azure-blob-connector/copy-performance-settings.png) 
-14. On the **Summary** page, review all settings (task properties, settings for source and destination, and copy settings), and click **Next**.
+13. On the **Summary** page, review all settings (task properties, settings for source and destination, and copy settings), and click **Next**.
     ![Copy Tool - Summary page](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
-15. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard).
+14. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard).
     ![Copy Tool - Deployment page](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
 
 ### Monitor the pipeline (copy task)
@@ -281,7 +281,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     2017/04/24
     2017/04/25    
     ```
-For detailed information about monitoring and managing data factories, see [Monitor and manage Data Factory pipeline](data-factory-monitor-manage-app.md) article. 
+   For detailed information about monitoring and managing data factories, see [Monitor and manage Data Factory pipeline](data-factory-monitor-manage-app.md) article. 
  
 ### Data Factory entities
 Now, switch back to the tab with the Data Factory home page. Notice that there are two linked services, two datasets, and one pipeline in your data factory now. 

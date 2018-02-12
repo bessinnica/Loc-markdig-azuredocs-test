@@ -75,7 +75,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
     using Microsoft.Azure.Management.DataLake.Store;
     using Microsoft.Azure.Management.DataLake.Store.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    ```		
+    ```     
 
 ## End-user authentication
 Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Store, which means you are prompted to enter your Azure credentials.

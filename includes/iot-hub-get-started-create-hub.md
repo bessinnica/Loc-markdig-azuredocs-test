@@ -3,11 +3,11 @@ Create an IoT hub for your simulated device app to connect to. The following ste
 
 1. Sign in to the [Azure portal][lnk-portal].
 
-1. Select **New** > **Internet of Things** > **IoT Hub**.
+2. Select **New** > **Internet of Things** > **IoT Hub**.
    
     ![Azure portal Jumpbar][1]
 
-1. In the **IoT hub** pane, enter the following information for your IoT hub:
+3. In the **IoT hub** pane, enter the following information for your IoT hub:
 
    * **Name**: Create a name for your IoT hub. If the name you enter is valid, a green check mark appears.
 
@@ -21,15 +21,15 @@ Create an IoT hub for your simulated device app to connect to. The following ste
 
    * **Pin to dashboard**: Check this option for easy access to your IoT hub from the dashboard.
 
-    ![IoT hub window][2]
+     ![IoT hub window][2]
 
-1. Click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
+4. Click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
-1. When your new IoT hub is ready, click its tile in the Azure portal to open its properties window. Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
+5. When your new IoT hub is ready, click its tile in the Azure portal to open its properties window. Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
    
     ![New IoT hub window][4]
 
-1. In **Shared access policies**, click the **iothubowner** policy, and then make note of the IoT Hub connection string in the **iothubowner** window. For more information, see [Access control][lnk-access-control] in the "IoT Hub developer guide."
+6. In **Shared access policies**, click the **iothubowner** policy, and then make note of the IoT Hub connection string in the **iothubowner** window. For more information, see [Access control][lnk-access-control] in the "IoT Hub developer guide."
    
     ![Shared access policies][5]
 

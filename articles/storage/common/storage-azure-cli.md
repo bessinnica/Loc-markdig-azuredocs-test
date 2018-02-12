@@ -361,13 +361,13 @@ az storage file list --share-name myshare/myDir --output table
 az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --output table
 ```
 
-### Copy files		
-You can copy a file to another file, a file to a blob, or a blob to a file. For example, to copy a file to a directory in a different share:		
-		
+### Copy files      
+You can copy a file to another file, a file to a blob, or a blob to a file. For example, to copy a file to a directory in a different share:        
+
 ```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
---destination-share share2 --destination-path dir2/file.txt		
+--destination-share share2 --destination-path dir2/file.txt     
 ```
 
 ## Create share snapshot
@@ -454,7 +454,6 @@ IMG_1405.JPG    652156            file
 IMG_1611.JPG    442671            file
 IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
-
 ```
 ### Restore from share snapshots
 

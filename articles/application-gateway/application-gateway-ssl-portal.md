@@ -73,12 +73,12 @@ A virtual network is needed for communication between the resources that you cre
 4. Accept the default values for the other settings and then click **OK**.
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-    - *myVNet* - for the name of the virtual network.
-    - *10.0.0.0/16* - for the virtual network address space.
-    - *myAGSubnet* - for the subnet name.
-    - *10.0.0.0/24* - for the subnet address space.
+   - *myVNet* - for the name of the virtual network.
+   - *10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-    ![Create virtual network](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
 
 6. Click **OK** to create the virtual network and subnet.
 7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.

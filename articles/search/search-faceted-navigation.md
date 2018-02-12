@@ -89,6 +89,7 @@ In applications that include faceted navigation, make sure that each user action
 
 <a name="howtobuildit"></a>
 
+
 ## Build a faceted navigation app
 You implement faceted navigation with Azure Search in your application code that builds the search request. The faceted navigation relies on elements in your schema that you defined previously.
 
@@ -105,6 +106,7 @@ Azure Search returns the search results, based on one or more terms that you ent
 In the following sections, we take a closer look at how to build each part.
 
 <a name="buildindex"></a>
+
 
 ## Build the index
 Faceting is enabled on a field-by-field basis in the index, via this index attribute: `"Facetable": true`.  
@@ -147,6 +149,7 @@ As you can see in the sample schema, `Facetable` is turned off for string fields
 
 <a name="checkdata"></a>
 
+
 ## Check the data
 The quality of your data has a direct effect on whether the faceted navigation structure materializes as you expect it to. It also affects the ease of constructing filters to reduce the result set.
 
@@ -162,6 +165,7 @@ Here are a few reminders of what to scrub for:
 As you can imagine, diligence in preparing the data is an essential aspect of effective faceted navigation.
 
 <a name="presentationlayer"></a>
+
 
 ## Build the UI
 Working back from the presentation layer can help you uncover requirements that might be missed otherwise, and understand which capabilities are essential to the search experience.
@@ -214,6 +218,7 @@ function UpdateBusinessTitleFacets(data) {
 > When you design the search results page, remember to add a mechanism for clearing facets. If you add check boxes, you can easily see how to clear the filters. For other layouts, you might need a breadcrumb pattern or another creative approach. For example, in the Job Search Portal sample application, you can click the `[X]` after a selected facet to clear the facet.
 
 <a name="buildquery"></a>
+
 
 ## Build the query
 The code that you write for building queries should specify all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. In this section, we explore where facets fit into a query, and how filters are used with facets to deliver a reduced result set.
@@ -277,7 +282,7 @@ Use filters. If you rely on just search expressions alone, stemming could cause 
 **Increase search performance with filters**
 
 Filters narrow down the set of candidate documents for search and exclude them from ranking. If you have a large set of documents, using a selective facet drill-down often gives you better performance.
-  
+
 **Filter only the faceted fields**
 
 In faceted drill-down, you typically want to only include documents that have the facet value in a specific (faceted) field, not anywhere across all searchable fields. Adding a filter reinforces the target field by directing the service to search only in the faceted field for a matching value.
@@ -332,6 +337,7 @@ Labels are typically defined in the HTML or form (`index.cshtml` in the sample a
 
 <a name="rangefacets"></a>
 
+
 ## Filter based on a range
 Faceting over ranges of values is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
@@ -370,6 +376,7 @@ You can find filter examples in [OData expression syntax (Azure Search)](http://
 
 <a name="tryitout"></a>
 
+
 ## Try the demo
 The Azure Search Job Portal Demo contains the examples referenced in this article.
 
@@ -382,20 +389,21 @@ As you work with search results, watch the URL for changes in query construction
 1. To use the mapping functionality of the demo app, get a Bing Maps key from the [Bing Maps Dev Center](https://www.bingmapsportal.com/). Paste it over the existing key in the `index.cshtml` page. The `BingApiKey` setting in the `Web.config` file is not used. 
 
 2. Run the application. Take the optional tour, or dismiss the dialog box.
-   
+
 3. Enter a search term, such as "analyst", and click the Search icon. The query executes quickly.
-   
+
    A faceted navigation structure is also returned with the search results. In the search result page, the faceted navigation structure includes counts for each facet result. No facets are selected, so all matching results are returned.
-   
+
    ![Search results before selecting facets][11]
 
 4. Click a Business Title, Location, or Minimum Salary. Facets were null on the initial search, but as they take on values, the search results are trimmed of items that no longer match.
-   
+
    ![Search results after selecting facets][12]
 
 5. To clear the faceted query so that you can try different query behaviors, click the `[X]` after the selected facets to clear the facets.
-   
+
 <a name="nextstep"></a>
+
 
 ## Learn more
 Watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.

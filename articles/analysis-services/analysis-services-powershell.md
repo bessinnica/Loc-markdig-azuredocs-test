@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure Analysis Services with PowerShell | Microsoft Docs
 description: Azure Analysis Services management with PowerShell.
 services: analysis-services

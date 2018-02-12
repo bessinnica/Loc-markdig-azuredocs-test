@@ -33,26 +33,27 @@ You can use the steps below, depending on your situation, to hide applications f
 ### How do I hide a third-party app from user’s access panel and O365 app launchers?
 Use the following steps to hide an application from a user's access panel and Office 365 app launchers.
 
-1.	Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2.	Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
-3.	On the **Azure Active Directory - *directoryname*** screen (that is, the Azure AD screen for the directory you are managing), select **Enterprise applications**.
-![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app1.png)
-4.	On the **Enterprise applications** screen, select **All applications**. You see a list of the apps you can manage.
-5.	On the **Enterprise applications - All applications** screen, select an app.</br>
-![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app2.png)
-6.	On the ***appname*** screen (that is, the screen with the name of the selected app in the title), select Properties.
-7.	On the ***appname* - Properties** screen, select **Yes** for **Visible to users?**.
-![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app3.png)
-8.	Select the **Save** command.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. On the <strong>Azure Active Directory - *directoryname</strong>* screen (that is, the Azure AD screen for the directory you are managing), select <strong>Enterprise applications</strong>.
+
+   ![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app1.png)
+4. On the **Enterprise applications** screen, select **All applications**. You see a list of the apps you can manage.
+5. On the **Enterprise applications - All applications** screen, select an app.</br>
+   ![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app2.png)
+6. On the ***appname*** screen (that is, the screen with the name of the selected app in the title), select Properties.
+7. On the ***appname* - Properties** screen, select **Yes** for **Visible to users?**.
+   ![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/app3.png)
+8. Select the **Save** command.
 
 ### How do I hide Office 365 applications from user's access panel?
 
 Use the following steps to hide all Office 365 applications from the access panel. These apps will still be visible in the Office 365 portal.
 
-1.	Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2.	Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
-3.	On the **Azure Active Directory - *directoryname*** screen (that is, the Azure AD screen for the directory you are managing), select **User settings**.
-4.	On the **User settings** screen, under **Enterprise applications** select **Yes** for **Users can only see Office 365 apps in the Office 365 portal**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. On the <strong>Azure Active Directory - *directoryname</strong>* screen (that is, the Azure AD screen for the directory you are managing), select <strong>User settings</strong>.
+4. On the **User settings** screen, under **Enterprise applications** select **Yes** for **Users can only see Office 365 apps in the Office 365 portal**.
 
 ![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/apps4.png)
 

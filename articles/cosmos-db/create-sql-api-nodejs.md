@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a SQL API app with Node.js and the Azure portal
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -28,12 +28,13 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * In addition:
-	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-	* [Git](http://git-scm.com/)
+    * [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
+    * [Git](http://git-scm.com/)
 
 ## Create a database account
 
@@ -128,7 +129,7 @@ Now go back to the Azure portal to get your connection string information and co
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.primaryKey` in `config.js`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `config.primaryKey "FILLME"`
-    
+
 ## Run the app
 1. Run `npm install` in a terminal to install required npm modules
 

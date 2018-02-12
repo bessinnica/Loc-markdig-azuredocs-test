@@ -34,6 +34,7 @@ This article discusses the elements and types of the XML schema on which the out
 Collection of AssetFile entries for the encoding job.  
 
 ### Child elements
+
 | Name | Description |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |An [AssetFile element](media-services-output-metadata-schema.md) that is part of the AssetFiles collection. |
@@ -42,6 +43,7 @@ Collection of AssetFile entries for the encoding job.
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Name**<br/><br/> Required |**xs:string** |The media asset file name. |
@@ -49,6 +51,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | **Duration**<br/><br/> Required |**xs:duration** |Content play back duration. |
 
 ### Child elements
+
 | Name | Description |
 | --- | --- |
 | **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md). |
@@ -61,6 +64,7 @@ Collection of input/source media files, that was processed in order to produce t
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Child elements
+
 | Name | Description |
 | --- | --- |
 | **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information, see [Source element](media-services-output-metadata-schema.md). |
@@ -71,6 +75,7 @@ An input/source file used when generating this asset.
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Name**<br/><br/> Required |**xs:string** |Input source file name. |
@@ -81,6 +86,7 @@ Each physical AssetFile can contain in it zero or more videos tracks interleaved
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Child elements
+
 | Name | Description |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific video track in the parent AssetFile. For more information, see [VideoTrack element](media-services-output-metadata-schema.md#VideoTrack). |
@@ -91,6 +97,7 @@ A specific video track in the parent AssetFile.
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Zero-based index of this video track. **Note:**  This **Id** is not necessarily the TrackID as used in an MP4 file. |
@@ -113,6 +120,7 @@ Each physical AssetFile can contain in it zero or more audio tracks interleaved 
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Child elements
+
 | Name | Description |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see [AudioTrack element](media-services-output-metadata-schema.md). |
@@ -123,6 +131,7 @@ A specific audio track in the parent AssetFile.
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Zero-based index of this audio track. **Note:**  This is not necessarily the TrackID as used in an MP4 file. |
@@ -134,6 +143,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Bits per sample for the wFormatTag format type. |
 
 ### Child elements
+
 | Name | Description |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
@@ -144,6 +154,7 @@ Loudness metering result parameters.
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
+
 | Name | Type | Description |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**Dolby** professional loudness metering development kit version. |
@@ -601,3 +612,4 @@ The following XML is an example of the Output metadata file.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

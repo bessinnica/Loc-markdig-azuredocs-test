@@ -149,7 +149,7 @@ passport.use(new OIDCStrategy({
 Passport uses a similar pattern for all of its strategies (including Twitter and Facebook). All strategy writers adhere to this pattern. When you look at the strategy, you can see that you pass it a `function()` that has a token and a `done` as the parameters. The strategy comes back to you after it has done all of its work. Store the user and stash the token so that you don’t need to ask for it again.
 
 > [!IMPORTANT]
-The preceding code takes all users whom the server authenticates. This is autoregistration. When you use production servers, you don’t want to let in users unless they have gone through a registration process that you have set up. You can often see this pattern in consumer apps. These allow you to register by using Facebook, but then they ask you to fill out additional information. If our application wasn’t a sample, we could extract an email address from the token object that is returned, and then ask the user to fill out additional information. Because this is a test server, we simply add users to the in-memory database.
+> The preceding code takes all users whom the server authenticates. This is autoregistration. When you use production servers, you don’t want to let in users unless they have gone through a registration process that you have set up. You can often see this pattern in consumer apps. These allow you to register by using Facebook, but then they ask you to fill out additional information. If our application wasn’t a sample, we could extract an email address from the token object that is returned, and then ask the user to fill out additional information. Because this is a test server, we simply add users to the in-memory database.
 
 Add the methods that allow you to keep track of users who have signed in, as required by Passport. This includes serializing and deserializing user information:
 
@@ -184,7 +184,6 @@ var findByEmail = function(email, fn) {
   }
   return fn(null, null);
 };
-
 ```
 
 Add the code to load the Express engine. In the following, you can see that we use the default `/views` and `/routes` pattern that Express provides.
@@ -211,7 +210,6 @@ app.configure(function() {
   app.use(app.router);
   app.use(express.static(__dirname + '/../../public'));
 });
-
 ```
 
 Add the `POST` routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
@@ -289,7 +287,6 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-
 ```
 
 To review these methods in detail:
@@ -313,7 +310,6 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
-
 ```
 
 Finally, create the server itself in `app.js`.
@@ -321,7 +317,6 @@ Finally, create the server itself in `app.js`.
 ```javascript
 
 app.listen(3000);
-
 ```
 
 
@@ -361,14 +356,14 @@ Create the `/views/index.ejs` view under the root directory. This is a simple pa
 
 ```javascript
 <% if (!user) { %>
-	<h2>Welcome! Please sign in.</h2>
-	<a href="/login/?p=your facebook policy">Sign in with Facebook</a>
-	<a href="/login/?p=your email sign-in policy">Sign in with email</a>
-	<a href="/login/?p=your email sign-up policy">Sign up with email</a>
+    <h2>Welcome! Please sign in.</h2>
+    <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
+    <a href="/login/?p=your email sign-in policy">Sign in with email</a>
+    <a href="/login/?p=your email sign-up policy">Sign up with email</a>
 <% } else { %>
-	<h2>Hello, <%= user.displayName %>.</h2>
-	<a href="/account">Account info</a></br>
-	<a href="/logout">Log out</a>
+    <h2>Hello, <%= user.displayName %>.</h2>
+    <a href="/account">Account info</a></br>
+    <a href="/logout">Log out</a>
 <% } %>
 ```
 
@@ -376,8 +371,8 @@ Create the `/views/account.ejs` view under the root directory so that you can vi
 
 ```javascript
 <% if (!user) { %>
-	<h2>Welcome! Please sign in.</h2>
-	<a href="/login">Sign in</a>
+    <h2>Welcome! Please sign in.</h2>
+    <a href="/login">Sign in</a>
 <% } else { %>
 <p>displayName: <%= user.displayName %></p>
 <p>givenName: <%= user.name.givenName %></p>
@@ -398,7 +393,7 @@ Run `node app.js` and navigate to `http://localhost:3000`
 
 Sign up or sign in to the app by using email or Facebook. Sign out and sign back in as a different user.
 
-##Next steps
+## Next steps
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). You can also clone it from GitHub:
 

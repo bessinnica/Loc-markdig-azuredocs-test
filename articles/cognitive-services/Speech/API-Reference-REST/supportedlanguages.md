@@ -39,10 +39,12 @@ The Microsoft speech recognition API supports the following languages in `intera
 
 The Microsoft speech recognition API supports the following languages in `conversation` modes. 
 
-| Code | Language | Code | Language |
-|-----|-----|-----|-----|
-| ar-EG | Arabic (Egypt), modern standard | It-IT | Italian (Italy) |
-| de-DE | German (Germany) | ja-JP | Japanese (Japan) |
-| en-US | English (United States) | pt-BR | Portuguese (Brazil) |
-| es-ES | Spanish (Spain) | ru-RU | Russian (Russia) |
-| fr-FR | French (France) | zh-CN | Chinese (Mandarin, simplified) |
+
+| Code  |            Language             | Code  |            Language            |
+|-------|---------------------------------|-------|--------------------------------|
+| ar-EG | Arabic (Egypt), modern standard | It-IT |        Italian (Italy)         |
+| de-DE |        German (Germany)         | ja-JP |        Japanese (Japan)        |
+| en-US |     English (United States)     | pt-BR |      Portuguese (Brazil)       |
+| es-ES |         Spanish (Spain)         | ru-RU |        Russian (Russia)        |
+| fr-FR |         French (France)         | zh-CN | Chinese (Mandarin, simplified) |
+

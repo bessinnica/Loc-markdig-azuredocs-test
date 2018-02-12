@@ -110,17 +110,17 @@ Internally in the app, each tenant gets a SQL database deployed into an SQL elas
 
 A central **Events Hub** page provides a list of links to the tenants in your deployment.
 
-1. Open the *Events Hub* in your web browser: http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net (substitute &lt;USER&gt; with your deployment's user value):
+1. Open the <em>Events Hub</em> in your web browser: http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net (substitute &lt;USER&gt; with your deployment's user value):
 
     ![events hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Click **Fabrikam Jazz Club** in the *Events Hub*.
+2. Click **Fabrikam Jazz Club** in the *Events Hub*.
 
     ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 #### Azure Traffic Manager
 
-The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) to control the distribution of incoming requests. The URL to access the events hub for one tenant must obey the following format:
+The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) to control the distribution of incoming requests. The URL to access the events hub for one tenant must obey the following format:
 
 - http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net/fabrikamjazzclub
 
@@ -140,7 +140,7 @@ The parts of the preceding format are explained in the following table.
     - The catalog is implemented by using *shard map management*.
 4. The *Events Hub* uses extended metadata in the catalog to obtain a list of event URLs.
 
-In a production environment, typically you create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager profile.
+In a production environment, typically you create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager profile.
 
 ## Start generating load on the tenant databases
 
@@ -152,7 +152,7 @@ The bursts occur at randomized intervals.
 It takes several minutes for the load pattern to emerge. So it is best to let the generator run for at least three or four minutes before monitoring the load.
 
 1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
-2. Press **F5** to run the script and start the load generator. (Leave the default parameter values for now.)
+2. Press **F5** to run the script and start the load generator. (Leave the default parameter values for now.)
 
 Do not reuse the same PowerShell ISE instance for anything, other than perhaps a rerun of *Demo-LoadGenerator.ps1*. If you need to run other PowerShell scripts, start a separate PowerShell ISE.
 
@@ -205,10 +205,10 @@ Before proceeding to the next section, leave the load generator running in the j
 The initial deployment creates three sample tenants. Now you create another tenant to see the impact on the deployed application. In the Wingtip app, the workflow to provision new tenants is explained in the [Provision and catalog tutorial](saas-dbpertenant-provision-and-catalog.md). In this phase, you create a new tenant, which takes less than one minute.
 
 1. In the *PowerShell ISE*, open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* .
-2. Press **F5** to run the script. (Leave the default values for now.)
+2. Press **F5** to run the script. (Leave the default values for now.)
 
    > [!NOTE]
-   > Many Wingtip SaaS scripts use *$PSScriptRoot* to navigate folders to call functions in other scripts. This variable is only evaluated when the full script is executed by pressing **F5**.  Highlighting and running a selection with **F8** can result in errors. So run the scripts by pressing **F5**.
+   > Many Wingtip SaaS scripts use *$PSScriptRoot* to navigate folders to call functions in other scripts. This variable is only evaluated when the full script is executed by pressing **F5**.  Highlighting and running a selection with **F8** can result in errors. So run the scripts by pressing **F5**.
 
 The new tenant database is:
 
@@ -226,14 +226,14 @@ Refresh the *Events Hub* to make the new tenant appear in the list.
 
 Now that you've started running a load against the collection of tenants, let’s look at some of the resources that were deployed:
 
-1. In the [Azure portal](http://portal.azure.com), browse to your list of SQL servers, and then open the **catalog-dpt-&lt;USER&gt;** server.
+1. In the [Azure portal](http://portal.azure.com), browse to your list of SQL servers, and then open the **catalog-dpt-&lt;USER&gt;** server.
     - The catalog server contains two databases, the **tenantcatalog** and the **basetenantdb** (a template database that is copied to create new tenants).
 
    ![databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Go back to your list of SQL servers.
 
-3. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
+3. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
 
 4. See the following items:
     - Each tenant database is an *Elastic Standard* database in a 50 eDTU standard pool.
@@ -245,7 +245,7 @@ Now that you've started running a load against the collection of tenants, let’
 
 After *LoadGenerator.ps1* runs for several minutes, enough data should be available to start looking at some monitoring capabilities. These capabilities are built into pools and databases.
 
-Browse to the server **tenants1-dpt-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
+Browse to the server **tenants1-dpt-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
 
    ![monitor pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -262,9 +262,9 @@ For more information, see the [performance monitoring tutorial](saas-dbpertenant
 ## Additional resources
 
 - Additional [tutorials that build on the Wingtip Tickets SaaS Database per Tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-- To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-- To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
-- To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](saas-tenancy-app-design-patterns.md)
+- To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
+- To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+- To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](saas-tenancy-app-design-patterns.md)
 
 
 ## Next steps

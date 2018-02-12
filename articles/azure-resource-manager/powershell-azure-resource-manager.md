@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure solutions with PowerShell | Microsoft Docs
 description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
@@ -64,7 +64,6 @@ TenantId              : {guid}
 SubscriptionId        : {guid}
 SubscriptionName      : Example Subscription One
 CurrentStorageAccount :
-
 ```
 
 If you have more than one subscription, you can switch to a different subscription. First, let's see all the subscriptions for your account.

@@ -108,7 +108,7 @@ To do a broad string search use the **-SearchString** flag. This can be used ind
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### In a limited quantity or all
-1. **MaxResults <Int>** can be used to limit the query to a specific number of values.
+1. <strong>MaxResults <Int></strong> can be used to limit the query to a specific number of values.
 2. **All** can be used to ensure all results are retrieved in the case that a large number of errors exists.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`

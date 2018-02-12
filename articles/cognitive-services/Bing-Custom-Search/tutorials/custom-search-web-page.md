@@ -37,17 +37,17 @@ To create a Bing Custom Search instance:
 2.  Navigate to custom search [portal](https://customsearch.ai).
 3.  Sign in to the portal using a Microsoft account (MSA). If you don’t have an MSA, click **Create a Microsoft account**. If it’s your first time using the portal, it will ask for permissions to access your data. Click **Yes**.
 4.  After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.
- 
+
     ![Screen shot of the Create a new custom search instance box](./media/custom-search-create-a-new-custom-search-instance.png)
 
 ## Add active entries
 To include results from specific sites or URLs add them to the **Active** tab.
 
-1.	In the **Definition Editor**, click the **Active** tab and enter the URL of one or more sites you want to include in your search.
+1.  In the **Definition Editor**, click the **Active** tab and enter the URL of one or more sites you want to include in your search.
 
     ![Screen shot of the Definition Editor active tab](./media/custom-search-definition-editor-active-tab.png)
 
-2.	To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns results only for public sites that it has indexed.
+2.  To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns results only for public sites that it has indexed.
 
 ## Add blocked entries
 To exclude results from specific sites or URLs, add them to the **Blocked** tab.
@@ -89,10 +89,11 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
     ![Screen shot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
 6. Click **Save**.
- 
+
     ![Screen shot of the Hosted UI save button](./media/custom-search-hosted-ui-save.png)
 
 <a name="consuminghostedui"></a>
+
 ## Consuming Hosted UI
 There are two ways to consume the hosted UI.  
 
@@ -105,11 +106,11 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
 1. Open **Visual Studio** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** window, select **Visual C# / Web / ASP.NET Core Web Application**, name your project, and then click **OK**.
-   
+
     ![Screen shot of new project window](./media/custom-search-new-project.png)
 
 4. In the **New ASP.NET Core Web Application** window, select **Web Application** and click **OK**.
-    
+
     ![Screen shot of new project window](./media/custom-search-new-webapp.png)
 
 ## Edit index.cshtml
@@ -118,7 +119,7 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
     ![Screen shot of solution explorer with pages expanded and index.cshtml selected](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)
 
 2. In index.cshtml, delete everything starting from line 7 and below.
-    
+
     ``` razor
     @page
     @model IndexModel

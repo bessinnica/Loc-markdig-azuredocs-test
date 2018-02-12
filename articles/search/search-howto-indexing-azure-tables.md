@@ -40,8 +40,8 @@ For table indexing, the datasource must have the following properties:
 - **type** must be `azuretable`.
 - **credentials** parameter contains the storage account connection string. See the [Specify credentials](#Credentials) section for details.
 - **container** sets the table name and an optional query.
-	- Specify the table name by using the `name` parameter.
-	- Optionally, specify a query by using the `query` parameter. 
+    - Specify the table name by using the `name` parameter.
+    - Optionally, specify a query by using the `query` parameter. 
 
 > [!IMPORTANT] 
 > Whenever possible, use a filter on PartitionKey for better performance. Any other query does a full table scan, resulting in poor performance for large tables. See the [Performance considerations](#Performance) section.
@@ -63,6 +63,7 @@ To create a datasource:
 For more information on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
+
 #### Ways to specify credentials ####
 
 You can provide the credentials for the table in one of these ways: 
@@ -146,6 +147,7 @@ To indicate that certain documents must be removed from the index, you can use a
     }   
 
 <a name="Performance"></a>
+
 ## Performance considerations
 
 By default, Azure Search uses the following query filter: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
@@ -154,14 +156,14 @@ By default, Azure Search uses the following query filter: `Timestamp >= HighWate
 Here are two possible approaches for improving table indexing performance. Both of these approaches rely on using table partitions: 
 
 - If your data can naturally be partitioned into several partition ranges, create a datasource and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. For example, to create a datasource for processing a partition range with keys from `000` to `100`, use a query like this: 
-	```
-	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
-	```
+    ```
+    "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
+    ```
 
 - If your data is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
-	- Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-	- Monitor indexer progress by using [Get Indexer Status API](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
-	- With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
+    - Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+    - Monitor indexer progress by using [Get Indexer Status API](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
+    - With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
 
 
 ## Help us make Azure Search better

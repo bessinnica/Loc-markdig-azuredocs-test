@@ -38,10 +38,10 @@ After failover from the primary to secondary location, replicated virtual machin
      * Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
      * Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of delta changes are transferred to the on-premises server and the on-premises virtual machine is started up.
 
-    - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
+     * **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
 
-	    >[!NOTE]
-	    >We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted. This option doesn't perform any checksum calculations.
+        >[!NOTE]
+        >We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted. This option doesn't perform any checksum calculations.
 
 
 4. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.

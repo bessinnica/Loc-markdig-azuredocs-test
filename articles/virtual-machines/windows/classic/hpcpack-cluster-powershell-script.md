@@ -140,7 +140,6 @@ and shrink service is enabled with default grow and shrink intervals.
     <CertificateId>1</CertificateId>
   </AutoGrowShrink>
 </IaaSClusterConfig>
-
 ```
 
 ### Example 3
@@ -284,7 +283,7 @@ nodes are created for Azure node template *AzureTemplate1*. A script file runs o
   the deployment script, or you manually promote a head node VM to domain
   controller, you may experience problems connecting the VMs to the Internet. This problem can occur if a forwarder DNS
   server is automatically configured on the domain controller, and this forwarder DNS server doesn’t resolve properly.
-  
+
     To work around this problem, log on to the domain controller and either
     remove the forwarder configuration setting or configure a valid forwarder DNS server. To configure this setting, in Server Manager click **Tools** >
     **DNS** to open DNS Manager, and then double-click **Forwarders**.
@@ -293,7 +292,7 @@ nodes are created for Azure node template *AzureTemplate1*. A script file runs o
   problem occurs is if the HpcVmDrivers extension is not properly installed
   when the VMs are added to the cluster. For example, the
   extension might be stuck in the installing state.
-  
+
     To work around this problem, first check the state of the extension in
     the VMs. If the extension is not properly installed, try removing the nodes from the HPC cluster and then add the nodes again. For example, you can add compute node VMs by running the Add-HpcIaaSNode.ps1 script on the head node.
 

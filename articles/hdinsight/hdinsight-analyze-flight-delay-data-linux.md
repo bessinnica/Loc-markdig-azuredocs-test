@@ -40,11 +40,13 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
 2. On the page, select the following values:
 
-   | Name | Value |
-   | --- | --- |
-   | Filter Year |2013 |
-   | Filter Period |January |
-   | Fields |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+
+   |     Name      |                                                                                                                                    Value                                                                                                                                     |
+   |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |  Filter Year  |                                                                                                                                     2013                                                                                                                                     |
+   | Filter Period |                                                                                                                                   January                                                                                                                                    |
+   |    Fields     | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+
    Clear all other fields. 
 
 3. Select **Download**.

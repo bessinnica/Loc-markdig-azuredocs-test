@@ -47,8 +47,8 @@ The next hop types listed in the previous table represent how Azure routes traff
 - **Internet**: Routes traffic specified by the address prefix to the Internet. The system default route specifies the 0.0.0.0/0 address prefix. If you don't override Azure's default routes, Azure routes traffic for any address not specified by an address range within a virtual network, to the Internet, with one exception. If the destination address is for one of Azure's services, Azure routes the traffic directly to the service over Azure's backbone network, rather than routing the traffic to the Internet. Traffic between Azure services does not traverse the Internet, regardless of which Azure region the virtual network exists in, or which Azure region an instance of the Azure service is deployed in. You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](#custom-routes).
 
 - **None**: Traffic routed to the **None** next hop type is dropped, rather than routed outside the subnet. Azure automatically creates default routes for the following address prefixes:
-    - **10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16**: Reserved for private use in RFC 1918.
-    - **100.64.0.0/10**: Reserved in RFC 6598.
+  - **10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16**: Reserved for private use in RFC 1918.
+  - **100.64.0.0/10**: Reserved in RFC 6598.
 
     If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type.
 
@@ -72,7 +72,7 @@ Azure adds additional default system routes for different Azure capabilities, bu
 ## Custom routes
 
 You create custom routes by either creating [user-defined](#user-defined) routes, or by exchanging [border gateway protocol](#border-gateway-protocol) (BGP) routes between your on-premises network gateway and an Azure virtual network gateway. 
- 
+
 ### User-defined
 
 You can create custom, or user-defined, routes in Azure to override Azure's default system routes, or to add additional routes to a subnet's route table. In Azure, you create a route table, then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes you can add to a route table and the maximum number of user-defined route tables you can create per Azure subscription, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). If you create a route table and associate it to a subnet, the routes within it are combined with, or override, the default routes Azure adds to a subnet by default.
@@ -81,12 +81,12 @@ You can specify the following next hop types when creating a user-defined route:
 
 - **Virtual appliance**: A virtual appliance is a virtual machine that typically runs a network application, such as a firewall. To learn about a variety of pre-configured network virtual appliances you can deploy in a virtual network, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). When you create a route with the **virtual appliance** hop type, you also specify a next hop IP address. The IP address can be:
 
-    - The [private IP address](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) of a network interface attached to a virtual machine. Any network interface attached to a virtual machine that forwards network traffic to an address other than its own must have the Azure *Enable IP forwarding* option enabled for it. The setting disables Azure's check of the source and destination for a network interface. Learn more about how to [enable IP forwarding for a network interface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Though *Enable IP forwarding* is an Azure setting, you may also need to enable IP forwarding within the virtual machine's operating system for the appliance to forward traffic between private IP addresses assigned to Azure network interfaces. If the appliance must route traffic to a public IP address, it must either proxy the traffic, or network address translate the private IP address of the source's private IP address to its own private IP address, which Azure then network address translates to a public IP address, before sending the traffic to the Internet. To determine required settings within the virtual machine, see the documentation for your operating system or network application. To understand outbound connections in Azure, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - The [private IP address](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) of a network interface attached to a virtual machine. Any network interface attached to a virtual machine that forwards network traffic to an address other than its own must have the Azure *Enable IP forwarding* option enabled for it. The setting disables Azure's check of the source and destination for a network interface. Learn more about how to [enable IP forwarding for a network interface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Though *Enable IP forwarding* is an Azure setting, you may also need to enable IP forwarding within the virtual machine's operating system for the appliance to forward traffic between private IP addresses assigned to Azure network interfaces. If the appliance must route traffic to a public IP address, it must either proxy the traffic, or network address translate the private IP address of the source's private IP address to its own private IP address, which Azure then network address translates to a public IP address, before sending the traffic to the Internet. To determine required settings within the virtual machine, see the documentation for your operating system or network application. To understand outbound connections in Azure, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Deploy a virtual appliance into a different subnet than the resources that route through the virtual appliance are deployed in. Deploying the virtual appliance to the same subnet, then applying a route table to the subnet that routes traffic through the virtual appliance, can result in routing loops, where traffic never leaves the subnet.
 
-    - The private IP address of an Azure [internal load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). A load balancer is often used as part of a [high availability strategy for network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - The private IP address of an Azure [internal load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). A load balancer is often used as part of a [high availability strategy for network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance, enabling the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a user-defined route that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
@@ -119,7 +119,7 @@ An on-premises network gateway can exchange routes with an Azure virtual network
 - **VPN**: You can, optionally use BGP. For details, see [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When you exchange routes with Azure using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with *Virtual network gateway* listed as the source and next hop type. 
- 
+
 ## How Azure selects a route
 
 When outbound traffic is sent from a subnet, Azure selects a route based on the destination IP address, using the longest prefix match algorithm. For example, a route table has two routes: One route specifies the 10.0.0.0/24 address prefix, while the other route specifies the 10.0.0.0/16 address prefix. Azure routes traffic destined for 10.0.0.5, to the next hop type specified in the route with the 10.0.0.0/24 address prefix, because 10.0.0.0/24 is a longer prefix than 10.0.0.0/16, even though 10.0.0.5 is within both address prefixes. Azure routes traffic destined to 10.0.1.5, to the next hop type specified in the route with the 10.0.0.0/16 address prefix, because 10.0.1.5 isn't included in the 10.0.0.0/24 address prefix, therefore the route with the 10.0.0.0/16 address prefix is the longest prefix that matches.
@@ -175,7 +175,7 @@ To illustrate the concepts in this article, the sections that follow describe:
 1. Implement two virtual networks in the same Azure region and enable resources to communicate between the virtual networks.
 2. Enable an on-premises network to communicate securely with both virtual networks through a VPN tunnel over the Internet. *Alternatively, an ExpressRoute connection could be used, but in this example, a VPN connection is used.*
 3. For one subnet in one virtual network:
- 
+
     - Force all outbound traffic from the subnet, except to Azure Storage and within the subnet, to flow through a network virtual appliance, for inspection and logging.
     - Do not inspect traffic between private IP addresses within the subnet; allow traffic to flow directly between all resources. 
     - Drop any outbound traffic destined for the other virtual network.
@@ -197,20 +197,21 @@ Arrows show the flow of traffic.
 
 The route table for *Subnet1* in the picture contains the following routes:
 
-|ID  |Source |State  |Address prefixes    |Next hop type          |Next hop IP address|User-defined route name| 
-|----|-------|-------|------              |-------                |--------           |--------      |
-|1   |Default|Invalid|10.0.0.0/16         |Virtual network        |                   |              |
-|2   |User   |Active |10.0.0.0/16         |Virtual appliance      |10.0.100.4         |Within-VNet1  |
-|3   |User   |Active |10.0.0.0/24         |Virtual network        |                   |Within-Subnet1|
-|4   |Default|Invalid|10.1.0.0/16         |VNet peering           |                   |              |
-|5   |Default|Invalid|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |User   |Active |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
-|7   |User   |Active |10.2.0.0/16         |None                   |                   |ToVNet2-2-Drop|
-|8   |Default|Invalid|10.10.0.0/16        |Virtual network gateway|[X.X.X.X]          |              |
-|9   |User   |Active |10.10.0.0/16        |Virtual appliance      |10.0.100.4         |To-On-Prem    |
-|10  |Default|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Default|Invalid|0.0.0.0/0           |Internet|              |                   |              |
-|12  |User   |Active |0.0.0.0/0           |Virtual appliance      |10.0.100.4         |Default-NVA   |
+
+| ID | Source  |  State  | Address prefixes |         Next hop type         | Next hop IP address | User-defined route name |
+|----|---------|---------|------------------|-------------------------------|---------------------|-------------------------|
+| 1  | Default | Invalid |   10.0.0.0/16    |        Virtual network        |                     |                         |
+| 2  |  User   | Active  |   10.0.0.0/16    |       Virtual appliance       |     10.0.100.4      |      Within-VNet1       |
+| 3  |  User   | Active  |   10.0.0.0/24    |        Virtual network        |                     |     Within-Subnet1      |
+| 4  | Default | Invalid |   10.1.0.0/16    |         VNet peering          |                     |                         |
+| 5  | Default | Invalid |   10.2.0.0/16    |         VNet peering          |                     |                         |
+| 6  |  User   | Active  |   10.1.0.0/16    |             None              |                     |     ToVNet2-1-Drop      |
+| 7  |  User   | Active  |   10.2.0.0/16    |             None              |                     |     ToVNet2-2-Drop      |
+| 8  | Default | Invalid |   10.10.0.0/16   |    Virtual network gateway    |      [X.X.X.X]      |                         |
+| 9  |  User   | Active  |   10.10.0.0/16   |       Virtual appliance       |     10.0.100.4      |       To-On-Prem        |
+| 10 | Default | Active  |    [X.X.X.X]     | VirtualNetworkServiceEndpoint |                     |                         |
+| 11 | Default | Invalid |    0.0.0.0/0     |           Internet            |                     |                         |
+| 12 |  User   | Active  |    0.0.0.0/0     |       Virtual appliance       |     10.0.100.4      |       Default-NVA       |
 
 An explanation of each route ID follows:
 

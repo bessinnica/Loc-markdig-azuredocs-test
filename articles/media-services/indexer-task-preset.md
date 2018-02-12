@@ -34,7 +34,7 @@ The following table explains elements and attributes of the configuration XML.
 
 ## Azure Media Indexer configuration XML example
 
-```	
+``` 
 <?xml version="1.0" encoding="utf-8"?>  
 <configuration version="2.0">  
   <input>  

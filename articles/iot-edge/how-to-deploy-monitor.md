@@ -93,7 +93,7 @@ Use the tags property from your devices to target the specific devices that shou
 Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority wins. If two deployments have the same priority number, the one that was created most recently wins. 
 
 1. Enter a positive integer for the deployment **Priority**.
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags and should match the expression format. For example, `tags.environment='test'`. 
+1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags and should match the expression format. For example, `tags.environment='test'`. 
 1. Select **Next** to move on to the final step.
 
 ### Step 5: Review Template
@@ -110,18 +110,18 @@ To view the details of a deployment and monitor the devices running it, use the 
 
    ![View IoT Edge deployments][1]
 
-1. Inspect the deployment list. For each deployment, you can view the following details:
+1. Inspect the deployment list. For each deployment, you can view the following details:
    * **ID** - the name of the deployment.
    * **Target condition** - the tag used to define targeted devices.
    * **Priority** - the priority number assigned to the deployment.
    * **IoT Edge agent status** - the number of devices that received the deployment, and their health statuses. 
    * **Unhealthy modules** - the number of modules in the deployment reporting errors. 
    * **Creation time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. 
-1. Select the deployment that you want to monitor.  
-1. Inspect the deployment details. You can use tabs to view specific details about the devices that received the deployment: 
-   * **Targeted** - the Edge devices that match the target condition. 
+1. Select the deployment that you want to monitor.  
+1. Inspect the deployment details. You can use tabs to view specific details about the devices that received the deployment: 
+   * **Targeted** - the Edge devices that match the target condition. 
    * **Applied** - the targeted Edge devices that are not targeted by another deployment of higher priority. These are the devices that actually receive the deployment. 
-   * **Reporting success** - the applied Edge devices that reported back to the service that the modules were deployed successfully. 
+   * **Reporting success** - the applied Edge devices that reported back to the service that the modules were deployed successfully. 
    * **Reporting failure** - the applied Edge devices that reported back to the service that one or more modules were not deployed successfully. To further investigate the error, you will need to connect remotely to those devices and view the log files. 
    * **Reporting unhealthy modules** - the applied Edge devices that reported back to the service that one or more modules were deployed successfully, but are now reporting errors. 
 
@@ -143,10 +143,10 @@ To modify a deployment, use the following steps:
    ![View IoT Edge deployments][1]
 
 1. Select the deployment that you want to modify. 
-1. Make updates to the following fields: 
-   * Target condition 
-   * Labels 
-   * Priority 
+1. Make updates to the following fields: 
+   * Target condition 
+   * Labels 
+   * Priority 
 1. Select **Save**.
 1. Follow the steps in [Monitor a deployment][anchor-monitor] to watch the changes roll out. 
 
@@ -162,7 +162,7 @@ When you delete a deployment, any devices take on their next highest priority de
 
 1. Use the checkbox to select the deployment that you want to delete. 
 1. Select **Delete**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. If customers wish to do this, they need to create a deployment with zero modules and deploy it to the same devices. Select **Yes** if you wish to continue. 
+1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. If customers wish to do this, they need to create a deployment with zero modules and deploy it to the same devices. Select **Yes** if you wish to continue. 
 
 ## Next steps
 

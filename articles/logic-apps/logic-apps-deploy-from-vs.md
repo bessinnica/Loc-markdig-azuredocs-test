@@ -69,24 +69,24 @@ you can use the Azure Resource Group project with Logic App Designer.
 Or to add your project to an existing solution, 
 go to **Add**, and select **New Project**.
 
-	![File menu](./media/logic-apps-deploy-from-vs/filemenu.png)
+    ![File menu](./media/logic-apps-deploy-from-vs/filemenu.png)
 
 2. In the **New Project** window, 
 find **Cloud**, and select **Azure Resource Group**. 
 Name your project, and click **OK**.
 
-	![Add new project](./media/logic-apps-deploy-from-vs/addnewproject.png)
+    ![Add new project](./media/logic-apps-deploy-from-vs/addnewproject.png)
 
 3. Select the **Logic App** template, which creates a 
 blank logic app deployment template for you to use. 
 After you select your template, click **OK**.
 
-	![Select Logic App template](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
+    ![Select Logic App template](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
 
-	You've now added your logic app project to your solution. 
-	In the Solution Explorer, your deployment file should appear.
+    You've now added your logic app project to your solution. 
+    In the Solution Explorer, your deployment file should appear.
 
-	![Deployment file](./media/logic-apps-deploy-from-vs/deployment.png)
+    ![Deployment file](./media/logic-apps-deploy-from-vs/deployment.png)
 
 ## Create your logic app with Logic App Designer
 
@@ -114,14 +114,14 @@ and location for your deployment template.
     > To view or change any API Connections, 
     > go to the Azure portal, and browse for **API Connections**.
 
-	![Subscription picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
+    ![Subscription picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
-	The designer uses the definition in the `<template>.json` file for rendering.
+    The designer uses the definition in the `<template>.json` file for rendering.
 
 4. Create and design your logic app. 
 Your deployment template is updated with your changes.
 
-	![Logic App Designer in Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
+    ![Logic App Designer in Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
 
 Visual Studio adds `Microsoft.Web/connections` resources to 
 your resource file for any connections your logic app needs to function. 
@@ -158,11 +158,11 @@ For example, here's how you can replace the Azure Function resource ID:
 
 ```
 "parameters":{
-	"functionName": {
-		"type":"string",
-		"minLength":1,
-		"defaultValue":"<FunctionName>"
-	}
+    "functionName": {
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
+    }
 },
 ```
 
@@ -170,38 +170,38 @@ And where you would use parameters:
 
 ```
 "MyFunction": {
-	"type": "Function",
-	"inputs": {
-		"body":{},
-		"function":{
-			"id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
-		}
-	},
-	"runAfter":{}
+    "type": "Function",
+    "inputs": {
+        "body":{},
+        "function":{
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
 }
 ```
 As another example you can parameterize the Service Bus send message operation:
 
 ```
 "Send_message": {
-	"type": "ApiConnection",
-		"inputs": {
-			"host": {
-				"connection": {
-					"name": "@parameters('$connections')['servicebus']['connectionId']"
-				}
-			},
-			"method": "post",
-			"path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
-			"body": {
-				"ContentData": "@{base64(triggerBody())}"
-			},
-			"queries": {
-				"systemProperties": "None"
-			}
-		},
-		"runAfter": {}
-	}
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
 ```
 > [!NOTE] 
 > host.runtimeUrl is optional and can be removed from your template if present.
@@ -238,25 +238,25 @@ you can deploy directly from Visual Studio in just a couple steps.
 1. In Solution Explorer, right-click your project, 
 and go to **Deploy** > **New Deployment...**
 
-	![New deployment](./media/logic-apps-deploy-from-vs/newdeployment.png)
+    ![New deployment](./media/logic-apps-deploy-from-vs/newdeployment.png)
 
 2. When you're prompted, sign in to your Azure subscription. 
 
 3. Now you must select the details for the resource group where 
 you want to deploy your logic app. When you're done, select **Deploy**.
 
-	> [!NOTE]
-	> Make sure that you select the correct template 
+    > [!NOTE]
+    > Make sure that you select the correct template 
    > and parameters file for the resource group. For example, 
    > if you want to deploy to a production 
-	> environment, choose the production parameters file.
+    > environment, choose the production parameters file.
 
-	![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
+    ![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
 
-	The deployment status appears in the **Output** window. 
-	You might have to select **Azure Provisioning** in the **Show output from** list.
+    The deployment status appears in the **Output** window. 
+    You might have to select **Azure Provisioning** in the **Show output from** list.
 
-	![Deployment status output](./media/logic-apps-deploy-from-vs/output.png)
+    ![Deployment status output](./media/logic-apps-deploy-from-vs/output.png)
 
 In the future, you can edit your logic app in source control, 
 and use Visual Studio to deploy new versions.
@@ -282,12 +282,12 @@ click **Add Resource** at the top of the JSON Outline window.
 Or in the JSON Outline window, 
 right-click **resources**, and select **Add New Resource**.
 
-	![JSON Outline window](./media/logic-apps-deploy-from-vs/jsonoutline.png)
+    ![JSON Outline window](./media/logic-apps-deploy-from-vs/jsonoutline.png)
     
 4. In the **Add Resource** dialog box, find and select **Logic App**. 
 Name your logic app, and choose **Add**.
 
-	![Add resource](./media/logic-apps-deploy-from-vs/addresource.png)
+    ![Add resource](./media/logic-apps-deploy-from-vs/addresource.png)
 
 ## Next Steps
 

@@ -175,12 +175,12 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 * **PowerShell cmdlets**:
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+  * [Get-AzureRMSqlDatabaseAuditing][101]
+  * [Get-AzureRMSqlServerAuditing][102]
+  * [Set-AzureRMSqlDatabaseAuditing][105]
+  * [Set-AzureRMSqlServerAuditing][106]
 
-   For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+    For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## Manage SQL database auditing using REST API
 

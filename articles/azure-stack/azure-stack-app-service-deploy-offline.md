@@ -68,29 +68,29 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Installer](media/azure-stack-app-service-deploy/image02.png)
 
 7. On the next page:
-    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
-        - If you're using Azure Active Directory (Azure AD), enter your Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
-        - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
-    2. In the **Azure Stack Subscriptions** box, select your subscription.
-    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
-    5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
-    6. Click **Next**.
+   1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
+       - If you're using Azure Active Directory (Azure AD), enter your Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
+       - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
+   2. In the **Azure Stack Subscriptions** box, select your subscription.
+   3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
+   4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
+   5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
+   6. Click **Next**.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
+      ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
 8. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, for example \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or the IP Address, for example \\\10.0.0.1\websites.
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
 9. On the next page:
-    1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
-    2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
-    3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
-    4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
-    5. Click **Next**.
+   1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
+   2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
+   3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
+   4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
+   5. Click **Next**.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
+      ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
 
 10. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file and type a password. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md). Click **Next** after entering all the information.
 
@@ -166,10 +166,10 @@ After you deploy and register the App Service resource provider, test it to make
 
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
->
-You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
->
-As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
+> 
+> You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
+> 
+> As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
 1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 
@@ -191,7 +191,7 @@ As of the third technical preview, to create web, API, and Azure Functions apps,
 
 1. In the Azure Stack tenant portal, click **+**, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database. It doesn’t require any additional resource providers, such as SQL or MySQL.
 
-2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1@Server1*, with the user name and server name of your choice.
+2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as <em>User1<xref href="Server1" data-throw-if-not-resolved="False" data-raw-source="@Server1"></xref></em>, with the user name and server name of your choice.
 
 3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, choose a database in the computer running SQL Server that's connected to your resource provider.
 

@@ -28,19 +28,19 @@ The basic format of the service definition file is as follows.
 
 ```xml
 <ServiceDefinition name="<service-name>" topologyChangeDiscovery="<change-type>" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" upgradeDomainCount="<number-of-upgrade-domains>" schemaVersion="<version>">
-  
+
   <LoadBalancerProbes>
          …
   </LoadBalancerProbes>
-  
+
   <WebRole …>
          …
   </WebRole>
-  
+
   <WorkerRole …>
          …
   </WorkerRole>
-  
+
   <NetworkTrafficRules>
          …
   </NetworkTrafficRules>
@@ -61,9 +61,11 @@ The `ServiceDefinition` element is the top-level element of the service definiti
 
 The following table describes the attributes of the `ServiceDefinition` element.
 
-| Attribute               | Description |
-| ----------------------- | ----------- |
-| name                    |Required. The name of the service. The name must be unique within the service account.|
-| topologyChangeDiscovery | Optional. Specifies the type of topology change notification. Possible values are:<br /><br /> -   `Blast` - Sends the update as soon as possible to all role instances. If you choose option, the role should be able to handle the topology update without being restarted.<br />-   `UpgradeDomainWalk` – Sends the update to each role instance in a sequential manner after the previous instance has successfully accepted the update.|
-| schemaVersion           | Optional. Specifies the version of the service definition schema. The schema version allows Visual Studio to select the correct SDK tools to use for schema validation if more than one version of the SDK is installed side-by-side.|
-| upgradeDomainCount      | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a cloud service role or deployment](cloud-services-how-to-manage-portal.md#how-to-update-a-cloud-service-role-or-deployment).<br /><br /> You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5.|
+
+|        Attribute        |                                                                                                                                                                                                                               Description                                                                                                                                                                                                                               |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          name           |                                                                                                                                                                                         Required. The name of the service. The name must be unique within the service account.                                                                                                                                                                                          |
+| topologyChangeDiscovery |              Optional. Specifies the type of topology change notification. Possible values are:<br /><br /> -   `Blast` - Sends the update as soon as possible to all role instances. If you choose option, the role should be able to handle the topology update without being restarted.<br />-   `UpgradeDomainWalk` – Sends the update to each role instance in a sequential manner after the previous instance has successfully accepted the update.               |
+|      schemaVersion      |                                                                                                                  Optional. Specifies the version of the service definition schema. The schema version allows Visual Studio to select the correct SDK tools to use for schema validation if more than one version of the SDK is installed side-by-side.                                                                                                                  |
+|   upgradeDomainCount    | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a cloud service role or deployment](cloud-services-how-to-manage-portal.md#how-to-update-a-cloud-service-role-or-deployment).<br /><br /> You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5. |
+

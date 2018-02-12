@@ -25,22 +25,22 @@ This article explains how you can use the data transformation feature within the
 
 You can launch a data transformation job in two ways:
 
- - Use the .NET SDK
- - Use Azure Automation runbook
- 
- This article details how to create a sample .NET console application to initiate a data transformation job and then track it for completion. To learn more about how to initiate data transformation via Automation, go to [Use Azure Automation runbook to trigger data transformation jobs](storsimple-data-manager-job-using-automation.md).
+- Use the .NET SDK
+- Use Azure Automation runbook
+
+  This article details how to create a sample .NET console application to initiate a data transformation job and then track it for completion. To learn more about how to initiate data transformation via Automation, go to [Use Azure Automation runbook to trigger data transformation jobs](storsimple-data-manager-job-using-automation.md).
 
 ## Prerequisites
 
 Before you begin, ensure that you have:
-*	A computer running:
+*   A computer running:
 
     - Visual Studio 2012, 2013, 2015, or 2017.
 
     - Azure Powershell. [Download Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*	A correctly configured job definition in StorSimple Data Manager within a resource group.
-*	All the required dlls. Download these dlls from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*	[`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) script from the GitHub repository.
+*   A correctly configured job definition in StorSimple Data Manager within a resource group.
+*   All the required dlls. Download these dlls from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) script from the GitHub repository.
 
 ## Step-by-step procedure
 
@@ -76,16 +76,16 @@ Perform the following steps to use .NET to launch a data transformation job.
 
         ![Create a project 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.	Now, add all dlls present in the [dlls folder](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) as **References** in the project that you created. To add the dll files, perform the following:
+4. Now, add all dlls present in the [dlls folder](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) as **References** in the project that you created. To add the dll files, perform the following:
 
-    1. In Visual Studio, go to **View > Solution Explorer**.
-    2. Click the arrow to the left of Data Transformation App project. Click **References** and then right-click to **Add Reference**.
-    
-        ![Add dlls 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+   1. In Visual Studio, go to **View > Solution Explorer**.
+   2. Click the arrow to the left of Data Transformation App project. Click **References** and then right-click to **Add Reference**.
 
-    3. Browse to the location of the packages folder, select all the dlls and click **Add**, and then click **OK**.
+       ![Add dlls 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-        ![Add dlls 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+   3. Browse to the location of the packages folder, select all the dlls and click **Add**, and then click **OK**.
+
+       ![Add dlls 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
@@ -97,7 +97,7 @@ Perform the following steps to use .NET to launch a data transformation job.
     using Microsoft.Internal.Dms.DmsWebJob;
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
     ```
-    
+
 6. The following code initializes the data transformation job instance. Add this in the **Main method**. Replace the values of configuration parameters as obtained earlier. Plug in the values of **Resource Group Name** and **ResourceName**. The **ResourceGroupName** is the associated with the StorSimple Data Manager on which the job definition was configured. The **ResourceName** is the name of your StorSimple Data Manager service.
 
     ```
@@ -115,7 +115,7 @@ Perform the following steps to use .NET to launch a data transformation job.
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
     ```
-   
+
 7. Specify the parameters with which the job definition needs to be run
 
     ```
@@ -162,7 +162,6 @@ Perform the following steps to use .NET to launch a data transformation job.
     dataTransformationInput, out retryAfter);
     Console.WriteLine("jobid: ", jobId);
     Console.ReadLine();
-
     ```
     Once the code is pasted, build the solution. Here is a screenshot of the code snippet to initialize the data transformation job instance.
 
@@ -187,14 +186,13 @@ Perform the following steps to use .NET to launch a data transformation job.
 
     // Completion status of the job.
     Console.WriteLine("JobStatus: {0}", jobDetails.Status);
-    
+
     // To hold the console before exiting.
     Console.Read();
-
     ```
- Here is a screenshot of the entire code sample used to trigger the job using .NET.
+    Here is a screenshot of the entire code sample used to trigger the job using .NET.
 
- ![Full snippet of code to trigger a .NET job](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![Full snippet of code to trigger a .NET job](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## Next steps
 

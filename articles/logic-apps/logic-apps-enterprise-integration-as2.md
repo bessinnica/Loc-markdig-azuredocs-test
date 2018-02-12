@@ -42,9 +42,9 @@ you can create an AS2 agreement by following these steps.
 
 ## Create an AS2 agreement
 
-1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal").  
+1.  Sign in to the [Azure portal](http://portal.azure.com "Azure portal").  
 
-2.	From the left menu, select **More services**. 
+2.  From the left menu, select **More services**. 
 In the search box, enter **integration** as your filter. 
 In the results list, select **Integration Accounts**.
 
@@ -52,41 +52,41 @@ In the results list, select **Integration Accounts**.
     > If you don't see **More services**, you might have to expand the menu first. 
     > At the top of the collapsed menu, select **Show menu**.
 
-	![More services, filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    ![More services, filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. In the **Integration Accounts** blade that opens, 
 select the integration account where you want to create the agreement.
 If you don't see any integration accounts, 
 [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
 
-	![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+    ![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Choose the **Agreements** tile. If you don't have an Agreements tile, 
 add the tile first.
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+    ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. In the Agreements blade that opens, choose **Add**.
 
-	![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
+    ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. Under **Add**, enter a **Name** for your agreement. 
 For **Agreement type**, select **AS2**. 
 Select the **Host Partner**, **Host Identity**, 
 **Guest Partner**, and **Guest Identity** for your agreement.
 
-	![Provide agreement details](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
+    ![Provide agreement details](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-	| Property | Description |
-	| --- | --- |
-	| Name |Name of the agreement |
-	| Agreement Type | Should be AS2 |
-	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
-	| Host Identity |An identifier for the host partner |
-	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-	| Guest Identity |An identifier for the guest partner |
-	| Receive Settings |These properties apply to all messages received by an agreement. |
-	| Send Settings |These properties apply to all messages sent by an agreement. |
+    | Property | Description |
+    | --- | --- |
+    | Name |Name of the agreement |
+    | Agreement Type | Should be AS2 |
+    | Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
+    | Host Identity |An identifier for the host partner |
+    | Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
+    | Guest Identity |An identifier for the guest partner |
+    | Receive Settings |These properties apply to all messages received by an agreement. |
+    | Send Settings |These properties apply to all messages sent by an agreement. |
 
 ## Configure how your agreement handles received messages
 
@@ -94,12 +94,12 @@ Now that you've set the agreement properties,
 you can configure how this agreement identifies and 
 handles incoming messages received from your partner through this agreement.
 
-1.	Under **Add**, select **Receive Settings**.
+1.  Under **Add**, select **Receive Settings**.
 Configure these properties based on your agreement 
 with the partner that exchanges messages with you. 
 For property descriptions, see the table in this section.
 
-	![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
+    ![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Optionally, you can override the properties of incoming messages by selecting **Override message properties**.
 
@@ -108,7 +108,7 @@ From the **Certificate** list, select an existing
 [guest partner public certificate](../logic-apps/logic-apps-enterprise-integration-certificates.md) 
 for validating the signature on the messages. Or create the certificate, if you don't have one.
 
-4.	To require all incoming messages to be encrypted, select **Message should be encrypted**. 
+4.  To require all incoming messages to be encrypted, select **Message should be encrypted**. 
 From the **Certificate** list, select an existing 
 [host partner private certificate](../logic-apps/logic-apps-enterprise-integration-certificates.md) 
 for decrypting incoming messages. Or create the certificate, if you don't have one.
@@ -147,12 +147,12 @@ messages that conform to your selected settings.
 You can configure how this agreement identifies and handles outgoing 
 messages that you send to your partners through this agreement.
 
-1.	Under **Add**, select **Send Settings**.
+1.  Under **Add**, select **Send Settings**.
 Configure these properties based on your agreement 
 with the partner that exchanges messages with you. 
 For property descriptions, see the table in this section.
 
-	![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
+    ![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. To send signed messages to your partner, select **Enable message signing**. 
 For signing the messages, in the **MIC Algorithm** list, 
@@ -206,16 +206,16 @@ messages that conform to your selected settings.
 
 ## Find your created agreement
 
-1.	After you finish setting all your agreement properties, 
+1.  After you finish setting all your agreement properties, 
 on the **Add** blade, choose **OK** to finish creating your agreement 
 and return to your integration account blade.
 
-	Your newly added agreement now appears in your **Agreements** list.
+    Your newly added agreement now appears in your **Agreements** list.
 
-2.	You can also view your agreements in your integration account overview. 
+2.  You can also view your agreements in your integration account overview. 
 On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
 
-	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+    ![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## View the swagger
 See the [swagger details](/connectors/as2/). 

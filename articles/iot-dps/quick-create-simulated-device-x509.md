@@ -24,6 +24,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 <a id="setupdevbox"></a>
 
+
 ## Prepare the development environment 
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
@@ -33,7 +34,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
 4. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
-    
+
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
@@ -51,40 +52,42 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
     ```
-    
+
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
 
 <a id="portalenroll"></a>
+
 
 ## Create a device enrollment entry in the Device Provisioning Service
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
 2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter **i** for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at the first *-----END CERTIFICATE-----*, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
- 
+
 3. Create a file named **_X509testcert.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
 4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
-4. Open **Manage enrollments** blade for your service. Select **Individual Enrollments** tab, and click the **Add** button at the top. 
+5. Open **Manage enrollments** blade for your service. Select **Individual Enrollments** tab, and click the **Add** button at the top. 
 
-5. Under the **Add enrollment list entry**, enter the following information:
-    - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Certificate .pem or .cer file*, select the certificate file **_X509testcert.pem_** created in the previous steps using the *File Explorer* widget.
-    - Optionally, you may provide the following information:
-        - Select an IoT hub linked with your provisioning service.
-        - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-        - Update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+6. Under the **Add enrollment list entry**, enter the following information:
+   - Select **X.509** as the identity attestation *Mechanism*.
+   - Under the *Certificate .pem or .cer file*, select the certificate file **_X509testcert.pem_** created in the previous steps using the *File Explorer* widget.
+   - Optionally, you may provide the following information:
+       - Select an IoT hub linked with your provisioning service.
+       - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+       - Update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, click the **Save** button. 
 
-    ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
+     ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
 
    On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
 
 
 <a id="firstbootsequence"></a>
+
 
 ## Simulate first boot sequence for the device
 

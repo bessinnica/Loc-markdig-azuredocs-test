@@ -54,6 +54,7 @@ Resource Manager provides the following functions for working with strings:
 
 <a id="base64" />
 
+
 ## base64
 `base64(inputString)`
 
@@ -131,6 +132,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="base64tojson" />
+
 
 ## base64ToJson
 `base64tojson`
@@ -210,6 +212,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="base64tostring" />
 
+
 ## base64ToString
 `base64ToString(base64Value)`
 
@@ -287,6 +290,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="concat" />
+
 
 ## concat
 `concat (arg1, arg2, arg3, ...)`
@@ -400,6 +404,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="contains" />
 
+
 ## contains
 `contains (container, itemToFind)`
 
@@ -494,6 +499,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="datauri" />
 
+
 ## dataUri
 `dataUri(stringToConvert)`
 
@@ -561,6 +567,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="datauritostring" />
+
 
 ## dataUriToString
 `dataUriToString(dataUriToConvert)`
@@ -708,6 +715,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="endswith" />
 
+
 ## endsWith
 `endsWith(stringToSearch, stringToFind)`
 
@@ -786,6 +794,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="first" />
+
 
 ## first
 `first(arg1)`
@@ -935,6 +944,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="indexof" />
 
+
 ## indexOf
 `indexOf(stringToSearch, stringToFind)`
 
@@ -1009,6 +1019,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="last" />
 
+
 ## last
 `last (arg1)`
 
@@ -1073,6 +1084,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="lastindexof" />
+
 
 ## lastIndexOf
 `lastIndexOf(stringToSearch, stringToFind)`
@@ -1148,6 +1160,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="length" />
 
+
 ## length
 `length(string)`
 
@@ -1220,6 +1233,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="padleft" />
 
+
 ## padLeft
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
@@ -1282,6 +1296,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="replace" />
+
 
 ## replace
 `replace(originalString, oldString, newString)`
@@ -1348,6 +1363,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="skip" />
+
 
 ## skip
 `skip(originalValue, numberToSkip)`
@@ -1430,6 +1446,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="split" />
 
+
 ## split
 `split(inputString, delimiter)`
 
@@ -1501,6 +1518,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="startswith" />
+
 
 ## startsWith
 `startsWith(stringToSearch, stringToFind)`
@@ -1580,6 +1598,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="string" />
+
 
 ## string
 `string(valueToConvert)`
@@ -1665,6 +1684,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="substring" />
 
+
 ## substring
 `substring(stringToParse, startIndex, length)`
 
@@ -1701,21 +1721,21 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "one two three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"substringOutput": {
-			"value": "[substring(parameters('testString'), 4, 3)]",
-			"type": "string"
-		}
-	}
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "substringOutput": {
+            "value": "[substring(parameters('testString'), 4, 3)]",
+            "type": "string"
+        }
+    }
 }
 ```
 
@@ -1738,6 +1758,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="take" />
+
 
 ## take
 `take(originalValue, numberToTake)`
@@ -1820,6 +1841,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="tolower" />
 
+
 ## toLower
 `toLower(stringToChange)`
 
@@ -1841,25 +1863,25 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "One Two Three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"toLowerOutput": {
-			"value": "[toLower(parameters('testString'))]",
-			"type": "string"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-	}
+    }
 }
 ```
 
@@ -1884,6 +1906,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="toupper" />
 
+
 ## toUpper
 `toUpper(stringToChange)`
 
@@ -1905,25 +1928,25 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "One Two Three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"toLowerOutput": {
-			"value": "[toLower(parameters('testString'))]",
-			"type": "string"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-	}
+    }
 }
 ```
 
@@ -1947,6 +1970,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="trim" />
+
 
 ## trim
 `trim (stringToTrim)`
@@ -2006,6 +2030,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="uniquestring" />
+
 
 ## uniqueString
 `uniqueString (baseString, ...)`
@@ -2096,6 +2121,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="uri" />
 
+
 ## uri
 `uri (baseUri, relativeUri)`
 
@@ -2173,6 +2199,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="uricomponent" />
 
+
 ## uriComponent
 `uricomponent(stringToEncode)`
 
@@ -2240,6 +2267,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="uricomponenttostring" />
+
 
 ## uriComponentToString
 `uriComponentToString(uriEncodedString)`

@@ -25,22 +25,24 @@ The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fe
 
 Browse the control families below to see how this Azure Security and Compliance Blueprint Automation aligns with the control requirements.
 
-| | |
-|---|---|
-| [AC](fedramp-access-controls.md ) | Access Control |
-| [AU](fedramp-audit-accountability-controls.md ) | Audit and Accountability |
-| [AT](fedramp-awareness-training-controls.md ) | Awareness and Training |
-| [CM](fedramp-configuration-manager-controls.md ) | Configuration Management |
-| [CP](fedramp-contingency-planning-controls.md ) | Contingency Planning |
-| [IA](fedramp-identification-authentication-controls.md ) | Identification and Authentication |
-| [IR](fedramp-incident-response-controls.md ) | Incident Response |
-| [MA](fedramp-maintenance-controls.md ) | Maintenance |
-| [MP](fedramp-media-protection-controls.md ) | Media Protection |
-| [PS](fedramp-personnel-security-controls.md ) | Personnel Security |
+
+|                                                              |                                       |
+|--------------------------------------------------------------|---------------------------------------|
+|              [AC](fedramp-access-controls.md )               |            Access Control             |
+|       [AU](fedramp-audit-accountability-controls.md )        |       Audit and Accountability        |
+|        [AT](fedramp-awareness-training-controls.md )         |        Awareness and Training         |
+|       [CM](fedramp-configuration-manager-controls.md )       |       Configuration Management        |
+|       [CP](fedramp-contingency-planning-controls.md )        |         Contingency Planning          |
+|   [IA](fedramp-identification-authentication-controls.md )   |   Identification and Authentication   |
+|         [IR](fedramp-incident-response-controls.md )         |           Incident Response           |
+|            [MA](fedramp-maintenance-controls.md )            |              Maintenance              |
+|         [MP](fedramp-media-protection-controls.md )          |           Media Protection            |
+|        [PS](fedramp-personnel-security-controls.md )         |          Personnel Security           |
 | [PE](fedramp-physical-environmental-protection-controls.md ) | Physical and Environmental Protection |
-| [PL](fedramp-planning-controls.md ) | Planning |
-| [RA](fedramp-risk-assessment-controls.md ) | Risk Assessment |
+|             [PL](fedramp-planning-controls.md )              |               Planning                |
+|          [RA](fedramp-risk-assessment-controls.md )          |            Risk Assessment            |
 | [CA](fedramp-security-assessment-authorization-controls.md ) | Security Assessment and Authorization |
-| [SC](fedramp-system-communications-protection-controls.md ) | System and Communications Protection |
-| [SI](fedramp-system-information-integrity-controls.md ) | System and Information Integrity |
-| [SA](fedramp-system-services-acquisition-controls.md ) | System and Services Acquisition |
+| [SC](fedramp-system-communications-protection-controls.md )  | System and Communications Protection  |
+|   [SI](fedramp-system-information-integrity-controls.md )    |   System and Information Integrity    |
+|    [SA](fedramp-system-services-acquisition-controls.md )    |    System and Services Acquisition    |
+

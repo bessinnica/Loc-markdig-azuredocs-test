@@ -91,49 +91,49 @@ Here are the steps to set up the NuGet:
     ![AI registration complete](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
 5. Click **OK** on the *Review Changes* dialog box that pops up, and accept the *License Acceptance*. This will complete adding the NuGet to the services.
 6. You now need to set up the telemetry initializer in the two services. To this, open up *VotingWeb.cs* and *VotingData.cs*. For both of them, do the following two steps:
-    1. Add these two *using* statements at the top of each *\<ServiceName>.cs*:
+   1. Add these two *using* statements at the top of each *\<ServiceName>.cs*:
     
-    ```csharp
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.ApplicationInsights.ServiceFabric;
-    ```
+      ```csharp
+      using Microsoft.ApplicationInsights.Extensibility;
+      using Microsoft.ApplicationInsights.ServiceFabric;
+      ```
     
-    2. In the nested *return* statement of *CreateServiceInstanceListeners()* or *CreateServiceReplicaListeners()*, under *ConfigureServices* > *services*, in between the two Singleton services declared, add:
-    `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
-    This will add the *Service Context* to your telemetry, allowing you to better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* should look like this:
+   2. In the nested *return* statement of *CreateServiceInstanceListeners()* or *CreateServiceReplicaListeners()*, under *ConfigureServices* > *services*, in between the two Singleton services declared, add:
+      `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
+      This will add the *Service Context* to your telemetry, allowing you to better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* should look like this:
     
-    ```csharp
-    return new WebHostBuilder().UseWebListener()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<HttpClient>())
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder().UseWebListener()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<StatelessServiceContext>(serviceContext)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
+               .AddSingleton<HttpClient>())
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+       .UseUrls(url)
+       .Build();
+      ```
 
-    Similarly, in *VotingData.cs*, you should have:
+      Similarly, in *VotingData.cs*, you should have:
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<IReliableStateManager>(this.StateManager))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<StatefulServiceContext>(serviceContext)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
+               .AddSingleton<IReliableStateManager>(this.StateManager))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+       .UseUrls(url)
+       .Build();
+      ```
 
 At this point, you are ready to deploy the application. Click **Start** at the top (or **F5**), and Visual Studio will build and package the application, set up your local cluster, and deploy the application to it. 
 

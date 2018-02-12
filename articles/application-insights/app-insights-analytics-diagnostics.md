@@ -28,8 +28,8 @@ In this example, Smart Diagnostics has identified a pattern of property values a
 
 ## Diagnose data changes
 
-1.	Run a query in Analytics, and render it as a time chart. 
-2.	Click any highlighted peak point, if there is one.
+1.  Run a query in Analytics, and render it as a time chart. 
+2.  Click any highlighted peak point, if there is one.
  
     ![peak point](./media/app-insights-analytics-diagnostics/peak.png)
 
@@ -43,11 +43,11 @@ In this example, Smart Diagnostics has identified a pattern of property values a
 
     Notice also the two components of the chart, with the filter true and false. The false component shows an unchanged trend. In other words, there is no change in the telemetry results, if we exclude the problematic combination of dimensions that Diagnostics has identified. By contrast, the results within that combination do show a dramatic change within the highlighted area of investigation. This shows that Diagnostics has found a combination of properties that explains the change.
 
-4.	If the pattern is complex, you need to hover over **Show all** to see the dimensions.
+4.  If the pattern is complex, you need to hover over **Show all** to see the dimensions.
 
     ![show all](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.	In case Diagnostics finds no significant pattern to notify about, the ‘no results’ page will be presented. At this point, you may change your query. For example, you could narrow the time range and binning in Analytics query, for a further analysis and potentially better results.
+5.  In case Diagnostics finds no significant pattern to notify about, the ‘no results’ page will be presented. At this point, you may change your query. For example, you could narrow the time range and binning in Analytics query, for a further analysis and potentially better results.
 
 Armed with the knowledge that a particular page of your website has a problem on a particular browser, you can now go straight to the problem page, and investigate recent changes.
 

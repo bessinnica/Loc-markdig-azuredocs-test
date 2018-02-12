@@ -76,7 +76,6 @@ rest:
   image: adtd/rest:0.1
   ports:
     - "8080:8080"
-
 ```
 
 Run `docker-compose up -d` to start the container deployments:

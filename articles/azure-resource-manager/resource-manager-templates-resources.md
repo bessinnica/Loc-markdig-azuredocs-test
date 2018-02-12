@@ -158,12 +158,12 @@ The following example shows a storage account that is deployed to the same locat
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"variables": {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
       "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
     },
-	"resources": [
+    "resources": [
     {
       "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
@@ -179,7 +179,7 @@ The following example shows a storage account that is deployed to the same locat
       "kind": "Storage",
       "properties": { }
     }
-	]
+    ]
 }
 ```
 
@@ -187,9 +187,9 @@ If you need to hardcode the location in your template, provide the name of one o
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"resources": [
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
     {
       "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
@@ -205,7 +205,7 @@ If you need to hardcode the location in your template, provide the name of one o
       "kind": "Storage",
       "properties": { }
     }
-	]
+    ]
 }
 ```
 

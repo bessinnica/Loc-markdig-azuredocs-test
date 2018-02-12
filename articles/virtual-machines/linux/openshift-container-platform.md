@@ -48,85 +48,85 @@ The following example creates a parameters file named azuredeploy.parameters.jso
 
 ```json
 {
-	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"masterVmSize": {
-			"value": "Standard_E2s_v3"
-		},
-		"infraVmSize": {
-			"value": "Standard_E2s_v3"
-		},
-		"nodeVmSize": {
-			"value": "Standard_E2s_v3"
-		},
-		"openshiftClusterPrefix": {
-			"value": "mycluster"
-		},
-		"masterInstanceCount": {
-			"value": 3
-		},
-		"infraInstanceCount": {
-			"value": 2
-		},
-		"nodeInstanceCount": {
-			"value": 2
-		},
-		"dataDiskSize": {
-			"value": 128
-		},
-		"adminUsername": {
-			"value": "clusteradmin"
-		},
-		"openshiftPassword": {
-			"value": "{Strong Password}"
-		},
-		"enableMetrics": {
-			"value": "true"
-		},
-		"enableLogging": {
-			"value": "true"
-		},
-		"enableCockpit": {
-			"value": "false"
-		},
-		"rhsmUsernamePasswordOrActivationKey": {
-			"value": "usernamepassword"
-		},
-		"rhsmUsernameOrOrgId": {
-			"value": "{RHSM Username}"
-		},
-		"rhsmPasswordOrActivationKey": {
-			"value": "{RHSM Password}"
-		},
-		"rhsmPoolId": {
-			"value": "{Pool ID}"
-		},
-		"sshPublicKey": {
-			"value": "{SSH Public Key}"
-		},
-		"keyVaultResourceGroup": {
-			"value": "keyvaultrg"
-		},
-		"keyVaultName": {
-			"value": "keyvault"
-		},
-		"keyVaultSecret": {
-			"value": "keysecret"
-		},
-		"enableAzure": {
-			"value": "true"
-		},
-		"aadClientId": {
-			"value": "11111111-abcd-1234-efgh-111111111111"
-		},
-		"aadClientSecret": {
-			"value": "{Strong Password}"
-		},
-		"defaultSubDomainType": {
-			"value": "nipio"
-		}
-	}
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "masterVmSize": {
+            "value": "Standard_E2s_v3"
+        },
+        "infraVmSize": {
+            "value": "Standard_E2s_v3"
+        },
+        "nodeVmSize": {
+            "value": "Standard_E2s_v3"
+        },
+        "openshiftClusterPrefix": {
+            "value": "mycluster"
+        },
+        "masterInstanceCount": {
+            "value": 3
+        },
+        "infraInstanceCount": {
+            "value": 2
+        },
+        "nodeInstanceCount": {
+            "value": 2
+        },
+        "dataDiskSize": {
+            "value": 128
+        },
+        "adminUsername": {
+            "value": "clusteradmin"
+        },
+        "openshiftPassword": {
+            "value": "{Strong Password}"
+        },
+        "enableMetrics": {
+            "value": "true"
+        },
+        "enableLogging": {
+            "value": "true"
+        },
+        "enableCockpit": {
+            "value": "false"
+        },
+        "rhsmUsernamePasswordOrActivationKey": {
+            "value": "usernamepassword"
+        },
+        "rhsmUsernameOrOrgId": {
+            "value": "{RHSM Username}"
+        },
+        "rhsmPasswordOrActivationKey": {
+            "value": "{RHSM Password}"
+        },
+        "rhsmPoolId": {
+            "value": "{Pool ID}"
+        },
+        "sshPublicKey": {
+            "value": "{SSH Public Key}"
+        },
+        "keyVaultResourceGroup": {
+            "value": "keyvaultrg"
+        },
+        "keyVaultName": {
+            "value": "keyvault"
+        },
+        "keyVaultSecret": {
+            "value": "keysecret"
+        },
+        "enableAzure": {
+            "value": "true"
+        },
+        "aadClientId": {
+            "value": "11111111-abcd-1234-efgh-111111111111"
+        },
+        "aadClientSecret": {
+            "value": "{Strong Password}"
+        },
+        "defaultSubDomainType": {
+            "value": "nipio"
+        }
+    }
 }
 ```
 

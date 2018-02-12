@@ -39,13 +39,13 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
     ![Create new resource](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
-    * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
-    * Select the **Language understanding (Node.js)** template for the **Bot template** field.
+   * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
+   * Select the **Language understanding (Node.js)** template for the **Bot template** field.
 
-    ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
-    * Check the box to confirm to the terms of service.
+   * Check the box to confirm to the terms of service.
 
 4. Confirm that the bot service has been deployed.
     * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
@@ -155,7 +155,7 @@ var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
    console.log('%s listening to %s', server.name, server.url); 
 });
-  
+
 // Create chat connector for communicating with the Bot Framework Service
 var connector = new builder.ChatConnector({
     appId: process.env.MicrosoftAppId,
@@ -285,7 +285,6 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 });
 
 bot.dialog('/', intents);
-
 ```
 
 

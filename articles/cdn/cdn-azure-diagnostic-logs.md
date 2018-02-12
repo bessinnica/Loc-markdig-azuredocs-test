@@ -25,7 +25,7 @@ With Azure diagnostic logs, you can view core analytics and save them into one o
  - Azure Storage account
  - Azure Event Hubs
  - [OMS Log Analytics repository](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
- 
+
 This feature is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles. 
 
 Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
@@ -51,14 +51,14 @@ Sign in to the [Azure portal](http://portal.azure.com). If you don't already hav
 1. In the portal, navigate to **CDN profile**.
 2. Select a CDN profile, then select the CDN endpoint for which you want to enable **Diagnostics Logs**.
 
-	![portal - Diagnostics logs](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
+    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
 
 3. Select **Diagnostics Logs** in the **Monitoring** section.
 
-	![portal - Diagnostics logs](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
+    ![portal - Diagnostics logs](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
 
 ### Enable logging with Azure Storage
-	
+
 1. To use Azure storage to store the logs, select **Archive to a storage account**, select **CoreAnalytics**, and then choose the number of retention days under **Retention (days)**. A retention of zero days stores the logs indefinitely. 
 2. Enter a name for your setting, then click **Storage account**. After you have selected a storage account, click **Save**.
 
@@ -107,7 +107,7 @@ For more information about log data delays, see [Log data delays](#log-data-dela
 
 The following example shows how to enable Diagnostic Logs via the Azure PowerShell Cmdlets.
 
-###Enabling Diagnostic Logs in a Storage Account
+### Enabling Diagnostic Logs in a Storage Account
 
 First log in and select a subscription:
 
@@ -136,34 +136,34 @@ This section describes the schema of CDN core analytics, how it is organized ins
 ### Using Microsoft Azure Storage Explorer
 Before you can access the core analytics data from the Azure Storage Account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](http://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
 
-1.	Open **Microsoft Azure Storage Explorer**
-2.	Locate the storage account
-3.	Go to the **“Blob Containers”** node under this storage account and expand the node
-4.	Select the container named **“insights-logs-coreanalytics”** and double-click it
-5.	Results show up on the right-hand pane starting with the first level, which looks like **“resourceId=”**. Continue clicking all the way until you see the file **PT1H.json**. See the following note for explanation of the path.
-6.	Each blob **PT1H.json** represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
-7.	The schema of the contents of this JSON file is described in the section Schema of the core analytics logs
+1.  Open **Microsoft Azure Storage Explorer**
+2.  Locate the storage account
+3.  Go to the **“Blob Containers”** node under this storage account and expand the node
+4.  Select the container named **“insights-logs-coreanalytics”** and double-click it
+5.  Results show up on the right-hand pane starting with the first level, which looks like **“resourceId=”**. Continue clicking all the way until you see the file **PT1H.json**. See the following note for explanation of the path.
+6.  Each blob **PT1H.json** represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
+7.  The schema of the contents of this JSON file is described in the section Schema of the core analytics logs
 
 
 > [!NOTE]
 > **Blob path format**
 > 
-> Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
-	
-	resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+> Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention: 
+
+    resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
 
 **Description of fields:**
 
 |value|description|
 |-------|---------|
-|Subscription ID	|ID of the Azure subscription in Guid format.|
-|Resource |Group Name	Name of the resource group to which the CDN resources belong.|
+|Subscription ID    |ID of the Azure subscription in Guid format.|
+|Resource |Group Name   Name of the resource group to which the CDN resources belong.|
 |Profile Name |Name of the CDN Profile|
 |Endpoint Name |Name of the CDN Endpoint|
-|Year|	4-digit representation of the year, for example, 2017|
-|Month|	2-digit representation of the month number. 01=January ... 12=December|
-|Day|	2-digit representation of the day of the month|
-|PT1H.json|	Actual JSON file where the analytics data is stored|
+|Year|  4-digit representation of the year, for example, 2017|
+|Month| 2-digit representation of the month number. 01=January ... 12=December|
+|Day|   2-digit representation of the day of the month|
+|PT1H.json| Actual JSON file where the analytics data is stored|
 
 ### Exporting the core analytics data to a CSV file
 
@@ -171,11 +171,11 @@ To make it easy to access core analytics, sample code for a tool is provided. Th
 
 Here is how you can use the tool:
 
-1.	Visit the github link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
-2.	Download the code.
-3.	Follow the instructions to compile and configure.
-4.	Run the tool.
-5.	The resulting CSV file shows the analytics data in a simple flat hierarchy.
+1.  Visit the github link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+2.  Download the code.
+3.  Follow the instructions to compile and configure.
+4.  Run the tool.
+5.  The resulting CSV file shows the analytics data in a simple flat hierarchy.
 
 ## Consuming diagnostics logs from an OMS Log Analytics repository
 Log Analytics is a service in Operations Management Suite (OMS) that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources. 
@@ -209,19 +209,19 @@ Follow these steps to add a Management Solution:
 
     ![See all](./media/cdn-diagnostics-log/15_See-all.png)
 
-4.	Search for CDN in the search box.
+4.  Search for CDN in the search box.
 
     ![See all](./media/cdn-diagnostics-log/16_Search-for.png)
 
-5. 	Select **Azure CDN Core Analytics**. 
+5.  Select **Azure CDN Core Analytics**. 
 
     ![See all](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6. 	After clicking **Create**, you will be asked to create a new OMS workspace or use an existing one. 
+6.  After clicking **Create**, you will be asked to create a new OMS workspace or use an existing one. 
 
     ![See all](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
-7. 	Select the workspace you created before. You then need to add an automation account.
+7.  Select the workspace you created before. You then need to add an automation account.
 
     ![See all](./media/cdn-diagnostics-log/19_Add-automation.png)
 
@@ -271,7 +271,7 @@ You can drag and drop the types of charts and fill in the data details you want 
 
 ![View Designer](./media/cdn-diagnostics-log/28_Designer.png)
 
-	
+
 ## Log data delays
 
 Verizon log data delays | Akamai log data delays
@@ -310,7 +310,7 @@ The following table shows a list of metrics available in the core analytics logs
 | EgressHttpStatus4xx | Outbound data transfer for responses with 4xx HTTP status codes in GB               |Yes   | No  |
 | EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB               |Yes   |  No |
 | EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB                |Yes   |No   |
-| EgressCacheHit |  Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges	|Yes   |  No |
+| EgressCacheHit |  Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges  |Yes   |  No |
 | EgressCacheMiss | Outbound data transfer for responses that were not found on the nearest POP server, and retrieved from the origin server              |Yes   |  No |
 | EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached due to a user configuration on the edge.                |Yes   |No   |
 | EgressCacheUncacheable | Outbound data transfer for assets that are prevented from being cached by the asset's Cache-Control and/or Expires headers. Indicates that it should not be cached on a POP or by the HTTP client.                   |Yes   | No  |
@@ -401,7 +401,6 @@ Example properties:
      "EgressCacheUncacheable": null,
      "EgressCacheOthers": null
 }
-
 ```
 
 ## Additional resources

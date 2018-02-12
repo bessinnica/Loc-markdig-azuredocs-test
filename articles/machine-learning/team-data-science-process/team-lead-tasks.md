@@ -30,12 +30,12 @@ A **Team Lead** manages a team in the data science unit of an enterprise. A team
 After several prerequisites tasks specified in a following section are satisfied by the group manager, there are the five principal tasks (some optional) that you complete in this tutorial. These tasks correspond the main numbered sections of this topic:
 
 1. Create a **team project** on the group's VSTS server of the group and two team repositories in the project:
-	- **ProjectTemplate repository** 
-	- **TeamUtilities repository**
+    - **ProjectTemplate repository** 
+    - **TeamUtilities repository**
 2. Seed the team **ProjectTemplate** repository from the **GroupProjectTemplate** repository which has been set up by your group manager. 
 3. Create team data and analytics resources:
-	- Add the team-specific utilities to the **TeamUtilities** repository. 
-	- (Optional) Create an **Azure file storage** to be used to store data assets that can be useful for the entire team. 
+    - Add the team-specific utilities to the **TeamUtilities** repository. 
+    - (Optional) Create an **Azure file storage** to be used to store data assets that can be useful for the entire team. 
 4. (Optional) Mount the Azure file storage to the **Data Science Virtual Machine** (DSVM) of the team lead and add data assets on it.
 5. Set up the **security control** by adding team members and configure their privileges.
 
@@ -55,8 +55,8 @@ This topic   uses abbreviated names for repositories and directories. These name
 The names specified for the repositories and directories in this tutorial have been provided on the assumption that your objective is to establish a separate team project for your own team within a larger data science group. But there are other options open to you as team lead:
 
 - The entire group can choose to create a single team project. Then all projects from all data science teams would be under this single team project. To achieve this, you can designate a git administrator to follow these instructions to create a single team project. This scenario might be valid, for example, for:
-	-  a small data science group that does not have multiple data science teams 
-	-  a larger data science group with multiple data science teams that nevertheless wants to optimize inter-team collaboration with activities such as group-level sprint planning. 
+    -  a small data science group that does not have multiple data science teams 
+    -  a larger data science group with multiple data science teams that nevertheless wants to optimize inter-team collaboration with activities such as group-level sprint planning. 
 - Teams can choose to have team-specific project templates or team-specific utilities under the single team project for the entire group. In this case, the team leads should create team project template repositories and/or team utilities repositories under the same team project. Name these repositories *<TeamName\>ProjectTemplate* and *<TeamName\>Utilities*, for instance, *TeamJohnProjectTemplate* and *TeamJohnUtilities*. 
 
 In any case, team leads need to let their team members know which template and utilities repositories to adopt when they are setting up and cloning the project and utilities repositories. Project leads should follow the [Project Lead tasks for a data science team](project-lead-tasks.md) to create project repositories, whether under separate team projects or under a single team project. 
@@ -72,7 +72,7 @@ The prerequisites are satisfied by completing the tasks assigned to your group m
 - Git must be installed on your machine. If you are using a Data Science Virtual Machine (DSVM), Git has been pre-installed and you are good to go. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).  
 - If you are using a **Windows DSVM**, you need to have [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the README.md file, scroll down to the **Download and Install** section and click the *latest installer*. This takes you to the latest installer page. Download the .exe installer from here and run it. 
 - If you are using **Linux DSVM**, create an SSH public key on your DSVM and add it to your group VSTS server. For more information about SSH, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
-	
+    
 ## 1. Create a team project and repositories
 
 Complete this step if you are using VSTS as your code hosting platform for versioning and collaboration. This section has you create three artifacts in the VSTS server of your group:
@@ -86,52 +86,52 @@ Complete this step if you are using VSTS as your code hosting platform for versi
 - Go to your group's VSTS server homepage at URL `https://<VSTS Server Name\>.visualstudio.com`. 
 - Click **New** to create a team project. 
 
-	![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
+    ![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
 
 - A Create team project window asks you to input the Project name (**MyTeam** in this example). Make sure that you select **Agile** as the **Process template** and **Git** as the **Version control**. 
 
-	![3](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
+    ![3](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
 
 - Click **Create project**. Your team project **MyTeam** is created in less than 1 minute. 
 
 - After the team project **MyTeam** is created, click **Navigate to project** button, to be directed to the home page of your team project. 
 
-	![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
+    ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
 - If you see a **Congratulations!** popup window, click the **Add code** (button in red box). Otherwise, click **Code** (in yellow box). This directs you to the Git repository page of your team project. 
 
-	![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
+    ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### Create the MyProjectTemplate repository (R3) on Git
 
 - On the Git repository page of your team project, click the downward arrow beside repository name **MyTeam**, and select **Manage repositories...**.
 
-	![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
+    ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
 - On the **Version control** tab of the control panel of your team project, click **MyTeam**, then select **Rename repository...**. 
 
-	![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
+    ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
 - Input a new name to the repository in the **Rename the MyTeam repository** window. In this example, *MyTeamProjectTemplate*. You can choose something like *<Your team name\>ProjectTemplate*. Click **Rename** to continue.
 
-	![8](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
+    ![8](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
 
 ### Create the MyTeamUtilities repository (R4) on Git
 
 - To create a new repository *<your team name\>Utilities* under your team project, click **New repository...** on the **Version control** tab of your team project's control panel.  
 
-	![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
+    ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
 - In the **Create a new repository** window that pops up, provide a name for this repository. In this example, we name it as *MyTeamUtilities*, which is **R4** in our notation. Choose something like *<your team name\>Utilities*. Make sure that you select **Git** for **Type**. Then, click **Create** to continue.
 
-	![10](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
+    ![10](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
 
 - Confirm that you see the two new Git repositories created under your team project **MyTeam**. In this example: 
 
 - **MyTeamProjectTemplate** (R3) 
 - **MyTeamUtilities** (R4).
 
-	![11](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
+    ![11](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
 
 
 ## 2. Seed your team ProjectTemplate and TeamUtilities repositories
@@ -157,23 +157,23 @@ In this step, you initialize your team project template repository from the grou
 To begin this procedure:
 
 - Create directories on your local machine:
-	- For **Windows**: **C:\GitRepos\GroupCommon** and **C:\GitRepos\MyTeam**
-	- For **Linux**: **GitRepos\GroupCommon** and **GitRepos\MyTeam** on your home directory 
+    - For **Windows**: **C:\GitRepos\GroupCommon** and **C:\GitRepos\MyTeam**
+    - For **Linux**: **GitRepos\GroupCommon** and **GitRepos\MyTeam** on your home directory 
 - Change to directory **GitRepos\GroupCommon**.
 - Run the following command, as appropriate, on the operating system of your local machine.
 
 **Windows**
 
-	git clone https://<Your VSTS Server name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
-	
+    git clone https://<Your VSTS Server name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
+    
 
 ![12](./media/team-lead-tasks/team-leads-12-create-two-group-repos.png)
 
 **Linux**
-	
-	git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
-	
-	
+    
+    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
+    
+    
 ![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
 
 These commands clone your **GroupProjectTemplate** (R1) repository on your group VSTS server to local directory in **GitRepos\GroupCommon** on your local machine. After cloning, directory **GroupProjectTemplate** (D1) is created in directory **GitRepos\GroupCommon**. Here, we assume that your group manager created a team project **GroupCommon**, and the **GroupProjectTemplate** repository is under this team project. 
@@ -188,16 +188,16 @@ These commands clone your **MyTeamProjectTemplate** (R3) and **MyTeamUtilities**
 
 **Windows**
 
-	git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
-	git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
+    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
 
 ![14](./media/team-lead-tasks/team-leads-14-clone_two_empty_team_repos.png)
-		
+        
 **Linux**
-	
-	git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
-	git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
-	
+    
+    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
+    
 ![15](./media/team-lead-tasks/team-leads-15-clone_two_empty_team_repos_linux.png)
 
 After cloning, two directories **MyTeamProjectTemplate** (D3) and **MyTeamUtilities** (D4) are created in directory **GitRepos\MyTeam**. We have assumed here that you named your team project template and utilities repositories **MyTeamProjectTemplate** and **MyTeamUtilities**. 
@@ -206,23 +206,23 @@ After cloning, two directories **MyTeamProjectTemplate** (D3) and **MyTeamUtilit
 
 To copy the content of the local **GroupProjectTemplate** (D1) folder to the local **MyTeamProjectTemplate** (D3), run one of the following shell scripts: 
 
-####From the PowerShell command-line for Windows		
+#### From the PowerShell command-line for Windows        
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
 
-	
+    
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####From the Linux shell for the **Linux DSVM**
-	
-	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
-	bash tdsp_local_copy_linux.sh 2
+#### From the Linux shell for the <strong>Linux DSVM</strong>
+    
+    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
+    bash tdsp_local_copy_linux.sh 2
     
 ![17](./media/team-lead-tasks/team-leads-17-local-copy-team-lead-linux-new.png)
 
 The scripts exclude the contents of the .git directory. The scripts prompt you to provide the **complete paths** to the source directory D1 and to the destination directory D3.
-		
+        
 
 ### Customize your team project template or team utilities (optional)
 
@@ -237,11 +237,11 @@ Customize your **MyTeamProjectTemplate** (D3) and **MyTeamUtilities** (D4), if n
 
 To add the contents in the (optionally customized) local directories D3 and D4 to the team repositories R3 and R4, run the following git bash commands either from a Windows PowerShell console or from the Linux shell. Run the commands from the **GitRepos\MyTeam\MyTeamProjectTemplate** directory.
 
-	git status
-	git add .
-	git commit -m"push from DSVM"
-	git push
-	
+    git status
+    git add .
+    git commit -m"push from DSVM"
+    git push
+    
 ![18](./media/team-lead-tasks/team-leads-18-push-to-group-server-2.png)
 
 The files in the MyTeamProjectTemplate repository of your group's VSTS server are synced nearly instantly when this script is run.
@@ -251,9 +251,9 @@ The files in the MyTeamProjectTemplate repository of your group's VSTS server ar
 Now run the same set of four git commands from the **GitRepos\MyTeam\MyTeamUtilities** directory. 
 
 > [AZURE.NOTE]If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
-		
-	git config --global user.name <your name>
-	git config --global user.email <your email address>
+        
+    git config --global user.name <your name>
+    git config --global user.email <your email address>
  
 > If you are committing to multiple Git repositories, use the same name and email address when you commit to each of them. Using the same name and email address proves convenient later on when you build PowerBI dashboards to track your Git activities on multiple repositories.
 
@@ -272,10 +272,10 @@ Run the following scripts to create Azure file storage for your team. Azure file
 
 Run this script from the PowerShell command-line:
 
-	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.ps1" -outfile "CreateFileShare.ps1"
-	.\CreateFileShare.ps1
+    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.ps1" -outfile "CreateFileShare.ps1"
+    .\CreateFileShare.ps1
 
-![21](./media/team-lead-tasks/team-leads-21-create-fileshare-win.png)	
+![21](./media/team-lead-tasks/team-leads-21-create-fileshare-win.png)   
 
 Log in to your Microsoft Azure account when prompted:
 
@@ -304,8 +304,8 @@ It is a good practice to check in this text file into your team ProjectTemplate 
 
 Run this script from the Linux shell:
 
-	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.sh"
-	bash CreateFileShare.sh
+    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.sh"
+    bash CreateFileShare.sh
 
 Log in to your Microsoft Azure account following the instructions on this screen:
 
@@ -336,12 +336,12 @@ After Azure file storage is created successfully, it can be mounted to your loca
 
 ### Mount Azure file storage with PowerShell from Windows
 
-	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.ps1" -outfile "AttachFileShare.ps1"
-	.\AttachFileShare.ps1
-	
+    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.ps1" -outfile "AttachFileShare.ps1"
+    .\AttachFileShare.ps1
+    
 You are asked to log in first, if you have not logged in. 
 
-Click **Enter** or **y** to continue when you are asked if you have an Azure file storage information file, and then input the ***complete path and name** of the file you create in previous step. The information to mount an Azure file storage is read directly from that file and you are ready to go to the next step.
+Click <strong>Enter</strong> or <strong>y</strong> to continue when you are asked if you have an Azure file storage information file, and then input the <em>**complete path and name</em>* of the file you create in previous step. The information to mount an Azure file storage is read directly from that file and you are ready to go to the next step.
 
 ![32](./media/team-lead-tasks/team-leads-32-attach-s1.png)
 
@@ -366,14 +366,14 @@ Type in your Azure subscription name, select the storage account where the Azure
 
 ### Mount Azure file storage with a Linux script
 
-	wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.sh"
-	bash AttachFileShare.sh
+    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.sh"
+    bash AttachFileShare.sh
 
 ![37](./media/team-lead-tasks/team-leads-37-attach-s1-linux.png)
 
 You are asked to log in first, if you have not logged in. 
 
-Click **Enter** or **y** to continue when you are asked if you have an Azure file storage information file, and then input the ***complete path and name** of the file you create in previous step. The information to mount an Azure file storage is read directly from that file and you are ready to go to the next step.
+Click <strong>Enter</strong> or <strong>y</strong> to continue when you are asked if you have an Azure file storage information file, and then input the <em>**complete path and name</em>* of the file you create in previous step. The information to mount an Azure file storage is read directly from that file and you are ready to go to the next step.
 
 ![38](./media/team-lead-tasks/team-leads-38-attach-s2-linux.png)
 
@@ -391,15 +391,15 @@ If you do not have your Azure file storage information on a text file, you can f
 - Input **n**.
 - Select the index of the subscription name where the Azure file storage was created in the previous step:
 
-	![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)
+    ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)
 
 - Select the storage account under your subscription and type in the Azure file storage name:
 
-	![42](./media/team-lead-tasks/team-leads-42-attach-s6-linux.png)
+    ![42](./media/team-lead-tasks/team-leads-42-attach-s6-linux.png)
 
 - Enter the name of drive to be added to your machine, which should be distinct from any existing ones:
 
-	![43](./media/team-lead-tasks/team-leads-43-attach-s7-linux.png)
+    ![43](./media/team-lead-tasks/team-leads-43-attach-s7-linux.png)
 
 
 ## 5. Set up security control policy 

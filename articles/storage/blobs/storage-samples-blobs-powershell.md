@@ -21,12 +21,14 @@ ms.author: tamram
 
 The following table includes links to PowerShell script samples that create and manage Azure Storage.
 
-| | |
-|---|---|
-|**Storage accounts**||
-| [Create a storage account and retrieve/rotate the access keys](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Storage account and retrieves and rotates one of its access keys. |
-| [Migrate Blobs across storage accounts using AzCopy on Windows](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Migrate blobs across Azure Storage accounts using AzCopy on Windows. |
-|**Blob storage**||
-| [Calculate the total size of a Blob storage container](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Calculates the total size of all the blobs in a container. |
+
+|                                                                                                                                                                                      |                                                                                                 |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+|                                                                          <strong>Storage accounts</strong>                                                                           |                                                                                                 |
+|          [Create a storage account and retrieve/rotate the access keys](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)           |       Creates an Azure Storage account and retrieves and rotates one of its access keys.        |
+|        [Migrate Blobs across storage accounts using AzCopy on Windows](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)         |              Migrate blobs across Azure Storage accounts using AzCopy on Windows.               |
+|                                                                            <strong>Blob storage</strong>                                                                             |                                                                                                 |
+|            [Calculate the total size of a Blob storage container](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)             |                   Calculates the total size of all the blobs in a container.                    |
 | [Calculate the size of a Blob storage container for billing purposes](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Calculates the size of a container in Blob storage for the purpose of estimating billing costs. |
-| [Delete containers with a specific prefix](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Deletes containers starting with a specified string. |
+|                 [Delete containers with a specific prefix](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)                  |                      Deletes containers starting with a specified string.                       |
+

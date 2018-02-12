@@ -82,12 +82,12 @@ This provider is used for managing the Azure AD B2C SAML sessions between apps a
 
 ```XML
 <TechnicalProfile Id="SM-Reflector-SAML">
-	<DisplayName>Session Management Provider</DisplayName>
-	<Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-	<Metadata>
-		<Item Key="IncludeSessionIndex">false</Item>
-		<Item Key="RegisterServiceProviders">false</Item>
-	</Metadata>
+    <DisplayName>Session Management Provider</DisplayName>
+    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Metadata>
+        <Item Key="IncludeSessionIndex">false</Item>
+        <Item Key="RegisterServiceProviders">false</Item>
+    </Metadata>
 </TechnicalProfile>
 ```
 

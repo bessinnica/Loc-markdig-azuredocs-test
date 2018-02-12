@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 #  Managed Service Identity (MSI) for Azure resources
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
@@ -43,7 +43,7 @@ Here's an example of how a system-assigned MSI works with Azure Virtual Machines
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
 3. Azure Resource Manager configures the Service Principal details in the MSI VM Extension of the VM. This step includes configuring client ID and certificate used by the extension to get access tokens from Azure AD.
 4. Now that the Service Principal identity of the VM is known, it can be granted access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the VM’s Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD.  If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault.
-5. Your code running on the VM requests a token from a local endpoint that is hosted by the MSI VM extension: http://localhost:50342/oauth2/token. The resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
+5. Your code running on the VM requests a token from a local endpoint that is hosted by the MSI VM extension: http://localhost:50342/oauth2/token. The resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=<https://management.azure.com/>.
 6. The MSI VM Extension uses its configured client ID and certificate to request an access token from Azure AD.  Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
@@ -55,7 +55,7 @@ Using the same diagram, here's an example of how a user-assigned MSI works with 
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the MSI. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
 3. Azure Resource Manager receives a message to configure the Service Principal details in the MSI VM Extension of a VM. This step includes configuring client ID and certificate used by the extension to get access tokens from Azure AD.
 4. Now that the Service Principal identity of the MSI is known, it can be granted access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the MSI's Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD. If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault. Note: Step 3 is not required to complete step 4. Once an MSI exists, it can be granted access to resources, regardless of being configured on a VM or not.
-5. Your code running on the VM requests a token from a local endpoint that is hosted by the MSI VM extension:  http://localhost:50342/oauth2/token. The client ID parameter specifies the name of the MSI identity to use. Additionally, the resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
+5. Your code running on the VM requests a token from a local endpoint that is hosted by the MSI VM extension:  http://localhost:50342/oauth2/token. The client ID parameter specifies the name of the MSI identity to use. Additionally, the resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=<https://management.azure.com/>.
 6. The MSI VM Extension checks if the certificate for the requested client ID is configured, and requests an access token from Azure AD. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
@@ -65,6 +65,8 @@ Each Azure service that supports Managed Service Identity has its own method for
 
 Try a Managed Service Identity tutorial to learn end-to-end scenarios for accessing different Azure resources:
 <br><br>
+
+
 | From MSI-enabled resource | Learn how to |
 | ------- | -------- |
 | Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |

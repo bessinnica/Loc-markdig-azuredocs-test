@@ -27,7 +27,7 @@ Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written
 * Access your Azure HDInsight Spark cluster resources.
 * Develop and run a Scala Spark application locally.
 
-To create your project, view the [Create Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
+To create your project, view the [Create Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
 
 > [!IMPORTANT]
 > You can use this plug-in to create and submit applications only for an HDInsight Spark cluster on Linux.
@@ -95,10 +95,10 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
    b. In the **Build tool** list, select either of the following, according to your need:
 
-      * **Maven**, for Scala project-creation wizard support
-      * **SBT**, for managing the dependencies and building for the Scala project
+   * **Maven**, for Scala project-creation wizard support
+   * **SBT**, for managing the dependencies and building for the Scala project
 
-    ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 2. Select **Next**.
 

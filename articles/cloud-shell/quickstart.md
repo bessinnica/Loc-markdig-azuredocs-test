@@ -6,7 +6,7 @@ documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
- 
+
 ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
@@ -49,7 +49,9 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 
 ### Create a resource group
 Create a new resource group in WestUS named "MyRG": <br>
+
 `az group create -l westus -n MyRG` <br>
+
 
 ### Create a Linux VM
 Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create SSH keys and setup the VM with them. <br>
@@ -75,5 +77,8 @@ Run `az group delete -n MyRG`
 
 ## Next steps
 [Learn about persisting files for Bash in Cloud Shell](persisting-shell-storage.md) <br>
+
 [Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+
 [Learn about Azure Files storage](../storage/files/storage-files-introduction.md) <br>
+

@@ -69,7 +69,6 @@ $share=Get-AzureStorageShare -Context $ctx -Name <file share name>
 $share.Properties.LastModified
 $share.IsSnapshot
 $snapshot=$share.Snapshot()
-
 ```
 
 ## Perform common share snapshot operations
@@ -201,7 +200,6 @@ IMG_1405.JPG    652156            file
 IMG_1611.JPG    442671            file
 IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
-
 ```
 #### Restore from a share snapshot
 
@@ -327,7 +325,6 @@ $snapshot=$share.Snapshot()
 
 ##Delete snapshot
 Remove-AzureStorageShare -Share $snapshot
-
 ```
 
 ## Next steps

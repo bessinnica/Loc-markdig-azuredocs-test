@@ -89,7 +89,6 @@ Using Azure PowerShell, create an [active geo-replication auto failover group](s
 
 > [!IMPORTANT]
 > These cmdlets require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
->
 
 1. Populate variables for your PowerShell scripts using the values for your existing server and sample database, and provide a globally unique value for failover group name.
 
@@ -240,7 +239,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    public class App {
 
       private static final String FAILOVER_GROUP_NAME = "myfailovergroupname";
-  
+
       private static final String DB_NAME = "mySampleDatabase";
       private static final String USER = "app_user";
       private static final String PASSWORD = "ChangeYourPassword1";
@@ -306,7 +305,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
       // Query the high water mark id that is stored in the table to be able to make unique inserts 
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
-        
+
       try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
               Statement stmt = connection.createStatement();
               ResultSet resultSet = stmt.executeQuery(sql)) {
@@ -320,7 +319,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
       }
    }
    ```
-6. Save and close the App.java file.
+10. Save and close the App.java file.
 
 ## Compile and run the SqlDbSample project
 
@@ -333,7 +332,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   
+
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -354,7 +353,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. Observe the application results during failover. Some inserts fail while the DNS cache refreshes. 	 
+2. Observe the application results during failover. Some inserts fail while the DNS cache refreshes.     
 
 3. Find out which role your disaster recovery server is performing.
 
@@ -371,7 +370,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. Observe the application results during failback. Some inserts fail while the DNS cache refreshes. 	 
+5. Observe the application results during failback. Some inserts fail while the DNS cache refreshes.     
 
 6. Find out which role your disaster recovery server is performing.
 

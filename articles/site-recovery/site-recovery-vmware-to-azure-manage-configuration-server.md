@@ -54,21 +54,21 @@ If you need to add an adapter after you've registered the configuration server i
 
 You can reregister the configuration server in the same vault if you need to. f you have an additional process server machine, in addition to the default process server running on the configuration server machine, reregister both machines.
 
-  1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
-  2. In **Servers**, click **Download registration key**. This downloads the vault credentials file.
-  3. Log onto the configuration server machine.
-  4. In **%ProgramData%\ASR\home\svagent\bin**, open **cspsconfigtool.exe**.
-  5. On the **Vault Registration** tab, click browse and located the vault credentials file you downloaded.
-  6. If needed, provide proxy server details. Then click **Register**.
-  7. Open an Admin PowerShell command window, and run the following command:
+1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+2. In **Servers**, click **Download registration key**. This downloads the vault credentials file.
+3. Log onto the configuration server machine.
+4. In **%ProgramData%\ASR\home\svagent\bin**, open **cspsconfigtool.exe**.
+5. On the **Vault Registration** tab, click browse and located the vault credentials file you downloaded.
+6. If needed, provide proxy server details. Then click **Register**.
+7. Open an Admin PowerShell command window, and run the following command:
 
-      ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
-      ```
-## Upgrade the configuration server
+    ```
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    net stop obengine
+    net start obengine
+    ```
+   ## Upgrade the configuration server
 
 You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
 

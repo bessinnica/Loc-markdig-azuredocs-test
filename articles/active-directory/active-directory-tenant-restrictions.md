@@ -21,7 +21,7 @@ ms.author: kgremban
 
 Large organizations that emphasize security want to move to cloud services like Office 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where SaaS apps are hosted in a public cloud, running on shared domain names like outlook.office.com and login.microsoftonline.com. Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
-Azure Active Directory's solution to this challenge is a feature called Tenant Restrictions. Tenant Restrictions enables organizations to control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization’s Office 365 applications, while preventing access to other organizations’ instances of these same applications.  
+Azure Active Directory's solution to this challenge is a feature called Tenant Restrictions. Tenant Restrictions enables organizations to control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization’s Office 365 applications, while preventing access to other organizations’ instances of these same applications.  
 
 Tenant Restrictions gives organizations the ability to specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
 
@@ -29,13 +29,13 @@ This article focuses on Tenant Restrictions for Office 365, but the feature shou
 
 ## How it works
 
-The overall solution comprises the following components: 
+The overall solution comprises the following components: 
 
-1. **Azure AD** – If the `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants. 
+1. **Azure AD** – If the `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants. 
 
-2. **On-premises proxy server infrastructure** – a proxy device capable of SSL inspection, configured to insert the header containing the list of permitted tenants into traffic destined for Azure AD. 
+2. **On-premises proxy server infrastructure** – a proxy device capable of SSL inspection, configured to insert the header containing the list of permitted tenants into traffic destined for Azure AD. 
 
-3. **Client software** – to support Tenant Restrictions, client software must request tokens directly from Azure AD, so that traffic can be intercepted by the proxy infrastructure. Tenant Restrictions is currently supported by browser-based Office 365 applications and by Office clients when modern authentication (like OAuth 2.0) is used. 
+3. **Client software** – to support Tenant Restrictions, client software must request tokens directly from Azure AD, so that traffic can be intercepted by the proxy infrastructure. Tenant Restrictions is currently supported by browser-based Office 365 applications and by Office clients when modern authentication (like OAuth 2.0) is used. 
 
 4. **Modern Authentication** – cloud services must use modern authentication to use Tenant Restrictions and block access to all non-permitted tenants. Office 365 cloud services must be configured to use modern authentication protocols by default. For the latest information on Office 365 support for modern authentication, read [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
@@ -49,7 +49,7 @@ There are two steps to get started with Tenant Restrictions. The first step is t
 
 ### URLs and IP addresses
 
-To use Tenant Restrictions, your clients must be able to connect to the following Azure AD URLs to authenticate: login.microsoftonline.com, login.microsoft.com, and login.windows.net. Additionally, to access Office 365, your clients must also be able to connect to the FQDNs/URLs and IP addresses defined in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+To use Tenant Restrictions, your clients must be able to connect to the following Azure AD URLs to authenticate: login.microsoftonline.com, login.microsoft.com, and login.windows.net. Additionally, to access Office 365, your clients must also be able to connect to the FQDNs/URLs and IP addresses defined in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
 
 ### Proxy configuration and requirements
 
@@ -57,7 +57,7 @@ The following configuration is required to enable Tenant Restrictions through yo
 
 #### Prerequisites
 
-- The proxy must be able to perform SSL interception, HTTP header insertion, and filter destinations using FQDNs/URLs. 
+- The proxy must be able to perform SSL interception, HTTP header insertion, and filter destinations using FQDNs/URLs. 
 
 - Clients must trust the certificate chain presented by the proxy for SSL communications. For example, if certificates from an internal PKI are used, the internal issuing root certificate authority certificate must be trusted.
 
@@ -67,14 +67,14 @@ The following configuration is required to enable Tenant Restrictions through yo
 
 For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
 
-The headers should include the following elements: 
-- For *Restrict-Access-To-Tenants*, a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- For *Restrict-Access-Context*, a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+The headers should include the following elements: 
+- For *Restrict-Access-To-Tenants*, a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- For *Restrict-Access-Context*, a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 
-To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the Restrict-Access-To-Tenants header if it is already present in the incoming request. 
+To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the Restrict-Access-To-Tenants header if it is already present in the incoming request. 
 
 Clients must be forced to use the proxy for all requests to login.microsoftonline.com, login.microsoft.com, and login.windows.net. For example, if PAC files are used to direct clients to use the proxy, end users should not be able to edit or disable the PAC files.
 
@@ -119,21 +119,21 @@ If you want to try out Tenant Restrictions before implementing it for your whole
 
 Fiddler is a free web debugging proxy that can be used to capture and modify HTTP/HTTPS traffic, including inserting HTTP headers. To configure Fiddler to test Tenant Restrictions, perform the following steps:
 
-1.	[Download and install Fiddler](http://www.telerik.com/fiddler).
-2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.	Configure Fiddler to insert the *Restrict-Access-To-Tenants* and *Restrict-Access-Context* headers using custom rules:
-  1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
-  2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
+1. [Download and install Fiddler](http://www.telerik.com/fiddler).
+2. Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3. Configure Fiddler to insert the *Restrict-Access-To-Tenants* and *Restrict-Access-Context* headers using custom rules:
+   1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
+   2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+   ```
+   if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+   ```
 
-  If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+   If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+   ```
+   oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+   ```
 
 4. Save and close the CustomRules file.
 
@@ -143,8 +143,8 @@ After you configure Fiddler, you can capture traffic by going to the **File** me
 
 Depending on the capabilities of your proxy infrastructure, you may be able to stage the rollout of settings to your users. Here are a couple high-level options for consideration:
 
-1.	Use PAC files to point test users to a test proxy infrastructure, while normal users continue to use the production proxy infrastructure.
-2.	Some proxy servers may support different configurations using groups.
+1.  Use PAC files to point test users to a test proxy infrastructure, while normal users continue to use the production proxy infrastructure.
+2.  Some proxy servers may support different configurations using groups.
 
 Refer to your proxy server documentation for specific details.
 

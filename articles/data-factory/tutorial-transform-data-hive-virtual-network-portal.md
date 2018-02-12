@@ -36,10 +36,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
 - **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/quick-create-portal.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
-	![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
+    ![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
 - **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Here is a sample configuration of HDInsight in a virtual network. 
 
-	![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
+    ![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 - **A virtual machine**. Create an Azure virtual machine VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
@@ -68,38 +68,38 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Log in to the [Azure portal](https://portal.azure.com/).    
-2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+2. Log in to the [Azure portal](https://portal.azure.com/).    
+3. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-data-factory-menu.png)
-3. In the **New data factory** page, enter **ADFTutorialHiveFactory** for the **name**. 
+4. In the **New data factory** page, enter **ADFTutorialHiveFactory** for the **name**. 
       
      ![New data factory page](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
-3. Select your Azure **subscription** in which you want to create the data factory. 
-4. For the **Resource Group**, do one of the following steps:
+5. Select your Azure **subscription** in which you want to create the data factory. 
+6. For the **Resource Group**, do one of the following steps:
      
-      - Select **Use existing**, and select an existing resource group from the drop-down list. 
-      - Select **Create new**, and enter the name of a resource group.   
+   - Select **Use existing**, and select an existing resource group from the drop-down list. 
+   - Select **Create new**, and enter the name of a resource group.   
          
-      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
-6. Select **Pin to dashboard**.     
-7. Click **Create**.
-8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+7. Select **V2 (Preview)** for the **version**.
+8. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
+9. Select **Pin to dashboard**.     
+10. Click **Create**.
+11. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-	![deploying data factory tile](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
+     ![deploying data factory tile](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
+12. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-   ![Data factory home page](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab.
-11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image: 
+    ![Data factory home page](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+13. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab.
+14. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image: 
 
-   ![Edit tab](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![Edit tab](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## Create a self-hosted integration runtime
 As the Hadoop cluster is inside a virtual network, you need to install a self-hosted integration runtime (IR) in the same virtual network. In this section, you create a new VM, join it to the same virtual network, and install self-hosted IR on it. The self-hosted IR allows Data Factory service to dispatch processing requests to a compute service such as HDInsight inside a virtual network. It also allows you to move data to/from data stores inside a virtual network to Azure. You use a self-hosted IR when the data store or compute is in an on-premises environment as well. 
@@ -147,7 +147,7 @@ As the Hadoop cluster is inside a virtual network, you need to install a self-ho
 
 You author and deploy two Linked Services in this section:
 - An **Azure Storage Linked Service** that links an Azure Storage account to the data factory. This storage is the primary storage used by your HDInsight cluster. In this case, you use this Azure Storage account to store the Hive script and output of the script.
-- An **HDInsight Linked Service**. Azure Data Factory submits the Hive script to this HDInsight cluster for execution.​
+- An **HDInsight Linked Service**. Azure Data Factory submits the Hive script to this HDInsight cluster for execution. 
 
 ### Create Azure Storage linked service
 

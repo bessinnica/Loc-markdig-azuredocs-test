@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security features that can be used with Azure Storage | Microsoft Docs
 description: " This article provides an overview of the core Azure security features that can be used with Azure Storage. "
 services: security

@@ -119,7 +119,7 @@ ServiceID|Service ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Type of track video/audio/text|video/audio
 TrackName|Name of the track|video/audio_1
 Bitrate|Track bitrate|785000
-CustomAttributes||	 
+CustomAttributes||   
 IncomingBitrate|Actual incoming bitrate|784548
 OverlapCount|Overlap in the ingest|0
 DiscontinuityCount|Discontinuity for track|0
@@ -216,3 +216,4 @@ The telemetry system does not provide data retention management or auto deletion
 ## Provide feedback
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

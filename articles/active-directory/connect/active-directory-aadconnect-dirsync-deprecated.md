@@ -29,6 +29,7 @@ The last release of DirSync was released in July 2014 and the last release of Az
 Azure AD Connect is the successor to DirSync and Azure AD Sync. It combines all scenarios these two supported. You can read more about it in [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 ## Deprecation schedule
+
 | Date | Comment |
 | --- | --- |
 | April 13, 2016 |Windows Azure Active Directory Sync (“DirSync”) and Microsoft Azure Active Directory Sync (“Azure AD Sync”) are announced as deprecated. |

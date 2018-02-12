@@ -59,6 +59,7 @@ Generally, search applications need more replicas than partitions, particularly 
 
 <a id="HA"></a>
 
+
 ## High availability
 Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. Query workloads run primarily on replicas. If you need more throughput or high availability, you will probably require additional replicas.
 
@@ -99,6 +100,7 @@ Larger indexes take longer to query. As such, you might find that every incremen
 A Basic service can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. You need a minimum of two replicas for high availability on queries.
 
 <a id="chart"></a>
+
 
 ## Standard tiers: Partition and replica combinations
 This table shows the SUs required to support combinations of replicas and partitions, subject to the 36-SU limit, for all Standard tiers.

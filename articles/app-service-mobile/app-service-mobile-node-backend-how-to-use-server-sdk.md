@@ -690,8 +690,9 @@ You probably only want to enable Swagger support in development editions.  You c
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-The swagger endpoint is located at http://*yoursite*.azurewebsites.net/swagger.  You can access the Swagger
-UI via the `/swagger/ui` endpoint.  if you choose to require authentication across your entire application,
+The swagger endpoint is located at http://<em>yoursite</em>.azurewebsites.net/swagger.  You can access the Swagger
+UI via the 
+`/swagger/ui` endpoint.  if you choose to require authentication across your entire application,
 Swagger produces an error.  For best results, choose to allow unauthenticated requests through in the Azure
 App Service Authentication / Authorization settings, then control authentication using the `table.access`
 property.

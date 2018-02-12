@@ -1,4 +1,3 @@
-
 ---
 title: Azure Backup FAQ | Microsoft Docs
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
@@ -143,8 +142,10 @@ Yes, the Azure Backup retention structure allows you to have full flexibility in
 ### Can I “schedule a backup” at 6pm and specify retention policies at a different time?<br/>
 No. Retention policies can only be applied on backup points. In the following image, the retention policy is specified for backups taken at 12am and 6pm. <br/>
 
+
 ![Schedule Backup and Retention](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
+
 
 ### If a backup is retained for a long duration, does it take more time to recover an older data point? <br/>
 No – the time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.

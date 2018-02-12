@@ -142,7 +142,6 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
     }
   ]
 }
-
 ```
 
 #### Retrieving public IP address
@@ -221,7 +220,7 @@ curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-versio
 ```
 
 Or through the `Invoke-RestMethod` cmdlet:
-    
+
 ```
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
@@ -265,7 +264,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
         },
         "ipv6": {
           "ipAddress": [
-            
+
           ]
         },
         "macAddress": "002248020E1E"
@@ -387,7 +386,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
-    
+
 
 ## FAQ
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
@@ -408,7 +407,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
    * To get support for the service, create a support request in Azure portal for the VM where you are not able to get metadata response after long retries 
 
    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
-    
+
 ## Next steps
 
 - Learn more about the [Scheduled Events](scheduled-events.md) API **in public preview** provided by the Instance Metadata service.

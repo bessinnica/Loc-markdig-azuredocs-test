@@ -183,13 +183,13 @@ For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fi
 
 ```json
 "schedule": "0 0 15 * * *",
-```	
+``` 
 
 Alternatively, you could add a new app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then the following CRON expression could be used for 10:00 AM EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
-```	
+``` 
 ### CRON examples
 
 Here are some examples of CRON expressions you can use for the timer trigger in Azure Functions. 

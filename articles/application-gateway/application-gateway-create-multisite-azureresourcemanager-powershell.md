@@ -17,7 +17,7 @@ ms.author: davidmu
 ---
 # Create an application gateway with multiple site hosting using Azure PowerShell
 
-You can use Azure Powershell to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use Azure Powershell to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of <em>www.contoso.com</em> and <em>www.fabrikam.com</em>.
 
 In this article, you learn how to:
 
@@ -109,7 +109,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### Create the listeners and rules
 
-A listener is required to enable the application gateway to route traffic appropriately to the backend pools. In this tutorial, you create listeners for each of your two domains. In this example, listeners are created for the domains of *www.contoso.com* and *www.fabrikam.com*.
+A listener is required to enable the application gateway to route traffic appropriately to the backend pools. In this tutorial, you create listeners for each of your two domains. In this example, listeners are created for the domains of <em>www.contoso.com</em> and <em>www.fabrikam.com</em>.
 
 Create the listeners named *contosoListener* and *fabrikamListener* using [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. Rules are required for the listeners to know which backend pool to use for incoming traffic. Create basic rules named *contosoRule* and *fabrikamRule* using [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 

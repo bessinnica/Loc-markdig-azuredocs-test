@@ -28,25 +28,25 @@ to look like.
 ## To create a snapshot report
 
 1. Collect log files from your firewall and proxy server through which users in your organization access the Internet. Gather logs during times of peak traffic that are representative of the user activity in your organization.
-2. On [the Cloud App Security menu bar](https://portal.cloudappsecurity.com), select **Discover**, and then **Create snapshot report**.
+2. On [the Cloud App Security menu bar](https://portal.cloudappsecurity.com), select **Discover**, and then **Create snapshot report**.
   
-  ![Create new snapshot report](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-command.png)
-3. Enter a **Report name** and a **Description**.
+   ![Create new snapshot report](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-command.png)
+3. Enter a **Report name** and a **Description**.
     
-  ![New snapshot report](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-form.png)
-4. Select the **Data source** from which you want to upload the log files.
-5. Verify your log format to make sure that it is formatted properly according to the sample you can download. Click **View and verify** and then click **Download sample log**. Then compare your log with the sample provided to make sure it's compatible.
+   ![New snapshot report](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-form.png)
+4. Select the **Data source** from which you want to upload the log files.
+5. Verify your log format to make sure that it is formatted properly according to the sample you can download. Click **View and verify** and then click **Download sample log**. Then compare your log with the sample provided to make sure it's compatible.
   
-  ![Verify your log format](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-verify.png)
-  >  [!NOTE]
-  > The FTP sample format is supported in snapshots and automated upload while syslog is supported in automated upload only. Downloading a sample log downloads a sample FTP log.
-6. **Choose the traffic logs** that you want to upload. You can upload up to 20 files at once. Compressed and zipped files are also supported.
+   ![Verify your log format](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-verify.png)
+   > [!NOTE]
+   > The FTP sample format is supported in snapshots and automated upload while syslog is supported in automated upload only. Downloading a sample log downloads a sample FTP log.
+6. **Choose the traffic logs** that you want to upload. You can upload up to 20 files at once. Compressed and zipped files are also supported.
   
-7. Click **Create**. After upload completes, it might take some time for them to be parsed and analyzed. If it does, Cloud App Discovery sends an email notification when they're ready.
+7. Click **Create**. After upload completes, it might take some time for them to be parsed and analyzed. If it does, Cloud App Discovery sends an email notification when they're ready.
 
-8. Select **Manage snapshot reports** and the select your snapshot report.
+8. Select **Manage snapshot reports** and the select your snapshot report.
   
-  ![Snapshot report management](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-manage.png)
+   ![Snapshot report management](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-manage.png)
 
 ## Next steps
 

@@ -127,38 +127,40 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
         </a>
     </li>
  </ul>
- 
+
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/module/azurerm.network/#vpn">PowerShell (resource manager)</a></p>
-                        <p><a href="/powershell/module/azure/#networking">PowerShell (classic)</a></p> 
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.network/#vpn">PowerShell (resource manager)</a></p>
+                        <p><a href="/powershell/module/azure/#networking">PowerShell (classic)</a></p> 
                         <p><a href="/cli/azure/network/vnet-gateway">Azure CLI</a></p> 
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/network/virtualnetworkgateways">REST (resource manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (classic)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/network/virtualnetworkgateways">REST (resource manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (classic)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 
 

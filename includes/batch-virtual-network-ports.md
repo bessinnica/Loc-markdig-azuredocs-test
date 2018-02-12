@@ -1,12 +1,12 @@
 - The VNet must be in the same Azure **region** and **subscription** as the Batch account.
 
-- For pools created with a virtual machine configuration, only Azure Resource Manager-based VNets are supported. For pools created with a cloud services configuration, only classic VNets are supported. 
+- For pools created with a virtual machine configuration, only Azure Resource Manager-based VNets are supported. For pools created with a cloud services configuration, only classic VNets are supported. 
   
-- To use a classic VNet, the `MicrosoftAzureBatch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet. To use an Azure Resource Manager-based VNet, you need to have permissions to access the VNet and to deploy VMs in the subnet.
+- To use a classic VNet, the `MicrosoftAzureBatch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet. To use an Azure Resource Manager-based VNet, you need to have permissions to access the VNet and to deploy VMs in the subnet.
 
-- The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
+- The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
 
-- The VNet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the VNet has any associated network security groups (NSGs). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**. 
+- The VNet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the VNet has any associated network security groups (NSGs). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**. 
 
 - If the specified VNet has associated Network Security Groups (NSGs) and/or a firewall, configure the inbound and outbound ports as shown in the following tables:
 
@@ -21,6 +21,6 @@
   |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
   |    443    |    Azure Storage    |    No    |    Yes    |    If you add any NSGs, then ensure that this port is open to outbound   traffic.    |
 
-   Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
+   Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
 
    If you add a Resource Manager based NSG, you can make use of [service tags](../articles/virtual-network/security-overview.md#service-tags) to select the Storage IP addresses for the specific region for outbound connections. Note that the Storage IP addresses must be the same region as your Batch account and VNet. Service tags are currently in preview in selected Azure regions.

@@ -31,6 +31,7 @@ This article describes troubleshooting information that's relevant to using Azur
 Following are the paths to some important logs and artifacts. We refer to this information throughout the rest of the document.
 
 ### Azure Cloud Services
+
 | Artifact | Path |
 | --- | --- |
 | **Azure Diagnostics configuration file** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
@@ -42,6 +43,7 @@ Following are the paths to some important logs and artifacts. We refer to this i
 | **MonAgentHost log file** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### Virtual machines
+
 | Artifact | Path |
 | --- | --- |
 | **Azure Diagnostics configuration file** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |

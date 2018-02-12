@@ -24,6 +24,7 @@ Deleting a Recovery Services vault is a one-step process - *provided the vault d
 
 ![Vault deletion error](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 
+
 Until you have cleared the resources from the vault, clicking **Retry** produces the same error. If you're stuck on this error message, click **Cancel** and use the following steps to delete the resources in the vault.
 
 ## Removing items from a vault protecting a VM
@@ -98,7 +99,7 @@ To delete the data associated with a protection group:
 
 1. In the DPM Administrator Console, click **Protection** > select a protection group > select the Protection Group Member > and in the tool ribbon, click **Remove**.
 
-  Select the Protection Group Member to activate the **Remove** button in the tool ribbon. In the example, the member is **dummyvm9**. To select multiple members in the protection group, hold down the Ctrl key while clicking on the members.
+   Select the Protection Group Member to activate the **Remove** button in the tool ribbon. In the example, the member is **dummyvm9**. To select multiple members in the protection group, hold down the Ctrl key while clicking on the members.
 
     ![delete backup data](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a zoned Public IP address with PowerShell | Microsoft Docs
 description: Create a public IP in an availability zone with PowerShell.
 services: virtual-network
@@ -71,8 +71,8 @@ Get the zone information of a public IP address using the following command:
 
 ```powershell
 Get-AzureRmPublicIpAddress ` 
-    -ResourceGroup myResourceGroup `
-    -Name myPublicIp
+    -ResourceGroup myResourceGroup `
+    -Name myPublicIp
 ```
 
 ## Next steps

@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Configure a VM Managed Service Identity (MSI) using PowerShell
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
@@ -51,7 +51,7 @@ To create an MSI-enabled VM:
 
    ```powershell
    $settings = @{ "port" = 50342 }
-   Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
+   Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
 
 ## Enable MSI on an existing Azure VM
@@ -75,7 +75,7 @@ If you need to enable MSI on an existing Virtual Machine:
 
    ```powershell
    $settings = @{ "port" = 50342 }
-   Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
+   Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
 
 ## Remove MSI from an Azure VM

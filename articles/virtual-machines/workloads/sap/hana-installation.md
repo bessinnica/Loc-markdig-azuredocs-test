@@ -97,13 +97,14 @@ The rough sizes of the different volumes with the different HANA Large Instances
 
 The naming conventions of the storage volumes are listed in the following table:
 
-| Storage usage | Mount Name | Volume Name | 
-| --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA log | /hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
-| HANA log backup | /hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA shared | /hana/shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
-| usr/sap | /usr/sap/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+
+|  Storage usage  |        Mount Name         |                       Volume Name                       |
+|-----------------|---------------------------|---------------------------------------------------------|
+|    HANA data    | /hana/data/SID/mnt0000<m> |      Storage IP:/hana_data_SID_mnt00001_tenant_vol      |
+|    HANA log     | /hana/log/SID/mnt0000<m>  |      Storage IP:/hana_log_SID_mnt00001_tenant_vol       |
+| HANA log backup |     /hana/log/backups     |  Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol   |
+|   HANA shared   |     /hana/shared/SID      | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared  |
+|     usr/sap     |       /usr/sap/SID        | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 Where SID = the HANA instance System ID 
 
@@ -141,7 +142,7 @@ In order to optimize SAP HANA to the storage used underneath, you should also se
 - async_read_submit on
 - async_write_submit_active on
 - async_write_submit_blocks all
- 
+
 For SAP HANA 1.0 versions up to SPS12, these parameters can be set during the installation of the SAP HANA database, as described in [SAP Note #2267798 - Configuration of the SAP HANA Database](https://launchpad.support.sap.com/#/notes/2267798)
 
 You also can configure the parameters after the SAP HANA database installation by using the hdbparam framework. 
@@ -466,7 +467,6 @@ At this point, the SAP HANA instance should be up and running and ready for usag
 
 
 
- 
 
 
 
@@ -474,7 +474,8 @@ At this point, the SAP HANA instance should be up and running and ready for usag
 
 
 
- 
+
+
 
 
 

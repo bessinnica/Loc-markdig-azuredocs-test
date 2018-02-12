@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Advanced Threat Detection | Microsoft Docs
 description: Learn about Identity Protection and its capabilities.
 services: security
@@ -29,9 +29,9 @@ Microsoft has developed a series of White Papers, Security Overviews, Best Pract
 
 Azure is a public cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases, and devices.
 It supports the following programming languages:
--	Run Linux containers with Docker integration.
--	Build apps with JavaScript, Python, .NET, PHP, Java, and Node.js
--	Build back-ends for iOS, Android, and Windows devices.
+-   Run Linux containers with Docker integration.
+-   Build apps with JavaScript, Python, .NET, PHP, Java, and Node.js
+-   Build back-ends for iOS, Android, and Windows devices.
 
 Azure public cloud services support the same technologies millions of developers and IT professionals already rely on and trust.
 
@@ -67,20 +67,20 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
 [Detecting risk events and risky accounts:](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
--	Detecting six risk event types using machine learning and heuristic rules
--	Calculating user risk levels
--	Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
+-   Detecting six risk event types using machine learning and heuristic rules
+-   Calculating user risk levels
+-   Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
 
 [Investigating risk events:](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#investigation)
--	Sending notifications for risk events
--	Investigating risk events using relevant and contextual information
--	Providing basic workflows to track investigations
--	Providing easy access to remediation actions such as password reset
+-   Sending notifications for risk events
+-   Investigating risk events using relevant and contextual information
+-   Providing basic workflows to track investigations
+-   Providing easy access to remediation actions such as password reset
 
 [Risk-based conditional access policies:](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
--	Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
--	Policy to block or secure risky user accounts
--	Policy to require users to register for multi-factor authentication
+-   Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
+-   Policy to block or secure risky user accounts
+-   Policy to require users to register for multi-factor authentication
 
 ### Azure AD Privileged Identity Management (PIM)
 
@@ -92,11 +92,11 @@ you can manage, control, and monitor access within your organization. This inclu
 
 Azure AD Privileged Identity Management helps you:
 
--	Get an alert and report on Azure AD administrators and "just in time" administrative access to Microsoft Online Services like Office 365 and Intune
+-   Get an alert and report on Azure AD administrators and "just in time" administrative access to Microsoft Online Services like Office 365 and Intune
 
--	Get reports about administrator access history and changes in administrator assignments
+-   Get reports about administrator access history and changes in administrator assignments
 
--	Get alerts about access to a privileged role
+-   Get alerts about access to a privileged role
 
 ## Microsoft Operations Management Suite (OMS)
 
@@ -114,15 +114,15 @@ The OMS Security and Audit dashboard is organized in four major categories:
 
 ![OMS Security and Audit dashboard](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
--	**Security Domains:** in this area, you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
+-   **Security Domains:** in this area, you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
 
--	**Notable Issues:** this option allows you to quickly identify the number of active issues and the severity of these issues.
+-   **Notable Issues:** this option allows you to quickly identify the number of active issues and the severity of these issues.
 
--	**Detections (Preview):** enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
+-   **Detections (Preview):** enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
 
--	**Threat Intelligence:** enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type, and a map that shows where these IPs are coming from.
+-   **Threat Intelligence:** enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type, and a map that shows where these IPs are coming from.
 
--	**Common security queries:** this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the Search blade with the results for that query.
+-   **Common security queries:** this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the Search blade with the results for that query.
 
 ### Insight and Analytics
 At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the OMS repository, which is hosted in the Azure cloud.
@@ -179,15 +179,15 @@ Telemetry flows in from multiple sources, such as Azure, Office 365, Microsoft C
 
 Researchers also receive threat intelligence information that is shared among major cloud service providers and subscribes to threat intelligence feeds from third parties. Azure Security Center can use this information to alert you to threats from known bad actors. Some examples include:
 
--	**Harnessing the Power of Machine Learning -** Azure Security Center has access to a vast amount of data about cloud network activity, which can be used to detect threats targeting your Azure deployments. For example:
+-   **Harnessing the Power of Machine Learning -** Azure Security Center has access to a vast amount of data about cloud network activity, which can be used to detect threats targeting your Azure deployments. For example:
 
--	**Brute Force Detections -** Machine learning is used to create a historical pattern of remote access attempts, which allows it to detect brute force attacks against SSH, RDP, and SQL ports.
+-   **Brute Force Detections -** Machine learning is used to create a historical pattern of remote access attempts, which allows it to detect brute force attacks against SSH, RDP, and SQL ports.
 
--	**Outbound DDoS and Botnet Detection** - A common objective of attacks targeting cloud resources is to use the compute power of these resources to execute other attacks.
+-   **Outbound DDoS and Botnet Detection** - A common objective of attacks targeting cloud resources is to use the compute power of these resources to execute other attacks.
 
--	**New Behavioral Analytics Servers and VMs -** Once a server or virtual machine is compromised, attackers employ a wide variety of techniques to execute malicious code on that system while avoiding detection, ensuring persistence, and obviating security controls.
+-   **New Behavioral Analytics Servers and VMs -** Once a server or virtual machine is compromised, attackers employ a wide variety of techniques to execute malicious code on that system while avoiding detection, ensuring persistence, and obviating security controls.
 
--	**Azure SQL Database Threat Detection -** Threat Detection for Azure SQL Database, which identifies anomalous database activities indicating unusual and potentially harmful attempts to access or exploit databases.
+-   **Azure SQL Database Threat Detection -** Threat Detection for Azure SQL Database, which identifies anomalous database activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 ### Behavioral analytics
 
@@ -201,33 +201,33 @@ They are also determined through careful analysis of malicious behaviors by expe
 In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign. This correlation helps to identify events that are consistent with established indicators of compromise.
 
 Some examples include:
--	**Suspicious process execution:** Attackers employ several techniques to execute malicious software without detection. For example, an attacker might give malware the same names as legitimate system files but place these files in an alternate location, use a name that is very like a benign file, or mask the file’s true extension. Security Center models processes behaviors and monitors process executions to detect outliers such as these.
+-   **Suspicious process execution:** Attackers employ several techniques to execute malicious software without detection. For example, an attacker might give malware the same names as legitimate system files but place these files in an alternate location, use a name that is very like a benign file, or mask the file’s true extension. Security Center models processes behaviors and monitors process executions to detect outliers such as these.
 
--	**Hidden malware and exploitation attempts:** Sophisticated malware can evade traditional antimalware products by either never writing to disk or encrypting software components stored on disk. However, such malware can be detected using memory analysis, as the malware must leave traces in memory to function. When software crashes, a crash dump captures a portion of memory at the time of the crash. By analyzing the memory in the crash dump, Azure Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist within a compromised machine without impacting the performance of your machine.
+-   **Hidden malware and exploitation attempts:** Sophisticated malware can evade traditional antimalware products by either never writing to disk or encrypting software components stored on disk. However, such malware can be detected using memory analysis, as the malware must leave traces in memory to function. When software crashes, a crash dump captures a portion of memory at the time of the crash. By analyzing the memory in the crash dump, Azure Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist within a compromised machine without impacting the performance of your machine.
 
--	**Lateral movement and internal reconnaissance:** To persist in a compromised network and locate/harvest valuable data, attackers often attempt to move laterally from the compromised machine to others within the same network. Security Center monitors process and login activities to discover attempts to expand an attacker’s foothold within the network, such as remote command execution, network probing, and account enumeration.
+-   **Lateral movement and internal reconnaissance:** To persist in a compromised network and locate/harvest valuable data, attackers often attempt to move laterally from the compromised machine to others within the same network. Security Center monitors process and login activities to discover attempts to expand an attacker’s foothold within the network, such as remote command execution, network probing, and account enumeration.
 
--	**Malicious PowerShell Scripts:** PowerShell can be used by attackers to execute malicious code on target virtual machines for a various purposes. Security Center inspects PowerShell activity for evidence of suspicious activity.
+-   **Malicious PowerShell Scripts:** PowerShell can be used by attackers to execute malicious code on target virtual machines for a various purposes. Security Center inspects PowerShell activity for evidence of suspicious activity.
 
--	**Outgoing attacks:** Attackers often target cloud resources with the goal of using those resources to mount additional attacks. Compromised virtual machines, for example, might be used to launch brute force attacks against other virtual machines, send SPAM, or scan open ports and other devices on the Internet. By applying machine learning to network traffic, Security Center can detect when outbound network communications exceed the norm. When SPAM, Security Center also correlates unusual email traffic with intelligence from Office 365 to determine whether the mail is likely nefarious or the result of a legitimate email campaign.
+-   **Outgoing attacks:** Attackers often target cloud resources with the goal of using those resources to mount additional attacks. Compromised virtual machines, for example, might be used to launch brute force attacks against other virtual machines, send SPAM, or scan open ports and other devices on the Internet. By applying machine learning to network traffic, Security Center can detect when outbound network communications exceed the norm. When SPAM, Security Center also correlates unusual email traffic with intelligence from Office 365 to determine whether the mail is likely nefarious or the result of a legitimate email campaign.
 
 ### Anomaly Detection
 
 Azure Security Center also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more “personalized” and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments and then rules are generated to define outlier conditions that could represent a security event. Here’s an example:
 
--	**Inbound RDP/SSH brute force attacks:** Your deployments may have busy virtual machines with many logins each day and other virtual machines that have few or any logins. Azure Security Center can determine baseline login activity for these virtual machines and use machine learning to define around the normal login activities. If there is any discrepancy with the baseline defined for login related characteristics, then an alert may be generated. Again, machine learning determines what is significant.
+-   **Inbound RDP/SSH brute force attacks:** Your deployments may have busy virtual machines with many logins each day and other virtual machines that have few or any logins. Azure Security Center can determine baseline login activity for these virtual machines and use machine learning to define around the normal login activities. If there is any discrepancy with the baseline defined for login related characteristics, then an alert may be generated. Again, machine learning determines what is significant.
 
 ### Continuous Threat Intelligence Monitoring
 
 Azure Security Center operates with security research and data science teams throughout the world that continuously monitor for changes in the threat landscape. This includes the following initiatives:
 
--	**Threat intelligence monitoring:** Threat intelligence includes mechanisms, indicators, implications, and actionable advice about existing or emerging threats. This information is shared in the security community and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
+-   **Threat intelligence monitoring:** Threat intelligence includes mechanisms, indicators, implications, and actionable advice about existing or emerging threats. This information is shared in the security community and Microsoft continuously monitors threat intelligence feeds from internal and external sources.
 
--	**Signal sharing:** Insights from security teams across Microsoft’s broad portfolio of cloud and on-premises services, servers, and client endpoint devices are shared and analyzed.
+-   **Signal sharing:** Insights from security teams across Microsoft’s broad portfolio of cloud and on-premises services, servers, and client endpoint devices are shared and analyzed.
 
--	**Microsoft security specialists:** Ongoing engagement with teams across Microsoft that work in specialized security fields, like forensics and web attack detection.
+-   **Microsoft security specialists:** Ongoing engagement with teams across Microsoft that work in specialized security fields, like forensics and web attack detection.
 
--	**Detection tuning:** Algorithms are run against real customer data sets and security researchers work with customers to validate the results. True and false positives are used to refine machine learning algorithms.
+-   **Detection tuning:** Algorithms are run against real customer data sets and security researchers work with customers to validate the results. True and false positives are used to refine machine learning algorithms.
 
 These combined efforts culminate in new and improved detections, which you can benefit from instantly – there’s no action for you to take.
 
@@ -241,25 +241,25 @@ These combined efforts culminate in new and improved detections, which you can b
 
 #### Microsoft Antimalware Core Features
 
--	**Real-time protection -** monitors activity in Cloud Services and on Virtual Machines to detect and block malware execution.
+-   **Real-time protection -** monitors activity in Cloud Services and on Virtual Machines to detect and block malware execution.
 
--	**Scheduled scanning -** periodically performs targeted scanning to detect malware, including actively running programs.
+-   **Scheduled scanning -** periodically performs targeted scanning to detect malware, including actively running programs.
 
--	**Malware remediation -** automatically takes action on detected malware, such as deleting or quarantining malicious files and cleaning up malicious registry entries.
+-   **Malware remediation -** automatically takes action on detected malware, such as deleting or quarantining malicious files and cleaning up malicious registry entries.
 
--	**Signature updates -** automatically installs the latest protection signatures (virus definitions) to ensure protection is up-to-date on a pre-determined frequency.
+-   **Signature updates -** automatically installs the latest protection signatures (virus definitions) to ensure protection is up-to-date on a pre-determined frequency.
 
--	**Antimalware Engine updates -** automatically updates the Microsoft Antimalware engine.
+-   **Antimalware Engine updates -** automatically updates the Microsoft Antimalware engine.
 
--	**Antimalware Platform updates –** automatically updates the Microsoft Antimalware platform.
+-   **Antimalware Platform updates –** automatically updates the Microsoft Antimalware platform.
 
--	**Active protection -** reports telemetry metadata about detected threats and suspicious resources to Microsoft Azure to ensure rapid response to the evolving threat landscape, and enabling real-time synchronous signature delivery through the Microsoft Active Protection System (MAPS).
+-   **Active protection -** reports telemetry metadata about detected threats and suspicious resources to Microsoft Azure to ensure rapid response to the evolving threat landscape, and enabling real-time synchronous signature delivery through the Microsoft Active Protection System (MAPS).
 
--	**Samples reporting -** provides and reports samples to the Microsoft Antimalware service to help refine the service and enable troubleshooting.
+-   **Samples reporting -** provides and reports samples to the Microsoft Antimalware service to help refine the service and enable troubleshooting.
 
--	**Exclusions –** allows application and service administrators to configure certain files, processes, and drives to exclude them from protection and scanning for performance and/or other reasons.
+-   **Exclusions –** allows application and service administrators to configure certain files, processes, and drives to exclude them from protection and scanning for performance and/or other reasons.
 
--	**Antimalware event collection -** records the antimalware service health, suspicious activities, and remediation actions taken in the operating system event log and collects them into the customer’s Azure Storage account.
+-   **Antimalware event collection -** records the antimalware service health, suspicious activities, and remediation actions taken in the operating system event log and collects them into the customer’s Azure Storage account.
 
 ### Azure SQL Database Threat Detection
 
@@ -270,19 +270,19 @@ Security officers or other designated administrators can get an immediate notifi
 Currently, Azure SQL Database Threat Detection detects potential vulnerabilities and SQL injection attacks, and anomalous database access patterns.
 
 Upon receiving threat detection email notification, users are able to navigate and view the relevant audit records using the deep link in the mail that opens an audit viewer and/or preconfigured auditing Excel template that shows the relevant audit records around the time of the suspicious event according to the following:
--	Audit storage for the database/server with the anomalous database activities
+-   Audit storage for the database/server with the anomalous database activities
 
--	Relevant audit storage table that was used at the time of the event to write audit log
+-   Relevant audit storage table that was used at the time of the event to write audit log
 
--	Audit records of the following hour since the event occurs.
+-   Audit records of the following hour since the event occurs.
 
--	Audit records with similar event ID at the time of the event (optional for some detectors)
+-   Audit records with similar event ID at the time of the event (optional for some detectors)
 
 SQL Database Threat Detectors use one of the following detection methodologies:
 
--	**Deterministic Detection –** detects suspicious patterns (rules based) in the SQL client queries that match known attacks. This methodology has high detection and low false positive, however limited coverage because it falls within the category of “atomic detections”.
+-   **Deterministic Detection –** detects suspicious patterns (rules based) in the SQL client queries that match known attacks. This methodology has high detection and low false positive, however limited coverage because it falls within the category of “atomic detections”.
 
--	**Behavioural Detection –** defects anomalous activity, which is abnormal behavior for the database that was not seen during the last 30 days.  An example for SQL client anomalous activity can be a spike of failed logins/queries, high volume of data being extracted, unusual canonical queries, and unfamiliar IP addresses used to access the database
+-   **Behavioural Detection –** defects anomalous activity, which is abnormal behavior for the database that was not seen during the last 30 days.  An example for SQL client anomalous activity can be a spike of failed logins/queries, high volume of data being extracted, unusual canonical queries, and unfamiliar IP addresses used to access the database
 
 ### Application Gateway Web Application Firewall
 
@@ -290,29 +290,29 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 
 ![Application Gateway Web Application Firewally](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
--	SQL injection protection
+-   SQL injection protection
 
--	Cross site scripting protection
+-   Cross site scripting protection
 
--	Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+-   Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 
--	Protection against HTTP protocol violations
+-   Protection against HTTP protocol violations
 
--	Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+-   Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 
--	Prevention against bots, crawlers, and scanners
+-   Prevention against bots, crawlers, and scanners
 
--	Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+-   Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
 Configuring WAF at Application Gateway provides the following benefit to you:
 
--	Protect your web application from web vulnerabilities and attacks without modification to backend code.
+-   Protect your web application from web vulnerabilities and attacks without modification to backend code.
 
--	Protect multiple web applications at the same time behind an application gateway. Application gateway supports hosting up to 20 websites behind a single gateway that could all be protected against web attacks.
+-   Protect multiple web applications at the same time behind an application gateway. Application gateway supports hosting up to 20 websites behind a single gateway that could all be protected against web attacks.
 
--	Monitor your web application against attacks using real-time report generated by application gateway WAF logs.
+-   Monitor your web application against attacks using real-time report generated by application gateway WAF logs.
 
--	Certain compliance controls require all internet facing end points to be protected by a WAF solution. By using application gateway with WAF enabled, you can meet these compliance requirements.
+-   Certain compliance controls require all internet facing end points to be protected by a WAF solution. By using application gateway with WAF enabled, you can meet these compliance requirements.
 
 ### Anomaly Detection – an API built with Azure Machine Learning
 
@@ -320,34 +320,34 @@ Anomaly Detection is an API built with Azure Machine Learning that is useful for
 
 The [Anomaly Detection API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api) can detect the following types of anomalies on time series data:
 
--	**Spikes and Dips:** For example, when monitoring the number of login failures to a service or number of checkouts in an e-commerce site, unusual spikes or dips could indicate security attacks or service disruptions.
+-   **Spikes and Dips:** For example, when monitoring the number of login failures to a service or number of checkouts in an e-commerce site, unusual spikes or dips could indicate security attacks or service disruptions.
 
--	**Positive and negative trends:** When monitoring memory usage in computing, for instance, shrinking free memory size is indicative of a potential memory leak; when monitoring service queue length, a persistent upward trend may indicate an underlying software issue.
+-   **Positive and negative trends:** When monitoring memory usage in computing, for instance, shrinking free memory size is indicative of a potential memory leak; when monitoring service queue length, a persistent upward trend may indicate an underlying software issue.
 
--	**Level changes and changes in dynamic range of values:** For example, level changes in latencies of a service after a service upgrade or lower levels of exceptions after upgrade can be interesting to monitor.
+-   **Level changes and changes in dynamic range of values:** For example, level changes in latencies of a service after a service upgrade or lower levels of exceptions after upgrade can be interesting to monitor.
 
 The machine learning based API enables:
 
--	**Flexible and robust detection:** The anomaly detection models allow users to configure sensitivity settings and detect anomalies among seasonal and non-seasonal data sets. Users can adjust the anomaly detection model to make the detection API less or more sensitive according to their needs. This would mean detecting the less or more visible anomalies in data with and without seasonal patterns.
+-   **Flexible and robust detection:** The anomaly detection models allow users to configure sensitivity settings and detect anomalies among seasonal and non-seasonal data sets. Users can adjust the anomaly detection model to make the detection API less or more sensitive according to their needs. This would mean detecting the less or more visible anomalies in data with and without seasonal patterns.
 
--	**Scalable and timely detection:** The traditional way of monitoring with present thresholds set by experts' domain knowledge are costly and not scalable to millions of dynamically changing data sets. The anomaly detection models in this API are learned and models are tuned automatically from both historical and real-time data.
+-   **Scalable and timely detection:** The traditional way of monitoring with present thresholds set by experts' domain knowledge are costly and not scalable to millions of dynamically changing data sets. The anomaly detection models in this API are learned and models are tuned automatically from both historical and real-time data.
 
--	**Proactive and actionable detection:** Slow trend and level change detection can be applied for early anomaly detection. The early abnormal signals detected can be used to direct humans to investigate and act on the problem areas.  In addition, root cause analysis models and alerting tools can be developed on top of this anomaly detection API service.
+-   **Proactive and actionable detection:** Slow trend and level change detection can be applied for early anomaly detection. The early abnormal signals detected can be used to direct humans to investigate and act on the problem areas.  In addition, root cause analysis models and alerting tools can be developed on top of this anomaly detection API service.
 
 The anomaly detection API is an effective and efficient solution for a wide range of scenarios like service health & KPI monitoring, IoT, performance monitoring, and network traffic monitoring. Here are some popular scenarios where this API can be useful:
 - IT departments need tools to track events, error code, usage log, and performance (CPU, Memory and so on) in a timely manner.
 
--	Online commerce sites want to track customer activities, page views, clicks, and so on.
+-   Online commerce sites want to track customer activities, page views, clicks, and so on.
 
--	Utility companies want to track consumption of water, gas, electricity, and other resources.
+-   Utility companies want to track consumption of water, gas, electricity, and other resources.
 
--	Facility/Building management services want to monitor temperature, moisture, traffic, and so on.
+-   Facility/Building management services want to monitor temperature, moisture, traffic, and so on.
 
--	IoT/manufacturers want to use sensor data in time series to monitor work flow, quality, and so on.
+-   IoT/manufacturers want to use sensor data in time series to monitor work flow, quality, and so on.
 
--	Service providers, such as call centers need to monitor service demand trend, incident volume, wait queue length and so on.
+-   Service providers, such as call centers need to monitor service demand trend, incident volume, wait queue length and so on.
 
--	Business analytics groups want to monitor business KPIs' (such as sales volume, customer sentiments, pricing) abnormal movement in real time.
+-   Business analytics groups want to monitor business KPIs' (such as sales volume, customer sentiments, pricing) abnormal movement in real time.
 
 ### Cloud App Security
 
@@ -387,16 +387,16 @@ With tools that help uncover shadow IT, assess risk, enforce policies, investiga
 
 Cloud App Security integrates visibility with your cloud by
 
--	Using Cloud Discovery to map and identify your cloud environment and the cloud apps your organization is using.
+-   Using Cloud Discovery to map and identify your cloud environment and the cloud apps your organization is using.
 
 
--	Sanctioning and prohibiting apps in your cloud.
+-   Sanctioning and prohibiting apps in your cloud.
 
 
 
--	Using easy-to-deploy app connectors that take advantage of provider APIs, for visibility and governance of apps that you connect to.
+-   Using easy-to-deploy app connectors that take advantage of provider APIs, for visibility and governance of apps that you connect to.
 
--	Helping you have continuous control by setting, and then continually fine-tuning, policies.
+-   Helping you have continuous control by setting, and then continually fine-tuning, policies.
 
 On collecting data from these sources, Cloud App Security runs sophisticated analysis on the data. It immediately alerts you to anomalous activities, and gives you deep visibility into your cloud environment. You can configure a policy in Cloud App Security and use it to protect everything in your cloud environment.
 
@@ -407,13 +407,13 @@ On collecting data from these sources, Cloud App Security runs sophisticated ana
 Web Application Firewall inspects inbound web traffic and blocks SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks targeted at your web applications. It also inspects the responses from the back-end web servers for Data Loss Prevention (DLP). The integrated access control engine enables administrators to create granular access control policies for Authentication, Authorization & Accounting (AAA), which gives organizations strong authentication and user control.
 
 **Highlights:**
--	Detects and blocks SQL injections, Cross-Site Scripting, malware uploads, application DDoS, or any other attacks against your application.
+-   Detects and blocks SQL injections, Cross-Site Scripting, malware uploads, application DDoS, or any other attacks against your application.
 
--	Authentication and access control.
+-   Authentication and access control.
 
--	Scans outbound traffic to detect sensitive data and can mask or block the information from being leaked out.
+-   Scans outbound traffic to detect sensitive data and can mask or block the information from being leaked out.
 
--	Accelerates the delivery of web application contents, using capabilities such as caching, compression, and other traffic optimizations.
+-   Accelerates the delivery of web application contents, using capabilities such as caching, compression, and other traffic optimizations.
 
 Following are example of Web Application firewalls available in Azure Market Place:
 

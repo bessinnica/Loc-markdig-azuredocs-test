@@ -57,19 +57,19 @@ To configure the integration of Learning Seat LMS into Azure AD, you need to add
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **Learning Seat LMS**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_search.png)
 
 5. In the results panel, select **Learning Seat LMS**, and then click **Add** button to add the application.
 
@@ -97,36 +97,36 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Learning Seat LMS** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
 
 3. On the **Learning Seat LMS Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
 4. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com`
-	 
-	> [!NOTE] 
-	> These values are not the real values. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Learning Seat support team](http://help.learningseatlms.com/help) to get these values. 
+     
+    > [!NOTE] 
+    > These values are not the real values. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Learning Seat support team](http://help.learningseatlms.com/help) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
 
 7. To configure single sign-on on **Learning Seat LMS** side, you need to send the downloaded **Metadata XML** to [Learning Seat support team](http://help.learningseatlms.com/help).
 
@@ -143,25 +143,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -179,31 +179,31 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Learning Seat LMS**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel. 
 
-Click the Learning Seat LMS tile in the Access Panel, you will be automatically signed-on to your Learning Seat LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+Click the Learning Seat LMS tile in the Access Panel, you will be automatically signed-on to your Learning Seat LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 
 ## Additional resources
 

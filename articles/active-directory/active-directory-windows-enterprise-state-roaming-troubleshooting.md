@@ -41,7 +41,7 @@ If you cannot solve your issue with the guidance below, you can contact our supp
 * **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
 * **Information about the user** – What identity is the user using to sign in to the device? How is the user signing in to the device? Are they part of a selected security group allowed to sync? 
 * **Information about the device** – Is this device Azure AD-joined or domain-joined? What build is the device on? What are the most recent updates?
-- **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
+* **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
 
 Including this information helps us solve your problem as quickly as possible.
 
@@ -52,17 +52,17 @@ This section gives suggestions on how to troubleshoot and diagnose problems rela
 
 1. After joining your Windows 10 PC to a domain that is configured to allow Enterprise State Roaming, sign on with your work account. Go to **Settings** > **Accounts** > **Sync Your Settings** and confirm that sync and the individual settings are on, and that the top of the settings page indicates that you are syncing with your work account. Confirm the same account is also used as your login account in **Settings** > **Accounts** > **Your Info**. 
 2. Verify that sync works across multiple machines by making some changes on the original machine, such as moving the taskbar to the right or top side of the screen. Watch the change propagate to the second machine within five minutes. 
-  * Locking and unlocking the screen (Win + L) can help trigger a sync.
-  * You must be signing in with the same account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
+   * Locking and unlocking the screen (Win + L) can help trigger a sync.
+   * You must be signing in with the same account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
 
 **Potential issue**: If the controls in the **Settings** page are not available, and you see the message “Some Windows features are only available if you are using a Microsoft account or work account.” This issue might arise for devices that are set up to be domain-joined and registered to Azure AD, but the device has not yet successfully authenticated to Azure AD. A possible cause is that the device policy must be applied, but this application happens asynchronously, and could be delayed by a few hours. 
 
 ### Verify the device registration status
 Enterprise State Roaming requires the device to be registered with Azure AD. Although not specific to Enterprise State Roaming, following the instructions below can help confirm that the Windows 10 Client is registered, and confirm thumbprint, Azure AD settings URL, NGC status, and other information.
 
-1.	Open the command prompt unelevated. To do this in Windows, open the Run launcher (Win + R) and type “cmd” to open.
-2.	Once the command prompt is open, type “*dsregcmd.exe /status*”.
-3.	For expected output, the **AzureAdJoined** field value should be “YES”, **WamDefaultSet** field value should be “YES”, and the **WamDefaultGUID** field value should be a GUID with “(AzureAd)” at the end.
+1.  Open the command prompt unelevated. To do this in Windows, open the Run launcher (Win + R) and type “cmd” to open.
+2.  Once the command prompt is open, type “*dsregcmd.exe /status*”.
+3.  For expected output, the **AzureAdJoined** field value should be “YES”, **WamDefaultSet** field value should be “YES”, and the **WamDefaultGUID** field value should be a GUID with “(AzureAd)” at the end.
 
 **Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Azure AD, and the device does not sync. If it is showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Azure AD. The user may have to wait a few hours for the policy to be applied. Other troubleshooting steps may include retrying auto-registration by signing out and back in, or launching the task in Task Scheduler. In some cases, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
 
@@ -76,7 +76,7 @@ Under certain conditions, Enterprise State Roaming can fail to sync data if Azur
 
 **Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication conditional access policy and the access token on the device expires. Ensure that you sign in and sign out using the Microsoft Passport for Work PIN or complete Multi-Factor Authentication while accessing other Azure services like Office 365.
 
-###Event Viewer
+### Event Viewer
 For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync** and for identity-related issues with sync **Microsoft** > **Windows** > **Azure AD**.
 
 
@@ -130,14 +130,14 @@ Make sure the Windows 10 v1511 client has the Cumulative Update ([KB3140743](htt
 ---
 
 ### Sync does not work on devices that use smart card for login
-If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working. 	
+If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working.     
 
 **Recommended action**  
 None. Future updates to Windows may resolve this issue.
 
 ---
 
-### Domain-joined device is not syncing after leaving corporate network 	
+### Domain-joined device is not syncing after leaving corporate network     
 Domain-joined devices registered to Azure AD may experience sync failure if the device is off-site for extended periods of time, and domain authentication can't complete.
 
 **Recommended action**  
@@ -157,7 +157,7 @@ In the cleanup step, cleanup the following files:
 
 ---
 
-### Event ID 6065: 80070533 This user can’t sign in because this account is currently disabled	
+### Event ID 6065: 80070533 This user can’t sign in because this account is currently disabled  
 In Event Viewer under the SettingSync/Debug logs, this error can be seen when the user's credentials have expired. In addition, it can occur when the tenant did not automatically have AzureRMS provisioned. 
 
 **Recommended action**  
@@ -165,8 +165,8 @@ In the first case, have the user update their credentials and login to the devic
 
 ---
 
-### Event ID 1098: Error: 0xCAA5001C Token broker operation failed	
-In Event Viewer under the AAD/Operational logs, this error may be seen with Event 1104: AAD Cloud AP plugin call Get token returned error: 0xC000005F. This issue occurs if there are missing permissions or ownership attributes. 	
+### Event ID 1098: Error: 0xCAA5001C Token broker operation failed  
+In Event Viewer under the AAD/Operational logs, this error may be seen with Event 1104: AAD Cloud AP plugin call Get token returned error: 0xC000005F. This issue occurs if there are missing permissions or ownership attributes.  
 
 **Recommended action**  
 Proceed with the steps listed [KB3196528](https://support.microsoft.com/kb/3196528).  

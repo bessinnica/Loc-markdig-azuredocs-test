@@ -33,8 +33,8 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 ## Prerequisites
 
 * To choose the host on which to deploy the Master Target, determine if the failback is going to be to an existing on-premises virtual machine or to a new virtual machine. 
-	* For an existing virtual machine, the host of the Master Target should have access to the data stores of the virtual machine.
-	* If the on-premises virtual machine does not exist (in case of Alternate Location Recovery), the failback virtual machine is created on the same host as the master target. You can choose any ESXi host to install the master target.
+    * For an existing virtual machine, the host of the Master Target should have access to the data stores of the virtual machine.
+    * If the on-premises virtual machine does not exist (in case of Alternate Location Recovery), the failback virtual machine is created on the same host as the master target. You can choose any ESXi host to install the master target.
 * The Master Target should be on a network that can communicate with the process server and the configuration server.
 * The version of the Master Target must be equal to or earlier than the versions of the process server and the configuration server. For example, if the version of the configuration server is 9.4, the version of the Master Target can be 9.4 or 9.3 but not 9.5.
 * The Master Target can only be a VMware virtual machine and not a physical server.
@@ -68,7 +68,7 @@ operating system.
 Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
-    
+
     ![Select a language](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
 1. Select **Install Ubuntu Server**, and then select **Enter**.
 
@@ -157,21 +157,21 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 4. In the left pane, select **Advanced** > **General**, and then select the **Configuration Parameters** button on the lower-right part of the screen.
 
-	![Options tab](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
+    ![Options tab](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
 
-	The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
+    The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
 
 5. See whether a row with **disk.EnableUUID** already exists.
 
-	- If the value exists and is set to **False**, change the value to **True**. (The values are not case-sensitive.)
+   - If the value exists and is set to **False**, change the value to **True**. (The values are not case-sensitive.)
 
-	- If the value exists and is set to **True**, select **Cancel**.
+   - If the value exists and is set to **True**, select **Cancel**.
 
-	- If the value does not exist, select **Add Row**.
+   - If the value does not exist, select **Add Row**.
 
-	- In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
+   - In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
 
-	![Checking whether disk.EnableUUID already exists](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+     ![Checking whether disk.EnableUUID already exists](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
 #### Disable kernel upgrades
 
@@ -214,17 +214,17 @@ To apply custom configuration changes, use the following steps:
 
 1. Run the following command to untar the binary.
 
-	`tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -zxvf latestlinuxmobsvc.tar.gz`
 
     ![Screenshot of the command to run](./media/site-recovery-how-to-install-linux-master-target/image16.png)
 
 2. Run the following command to give permission.
 
-	`chmod 755 ./ApplyCustomChanges.sh`
+    `chmod 755 ./ApplyCustomChanges.sh`
 
 
 3. Run the following command to run the script.
-	
+
     `./ApplyCustomChanges.sh`
 
 > [!NOTE]
@@ -237,17 +237,19 @@ Use the following steps to create a retention disk:
 1. Attach a new 1-TB disk to the Linux Master Target virtual machine, and then start the machine.
 
 2. Use the **multipath -ll** command to learn the multipath ID of the retention disk.
-	
-  	 `multipath -ll`
 
-		![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+     `multipath -ll`
+
+        ![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
 3. Format the drive, and then create a file system on the new drive.
 
-	
-	`mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-	
-	![Creating a file system on the drive](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
+
+~~~
+`mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
+
+![Creating a file system on the drive](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
+~~~
 
 4. After you create the file system, mount the retention disk.
 
@@ -255,17 +257,17 @@ Use the following steps to create a retention disk:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-	![Mounting the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
+    ![Mounting the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
 5. Create the **fstab** entry to mount the retention drive every time the system starts.
-	
-	`vi /etc/fstab`
-	
-	Select **Insert** to begin editing the file. Create a new line, and then insert the following text. Edit the disk multipath ID based on the highlighted multipath ID from the previous command.
 
-	**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    `vi /etc/fstab`
 
-	Select **Esc**, and then type **:wq** (write and quit) to close the editor window.
+    Select **Insert** to begin editing the file. Create a new line, and then insert the following text. Edit the disk multipath ID based on the highlighted multipath ID from the previous command.
+
+    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+
+    Select **Esc**, and then type **:wq** (write and quit) to close the editor window.
 
 ### Install the master target
 
@@ -278,25 +280,25 @@ Use the following steps to create a retention disk:
 
 1. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the configuration server. Then save it as **passphrase.txt** in the same local directory by running the following command:
 
-	`echo <passphrase> >passphrase.txt`
+    `echo <passphrase> >passphrase.txt`
 
     Example: 
 
        `echo itUx70I47uxDuUVY >passphrase.txt`
-	
+
 
 2. Note down the configuration server's IP address. Run the following command to install the Master Target server and register the server with the configuration server.
 
- 	```
-	./install -q -d /usr/local/ASR -r MT -v VmWare
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-	```
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+    ```
 
-	Example: 
-	
-	```
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-	```
+    Example: 
+
+    ```
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    ```
 
 Wait until the script finishes. If the Master Target registers successfully, the Master Target is listed on the **Site Recovery Infrastructure** page of the portal.
 
@@ -305,13 +307,13 @@ Wait until the script finishes. If the Master Target registers successfully, the
 
 1. Run the following command to install the master target. For the agent role, choose **Master Target**.
 
-	```
-	./install
-	```
+    ```
+    ./install
+    ```
 
 2. Choose the default location for installation, and then select **Enter** to continue.
 
-	![Choosing a default location for installation of master target](./media/site-recovery-how-to-install-linux-master-target/image17.png)
+    ![Choosing a default location for installation of master target](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 
 After the installation has finished, register the configuration server by using the command line.
 
@@ -319,15 +321,15 @@ After the installation has finished, register the configuration server by using 
 
 2. Run the following command to install the Master Target server and register the server with the configuration server.
 
-	```
-	./install -q -d /usr/local/ASR -r MT -v VmWare
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-	```
-	Example: 
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+    ```
+    Example: 
 
-	```
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-	```
+    ```
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    ```
 
      Wait until the script finishes. If the Master Target is registered successfully, the Master Target is listed on the **Site Recovery Infrastructure** page of the portal.
 
@@ -352,8 +354,8 @@ You will see that the **Version** field gives the version number of the master t
 * The Master Target should not have any snapshots on the virtual machine. If there are snapshots, failback fails.
 
 * Due to some custom NIC configurations, the network interface is disabled during startup, and the Master Target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*.
-	* BOOTPROTO=dhcp
-	* ONBOOT=yes
+    * BOOTPROTO=dhcp
+    * ONBOOT=yes
 
 
 ## Next steps

@@ -39,8 +39,8 @@ Before you run a test failover, verify the VM properties, and make sure that the
    [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk
    settings.
    
-      >[!NOTE]
-      Failback to on-premises Hyper-V machines from Azure VMs with managed disks isn't currently supported. You should only use the managed disks option for failover if you're planning to migrate on-premises VMs to Azure, without failing them back.
+   > [!NOTE]
+   >    Failback to on-premises Hyper-V machines from Azure VMs with managed disks isn't currently supported. You should only use the managed disks option for failover if you're planning to migrate on-premises VMs to Azure, without failing them back.
    
 4. You can view and modify network settings, including the network/subnet in which the Azure VM
    will be located after failover, and the IP address that will be assigned to it.

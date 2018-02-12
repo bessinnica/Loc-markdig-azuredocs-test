@@ -164,7 +164,7 @@ Important information regarding the AzureRM DSC Extension cmdlets:
 The Azure DSC extension is capable of using DSC configuration documents
 directly to configure Azure VMs during deployment
 although this will not register the node to Azure Automation so the node
-will **NOT*- be centrally managed.
+will <em>*NOT</em>- be centrally managed.
 
 A simple example of a configuration follows.
 Save it locally as "IisInstall.ps1":

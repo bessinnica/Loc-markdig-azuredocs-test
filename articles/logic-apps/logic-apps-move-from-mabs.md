@@ -26,8 +26,8 @@ Microsoft Azure BizTalk Services (MABS) is retiring. Use this topic to move your
 
 BizTalk Services consists of two sub-services:
 
-1.	Microsoft BizTalk Services Hybrid Connections
-2.	EAI and EDI bridge-based integration
+1.  Microsoft BizTalk Services Hybrid Connections
+2.  EAI and EDI bridge-based integration
 
 If you're looking to move hybrid connections, then [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) describes the changes and features of this service. Azure Hybrid Connections replaces BizTalk Services Hybrid Connections. Azure Hybrid Connections is available with Azure App Service, and is offered in the Azure portal. Azure Hybrid Connections also provides a new Hybrid Connection Manager to manage existing BizTalk Services hybrid connections, and new hybrid connections you create in the portal. Azure App Service Hybrid Connections is generally available (GA).
 

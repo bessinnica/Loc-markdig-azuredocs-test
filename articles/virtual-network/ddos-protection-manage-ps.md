@@ -90,39 +90,39 @@ Leveraging the Azure Monitor alert configuration, you can select any of the avai
 
 #### Configure email alert rules via Azure
 
-1. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from Get-AzureRmSubscription. 
+1. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from Get-AzureRmSubscription. 
 
     ```powershell
-	Get-AzureRmSubscription 
-    Get-AzureRmContext 
+    Get-AzureRmSubscription 
+    Get-AzureRmContext 
     Set-AzureRmContext -SubscriptionId <subscriptionid>
-	```
+    ```
 
-2. To list existing rules on a resource group, use the following command: 
+2. To list existing rules on a resource group, use the following command: 
 
     ```powershell
-	Get-AzureRmAlertRule -ResourceGroup <myresourcegroup> -DetailedOutput
-	```
-
-3. To create a rule, you need to have the following information first: 
-
-    - The Resource ID for the resource you want to set an alert for.
-	- The metric definitions available for that resource. One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the Azure portal. Then in the next page, select *Properties* under the *Settings* section. The **RESOURCE ID** is a field in the next page. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/). An example Resource ID for a public IP is: `/subscriptions/<Id>/resourceGroups/myresourcegroupname/providers/Microsoft.Network/publicIPAddresses/mypublicip`
-
-    The following example creates an alert for a public IP address associated to a resource in a virtual network. The metric to create an alert on is **Under DDoS attack or not**. This is a boolean value 1 or 0. A **1** means you are under attack. A **0** means you are not under attack. The alert is created when an attack started within the last 5 minutes.
-
-	To create a webhook or send email when an alert is created, first create the email and/or webhook. After creating the email or webhook, immediately create the rule with the `-Actions` tag, as shown in the following example. You cannot associate webhook or emails with existing rules using PowerShell.
-
-	```powershell
-	$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
-    Add-AzureRmMetricAlertRule -Name <myMetricRuleWithEmail> -Location "West Central US" -ResourceGroup <myresourcegroup> -TargetResourceId /subscriptions/<Id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mypublicip -MetricName "IfUnderDDoSAttack" -Operator GreaterThan -Threshold 0 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail -Description "Under DDoS Attack"
+    Get-AzureRmAlertRule -ResourceGroup <myresourcegroup> -DetailedOutput
     ```
+
+3. To create a rule, you need to have the following information first: 
+
+   - The Resource ID for the resource you want to set an alert for.
+   - The metric definitions available for that resource. One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the Azure portal. Then in the next page, select *Properties* under the *Settings* section. The **RESOURCE ID** is a field in the next page. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/). An example Resource ID for a public IP is: `/subscriptions/<Id>/resourceGroups/myresourcegroupname/providers/Microsoft.Network/publicIPAddresses/mypublicip`
+
+     The following example creates an alert for a public IP address associated to a resource in a virtual network. The metric to create an alert on is **Under DDoS attack or not**. This is a boolean value 1 or 0. A **1** means you are under attack. A **0** means you are not under attack. The alert is created when an attack started within the last 5 minutes.
+
+     To create a webhook or send email when an alert is created, first create the email and/or webhook. After creating the email or webhook, immediately create the rule with the `-Actions` tag, as shown in the following example. You cannot associate webhook or emails with existing rules using PowerShell.
+
+     ```powershell
+     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
+     Add-AzureRmMetricAlertRule -Name <myMetricRuleWithEmail> -Location "West Central US" -ResourceGroup <myresourcegroup> -TargetResourceId /subscriptions/<Id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mypublicip -MetricName "IfUnderDDoSAttack" -Operator GreaterThan -Threshold 0 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail -Description "Under DDoS Attack"
+     ```
 
 4. Verify that your alert created properly by looking at the rule:
 
     ```powershell
-	Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
-	```
+    Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
+    ```
 
 You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md) for creating alerts.
 

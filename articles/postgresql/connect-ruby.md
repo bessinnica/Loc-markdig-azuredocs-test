@@ -72,13 +72,13 @@ Replace the `host`, `database`, `user`, and `password` strings with your own val
 require 'pg'
 
 begin
-	# Initialize connection variables.
-	host = String('mypgserver-20170401.postgres.database.azure.com')
-	database = String('postgres')
+    # Initialize connection variables.
+    host = String('mypgserver-20170401.postgres.database.azure.com')
+    database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
-	password = String('<server_admin_password>')
+    password = String('<server_admin_password>')
 
-	# Initialize connection object.
+    # Initialize connection object.
     connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database'
 
@@ -94,7 +94,7 @@ begin
     connection.exec("INSERT INTO inventory VALUES(1, 'banana', 150)")
     connection.exec("INSERT INTO inventory VALUES(2, 'orange', 154)")
     connection.exec("INSERT INTO inventory VALUES(3, 'apple', 100)")
-	puts 'Inserted 3 rows of data.'
+    puts 'Inserted 3 rows of data.'
 
 rescue PG::Error => e
     puts e.message 
@@ -115,13 +115,13 @@ Replace the `host`, `database`, `user`, and `password` strings with your own val
 require 'pg'
 
 begin
-	# Initialize connection variables.
-	host = String('mypgserver-20170401.postgres.database.azure.com')
-	database = String('postgres')
+    # Initialize connection variables.
+    host = String('mypgserver-20170401.postgres.database.azure.com')
+    database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
-	password = String('<server_admin_password>')
+    password = String('<server_admin_password>')
 
-	# Initialize connection object.
+    # Initialize connection object.
     connection = PG::Connection.new(:host => host, :user => user, :database => dbname, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 
@@ -149,13 +149,13 @@ Replace the `host`, `database`, `user`, and `password` strings with your own val
 require 'pg'
 
 begin
-	# Initialize connection variables.
-	host = String('mypgserver-20170401.postgres.database.azure.com')
-	database = String('postgres')
+    # Initialize connection variables.
+    host = String('mypgserver-20170401.postgres.database.azure.com')
+    database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
-	password = String('<server_admin_password>')
+    password = String('<server_admin_password>')
 
-	# Initialize connection object.
+    # Initialize connection object.
     connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 
@@ -183,13 +183,13 @@ Replace the `host`, `database`, `user`, and `password` strings with your own val
 require 'pg'
 
 begin
-	# Initialize connection variables.
-	host = String('mypgserver-20170401.postgres.database.azure.com')
-	database = String('postgres')
+    # Initialize connection variables.
+    host = String('mypgserver-20170401.postgres.database.azure.com')
+    database = String('postgres')
     user = String('mylogin@mypgserver-20170401')
-	password = String('<server_admin_password>')
+    password = String('<server_admin_password>')
 
-	# Initialize connection object.
+    # Initialize connection object.
     connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 

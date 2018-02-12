@@ -48,12 +48,12 @@ Key Vault certificates manage x509 certificates and supports the following behav
 
 * *Secret* changed to *SecretBundle*
 * *Dictionary* changed to *IDictionary*
-* *List<T>, string []* changed to *IList<T>*
+* <em>List<T>, string []</em> changed to <em>IList<T></em>
 * *NextList* changed to  *NextPageLink*
 
 ## Return types
 
-* **KeyList** and **SecretList** now returns *IPage<T>* instead of *ListKeysResponseMessage*
+* <strong>KeyList</strong> and <strong>SecretList</strong> now returns <em>IPage<T></em> instead of <em>ListKeysResponseMessage</em>
 * The generated **BackupKeyAsync** now returns *BackupKeyResult*, which contains *Value* (back-up blob). Previously, the method was wrapped and returned just the value.
 
 ## Exceptions

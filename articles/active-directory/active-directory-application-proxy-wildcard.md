@@ -23,9 +23,9 @@ ms.custom: it-pro
 
 In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](active-directory-application-proxy-get-started.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
 
--	Simplify your administrative overhead
--	Reduce the number of potential configuration errors
--	Enable your users to securely access more resources
+-   Simplify your administrative overhead
+-   Reduce the number of potential configuration errors
+-   Enable your users to securely access more resources
 
 This article provides you with the information you need to configure wildcard application publishing in your environment.
 

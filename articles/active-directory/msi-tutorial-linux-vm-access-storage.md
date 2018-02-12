@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Use a Linux VM Managed Service Identity to access Azure Storage via access key
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to retrieve storage account access keys. You can use a storage access key as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure CLI. You will learn how to:
 

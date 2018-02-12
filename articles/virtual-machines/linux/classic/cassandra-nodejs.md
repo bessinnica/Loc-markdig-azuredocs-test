@@ -115,10 +115,10 @@ The following software versions are used during the deployment:
 
 <table>
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
-<tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
+<tr><td>JRE    </td><td><a href="http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html" data-raw-source="[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html)">JRE 8</a> </td><td>8U5</td></tr>
+<tr><td>JNA    </td><td><a href="https://github.com/twall/jna" data-raw-source="[JNA](https://github.com/twall/jna)">JNA</a> </td><td> 3.2.7</td></tr>
+<tr><td>Cassandra</td><td><a href="http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz" data-raw-source="[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)">Apache Cassandra 2.0.8</a></td><td> 2.0.8</td></tr>
+<tr><td>Ubuntu    </td><td><a href="https://azure.microsoft.com/" data-raw-source="[Microsoft Azure](https://azure.microsoft.com/)">Microsoft Azure</a> </td><td>14.04 LTS</td></tr>
 </table>
 
 You must manually accept the Oracle license when you download JRE. So, to simplify the deployment, download all the required software to the desktop. Then upload it to the Ubuntu template image to create as a precursor to the cluster deployment.
@@ -311,9 +311,7 @@ Log into the Azure portal and create a virtual network (classic) with the attrib
 <tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>West US</td><td></td></tr>
 <tr><td>DNS Servers</td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
-<tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr>    
-<tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>    
-<tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
+<tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr><br/><tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr><br/><tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
 Add the following subnets:
@@ -412,10 +410,10 @@ The above process can be executed using Azure portal; use a Windows machine (use
 Log into the VM and perform the following:
 
 * Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the data center and rack properties:
-  
+
        dc =EASTUS, rack =rack1
 * Edit cassandra.yaml to configure seed nodes as below:
-  
+
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **Step 4: Start the VMs and test the cluster**
@@ -445,13 +443,13 @@ Use the following steps to test the cluster:
 2. Log into the web farm VM (for example hk-w1-west-us) using Putty or ssh
 3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Use the following CQL commands to verify if the cluster is working:
-   
+
      CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
      USE customers_ks;
      CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
      INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
      INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-   
+
      SELECT * FROM Customers;
 
 You should see something like the following results:
@@ -565,13 +563,13 @@ By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region
 ### Step 1: Get the internal load balancer IP for both the regions using PowerShell
 * Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 * Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
-  
+
     Note the IP addresses (for example west - 10.1.2.101, east - 10.2.2.101) displayed.
 
 ### Step 2: Execute the following in the west region after logging into hk-w1-west-us
 1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 2. Execute the following CQL commands:
-   
+
      CREATE KEYSPACE customers_ks
      WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
      USE customers_ks;
@@ -590,7 +588,7 @@ You should see a display like the one below:
 ### Step 3: Execute the following in the east region after logging into hk-w1-east-us:
 1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
 2. Execute the following CQL commands:
-   
+
      USE customers_ks;
      CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
      INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
@@ -614,14 +612,14 @@ Using one of the Linux VMs crated in the "web" tier previously, you execute a si
 1. Install Node.js and npm
 2. Install node package "cassandra-client" using npm
 3. Execute the following script at the shell prompt which displays the json string of the retrieved data:
-   
+
         var pooledCon = require('cassandra-client').PooledConnection;
         var ksName = "custsupport_ks";
         var cfName = "customers_cf";
         var hostList = ['internal_loadbalancer_ip:9160'];
         var ksConOptions = { hosts: hostList,
                              keyspace: ksName, use_bigints: false };
-   
+
         function createKeyspace(callback){
            var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
            var sysConOptions = { hosts: hostList,  
@@ -639,7 +637,7 @@ Using one of the Linux VMs crated in the "web" tier previously, you execute a si
            });
            con.shutdown();
         }
-   
+
         function createColumnFamily(ksConOptions, callback){
           var params = ['customers_cf','custid','varint','custname',
                         'text','custaddress','text'];
@@ -657,16 +655,16 @@ Using one of the Linux VMs crated in the "web" tier previously, you execute a si
           });
           con.shutdown();
         }
-   
+
         //populate Data
         function populateCustomerData() {
            var params = ['John','Infinity Dr, TX', 1];
            updateCustomer(ksConOptions,params);
-   
+
            params = ['Tom','Fermat Ln, WA', 2];
            updateCustomer(ksConOptions,params);
         }
-   
+
         //update also inserts the record if none exists
         function updateCustomer(ksConOptions,params)
         {
@@ -678,7 +676,7 @@ Using one of the Linux VMs crated in the "web" tier previously, you execute a si
           });
           con.shutdown();
         }
-   
+
         //read the two rows inserted above
         function readCustomer(ksConOptions)
         {
@@ -693,7 +691,7 @@ Using one of the Linux VMs crated in the "web" tier previously, you execute a si
             });
            con.shutdown();
         }
-   
+
         //exectue the code
         createKeyspace(createColumnFamily);
         readCustomer(ksConOptions)

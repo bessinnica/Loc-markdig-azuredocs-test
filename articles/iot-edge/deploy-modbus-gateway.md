@@ -58,23 +58,23 @@ If you want to create your own module and customize it for your environment, the
       ```JSON
       {  
         "properties.desired":{  
-          "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
-                "Op01":{  
+          "PublishInterval":"2000",
+          "SlaveConfigs":{  
+            "Slave01":{  
+              "SlaveConnection":"<IPV4 address>",
+              "HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{  
+                "Op01":{  
                   "PollingInterval": "1000",
-                  "UnitId":"1",
-                  "StartAddress":"400001",
-                  "Count":"2",
-                  "DisplayName":"Voltage"
-                }
-              }
-            }
-          }
-        }
+                  "UnitId":"1",
+                  "StartAddress":"400001",
+                  "Count":"2",
+                  "DisplayName":"Voltage"
+                }
+              }
+            }
+          }
+        }
       }
       ```
 

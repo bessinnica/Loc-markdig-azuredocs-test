@@ -23,9 +23,9 @@ ms.author: tamram
 
 ```
 {
-	"id": "myPool1",
-	"startTime": "2016-09-09T22:13:48.579Z",
-	"endTime": "2016-09-09T22:14:08.836Z"
+    "id": "myPool1",
+    "startTime": "2016-09-09T22:13:48.579Z",
+    "endTime": "2016-09-09T22:14:08.836Z"
 }
 ```
 

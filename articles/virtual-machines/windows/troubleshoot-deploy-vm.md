@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot deploying Windows virtual machine issues in Azure | Microsoft Docs
 description: Troubleshoot deploying Windows virtual machine issues in Azurethe Resource Manager deployment model.
 services: virtual-machines-windows
@@ -33,6 +33,7 @@ supportTopicIds="123456789"
 resourceTags="windows"
 productPesIds="1234, 5678"
 />
+
 - Retry the request using a smaller VM size.
 - If the size of the requested VM cannot be changed:
     - Stop all the VMs in the availability set. Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
@@ -46,6 +47,7 @@ supportTopicIds="123456789"
 resourceTags="windows"
 productPesIds="1234, 5678"
 />
+
 - Retry the request later.
 - If the new VM can be part of a different availability set
     - Create a VM in a different availability set (in the same region).
@@ -61,11 +63,11 @@ There are a couple of different ways to deploy Windows virtual machines with the
 
 For an Enterprise Agreement subscription:
 
-•	Deploy VMs from specific Marketplace images that are pre-configured with Azure Hybrid Use Benefit.
+•   Deploy VMs from specific Marketplace images that are pre-configured with Azure Hybrid Use Benefit.
 
 For Enterprise agreement:
 
-•	Upload a custom VM and deploy using a Resource Manager template or Azure PowerShell.
+•   Upload a custom VM and deploy using a Resource Manager template or Azure PowerShell.
 
 For more information, see the following resources:
 

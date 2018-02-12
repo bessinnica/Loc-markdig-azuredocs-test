@@ -36,26 +36,26 @@ An active Azure subscription. If you do not have one, you can register via one o
 ## Create an Azure IoT Suite
 
 1. Go to [Azure IoT Suite site](https://www.azureiotsuite.com/) and click **Create a new solution**.
-  ![Select Azure IoT Suite type](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
-  > By default, this sample creates an S2 IoT Hub after it creates one IoT Suite. If this IoT hub is not used with massive number of devices, we highly recommend you downgrade it from S2 to S1, and delete the IoT Suite so the related IoT Hub can also be deleted, when you no longer need it. 
+   ![Select Azure IoT Suite type](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
+   > [!NOTE]
+   > By default, this sample creates an S2 IoT Hub after it creates one IoT Suite. If this IoT hub is not used with massive number of devices, we highly recommend you downgrade it from S2 to S1, and delete the IoT Suite so the related IoT Hub can also be deleted, when you no longer need it. 
 
 2. Select **Remote monitoring**.
 
 3. Enter a solution name, select a subscription and a region, and then click **Create solution**. The solution may take a while to be provisioned.
-  ![Create solution](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
+   ![Create solution](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
 4. After the provision is completed, click **Launch**. Some simulated devices are created for the solution during the provision process. Click **DEVICES** to check them out.
-  ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
-  ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
+   ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. Click **ADD A DEVICE**.
 
 6. Click **Add New** for **Custom Device**.
-  ![Add new device](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
+   ![Add new device](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
 7. Click **Let me define my own Device ID**, enter `AZ3166`, and then click **Create**.
-  ![Create device with ID](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
+   ![Create device with ID](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
 8. Make a note of **IoT Hub Hostname**, and click **Done**.
 
@@ -66,12 +66,12 @@ An active Azure subscription. If you do not have one, you can register via one o
 2. Start VS Code.
 
 3. Connect the DevKit to your computer. VS Code automatically detects your DevKit and opens the following pages:
-  * The DevKit introduction page.
-  * Arduino Examples: Hands-on samples to get started with DevKit.
+   * The DevKit introduction page.
+   * Arduino Examples: Hands-on samples to get started with DevKit.
 
 4. Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **RemoteMonitoring**. It opens a new VS Code window with a project folder in it.
-  > [!NOTE]
-  > If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+   > [!NOTE]
+   > If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ## Provision required Azure services
 

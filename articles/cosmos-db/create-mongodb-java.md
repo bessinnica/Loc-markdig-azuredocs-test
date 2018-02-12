@@ -31,6 +31,7 @@ Before you can run this sample, you must have the following prerequisites:
 * Maven (Run `apt-get install maven` if you don't have Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## Create a database account
@@ -41,7 +42,7 @@ Before you can run this sample, you must have the following prerequisites:
 
 Name your new database, **db**, and your new collection, **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## Clone the sample application
 
@@ -88,7 +89,7 @@ Let's make a quick review of what's happening in the app. Open the `Program.cs` 
 
     ```java
     Document queryResult = collection.find(Filters.eq("fruit", "apple")).first();
-    System.out.println(queryResult.toJson());    	
+    System.out.println(queryResult.toJson());       
     ```
 
 ## Update your connection string
@@ -98,7 +99,7 @@ Now go back to the Azure portal to get your connection string information and co
 1. From the Account, select **Quick Start**, select Java, then copy the connection string to your clipboard
 
 2. Open the `Program.java` file, replace the argument to the MongoClientURI constructor with the connection string. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-    
+
 ## Run the console app
 
 1. Run `mvn package` in a terminal to install required npm modules

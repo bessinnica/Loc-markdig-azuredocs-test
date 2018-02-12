@@ -37,23 +37,23 @@ This article describes how a partner can create and manage tenant subscriptions 
 
 2. On the **Dashboard** menu, select **Customers**.
 
-	![The Microsoft Partner Center Customers link](./media/site-recovery-manage-multi-tenancy-with-csp/csp-dashboard-display.png)
+    ![The Microsoft Partner Center Customers link](./media/site-recovery-manage-multi-tenancy-with-csp/csp-dashboard-display.png)
 
 3. On the page that opens, click the **Add customer** button.
 
-	![The Add Customer button](./media/site-recovery-manage-multi-tenancy-with-csp/add-new-customer.png)
+    ![The Add Customer button](./media/site-recovery-manage-multi-tenancy-with-csp/add-new-customer.png)
 
 4. On the **New Customer** page, fill in the account information details for the tenant, and then click **Next: Subscriptions**.
 
-	![The Account Info page](./media/site-recovery-manage-multi-tenancy-with-csp/customer-add-filled.png)
+    ![The Account Info page](./media/site-recovery-manage-multi-tenancy-with-csp/customer-add-filled.png)
 
 5. On the subscriptions selection page, select the **Microsoft Azure** check box. You can add other subscriptions now or at any other time.
 
-	![The Microsoft Azure subscription check box](./media/site-recovery-manage-multi-tenancy-with-csp/azure-subscription-selection.png)
+    ![The Microsoft Azure subscription check box](./media/site-recovery-manage-multi-tenancy-with-csp/azure-subscription-selection.png)
 
 6. On the **Review** page, confirm the tenant details, and then click **Submit**.
 
-	![The Review page](./media/site-recovery-manage-multi-tenancy-with-csp/customer-summary-page.png)  
+    ![The Review page](./media/site-recovery-manage-multi-tenancy-with-csp/customer-summary-page.png)  
 
     After you've created the tenant account, a confirmation page appears, displaying the details of the default account and the password for that subscription.
 
@@ -69,11 +69,11 @@ You can access the tenant’s subscription through the Microsoft Partner Center 
 
 2. On the **Subscriptions** page of the tenant account, you can monitor the existing account subscriptions and add more subscriptions, as required. To manage the tenant’s disaster-recovery operations, select **All resources (Azure portal)**.
 
-	![The All Resources link](./media/site-recovery-manage-multi-tenancy-with-csp/all-resources-select.png)  
+    ![The All Resources link](./media/site-recovery-manage-multi-tenancy-with-csp/all-resources-select.png)  
 
     Clicking **All resources** grants you access to the tenant’s Azure subscriptions. You can verify access by clicking the Azure Active Directory link at the top right of the Azure portal.
 
-	![Azure Active Directory link](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
+    ![Azure Active Directory link](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
 
 You can now perform all site-recovery operations for the tenant through the Azure portal and manage the disaster-recovery operations. To access the tenant subscription through CSP for managed disaster recovery, follow the previously described process.
 
@@ -86,14 +86,14 @@ You can now perform all site-recovery operations for the tenant through the Azur
 
 4. Enter the credentials for the two access accounts: vCenter access account and VM access account.
 
-	![Manager configuration server accounts](./media/site-recovery-manage-multi-tenancy-with-csp/config-server-account-display.png)
+    ![Manager configuration server accounts](./media/site-recovery-manage-multi-tenancy-with-csp/config-server-account-display.png)
 
 ## Register Site Recovery infrastructure to the Recovery Services vault
 1. In the Azure portal, on the vault that you created earlier, register the vCenter server to the CS that you registered in "Step 3: Deploy resources to the tenant subscription." Use the vCenter access account for this purpose.
 2. Finish the "Prepare infrastructure" process for Site Recovery per the usual process.
 3. The VMs are now ready to be replicated. Verify that only the tenant’s VMs are displayed on the **Select virtual machines** blade under the **Replicate** option.
 
-	![Tenant VMs list on the Select virtual machines blade](./media/site-recovery-manage-multi-tenancy-with-csp/tenant-vm-display.png)
+    ![Tenant VMs list on the Select virtual machines blade](./media/site-recovery-manage-multi-tenancy-with-csp/tenant-vm-display.png)
 
 ## Assign tenant access to the subscription
 
@@ -103,20 +103,20 @@ Partners can also add a new user to the tenant subscription through the CSP port
 
 1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
 
-	![The tenant's CSP subscription page](./media/site-recovery-manage-multi-tenancy-with-csp/users-and-licences.png)
+    ![The tenant's CSP subscription page](./media/site-recovery-manage-multi-tenancy-with-csp/users-and-licences.png)
 
-	You can now create a new user by entering the relevant details, and selecting permissions, or by uploading the list of users in a CSV file.
+    You can now create a new user by entering the relevant details, and selecting permissions, or by uploading the list of users in a CSV file.
 
 2. After you've created a new user, go back to the Azure portal, and then, on the **Subscription** blade, select the relevant subscription.
 
 3. On the blade that opens, select **Access Control (IAM)**, and then click **Add** to add a user with the relevant access level.      
     The users that were created through the CSP portal are automatically displayed on the blade that opens after you click an access level.
 
-	![Add a user](./media/site-recovery-manage-multi-tenancy-with-csp/add-user-subscription.png)
+    ![Add a user](./media/site-recovery-manage-multi-tenancy-with-csp/add-user-subscription.png)
 
-	For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
+    For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
 
-  Azure Site Recovery also has three [pre-defined user roles](site-recovery-role-based-linked-access-control.md) that can be used to further restrict access levels as required.
+   Azure Site Recovery also has three [pre-defined user roles](site-recovery-role-based-linked-access-control.md) that can be used to further restrict access levels as required.
 
 ## Next steps
   [Learn more](site-recovery-role-based-linked-access-control.md) about role-based access control to manage Azure Site Recovery deployments.

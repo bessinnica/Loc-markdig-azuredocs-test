@@ -84,88 +84,88 @@ This section lists the possible values for MFA result status string.
 
 - Azure Multi-Factor Authentication
 
-    - completed in the cloud 
+    - completed in the cloud 
 
-    - has expired due to the policies configured on tenant 
+    - has expired due to the policies configured on tenant 
 
-    - registration prompted 
+    - registration prompted 
 
-    - satisfied by claim in the token 
+    - satisfied by claim in the token 
 
-    - satisfied by claim in the token 
+    - satisfied by claim in the token 
 
-    - satisfied by claim in the token 
+    - satisfied by claim in the token 
 
-    - satisfied by claim in the token 
+    - satisfied by claim in the token 
 
-    - satisfied by claim provided by external provider 
+    - satisfied by claim provided by external provider 
 
-    - satisfied by strong authentication 
+    - satisfied by strong authentication 
 
-    - skipped as flow exercised was Windows broker logon flow 
+    - skipped as flow exercised was Windows broker logon flow 
 
-    - skipped as flow exercised was Windows broker logon flow 
+    - skipped as flow exercised was Windows broker logon flow 
 
-    - skipped due to app password 
+    - skipped due to app password 
 
-    - skipped due to location 
+    - skipped due to location 
 
-    - skipped due to registered device 
+    - skipped due to registered device 
     
-    - skipped due to remembered device 
+    - skipped due to remembered device 
 
-    - successfully completed 
+    - successfully completed 
 
-- Redirected to external provider for multi-factor authentication 
+- Redirected to external provider for multi-factor authentication 
 
  
 ### Denied status strings
 
 Azure Multi-Factor Authentication denied; 
 
-- authentication in-progress 
+- authentication in-progress 
 
-- duplicate authentication attempt 
+- duplicate authentication attempt 
 
-- entered incorrect code too many times 
+- entered incorrect code too many times 
 
-- invalid authentication 
+- invalid authentication 
 
-- invalid mobile app verification code 
+- invalid mobile app verification code 
 
-- misconfiguration 
+- misconfiguration 
 
-- phone call went to voicemail 
+- phone call went to voicemail 
 
-- phone number has an invalid format 
+- phone number has an invalid format 
 
-- service error 
+- service error 
 
-- unable to reach the user’s phone 
+- unable to reach the user’s phone 
 
-- unable to send the mobile app notification to the device 
+- unable to send the mobile app notification to the device 
 
-- unable to send the mobile app notification 
+- unable to send the mobile app notification 
 
-- user declined the authentication 
+- user declined the authentication 
 
-- user did not respond to mobile app notification 
+- user did not respond to mobile app notification 
 
-- user does not have any verification methods registered 
+- user does not have any verification methods registered 
 
-- user entered incorrect code 
+- user entered incorrect code 
 
-- user entered incorrect PIN 
+- user entered incorrect PIN 
 
-- user hung up the phone call without succeeding the authentication 
+- user hung up the phone call without succeeding the authentication 
 
-- user is blocked 
+- user is blocked 
 
-- user never entered the verification code 
+- user never entered the verification code 
 
-- user not found 
- 
-- verification code already used once 
+- user not found 
+ 
+- verification code already used once 
 
 
 

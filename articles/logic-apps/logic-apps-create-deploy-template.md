@@ -113,6 +113,7 @@ There's an example script on GitHub under the
 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
 <a name="team-services"></a>
+
 ## Visual Studio Team Services Release Management
 
 A common scenario for deploying and managing an environment is to use a tool like Release Management in Visual Studio Team Services,

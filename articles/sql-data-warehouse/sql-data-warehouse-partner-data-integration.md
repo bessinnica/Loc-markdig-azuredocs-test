@@ -22,6 +22,7 @@ ms.author: kevin;barbkess
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with data integration solutions supporting Azure SQL Data Warehouse.
 
 ## Our data integration partners
+
 | Partner | Description | Links | Videos |
 | --- | --- | --- | --- |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Designer provides a repeatable workflow for self-service data analytics that leads to deeper insights in hours, not the weeks typical of traditional approaches! Alteryx Designer empowers data analysts by combining data preparation, data blending, and analytics – predictive, statistical, and spatial – using the same intuitive user interface. |[Marketplace][alteryx_marketplace]<br>[Website][alteryx_designer_website]<br>[White paper][alteryx_whitepaper]<br>[Datasheet][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Alteryx video](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |

@@ -62,7 +62,7 @@ Create an [Azure SQL Database logical server](sql-database-features.md) using th
 
 ```azurecli-interactive
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
-	--admin-user $adminlogin --admin-password $password
+    --admin-user $adminlogin --admin-password $password
 ```
 
 ## Configure a server firewall rule
@@ -71,7 +71,7 @@ Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
-	-n AllowYourIp --start-ip-address $startip --end-ip-address $endip
+    -n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
 
 > [!NOTE]
@@ -84,7 +84,7 @@ Create a database with an [S0 performance level](sql-database-service-tiers.md) 
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
-	--name $databasename --sample-name AdventureWorksLT --service-objective S0
+    --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## Clean up resources

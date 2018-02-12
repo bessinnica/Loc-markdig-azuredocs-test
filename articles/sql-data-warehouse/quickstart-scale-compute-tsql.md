@@ -69,13 +69,13 @@ To view the current data warehouse units for your data warehouse:
 
     ```sql
     SELECT
-	    db.name [Database]
-    ,	ds.edition [Edition]
-    ,	ds.service_objective [Service Objective]
+        db.name [Database]
+    ,   ds.edition [Edition]
+    ,   ds.service_objective [Service Objective]
     FROM
- 	    sys.database_service_objectives ds
+        sys.database_service_objectives ds
     JOIN
-	    sys.databases db ON ds.database_id = db.database_id
+        sys.databases db ON ds.database_id = db.database_id
     WHERE 
         db.name = 'mySampleDataWarehouse'
     ```
@@ -119,11 +119,11 @@ To return information about various management operations on your SQL Data Wareh
 ```sql
 SELECT *
 FROM
-	sys.dm_operation_status
+    sys.dm_operation_status
 WHERE
-	resource_type_desc = 'Database'
+    resource_type_desc = 'Database'
 AND 
-	major_resource_id = 'MySQLDW'
+    major_resource_id = 'MySQLDW'
 ```
 
 

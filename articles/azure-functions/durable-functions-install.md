@@ -76,9 +76,9 @@ Visual Studio Code provides a local development experience covering all major pl
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
     ```
 4. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
-3. Open the project in Visual Studio Code. 
-5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
-6. Start the project by running in command prompt / terminal the following command:
+5. Open the project in Visual Studio Code. 
+6. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
+7. Start the project by running in command prompt / terminal the following command:
     ```bash
     func host start
     ```

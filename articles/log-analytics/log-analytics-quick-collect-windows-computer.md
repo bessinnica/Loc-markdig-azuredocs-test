@@ -31,11 +31,11 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Click **Create**, and then select choices for the following items:
 
-  * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
-  * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
-  * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
-  * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
-  * You can choose from three different **pricing tiers** in Log Analytics, but for this quickstart you are going to select the **free** tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
+   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
+   * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
+   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
+   * You can choose from three different **pricing tiers** in Log Analytics, but for this quickstart you are going to select the **free** tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
 3. After providing the required information on the **OMS Workspace** pane, click **OK**.  

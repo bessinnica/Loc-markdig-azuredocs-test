@@ -29,6 +29,7 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 
 <a id="master-keys"></a>
 
+
 ## Master keys 
 
 Master keys provide access to the all the administrative resources for the database account. Master keys:  
@@ -73,6 +74,7 @@ Database database = await client.CreateDatabaseAsync(
 
 <a id="resource-tokens"></a>
 
+
 ## Resource tokens
 
 Resource tokens provide access to the application resources within a database. Resource tokens:
@@ -107,6 +109,7 @@ For an example of a middle tier service used to generate or broker resource toke
 
 <a id="users"></a>
 
+
 ## Users
 Cosmos DB users are associated with a Cosmos DB database.  Each database can contain zero or more Cosmos DB users.  The following code sample shows how to create a Cosmos DB user resource.
 
@@ -126,6 +129,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 > 
 
 <a id="permissions"></a>
+
 
 ## Permissions
 A Cosmos DB permission resource is associated with a Cosmos DB user.  Each user may contain zero or more Cosmos DB permissions.  A permission resource provides access to a security token that the user needs when trying to access a specific application resource.
@@ -151,7 +155,7 @@ Permission docPermission = new Permission
     ResourceLink = documentCollection.SelfLink,
     Id = "readperm"
 };
-  
+
 docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
 Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 ```

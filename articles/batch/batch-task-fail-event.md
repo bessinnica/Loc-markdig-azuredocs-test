@@ -24,27 +24,27 @@ ms.author: tamram
 
 ```
 {
-	"jobId": "job-0000000001",
-	"id": "task-5",
-	"taskType": "User",
-	"systemTaskVersion": 0,
-	"nodeInfo": {
-		"poolId": "pool-001",
-		"nodeId": "tvm-257509324_1-20160908t162728z"
-	},
-	"multiInstanceSettings": {
-		"numberOfInstances": 1
-	},
-	"constraints": {
-		"maxTaskRetryCount": 2
-	},
-	"executionInfo": {
-		"startTime": "2016-09-08T16:32:23.799Z",
-		"endTime": "2016-09-08T16:34:00.666Z",
-		"exitCode": 1,
-		"retryCount": 2,
-		"requeueCount": 0
-	}
+    "jobId": "job-0000000001",
+    "id": "task-5",
+    "taskType": "User",
+    "systemTaskVersion": 0,
+    "nodeInfo": {
+        "poolId": "pool-001",
+        "nodeId": "tvm-257509324_1-20160908t162728z"
+    },
+    "multiInstanceSettings": {
+        "numberOfInstances": 1
+    },
+    "constraints": {
+        "maxTaskRetryCount": 2
+    },
+    "executionInfo": {
+        "startTime": "2016-09-08T16:32:23.799Z",
+        "endTime": "2016-09-08T16:34:00.666Z",
+        "exitCode": 1,
+        "retryCount": 2,
+        "requeueCount": 0
+    }
 }
 ```
 
@@ -81,10 +81,11 @@ ms.author: tamram
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Element name|Type|Notes|
-|------------------|----------|-----------|
-|startTime|DateTime|The time at which the task started running. 'Running' corresponds to the **running** state, so if the task specifies resource files or application packages, then the start time reflects the time at which the task started downloading or deploying these.  If the task has been restarted or retried, this is the most recent time at which the task started running.|
-|endTime|DateTime|The time at which the task completed.|
-|exitCode|Int32|The exit code of the task.|
-|retryCount|Int32|The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.|
-|requeueCount|Int32|The number of times the task has been requeued by the Batch service as the result of a user request.<br /><br /> When the user removes nodes from a pool (by resizing or shrinking the pool) or when the job is being disabled, the user can specify that running tasks on the nodes be requeued for execution. This count tracks how many times the task has been requeued for these reasons.|
+| Element name |   Type   |                                                                                                                                                                                             Notes                                                                                                                                                                                              |
+|--------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  startTime   | DateTime |     The time at which the task started running. 'Running' corresponds to the <strong>running</strong> state, so if the task specifies resource files or application packages, then the start time reflects the time at which the task started downloading or deploying these.  If the task has been restarted or retried, this is the most recent time at which the task started running.      |
+|   endTime    | DateTime |                                                                                                                                                                             The time at which the task completed.                                                                                                                                                                              |
+|   exitCode   |  Int32   |                                                                                                                                                                                   The exit code of the task.                                                                                                                                                                                   |
+|  retryCount  |  Int32   |                                                                                                              The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.                                                                                                              |
+| requeueCount |  Int32   | The number of times the task has been requeued by the Batch service as the result of a user request.<br /><br /> When the user removes nodes from a pool (by resizing or shrinking the pool) or when the job is being disabled, the user can specify that running tasks on the nodes be requeued for execution. This count tracks how many times the task has been requeued for these reasons. |
+

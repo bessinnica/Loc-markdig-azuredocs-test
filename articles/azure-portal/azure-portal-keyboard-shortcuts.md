@@ -21,6 +21,7 @@ ms.custom: accessibility
 This article shows the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own keyboard shortcuts.
 
 ## Actions
+
 |To do this |Press |
 | --- | --- |
 |Create a new resource|G+N|
@@ -31,15 +32,18 @@ This article shows the keyboard shortcuts that work throughout the Azure portal.
 |Move the selected left pane item down |ALT+Shift+Down Arrow|
 
 ## Navigation
+
 |To do this |Press |
 | --- | --- |
 |Move focus to command bar |G+, |
 |Toggle focus between top bar and side bar | G+. |
 
 ## Go to
-|To do this |Press |
-| --- | --- |
-|Go to dashboard |G+D |
-|Go to all resources|G+A |
-|Go to resource groups|G+R |
-|Open the left pane item at this position |G+number|
+
+|                To do this                |  Press   |
+|------------------------------------------|----------|
+|             Go to dashboard              |   G+D    |
+|           Go to all resources            |   G+A    |
+|          Go to resource groups           |   G+R    |
+| Open the left pane item at this position | G+number |
+

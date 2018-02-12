@@ -20,3 +20,4 @@ ms.author: yuemlu
 ---
 
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]
+

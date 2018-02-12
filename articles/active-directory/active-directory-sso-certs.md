@@ -53,7 +53,7 @@ The screenshots use Salesforce for the sake of example, but these steps can appl
 
 6. Now the new certificate is available to download. Click the **Certificate** link to download it. At this point, your certificate is not active. When you want to roll over to this certificate, select the **Make new certificate active** check box and click **Save**. From that point, Azure AD starts using the new certificate for signing the response.
 
-7.	To learn how to upload the certificate to your particular SaaS application, click the **View application configuration tutorial** link.
+7.  To learn how to upload the certificate to your particular SaaS application, click the **View application configuration tutorial** link.
 
 ## Renew a certificate that will soon expire
 The following renewal steps should result in no significant downtime for your users. The screenshots in this section feature Salesforce as an example, but these steps can apply to any federated SaaS app.

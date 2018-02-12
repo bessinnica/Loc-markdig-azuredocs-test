@@ -54,35 +54,35 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 2. Now create a new file in your **server** folder called **mongo.js**. In this file, you add all of your connection info for the Azure Cosmos DB database.
 
 3. Copy the following code into **mongo.js**. This code:
-    * Requires Mongoose.
-    * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and above.
-    * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
-    * Includes our MongoDB connection string, which will be set in the env file.
-    * Creates a connect function that calls Mongoose.
+   * Requires Mongoose.
+   * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and above.
+   * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
+   * Includes our MongoDB connection string, which will be set in the env file.
+   * Creates a connect function that calls Mongoose.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
      * Per http://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 4. In the Explorer pane, create a folder under **server** called **environment** and in the **environment** folder create a new file called **environment.js**.
 

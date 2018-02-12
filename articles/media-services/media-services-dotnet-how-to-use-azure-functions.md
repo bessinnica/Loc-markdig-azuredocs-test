@@ -27,7 +27,7 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 
 - Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 - If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](media-services-portal-create-account.md).
-	
+
 ## Create a function app
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
@@ -60,11 +60,11 @@ Once your function app is deployed, you can find it among **App Services** Azure
 2. Choose the **C#** language and **Data Processing** scenario.
 3. Choose **BlobTrigger** template. This function is triggered whenever a blob is uploaded into the **input** container. The **input** name is specified in the **Path**, in the next step.
 
-	![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Once you select **BlobTrigger**, some more controls appear on the page.
 
-	![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Click **Create**. 
 
@@ -117,13 +117,12 @@ Add the following definition to project.json.
     }
    }
 }
-
 ```
-	
+
 ### run.csx
 
 This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function.
-	
+
 The example defined in this section demonstrates 
 
 1. how to ingest an asset into a Media Services account (by coping a blob into an AMS asset) and 
@@ -156,12 +155,12 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.Azure.WebJobs;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-  
+
 // Read values from the App.config file.
 
 static readonly string _AADTenantDomain = Environment.GetEnvironmentVariable("AMSAADTenantDomain");
 static readonly string _RESTAPIEndpoint = Environment.GetEnvironmentVariable("AMSRESTAPIEndpoint");
- 
+
 static readonly string _mediaservicesClientId = Environment.GetEnvironmentVariable("AMSClientId");
 static readonly string _mediaservicesClientSecret = Environment.GetEnvironmentVariable("AMSClientSecret");
 
@@ -187,9 +186,9 @@ public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
         AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain,
                             new AzureAdClientSymmetricKey(_mediaservicesClientId, _mediaservicesClientSecret),
                             AzureEnvironments.AzureCloudEnvironment);
- 
+
         AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
- 
+
         _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
         IAsset newAsset = CreateAssetFromBlob(myBlob, fileName, log).GetAwaiter().GetResult();
@@ -324,7 +323,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 }
 ```
 
-##Test your function
+## Test your function
 
 To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
 
@@ -339,7 +338,7 @@ To test your function, you need to upload an MP4 file into the **input** contain
 ## Next steps
 
 At this point, you are ready to start developing a Media Services application. 
- 
+
 For more details and complete samples/solutions of using Azure Functions and Logic Apps with Azure Media Services to create custom content creation workflows, see the [Media Services .NET Functions Integration Sample on GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 Also, see [Use Azure WebHooks to monitor Media Services job notifications with .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Azure Data Encryption-at-Rest | Microsoft Docs
 description: This article provides an overview of Microsoft Azure data  encryption at-rest, the overall capabilities, and general considerations.
 services: security
@@ -76,19 +76,19 @@ Understanding the various encryption models, and their pros and cons is essentia
 There are three scenarios for server-side encryption:
 
 - Server-side encryption using Service Managed keys
-	- Azure Resource Providers perform the encryption and decryption operations
-	- Microsoft manages the keys
-	- Full cloud functionality
+    - Azure Resource Providers perform the encryption and decryption operations
+    - Microsoft manages the keys
+    - Full cloud functionality
 
 - Server-side encryption using customer-managed keys in Azure Key Vault
-	- Azure Resource Providers perform the encryption and decryption operations
-	- Customer controls keys via Azure Key Vault
-	- Full cloud functionality
+    - Azure Resource Providers perform the encryption and decryption operations
+    - Customer controls keys via Azure Key Vault
+    - Full cloud functionality
 
 - Server-side encryption using customer-managed keys on customer-controlled hardware
-	- Azure Resource Providers perform the encryption and decryption operations
-	- Customer controls keys on customer-controlled hardware
-	- Full cloud functionality
+    - Azure Resource Providers perform the encryption and decryption operations
+    - Customer controls keys on customer-controlled hardware
+    - Full cloud functionality
 
 For client-side encryption, consider the following:
 

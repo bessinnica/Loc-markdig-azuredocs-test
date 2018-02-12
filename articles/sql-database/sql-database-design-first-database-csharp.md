@@ -42,13 +42,11 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
-
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
-
 
 ## Next steps
 

@@ -43,7 +43,7 @@ In this section, you use the portal UI to add a queue storage output binding to 
 1. Select **Integrate > New output > Azure Queue storage**.
 
 1. Click **Select**.
-    
+
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
 3. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
@@ -57,7 +57,7 @@ In this section, you use the portal UI to add a queue storage output binding to 
     | **Queue name**   | outqueue    | The name of the queue to connect to in your Storage account. |
 
 4. Click **Save** to add the binding.
- 
+
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 
 ## Add code that uses the output binding
@@ -92,7 +92,7 @@ In this section, you add code that writes a message to the output queue. The mes
    ```
 
 4. Select **Save** to save changes.
- 
+
 ## Test the function 
 
 1. After the code changes are saved, select **Run**. 
@@ -126,9 +126,9 @@ Skip this section if you have already installed Storage Explorer and connected i
    ![Get the Storage account connection credentials.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
 1. Copy the **Account Name** value from the portal and paste it in the **Account name** box in Storage Explorer.
- 
+
 1. Click the show/hide icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
-  
+
 3. Select **Next > Connect**.
 
    ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
@@ -154,3 +154,4 @@ Skip this section if you have already installed Storage Explorer and connected i
 In this quickstart, you added an output binding to an existing function. For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+

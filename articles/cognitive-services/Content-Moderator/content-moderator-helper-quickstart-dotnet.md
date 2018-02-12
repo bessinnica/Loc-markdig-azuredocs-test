@@ -51,10 +51,10 @@ Install the following NuGet packages:
 
 Replace the contents of the ModeratorHelper.cs file with the following code:
 
-	using Microsoft.CognitiveServices.ContentModerator;
+    using Microsoft.CognitiveServices.ContentModerator;
 
-	namespace ModeratorHelper
-	{
+    namespace ModeratorHelper
+    {
     /// <summary>
     /// Wraps the creation and configuration of a Content Moderator client.
     /// </summary>
@@ -96,7 +96,7 @@ Replace the contents of the ModeratorHelper.cs file with the following code:
             return client;
         }
     }
-	}
+    }
 
 
 > [!IMPORTANT]

@@ -20,7 +20,7 @@ ms.author: fryu
 
 The "Secure transfer required" option enhances the security of your storage account by only allowing requests to the account from secure connections. For example, when you're calling REST APIs to access your storage account, you must connect by using HTTPS. "Secure transfer required" rejects requests that use HTTP.
 
-When you use the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios that use SMB 2.1, SMB 3.0 without encryption, and some versions of the Linux SMB client. 
+When you use the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios that use SMB 2.1, SMB 3.0 without encryption, and some versions of the Linux SMB client. 
 
 By default, the "Secure transfer required" option is disabled.
 
@@ -34,17 +34,17 @@ You can turn on the "Secure transfer required" setting when you create a storage
 ### Require secure transfer for a new storage account
 
 1. Open the **Create storage account** pane in the Azure portal.
-1. Under **Secure transfer required**, select **Enabled**.
+2. Under **Secure transfer required**, select **Enabled**.
 
-  ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### Require secure transfer for an existing storage account
 
 1. Select an existing storage account in the Azure portal.
-1. In the storage account menu pane, under **SETTINGS**, select **Configuration**.
-1. Under **Secure transfer required**, select **Enabled**.
+2. In the storage account menu pane, under **SETTINGS**, select **Configuration**.
+3. Under **Secure transfer required**, select **Enabled**.
 
-  ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## Enable "Secure transfer required" programmatically
 
@@ -72,7 +72,6 @@ StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
 ...
-
 ```
 
 Use the following command line to enable the setting:
@@ -83,7 +82,6 @@ StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True
 ...
-
 ```
 
 ### Enable "Secure transfer required" setting with CLI

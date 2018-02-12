@@ -38,6 +38,7 @@ The process of creating and updating statistics is currently a manual process, b
 Creating sampled statistics on every column is an easy way to get started. Out-of-date statistics lead to suboptimal query performance. However, updating statistics on all columns as your data grows can consume memory. 
 
 The following are recommendations for different scenarios:
+
 | **Scenario** | Recommendation |
 |:--- |:--- |
 | **Get started** | Update all columns after migrating to SQL Data Warehouse |
@@ -458,7 +459,7 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 For more details, see [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] on MSDN.
 
   To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], and [Temporary Tables][Temporary].
-  
+
    For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->

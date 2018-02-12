@@ -27,6 +27,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 ```
 <br>
 
+
 ## Request parameters
 
 Name | Type | Required | Description
@@ -36,6 +37,7 @@ Name | Type | Required | Description
 **text**        | string | Yes | Raw input to be analyzed. This might be a short string such as a word or phrase, a full sentence, or a full paragraph or discourse.
 
 <br>
+
 ## Response (JSON)
 An array of analysis outputs, one for each attribute specified in the request.
 
@@ -135,6 +137,7 @@ The result is a list of strings, one parse tree for each sentence found in the i
 The parse trees are represented in a parenthesized form.
 
 <br>
+
 
 ## Example
 

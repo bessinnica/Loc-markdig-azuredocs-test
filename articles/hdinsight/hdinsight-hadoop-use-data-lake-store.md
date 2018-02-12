@@ -57,7 +57,7 @@ Using Data Lake Store as an additional storage account does not affect performan
 
 When HDInsight is deployed with Data Lake Store as default storage, the cluster-related files are stored in Data Lake Store in the following location:
 
-	adl://mydatalakestore/<cluster_root_path>/
+    adl://mydatalakestore/<cluster_root_path>/
 
 where `<cluster_root_path>` is the name of a folder you create in Data Lake Store. By specifying a root path for each cluster, you can use the same Data Lake Store account for more than one cluster. So, you can have a setup where:
 
@@ -79,7 +79,7 @@ For more information for creating service principal and grant access, see [Confi
 
 You can use Data Lake Store as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Storage Blob or a Data Lake Store account. If you are running HDInsight jobs against the data stored in Data Lake Store as additional storage, you must use the fully-qualified path to the files. For example:
 
-	adl://mydatalakestore.azuredatalakestore.net/<file_path>
+    adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Note that there's no **cluster_root_path** in the URL now. That's because Data Lake Store is not a default storage in this case so all you need to do is provide the path to the files.
 
@@ -108,19 +108,19 @@ There are several ways you can access the files in Data Lake Store from an HDIns
 
 * **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
 
-		adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/<file_path>
+        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/<file_path>
 
 * **Using the shortened path format**. With this approach, you replace the path up to the cluster root with adl:///. So, in the example above, you can replace `adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/` with `adl:///`.
 
-		adl:///<file path>
+        adl:///<file path>
 
 * **Using the relative path**. With this approach, you only provide the relative path to the file that you want to access. For example, if the complete path to the file is:
 
-		adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/example/data/sample.log
+        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/example/data/sample.log
 
-	You can access the same sample.log file by using this relative path instead.
+    You can access the same sample.log file by using this relative path instead.
 
-		/example/data/sample.log
+        /example/data/sample.log
 
 ## Create HDInsight clusters with access to Data Lake Store
 

@@ -7,7 +7,9 @@
 
 **RADIUS authentication**
 
-**Deployment model/method** | **Azure portal** | **PowerShell** |
-|---|---|---|
-| Resource Manager | Supported | [Article](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|
-| Classic | Not Supported | Not Supported |
+
+| <strong>Deployment model/method</strong> | <strong>Azure portal</strong> |                     <strong>PowerShell</strong>                      |
+|------------------------------------------|-------------------------------|----------------------------------------------------------------------|
+|             Resource Manager             |           Supported           | [Article](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md) |
+|                 Classic                  |         Not Supported         |                            Not Supported                             |
+

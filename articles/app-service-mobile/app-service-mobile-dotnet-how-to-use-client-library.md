@@ -768,10 +768,10 @@ using Azure Active Directory authentication.
 
      **Windows:**
 
-    ```
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
+     ```
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync()
+     {
 
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
@@ -799,15 +799,15 @@ using Azure Active Directory authentication.
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-    }
-    ```
+     }
+     ```
 
      **Xamarin.iOS**
 
-    ```
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync(UIViewController view)
-    {
+     ```
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync(UIViewController view)
+     {
 
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
@@ -827,15 +827,15 @@ using Azure Active Directory authentication.
         {
             Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
         }
-    }
-    ```
+     }
+     ```
 
      **Xamarin.Android**
 
-    ```
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
+     ```
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync()
+     {
 
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
@@ -858,14 +858,14 @@ using Azure Active Directory authentication.
             builder.SetTitle("You must log in. Login Required");
             builder.Create().Show();
         }
-    }
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
+     }
+     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+     {
 
         base.OnActivityResult(requestCode, resultCode, data);
         AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-    }
-    ```
+     }
+     ```
 
 #### <a name="client-facebook"></a>Single Sign-On using a token from Facebook or Google
 You can use the client flow as shown in this snippet for Facebook or Google.

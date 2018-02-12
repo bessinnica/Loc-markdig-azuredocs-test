@@ -107,6 +107,7 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
+
 ## Test applications and services
 To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the [Fault Analysis Service](service-fabric-testability-overview.md), you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
@@ -131,6 +132,7 @@ The following Microsoft Virtual Academy video describes Service Fabric clusters:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
 <img src="./media/service-fabric-content-roadmap/ClusterOverview.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
 
 ### Clusters on Azure
 Running Service Fabric clusters on Azure provides integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable. A cluster is an Azure Resource Manager resource, so you can model clusters like any other resources in Azure. Resource Manager also provides easy management of all resources used by the cluster as a single unit. Clusters on Azure are integrated with Azure diagnostics and Log Analytics. Cluster node types are [virtual machine scale sets](/azure/virtual-machine-scale-sets/index), so autoscaling functionality is built in.
@@ -191,6 +193,7 @@ The following Microsoft Virtual Academy video describes the Service Fabric healt
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
+
 ## Monitoring and diagnostics
 [Monitoring and diagnostics](service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production.
 
@@ -201,7 +204,7 @@ The main goals of monitoring and diagnostics are to:
 - Understand resource consumption and help drive operations decisions
 - Optimize application, service, and infrastructure performance
 - Generate business insights and identify areas of improvement
- 
+
 The overall workflow of monitoring and diagnostics consists of three steps:
 
 1. Event generation: this includes events (logs, traces, custom events) at the infrastructure (cluster), platform, and application / service level

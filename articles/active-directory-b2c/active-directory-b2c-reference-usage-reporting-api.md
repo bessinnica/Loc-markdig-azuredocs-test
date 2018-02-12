@@ -49,7 +49,7 @@ if ($oauth.access_token -ne $null) {
 
     Write-host Data from the tenantUserCount report
     Write-host ====================================================
-	 # Returns a JSON document for the report
+     # Returns a JSON document for the report
     $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/tenantUserCount?api-version=beta")
     Write-host $myReport.Content
 
@@ -63,18 +63,18 @@ if ($oauth.access_token -ne $null) {
     $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cAuthenticationCountSummary?api-version=beta")
     Write-host $myReport.Content
 
-	Write-host Data from the b2cAuthenticationCount report with datetime filter
+    Write-host Data from the b2cAuthenticationCount report with datetime filter
     Write-host ====================================================
     $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cAuthenticationCount?%24filter=TimeStamp+gt+2016-09-20+and+TimeStamp+lt+2016-10-03&api-version=beta")
     Write-host $myReport.Content
 
-	Write-host Data from the b2cAuthenticationCount report with ApplicationId filter
+    Write-host Data from the b2cAuthenticationCount report with ApplicationId filter
     Write-host ====================================================
     # Returns a JSON document for the " " report
         $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cAuthenticationCount?%24filter=ApplicationId+eq+ada78934-a6da-4e69-b816-10de0d79db1d&api-version=beta")
     Write-host $myReport.Content
 
-	Write-host Data from the b2cMfaRequestCountSummary
+    Write-host Data from the b2cMfaRequestCountSummary
     Write-host ====================================================
     $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cMfaRequestCountSummary?api-version=beta")
     Write-host $myReport.Content
@@ -84,10 +84,10 @@ if ($oauth.access_token -ne $null) {
     $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cMfaRequestCount?%24filter=TimeStamp+gt+2016-09-10+and+TimeStamp+lt+2016-10-04&api-version=beta")
     Write-host $myReport.Content
 
-	Write-host Data from the b2cMfaRequestCount report with ApplicationId filter
+    Write-host Data from the b2cMfaRequestCount report with ApplicationId filter
     Write-host ====================================================
-   	$myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cMfaRequestCountSummary?%24filter=ApplicationId+eq+ada78934-a6da-4e69-b816-10de0d79db1d&api-version=beta")
-	 Write-host $myReport.Content
+    $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cMfaRequestCountSummary?%24filter=ApplicationId+eq+ada78934-a6da-4e69-b816-10de0d79db1d&api-version=beta")
+     Write-host $myReport.Content
 
 } else {
     Write-Host "ERROR: No Access Token"

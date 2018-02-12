@@ -61,7 +61,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 Use the following resources to assist you to manage security alerts and protect your resources.
 
-Articles	
+Articles    
 * [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 * [Protecting your virtual machines in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
 * [Protecting your network in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
@@ -69,7 +69,7 @@ Articles
 * [Protecting Azure SQL service and data in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
-Video	
+Video   
 * [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### Security Center for incident response
@@ -77,11 +77,11 @@ To reduce costs and damage, it’s important to have an incident response plan i
 
 Use the following resources to understand how Security Center can be incorporated in your incident response process.
 
-Videos	
+Videos  
 * [Azure Security Center in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g)
 
-Articles	
+Articles    
 * [Using Azure Security Center for an incident response](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
 * [Automate response with security playbook](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
 
@@ -91,10 +91,10 @@ Azure VMs can take advantage of advanced cloud defense capabilities in Security 
 
 Use the following resources to learn how to use these capabilities in Security Center.
 
-Video	
+Video   
 * [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU)
 
-Articles	
+Articles    
 * [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Adaptive Application Controls in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
@@ -113,7 +113,7 @@ Articles
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Compliance](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
 
-##Community Resources
+## Community Resources
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
 * [Security Center community forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)

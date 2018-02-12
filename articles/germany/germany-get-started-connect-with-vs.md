@@ -47,9 +47,9 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 
 ### Update Visual Studio for Azure Germany
 
-1.	Close Visual Studio.
-2.	Place **AadProvider.Configuration.json** in **%localappdata%\\.IdentityService\AadConfigurations**. Create this folder if it isn't present.
-3.	Start Visual Studio and begin using your Azure Germany account.
+1.  Close Visual Studio.
+2.  Place **AadProvider.Configuration.json** in **%localappdata%\\.IdentityService\AadConfigurations**. Create this folder if it isn't present.
+3.  Start Visual Studio and begin using your Azure Germany account.
 
 > [!NOTE]
 > With the configuration file, only Azure Germany subscriptions are accessible. You still see subscriptions that you configured previously, but they don't work because Visual Studio is now connected to Azure Germany instead of global Azure. To connect to global Azure, remove the file.
@@ -59,9 +59,9 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 ### Revert a Visual Studio connection to Azure Germany
 To enable Visual Studio to connect to global Azure, you need to remove the configuration file that enables the connection to Azure Germany.
 
-1.	Close Visual Studio.
-2.	Delete or rename the **%localappdata%\.IdentityService\AadConfigurations** folder.
-3.	Restart Visual Studio and begin using your global Azure account.
+1.  Close Visual Studio.
+2.  Delete or rename the **%localappdata%\.IdentityService\AadConfigurations** folder.
+3.  Restart Visual Studio and begin using your global Azure account.
 
 > [!NOTE]
 > After this configuration is reverted, your Azure Germany subscriptions are no longer accessible.

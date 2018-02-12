@@ -21,15 +21,15 @@ ms.author: muralikk
 # Preparing hard drives for an import job
 To prepare one or more hard drives for an import job, follow these steps:
 
--   Identify the data to import into the Blob service
+- Identify the data to import into the Blob service
 
--   Identify target virtual directories and blobs in the Blob service
+- Identify target virtual directories and blobs in the Blob service
 
--   Determine how many drives you'll need
+- Determine how many drives you'll need
 
--   Copy the data to each of your hard drives
+- Copy the data to each of your hard drives
 
- For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## Identify the data to be imported
  The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job.
@@ -44,21 +44,22 @@ To prepare one or more hard drives for an import job, follow these steps:
 
  The following table shows some examples of blob targets:
 
-|Source file or directory|Destination blob or virtual directory|
-|------------------------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
-|\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+
+| Source file or directory  |                   Destination blob or virtual directory                   |
+|---------------------------|---------------------------------------------------------------------------|
+|         H:\Video          |           https://mystorageaccount.blob.core.windows.net/video            |
+|         H:\Photo          |           https://mystorageaccount.blob.core.windows.net/photo            |
+| K:\Temp\FavoriteVideo.ISO | https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO |
+|   \\\myshare\john\music   |           https://mystorageaccount.blob.core.windows.net/music            |
 
 ## Determine how many drives are needed
  Next, you need to determine:
 
--   The number of hard drives needed to store the data.
+- The number of hard drives needed to store the data.
 
--   The directories and/or standalone files that will be copied to each of your hard drive.
+- The directories and/or standalone files that will be copied to each of your hard drive.
 
- Ensure that you have the number of hard drives you will need to store the data you are transferring.
+  Ensure that you have the number of hard drives you will need to store the data you are transferring.
 
 ## Copy data to your hard drive
  This section describes how to call the Azure Import/Export Tool to copy your data to one or more hard drives. Each time you call the Azure Import/Export Tool, you create a new *copy session*. You create at least one copy session for each drive to which you copy data; in some cases, you may need more than one copy session to copy all of your data to single drive. Here are some reasons that you may need multiple copy sessions:
@@ -175,7 +176,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)
 * [Setting properties and metadata during the import process](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference-v1.md) 
+* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference-v1.md) 
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)

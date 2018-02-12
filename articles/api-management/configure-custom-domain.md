@@ -37,20 +37,20 @@ To perform the steps described in this article, you must have:
 2. Select **Custom domains and SSL**.
     
     There is a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available: 
-    + **Proxy** (default is: `<apim-service-name>.azure-api.net`), 
-    + **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),     
-    + **Management** (default is: `<apim-service-name>.management.azure-api.net`), 
-    + **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
+   + **Proxy** (default is: `<apim-service-name>.azure-api.net`), 
+   + **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),     
+   + **Management** (default is: `<apim-service-name>.management.azure-api.net`), 
+   + **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
 
-    >[!NOTE]
-    > You can update all of the endpoints or some of them. Commonly, customers update **Proxy** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL). **Management** and **SCM** endpoints are used internally by APIM customers and thus are less frequently assigned a custom domain name.
+     >[!NOTE]
+     > You can update all of the endpoints or some of them. Commonly, customers update **Proxy** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL). **Management** and **SCM** endpoints are used internally by APIM customers and thus are less frequently assigned a custom domain name.
 3. Select the endpoint that you want to update. 
 4. In the window on the right, click **Custom**.
 
     + In the **Custom domain name**, specify the name you want to use. For example, `api.contoso.com`. <br/>Wildcard domain names (for example, *.domain.com) are also supported.
     + In the **Certificate**, specify a valid .PFX file that you want to upload. 
     + If the certificate has a password, enter it in the **Password** field.
-1. Click Apply.
+5. Click Apply.
 
     >[!NOTE]
     >The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, Basic and higher SKU's do not have downtime.

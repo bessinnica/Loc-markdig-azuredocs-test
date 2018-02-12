@@ -29,7 +29,9 @@ ms.author: elbutter
 >
 
 <a name="scale-performance-bk"></a>
+
 <a name="scale-compute-bk"></a>
+
 
 ## Scale compute power
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
@@ -49,6 +51,7 @@ Content-Type: application/json; charset=UTF-8
 
 <a name="pause-compute-bk"></a>
 
+
 ## Pause compute
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -59,6 +62,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ```
 
 <a name="resume-compute-bk"></a>
+
 
 ## Resume compute
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
@@ -76,6 +80,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 <a name="next-steps-bk"></a>
+
 
 ## Next steps
 For other management tasks, see [Management overview][Management overview].

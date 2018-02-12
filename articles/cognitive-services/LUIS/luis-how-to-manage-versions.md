@@ -46,15 +46,15 @@ Once you clone a version, the new version becomes the active version.
 
    ![Clone Version dialog box](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
- > [!NOTE]
- > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
+   > [!NOTE]
+   > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
  
- A new version with the specified name is created and added to the list.
+   A new version with the specified name is created and added to the list.
  
-  ![Version is created and added to the list](./media/luis-how-to-manage-versions/new-version.png)
+   ![Version is created and added to the list](./media/luis-how-to-manage-versions/new-version.png)
 
- > [!NOTE]
- > As shown in the preceding image, a published version is associated with a colored mark, indicating the type of slot where it has been published: Production (green), Staging (red) and both (black). The training and publishing dates are displayed for each published version.
+   > [!NOTE]
+   > As shown in the preceding image, a published version is associated with a colored mark, indicating the type of slot where it has been published: Production (green), Staging (red) and both (black). The training and publishing dates are displayed for each published version.
 
 ## Set active version
 To set a version as active means to make it the current version to work on and edit. You set a version as active to access its data, make updates, as well as to test and publish it.

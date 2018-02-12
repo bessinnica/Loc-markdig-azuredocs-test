@@ -71,20 +71,20 @@ Now, you can add the C# function code that connects to your SQL Database.
  
 3. Add the following assembly references at the top of the existing function code:
 
-	```cs
+    ```cs
     #r "System.Configuration"
     #r "System.Data"
-	```
+    ```
 
 3. Add the following `using` statements to the function:
-	```cs
+    ```cs
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
-	```
+    ```
 
 4. Replace the existing `Run` function with the following code:
-	```cs
+    ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
         var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -102,7 +102,7 @@ Now, you can add the C# function code that connects to your SQL Database.
             }
         }
     }
-	```
+    ```
 
     This sample command updates the `Status` column based on the ship date. It should update 32 rows of data.
 

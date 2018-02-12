@@ -46,7 +46,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 However, this approach can result in tables appearing and disappearing from a user's view as well as "table does not exist" error messages. Views can be used to provide users with a consistent presentation layer whilst the underlying objects are renamed. By providing users access to the data through a views, means users don't need to have visibility of the underlying tables. This provides a consistent user experience while ensuring that the data warehouse designers can evolve the data model and maximize performance by using CTAS during the data loading process.    

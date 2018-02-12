@@ -34,23 +34,26 @@ FR = Future Release
 PP = Public Preview  
 
 ## On-Premises to Cloud Synchronization
-| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services (AAD Sync) | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Connect to single on-premises AD forest |● |● |● |● |● |
-| Connect to multiple on-premises AD forests |● |● | |● |● |
-| Connect to multiple on-premises Exchange Orgs |● | | | | |
-| Connect to single on-premises LDAP directory |●* | | |● |● |
-| Connect to multiple on-premises LDAP directories |●*  | | |● |● |
-| Connect to on-premises AD and on-premises LDAP directories |●* | | |● |● |
-| Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) |FR | | |● |● |
-| Synchronize customer defined attributes (directory extensions) |● | | | | |
-| Connect to on-premises HR (i.e., SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
-| Supports FIM synchronization rules and connectors for provisioning to on-premises systems. | | | |● |● |
+
+| Feature                                                                                    | Azure Active Directory Connect | Azure Active Directory Synchronization Services (AAD Sync) | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+|:-------------------------------------------------------------------------------------------|:------------------------------:|:----------------------------------------------------------:|:-----------------------------------------------------:|:----------------------------------------:|:-------------------------------------:|
+| Connect to single on-premises AD forest                                                    |               ●                |                             ●                              |                           ●                           |                    ●                     |                   ●                   |
+| Connect to multiple on-premises AD forests                                                 |               ●                |                             ●                              |                                                       |                    ●                     |                   ●                   |
+| Connect to multiple on-premises Exchange Orgs                                              |               ●                |                                                            |                                                       |                                          |                                       |
+| Connect to single on-premises LDAP directory                                               |               ●*               |                                                            |                                                       |                    ●                     |                   ●                   |
+| Connect to multiple on-premises LDAP directories                                           |               ●*               |                                                            |                                                       |                    ●                     |                   ●                   |
+| Connect to on-premises AD and on-premises LDAP directories                                 |               ●*               |                                                            |                                                       |                    ●                     |                   ●                   |
+| Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.)                                  |               FR               |                                                            |                                                       |                    ●                     |                   ●                   |
+| Synchronize customer defined attributes (directory extensions)                             |               ●                |                                                            |                                                       |                                          |                                       |
+| Connect to on-premises HR (i.e., SAP, Oracle eBusiness,PeopleSoft)                         |               FR               |                                                            |                                                       |                    ●                     |                   ●                   |
+| Supports FIM synchronization rules and connectors for provisioning to on-premises systems. |                                |                                                            |                                                       |                    ●                     |                   ●                   |
+
 &#42; Currently there are two supported options for this.  They are:
    1. You can use the generic LDAP connector and enable it outside of Azure AD Connect.  This is complex and requires a partner for on-boarding and a premier support agreement to maintain.  This option can handle both single and multiple LDAP directories.
    2. You can develop your own solution for moving objects from LDAP to Active Directory.  Then synchronize the objects with Azure AD Connect.  MIM or FIM could be used as a possible solution for moving the objects.
 
 ## Cloud to On-Premises Synchronization
+
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Writeback of devices |● | |● | | |
@@ -59,6 +62,7 @@ PP = Public Preview
 | Writeback of passwords (from self-service password reset (SSPR) and password change) |● |● | | | |
 
 ## Authentication Feature Support
+
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Password Sync for single on-premises AD forest |● |● |● | | |
@@ -67,6 +71,7 @@ PP = Public Preview
 | Writeback of passwords (from SSPR and password change) |● |● | | | |
 
 ## Set-up and Installation
+
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Supports installation on a Domain Controller |● |● |● | |
@@ -78,6 +83,7 @@ PP = Public Preview
 | Support for Windows Server 2012 and Windows Server 2012 R2 |● |● |● |● |
 
 ## Filtering and Configuration
+
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filter on Domains and Organizational Units |● |● |● |● |● |

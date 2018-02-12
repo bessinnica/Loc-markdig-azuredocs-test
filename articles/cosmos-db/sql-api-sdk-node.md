@@ -36,27 +36,29 @@ ms.custom: H1Hack27Feb2017
 
 <table>
 
-<tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td><strong>Download SDK</strong></td><td><a href="https://www.npmjs.com/package/documentdb" data-raw-source="[NPM](https://www.npmjs.com/package/documentdb)">NPM</a></td></tr>
 
-<tr><td>**API documentation**</td><td>[Node.js API reference documentation](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td><strong>API documentation</strong></td><td><a href="http://azure.github.io/azure-documentdb-node/DocumentClient.html" data-raw-source="[Node.js API reference documentation](http://azure.github.io/azure-documentdb-node/DocumentClient.html)">Node.js API reference documentation</a></td></tr>
 
-<tr><td>**SDK installation instructions**</td><td>[Installation instructions](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td><strong>SDK installation instructions</strong></td><td><a href="http://azure.github.io/azure-documentdb-node/" data-raw-source="[Installation instructions](http://azure.github.io/azure-documentdb-node/)">Installation instructions</a></td></tr>
 
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td><strong>Contribute to SDK</strong></td><td><a href="https://github.com/Azure/azure-documentdb-node/tree/master/source" data-raw-source="[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)">GitHub</a></td></tr>
 
-<tr><td>**Samples**</td><td>[Node.js code samples](sql-api-nodejs-samples.md)</td></tr>
+<tr><td><strong>Samples</strong></td><td><a href="sql-api-nodejs-samples.md" data-raw-source="[Node.js code samples](sql-api-nodejs-samples.md)">Node.js code samples</a></td></tr>
 
-<tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](sql-api-nodejs-get-started.md)</td></tr>
+<tr><td><strong>Get started tutorial</strong></td><td><a href="sql-api-nodejs-get-started.md" data-raw-source="[Get started with the Node.js SDK](sql-api-nodejs-get-started.md)">Get started with the Node.js SDK</a></td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
+<tr><td><strong>Web app tutorial</strong></td><td><a href="sql-api-nodejs-application.md" data-raw-source="[Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)">Build a Node.js web application using Azure Cosmos DB</a></td></tr>
 
-<tr><td>**Current supported platform**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
+<tr><td><strong>Current supported platform</strong></td><td> 
+<a href="https://nodejs.org/en/blog/release/v6.10.3/" data-raw-source="[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)">Node.js v6.x</a><br/> 
+<a href="https://nodejs.org/en/blog/release/v4.2.0/" data-raw-source="[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)">Node.js v4.2.0</a><br/> 
+<a href="https://nodejs.org/en/blog/release/v0.12.0/" data-raw-source="[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)">Node.js v0.12</a><br/> 
+<a href="https://nodejs.org/en/blog/release/v0.10.0/" data-raw-source="[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)">Node.js v0.10</a> 
 </td></tr>
+
 </table></br>
+
 
 ## Release notes
 
@@ -76,7 +78,7 @@ ms.custom: H1Hack27Feb2017
 * Adds supports for resource link with leading and trailing slashes (and corresponding tests).
 
 ### <a name="1.12.2"/>1.12.2</a>
-*	npm documentation fixed.
+*   npm documentation fixed.
 
 ### <a name="1.12.1"/>1.12.1</a>
 * Fixed a bug in executeStoredProcedure where documents involved had special Unicode characters (LS, PS).
@@ -188,6 +190,7 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK is be rejected by the service.
 
 <br/>
+
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

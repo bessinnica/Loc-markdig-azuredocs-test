@@ -68,6 +68,7 @@ You can use a policy to set the time after the first session token was issued be
 A token lifetime policy is a type of policy object that contains token lifetime rules. Use the properties of the policy to control specified token lifetimes. If no policy is set, the system enforces the default lifetime value.
 
 ### Configurable token lifetime properties
+
 | Property | Policy property string | Affects | Default | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
 | Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
@@ -82,6 +83,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 * <sup>3</sup>If  **MaxAgeSessionMultiFactor** is not set, this value takes the **MaxAgeMultiFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
 
 ### Exceptions
+
 | Property | Affects | Default |
 | --- | --- | --- |
 | Refresh Token Max Age (issued for federated users who have insufficient revocation information<sup>1</sup>) |Refresh tokens (issued for federated users who have insufficient revocation information<sup>1</sup>) |12 hours |
@@ -333,7 +335,7 @@ In this example, you create a few policies, to learn how the priority system wor
             ```PowerShell
             Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
-        
+
 3. Set the `IsOrganizationDefault` flag to false:
 
     ```PowerShell
@@ -372,6 +374,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 
 </br></br>
 
+
 #### Get-AzureADPolicy
 Gets all Azure AD policies or a specified policy.
 
@@ -385,6 +388,7 @@ Get-AzureADPolicy
 
 </br></br>
 
+
 #### Get-AzureADPolicyAppliedObject
 Gets all apps and service principals that are linked to a policy.
 
@@ -397,6 +401,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the policy you want. |`-Id <ObjectId of Policy>` |
 
 </br></br>
+
 
 #### Set-AzureADPolicy
 Updates an existing policy.
@@ -416,6 +421,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 </br></br>
 
+
 #### Remove-AzureADPolicy
 Deletes the specified policy.
 
@@ -429,8 +435,10 @@ Deletes the specified policy.
 
 </br></br>
 
+
 ### Application policies
 You can use the following cmdlets for application policies.</br></br>
+
 
 #### Add-AzureADApplicationPolicy
 Links the specified policy to an application.
@@ -446,6 +454,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 </br></br>
 
+
 #### Get-AzureADApplicationPolicy
 Gets the policy that is assigned to an application.
 
@@ -458,6 +467,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
 
 </br></br>
+
 
 #### Remove-AzureADApplicationPolicy
 Removes a policy from an application.
@@ -472,6 +482,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 | <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
+
 
 ### Service principal policies
 You can use the following cmdlets for service principal policies.
@@ -490,6 +501,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 </br></br>
 
+
 #### Get-AzureADServicePrincipalPolicy
 Gets any policy linked to the specified service principal.
 
@@ -503,6 +515,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 </br></br>
 
+
 #### Remove-AzureADServicePrincipalPolicy
 Removes the policy from the specified service principal.
 
@@ -510,7 +523,9 @@ Removes the policy from the specified service principal.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
+
+|          Parameters          |                    Description                     |             Example              |
+|------------------------------|----------------------------------------------------|----------------------------------|
+|    <code>&#8209;Id</code>    | <strong>ObjectId (Id)</strong> of the application. | `-Id <ObjectId of Application>`  |
+| <code>&#8209;PolicyId</code> |      <strong>ObjectId</strong> of the policy.      | `-PolicyId <ObjectId of Policy>` |
+

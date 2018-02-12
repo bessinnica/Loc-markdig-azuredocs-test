@@ -46,7 +46,7 @@ Some common motivations for using this feature include:
 
 
 ## How does automatic provisioning work?
-	
+    
 The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems, by connecting to user management API endpoints provided by each application vendor. These user management API endpoints allow Azure AD to programmatically create, update, and remove users. For selected applications the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. 
 
 ![Provisioning](./media/active-directory-saas-app-provisioning/provisioning0.PNG)
@@ -67,12 +67,12 @@ For a list of all applications for which Azure AD supports a pre-integrated prov
 
 For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md).
 
-To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).	
+To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
 
 > [!NOTE]
 > In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
-	
-	
+    
+    
 ## How do I set up automatic provisioning to an application?
 
 Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://portal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
@@ -99,7 +99,7 @@ In the application management screen, provisioning is configured in the **Provis
     * **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning. For more information, see [Using scoping filters](active-directory-saas-scoping-filters.md).
 
     * **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allows you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
-	
+    
 * **Settings** control the operation of the provisioning service for an application, including whether it is currently running or not.
 
 * **Audit logs** provide records of every operation performed by the Azure AD provisioning service. For more details, see the [provisioning reporting guide](active-directory-saas-provisioning-reporting.md).

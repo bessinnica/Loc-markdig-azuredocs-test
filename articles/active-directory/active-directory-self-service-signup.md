@@ -1,4 +1,4 @@
-﻿---
+---
 title: Self-service or trial signup in Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory

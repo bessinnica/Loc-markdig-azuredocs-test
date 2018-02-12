@@ -19,7 +19,7 @@ ms.author: kumud
 
 # Advisor Cost recommendations
 
-Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
+Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
 
 ## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. Advisor monitors your virtual machine usage for 14 days and then identifies low-utilization virtual machines. Virtual machines whose CPU utilization is 5 percent or less and network usage is 7 MB or less for four or more days are considered low-utilization virtual machines.
@@ -38,7 +38,7 @@ Advisor identifies ExpressRoute circuits that have been in the provider status o
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	On the Advisor dashboard, click the **Cost** tab.
+2.  On the Advisor dashboard, click the **Cost** tab.
 
 ## Next steps
 

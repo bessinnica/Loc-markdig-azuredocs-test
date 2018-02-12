@@ -25,9 +25,8 @@ ms.author: suhuruli
 >
 
 This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java. This Microsoft Virtual Academy video also shows you how to create a stateless Reliable service:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965"><br/><img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244"><br/></a></center>
+
 
 ## Installation and setup
 Before you start, make sure you have the Service Fabric development environment set up on your machine.
@@ -204,7 +203,7 @@ Reliable Collections can store any Java type, including your custom types, with 
 
 * Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Hashmap stores your data to local disk on each replica. This means that everything that is stored in Reliable Hashmaps must be *serializable*. 
 * Objects are replicated for high availability when you commit transactions on Reliable Hashmaps. Objects stored in Reliable Hashmaps are kept in local memory in your service. This means that you have a local reference to the object.
-  
+
    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
 The Reliable State Manager manages Reliable Hashmaps for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.

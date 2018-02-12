@@ -40,8 +40,8 @@ Some days you leave your phone at home, but still need to sign in at work. The f
    ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 
 3. Select the verification option you want to use. 
-  - If you don't have access to your alternative methods either, contact your company support to get help signing in to your account.
-  - If you do have access to your alternative methods, continue with two-step verification.
+   - If you don't have access to your alternative methods either, contact your company support to get help signing in to your account.
+   - If you do have access to your alternative methods, continue with two-step verification.
 
 If you don't see the **Use a different verification option** link, then that means you didn't set up alternative methods when you first registered for two-step verification. Contact your company support to get help signing in to your account. Once you're signed in, make sure to [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to add additional verification methods for next time. 
 

@@ -138,7 +138,7 @@ Here's the JavaScript code:
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{

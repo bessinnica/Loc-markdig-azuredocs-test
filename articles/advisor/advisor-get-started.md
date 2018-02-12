@@ -59,7 +59,7 @@ You can filter recommendations to drill down to what is most important to you.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	Use the dropdowns on the Advisor dashboard to filter by subscription, resource type, or recommendation status.
+2.  Use the dropdowns on the Advisor dashboard to filter by subscription, resource type, or recommendation status.
 
     ![Advisor search-filter criteria](./media/advisor-get-started/advisor-filters.png)
 
@@ -131,5 +131,5 @@ To learn more about Advisor, see:
 * [Introduction to Azure Advisor](advisor-overview.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
--  [Advisor Performance recommendations](advisor-performance-recommendations.md)
+* [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Cost recommendations](advisor-performance-recommendations.md)

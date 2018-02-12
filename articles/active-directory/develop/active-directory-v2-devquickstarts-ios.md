@@ -67,18 +67,18 @@ CocoaPods is a dependency manager for Xcode projects. It manages the previous in
 $ vi Podfile
 ```
 1. Add the following to this podfile:
-   
+
     ```
      platform :ios, '8.0'
-   
+
      target 'QuickStart' do
-   
+
      pod 'NXOAuth2Client'
-   
+
      end
     ```
 2. Load the podfile by using CocoaPods. This will create a new Xcode workspace that you will load.
-   
+
     ```
     $ pod install
     ...
@@ -103,7 +103,7 @@ We will move to various files in the skeleton to add authentication. Other parts
 The NXOAuth2Client library requires some values to get set up. After you complete that task, you can use the acquired token to call the Graph API. Because `LoginView` will be called any time we need to authenticate, it makes sense to put configuration values in to that file.
 
 * Let's add some values to the  `LoginViewController.m` file to set the context for authentication and authorization. Details about the values follow the code.
-  
+
     ```objc
     NSString *scopes = @"openid offline_access User.Read";
     NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
@@ -347,7 +347,6 @@ When the Graph API returns data, you need to display the data. For simplicity, h
 
     return cell;
 }
-
 ```
 
 ### Provide a way to call the Graph API when someone types in the search field
@@ -473,7 +472,6 @@ Name the file `GraphAPICaller.m`, and add the following method.
 
                    }];
 }
-
 ```
 
 Let's go through this method in detail.
@@ -508,7 +506,6 @@ You might notice this calls a `convertParamsToDictionary` method that you haven'
 
     return dictionary;
 }
-
 ```
 Next, let's use the `NXOAuth2Request` method to get data back from the API in JSON format.
 

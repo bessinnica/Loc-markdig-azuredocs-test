@@ -81,7 +81,7 @@ Azure Media Indexer 2 Preview supports speech-to-text for the following language
 * Japanese [JaJp]
 * Russian [RuRu]
 * British English [EnGb]
-* Mexican Spanish [EsMx] 
+* Mexican Spanish [EsMx] 
 
 ## Supported file types
 

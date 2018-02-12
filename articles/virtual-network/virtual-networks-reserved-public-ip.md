@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure reserved IP addresses (Classic) - PowerShell | Microsoft Docs
 description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
 services: virtual-network
@@ -84,7 +84,7 @@ Expected output:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->When you create a reserved IP address with PowerShell, you cannot specify a resource group to create the reserved IP in. Azure places it into a resource group named *Default-Networking* automatically. If you create the reserved IP using the [Azure portal](http://portal.azure.com), you can specify any resource group you choose. If you create the reserved IP in a resource group other than *Default-Networking* however, whenever you reference the reserved IP with commands such as `Get-AzureReservedIP` and `Remove-AzureReservedIP`, you must reference the name *Group resource-group-name reserved-ip-name*.  For example, if you create a reserved IP named *myReservedIP* in a resource group named *myResourceGroup*, you must reference the name of the reserved IP as *Group myResourceGroup myReservedIP*.   
+>When you create a reserved IP address with PowerShell, you cannot specify a resource group to create the reserved IP in. Azure places it into a resource group named *Default-Networking* automatically. If you create the reserved IP using the [Azure portal](http://portal.azure.com), you can specify any resource group you choose. If you create the reserved IP in a resource group other than *Default-Networking* however, whenever you reference the reserved IP with commands such as `Get-AzureReservedIP` and `Remove-AzureReservedIP`, you must reference the name *Group resource-group-name reserved-ip-name*.  For example, if you create a reserved IP named *myReservedIP* in a resource group named *myResourceGroup*, you must reference the name of the reserved IP as *Group myResourceGroup myReservedIP*.   
 
 Once an IP is reserved, it remains associated to your subscription until you delete it. To delete a reserved IP, run the following PowerShell command:
 
