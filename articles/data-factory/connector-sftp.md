@@ -105,7 +105,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 | passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes if the private key file is protected by a pass phrase. |
 
 > [!NOTE]
-> SFTP connector supports only OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
+> SFTP connector supports only OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
 
 **Example 1: SshPublicKey authentication using private key filePath**
 

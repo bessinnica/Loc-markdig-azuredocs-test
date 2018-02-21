@@ -68,7 +68,6 @@ For example, the following command displays all Debian offers (remember that wit
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
-
 ```
 
 Partial output: 

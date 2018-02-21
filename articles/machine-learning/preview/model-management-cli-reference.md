@@ -17,7 +17,7 @@ ms.date: 11/08/2017
 
 ## Base CLI concepts:
 
-    account : Manage model management accounts.	
+    account : Manage model management accounts. 
     env     : Manage compute environments.
     image   : Manage operationalization images.
     manifest: Manage operationalization manifests.

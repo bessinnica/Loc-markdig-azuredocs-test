@@ -24,13 +24,12 @@ ms.author: carlrab
 
 After firewall rules have been configured, people can connect to a SQL Database as one of the administrator accounts, as the database owner, or as a database user in the database.  
 
->  [!NOTE]  
+> [!NOTE]
 >  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
->
-
+> 
+> 
 > [!TIP]
 > For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
->
 
 
 ## Unrestricted administrative accounts
@@ -42,7 +41,7 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 When you create an Azure SQL server, you must designate a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.   
 - **Azure Active Directory admin**   
 One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator must be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
- 
+
 
 The **Server admin** and **Azure AD admin** accounts has the following characteristics:
 - These are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
@@ -78,18 +77,18 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
 
 1. Using an administrator account, connect to the master database.
 2. Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
-   
+
    ```
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
-   
+
    > [!NOTE]
    > Use a strong password when creating a login or contained database user. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
-    
+
    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 3. In the master database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
-   
+
    ```
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
    CREATE USER Tran WITH PASSWORD = '<strong_password>';
@@ -97,15 +96,15 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
    ```
 
 4. Add the new user, to the **dbmanager** database role by using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
-   
+
    ```
    ALTER ROLE dbmanager ADD MEMBER Mary; 
    ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
    ```
-   
+
    > [!NOTE]
    > The dbmanager is a database role in master database so you can only add a database user to the dbmanager role. You cannot add a server-level login to database-level role.
-    
+
 5. If necessary, configure a firewall rule to allow the new user to connect. (The new user might be covered by an existing firewall rule.)
 
 Now the user can connect to the master database and can create new databases. The account creating the database becomes the owner of the database.

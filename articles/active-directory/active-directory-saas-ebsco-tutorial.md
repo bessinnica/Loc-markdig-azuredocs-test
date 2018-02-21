@@ -58,19 +58,19 @@ To configure the integration of EBSCO into Azure AD, you need to add EBSCO from 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **EBSCO**, select **EBSCO** from result panel then click **Add** button to add the application.
 
-	![EBSCO in the results list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
+    ![EBSCO in the results list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -94,68 +94,68 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **EBSCO** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_samlbase.png)
 
 3. On the **EBSCO Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![EBSCO Domain and URLs single sign-on information](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url.png)
+    ![EBSCO Domain and URLs single sign-on information](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url.png)
 
     In the **Identifier** textbox, type a URL: `pingsso.ebscohost.com`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![EBSCO Domain and URLs single sign-on information](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url1.png)
+    ![EBSCO Domain and URLs single sign-on information](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
-	 
-	> [!NOTE] 
-	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [EBSCO Client support team](mailto:sso@ebsco.com) to get the value. 
+     
+    > [!NOTE] 
+    > The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [EBSCO Client support team](mailto:sso@ebsco.com) to get the value. 
 
-	o	**Unique elements:**  
+    o   **Unique elements:**  
 
-	o	**Custid** = Enter unique EBSCO customer ID 
+    o   **Custid** = Enter unique EBSCO customer ID 
 
-	o	**Profile** = Clients can tailor the link to direct users to a specific profile (depending on what they purchase from EBSCO). They can enter a specific profile ID. The main IDs are eds (EBSCO Discovery Service) and ehost (EBSOCOhost databases). Instructions for the same are given [here](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o   **Profile** = Clients can tailor the link to direct users to a specific profile (depending on what they purchase from EBSCO). They can enter a specific profile ID. The main IDs are eds (EBSCO Discovery Service) and ehost (EBSOCOhost databases). Instructions for the same are given [here](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
 5. EBSCO application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
 
     > [!Note]
     > The **name** attribute is mandatory and it is mapped with **User Identifier** in EBSCO application. This is added by default so you don't need to add this manually.
-	
+    
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |    
-	| FirstName   | user.givenname |
-	| LastName   | user.surname |
-	| Email   | user.mail |
+    | Attribute Name | Attribute Value |
+    | ---------------| --------------- |    
+    | FirstName   | user.givenname |
+    | LastName   | user.surname |
+    | Email   | user.mail |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_officespace_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_officespace_04.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**
+    ![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_attribute_05.png)
+    
+    b. In the **Name** textbox, type the attribute name shown for that row.
+    
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**
 
 7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_certificate.png) 
 
 8. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-ebsco-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-ebsco-tutorial/tutorial_general_400.png)
+    
 9. To configure single sign-on on **EBSCO** side, you need to send the downloaded **Metadata XML** to [EBSCO support team](mailto:sso@ebsco.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
@@ -214,40 +214,40 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **EBSCO**.
 
-	![The EBSCO link in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_app.png)  
+    ![The EBSCO link in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 1. When you click the EBSCO tile in the Access Panel, you should get automatically signed-on to your EBSCO application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 2. Once you login to the application, click on the **sign in** button in the top right corner.
 
-	![The EBSCO signin in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
+    ![The EBSCO signin in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
  
 3. You will receive a one-time prompt to pair the institutional/SAML login with an **Link your existing MyEBSCOhost account to your institution account now** OR **Create a new MyEBSCOhost account and link it to your institution account**. The account is used for personalization on the EBSCOhost application. Select the option **Create a new account** and  you will see that the form for personalization is pre-completed with the values from the saml response as shown in the screenshot below. Click **‘Continue’** to save this selection.
-	
-	 ![The EBSCO user in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
+    
+     ![The EBSCO user in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
 
 4. After completing the above setup, clear cookies/cache and login again. You won’t have to manually signin again and the personalization settings are remembered
 

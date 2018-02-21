@@ -387,6 +387,7 @@ The following tables show the shortcut key combinations for each node in the **S
 * [Jobs node shortcut keys](#jobs-node-shortcut-keys)
 
 #### Devices node shortcut keys
+
 | Menu Shortcut | Result |
 |:--- |:--- |
 | C |Opens the **Configure a Device** page. |
@@ -398,6 +399,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | H |Opens online Help. |
 
 #### Volumes node shortcut keys
+
 | Menu Shortcut | Result |
 |:--- |:--- |
 | V |Updates the list of volumes. |
@@ -408,6 +410,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | H |Opens online Help. |
 
 #### Volume Groups node shortcut keys
+
 | Menu Shortcut | Result |
 |:--- |:--- |
 | G |Opens the **Create a Volume Group** page. |
@@ -418,6 +421,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | H |Opens online Help. |
 
 #### Backup Policies node shortcut keys
+
 | Menu Shortcut | Result |
 |:--- |:--- |
 | B |Opens the **Create a Policy** page. |
@@ -428,6 +432,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | H |Opens online Help. |
 
 #### Backup Catalog node shortcut keys
+
 | Menu Shortcut | Result |
 |:--- |:--- |
 | W |Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node. |
@@ -435,6 +440,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | H |Opens online Help. |
 
 #### Jobs node shortcut keys
+
 | Menu Shortcut | Result |
 |:--- |:--- |
 | V |Opens the **View** menu. |

@@ -33,12 +33,12 @@ This topic shows you how to use the Oracle Database connector in a logic app.
     * Oracle 9 and later
     * Oracle client software 8.1.7 and later
 
-* Install the on-premises data gateway. [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed. 
+* Install the on-premises data gateway. [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed. 
 
     > [!NOTE]
-    > The on-premises data gateway acts as a bridge, and provides a secure data transfer between on-premises data (data that is not in the cloud) and your logic apps. The same gateway can be used with multiple services, and multiple data sources. So, you may only need to install the gateway once.
+    > The on-premises data gateway acts as a bridge, and provides a secure data transfer between on-premises data (data that is not in the cloud) and your logic apps. The same gateway can be used with multiple services, and multiple data sources. So, you may only need to install the gateway once.
 
-* Install the Oracle Client on the machine where you installed the on-premises data gateway. Be sure to install the 64-bit Oracle Data Provider for .NET from Oracle:  
+* Install the Oracle Client on the machine where you installed the on-premises data gateway. Be sure to install the 64-bit Oracle Data Provider for .NET from Oracle:  
 
   [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -97,25 +97,25 @@ This topic shows you how to use the Oracle Database connector in a logic app.
 
 #### **Error**: Cannot reach the Gateway
 
-**Cause**: The on-premises data gateway is not able to connect to the cloud. 
+**Cause**: The on-premises data gateway is not able to connect to the cloud. 
 
-**Mitigation**: Make sure your gateway is running on the on-premises machine where you installed it, and that it can connect to the internet.  We recommend not installing the gateway on a computer that may be turned off or sleep. You can also restart the on-premises data gateway service (PBIEgwService).
+**Mitigation**: Make sure your gateway is running on the on-premises machine where you installed it, and that it can connect to the internet.  We recommend not installing the gateway on a computer that may be turned off or sleep. You can also restart the on-premises data gateway service (PBIEgwService).
 
 #### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. Please visit [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) to install the official provider.
 
-**Cause**: The Oracle client SDK is not installed on the machine where the on-premises data gateway is running.  
+**Cause**: The Oracle client SDK is not installed on the machine where the on-premises data gateway is running.  
 
 **Resolution**: Download and install the Oracle client SDK on the same computer as the on-premises data gateway.
 
 #### **Error**: Table '[Tablename]' does not define any key columns
 
-**Cause**: The table does not have any primary key.  
+**Cause**: The table does not have any primary key.  
 
 **Resolution**: The Oracle Database connector requires that a table with a primary key column be used.
 
 #### Currently not supported
 
-* Views and stored procedures 
+* Views and stored procedures 
 * Any table with composite keys
 * Nested object types in tables
  

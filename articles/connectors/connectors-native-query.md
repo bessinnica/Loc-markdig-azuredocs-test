@@ -36,13 +36,13 @@ Here's how you can add it in a logic app:
 1. Select the **New Step** button.
 2. Choose **Add an action**.
 3. In the action search box, type **filter** to list the **Filter array** action.
-   
+
     ![Select the query action](./media/connectors-native-query/using-action-1.png)
 4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
 5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
-   
+
     ![Complete the query action](./media/connectors-native-query/using-action-2.png)
-   
+
     The action will output a new array that contains only results that met the filter requirements.
 6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
@@ -68,6 +68,7 @@ A * means that it is a required field.
 | Condition* |where |The condition to evaluate for each item |
 
 <br>
+
 
 ### Output details
 The following are output details for the HTTP response.

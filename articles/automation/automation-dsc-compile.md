@@ -1,4 +1,4 @@
-﻿---
+---
 title: Compiling configurations in Azure Automation DSC | Microsoft Docs
 description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
@@ -155,7 +155,7 @@ Then you can call the **Composite Resource** into your configuration like so:
 
     Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
     {
-            
+
             JoinDomain DomainJoin
             {
                 DomainName = $DomainName
@@ -167,7 +167,6 @@ Then you can call the **Composite Resource** into your configuration like so:
                 DependsOn = "[JoinDomain]DomainJoin"
             }        
     }
-
 ```
 
 ## ConfigurationData

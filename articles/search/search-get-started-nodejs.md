@@ -42,6 +42,7 @@ In this application, the **DataIndexer** program builds and loads the index usin
 
 <a id="sub-2"></a>
 
+
 ## Find the service name and api-key of your Azure Search service
 After you create the service, return to the portal to get the URL or `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call.
 

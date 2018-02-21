@@ -54,7 +54,6 @@ For additional information, you can always type ```Get-Help``` and then the Powe
 
     ```PowerShell
     Login-AzureRmAccount
-
     ```
 2. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from `Get-AzureRmSubscription`.
 
@@ -70,8 +69,8 @@ For additional information, you can always type ```Get-Help``` and then the Powe
    ```
 4. To create a rule, you need to have several important pieces of information first.
 
-  * The **Resource ID** for the resource you want to set an alert for
-  * The **metric definitions** available for that resource
+   * The **Resource ID** for the resource you want to set an alert for
+   * The **metric definitions** available for that resource
 
      One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. **RESOURCE ID** is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/).
 
@@ -98,7 +97,6 @@ For additional information, you can always type ```Get-Help``` and then the Powe
 
     ```PowerShell
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
-
     ```
 6. To create webhook or send email when an alert triggers, first create the email and/or webhooks. Then immediately create the rule afterwards with the -Actions tag and as shown in the following example. You cannot associate webhook or emails with already created rules via PowerShell.
 

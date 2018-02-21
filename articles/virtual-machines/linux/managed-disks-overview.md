@@ -18,3 +18,4 @@ ms.author: iainfou
 
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
+

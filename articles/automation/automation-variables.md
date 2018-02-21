@@ -93,21 +93,21 @@ The [New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.
 
 The following sample commands show how to create a variable of type string and then return its value.
 
-	New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
+    New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
     –Encrypted $false –Value 'My String'
-	$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
+    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
 The following sample commands show how to create a variable with a complex type and then return its properties. In this case, a virtual machine object from **Get-AzureRmVm** is used.
 
-	$vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
-	New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
-	
-	$vmValue = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
+    $vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
+    New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+    
+    $vmValue = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
-	$vmName = $vmValue.Name
-	$vmIpAddress = $vmValue.IpAddress
+    $vmName = $vmValue.Name
+    $vmIpAddress = $vmValue.IpAddress
 
 
 
@@ -122,16 +122,16 @@ Use the **Set-AutomationVariable** activity to set the value of an Automation va
 
 The following sample commands show how to set and retrieve a variable in a textual runbook. In this sample, it is assumed that variables of type integer named *NumberOfIterations* and *NumberOfRunnings* and a variable of type string named *SampleMessage* have already been created.
 
-	$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-	$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
-	$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
-	
-	Write-Output "Runbook has been run $NumberOfRunnings times."
-	
-	for ($i = 1; $i -le $NumberOfIterations; $i++) {
-	   Write-Output "$i`: $SampleMessage"
-	}
-	Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+    $SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
+    
+    Write-Output "Runbook has been run $NumberOfRunnings times."
+    
+    for ($i = 1; $i -le $NumberOfIterations; $i++) {
+       Write-Output "$i`: $SampleMessage"
+    }
+    Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### Setting and retrieving a complex object in a variable
 
@@ -168,23 +168,23 @@ In the following code, the collection is retrieved from the variable and used to
 #### Setting and retrieving a variable in Python2
 The following sample code shows how to use a variable, set a variable, and handle an exception for a non-existent variable in a Python2 runbook.
 
-	import automationassets
-	from automationassets import AutomationAssetNotFound
+    import automationassets
+    from automationassets import AutomationAssetNotFound
 
-	# get a variable
-	value = automationassets.get_automation_variable("test-variable")
-	print value
+    # get a variable
+    value = automationassets.get_automation_variable("test-variable")
+    print value
 
-	# set a variable (value can be int/bool/string)
-	automationassets.set_automation_variable("test-variable", True)
-	automationassets.set_automation_variable("test-variable", 4)
-	automationassets.set_automation_variable("test-variable", "test-string")
+    # set a variable (value can be int/bool/string)
+    automationassets.set_automation_variable("test-variable", True)
+    automationassets.set_automation_variable("test-variable", 4)
+    automationassets.set_automation_variable("test-variable", "test-string")
 
-	# handle a non-existent variable exception
-	try:
-	    value = automationassets.get_automation_variable("non-existing variable")
-	except AutomationAssetNotFound:
-	    print "variable not found"
+    # handle a non-existent variable exception
+    try:
+        value = automationassets.get_automation_variable("non-existing variable")
+    except AutomationAssetNotFound:
+        print "variable not found"
 
 
 ### Graphical runbook samples

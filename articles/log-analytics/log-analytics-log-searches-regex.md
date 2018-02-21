@@ -34,22 +34,22 @@ This article provides details on the regular expression syntax used by Log Analy
 
 Use the following syntax to use the **RegEx** keyword in a log search.  You can use the other sections in this article to determine the syntax of the regular expression itself.
 
-	field:Regex("Regular Expression")
-	field=Regex("Regular Expression")
+    field:Regex("Regular Expression")
+    field=Regex("Regular Expression")
 
 For example, to use a regular expression to return alert records with a type of *Warning* or *Error*, you would use the following log search.
 
-	Type=Alert AlertSeverity=RegEx("Warning|Error")
+    Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## Partial matches
 Note that the regular expression must match the entire text of the property.  Partial matches will not return any records.  For example, if you were trying to return records from a computer named srv01.contoso.com, the following log search would **not** return any records.
 
-	Computer=RegEx("srv..")
+    Computer=RegEx("srv..")
 
 This is because only the first part of the name matches the regular expression.  The following two log searches would return records from this computer because they match the entire name.
 
-	Computer=RegEx("srv..@")
-	Computer=RegEx("srv...contoso.com")
+    Computer=RegEx("srv..@")
+    Computer=RegEx("srv...contoso.com")
 
 ## Characters
 Specify different characters.

@@ -23,7 +23,6 @@ ms.author: jgao
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-
 Learn how to create a Hadoop cluster in Azure HDInsight cluster using the .NET SDK.
 
 > [!IMPORTANT]

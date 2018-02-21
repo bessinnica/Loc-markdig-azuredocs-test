@@ -52,14 +52,14 @@ Following is a sample response for a schedule.
 
 ```json
 {
-	"value": [{
-		"id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
-		"etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
-		"properties": {
-			"Interval": 15,
-			"QueryTimeSpan": 15
-		}
-	}]
+    "value": [{
+        "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
+        "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
+        "properties": {
+            "Interval": 15,
+            "QueryTimeSpan": 15
+        }
+    }]
 }
 ```
 
@@ -247,17 +247,17 @@ Use the Put method with an existing action ID to modify a remediation action for
 Following is a complete example to create a new email alert.  This creates a new schedule along with an action containing a threshold and email.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-	$resourceGroup  = "MyResourceGroup"    
-	$workspaceName    = "MyWorkspace"
+    $resourceGroup  = "MyResourceGroup"    
+    $workspaceName    = "MyWorkspace"
     $searchId       = "MySearch"
-	$scheduleId     = "MySchedule"
-	$thresholdId    = "MyThreshold"
-	$actionId       = "MyEmailAction"
+    $scheduleId     = "MySchedule"
+    $thresholdId    = "MyThreshold"
+    $actionId       = "MyEmailAction"
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 ### Webhook actions

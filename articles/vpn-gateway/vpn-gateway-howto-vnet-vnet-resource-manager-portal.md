@@ -152,10 +152,10 @@ When the virtual network gateways for both TestVNet1 and TestVNet4 have complete
 
 1. In **All resources**, navigate to the virtual network gateway for your VNet. For example, **TestVNet1GW**. Click **TestVNet1GW** to open the virtual network gateway page.
 
-  ![Connections page](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Connections page")
+   ![Connections page](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Connections page")
 2. Click **+Add** to open the **Add connection** page.
 
-  ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
+   ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
 3. On the **Add connection** page, in the name field, type a name for your connection. For example, **TestVNet1toTestVNet4**.
 4. For **Connection type**, select **VNet-to-VNet** from the dropdown.
 5. The **First virtual network gateway** field value is automatically filled in because you are creating this connection from the specified virtual network gateway.

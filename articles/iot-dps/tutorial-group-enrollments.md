@@ -26,39 +26,39 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
 
-1. Download and install [Maven](https://maven.apache.org/install.html).
+2. Download and install [Maven](https://maven.apache.org/install.html).
 
-1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
+3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates. For a more in-depth look at creating certificates, please see [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
+4. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates. For a more in-depth look at creating certificates, please see [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
 
     > [!NOTE]
     > This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
     >
 
-1. Create the enrollment group information:
+5. Create the enrollment group information:
 
-    1. Run through **Step 1** and **Step 2** to create your _root_ and _intermediate_ certificates.
+   1. Run through **Step 1** and **Step 2** to create your _root_ and _intermediate_ certificates.
 
-    1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
+   2. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
-        1. On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
+      1. On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
 
-        1. Under the **Add Certificate**, enter the following information:
-            - Enter a unique certificate name.
-            - Select the **_RootCA.pem_** file you just created.
-            - Once complete, click the **Save** button.
+      2. Under the **Add Certificate**, enter the following information:
+          - Enter a unique certificate name.
+          - Select the **_RootCA.pem_** file you just created.
+          - Once complete, click the **Save** button.
 
-        ![Add certificate](./media/tutorial-group-enrollments/add-certificate.png)
+         ![Add certificate](./media/tutorial-group-enrollments/add-certificate.png)
 
-        1. Select the newly created certificate:
-            - Click **Generate Verification Code**. Copy the code generated.
-            - Run through **Step 3**. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
-            - Select the newly created **_verifyCert4.pem_** file in the Azure portal. Click **Verify**.
+      3. Select the newly created certificate:
+         - Click **Generate Verification Code**. Copy the code generated.
+         - Run through **Step 3**. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
+         - Select the newly created **_verifyCert4.pem_** file in the Azure portal. Click **Verify**.
 
-            ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
+           ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Finish by running **Step 4** and **Step 5** to create your device certificates and clean-up resources.
+6. Finish by running **Step 4** and **Step 5** to create your device certificates and clean-up resources.
 
 > [!NOTE]
 > When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.

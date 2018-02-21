@@ -45,41 +45,46 @@ For information about the pricing and features of individual App Service plans, 
 > 
 
 <a name="scalingsharedorbasic"></a>
+
 <a name="scalingstandard"></a>
+
 
 ## Scale up your pricing tier
 1. In your browser, open the [Azure portal][portal].
 2. In your App Service app page, click **All settings**, and then click **Scale Up**.
-   
+
     ![Navigate to scale up your Azure app.][ChooseWHP]
 3. Choose your tier, and then click **Select**.
-   
+
     The **Notifications** tab will flash a green **SUCCESS** after the operation is complete.
 
 <a name="ScalingSQLServer"></a>
+
 
 ## Scale related resources
 If your app depends on other services, such as Azure SQL Database or Azure Storage, you can scale up these resources separately. These resources are not managed by the App Service plan.
 
 1. In **Essentials**, click the **Resource group** link.
-   
+
     ![Scale up your Azure app's related resources](./media/web-sites-scale/RGEssentialsLink.png)
 2. In the **Summary** part of the **Resource group** page, click a resource that you want to scale. The following screenshot
    shows a SQL Database resource and an Azure Storage resource.
-   
+
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 3. For a SQL Database resource, click **Settings** > **Pricing tier** to scale the pricing tier.
-   
+
     ![Scale up the SQL Database backend for your Azure app](./media/web-sites-scale/ScaleDatabase.png)
-   
+
     You can also turn on [geo-replication](../sql-database/sql-database-geo-replication-overview.md) for your SQL Database instance.
-   
+
     For an Azure Storage resource, click **Settings** > **Configuration** to scale up your storage options.
-   
+
     ![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="OtherFeatures"></a>
+
 <a name="devfeatures"></a>
+
 
 ## Compare pricing tiers
 For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).
@@ -92,22 +97,23 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 <a name="Next Steps"></a>
 
+
 ## Next steps
 * For information about pricing, support, and SLA, visit the following links:
-  
+
     [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/)
-  
+
     [Microsoft Azure Support Plans](https://azure.microsoft.com/support/plans/)
-  
+
     [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
-  
+
     [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/)
-  
+
     [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
-  
+
 * For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 * For videos about scaling App Service apps, see the following resources:
-  
+
   * [When to Scale Azure Websites - with Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
   * [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
   * [How Azure Websites Scale - with Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)

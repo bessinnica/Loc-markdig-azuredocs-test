@@ -68,8 +68,8 @@ The graphics you choose are shown in the following circumstances:
 
 * After a user enters their username
 * If the user accesses the customized URL:
-    * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
-    * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
+  * By passing the <em>whr</em> parameter to the password reset page, like "<https://login.microsoftonline.com/?whr=contoso.com>"
+  * By passing the <em>username</em> parameter to the password reset page, like "<https://login.microsoftonline.com/?username=admin@contoso.com>"
 
 Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](customize-branding.md).
 

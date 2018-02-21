@@ -30,8 +30,8 @@ These release notes provide information about improvements, fixes, and known iss
 
 - See the [new features and fixes](azure-stack-update-1712.md#new-features-and-fixes) section of the Azure Stack 1712 update release notes for Azure Stack integrated systems.
 
-	> [!IMPORTANT]
-	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
+    > [!IMPORTANT]
+    > Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 ### Known issues
  
@@ -99,8 +99,8 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 - See the [new features and fixes](azure-stack-update-1711.md#new-features-and-fixes) section of the Azure Stack 1711 update release notes for Azure Stack integrated systems.
 
-	> [!IMPORTANT]
-	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
+    > [!IMPORTANT]
+    > Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 ### Known issues
  
@@ -149,8 +149,8 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
 
-	> [!NOTE]
-	> See the individual [SQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy) and [MySQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy) setup articles for version compatibility guidance.
+    > [!NOTE]
+    > See the individual [SQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy) and [MySQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy) setup articles for version compatibility guidance.
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.

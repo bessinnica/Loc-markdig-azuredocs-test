@@ -73,22 +73,22 @@ helm search
 The output looks similar to the following, however with many more charts.
 
 ```
-NAME                         	VERSION	DESCRIPTION
-stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools
-stable/artifactory           	6.1.0  	Universal Repository Manager supporting all maj...
-stable/aws-cluster-autoscaler	0.3.1  	Scales worker nodes within autoscaling groups.
-stable/buildkite             	0.2.0  	Agent for Buildkite
-stable/centrifugo            	2.0.0  	Centrifugo is a real-time messaging server.
-stable/chaoskube             	0.5.0  	Chaoskube periodically kills random pods in you...
-stable/chronograf            	0.3.0  	Open-source web application written in Go and R...
-stable/cluster-autoscaler    	0.2.0  	Scales worker nodes within autoscaling groups.
-stable/cockroachdb           	0.5.0  	CockroachDB is a scalable, survivable, strongly...
-stable/concourse             	0.7.0  	Concourse is a simple and scalable CI system.
-stable/consul                	0.4.1  	Highly available and distributed service discov...
-stable/coredns               	0.5.0  	CoreDNS is a DNS server that chains middleware ...
-stable/coscale               	0.2.0  	CoScale Agent
-stable/dask-distributed      	2.0.0  	Distributed computation in Python
-stable/datadog               	0.8.0  	DataDog Agent
+NAME                            VERSION DESCRIPTION
+stable/acs-engine-autoscaler    2.0.0   Scales worker nodes within agent pools
+stable/artifactory              6.1.0   Universal Repository Manager supporting all maj...
+stable/aws-cluster-autoscaler   0.3.1   Scales worker nodes within autoscaling groups.
+stable/buildkite                0.2.0   Agent for Buildkite
+stable/centrifugo               2.0.0   Centrifugo is a real-time messaging server.
+stable/chaoskube                0.5.0   Chaoskube periodically kills random pods in you...
+stable/chronograf               0.3.0   Open-source web application written in Go and R...
+stable/cluster-autoscaler       0.2.0   Scales worker nodes within autoscaling groups.
+stable/cockroachdb              0.5.0   CockroachDB is a scalable, survivable, strongly...
+stable/concourse                0.7.0   Concourse is a simple and scalable CI system.
+stable/consul                   0.4.1   Highly available and distributed service discov...
+stable/coredns                  0.5.0   CoreDNS is a DNS server that chains middleware ...
+stable/coscale                  0.2.0   CoScale Agent
+stable/dask-distributed         2.0.0   Distributed computation in Python
+stable/datadog                  0.8.0   DataDog Agent
 ...
 ```
 
@@ -153,8 +153,8 @@ helm list
 Output:
 
 ```
-NAME         	REVISION	UPDATED                 	STATUS  	CHART              	NAMESPACE
-bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	default
+NAME            REVISION    UPDATED                     STATUS      CHART               NAMESPACE
+bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingress-0.8.7 default
 ```
 
 ## Next steps

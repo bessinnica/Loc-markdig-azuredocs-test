@@ -28,8 +28,8 @@ Another advantage is that users do not need to have subscription permission to m
 ## Prerequisites
 To complete the steps in this article, you need the following prerequisites:
 
-*	An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial).
-*	An Azure Data Lake Store account. For instructions on how to create one, see [Get Started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
+*   An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial).
+*   An Azure Data Lake Store account. For instructions on how to create one, see [Get Started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
 
 ## Installation
 
@@ -89,93 +89,93 @@ The following steps illustrate how to view the contents of an ADLS account withi
 ## Azure Data Lake Store resources management
 
 You can manage Azure Data Lake Store resources by doing following operations:
-*	Navigate  ADLS resources across multiple ADL accounts.  
-*	Use connection string to connect to and manage ADLS directly. 
-*	View ADLS resources shared by others through ACL under Local & Attached.
-*	Perform File/Folder CRUD Operations: support recursive folder and multi-selected files. 
-*	Drag, drop and add folder to quick access and recent locations, which mirrors desktop file explorer experience. 
-*	Copy and open ADL hyperlink with Storage Explorer with one click. 
-*	Display activity log in the lower right pane to view activity status.
-*	Display folder statistics and file property.
+*   Navigate  ADLS resources across multiple ADL accounts.  
+*   Use connection string to connect to and manage ADLS directly. 
+*   View ADLS resources shared by others through ACL under Local & Attached.
+*   Perform File/Folder CRUD Operations: support recursive folder and multi-selected files. 
+*   Drag, drop and add folder to quick access and recent locations, which mirrors desktop file explorer experience. 
+*   Copy and open ADL hyperlink with Storage Explorer with one click. 
+*   Display activity log in the lower right pane to view activity status.
+*   Display folder statistics and file property.
 
 ## Manage resources in Azure Storage Explorer
 Once you've created an Azure Data Lake Store account, you can upload folders and files, download, and open resources on your local computer. And you can pin to quick access, new folder, copy URL, select All. In addition, you are able to copy, paste, rename, delete, folder statistics, refresh.
 
 The following items illustrate how to manage resources within an Azure Data Lake Store account. Follow these steps depending on the task you wish to perform:
-   * **Upload files**
+* **Upload files**
 
-     1. On the main pane's toolbar, select **Upload**, and then **Upload Files...** from the drop-down menu.
+  1. On the main pane's toolbar, select **Upload**, and then **Upload Files...** from the drop-down menu.
 
-        ![Upload files menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png) 
+     ![Upload files menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png) 
 
-     2. In the **Select files to Upload** dialog, select the files you wish to upload.
+  2. In the **Select files to Upload** dialog, select the files you wish to upload.
 
-        ![Upload folder dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-dialog.png)
+     ![Upload folder dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-dialog.png)
 
-     3. Select **Open** to begin upload.
-   * **Upload a folder**
+  3. Select **Open** to begin upload.
+* **Upload a folder**
 
-     1. On the main pane's toolbar, select **Upload**, and then **Upload Folder...** from the drop-down menu.
+  1. On the main pane's toolbar, select **Upload**, and then **Upload Folder...** from the drop-down menu.
 
-        ![Upload folder menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png) 
-     2. In the **Select folder to Upload** dialog, select a folder you wish to upload.
+     ![Upload folder menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png) 
+  2. In the **Select folder to Upload** dialog, select a folder you wish to upload.
 
-        ![Upload folder dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-dialog.png)      
+     ![Upload folder dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-dialog.png)      
 
-     3. Select **Select Folder** to begin upload folders.
+  3. Select **Select Folder** to begin upload folders.
 
-        ![Upload folder dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
+     ![Upload folder dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-      > [!NOTE] 
-          > You can directly drag the folders and files in local computer to implement uploading. 
+     > [!NOTE] 
+       > You can directly drag the folders and files in local computer to implement uploading. 
        
-   * **Download folders or files to your local computer**
+* **Download folders or files to your local computer**
 
-     1. Select the folders or files you wish to download.
-     2. On the main pane's toolbar, select **Download**.
-     3. In the **Select a folder to save the downloaded files into** dialog, specify the location where you want folders or files downloaded. And specify the name you wish to give it.
-     4. Select **Save**.
-   * **Open folder or file from your local computer**
+  1. Select the folders or files you wish to download.
+  2. On the main pane's toolbar, select **Download**.
+  3. In the **Select a folder to save the downloaded files into** dialog, specify the location where you want folders or files downloaded. And specify the name you wish to give it.
+  4. Select **Save**.
+* **Open folder or file from your local computer**
 
-     1. Select the folder or file you wish to open.
-     2. On the main pane's toolbar, select **Open** or right-click the selected folder or file, from the context menu, click **open**.
-     3. The file is downloaded and opened using the application associated with the files' underlying file type. Or the folder is opened in the main pane.
+  1. Select the folder or file you wish to open.
+  2. On the main pane's toolbar, select **Open** or right-click the selected folder or file, from the context menu, click **open**.
+  3. The file is downloaded and opened using the application associated with the files' underlying file type. Or the folder is opened in the main pane.
 
-        ![open file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open.png) 
+     ![open file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open.png) 
 
-   * **Copy folders or files to the clipboard**
+* **Copy folders or files to the clipboard**
 
-     1. Select the folders or files you wish to copy.
-     2. On the main pane's toolbar, select **Copy** right-click the selected folders or files, from the context menu, click **Copy**.
-     3. In the left pane, navigate to another ADLS account, and double-click it to view it in the main pane.
-     4. On the main pane's toolbar, select **Paste** to create a copy. Or click context menu **Paste** on the destination.
+  1. Select the folders or files you wish to copy.
+  2. On the main pane's toolbar, select **Copy** right-click the selected folders or files, from the context menu, click **Copy**.
+  3. In the left pane, navigate to another ADLS account, and double-click it to view it in the main pane.
+  4. On the main pane's toolbar, select **Paste** to create a copy. Or click context menu **Paste** on the destination.
 
-        ![copy paste folder or file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
+     ![copy paste folder or file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-      > [!NOTE] 
-          > + Copy-Paste across storage type **is not** supported. You can copy ADLS folders or files and paste to another ADLS account. But you **cannot** copy ADLS folders or files and paste to blob storage or the other way around. 
-          > + The Copy-Paste works by downloading the folders or files to local and then upload to the destination. The tool **does not** perform the action in the backend. Copy-Paste on large files is slow. The optimization of high-performance file copy-move is undergoing.
-   * **Delete folders or files**
+     > [!NOTE] 
+       > + Copy-Paste across storage type **is not** supported. You can copy ADLS folders or files and paste to another ADLS account. But you **cannot** copy ADLS folders or files and paste to blob storage or the other way around. 
+       > + The Copy-Paste works by downloading the folders or files to local and then upload to the destination. The tool **does not** perform the action in the backend. Copy-Paste on large files is slow. The optimization of high-performance file copy-move is undergoing.
+* **Delete folders or files**
 
-     1. Select the folders or files you wish to delete.
-     2. On the main pane's toolbar, select **Delete**, or right-click the selected folders or files, from the context menu, click **Delete**.
-     3. Select **Yes** on the confirmation dialog.
+  1. Select the folders or files you wish to delete.
+  2. On the main pane's toolbar, select **Delete**, or right-click the selected folders or files, from the context menu, click **Delete**.
+  3. Select **Yes** on the confirmation dialog.
 
-        ![copy paste folder or file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
+     ![copy paste folder or file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
 
-   * **Pin to Quick access**
+* **Pin to Quick access**
 
-     1. Select the folder you wish to pin.
-     2. On the main pane's toolbar, select **Pin to Quick access**.
-     3. In the left pane, you see the selected folder is added to **Quick Access** node.
+  1. Select the folder you wish to pin.
+  2. On the main pane's toolbar, select **Pin to Quick access**.
+  3. In the left pane, you see the selected folder is added to **Quick Access** node.
 
-        ![pin to quick access](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-quick-access.png)
-     4. After Create the quick access, you can easily get access to the resources.
-   * **Deep Links**
-     1. If you have a URL, you can just enter the URL into the address path in **File Explorer** or browser.
-     2. Then **Storage Explorer.exe** is launched automatically to navigate to the location of the URL you just entered.
+     ![pin to quick access](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-quick-access.png)
+  4. After Create the quick access, you can easily get access to the resources.
+* **Deep Links**
+  1. If you have a URL, you can just enter the URL into the address path in **File Explorer** or browser.
+  2. Then **Storage Explorer.exe** is launched automatically to navigate to the location of the URL you just entered.
 
-        ![deep link in file explorer](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
+     ![deep link in file explorer](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
 
 
 ## Next steps

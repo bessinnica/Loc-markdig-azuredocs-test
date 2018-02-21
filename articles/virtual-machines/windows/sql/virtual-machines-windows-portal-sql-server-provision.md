@@ -232,12 +232,13 @@ To store security secrets in Azure for encryption, click **Azure key vault integ
 
 The following table lists the parameters required to configure Azure Key Vault Integration.
 
-| PARAMETER | DESCRIPTION | EXAMPLE |
-| --- | --- | --- |
-| **Key Vault URL** |The location of the key vault. |https://contosokeyvault.vault.azure.net/ |
-| **Principal name** |Azure Active Directory service principal name. This name is also referred to as the Client ID. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **Principal secret** |Azure Active Directory service principal secret. This secret is also referred to as the Client Secret. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Credential name** |**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. |mycred1 |
+
+|             PARAMETER             |                                                                                  DESCRIPTION                                                                                  |                   EXAMPLE                    |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  <strong>Key Vault URL</strong>   |                                                                        The location of the key vault.                                                                         |   https://contosokeyvault.vault.azure.net/   |
+|  <strong>Principal name</strong>  |                                        Azure Active Directory service principal name. This name is also referred to as the Client ID.                                         |     fde2b411-33d5-4e11-af04eb07b669ccf2      |
+| <strong>Principal secret</strong> |                                    Azure Active Directory service principal secret. This secret is also referred to as the Client Secret.                                     | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| <strong>Credential name</strong>  | <strong>Credential name</strong>: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. |                   mycred1                    |
 
 For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-ps-sql-keyvault.md).
 

@@ -85,6 +85,7 @@ You may also need to install disk firmware updates on top of all the updates sho
 
 <br></br>
 
+
 > [!IMPORTANT]
 > * This procedure needs to be performed only once to apply Update 4. You can use the Azure portal to apply subsequent updates.
 > * If updating from Update 3 or 3.1, the total install time is close to 4 hours.

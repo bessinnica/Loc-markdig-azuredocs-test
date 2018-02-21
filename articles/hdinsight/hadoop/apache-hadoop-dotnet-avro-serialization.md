@@ -1381,7 +1381,7 @@ All of the information from the prerequisites should be entered to the sample co
 * Edit the app.config file in the sample root directory and then build the sample
 * First build the sample, and then edit AvroHDISample.exe.config in the build directory
 
-In both cases, all edits should be done in the **<appSettings>** settings section. Follow the comments in the file.
+In both cases, all edits should be done in the <strong><appSettings></strong> settings section. Follow the comments in the file.
 The sample is run from the command line by executing the following command (where the .zip file with the sample was assumed to be extracted to C:\AvroHDISample; if otherwise, use the relevant file path):
 
     AvroHDISample run C:\AvroHDISample\Data

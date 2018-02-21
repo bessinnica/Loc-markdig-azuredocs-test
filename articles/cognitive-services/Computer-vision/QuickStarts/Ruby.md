@@ -63,7 +63,6 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 
 puts response.body
-
 ```
 ### Analyze an Image Response
 
@@ -167,7 +166,6 @@ A successful response is returned in JSON. Following is an example of a successf
     "lineDrawingType": 0
   }
 }
-
 ```
 
 ## Get a Thumbnail with Computer Vision API Using Ruby <a name="GetThumbnail"> </a>
@@ -245,7 +243,6 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 
 puts response.body
-
 ```
 
 ### OCR Example Response

@@ -22,9 +22,9 @@ This article shows you how to get certain version information regarding the OS o
 
 App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available you in [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
 
--	How and when are OS updates applied?
--	How is App Service patched against significant vulnerabilities (such as zero-day)?
--	Which OS and runtime versions are running your apps?
+-   How and when are OS updates applied?
+-   How is App Service patched against significant vulnerabilities (such as zero-day)?
+-   Which OS and runtime versions are running your apps?
 
 For security reasons, certain specifics of security information are not published. However, the article aims to alleviate concerns by maximizing transparency on the process, and how you can stay up-to-date on security-related announcements or runtime updates.
 

@@ -242,24 +242,24 @@ After you create and test the pipeline, you create a schedule trigger and associ
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
-3. Select your Azure **subscription** in which you want to create the data factory. 
-4. For the **Resource Group**, do one of the following steps:
+4. Select your Azure **subscription** in which you want to create the data factory. 
+5. For the **Resource Group**, do one of the following steps:
      
-      - Select **Use existing**, and select an existing resource group from the drop-down list. 
-      - Select **Create new**, and enter the name of a resource group.   
+   - Select **Use existing**, and select an existing resource group from the drop-down list. 
+   - Select **Create new**, and enter the name of a resource group.   
          
-      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
-6. Select **Pin to dashboard**.     
-7. Click **Create**.
-8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+6. Select **V2 (Preview)** for the **version**.
+7. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
+8. Select **Pin to dashboard**.     
+9. Click **Create**.
+10. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-	![deploying data factory tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
+     ![deploying data factory tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+11. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-   ![Data factory home page](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab.
+    ![Data factory home page](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+12. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab.
 
 ### Create a pipeline
 

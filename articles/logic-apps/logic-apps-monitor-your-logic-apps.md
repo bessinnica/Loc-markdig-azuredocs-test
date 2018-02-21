@@ -84,7 +84,7 @@ You can now review details like inputs, outputs,
 and any errors that happened for that step. For example:
 
    ![Step details](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
-   
+
    > [!NOTE]
    > All runtime details and events are encrypted within the Logic Apps service. 
    > They are decrypted only when a user requests to view that data. 
@@ -99,6 +99,7 @@ for example:
    ![Trigger event output details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
 <a name="azure-diagnostics"></a>
+
 
 ## Turn on diagnostics logging for your logic app
 
@@ -140,6 +141,7 @@ Now, you can find events and other data for trigger events,
 run events, and action events.
 
 <a name="find-events"></a>
+
 
 ## Find events and data for your logic app
 
@@ -206,6 +208,7 @@ Learn [how to save your query](../logic-apps/logic-apps-track-b2b-messages-omspo
 
 <a name="extend-diagnostic-data"></a>
 
+
 ## Extend how and where you use diagnostic data with other services
 
 Along with Azure Log Analytics, you can extend how you use your logic app's 
@@ -232,6 +235,7 @@ Then select the options for where you want to send diagnostic data:
 > Retention periods apply only when you choose to use a storage account.
 
 <a name="add-azure-alerts"></a>
+
 
 ## Set up alerts for your logic app
 
@@ -273,6 +277,7 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 > * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
 <a name="diagnostic-event-properties"></a>
+
 
 ## Azure Diagnostics event settings and details
 

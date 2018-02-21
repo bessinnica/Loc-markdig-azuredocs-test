@@ -19,18 +19,18 @@ ms.custom: H1Hack27Feb2017; it-pro
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
-The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
+The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
 
 This extension was created for organizations that want to protect VPN connections without deploying the Azure MFA Server. The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication for federated or synced users.
 
-When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
+When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
 
-1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers. 
-2. **NPS Server** connects to Active Directory to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.  
-3. **NPS Extension** triggers a request to Azure MFA for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.  
+1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers. 
+2. **NPS Server** connects to Active Directory to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.  
+3. **NPS Extension** triggers a request to Azure MFA for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.  
 4. **Azure MFA** communicates with Azure Active Directory to retrieve the user’s details and performs the secondary authentication using a verification method configured to the user.
 
-The following diagram illustrates this high-level authentication request flow: 
+The following diagram illustrates this high-level authentication request flow: 
 
 ![Authentication flow diagram](./media/multi-factor-authentication-nps-extension/auth-flow.png)
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 or above.
 
 These libraries are installed automatically with the extension.
 
--	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is installed, if it is not already present, through a configuration script you run as part of the setup process. There is no need to install this module ahead of time if it is not already installed.
 
@@ -131,19 +131,19 @@ Your users also need to follow these steps to enroll before they can authenticat
 
 ### Download and install the NPS extension for Azure MFA
 
-1.	[Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
-2.	Copy the binary to the Network Policy Server you want to configure.
-3.	Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were successfully installed.
+1.  [Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
+2.  Copy the binary to the Network Policy Server you want to configure.
+3.  Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were successfully installed.
 
 ### Run the PowerShell script
 
 The installer creates a PowerShell script in this location: `C:\Program Files\Microsoft\AzureMfa\Config` (where C:\ is your installation drive). This PowerShell script performs the following actions:
 
--	Create a self-signed certificate.
--	Associate the public key of the certificate to the service principal on Azure AD.
--	Store the cert in the local machine cert store.
--	Grant access to the certificate’s private key to Network User.
--	Restart the NPS.
+-   Create a self-signed certificate.
+-   Associate the public key of the certificate to the service principal on Azure AD.
+-   Store the cert in the local machine cert store.
+-   Grant access to the certificate’s private key to Network User.
+-   Restart the NPS.
 
 Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation. If you install the extension on multiple servers, each one should have its own certificate.
 
@@ -208,7 +208,7 @@ Open PowerShell command prompt and run the following commands:
 ```
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
 ```
 
 These commands print all the certificates associating your tenant with your instance of the NPS extension in your PowerShell session. Look for your certificate by exporting your client cert as a "Base-64 encoded X.509(.cer)" file without the private key, and compare it with the list from PowerShell.

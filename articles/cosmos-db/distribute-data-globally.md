@@ -119,47 +119,47 @@ Azure Cosmos DB's consistency SLA guarantees that 100% of read requests will mee
 **Consistency guarantees associated with a given consistency level in Azure Cosmos DB**
 
 <table>
-	<tr>
-		<td><strong>Consistency Level</strong></td>
-		<td><strong>Consistency Characteristics</strong></td>
-		<td><strong>SLA</strong></td>
-	</tr>
-	<tr>
-		<td rowspan="3">Session</td>
-		<td>Read your own write</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Monotonic read</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Consistent prefix</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td rowspan="3">Bounded staleness</td>
-		<td>Monotonic read (within a region)</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Consistent prefix</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Staleness bound &lt; K,T</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Consistent prefix</td>
-		<td>Consistent prefix</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Strong</td>
-		<td>Linearizable</td>
-		<td>100%</td>
-	</tr>
+    <tr>
+        <td><strong>Consistency Level</strong></td>
+        <td><strong>Consistency Characteristics</strong></td>
+        <td><strong>SLA</strong></td>
+    </tr>
+    <tr>
+        <td rowspan="3">Session</td>
+        <td>Read your own write</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Monotonic read</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Consistent prefix</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td rowspan="3">Bounded staleness</td>
+        <td>Monotonic read (within a region)</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Consistent prefix</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Staleness bound &lt; K,T</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Consistent prefix</td>
+        <td>Consistent prefix</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Strong</td>
+        <td>Linearizable</td>
+        <td>100%</td>
+    </tr>
 </table>
 
 ### <a id="ConsistencyAndAvailability"></a>Consistency's relationship with availability

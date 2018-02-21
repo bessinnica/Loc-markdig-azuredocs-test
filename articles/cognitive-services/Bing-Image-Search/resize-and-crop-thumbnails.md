@@ -16,3 +16,4 @@ ms.author: scottwhi
 # Resizing and cropping thumbnail images
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]
+

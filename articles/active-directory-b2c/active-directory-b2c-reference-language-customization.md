@@ -155,46 +155,47 @@ Chrome and Firefox both request for their set language and if it is a supported 
 ### Known issues
 * Uploading language resources for the MFA page in a Profile Edit policy is currently unavailable.
 * `LocalizedCollections` aren't generated for values when it is required by the response type
-### What if I want a language that isn't supported?
-We are planning to provide an extension of this feature that allows you to upload a JSON resource towards 'custom languages'.  The feature allows you to specify the name and language code for any language and provide *all* the translations for that language.  If you need this feature, send us your scenario at [aadb2cpreview@microsoft.com](mailto:aadb2cpreview@microsoft.com).  
+  ### What if I want a language that isn't supported?
+  We are planning to provide an extension of this feature that allows you to upload a JSON resource towards 'custom languages'.  The feature allows you to specify the name and language code for any language and provide *all* the translations for that language.  If you need this feature, send us your scenario at [aadb2cpreview@microsoft.com](mailto:aadb2cpreview@microsoft.com).  
 
 ### What languages are supported?
 
-| Language              | Language code |
+|       Language        | Language code |
 |-----------------------|---------------|
-| Bangla                | bn            |
-| Czech                 | cs            |
-| Danish                | da            |
-| German                | de            |
-| Greek                 | el            |
-| English               | en            |
-| Spanish               | es            |
-| Finnish               | fi            |
-| French                | fr            |
-| Gujarati              | gu            |
-| Hindi                 | hi            |
-| Croatian              | hr            |
-| Hungarian             | hu            |
-| Italian               | it            |
-| Japanese              | ja            |
-| Kannada               | kn            |
-| Korean                | ko            |
-| Malayalam             | ml            |
-| Marathi               | mr            |
-| Malay                 | ms            |
-| Norwegian Bokmal      | nb            |
-| Dutch                 | nl            |
-| Punjabi               | pa            |
-| Polish                | pl            |
-| Portuguese - Brazil   | pt-br         |
-| Portuguese - Portugal | pt-pt         |
-| Romanian              | ro            |
-| Russian               | ru            |
-| Slovak                | sk            |
-| Swedish               | sv            |
-| Tamil                 | ta            |
-| Telugu                | te            |
-| Thai                  | th            |
-| Turkish               | tr            |
-| Chinese - Simplified  | zh-hans       |
-| Chinese - Traditional | zh-hant       |
+|        Bangla         |      bn       |
+|         Czech         |      cs       |
+|        Danish         |      da       |
+|        German         |      de       |
+|         Greek         |      el       |
+|        English        |      en       |
+|        Spanish        |      es       |
+|        Finnish        |      fi       |
+|        French         |      fr       |
+|       Gujarati        |      gu       |
+|         Hindi         |      hi       |
+|       Croatian        |      hr       |
+|       Hungarian       |      hu       |
+|        Italian        |      it       |
+|       Japanese        |      ja       |
+|        Kannada        |      kn       |
+|        Korean         |      ko       |
+|       Malayalam       |      ml       |
+|        Marathi        |      mr       |
+|         Malay         |      ms       |
+|   Norwegian Bokmal    |      nb       |
+|         Dutch         |      nl       |
+|        Punjabi        |      pa       |
+|        Polish         |      pl       |
+|  Portuguese - Brazil  |     pt-br     |
+| Portuguese - Portugal |     pt-pt     |
+|       Romanian        |      ro       |
+|        Russian        |      ru       |
+|        Slovak         |      sk       |
+|        Swedish        |      sv       |
+|         Tamil         |      ta       |
+|        Telugu         |      te       |
+|         Thai          |      th       |
+|        Turkish        |      tr       |
+| Chinese - Simplified  |    zh-hans    |
+| Chinese - Traditional |    zh-hant    |
+

@@ -52,8 +52,6 @@ Next, you update the app to authenticate users before requesting resources from 
 ## Add authentication to the app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-
-
 ## <a name="cache-tokens"></a>Cache authentication tokens on the client
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 

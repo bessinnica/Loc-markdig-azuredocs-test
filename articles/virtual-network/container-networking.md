@@ -24,14 +24,14 @@ Azure provides a [Container Networking Interface (CNI) plugin](https://github.co
 ## Networking capabilities
 
 Containers can utilize the rich set of capabilities that a virtual network offers, such as:
--	You can create a separate virtual network for your cluster, or deploy your cluster in an existing virtual network. 
--	Every pod in the cluster receives an IP address from within the virtual network and can directly communicate with other pods in the cluster and any virtual machine in the virtual network. 
--	A pod can connect to other pods and virtual machines in peered virtual networks and to on-premises networks, over ExpressRoute and site-to-site VPN connections. On-premises resources can communicate to pods. 
--	You can expose a Kubernetes service to the Internet through the Azure Load Balancer.  
--	Pods in a subnet that has service endpoints enabled can securely connect to Azure services (Storage and SQL Database, for example).
--	You can use user-defined routes to route traffic from pods to a network virtual appliance. 
--	Pods can access public resources on the Internet.
--	You can assign a pod a public IP address, which can be associated with a DNS name.
+-   You can create a separate virtual network for your cluster, or deploy your cluster in an existing virtual network. 
+-   Every pod in the cluster receives an IP address from within the virtual network and can directly communicate with other pods in the cluster and any virtual machine in the virtual network. 
+-   A pod can connect to other pods and virtual machines in peered virtual networks and to on-premises networks, over ExpressRoute and site-to-site VPN connections. On-premises resources can communicate to pods. 
+-   You can expose a Kubernetes service to the Internet through the Azure Load Balancer.  
+-   Pods in a subnet that has service endpoints enabled can securely connect to Azure services (Storage and SQL Database, for example).
+-   You can use user-defined routes to route traffic from pods to a network virtual appliance. 
+-   Pods can access public resources on the Internet.
+-   You can assign a pod a public IP address, which can be associated with a DNS name.
  
 ## Limits
 You can deploy up to 4,000 nodes in a Kubernetes cluster, and up to 250 pods per node, with an overall limit of 16,000 pods per cluster, when using the plugin.

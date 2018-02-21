@@ -95,6 +95,7 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
 <a name="message-status-details"></a>
 
+
 ## Track message status and details in the Operations Management Suite
 
 1. After your B2B messages are processed, 
@@ -139,7 +140,7 @@ save the .zip file to your local computer, and then extract that file.
    If you set up acknowledgements, 
    the message folder also includes files with acknowledgement details. 
    Each message folder has at least these files: 
-   
+
    * Human-readable files with the input payload and output payload details
    * Encoded files with the inputs and outputs
 
@@ -168,12 +169,14 @@ on the **Log Search** page, choose a message from the message list.
 
 <a name="message-list-property-descriptions"></a>
 
+
 ## Property descriptions and name formats for AS2, X12, and EDIFACT messages
 
 For each message type, here are the property descriptions 
 and name formats for downloaded message files.
 
 <a name="as2-message-properties"></a>
+
 
 ### AS2 message property descriptions
 
@@ -194,6 +197,7 @@ Here are the property descriptions for each AS2 message.
 
 <a name="as2-folder-file-names"></a>
 
+
 ### AS2 name formats for downloaded message files
 
 Here are the name formats for each downloaded AS2 message folder and files.
@@ -205,6 +209,7 @@ Here are the name formats for each downloaded AS2 message folder and files.
 |          |             |
 
 <a name="x12-message-properties"></a>
+
 
 ### X12 message property descriptions
 
@@ -227,6 +232,7 @@ Here are the property descriptions for each X12 message.
 
 <a name="x12-folder-file-names"></a>
 
+
 ### X12 name formats for downloaded message files
 
 Here are the name formats for each downloaded X12 message folder and files.
@@ -238,6 +244,7 @@ Here are the name formats for each downloaded X12 message folder and files.
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
+
 
 ### EDIFACT message property descriptions
 
@@ -259,6 +266,7 @@ Here are the property descriptions for each EDIFACT message.
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
+
 
 ### EDIFACT name formats for downloaded message files
 

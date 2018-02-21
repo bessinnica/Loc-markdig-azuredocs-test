@@ -329,7 +329,7 @@ When you create a plan, you commit to a fixed cost that comes with an included q
 After the included quantities in existing instances are used up, additional usage is charged at the overage rate that's associated with the billing plan tier.
 
 > [!NOTE]
-Included quantities are reallocated every 30 days, and unused included quantities do not roll over to the next period.
+> Included quantities are reallocated every 30 days, and unused included quantities do not roll over to the next period.
 
 For additional billing and pricing information, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -381,7 +381,7 @@ The Machine Learning service is a multitenant service. Actual compute resources 
 The plan is removed from your subscription, and you are billed for prorated usage.
 
 > [!NOTE]
-You cannot delete a plan that a web service is using. To delete the plan, you must either assign a new plan to the web service or delete the web service.
+> You cannot delete a plan that a web service is using. To delete the plan, you must either assign a new plan to the web service or delete the web service.
 
 **What is a plan instance?**
 
@@ -394,14 +394,14 @@ You can have one instance of the Dev/Test pricing tier in a subscription.
 For Standard S1, Standard S2, and Standard S3 tiers, you can add as many as necessary.
 
 > [!NOTE]
-Depending on your anticipated usage, it might be more cost effective to upgrade to a tier that has more included quantities rather than add instances to the current tier.
+> Depending on your anticipated usage, it might be more cost effective to upgrade to a tier that has more included quantities rather than add instances to the current tier.
 
 **What happens when I change plan tiers (upgrade / downgrade)?**
 
 The old plan is deleted and the current usage is billed on a prorated basis. A new plan with the full included quantities of the upgraded/downgraded tier is created for the rest of the period.
 
 > [!NOTE]
-Included quantities are allocated per period, and unused quantities do not roll over.
+> Included quantities are allocated per period, and unused quantities do not roll over.
 
 **What happens when I increase the instances in a plan?**
 

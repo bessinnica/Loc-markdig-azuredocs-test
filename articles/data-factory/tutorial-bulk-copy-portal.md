@@ -71,35 +71,35 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 
 ## Create a data factory
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
-2. In the **New data factory** page, enter **ADFTutorialBulkCopyDF** for the **name**. 
+3. In the **New data factory** page, enter **ADFTutorialBulkCopyDF** for the **name**. 
       
      ![New data factory page](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialBulkCopyDF). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
-3. Select your Azure **subscription** in which you want to create the data factory. 
-4. For the **Resource Group**, do one of the following steps:
+4. Select your Azure **subscription** in which you want to create the data factory. 
+5. For the **Resource Group**, do one of the following steps:
      
-      - Select **Use existing**, and select an existing resource group from the drop-down list. 
-      - Select **Create new**, and enter the name of a resource group.   
+   - Select **Use existing**, and select an existing resource group from the drop-down list. 
+   - Select **Create new**, and enter the name of a resource group.   
          
-      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-6. Select **Pin to dashboard**.     
-7. Click **Create**.
-8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+6. Select **V2 (Preview)** for the **version**.
+7. Select the **location** for the data factory. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+8. Select **Pin to dashboard**.     
+9. Click **Create**.
+10. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-    ![deploying data factory tile](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
-9. After the creation is complete, you see the **Data Factory** page as shown in the image.
+     ![deploying data factory tile](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
+11. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-    ![Data factory home page](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
-11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:  
+     ![Data factory home page](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
+12. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
+13. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:  
 
     ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
@@ -177,10 +177,10 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
     ![Source dataset name](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
 4. Switch to the **Connection** tab, and do the following steps: 
 
-    1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
-    2. Select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database. Alternatively, you can click **Edit** check box, and enter **dummyName** as the table name. 
+   1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
+   2. Select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database. Alternatively, you can click **Edit** check box, and enter **dummyName** as the table name. 
 
-    ![Source dataset connection page](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
+      ![Source dataset connection page](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
 ### Create a dataset for sink SQL Data Warehouse

@@ -43,6 +43,7 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 <a id="#create-the-simulated-device-app"></a>
+
 ## Create the simulated device app
 In this section, you create a Java console app that connects to your hub as **myDeviceId**, waits for a desired configuration update, and then reports updates on the simulated configuration update process.
 
@@ -103,83 +104,83 @@ In this section, you create a Java console app that connects to your hub as **my
 1. Add the following class-level variables to the **App** class. Replace **{yourdeviceconnectionstring}** with the device connection string you noted in the *Create a device identity* section:
 
     ```java
-	private static String deviceId = "myDeviceId";
+    private static String deviceId = "myDeviceId";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String connString = "{yourdeviceconnectionstring}";
     private static DeviceClient client;
-	private static TelemetryConfig telemetryConfig;
+    private static TelemetryConfig telemetryConfig;
     ```
 
 1. To implement a callback handler for device twin status events (for debugging purposes), add the following nested class to the **App** class:
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback 
-	{
-		public void execute(IotHubStatusCode status, Object context) 
-		{
-			//System.out.println("IoT Hub responded to device twin operation with status " + status.name());
-		}
-	}
+    {
+        public void execute(IotHubStatusCode status, Object context) 
+        {
+            //System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+    }
     ```
 
 1. Add the following nested class to the **App** class:
 
     ```java
     private static class TelemetryConfig extends Device 
-	{
-		private String configId = "0000";
-		private String sendFrequency = "45m";
+    {
+        private String configId = "0000";
+        private String sendFrequency = "45m";
 
-		private Boolean initialRun = true;
-		
-		private Property telemetryConfig = new Property("telemetryConfig", "{configId=" + configId + ", sendFrequency=" + sendFrequency + "}");
+        private Boolean initialRun = true;
 
-		public void InitTelemetry() throws IOException 
-		{
-			System.out.println("Report initial telemetry config:");
-			System.out.println(this.telemetryConfig);
+        private Property telemetryConfig = new Property("telemetryConfig", "{configId=" + configId + ", sendFrequency=" + sendFrequency + "}");
 
-			this.setReportedProp(this.telemetryConfig);
+        public void InitTelemetry() throws IOException 
+        {
+            System.out.println("Report initial telemetry config:");
+            System.out.println(this.telemetryConfig);
 
-			client.sendReportedProperties(this.getReportedProp());
-		}
+            this.setReportedProp(this.telemetryConfig);
 
-		private void UpdateReportedConfiguration() 
-		{
-			try {
-				System.out.println("Initiating config change");
-					
-				this.setReportedProp(this.telemetryConfig);
-				client.sendReportedProperties(this.getReportedProp());
-					
-				System.out.println("Simulating device reset");
-				
-				Thread.sleep(10000);
-				
-				System.out.println("Completing config change");
-				System.out.println("Config change complete");
-			} catch (Exception e) {
-				System.out.println("Exception \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
-			}
-		}
+            client.sendReportedProperties(this.getReportedProp());
+        }
 
-		@Override
-		public void PropertyCall(String propertyKey, Object propertyValue, Object context) 
-		{
-			if (propertyKey.equals("telemetryConfig")) {
-				if (!(initialRun)) {
-					System.out.println("Desired property change:");
-					System.out.println(propertyKey + ":" + propertyValue);
+        private void UpdateReportedConfiguration() 
+        {
+            try {
+                System.out.println("Initiating config change");
 
-					telemetryConfig.setValue(propertyValue);
+                this.setReportedProp(this.telemetryConfig);
+                client.sendReportedProperties(this.getReportedProp());
 
-					UpdateReportedConfiguration();
-				} else {
-					initialRun = false;
-				}
-			} 
-		}
-	}
+                System.out.println("Simulating device reset");
+
+                Thread.sleep(10000);
+
+                System.out.println("Completing config change");
+                System.out.println("Config change complete");
+            } catch (Exception e) {
+                System.out.println("Exception \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+            }
+        }
+
+        @Override
+        public void PropertyCall(String propertyKey, Object propertyValue, Object context) 
+        {
+            if (propertyKey.equals("telemetryConfig")) {
+                if (!(initialRun)) {
+                    System.out.println("Desired property change:");
+                    System.out.println(propertyKey + ":" + propertyValue);
+
+                    telemetryConfig.setValue(propertyValue);
+
+                    UpdateReportedConfiguration();
+                } else {
+                    initialRun = false;
+                }
+            } 
+        }
+    }
     ```
 
     > [!NOTE]
@@ -204,22 +205,22 @@ In this section, you create a Java console app that connects to your hub as **my
     ```java
     try 
     {
-		System.out.println("Connecting to hub");
-  		client.open();
-  		client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, telemetryConfig, null);
+        System.out.println("Connecting to hub");
+        client.open();
+        client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, telemetryConfig, null);
 
-  		telemetryConfig.InitTelemetry();
+        telemetryConfig.InitTelemetry();
 
         System.out.println("Wait for desired telemetry...");
         client.subscribeToDesiredProperties(telemetryConfig.getDesiredProp());
-	}
-	catch (Exception e) 
+    }
+    catch (Exception e) 
     {
-  		System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
-  		telemetryConfig.clean();
-  		client.close();
-  		System.out.println("Shutting down...");
-	}
+        System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+        telemetryConfig.clean();
+        client.close();
+        System.out.println("Shutting down...");
+    }
     ```
 
 1. Add the following code to the **main** method to shut down the device simulator when necessary:
@@ -293,11 +294,11 @@ In this section, you create a Java console app that updates the *desired propert
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.*;
-	import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+    import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
 
-	import java.io.IOException;
-	import java.util.HashSet;
-	import java.util.Set;
+    import java.io.IOException;
+    import java.util.HashSet;
+    import java.util.Set;
     ```
 
 1. Add the following class-level variables to the **App** class. Replace **{youriothubconnectionstring}** with your IoT hub connection string you noted in the *Create an IoT Hub* section:
@@ -311,67 +312,67 @@ In this section, you create a Java console app that updates the *desired propert
 
     ```java
     DeviceTwin twinClient = DeviceTwin.createFromConnectionString(iotHubConnectionString);
-	DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
+    DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
 
-	String sendFrequency= "12h";
+    String sendFrequency= "12h";
 
-	try {
-		twinClient.getTwin(device);
+    try {
+        twinClient.getTwin(device);
 
         // make sure a differing value exists before calling the updateTwin() method, else a null device exception will be thrown
         // this allows the program to be run multiple times for demonstration purposes
-		String desiredProperties = device.desiredPropertiesToString();
-		if (desiredProperties.contains("sendFrequency=" + sendFrequency))
-		{
-			sendFrequency = "8h";
-		}
-			
-		Set<Pair> tags = new HashSet<Pair>();
-		tags.add(new Pair("telemetryConfig", "{configId=0001, sendFrequency=" + sendFrequency + "}"));
+        String desiredProperties = device.desiredPropertiesToString();
+        if (desiredProperties.contains("sendFrequency=" + sendFrequency))
+        {
+            sendFrequency = "8h";
+        }
 
-		twinClient.getTwin(device);
-		device.setDesiredProperties(tags);
+        Set<Pair> tags = new HashSet<Pair>();
+        tags.add(new Pair("telemetryConfig", "{configId=0001, sendFrequency=" + sendFrequency + "}"));
 
-		System.out.println("Config report for: " + deviceId);	
-		System.out.println(device);
+        twinClient.getTwin(device);
+        device.setDesiredProperties(tags);
 
-		twinClient.updateTwin(device);
+        System.out.println("Config report for: " + deviceId);   
+        System.out.println(device);
 
-		String reportedProperties = device.reportedPropertiesToString();
-		Boolean waitFlag = true;
+        twinClient.updateTwin(device);
 
-		while (waitFlag) {
-			if (!reportedProperties.contains("sendFrequency=" + sendFrequency)) {
-				Thread.sleep(10000);
-			}
-			else 
+        String reportedProperties = device.reportedPropertiesToString();
+        Boolean waitFlag = true;
+
+        while (waitFlag) {
+            if (!reportedProperties.contains("sendFrequency=" + sendFrequency)) {
+                Thread.sleep(10000);
+            }
+            else 
             {
-				waitFlag = false;
-			}
+                waitFlag = false;
+            }
 
-			twinClient.getTwin(device);
-			reportedProperties = device.reportedPropertiesToString();
-		}
-			
+            twinClient.getTwin(device);
+            reportedProperties = device.reportedPropertiesToString();
+        }
+
         SqlQuery sqlQuery = SqlQuery.createSqlQuery("*", SqlQuery.FromType.DEVICES, "properties.reported.telemetryConfig='{configId=0001, sendFrequency=" + sendFrequency + "}'", null);
 
-      	Query twinQuery = twinClient.queryTwin(sqlQuery.getQuery(), 100);
-      	while (twinClient.hasNextDeviceTwin(twinQuery)) {
-       		DeviceTwinDevice d = twinClient.getNextDeviceTwin(twinQuery);
-        	System.out.println(d.getDeviceId() + " found with changed telemetryConfig");
-      	}
+        Query twinQuery = twinClient.queryTwin(sqlQuery.getQuery(), 100);
+        while (twinClient.hasNextDeviceTwin(twinQuery)) {
+            DeviceTwinDevice d = twinClient.getNextDeviceTwin(twinQuery);
+            System.out.println(d.getDeviceId() + " found with changed telemetryConfig");
+        }
 
-		System.out.println("Config report for: " + deviceId);
-		twinClient.getTwin(device);
-		System.out.println(device);
+        System.out.println("Config report for: " + deviceId);
+        twinClient.getTwin(device);
+        System.out.println(device);
 
-		} catch (IotHubException e) {
-			System.out.println(e.getMessage());
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
-		}
+        } catch (IotHubException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
     ```
 
 1. Save and close the set-desired-configuration\src\main\java\com\mycompany\app\App.java file.
@@ -379,10 +380,10 @@ In this section, you create a Java console app that updates the *desired propert
 1. Build the **set-configuration** back-end app and correct any errors. At your command prompt, navigate to the set-configuration folder and run the following command:
 
     `mvn clean package -DskipTests`
-   
+
     This code retrieves the device twin for **myDeviceId**, and then updates its desired properties with a new telemetry configuration object.
     After that, it queries the device twins stored in the IoT hub every 10 seconds, and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
-   
+
    > [!IMPORTANT]
    > This application queries IoT Hub every 10 seconds for illustrative purposes until the device has been updated. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events, use [twin notifications][lnk-twin-notifications].
    > 

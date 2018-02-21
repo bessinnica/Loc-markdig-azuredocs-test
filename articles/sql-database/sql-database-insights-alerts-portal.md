@@ -75,7 +75,7 @@ Once you have created an alert, you can select it and:
 
 ## SQL Database alert values
 
-| Resource Type	| Metric Name | Friendly Name | Aggregation Type | Minimum alert time window|
+| Resource Type | Metric Name | Friendly Name | Aggregation Type | Minimum alert time window|
 | --- | --- | --- | --- | --- |
 | SQL database | cpu_percent | CPU percentage | Average | 5 minutes |
 | SQL database | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
@@ -103,7 +103,7 @@ Once you have created an alert, you can select it and:
 | Elastic pool | storage_limit | Storage limit | Average | 10 minutes |
 | Elastic pool | eDTU_used | eDTU used | Average | 10 minutes |
 | Elastic pool | storage_used | Storage used | Average | 10 minutes |
-|||||| 	 	 	 	 
+||||||               
 | SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
 | SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
 | SQL data warehouse | storage | Total database size | Maximum | 10 minutes |

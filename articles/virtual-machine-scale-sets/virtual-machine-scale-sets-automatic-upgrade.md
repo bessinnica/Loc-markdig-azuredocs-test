@@ -76,7 +76,7 @@ Once you follow the registration steps above, you can go to [the Azure portal](h
 Only certain OS platform images are currently supported. You cannot currently use custom images that you have you created yourself. The *version* property of the platform image must be set to *latest*.
 
 The following SKUs are currently supported (more will be added):
-	
+
 | Publisher               | Offer         |  Sku               | Version  |
 |-------------------------|---------------|--------------------|----------|
 | Canonical               | UbuntuServer  | 16.04-LTS          | latest   |
@@ -234,9 +234,11 @@ The scale set OS Upgrade Engine checks for the overall VM instance health before
 
 You can use the following template to deploy a scale set that uses automatic upgrades <a href='https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json'>Automatic rolling upgrades - Ubuntu 16.04-LTS</a>
 
+
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
 
 
 ## Next steps

@@ -110,7 +110,6 @@ Now you can check the PHP info page you created. Open a browser and go to `http:
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## Next steps
 
 In this tutorial, you deployed a LAMP server in Azure. You learned how to:

@@ -56,10 +56,10 @@ The Azure VM size specifications are listed in [Sizes for virtual machines](../.
 #### Disk sizes
 There are five types of disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
 
-| Premium Disks Type  | P10   | P20   | P30            | P40            | P50            | 
+| Premium Disks Type  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Disk size           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-| IOPS per disk       | 500   | 2300  | 5000           | 7500           | 7500           | 
+| Disk size           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| IOPS per disk       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second |
 
 Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces][4], you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details.
@@ -132,9 +132,9 @@ If you are uploading a VHD that will be used to create multiple generic Azure VM
 1. Open a Command Prompt window as an administrator.
 2. Enter the following command to open Sysprep:
 
-	```
-	%windir%\system32\sysprep\sysprep.exe
-	```
+    ```
+    %windir%\system32\sysprep\sysprep.exe
+    ```
 
 3. In the System Preparation Tool, select Enter System Out-of-Box Experience (OOBE), select the Generalize check box, select **Shutdown**, and then click **OK**, as shown in the image below. Sysprep will generalize the operating system and shut down the system.
 
@@ -160,7 +160,7 @@ Create a storage account for maintaining your VHDs. Consider the following point
 For data disks, you can choose to keep some data disks in a standard storage account (for example, disks that have cooler storage), but we strongly recommend you moving all data for production workload to use premium storage.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Step 3. Copy VHD with AzCopy or PowerShell
-You will need to find your container path and storage account key to process either of these two options. Container path and storage account key can be found in **Azure Portal** > **Storage**. The container URL will be like "https://myaccount.blob.core.windows.net/mycontainer/".
+You will need to find your container path and storage account key to process either of these two options. Container path and storage account key can be found in <strong>Azure Portal</strong> > <strong>Storage</strong>. The container URL will be like "<https://myaccount.blob.core.windows.net/mycontainer/>".
 
 ##### Option 1: Copy a VHD with AzCopy (Asynchronous copy)
 Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details.
@@ -169,23 +169,23 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 2. Open Azure PowerShell and go to the folder where AzCopy is installed.
 3. Use the following command to copy the VHD file from "Source" to "Destination".
 
-	```azcopy
-	AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-	```
+    ```azcopy
+    AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+    ```
 
     Example:
 
-	```azcopy
-	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
-	```
+    ```azcopy
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
+    ```
 
     Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/Source: *&lt;source&gt;:*** Location of the folder or storage container URL that contains the VHD.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Storage account key of the source storage account.
-   * **/Dest: *&lt;destination&gt;:*** Storage container URL to copy the VHD to.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Storage account key of the destination storage account.
-   * **/Pattern: *&lt;file-name&gt;:*** Specify the file name of the VHD to copy.
+   * <strong>/Source: *&lt;source&gt;:</strong>* Location of the folder or storage container URL that contains the VHD.
+   * <strong>/SourceKey: *&lt;source-account-key&gt;:</strong>* Storage account key of the source storage account.
+   * <strong>/Dest: *&lt;destination&gt;:</strong>* Storage container URL to copy the VHD to.
+   * <strong>/DestKey: *&lt;dest-account-key&gt;:</strong>* Storage account key of the destination storage account.
+   * <strong>/Pattern: *&lt;file-name&gt;:</strong>* Specify the file name of the VHD to copy.
 
 For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
@@ -221,10 +221,10 @@ If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first e
 ##### Copy a VHD from AWS
 1. If you are using AWS, export the EC2 instance to a VHD in an Amazon S3 bucket. Follow the steps described in the Amazon documentation for Exporting Amazon EC2 Instances to install the Amazon EC2 command-line interface (CLI) tool and run the create-instance-export-task command to export the EC2 instance to a VHD file. Be sure to use **VHD** for the DISK&#95;IMAGE&#95;FORMAT variable when running the **create-instance-export-task** command. The exported VHD file is saved in the Amazon S3 bucket you designate during that process.
 
-	```
-	aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT \
-	  --export-to-s3-task DiskImageFormat=DISK_IMAGE_FORMAT,ContainerFormat=ova,S3Bucket=BUCKET,S3Prefix=PREFIX
-	```
+    ```
+    aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT \
+      --export-to-s3-task DiskImageFormat=DISK_IMAGE_FORMAT,ContainerFormat=ova,S3Bucket=BUCKET,S3Prefix=PREFIX
+    ```
 
 2. Download the VHD file from the S3 bucket. Select the VHD file, then **Actions** > **Download**.
 
@@ -254,7 +254,7 @@ Now that you have your VHD in the local directory, you can use AzCopy or AzurePo
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-An example <Uri> might be ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. An example <FileInfo> might be ***"C:\path\to\upload.vhd"***.
+An example <Uri> might be <strong><em>"<https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd>"</em></strong>. An example <FileInfo> might be <strong><em>"C:\path\to\upload.vhd"</em></strong>.
 
 ##### Option 2: Using AzCopy to upload the .vhd file
 Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details.
@@ -263,24 +263,24 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 2. Open Azure PowerShell and go to the folder where AzCopy is installed.
 3. Use the following command to copy the VHD file from "Source" to "Destination".
 
-	```azcopy
-	AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-	```
+    ```azcopy
+    AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+    ```
 
     Example:
 
-	```azcopy
+    ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-	```
+    ```
 
     Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/Source: *&lt;source&gt;:*** Location of the folder or storage container URL that contains the VHD.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Storage account key of the source storage account.
-   * **/Dest: *&lt;destination&gt;:*** Storage container URL to copy the VHD to.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Storage account key of the destination storage account.
+   * <strong>/Source: *&lt;source&gt;:</strong>* Location of the folder or storage container URL that contains the VHD.
+   * <strong>/SourceKey: *&lt;source-account-key&gt;:</strong>* Storage account key of the source storage account.
+   * <strong>/Dest: *&lt;destination&gt;:</strong>* Storage container URL to copy the VHD to.
+   * <strong>/DestKey: *&lt;dest-account-key&gt;:</strong>* Storage account key of the destination storage account.
    * **/BlobType: page:** Specifies that the destination is a page blob.
-   * **/Pattern: *&lt;file-name&gt;:*** Specify the file name of the VHD to copy.
+   * <strong>/Pattern: *&lt;file-name&gt;:</strong>* Specify the file name of the VHD to copy.
 
 For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 

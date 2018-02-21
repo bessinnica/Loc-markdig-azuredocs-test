@@ -43,31 +43,31 @@ In this tutorial, you complete the following steps:
 3. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
-3. On the **New data factory** page, enter **MyAzureSsisDataFactory** under **Name**. 
+4. On the **New data factory** page, enter **MyAzureSsisDataFactory** under **Name**. 
       
    !["New data factory" page](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
  
    The name of the Azure data factory must be *globally unique*. If you receive the following error, change the name of the data factory (for example, **&lt;yourname&gt;MyAzureSsisDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
    `Data factory name “MyAzureSsisDataFactory” is not available`
-4. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
-5. For **Resource Group**, do one of the following steps:
+5. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
+6. For **Resource Group**, do one of the following steps:
      
    - Select **Use existing**, and select an existing resource group from the list. 
    - Select **Create new**, and enter the name of a resource group.   
          
    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-6. For **Version**, select **V2 (Preview)**.
-7. For **Location**, select the location for the data factory. The list shows only locations that are supported for the creation of data factories.
-8. Select **Pin to dashboard**.     
-9. Select **Create**.
-10. On the dashboard, you see the following tile with the status **Deploying data factory**: 
+7. For **Version**, select **V2 (Preview)**.
+8. For **Location**, select the location for the data factory. The list shows only locations that are supported for the creation of data factories.
+9. Select **Pin to dashboard**.     
+10. Select **Create**.
+11. On the dashboard, you see the following tile with the status **Deploying data factory**: 
 
-   !["Deploying Data Factory" tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-11. After the creation is complete, you see the **Data factory** page.
+    !["Deploying Data Factory" tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+12. After the creation is complete, you see the **Data factory** page.
    
-   ![Home page for the data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Select **Author & Monitor** to open the Data Factory user interface (UI) on a separate tab. 
+    ![Home page for the data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+13. Select **Author & Monitor** to open the Data Factory user interface (UI) on a separate tab. 
 
 ## Provision an Azure-SSIS integration runtime
 

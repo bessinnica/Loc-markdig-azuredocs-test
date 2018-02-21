@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory B2C: Add Microsoft Account (MSA) as an identity provider using custom Policies'
 description: Sample using Microsoft as identity provider using OpenID Connect (OIDC) protocol
 services: active-directory-b2c
@@ -91,53 +91,53 @@ If you want users to sign in by using Microsoft Account, you need to define Micr
 
 Define Microsoft Account as a claims provider, by adding `<ClaimsProvider>` node in your extension policy file:
 
-1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
-2.  Find the `<ClaimsProviders>` section
-3.  Add following XML snippet under the `ClaimsProviders` element:
+1. Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
+2. Find the `<ClaimsProviders>` section
+3. Add following XML snippet under the `ClaimsProviders` element:
 
-    ```xml
-<ClaimsProvider>
-    <Domain>live.com</Domain>
-    <DisplayName>Microsoft Account</DisplayName>
-    <TechnicalProfiles>
-    <TechnicalProfile Id="MSA-OIDC">
-        <DisplayName>Microsoft Account</DisplayName>
-        <Protocol Name="OpenIdConnect" />
-        <Metadata>
-        <Item Key="ProviderName">https://login.live.com</Item>
-        <Item Key="METADATA">https://login.live.com/.well-known/openid-configuration</Item>
-        <Item Key="response_types">code</Item>
-        <Item Key="response_mode">form_post</Item>
-        <Item Key="scope">openid profile email</Item>
-        <Item Key="HttpBinding">POST</Item>
-        <Item Key="UsePolicyInRedirectUri">0</Item>
-        <Item Key="client_id">Your Microsoft application client id</Item>
-        </Metadata>
-    <CryptographicKeys>
-        <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
-    </CryptographicKeys>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-        <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
-        <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        </OutputClaims>
-        <OutputClaimsTransformations>
-        <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
-        <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
-        <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
-        <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-        </OutputClaimsTransformations>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
-    </TechnicalProfile>
-    </TechnicalProfiles>
-</ClaimsProvider>
-```
+   ```xml
+   <ClaimsProvider>
+   <Domain>live.com</Domain>
+   <DisplayName>Microsoft Account</DisplayName>
+   <TechnicalProfiles>
+   <TechnicalProfile Id="MSA-OIDC">
+       <DisplayName>Microsoft Account</DisplayName>
+       <Protocol Name="OpenIdConnect" />
+       <Metadata>
+       <Item Key="ProviderName">https://login.live.com</Item>
+       <Item Key="METADATA">https://login.live.com/.well-known/openid-configuration</Item>
+       <Item Key="response_types">code</Item>
+       <Item Key="response_mode">form_post</Item>
+       <Item Key="scope">openid profile email</Item>
+       <Item Key="HttpBinding">POST</Item>
+       <Item Key="UsePolicyInRedirectUri">0</Item>
+       <Item Key="client_id">Your Microsoft application client id</Item>
+       </Metadata>
+   <CryptographicKeys>
+       <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
+   </CryptographicKeys>
+   <OutputClaims>
+       <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
+       <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+       <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+       <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+       <OutputClaim ClaimTypeReferenceId="email" />
+       </OutputClaims>
+       <OutputClaimsTransformations>
+       <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+       <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+       <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
+       <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
+       </OutputClaimsTransformations>
+       <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
+   </TechnicalProfile>
+   </TechnicalProfiles>
+   </ClaimsProvider>
+   ```
 
-4.  Replace `client_id` value with your Microsoft Account application client Id
+4. Replace `client_id` value with your Microsoft Account application client Id
 
-5.  Save the file.
+5. Save the file.
 
 ## Register the Microsoft Account claims provider to Sign up or Sign-in user journey
 
@@ -188,12 +188,12 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ## Test the custom policy by using Run Now
 
-1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
-> [!NOTE]
->
->**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
-2.  Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
-3.  You should be able to sign in using Microsoft account.
+1. Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
+   > [!NOTE]
+   >
+   >**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
+2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
+3. You should be able to sign in using Microsoft account.
 
 ## [Optional] Register the Microsoft Account claims provider to Profile-Edit user journey
 You may want to add the Microsoft Account identity provider also to your user `ProfileEdit` user journey. To make it available, we repeat the last two steps:

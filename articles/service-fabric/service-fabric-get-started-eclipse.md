@@ -27,18 +27,18 @@ Eclipse is one of the most widely used integrated development environments (IDEs
 ## Install or update the Service Fabric plug-in in Eclipse Neon
 You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services.
 
-1.  Ensure that you have the latest version of Eclipse Neon and the latest version of Buildship (1.0.17 or a later version) installed:
-    -   To check the versions of installed components, in Eclipse Neon, go to **Help** > **Installation Details**.
-    -   To update Buildship, see [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
-    -   To check for and install updates for Eclipse Neon, go to **Help** > **Check for Updates**.
+1. Ensure that you have the latest version of Eclipse Neon and the latest version of Buildship (1.0.17 or a later version) installed:
+   -   To check the versions of installed components, in Eclipse Neon, go to **Help** > **Installation Details**.
+   -   To update Buildship, see [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
+   -   To check for and install updates for Eclipse Neon, go to **Help** > **Check for Updates**.
 
-2.  To install the Service Fabric plug-in, in Eclipse Neon, go to **Help** > **Install New Software**.
-  1.    In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
-  2.    Click **Add**.
+2. To install the Service Fabric plug-in, in Eclipse Neon, go to **Help** > **Install New Software**.
+   1. In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
+   2. Click **Add**.
 
-         ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install]
-  3.    Select the Service Fabric plug-in, and then click **Next**.
-  4.    Complete the installation steps, and then accept the Microsoft Software License Terms.
+      ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install]
+   3. Select the Service Fabric plug-in, and then click **Next**.
+   4. Complete the installation steps, and then accept the Microsoft Software License Terms.
 
 If you already have the Service Fabric plug-in installed, make sure that you have the latest version. To check for available updates, go to **Help** > **Installation Details**. In the list of installed plug-ins, select Service Fabric, and then click **Update**. Available updates will be installed.
 
@@ -77,24 +77,24 @@ If you already have the Service Fabric plug-in installed, make sure that you hav
 
 ## Build and deploy a Service Fabric application in Eclipse
 
-1.  Right-click your new Service Fabric application, and then select **Service Fabric**.
+1. Right-click your new Service Fabric application, and then select **Service Fabric**.
 
-    ![Service Fabric right-click menu][publish/RightClick]
+   ![Service Fabric right-click menu][publish/RightClick]
 
 2. In the submenu, select the option you want:
     -   To build the application without cleaning, click **Build Application**.
     -   To do a clean build of the application, click **Rebuild Application**.
     -   To clean the application of built artifacts, click **Clean Application**.
 
-3.  From this menu, you also can deploy, undeploy, and publish your application:
-    -   To deploy to your local cluster, click **Deploy Application**.
-    -   In the **Publish Application** dialog box, select a publish profile:
-        -  **Local.json**
-        -  **Cloud.json**
+3. From this menu, you also can deploy, undeploy, and publish your application:
+   - To deploy to your local cluster, click **Deploy Application**.
+   - In the **Publish Application** dialog box, select a publish profile:
+     -  **Local.json**
+     -  **Cloud.json**
 
      These JavaScript Object Notation (JSON) files store information (such as connection endpoints and security information) that is required to connect to your local or cloud (Azure) cluster.
 
-  ![Service Fabric Publish menu][publish/Publish]
+   ![Service Fabric Publish menu][publish/Publish]
 
 An alternate way to deploy your Service Fabric application is by using Eclipse run configurations.
 

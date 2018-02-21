@@ -71,7 +71,7 @@ Navigate to your IoT hub in the Azure portal. Click **Endpoints** > **Add**. Nam
 Click **Routes** > **Add** and enter a name for the route. Select **Device Messages** as the data source, and select the storage endpoint you just created as the endpoint in the route. Enter `true` as the query string, then click **Save**.
 
   ![Create a route in IoT Hub](media\iot-hub-store-data-in-azure-table-storage\3_create-route.png)
-  
+
 ### Add a route for hot path telemetry (optional)
 
 By default, IoT Hub routes all messages which do not match any other routes to the built-in endpoint. Since all telemetry messages now match the rule which routes the messages to storage, you need to add another route for messages to be written to the built-in endpoint. There is no additional charge to route messages to multiple endpoints.
@@ -100,3 +100,4 @@ Click **Add** from the Routes pane and enter a name for the route. Select **Devi
 You’ve successfully created your Azure storage account and routed messages from IoT Hub to a blob container in that storage account.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

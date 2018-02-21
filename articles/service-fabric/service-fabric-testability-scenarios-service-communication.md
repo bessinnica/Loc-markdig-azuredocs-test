@@ -48,24 +48,24 @@ Handling these scenarios gracefully is important for a smooth-running system. To
 By using Service Fabric's testability tools, you can author a test scenario to test these situations in different ways:
 
 1. Move a stateful service's primary replica.
-   
+
     The primary replica of a stateful service partition can be moved for any number of reasons. Use this to target the primary replica of a specific partition to see how your services react to the move in a very controlled manner.
-   
+
     ```powershell
-   
+
     PS > Move-ServiceFabricPrimaryReplica -PartitionId 6faa4ffa-521a-44e9-8351-dfca0f7e0466 -ServiceName fabric:/MyApplication/MyService
-   
+
     ```
 2. Stop a node.
-   
+
     When a node is stopped, Service Fabric moves all of the service instances or partitions that were on that node to one of the other available nodes in the cluster. Use this to test a situation where a node is lost from your cluster and all of the service instances and replicas on that node have to move.
-   
+
     You can stop a node by using the PowerShell **Stop-ServiceFabricNode** cmdlet:
-   
+
     ```powershell
-   
+
     PS > Restart-ServiceFabricNode -NodeName Node_1
-   
+
     ```
 
 ## Maintain service availability
@@ -81,7 +81,6 @@ You can induce quorum loss by using the PowerShell **Invoke-ServiceFabricPartiti
 ```powershell
 
 PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
-
 ```
 
 In this example, we set `QuorumLossMode` to `QuorumReplicas` to indicate that we want to induce quorum loss without taking down all replicas. This way, read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `AllReplicas`.

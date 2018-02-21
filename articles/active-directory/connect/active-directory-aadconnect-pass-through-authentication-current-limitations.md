@@ -44,11 +44,11 @@ The following scenarios are _not_ supported:
 - Pass-through Authentication is not integrated with [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 - The Apple Device Enrollment Program (Apple DEP) does not support modern authentication.  Apple DEP devices will fail to enroll into Intune for domains using Pass-through Authentication.
 
->[!IMPORTANT]
->As a workaround for unsupported scenarios _only_, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
-
->[!NOTE]
-Enabling password hash synchronization gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Active Directory password hash synchronization is not automatic. You'll need to switch the sign-in method manually using Azure AD Connect. If the server running Azure AD Connect goes down, you'll require help from Microsoft Support to turn off Pass-through Authentication.
+> [!IMPORTANT]
+> As a workaround for unsupported scenarios _only_, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
+> 
+> [!NOTE]
+> Enabling password hash synchronization gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Active Directory password hash synchronization is not automatic. You'll need to switch the sign-in method manually using Azure AD Connect. If the server running Azure AD Connect goes down, you'll require help from Microsoft Support to turn off Pass-through Authentication.
 
 ## Next steps
 - [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running with Azure AD Pass-through Authentication.

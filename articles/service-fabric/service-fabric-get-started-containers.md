@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Service Fabric container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric.  Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
@@ -98,6 +98,7 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
+
 ## Build the image
 Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to the directory containing the Dockerfile. Run the following command:
 
@@ -132,7 +133,7 @@ Once the container starts, find its IP address so that you can connect to your r
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Connect to the running container.  Open a web browser pointing to the IP address returned, for example "http://172.31.194.61". You should see the heading "Hello World!" display in the browser.
+Connect to the running container.  Open a web browser pointing to the IP address returned, for example "<http://172.31.194.61>". You should see the heading "Hello World!" display in the browser.
 
 To stop your container, run:
 
@@ -147,6 +148,7 @@ docker rm my-web-site
 ```
 
 <a id="Push-Containers"></a>
+
 ## Push the image to the container registry
 After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
@@ -514,7 +516,7 @@ You can configure a time interval for the runtime to wait before the container i
                 "name": "ContainerDeactivationTimeout",
                 "value" : "10"
           },
-	      ...
+          ...
         ]
 }
 ```

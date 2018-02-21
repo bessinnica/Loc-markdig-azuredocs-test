@@ -39,20 +39,19 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-
 ## Create a simulated device app
 In this section, you create a Python console app that responds to a method called by the cloud.
 
 1. Using a text editor, create a new **SimulatedDevice.py** file.
 
 1. Add the following `import` statements and variables at the start of the **SimulatedDevice.py** file:
-   
+
     ```python
     import time
     import sys
     import iothub_client
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
-    
+
     WAIT_COUNT = 5
     METHOD_CONTEXT = 0
     METHOD_CALLBACKS = 0
@@ -63,22 +62,22 @@ In this section, you create a Python console app that responds to a method calle
     ```
 
 1. Add the following functions to implement the device method callback and direct method on the device:
-   
+
     ```python
     def device_method_callback(method_name, payload, user_context):
         global METHOD_CALLBACKS
-	
+
         if method_name == "DeviceMethod":
             onDeviceMethod()
-		
+
         print ( "\nMethod callback called with:\nmethodName = %s\npayload = %s\ncontext = %s" % (method_name, payload, user_context) )
         METHOD_CALLBACKS += 1
-	
+
         print ( "Total calls confirmed: %d\n" % METHOD_CALLBACKS )
         device_method_return_value = DeviceMethodReturnValue()
         device_method_return_value.response = "{ \"Response\": \"This is the response from the device\" }"
         device_method_return_value.status = 200
-	
+
         return device_method_return_value
 
     def onDeviceMethod():
@@ -86,7 +85,7 @@ In this section, you create a Python console app that responds to a method calle
     ```
 
 1. Add the following function to open the connection to your IoT hub and initialize the method listener:
-   
+
     ```python
     def iothub_client_init():
         # prepare iothub client
@@ -140,7 +139,7 @@ In this section, you create a Python console app that calls a method in the simu
 1. Using a text editor, create a new **CallMethodOnDevice.py** file.
 
 1. Add the following `import` statements and variables at the start of the **CallMethodOnDevice.py** file:
-   
+
     ```python
     import sys
     import iothub_service_client
@@ -155,7 +154,7 @@ In this section, you create a Python console app that calls a method in the simu
     ```
 
 1. Add the following functions to implement the device method callback and direct method on the device:
-   
+
     ```python
     def iothub_devicemethod_sample_run():
         try:
@@ -205,23 +204,23 @@ In this section, you create a Python console app that calls a method in the simu
 You are now ready to run the apps.
 
 1. At a command prompt, run the following command to start listening for method calls from your IoT Hub:
-   
+
     ```cmd/sh
     python SimulatedDevice.py
     ```
-   
+
     ![][7]
 
 1. At a command prompt, run the following command to begin monitoring your IoT hub:
-   
+
     ```cmd/sh
     python CallMethodOnDevice.py
     ```
-   
+
     ![][8]
 
 1. You will see the device react to the method by printing out the message and the application which called the method display the response from the device:
-   
+
     ![][9]
 
 ## Next steps

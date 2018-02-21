@@ -23,8 +23,9 @@ ms.author: genli
 In the Account Center, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
 
 **Want to switch to pay by invoice?** See [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md).
- 
+
 <a id="addcard"></a>
+
 
 ## Add a new credit or debit card
 

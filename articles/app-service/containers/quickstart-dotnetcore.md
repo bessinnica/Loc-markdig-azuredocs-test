@@ -99,7 +99,7 @@ Here is what your new web app should look like:
 
 ![Empty web app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 22, done.

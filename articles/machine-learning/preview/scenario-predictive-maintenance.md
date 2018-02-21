@@ -46,11 +46,11 @@ Model operationalization was done using version 0.1.0a22 of Azure ML CLI.
 ## Create a new Workbench project
 
 Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Predictive Maintenance" and select the template
-5.	Click **Create**
+1.  Open Azure Machine Learning Workbench
+2.  On the **Projects** page, click the **+** sign and select **New Project**
+3.  In the **Create New Project** pane, fill in the information for your new project
+4.  In the **Search Project Templates** search box, type "Predictive Maintenance" and select the template
+5.  Click **Create**
 
 ## Prepare the notebook server computation target
 
@@ -114,7 +114,7 @@ The [Readme](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenan
 * `pdmscore.py` The init() and run() functions required by the Azure web service
 * `pdmrfull.model` The model definition directory.
     
- The notebook tests the functions with the model definition before packaging the operationalization assets for deployment. Instructions for deployment are included at the end of the notebook.
+  The notebook tests the functions with the model definition before packaging the operationalization assets for deployment. Instructions for deployment are included at the end of the notebook.
 
 ## Conclusion
 

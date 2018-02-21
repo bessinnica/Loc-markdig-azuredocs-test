@@ -180,7 +180,6 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 
 # Custom Logs
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
-
 ```
 
 ## Configuring Log Analytics to index Azure diagnostics
@@ -216,7 +215,7 @@ $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegrou
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
 
-Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
 You can also use the preceding cmdlet to collect logs from resources that are in different subscriptions. The cmdlet is able to work across subscriptions since you are providing the id of both the resource creating logs and the workspace the logs are sent to.
@@ -254,7 +253,6 @@ Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 
 # Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
-
 ```
 
 You can also use the preceding script to collect logs from storage accounts in different subscriptions. The script is able to work across subscriptions since you are providing the storage account resource id and a corresponding access key. When you change the access key, you need to update the storage insight to have the new key.

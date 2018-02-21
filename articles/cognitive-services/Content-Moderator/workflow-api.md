@@ -52,26 +52,26 @@ You see the **Designer** tab for the workflow. The designer view shows the follo
 
 Select the **JSON** tab to see the JSON definition of the workflow.
 
-	{
-		"Type": "Logic",
-		If": {
-    		"ConnectorName": "moderator",
-    		"OutputName": "isAdult",
-    		"Operator": "eq",
-    		"Value": "true",
-    		"Type": "Condition"
-		},
-		"Then": {
-		"Perform": [
-		{
-        	"Name": "createreview",
-        	"CallbackEndpoint": null,
-        	"Tags": []
-      	}
-		],
-		"Type": "Actions"
-		}
-	}
+    {
+        "Type": "Logic",
+        If": {
+            "ConnectorName": "moderator",
+            "OutputName": "isAdult",
+            "Operator": "eq",
+            "Value": "true",
+            "Type": "Condition"
+        },
+        "Then": {
+        "Perform": [
+        {
+            "Name": "createreview",
+            "CallbackEndpoint": null,
+            "Tags": []
+        }
+        ],
+        "Type": "Actions"
+        }
+    }
 
 ### Key learning
 
@@ -95,37 +95,37 @@ Select the **Designer** tab and the [workflow creation tutorial](Review-Tool-Use
 
 Select the **JSON** tab to see the following JSON definition of your custom workflow. Notice how the **If-Then** statements in the JSON definition correspond to the steps you defined using the designer view.
 
-	{
-		"Type": "Logic",
-		"If": {
-    		"ConnectorName": "moderator",
-    		"OutputName": "hasText",
-    		"Operator": "eq",
-    		"Value": "true",
-    		"Type": "Condition"
-		},
-		"Then": {
-    	"Perform": [
-      	{
-        	"Name": "createreview",
-        	"CallbackEndpoint": null,
-        	"Tags": [
-          	{
-            	"Tag": "a",
-            	"IfCondition": {
-              		"ConnectorName": "moderator",
-              		"OutputName": "hasText",
-              		"Operator": "eq",
-              		"Value": "true",
-              		"Type": "Condition"
-            	}
-          	}
-        	]
-      	}
-    	],
-    	"Type": "Actions"
-		}
-	}
+    {
+        "Type": "Logic",
+        "If": {
+            "ConnectorName": "moderator",
+            "OutputName": "hasText",
+            "Operator": "eq",
+            "Value": "true",
+            "Type": "Condition"
+        },
+        "Then": {
+        "Perform": [
+        {
+            "Name": "createreview",
+            "CallbackEndpoint": null,
+            "Tags": [
+            {
+                "Tag": "a",
+                "IfCondition": {
+                    "ConnectorName": "moderator",
+                    "OutputName": "hasText",
+                    "Operator": "eq",
+                    "Value": "true",
+                    "Type": "Condition"
+                }
+            }
+            ]
+        }
+        ],
+        "Type": "Actions"
+        }
+    }
 
 ### Workflow result
 
@@ -153,51 +153,51 @@ To change the **Condition** to a **Combination**, modify the workflow. The follo
 
 Select the **JSON** tab to see the following JSON definition of your modified custom workflow. Notice how the **If-Then** statements in the JSON definition correspond to the new steps you added to the workflow.
 
-	{
-		"Type": "Logic",
-		"If": {
-    	"Left": {
-      		"ConnectorName": "moderator",
-      		"OutputName": "hasText",
-      		"Operator": "eq",
-      		"Value": "true",
-      		"Type": "Condition"
-    		},
-    	"Right": {
-      		"ConnectorName": "moderator",
-      		"OutputName": "text.HasProfanity",
-      		"Operator": "eq",
-      		"Value": "true",
-      		"Type": "Condition",
-      		"AlternateInput": "moderator.ocrText"
-    		},
-    	"Combine": "AND",
-    	"Type": "Combine"
-		},
-		"Then": {
-    	"Perform": [
-      	{
-        	"Name": "createreview",
-        	"CallbackEndpoint": null,
-        	"Tags": [
-          	{
-            	"Tag": "a",
-            	"IfCondition": {
-              		"ConnectorName": "moderator",
-              		"OutputName": "hasText",
-              		"Operator": "eq",
-              		"Value": "true",
-              		"Type": "Condition"
-            	}
-          	}
-        	]
-      	}
-    	],
-    	"Type": "Actions"
-		}
-	}
+    {
+        "Type": "Logic",
+        "If": {
+        "Left": {
+            "ConnectorName": "moderator",
+            "OutputName": "hasText",
+            "Operator": "eq",
+            "Value": "true",
+            "Type": "Condition"
+            },
+        "Right": {
+            "ConnectorName": "moderator",
+            "OutputName": "text.HasProfanity",
+            "Operator": "eq",
+            "Value": "true",
+            "Type": "Condition",
+            "AlternateInput": "moderator.ocrText"
+            },
+        "Combine": "AND",
+        "Type": "Combine"
+        },
+        "Then": {
+        "Perform": [
+        {
+            "Name": "createreview",
+            "CallbackEndpoint": null,
+            "Tags": [
+            {
+                "Tag": "a",
+                "IfCondition": {
+                    "ConnectorName": "moderator",
+                    "OutputName": "hasText",
+                    "Operator": "eq",
+                    "Value": "true",
+                    "Type": "Condition"
+                }
+            }
+            ]
+        }
+        ],
+        "Type": "Actions"
+        }
+    }
 
-	
+    
 ### Workflow result
 
 After you test the workflow again, you find that no review is created. To confirm the absence of any review, navigate to the **Image** tab under **Review**.

@@ -65,13 +65,14 @@ IIS log records have a type of **W3CIISLog** and have the properties in the foll
 ## Log searches with IIS logs
 The following table provides different examples of log queries that retrieve IIS log records.
 
-| Query | Description |
-|:--- |:--- |
-| W3CIISLog |All IIS log records. |
-| W3CIISLog &#124; where scStatus==500 |All IIS log records with a return status of 500. |
-| W3CIISLog &#124; summarize count() by cIP |Count of IIS log entries by client IP address. |
-| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |Count of IIS log entries by URL for the host www.contoso.com. |
-| W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total bytes received by each IIS computer. |
+
+| Query                                                                                  | Description                                                   |
+|:---------------------------------------------------------------------------------------|:--------------------------------------------------------------|
+| W3CIISLog                                                                              | All IIS log records.                                          |
+| W3CIISLog &#124; where scStatus==500                                                   | All IIS log records with a return status of 500.              |
+| W3CIISLog &#124; summarize count() by cIP                                              | Count of IIS log entries by client IP address.                |
+| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem | Count of IIS log entries by URL for the host www.contoso.com. |
+| W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000                 | Total bytes received by each IIS computer.                    |
 
 ## Next steps
 * Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.

@@ -22,6 +22,7 @@ This article describes the common baseline operating system functionality that i
 
 <a id="tiers"></a>
 
+
 ## App Service plan tiers
 App Service runs customer apps in a multi-tenant hosting environment. Apps deployed in the **Free** and **Shared** tiers run in worker processes on shared virtual machines, while apps deployed in the **Standard** and **Premium** tiers run on virtual machine(s) dedicated specifically for the apps associated with a single customer.
 
@@ -30,6 +31,7 @@ App Service runs customer apps in a multi-tenant hosting environment. Apps deplo
 Because App Service supports a seamless scaling experience between different tiers, the security configuration enforced for App Service apps remains the same. This ensures that apps don't suddenly behave differently, failing in unexpected ways, when App Service plan switches from one tier to another.
 
 <a id="developmentframeworks"></a>
+
 
 ## Development frameworks
 App Service pricing tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to apps. However, the breadth of framework functionality available to apps remains the same regardless of the scaling tiers.
@@ -40,15 +42,18 @@ The following sections summarize the general kinds of operating system functiona
 
 <a id="FileAccess"></a>
 
+
 ## File access
 Various drives exist within App Service, including local drives and network drives.
 
 <a id="LocalDrives"></a>
 
+
 ### Local drives
 At its core, App Service is a service running on top of the Azure PaaS (platform as a service) infrastructure. As a result, the local drives that are "attached" to a virtual machine are the same drive types available to any worker role running in Azure. This includes an operating system drive (the D:\ drive), an application drive that contains Azure Package cspkg files used exclusively by App Service (and inaccessible to customers), and a "user" drive (the C:\ drive), whose size varies depending on the size of the VM. It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application.
 
 <a id="NetworkDrives"></a>
+
 
 ### Network drives (aka UNC shares)
 One of the unique aspects of App Service that makes app deployment and maintenance straightforward is that all user content is stored on a set of UNC shares. This model maps very nicely to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers. 
@@ -58,6 +63,7 @@ Within App Service, there are number of UNC shares created in each data center. 
 Note that due to how cloud services work, the specific virtual machine responsible for hosting a UNC share will change over time. It is guaranteed that UNC shares will be mounted by different virtual machines as they are brought up and down during the normal course of cloud operations. For this reason, apps should never make hard-coded assumptions that the machine information in a UNC file path will remain stable over time. Instead, they should use the convenient *faux* absolute path **D:\home\site** that App Service provides. This faux absolute path provides a portable, app-and-user-agnostic method for referring to one's own app. By using **D:\home\site**, one can transfer shared files from app to app without having to configure a new absolute path for each transfer.
 
 <a id="TypesOfFileAccess"></a>
+
 
 ### Types of file access granted to an app
 Each customer's subscription has a reserved directory structure on a specific UNC share within a data center. A customer may have multiple apps created within a specific data center, so all of the directories belonging to a single customer subscription are created on the same UNC share. The share may include directories such as those for content, error and diagnostic logs, and earlier versions of the app created by source control. As expected, a customer's app directories are available for read and write access at runtime by the app's application code.
@@ -70,10 +76,12 @@ Each app in App Service runs as a random unique low-privileged worker process id
 
 <a name="multipleinstances"></a>
 
+
 ### File access across multiple instances
 The home directory contains an app's content, and application code can write to it. If an app runs on multiple instances, the home directory is shared among all instances so that all instances see the same directory. So, for example, if an app saves uploaded files to the home directory, those files are immediately available to all instances. 
 
 <a id="NetworkAccess"></a>
+
 
 ## Network access
 Application code can use TCP/IP and UDP based protocols to make outbound network connections to Internet accessible endpoints that expose external services. Apps can use these same protocols to connect to services within Azure&#151;for example, by establishing HTTPS connections to SQL Database.
@@ -84,6 +92,7 @@ Named pipes are also supported as an inter-process communication (IPC) mechanism
 
 <a id="Code"></a>
 
+
 ## Code execution, processes and memory
 As noted earlier, apps run inside of low-privileged worker processes using a random application pool identity. Application code has access to the memory space associated with the worker process, as well as any child processes that may be spawned by CGI processes or other applications. However, one app cannot access the memory or data of another app even if it is on the same virtual machine.
 
@@ -92,6 +101,7 @@ Apps can run scripts or pages written with supported web development frameworks.
 Apps can spawn and run arbitrary code. It is allowable for an app to do things like spawn a command shell or run a PowerShell script. However, even though arbitrary code and processes can be spawned from an app, executable programs and scripts are still restricted to the privileges granted to the parent application pool. For example, an app can spawn an executable that makes an outbound HTTP call, but that same executable cannot attempt to unbind the IP address of a virtual machine from its NIC. Making an outbound network call is allowed to low-privileged code, but attempting to reconfigure network settings on a virtual machine requires administrative privileges.
 
 <a id="Diagnostics"></a>
+
 
 ## Diagnostics logs and events
 Log information is another set of data that some apps attempt to access. The types of log information available to code running in App Service includes diagnostic and log information generated by an app that is also easily accessible to the app. 
@@ -103,6 +113,7 @@ In a similar vein, real-time diagnostics information from .NET apps can also be 
 Areas of diagnostics logging and tracing that aren't available to apps are Windows ETW events and common Windows event logs (e.g. System, Application and Security event logs). Since ETW trace information can potentially be viewable machine-wide (with the right ACLs), read and write access to ETW events are blocked. Developers might notice that API calls to read and write ETW events and common Windows event logs appear to work, but that is because App Service is "faking" the calls so that they appear to succeed. In reality, the application code has no access to this event data.
 
 <a id="RegistryAccess"></a>
+
 
 ## Registry access
 Apps have read-only access to much (though not all) of the registry of the virtual machine they are running on. In practice, this means registry keys that allow read-only access to the local Users group are accessible by apps. One area of the registry that is currently not supported for either read or write access is the HKEY\_CURRENT\_USER hive.

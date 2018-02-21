@@ -26,7 +26,7 @@ The signature is:
 
 **Parameters**
 
-| Parameter	| Description |
+| Parameter | Description |
 |:---|:---|
 | appId | **Required** If the Authorization header is used, leave the appid field empty else specify a string containing "Bearer" + " " + access token.|
 | text | **Required** A string representing the text to translate. The size of the text must not exceed 10000 characters.|

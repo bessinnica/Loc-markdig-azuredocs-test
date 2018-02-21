@@ -121,12 +121,12 @@ Azure HDInsight is an optional package that you can add on your HDInsight cluste
 
 - Authorization for data
 
-    - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
-    - You can set access control on files and folders.
+  - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
+  - You can set access control on files and folders.
 
     For more information, see:
 
-    - [Configure Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Configure Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
 - View the audit logs to monitor accesses and the configured policies. 
 

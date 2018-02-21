@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a zoned public IP address with the Azure Portal | Microsoft Docs
 description: Create a public IP address in an availability zone with the Azure portal.
 services: virtual-network
@@ -41,13 +41,13 @@ Log in to the Azure portal at https://portal.azure.com.
 2. Select **Networking**, and then select **Public IP address**.
 3. Enter or select values for the following settings, select your subscription, accept the defaults for the remaining settings, then click **Create**:
 
-	|Setting|Value|
-	|---|---|
-	|SKU| **Basic**: Assigned with the static or dynamic allocation method. Can be assigned to any Azure resource that can be assigned a public IP address, such as network interfaces, VPN Gateways, Application Gateways, and Internet-facing load balancers. You can assign the public IP address to a specific zone in the **Availability zone** setting. Are not zone-redundant. To learn more about availability zones, see [Availability zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview). **Standard**: Assigned with the static allocation method only. Can be assigned to network interfaces or standard Internet-facing load balancers. If you assign the public IP address to a standard Internet-facing load balancer, you must select Standard. For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview). Are zone-redundant, by default. Can be created zonal and guaranteed in a specific availability zone. The standard SKU is in preview release. Before creating a Standard SKU public IP address, you must first register for the preview. To register for the preview, see [register for the standard SKU preview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#preview-sign-up). The Standard SKU can only be created in a supported location.  For a list of supported locations (regions), see [Region availability](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#region-availability) and monitor the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page for additional region support.|   
-	|Name|The name must be unique within the resource group you select.|
-	|Resource group|Click Create new, and enter myResourceGroup|
-	|Location|West Europe|
-	|Availability zone|If you selected the **Standard** SKU, you can select *Zone redundant* if you want the IP address to be resilient across zones. If you select the **Basic** SKU, the IP address is not resilient across zones. Regardless of the SKU you choose, you can assign the address to a specific zone, if you choose. |
+    |Setting|Value|
+    |---|---|
+    |SKU| **Basic**: Assigned with the static or dynamic allocation method. Can be assigned to any Azure resource that can be assigned a public IP address, such as network interfaces, VPN Gateways, Application Gateways, and Internet-facing load balancers. You can assign the public IP address to a specific zone in the **Availability zone** setting. Are not zone-redundant. To learn more about availability zones, see [Availability zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview). **Standard**: Assigned with the static allocation method only. Can be assigned to network interfaces or standard Internet-facing load balancers. If you assign the public IP address to a standard Internet-facing load balancer, you must select Standard. For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview). Are zone-redundant, by default. Can be created zonal and guaranteed in a specific availability zone. The standard SKU is in preview release. Before creating a Standard SKU public IP address, you must first register for the preview. To register for the preview, see [register for the standard SKU preview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#preview-sign-up). The Standard SKU can only be created in a supported location.  For a list of supported locations (regions), see [Region availability](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#region-availability) and monitor the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page for additional region support.|   
+    |Name|The name must be unique within the resource group you select.|
+    |Resource group|Click Create new, and enter myResourceGroup|
+    |Location|West Europe|
+    |Availability zone|If you selected the **Standard** SKU, you can select *Zone redundant* if you want the IP address to be resilient across zones. If you select the **Basic** SKU, the IP address is not resilient across zones. Regardless of the SKU you choose, you can assign the address to a specific zone, if you choose. |
 
     The settings appear in the portal, as shown in the following picture:
 

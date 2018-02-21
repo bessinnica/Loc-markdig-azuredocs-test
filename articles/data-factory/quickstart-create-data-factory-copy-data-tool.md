@@ -27,7 +27,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the service, which is in general availability (GA), see [Get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ## Create a data factory
 
@@ -57,7 +57,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 7. Select **Create**.
 8. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
 
-	!["Deploying Data Factory" tile](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
+    !["Deploying Data Factory" tile](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 9. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
    ![Home page for the data factory, with the "Author & Monitor" tile](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

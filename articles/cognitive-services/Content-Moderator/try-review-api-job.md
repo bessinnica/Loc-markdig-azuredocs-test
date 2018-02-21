@@ -26,7 +26,7 @@ Navigate to the [review tool](https://contentmoderator.cognitive.microsoft.com/)
 
 ## Use the API console
 To test-drive the API by using the online console, you need a few values to enter into the console:
-	
+    
 - `teamName`: Use the `Id` field from your review tool's credentials screen. 
 - `ContentId`: This string is passed to the API and returned through the callback. **ContentId** is useful for associating internal identifiers or metadata with the results of a moderation job.- `Workflowname`: The name of the [workflow that you created](Review-Tool-User-Guide/Workflows.md) in the previous section.
 - `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
@@ -65,31 +65,31 @@ Select **Get**, and then open the API by selecting the button that matches your 
 Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
 
 ```
-	{
-		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "some team name",
-		"Status": "InProgress",
-		"WorkflowId": "OCR",
-		"Type": "Image",
-		"CallBackEndpoint": "",
-		"ReviewId": "",
-		"ResultMetaData": [],
-		"JobExecutionReport": 
-		[
-    		{
-			"Ts": "2018-01-07T00:38:26.7714671",
-      			"Msg": "Successfully got hasText response from Moderator"
-    		},
-    		{
-      			"Ts": "2018-01-07T00:38:26.4181346",
-      			"Msg": "Getting hasText from Moderator"
-    		},
-    		{
-      			"Ts": "2018-01-07T00:38:25.5122828",
-      			"Msg": "Starting Execution - Try 1"
-    		}
-		]
-	}
+    {
+        "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
+        "TeamName": "some team name",
+        "Status": "InProgress",
+        "WorkflowId": "OCR",
+        "Type": "Image",
+        "CallBackEndpoint": "",
+        "ReviewId": "",
+        "ResultMetaData": [],
+        "JobExecutionReport": 
+        [
+            {
+            "Ts": "2018-01-07T00:38:26.7714671",
+                "Msg": "Successfully got hasText response from Moderator"
+            },
+            {
+                "Ts": "2018-01-07T00:38:26.4181346",
+                "Msg": "Getting hasText from Moderator"
+            },
+            {
+                "Ts": "2018-01-07T00:38:25.5122828",
+                "Msg": "Starting Execution - Try 1"
+            }
+        ]
+    }
 ```
 
 ## Navigate to the review tool

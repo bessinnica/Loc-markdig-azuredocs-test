@@ -25,6 +25,7 @@ robots: noindex
 This article provides information about functions and variables supported by Azure Data Factory.
 
 ## Data Factory system variables
+
 | Variable Name | Description | Object Scope | JSON Scope and Use Cases |
 | --- | --- | --- | --- |
 | WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li> |
@@ -55,10 +56,10 @@ In the following example, year, month, day, and time of **SliceStart** are extra
 You can use functions in data factory along with system variables for the following purposes:
 
 1. Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
-   
-   The syntax to invoke a data factory function is: **$$<function>** for data selection queries and other properties in the activity and datasets.  
+
+   The syntax to invoke a data factory function is: <strong>$$<function></strong> for data selection queries and other properties in the activity and datasets.  
 2. Specifying input dependencies with data factory functions in activity inputs collection.
-   
+
     $$ is not needed for specifying input dependency expressions.     
 
 In the following sample, **sqlReaderQuery** property in a JSON file is assigned to a value returned by the `Text.Format` function. This sample also uses a system variable named **WindowStart**, which represents the start time of the activity run window.

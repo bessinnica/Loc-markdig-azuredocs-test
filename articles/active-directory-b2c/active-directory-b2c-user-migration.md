@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory B2C: User migration approaches'
 description: Discuss core and advanced concepts on user migration using Graph API and optionally using Azure AD B2C custom policies.
 services: active-directory-b2c

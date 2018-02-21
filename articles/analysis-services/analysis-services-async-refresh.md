@@ -196,8 +196,8 @@ Here's a C# code sample to get you started, [RestApiSample on GitHub](https://gi
 
 ### To use the code sample
 
-1.	Clone or download the repo. Open the RestApiSample solution.
-2.	Find the line **client.BaseAddress = …** and provide your [base URL](#base-url).
+1.  Clone or download the repo. Open the RestApiSample solution.
+2.  Find the line **client.BaseAddress = …** and provide your [base URL](#base-url).
 
 The code sample can use interactive login, username/password, or [service principal](#service-principle).
 
@@ -205,42 +205,42 @@ The code sample can use interactive login, username/password, or [service princi
 
 This form of authentication requires an Azure application be created with the necessary API permissions assigned. 
 
-1.	In Azure portal, click **New** > **Azure Active Directory** > **App registrations** > **New application registration**.
+1.  In Azure portal, click **New** > **Azure Active Directory** > **App registrations** > **New application registration**.
 
     ![New Application registration](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 
 
-2.	In **Create**, type a name, select **Native** application type. For **Redirect URI**, enter **urn:ietf:wg:oauth:2.0:oob**, and then click **Create**.
+2.  In **Create**, type a name, select **Native** application type. For **Redirect URI**, enter **urn:ietf:wg:oauth:2.0:oob**, and then click **Create**.
 
     ![Settings](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
 
-3.	Select your app and then copy and save the **Application ID**.
+3.  Select your app and then copy and save the **Application ID**.
 
     ![Copy application ID](./media/analysis-services-async-refresh/aas-async-app-id.png)
 
-4.	In **Settings**, click **Required permissions** > **Add**.
+4.  In **Settings**, click **Required permissions** > **Add**.
 
     ![Add API access](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.	In **Select an API**, type **SQL Server Analysis Services** into the search box, and then select **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  In **Select an API**, type **SQL Server Analysis Services** into the search box, and then select **Azure Analysis Services (SQL Server Analysis Services Azure)**.
 
     ![Select API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
-6.	Select **Read and Write all Models**, and then click **Select**. When both are selected, click **Done** to add the permissions. It may take a few minutes to propagate.
+6.  Select **Read and Write all Models**, and then click **Select**. When both are selected, click **Done** to add the permissions. It may take a few minutes to propagate.
 
     ![Select Read and Write all models](./media/analysis-services-async-refresh/aas-async-select-read.png)
 
-7.	In the code sample, find the **UpdateToken()** method. Observe the contents of this method.
-8.	Find **string clientID = …**, and then enter the **Application ID** you copied from step 3.
-9.	Run the sample.
+7.  In the code sample, find the **UpdateToken()** method. Observe the contents of this method.
+8.  Find **string clientID = …**, and then enter the **Application ID** you copied from step 3.
+9.  Run the sample.
 
 #### Service principal
 
 See the [Automation of Azure Analysis Services with Service Principals and PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blog post for how to set up a service principal and assign the necessary permissions in Azure Analysis Services. Once you've completed the steps detailed in the blog post, complete the following additional steps:
 
-1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID.
-2.	Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
-3.	Run the sample.
+1.  In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID.
+2.  Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
+3.  Run the sample.
 
 
 ## See also

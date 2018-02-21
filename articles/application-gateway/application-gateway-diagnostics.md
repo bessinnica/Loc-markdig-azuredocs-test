@@ -166,21 +166,22 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example:
 
 
-|Value  |Description  |
-|---------|---------|
-|instanceId     | Application Gateway instance that served the request.        |
-|clientIP     | Originating IP for the request.        |
-|clientPort     | Originating port for the request.       |
-|httpMethod     | HTTP method used by the request.       |
-|requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request. </br> **X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
-|UserAgent     | User agent from the HTTP request header.        |
-|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
-|httpVersion     | HTTP version of the request.        |
-|receivedBytes     | Size of packet received, in bytes.        |
-|sentBytes| Size of packet sent, in bytes.|
-|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
+|     Value     |                                                                                                                                                                                                              Description                                                                                                                                                                                                               |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  instanceId   |                                                                                                                                                                                         Application Gateway instance that served the request.                                                                                                                                                                                          |
+|   clientIP    |                                                                                                                                                                                                    Originating IP for the request.                                                                                                                                                                                                     |
+|  clientPort   |                                                                                                                                                                                                   Originating port for the request.                                                                                                                                                                                                    |
+|  httpMethod   |                                                                                                                                                                                                    HTTP method used by the request.                                                                                                                                                                                                    |
+|  requestUri   |                                                                                                                                                                                                      URI of the received request.                                                                                                                                                                                                      |
+| RequestQuery  |                                  <strong>Server-Routed</strong>: Back-end pool instance that was sent the request. </br> <strong>X-AzureApplicationGateway-LOG-ID</strong>: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br><strong>SERVER-STATUS</strong>: HTTP response code that Application Gateway received from the back end.                                   |
+|   UserAgent   |                                                                                                                                                                                                User agent from the HTTP request header.                                                                                                                                                                                                |
+|  httpStatus   |                                                                                                                                                                                   HTTP status code returned to the client from Application Gateway.                                                                                                                                                                                    |
+|  httpVersion  |                                                                                                                                                                                                      HTTP version of the request.                                                                                                                                                                                                      |
+| receivedBytes |                                                                                                                                                                                                   Size of packet received, in bytes.                                                                                                                                                                                                   |
+|   sentBytes   |                                                                                                                                                                                                     Size of packet sent, in bytes.                                                                                                                                                                                                     |
+|   timeTaken   | Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|  sslEnabled   |                                                                                                                                                                           Whether communication to the back-end pools used SSL. Valid values are on and off.                                                                                                                                                                           |
+
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -290,7 +291,6 @@ The firewall log is generated only if you have enabled it for each application g
     }
   }
 } 
-
 ```
 
 ### View and analyze the activity log

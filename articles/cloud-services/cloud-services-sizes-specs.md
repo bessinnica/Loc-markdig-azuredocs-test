@@ -53,6 +53,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 <br>
 
+
 | SKU Family | ACU/Core |
 | --- | --- |
 | [ExtraSmall](#a-series) |50 |
@@ -78,6 +79,7 @@ The following tables show the sizes and the capacities they provide.
 * Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput increases accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
 
 ## A-series
+
 | Size            | CPU cores | Memory: GiB  | Local HDD: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0.768        | 20                   | 1 / low |
@@ -115,6 +117,7 @@ For information and considerations about using these sizes, see [High performanc
 
 
 ## D-series
+
 | Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3.5          | 50                   | 1 / moderate |
@@ -127,6 +130,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_D14    | 16        | 112          | 800                  | 8 / very high |
 
 ## Dv2-series
+
 | Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3.5          | 50                   | 1 / moderate |
@@ -164,6 +168,7 @@ For information and considerations about using these sizes, see [High performanc
 
 
 ## G-series
+
 | Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / high |

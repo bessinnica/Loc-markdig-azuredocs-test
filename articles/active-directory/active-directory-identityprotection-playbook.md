@@ -117,7 +117,7 @@ Vulnerabilities are weaknesses in an Azure AD environment that can be exploited 
 2. Navigate to **Identity Protection**.
 3. On the main **Azure AD Identity Protection** blade, click **Settings**. 
 4. On the **Portal Settings** blade, under **Security rules**, click **Sign in risk**.
-5. On the **Sign in Risk **blade, select **On** under **Enable rule**. 
+5. On the <strong>Sign in Risk **blade, select **On</strong> under <strong>Enable rule</strong>. 
 6. Select one of the following options:
    
    a. To block, select **Medium** under **Block sign in**

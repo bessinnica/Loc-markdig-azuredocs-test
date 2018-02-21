@@ -28,27 +28,19 @@ Before your logic app can access any service, you first need to create a *connec
 
 ### Create a connection to Salesforce connector
 > [!INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
-> 
-> 
 
 ## Use a Salesforce connector trigger
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
-> 
-> 
 
 ## Add a condition
 > [!INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
-> 
-> 
 
 ## Use a Salesforce connector action
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
-> 
-> 
 
 ## Connector-specific details
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor Azure web app performance | Microsoft Docs
 description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
@@ -29,23 +29,24 @@ You can configure monitoring by instrumenting the app in either of two ways:
 If you're already running a web app in Azure, you already get some monitoring: request and error rates. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and the powerful Log Analytics query language. 
 
 1. **Select Application Insights** in the Azure control panel for your web app.
-   
+
     ![Under Monitoring, choose Application Insights](./media/app-insights-azure-web-apps/05-extend.png)
-   
+
    * Choose to create a new resource, unless you already set up an Application Insights resource for this app by another route.
 2. **Instrument your web app** after Application Insights has been installed. 
-   
+
     ![Instrument your web app](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
 
    **Enable client side monitoring** for page view and user telemetry.
 
    * Select Settings > Application Settings
    * Under App Settings, add a new key value pair: 
-   
-    Key: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
-    Value: `true`
+
+     Key: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+
+     Value: `true`
    * **Save** the settings and **Restart** your app.
+
 3. **Monitor your app**.  [Explore the data](#explore-the-data).
 
 Later, you can build the app with Application Insights if you want.
@@ -60,13 +61,13 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 1. **In Visual Studio** (2013 update 2 or later), configure Application Insights for your project.
 
     Right-click the web project, and select **Add > Application Insights** or **Configure Application Insights**.
-   
+
     ![Right-click the web project and choose Add or Configure Application Insights](./media/app-insights-azure-web-apps/03-add.png)
-   
+
     If you're asked to sign in, use the credentials for your Azure account.
-   
+
     The operation has two effects:
-   
+
    1. Creates an Application Insights resource in Azure, where telemetry is stored, analyzed and displayed.
    2. Adds the Application Insights NuGet package to your code (if it isn't there already), and configures it to send telemetry to the Azure resource.
 2. **Test the telemetry** by running the app in your development machine (F5).
@@ -85,16 +86,16 @@ Application Insights can provide more detailed telemetry by installing an SDK in
     You can also go there either directly from Azure resource navigation.
 
 1. Click through any chart to get more detail:
-   
+
     ![On the Application Insights overview blade, click a chart](./media/app-insights-azure-web-apps/07-dependency.png)
-   
+
     You can [customize metrics blades](app-insights-metrics-explorer.md).
 2. Click through further to see individual events and their properties:
-   
+
     ![Click an event type to open a search filtered on that type](./media/app-insights-azure-web-apps/08-requests.png)
-   
+
     Notice the "..." link to open all properties.
-   
+
     You can [customize searches](app-insights-diagnostic-search.md).
 
 For more powerful searches over your telemetry, use the [Log Analytics query language](app-insights-analytics-tour.md).

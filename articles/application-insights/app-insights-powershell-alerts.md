@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Powershell to set alerts in Application Insights | Microsoft Docs
 description: Automate configuration of Application Insights to get emails about metric changes.
 services: application-insights
@@ -94,6 +94,7 @@ I have an application in which I use [TrackMetric()](app-insights-api-custom-eve
 The same rule can be used for the metric reported by using the [measurement parameter](app-insights-api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
 
 ## Metric names
+
 | Metric name | Screen name | Description |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Browser exceptions |Count of uncaught exceptions thrown in the browser. |

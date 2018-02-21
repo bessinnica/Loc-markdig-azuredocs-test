@@ -54,7 +54,6 @@ Number of seconds since the Unix Epoch (assuming Col1 is already a date):
 ```python
     import hashlib
     hash(row["MyColumnToHashCol1"])
-
 ```
 
 

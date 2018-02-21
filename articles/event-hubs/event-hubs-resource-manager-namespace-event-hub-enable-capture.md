@@ -175,19 +175,18 @@ The size interval at which Capture starts capturing the data.
 }
 ```
 
-###captureNameFormat
+### captureNameFormat
 
 The name format used by Event Hubs Capture to write the Avro files. Note that a Capture name format must contain `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}`, and `{Second}` fields. These can be arranged in any order, with or without delimiters.
- 
+
 ```json
 "captureNameFormat": {
       "type": "string",
-	  "defaultValue": "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+      "defaultValue": "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
       "metadata": {
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  
 ```
 
 ### apiVersion
@@ -234,7 +233,7 @@ The blob container in which to capture your event data.
 
 Use the following parameters if you choose Azure Data Lake Store as your destination. You must set permissions on your Data Lake Store path, in which you want to Capture the event. To set permissions, see [this article](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
-###subscriptionId
+### subscriptionId
 
 Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both these resources must be under the same subscription ID.
 
@@ -247,7 +246,7 @@ Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both the
  }
 ```
 
-###dataLakeAccountName
+### dataLakeAccountName
 
 The Azure Data Lake Store name for the captured events.
 
@@ -260,7 +259,7 @@ The Azure Data Lake Store name for the captured events.
 }
 ```
 
-###dataLakeFolderPath
+### dataLakeFolderPath
 
 The destination folder path for the captured events. This is the folder in your Data Lake Store to which the events will be pushed during the capture operation. To set permissions on this folder, see [Use Azure Data Lake Store to capture data from Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 
@@ -388,7 +387,7 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
 ## PowerShell
 
 Deploy your template to enable Event Hubs Capture into Azure Storage:
- 
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```

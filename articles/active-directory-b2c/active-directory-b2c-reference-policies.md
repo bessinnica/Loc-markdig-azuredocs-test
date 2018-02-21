@@ -43,7 +43,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siup                                       // Your sign-up policy
-
 ```
 
 ```
@@ -57,7 +56,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siin                                       // Your sign-in policy
-
 ```
 
 For more information about the policy framework, see [this blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).

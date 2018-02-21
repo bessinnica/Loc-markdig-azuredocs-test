@@ -65,7 +65,6 @@ az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o ts
 | awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
 az vm start --name $vmName --resource-group $rgName
-
 ```
 ## Convert a managed disk from standard to premium, and vice versa
 

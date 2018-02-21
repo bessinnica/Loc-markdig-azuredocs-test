@@ -59,7 +59,7 @@ The next few steps help you filled the autoscale screen to look like following p
 2. In the default profile, ensure the **Scale mode** is set to 'Scale to a specific instance count'
 3. Set the instance count to **1**. This setting ensures that when no other profile is active, or in effect, the default profile returns the instance count to 1.
 
-  ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## Create recurrance profile

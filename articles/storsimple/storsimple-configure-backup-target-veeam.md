@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with Veeam | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veeam.
 services: storsimple
@@ -205,16 +205,16 @@ Set up your solution according to the guidelines in the following few sections.
 
 ### Operating system best practices
 
--   Disable Windows Server encryption and deduplication for the NTFS file system.
--   Disable Windows Server defragmentation on the StorSimple volumes.
--   Disable Windows Server indexing on the StorSimple volumes.
--   Run an antivirus scan at the source host (not against the StorSimple volumes).
--   Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
-    - Turn off the Maintenance configurator in Windows Task Scheduler.
-    - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Disable Windows Server encryption and deduplication for the NTFS file system.
+- Disable Windows Server defragmentation on the StorSimple volumes.
+- Disable Windows Server indexing on the StorSimple volumes.
+- Run an antivirus scan at the source host (not against the StorSimple volumes).
+- Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
+  - Turn off the Maintenance configurator in Windows Task Scheduler.
+  - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### StorSimple best practices
 
@@ -253,14 +253,16 @@ In the following example, we use a GFS rotation. The example assumes the followi
 
 Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for the monthly and yearly full backups. Create a 5-TiB StorSimple tiered volume for each of the incremental daily backups.
 
-| Backup type retention | Size (TiB) | GFS multiplier\* | Total capacity (TiB)  |
-|---|---|---|---|
-| Weekly full | 1 | 4  | 4 |
-| Daily incremental | 0.5 | 20 (cycles equal number of weeks per month) | 12 (2 for additional quota) |
-| Monthly full | 1 | 12 | 12 |
-| Yearly full | 1  | 10 | 10 |
-| GFS requirement |   | 38 |   |
-| Additional quota  | 4  |   | 42 total GFS requirement  |
+
+| Backup type retention | Size (TiB) |              GFS multiplier\*               |    Total capacity (TiB)     |
+|-----------------------|------------|---------------------------------------------|-----------------------------|
+|      Weekly full      |     1      |                      4                      |              4              |
+|   Daily incremental   |    0.5     | 20 (cycles equal number of weeks per month) | 12 (2 for additional quota) |
+|     Monthly full      |     1      |                     12                      |             12              |
+|      Yearly full      |     1      |                     10                      |             10              |
+|    GFS requirement    |            |                     38                      |                             |
+|   Additional quota    |     4      |                                             |  42 total GFS requirement   |
+
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## Set up Veeam storage
@@ -311,12 +313,12 @@ The following figure shows the mapping of a typical volume to a backup job. In t
 
 Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly:
 
-| Frequency/backup type | Full | Incremental (days 1-5)  |   
-|---|---|---|
-| Weekly (weeks 1-4) | Saturday | Monday-Friday |
-| Monthly  | Saturday  |   |
-| Yearly | Saturday  |   |   |
 
+| Frequency/backup type |   Full   | Incremental (days 1-5) |
+|-----------------------|----------|------------------------|
+|  Weekly (weeks 1-4)   | Saturday |     Monday-Friday      |
+|        Monthly        | Saturday |                        |
+|        Yearly         | Saturday |                        |
 
 ### Assign StorSimple volumes to a Veeam backup job
 
@@ -374,13 +376,15 @@ The following figure shows typical short-term retention local (to the server) vo
 
 The following table shows how to set up backups to run on the local and StorSimple disks. It includes individual and total capacity requirements.
 
-| Backup type and retention | Configured storage | Size (TiB) | GFS multiplier | Total capacity\* (TiB) |
-|---|---|---|---|---|
-| Week 1 (full and incremental) |Local disk (short-term)| 1 | 1 | 1 |
-| StorSimple weeks 2-4 |StorSimple disk (long-term) | 1 | 4 | 4 |
-| Monthly full |StorSimple disk (long-term) | 1 | 12 | 12 |
-| Yearly full |StorSimple disk (long-term) | 1 | 1 | 1 |
-|GFS volumes size requirement |  |  |  | 18*|
+
+|   Backup type and retention   |     Configured storage      | Size (TiB) | GFS multiplier | Total capacity\* (TiB) |
+|-------------------------------|-----------------------------|------------|----------------|------------------------|
+| Week 1 (full and incremental) |   Local disk (short-term)   |     1      |       1        |           1            |
+|     StorSimple weeks 2-4      | StorSimple disk (long-term) |     1      |       4        |           4            |
+|         Monthly full          | StorSimple disk (long-term) |     1      |       12       |           12           |
+|          Yearly full          | StorSimple disk (long-term) |     1      |       1        |           1            |
+| GFS volumes size requirement  |                             |            |                |          18*           |
+
 \* Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
@@ -388,14 +392,15 @@ The following table shows how to set up backups to run on the local and StorSimp
 
 GFS rotation weekly, monthly, and yearly schedule
 
-| Week | Full | Incremental day 1 | Incremental day 2 | Incremental day 3 | Incremental day 4 | Incremental day 5 |
-|---|---|---|---|---|---|---|
-| Week 1 | Local RAID volume  | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume |
-| Week 2 | StorSimple weeks 2-4 |   |   |   |   |   |
-| Week 3 | StorSimple weeks 2-4 |   |   |   |   |   |
-| Week 4 | StorSimple weeks 2-4 |   |   |   |   |   |
-| Monthly | StorSimple monthly |   |   |   |   |   |
-| Yearly | StorSimple yearly  |   |   |   |   |   |   |
+
+|  Week   |         Full         | Incremental day 1 | Incremental day 2 | Incremental day 3 | Incremental day 4 | Incremental day 5 |
+|---------|----------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
+| Week 1  |  Local RAID volume   | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume |
+| Week 2  | StorSimple weeks 2-4 |                   |                   |                   |                   |                   |
+| Week 3  | StorSimple weeks 2-4 |                   |                   |                   |                   |                   |
+| Week 4  | StorSimple weeks 2-4 |                   |                   |                   |                   |                   |
+| Monthly |  StorSimple monthly  |                   |                   |                   |                   |                   |
+| Yearly  |  StorSimple yearly   |                   |                   |                   |                   |                   |
 
 ### Assign StorSimple volumes to a Veeam copy job
 
@@ -467,9 +472,9 @@ The following section describes how to create a short script to start and delete
 1. [Install Azure PowerShell](/powershell/azure/overview).
 2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
 3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. To add the script to your backup job, edit your Veeam job advanced options.
 
     ![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
@@ -480,7 +485,7 @@ We recommend that you run your StorSimple cloud snapshot backup policy as a post
 
 Restores from a StorSimple device work like restores from any block storage device. Restores of data that is tiered to the cloud occurs at cloud speeds. For local data, restores occur at the local disk speed of the device.
 
-With Veeam, you get fast, granular, file-level recovery through StorSimple via the built-in explorer views in the Veeam console. Use the Veeam Explorers to recover individual items, like email messages, Active Directory objects, and SharePoint items from backups. The recovery can be done without on-premises VM disruption. You also can do point-in-time recovery for Azure SQL Database and Oracle databases. Veeam and StorSimple make the process of item-level recovery from Azure fast and easy. For information about how to perform a restore, see the Veeam documentation:
+With Veeam, you get fast, granular, file-level recovery through StorSimple via the built-in explorer views in the Veeam console. Use the Veeam Explorers to recover individual items, like email messages, Active Directory objects, and SharePoint items from backups. The recovery can be done without on-premises VM disruption. You also can do point-in-time recovery for Azure SQL Database and Oracle databases. Veeam and StorSimple make the process of item-level recovery from Azure fast and easy. For information about how to perform a restore, see the Veeam documentation:
 
 - For [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)
 - For [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)

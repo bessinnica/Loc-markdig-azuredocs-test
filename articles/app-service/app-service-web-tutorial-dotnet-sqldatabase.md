@@ -81,7 +81,7 @@ Publishing opens the **Create App Service** dialog, which helps you create all t
 ### Sign in to Azure
 
 In the **Create App Service** dialog, click **Add an account**, and then sign in to your Azure subscription. If you're already signed into a Microsoft account, make sure that account holds your Azure subscription. If the signed-in Microsoft account doesn't have your Azure subscription, click it to add the correct account.
-   
+
 ![Sign in to Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 Once signed in, you're ready to create all the resources you need for your Azure web app in this dialog.
@@ -409,6 +409,7 @@ By default, the portal shows the **Overview** page. This page gives you a view o
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
 <a name="next"></a>
+
 
 ## Next steps
 

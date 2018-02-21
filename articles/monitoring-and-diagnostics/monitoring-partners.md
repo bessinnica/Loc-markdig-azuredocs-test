@@ -18,13 +18,14 @@ ms.author: johnkem
 
 ---
 # Azure Monitor partner integrations
-| Partners |  |  |
-| --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+
+|                                    Partners                                    |                                                                             |                                                                          |
+|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|    [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor]    | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |  [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor]   |
+|       [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor]       | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
+|        [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor]         |       [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor]       |  [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor]   |
+|       [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor]       |     [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor]      |  [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor]   |
+| [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |        [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor]         |  [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor]  |
 
 ## AlertLogic Log Manager
 Alert Logic Log Manager collects VM, Application, and Azure platform logs for security analysis and retention, including the Azure Activity Log via the Azure Monitor API.  This information is used to detect malfeasance and meet compliance requirements.

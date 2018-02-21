@@ -36,7 +36,6 @@ include creating a blob container, and uploading, listing, downloading, and dele
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
-
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
 ## Create an MVC controller 
@@ -45,23 +44,23 @@ include creating a blob container, and uploading, listing, downloading, and dele
 
 2. From the context menu, select **Add** > **Controller**.
 
-	![Screenshot of Solution Explorer, with Add and Controller highlighted](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
+    ![Screenshot of Solution Explorer, with Add and Controller highlighted](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
 
 1. In the **Add Scaffold** dialog box, select **MVC 5 Controller - Empty**, and select **Add**.
 
-	![Screenshot of Add Scaffold dialog box](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
+    ![Screenshot of Add Scaffold dialog box](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
 
 1. In the **Add Controller** dialog box, name the controller *BlobsController*, and select **Add**.
 
-	![Screenshot of Add Controller dialog box](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
+    ![Screenshot of Add Controller dialog box](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
 1. Add the following `using` directives to the `BlobsController.cs` file:
 
     ```csharp
-	using Microsoft.Azure;
+    using Microsoft.Azure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
-	```
+    ```
 
 ## Connect to a storage account and get a container reference
 
@@ -72,7 +71,7 @@ The following steps create a method to connect to the storage account by using t
 1. Open the `BlobsController.cs` file.
 
 1. Add a method called **GetCloudBlobContainer** that returns a **CloudBlobContainer**.  Be sure to replace `<storageaccountname>_AzureStorageConnectionString` with the actual name of the key in **Web.config**.
-    
+
     ```csharp
     private CloudBlobContainer GetCloudBlobContainer()
     {
@@ -96,14 +95,14 @@ The following steps illustrate how to create a blob container:
     ```csharp
     public ActionResult CreateBlobContainer()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return View();
     }
     ```
- 
+
 1. Get a `CloudBlobContainer` object that represents a reference to the desired blob container name. 
-   
+
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
@@ -111,15 +110,15 @@ The following steps illustrate how to create a blob container:
 1. Call the `CloudBlobContainer.CreateIfNotExists` method to create the container, if it does not yet exist. The `CloudBlobContainer.CreateIfNotExists` method returns **true** if the container does not exist, and is successfully created. Otherwise, the method returns **false**.    
 
     ```csharp
-	ViewBag.Success = container.CreateIfNotExists();
+    ViewBag.Success = container.CreateIfNotExists();
     ```
 
 1. Update `ViewBag` with the name of the blob container.
 
     ```csharp
-	ViewBag.BlobContainerName = container.Name;
+    ViewBag.BlobContainerName = container.Name;
     ```
-    
+
     The following shows the completed `CreateBlobContainer` method:
 
     ```csharp
@@ -136,7 +135,7 @@ The following steps illustrate how to create a blob container:
 1. In **Solution Explorer**, right-click the **Views** folder.
 
 2. From the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
- 
+
 1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**.
 
 4. From the context menu, select **Add** > **View**.
@@ -146,13 +145,13 @@ The following steps illustrate how to create a blob container:
 1. Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
-	@{
-	    ViewBag.Title = "Create Blob Container";
-	}
-	
-	<h2>Create Blob Container results</h2>
+    @{
+        ViewBag.Title = "Create Blob Container";
+    }
 
-	Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
+    <h2>Create Blob Container results</h2>
+
+    Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
 1. In **Solution Explorer**, expand the **Views** > **Shared** folder, and open `_Layout.cshtml`.
@@ -160,14 +159,14 @@ The following steps illustrate how to create a blob container:
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
+    <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
 1. Run the application, and select **Create Blob Container** to see results similar to the following screenshot:
-  
-	![Screenshot of Create blob container](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
-	As mentioned previously, the `CloudBlobContainer.CreateIfNotExists` method returns **true** only when the container doesn't exist and is created. Therefore, if the app is run when the container exists, the method returns **false**.
+    ![Screenshot of Create blob container](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
+
+    As mentioned previously, the `CloudBlobContainer.CreateIfNotExists` method returns **true** only when the container doesn't exist and is created. Therefore, if the app is run when the container exists, the method returns **false**.
 
 ## Upload a blob into a blob container
 
@@ -180,14 +179,14 @@ When the [blob container is created](#create-a-blob-container), upload files int
     ```csharp
     public string UploadBlob()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return "success!";
     }
     ```
- 
+
 1. Within the `UploadBlob` method, get a `CloudBlobContainer` object that represents a reference to the desired blob container name. 
-   
+
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
@@ -197,7 +196,7 @@ When the [blob container is created](#create-a-blob-container), upload files int
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
-    
+
     > [!NOTE]
     > The blob name is part of the URL used to retrieve a blob, and can be any string, including the name of the file.
 
@@ -209,7 +208,7 @@ When the [blob container is created](#create-a-blob-container), upload files int
         blob.UploadFromStream(fileStream);
     }
     ```
-    
+
     The following shows the completed `UploadBlob` method (with a fully qualified path for the file to be uploaded):
 
     ```csharp
@@ -230,13 +229,13 @@ When the [blob container is created](#create-a-blob-container), upload files int
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
+    <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
 1. Run the application, and select **Upload blob**.  The word *success!* should appear.
-    
+
     ![Screenshot of success verification](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
-  
+
 ## List the blobs in a blob container
 
 This section illustrates how to list the blobs in a blob container. The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).
@@ -248,17 +247,17 @@ This section illustrates how to list the blobs in a blob container. The sample c
     ```csharp
     public ActionResult ListBlobs()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
     }
     ```
- 
+
 1. Within the `ListBlobs` method, get a `CloudBlobContainer` object that represents a reference to the blob container. 
-   
+
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
-   
+
 1. To list the blobs in a blob container, use the `CloudBlobContainer.ListBlobs` method. The `CloudBlobContainer.ListBlobs` method returns an `IListBlobItem` object that can be cast to a `CloudBlockBlob`, `CloudPageBlob`, or `CloudBlobDirectory` object. The following code snippet enumerates all the blobs in a blob container. Each blob is cast to the appropriate object, based on its type. Its name (or URI in the case of a **CloudBlobDirectory**) is added to a list.
 
     ```csharp
@@ -283,35 +282,35 @@ This section illustrates how to list the blobs in a blob container. The sample c
         }
     }
 
-	return View(blobs);
+    return View(blobs);
     ```
 
-	In addition to blobs, blob containers can contain directories. Suppose there is a blob container called *test-blob-container*, with the following hierarchy:
+    In addition to blobs, blob containers can contain directories. Suppose there is a blob container called *test-blob-container*, with the following hierarchy:
 
-		foo.png
-		dir1/bar.png
-		dir2/baz.png
+        foo.png
+        dir1/bar.png
+        dir2/baz.png
 
-	Using the preceding code example, the **blobs** string list contains values similar to the following:
+    Using the preceding code example, the **blobs** string list contains values similar to the following:
 
-		foo.png
-		<storage-account-url>/test-blob-container/dir1
-		<storage-account-url>/test-blob-container/dir2
+        foo.png
+        <storage-account-url>/test-blob-container/dir1
+        <storage-account-url>/test-blob-container/dir2
 
-	As shown, the list includes only the top-level entities, not the nested ones (*bar.png* and *baz.png*). To list all the entities within a blob container, change the code so that the **CloudBlobContainer.ListBlobs** method is passed **true** for the **useFlatBlobListing** parameter.    
+    As shown, the list includes only the top-level entities, not the nested ones (*bar.png* and *baz.png*). To list all the entities within a blob container, change the code so that the **CloudBlobContainer.ListBlobs** method is passed **true** for the **useFlatBlobListing** parameter.    
 
     ```csharp
     //...
-	foreach (IListBlobItem item in container.ListBlobs(useFlatBlobListing:true))
-	//...
+    foreach (IListBlobItem item in container.ListBlobs(useFlatBlobListing:true))
+    //...
     ```
 
-	Setting the **useFlatBlobListing** parameter to **true** returns a flat listing of all entities in the blob container. This yields the following results:
+    Setting the **useFlatBlobListing** parameter to **true** returns a flat listing of all entities in the blob container. This yields the following results:
 
-		foo.png
-		dir1/bar.png
-		dir2/baz.png
-    
+        foo.png
+        dir1/bar.png
+        dir2/baz.png
+
     The following shows the completed **ListBlobs** method:
 
     ```csharp
@@ -351,19 +350,19 @@ This section illustrates how to list the blobs in a blob container. The sample c
 1. Open `ListBlobs.cshtml`, and replace the contents with the following code:
 
     ```html
-	@model List<string>
-	@{
-	    ViewBag.Title = "List blobs";
-	}
-	
-	<h2>List blobs</h2>
-	
-	<ul>
-	    @foreach (var item in Model)
-	    {
-	    <li>@item</li>
-	    }
-	</ul>
+    @model List<string>
+    @{
+        ViewBag.Title = "List blobs";
+    }
+
+    <h2>List blobs</h2>
+
+    <ul>
+        @foreach (var item in Model)
+        {
+        <li>@item</li>
+        }
+    </ul>
     ```
 
 1. In **Solution Explorer**, expand the **Views** > **Shared** folder, and open `_Layout.cshtml`.
@@ -371,12 +370,12 @@ This section illustrates how to list the blobs in a blob container. The sample c
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
+    <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
 1. Run the application, and select **List blobs** to see results similar to the following screenshot:
-  
-	![Screenshot of List blobs](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
+
+    ![Screenshot of List blobs](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
 ## Download blobs
 
@@ -389,14 +388,14 @@ This section illustrates how to download a blob. You can either persist it to lo
     ```csharp
     public string DownloadBlob()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return "success!";
     }
     ```
- 
+
 1. Within the `DownloadBlob` method, get a `CloudBlobContainer` object that represents a reference to the blob container.
-   
+
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
@@ -415,9 +414,9 @@ This section illustrates how to download a blob. You can either persist it to lo
         blob.DownloadToStream(fileStream);
     }
     ```
-    
+
     The following shows the completed `ListBlobs` method (with a fully qualified path for the local file being created):
-    
+
     ```csharp
     public string DownloadBlob()
     {
@@ -436,7 +435,7 @@ This section illustrates how to download a blob. You can either persist it to lo
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
+    <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
     ```
 
 1. Run the application, and select **Download blob** to download the blob. The blob specified in the `CloudBlobContainer.GetBlockBlobReference` method call downloads to the location specified in the `File.OpenWrite` method call.  The text *success!* should appear in the browser. 
@@ -452,14 +451,14 @@ The following steps illustrate how to delete a blob:
     ```csharp
     public string DeleteBlob()
     {
-		// The code in this section goes here.
+        // The code in this section goes here.
 
         return "success!";
     }
     ```
 
 1. Within the `DeleteBlob` method, get a `CloudBlobContainer` object that represents a reference to the blob container.
-   
+
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
@@ -475,9 +474,9 @@ The following steps illustrate how to delete a blob:
     ```csharp
     blob.Delete();
     ```
-    
+
     The completed `DeleteBlob` method should appear as follows:
-    
+
     ```csharp
     public string DeleteBlob()
     {
@@ -493,7 +492,7 @@ The following steps illustrate how to delete a blob:
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
-	<li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
+    <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
     ```
 
 1. Run the application, and select **Delete blob** to delete the blob specified in the `CloudBlobContainer.GetBlockBlobReference` method call. The text *success!* should appear in the browser. Select the browser's **Back** button, and then select **List blobs** to verify that the blob is no longer in the container.

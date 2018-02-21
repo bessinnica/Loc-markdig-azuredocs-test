@@ -1,4 +1,4 @@
-﻿---
+---
 
   title: PowerShell examples for group-based licensing in Azure AD | Microsoft Docs
   description: PowerShell scenarios for Azure Active Directory group-based licensing
@@ -26,7 +26,7 @@ Full functionality for group-based licensing is available through the [Azure por
 cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory). This document provides examples of what is possible.
 
 > [!NOTE]
-> Before you begin running cmdlets, make sure you connect to your tenant first, by running the `Connect-MsolService` cmdlet.
+> Before you begin running cmdlets, make sure you connect to your tenant first, by running the `Connect-MsolService` cmdlet.
 
 ## View product licenses assigned to a group
 The
@@ -69,7 +69,7 @@ ObjectId                             DisplayName              Licenses
 7023a314-6148-4d7b-b33f-6c775572879a EMS E5 – Licensed users  EMSPREMIUM
 cf41f428-3b45-490b-b69f-a349c8a4c38e PowerBi - Licensed users POWER\_BI\_STANDARD
 962f7189-59d9-4a29-983f-556ae56f19a5 O365 E3 - Licensed users ENTERPRISEPACK
-c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice 			  {ENTERPRISEPREMIUM,EMSPREMIUM}
+c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM,EMSPREMIUM}
 ```
 
 ## Get statistics for groups with licenses

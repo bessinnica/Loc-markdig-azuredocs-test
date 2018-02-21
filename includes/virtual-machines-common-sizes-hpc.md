@@ -26,6 +26,7 @@ ACU: 290-300
 
 
 
+
 ## A-series - compute-intensive instances
 
 ACU: 225
@@ -40,6 +41,7 @@ ACU: 225
 <sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
 
 <br>
+
 
 
 

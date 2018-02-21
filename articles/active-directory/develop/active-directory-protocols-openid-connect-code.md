@@ -24,7 +24,7 @@ ms.custom: aaddev
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
 
-[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## Authentication flow using OpenID Connect
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
@@ -50,7 +50,7 @@ The metadata is a simple JavaScript Object Notation (JSON) document. See the fol
         "private_key_jwt"
     ],
     "jwks_uri": "https://login.microsoftonline.com/common/discovery/keys"
-    
+
     ...
 }
 ```
@@ -158,7 +158,6 @@ You can simply redirect the user to the `end_session_endpoint` listed in the Ope
 ```
 GET https://login.microsoftonline.com/common/oauth2/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-
 ```
 
 | Parameter |  | Description |

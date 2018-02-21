@@ -57,38 +57,38 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 ```json
 {
 
-	"Input":{
-	
-		"ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpoint
-		=https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://zhguim
-		l.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;;",
-		
-		"BaseLocation":null,
-		
-		"RelativeLocation":"testint/AdultCensusIncomeBinaryClassificationDataset.csv",
-		
-		"SasBlobToken":null
-	
-	},
-	
-	"GlobalParameters":{ },
-	
-	"Outputs":{
-	
-		"output1":{
-		
-			"ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpo
-			int=https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://sampleaccount.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;",
-			"BaseLocation":null,
-			"RelativeLocation":"testintoutput/testint\_results.csv",
-			
-			"SasBlobToken":null
-		
-		}
-	
-	},
-	
-	"AzureBatchPoolId":"8dfc151b0d3e446497b845f3b29ef53b"
+    "Input":{
+
+        "ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpoint
+        =https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://zhguim
+        l.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;;",
+
+        "BaseLocation":null,
+
+        "RelativeLocation":"testint/AdultCensusIncomeBinaryClassificationDataset.csv",
+
+        "SasBlobToken":null
+
+    },
+
+    "GlobalParameters":{ },
+
+    "Outputs":{
+
+        "output1":{
+
+            "ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpo
+            int=https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://sampleaccount.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;",
+            "BaseLocation":null,
+            "RelativeLocation":"testintoutput/testint\_results.csv",
+
+            "SasBlobToken":null
+
+        }
+
+    },
+
+    "AzureBatchPoolId":"8dfc151b0d3e446497b845f3b29ef53b"
 
 }
 ```
@@ -106,6 +106,7 @@ If you create a Batch Pool with 4 virtual machines and delete it after 12 hours,
 We recommend that you poll the job status to determine when jobs complete. When all your jobs have finished running, call the Resize Pool operation to set the number of virtual machines in the pool to zero. If you are short on pool resources and you need to create a new pool, for example to bill against a different billing plan, you can delete the pool instead when all your jobs have finished running.
 
 
-| **Use Batch Pool Processing when**    | **Use classic batch processing when**  |
-|---|---|
-|You need to run a large number of jobs<br>Or<br/>You need to know that your jobs will run immediately<br/>Or<br/>You need guaranteed throughput. For example, you need to run a number of jobs in a given time frame, and want to scale out your compute resources to meet your needs.    | You are running just a few jobs<br/>And<br/> You don’t need the jobs to run immediately |
+|                                                                                                                    <strong>Use Batch Pool Processing when</strong>                                                                                                                     |                   <strong>Use classic batch processing when</strong>                    |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| You need to run a large number of jobs<br>Or<br/>You need to know that your jobs will run immediately<br/>Or<br/>You need guaranteed throughput. For example, you need to run a number of jobs in a given time frame, and want to scale out your compute resources to meet your needs. | You are running just a few jobs<br/>And<br/> You don’t need the jobs to run immediately |
+

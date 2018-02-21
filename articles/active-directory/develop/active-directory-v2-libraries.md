@@ -70,6 +70,7 @@ For a list of libraries that work with the v2.0 endpoint, see the next sections 
 | Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web app](active-directory-v2-devquickstarts-node-web.md)| |
 
 ## Compatible client libraries
+
 | Platform | Library name | Tested version | Source code | Sample |
 |:---:|:---:|:---:|:---:|:---:|
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Native app sample](active-directory-v2-devquickstarts-android.md) |
@@ -77,6 +78,7 @@ For a list of libraries that work with the v2.0 endpoint, see the next sections 
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 
 ## Compatible server middleware libraries
+
 | Platform | Library name | Tested version | Source code | Sample |
 |:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |

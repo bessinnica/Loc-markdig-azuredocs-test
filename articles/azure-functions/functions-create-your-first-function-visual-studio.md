@@ -40,7 +40,7 @@ To complete this tutorial:
 
 * Make sure you have updated to the most recent version of Azure Functions and WebJobs Tools. Do this under **Updates** > **Visual Studio Marketplace** in **Extensions and Updates**.
     
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a function app project
 

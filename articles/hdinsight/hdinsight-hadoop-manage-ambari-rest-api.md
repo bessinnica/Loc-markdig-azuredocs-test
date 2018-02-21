@@ -400,33 +400,33 @@ The return value is similar to one of the following examples:
    
     Jq is used to turn the data retrieved from HDInsight into a new configuration template. Specifically, these examples perform the following actions:
    
-    * Creates a unique value containing the string "version" and the date, which is stored in `newtag`.
+   * Creates a unique value containing the string "version" and the date, which is stored in `newtag`.
 
-    * Creates a root document for the new desired configuration.
+   * Creates a root document for the new desired configuration.
 
-    * Gets the contents of the `.items[]` array and adds it under the **desired_config** element.
+   * Gets the contents of the `.items[]` array and adds it under the **desired_config** element.
 
-    * Deletes the `href`, `version`, and `Config` elements, as these elements aren't needed to submit a new configuration.
+   * Deletes the `href`, `version`, and `Config` elements, as these elements aren't needed to submit a new configuration.
 
-    * Adds a `tag` element with a value of `version#################`. The numeric portion is based on the current date. Each configuration must have a unique tag.
+   * Adds a `tag` element with a value of `version#################`. The numeric portion is based on the current date. Each configuration must have a unique tag.
      
-    Finally, the data is saved to the `newconfig.json` document. The document structure should appear similar to the following example:
+     Finally, the data is saved to the `newconfig.json` document. The document structure should appear similar to the following example:
      
      ```json
-    {
-        "Clusters": {
-            "desired_config": {
-            "tag": "version1459260185774265400",
-            "type": "spark-thrift-sparkconf",
-            "properties": {
-                ....
-            },
-            "properties_attributes": {
-                ....
-            }
-        }
-    }
-    ```
+     {
+       "Clusters": {
+           "desired_config": {
+           "tag": "version1459260185774265400",
+           "type": "spark-thrift-sparkconf",
+           "properties": {
+               ....
+           },
+           "properties_attributes": {
+               ....
+           }
+       }
+     }
+     ```
 
 3. Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"spark.yarn.am.memory"` from `"1g"` to `"3g"`. It also adds `"spark.kryoserializer.buffer.max"` with a value of `"256m"`.
    

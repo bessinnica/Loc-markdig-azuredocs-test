@@ -38,27 +38,27 @@ In this article, you add a custom probe to an existing application gateway with 
 
 1. Use `Login-AzureRmAccount` to authenticate.
 
-  ```powershell
-  Login-AzureRmAccount
-  ```
+   ```powershell
+   Login-AzureRmAccount
+   ```
 
-1. Get the subscriptions for the account.
+2. Get the subscriptions for the account.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 
-1. Choose which of your Azure subscriptions to use.
+3. Choose which of your Azure subscriptions to use.
 
-  ```powershell
-  Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
-  ```
+   ```powershell
+   Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
+   ```
 
-1. Create a resource group. You can skip this step if you have an existing resource group.
+4. Create a resource group. You can skip this step if you have an existing resource group.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
-  ```
+   ```powershell
+   New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
+   ```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 

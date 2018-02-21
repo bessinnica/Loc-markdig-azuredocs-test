@@ -38,7 +38,7 @@ The following elements help ensure safe access to your database:
 | **Authentication and authorization** | Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by PostgreSQL. |
 | **TCP/IP** | The protocol is supported over TCP/IP, and over Unix-domain sockets. |
-| **Firewall** | To help protect your data, a firewall rule prevents all access to your server and to its databases, until you specify which computers have permission. See [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md). |
+| **Firewall** | To help protect your data, a firewall rule prevents all access to your server and to its databases, until you specify which computers have permission. See [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md). |
 
 ## How do I manage a server?
 You can manage Azure Database for PostgreSQL servers by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/postgres).
@@ -50,7 +50,7 @@ As a managed service for Postgres, the configurable parameters in Azure Database
 
 
 ## Next steps
-- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
-- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md).
-- For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
+- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
+- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md).
+- For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
 - View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).

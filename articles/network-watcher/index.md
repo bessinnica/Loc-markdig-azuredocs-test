@@ -7,7 +7,7 @@ author: czeumault
 manager: carolz
 layout: LandingPage
 
-ms.assetid:	
+ms.assetid: 
 ms.service: network-watcher
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -128,7 +128,7 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
         </div>
         </a>
     </li>
-   
+
      <li>
         <a href="/azure/network-watcher/network-watcher-topology-overview">
         <div class="cardSize">
@@ -147,49 +147,51 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
         </div>
         </a>
     </li>
-   
+
 </ul>
 
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs/">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs/">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api">.NET</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/networkwatcher">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/networkwatcher">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 
 

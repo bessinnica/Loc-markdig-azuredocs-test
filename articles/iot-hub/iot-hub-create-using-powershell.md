@@ -86,7 +86,6 @@ The name of the IoT hub must be unique.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-
 You can list all the IoT hubs in your subscription using the following command:
 
 ```powershell

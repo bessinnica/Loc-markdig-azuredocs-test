@@ -116,7 +116,7 @@ if (ehEvents != null)
         var customType = ehEvent.Properties["Type"];
         // Implement processing logic here
     }
-}		
+}       
 ```
 
 ## Event Processor Host APIs

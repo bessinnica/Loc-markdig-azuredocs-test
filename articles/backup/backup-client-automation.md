@@ -84,7 +84,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
 
 Alternatively, use PowerShell to get the downloader:
- 
+
  ```
  $MarsAURL = 'Http://Aka.Ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
@@ -147,7 +147,6 @@ Alternatively, you can manually load the module in your script as follows:
 
 ```
 PS C:\>  Import-Module  'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
-
 ```
 
 Once you load the Online Backup cmdlets, you register the vault credentials:

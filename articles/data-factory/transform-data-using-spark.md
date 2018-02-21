@@ -96,21 +96,21 @@ Here is an example for a storage containing two Spark job files in the Azure Blo
 
 ```
 SparkJob1
-	main.jar
-	files
-		input1.txt
-		input2.txt
-	jars
-		package1.jar
-		package2.jar
-	logs
+    main.jar
+    files
+        input1.txt
+        input2.txt
+    jars
+        package1.jar
+        package2.jar
+    logs
 
 SparkJob2
-	main.py
-	pyFiles
-		scrip1.py
-		script2.py
-	logs
+    main.py
+    pyFiles
+        scrip1.py
+        script2.py
+    logs
 ```
 ## Next steps
 See the following articles that explain how to transform data in other ways: 

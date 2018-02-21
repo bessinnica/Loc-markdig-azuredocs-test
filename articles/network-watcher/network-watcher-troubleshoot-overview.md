@@ -79,6 +79,7 @@ The following tables show the different fault types (id under results from the p
 ## Supported Gateway types
 
 The following list shows the support shows which gateways and connections are supported with Network Watcher troubleshooting.
+
 |  |  |
 |---------|---------|
 |**Gateway types**   |         |
@@ -139,9 +140,9 @@ The following example shows the contents of an IKEErrors.txt file. Your errors m
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
-	 based on log : Peer failed with Windows error 13801(ERROR_IPSEC_IKE_AUTH_FAIL)
+     based on log : Peer failed with Windows error 13801(ERROR_IPSEC_IKE_AUTH_FAIL)
 Error: On-prem device sent invalid payload. 
-	 based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
+     based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
 ### Scrubbed-wfpdiag.txt
@@ -184,7 +185,7 @@ The **wfpdiag.txt.sum** file is a log showing the buffers and events processed.
 The following example is the contents of a wfpdiag.txt.sum file.
 ```
 Files Processed:
-	C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
+    C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
 Total Buffers Processed 8
 Total Events  Processed 2169
 Total Events  Lost      0

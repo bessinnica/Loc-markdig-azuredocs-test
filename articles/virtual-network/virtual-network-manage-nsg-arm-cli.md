@@ -334,9 +334,9 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
 3. If the NSG is associated to any subnet, run the `azure network vnet subnet set` as shown in [Dissociate an NSG from a subnet](#Dissociate-an-NSG-from-a-subnet) for each subnet.
 4. To delete the NSG, run the following command:
 
-	```azurecli
+    ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
-	```
-## Next steps
-* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
+    ```
+   ## Next steps
+5. [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
 

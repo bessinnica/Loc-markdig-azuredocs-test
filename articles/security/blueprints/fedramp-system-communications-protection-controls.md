@@ -718,7 +718,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The virtual machines deployed by this blueprint run Windows operating systems. Windows maintains separate execution domains for each executing process by assigning a private virtual address space to each process. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                                                                                                      |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The virtual machines deployed by this blueprint run Windows operating systems. Windows maintains separate execution domains for each executing process by assigning a private virtual address space to each process. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                                                                    Not Applicable                                                                                                    |
+

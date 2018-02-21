@@ -23,23 +23,23 @@ ms.author: tamram
 
 ```
 {
-	"id": "myPool1",
-	"displayName": "Production Pool",
-	"vmSize": "Small",
-	"cloudServiceConfiguration": {
-		"osFamily": "3",
-		"targetOsVersion": "*"
-	},
-	"networkConfiguration": {
-		"subnetId": " "
-	},
-	"resizeTimeout": "300000",
-	"targetDedicated": 2,
-	"maxTasksPerNode": 1,
-	"vmFillType": "Spread",
-	"enableAutoScale": false,
-	"enableInterNodeCommunication": false,
-	"isAutoPool": false
+    "id": "myPool1",
+    "displayName": "Production Pool",
+    "vmSize": "Small",
+    "cloudServiceConfiguration": {
+        "osFamily": "3",
+        "targetOsVersion": "*"
+    },
+    "networkConfiguration": {
+        "subnetId": " "
+    },
+    "resizeTimeout": "300000",
+    "targetDedicated": 2,
+    "maxTasksPerNode": 1,
+    "vmFillType": "Spread",
+    "enableAutoScale": false,
+    "enableInterNodeCommunication": false,
+    "isAutoPool": false
 }
 ```
 
@@ -61,10 +61,10 @@ ms.author: tamram
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Element name|Type|Notes|
-|------------------|----------|-----------|
-|osFamily|String|The Azure Guest OS family to be installed on the virtual machines in the pool.<br /><br /> Possible values are:<br /><br /> **2** – OS Family 2, equivalent to Windows Server 2008 R2 SP1.<br /><br /> **3** – OS Family 3, equivalent to Windows Server 2012.<br /><br /> **4** – OS Family 4, equivalent to Windows Server 2012 R2.<br /><br /> For more information, see [Azure Guest OS Releases](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
-|targetOSVersion|String|The Azure Guest OS version to be installed on the virtual machines in the pool.<br /><br /> The default value is **\*** which specifies the latest operating system version for the specified family.<br /><br /> For other permitted values, see [Azure Guest OS Releases](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|  Element name   |  Type  |                                                                                                                                                                                                                                                                      Notes                                                                                                                                                                                                                                                                       |
+|-----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    osFamily     | String | The Azure Guest OS family to be installed on the virtual machines in the pool.<br /><br /> Possible values are:<br /><br /> <strong>2</strong> – OS Family 2, equivalent to Windows Server 2008 R2 SP1.<br /><br /> <strong>3</strong> – OS Family 3, equivalent to Windows Server 2012.<br /><br /> <strong>4</strong> – OS Family 4, equivalent to Windows Server 2012 R2.<br /><br /> For more information, see [Azure Guest OS Releases](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases). |
+| targetOSVersion | String |                                                                           The Azure Guest OS version to be installed on the virtual machines in the pool.<br /><br /> The default value is <strong>\</strong>* which specifies the latest operating system version for the specified family.<br /><br /> For other permitted values, see [Azure Guest OS Releases](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).                                                                           |
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
@@ -91,6 +91,7 @@ ms.author: tamram
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Element name|Type|Notes|
-|------------------|--------------|----------|
-|subnetId|String|Specifies the resource identifier of the subnet in which the pool's compute nodes are created.|
+| Element name |  Type  |                                             Notes                                              |
+|--------------|--------|------------------------------------------------------------------------------------------------|
+|   subnetId   | String | Specifies the resource identifier of the subnet in which the pool's compute nodes are created. |
+

@@ -85,6 +85,7 @@ In the output ensure that:
 Diagnostics from Azure Automation creates two types of records in Log Analytics and are tagged as **AzureDiagnostics**. The following queries use the upgraded query language to Log Analytics. For information on common queries between legacy query language and the new Azure Log Analytics query language visit [Legacy to new Azure Log Analytics Query Language cheat sheet](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### Job Logs
+
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the runbook job executed. |
@@ -107,6 +108,7 @@ Diagnostics from Azure Automation creates two types of records in Log Analytics 
 
 
 ### Job Streams
+
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the runbook job executed. |
@@ -161,6 +163,7 @@ Finally, you may want to visualize your job history over time. You can use this 
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![OMS Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+
 
 ## Summary
 By sending your Automation job status and stream data to Log Analytics, you can get better insight into the status of your Automation jobs by:

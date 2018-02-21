@@ -289,10 +289,10 @@ the second step uses a map to look up the URL for getting the content.
 
 Some times to note here: 
 
-*	The [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function 
+*   The [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function 
 checks whether the category matches one of the known defined categories.
 
-*	After we get the category, we can pull the item from the map using square brackets: `parameters[...]`
+*   After we get the category, we can pull the item from the map using square brackets: `parameters[...]`
 
 ## Process strings
 

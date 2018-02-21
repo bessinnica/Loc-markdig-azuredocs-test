@@ -119,14 +119,14 @@ The following example walks you through the process of creating a PTR record in 
 
    ![Button for creating a record set](./media/dns-reverse-dns-hosting/figure4.png)
 
-1. The name of the record set for a PTR record needs to be the rest of the IPv4 address in reverse order. 
+2. The name of the record set for a PTR record needs to be the rest of the IPv4 address in reverse order. 
 
    In this example, the first three octets are already populated as part of the zone name (.2.0.192). Therefore, only the last octet is supplied in the **Name** box. For example, you might name your record set **15** for a resource whose IP address is 192.0.2.15.  
-1. For **Type**, select **PTR**.  
-1. For **DOMAIN NAME**, enter the fully qualified domain name (FQDN) of the resource that uses the IP.
-1. Select **OK** at the bottom of the pane to create the DNS record.
+3. For **Type**, select **PTR**.  
+4. For **DOMAIN NAME**, enter the fully qualified domain name (FQDN) of the resource that uses the IP.
+5. Select **OK** at the bottom of the pane to create the DNS record.
 
- !["Add record set" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure5.png)
+   !["Add record set" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure5.png)
 
 The following examples show how to complete this task by using PowerShell or Azure CLI.
 
@@ -144,7 +144,7 @@ azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 
 #### Azure CLI 2.0
 
 ```azurecli
-	az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
+    az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
 ```
 
 ### IPv6
@@ -181,7 +181,7 @@ azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.
 #### Azure CLI 2.0
 
 ```azurecli
-	az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
+    az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
 ```
 
 ## View records
@@ -205,13 +205,13 @@ Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyReso
 #### Azure CLI 1.0
 
 ```azurecli
-	azure network dns record-set list MyResourceGroup 2.0.192.in-addr.arpa
+    azure network dns record-set list MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
 #### Azure CLI 2.0
 
 ```azurecli
-	azure network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
+    azure network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
 ```
 
 ### IPv6
@@ -231,13 +231,13 @@ Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -Reso
 #### Azure CLI 1.0
 
 ```azurecli
-	azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+    azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 #### Azure CLI 2.0
 
 ```azurecli
-	azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+    azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 ## FAQ

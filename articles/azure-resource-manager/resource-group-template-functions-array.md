@@ -43,6 +43,7 @@ To get an array of string values delimited by a value, see [split](resource-grou
 
 <a id="array" />
 
+
 ## array
 `array(convertToArray)`
 
@@ -120,6 +121,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="coalesce" />
+
 
 ## coalesce
 `coalesce(arg1, arg2, arg3, ...)`
@@ -208,6 +210,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="concat" />
+
 
 ## concat
 `concat(arg1, arg2, arg3, ...)`
@@ -323,6 +326,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="contains" />
 
+
 ## contains
 `contains(container, itemToFind)`
 
@@ -417,6 +421,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="createarray" />
 
+
 ## createarray
 `createArray (arg1, arg2, arg3, ...)`
 
@@ -497,6 +502,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="empty" />
 
+
 ## empty
 
 `empty(itemToTest)`
@@ -576,6 +582,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="first" />
 
+
 ## first
 `first(arg1)`
 
@@ -640,6 +647,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="intersection" />
+
 
 ## intersection
 `intersection(arg1, arg2, arg3, ...)`
@@ -778,6 +786,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="last" />
 
+
 ## last
 `last (arg1)`
 
@@ -842,6 +851,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="length" />
+
 
 ## length
 `length(arg1)`
@@ -926,6 +936,7 @@ For more information about using this function with an array, see [Create multip
 
 <a id="max" />
 
+
 ## max
 `max(arg1)`
 
@@ -989,6 +1000,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="min" />
+
 
 ## min
 `min(arg1)`
@@ -1054,6 +1066,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="range" />
 
+
 ## range
 `range(startingInteger, numberOfElements)`
 
@@ -1117,6 +1130,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="skip" />
+
 
 ## skip
 `skip(originalValue, numberToSkip)`
@@ -1199,6 +1213,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="take" />
 
+
 ## take
 `take(originalValue, numberToTake)`
 
@@ -1279,6 +1294,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="union" />
+
 
 ## union
 `union(arg1, arg2, arg3, ...)`

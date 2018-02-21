@@ -46,11 +46,11 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 5. Click **Continue** to close the **Preview connector** warning dialog.
 6. From **HDInsight Interactive Query**, select or enter the following information:
 
-    - **Server**: Enter the Interactive Query cluster name, for example *myiqcluster.azurehdinsight.net*.
-    - **Database**: For this tutorial, enter **default**.
-    - **Data Connectivity mode**: For this tutorial, select **DirectQuery**.
+   - **Server**: Enter the Interactive Query cluster name, for example *myiqcluster.azurehdinsight.net*.
+   - **Database**: For this tutorial, enter **default**.
+   - **Data Connectivity mode**: For this tutorial, select **DirectQuery**.
 
-    ![HDInsight interactive query power bi directquery connect](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+     ![HDInsight interactive query power bi directquery connect](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 7. Click **OK**.
 8. Enter the HTTP user credential, and then click **OK**.  The default username is **admin**
 9. From the left pane, select **hivesampletale**, and then click **Load**.

@@ -66,14 +66,14 @@ In this article, you learn about how to use the .NET SDK to do service-to-servic
         using System.Linq;
         using System.Text;
         using System.Threading;
-		using System.Collections.Generic;
+        using System.Collections.Generic;
         using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
                 
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
-		using Microsoft.Azure.Management.DataLake.Store.Models;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 ## Service-to-service authentication with client secret
 Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD web application (listed as a prerequisite).  This snippet lets you authenticate your application **non-interactively** with Data Lake Store using the client secret/key for Azure AD web application. 

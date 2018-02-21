@@ -67,7 +67,7 @@
 
 ## Network security
 ### [Network security best practices](../azure-security-network-security-best-practices.md)
-###[Azure network security](../azure-network-security.md)
+### [Azure network security](../azure-network-security.md)
 ### [Boundary security](../../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Secure hybrid network architecture](../../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
@@ -109,7 +109,7 @@
 #### [Securing PaaS web and mobile applications using SQL](../security-paas-applications-using-sql.md)
 ##### [SQL Database security best practices](../azure-database-security-best-practices.md)
 ##### [SQL Database security checklist](../azure-database-security-checklist.md)
-####[Operational security checklist](../azure-operational-security-checklist.md)
+#### [Operational security checklist](../azure-operational-security-checklist.md)
 #### [Securing PaaS web and mobile applications using Azure Storage](../security-paas-applications-using-storage.md)
 
 ## Internet of Things

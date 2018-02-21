@@ -119,6 +119,7 @@ sudo pip3 install sfctl
 For testing the installation you can refer to the steps mentioned in **Ubuntu and Windows subsystem for Linux** section
 
 <a name = "cli-mac"></a>
+
 ### MacOS
 
 For MacOS, we recommend that you use the [HomeBrew package manager](https://brew.sh). If HomeBrew is not already installed, install it by running the following command:

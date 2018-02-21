@@ -72,7 +72,7 @@ The objective of this section is to outline how to enable users to authenticate 
 2. On the **How would you like users to sign on to SCC LifeCycle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Configure Single Sign-On")
-3. On the **Configure App URL** page, in the **Sign On URL** textbox, type the URL used by your users to sign on to your SCC LifeCycle application using the following pattern "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*", and then click **Next**.
+3. On the <strong>Configure App URL</strong> page, in the <strong>Sign On URL</strong> textbox, type the URL used by your users to sign on to your SCC LifeCycle application using the following pattern "<em>https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx</em>", and then click <strong>Next</strong>.
    
     ![Configure App URL](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configure App URL")
 4. On the **Configure single sign-on at SCC LifeCycle** page, click **Download metadata**, and then save metadata file locally on your computer.
@@ -106,7 +106,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to SCC LifeCycle, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **SCC LifeCycle **application integration page, click **Assign users**.
+2. On the <strong>SCC LifeCycle **application integration page, click **Assign users</strong>.
    
     ![Assign Users](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

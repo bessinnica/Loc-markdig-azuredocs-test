@@ -1,4 +1,4 @@
-﻿---
+---
 title: Import your data to Analytics in Azure Application Insights | Microsoft Docs
 description: Import static data to join with app telemetry, or import a separate data stream to query with Analytics.
 services: application-insights
@@ -47,13 +47,13 @@ You need:
 
 1. An Application Insights resource in Microsoft Azure.
 
- * If you want to analyze your data separately from any other telemetry, [create a new Application Insights resource](app-insights-create-new-resource.md).
- * If you're joining or comparing your data with telemetry from an app that is already set up with Application Insights, then you can use the resource for that app.
- * Contributor or owner access to that resource.
+   * If you want to analyze your data separately from any other telemetry, [create a new Application Insights resource](app-insights-create-new-resource.md).
+   * If you're joining or comparing your data with telemetry from an app that is already set up with Application Insights, then you can use the resource for that app.
+   * Contributor or owner access to that resource.
  
 2. Azure storage. You upload to Azure storage, and Analytics gets your data from there. 
 
- * We recommend you create a dedicated storage account for your blobs. If your blobs are shared with other processes, it takes longer for our processes to read your blobs.
+   * We recommend you create a dedicated storage account for your blobs. If your blobs are shared with other processes, it takes longer for our processes to read your blobs.
 
 
 ## Define your schema
@@ -84,11 +84,11 @@ You can have up to 50 data sources in a single Application Insights resource
 
     ![Review the inferred schema](./media/app-insights-analytics-import/data-source-review-schema.png)
 
- * (Optional.) Upload a schema definition. See the format below.
+   * (Optional.) Upload a schema definition. See the format below.
 
- * Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
+   * Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
 
-5. Create the data source.
+4. Create the data source.
 
 ### Schema definition file format
 
@@ -97,18 +97,18 @@ Instead of editing the schema in UI, you can load the schema definition from a f
 Delimited format 
 ```
 [ 
-    {"location": "0", "name": "RequestName", "type": "string"}, 
-    {"location": "1", "name": "timestamp", "type": "datetime"}, 
-    {"location": "2", "name": "IPAddress", "type": "string"} 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
 ] 
 ```
 
 JSON format 
 ```
 [ 
-    {"location": "$.name", "name": "name", "type": "string"}, 
-    {"location": "$.alias", "name": "alias", "type": "string"}, 
-    {"location": "$.room", "name": "room", "type": "long"} 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
 ]
 ```
  
@@ -117,7 +117,7 @@ Each column is identified by the location, name and type.
 * Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
 * Name – the displayed name of the column.
 * Type – the data type of that column.
- 
+ 
 In case a sample data was used and file format is delimited, the schema definition must map all columns and add new columns at the end. 
 
 JSON allows partial mapping of the data, therefore the schema definition of JSON format doesn’t have to map every key which is found in a sample data. It can also map columns which are not part of the sample data. 
@@ -132,18 +132,18 @@ You can perform the following process manually, or set up an automated system to
 
 1. Upload the data to [Azure blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
- * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
- * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
- * It's best to use a separate storage account for this purpose, to avoid calls from different services slowing performance.
- * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
+   * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
+   * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
+   * It's best to use a separate storage account for this purpose, to avoid calls from different services slowing performance.
+   * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
 
  
 2. [Create a Shared Access Signature key for the blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
- * Endpoint: `https://dc.services.visualstudio.com/v2/track`
- * HTTP method: POST
- * Payload:
+   * Endpoint: `https://dc.services.visualstudio.com/v2/track`
+   * HTTP method: POST
+   * Payload:
 
 ```JSON
 
@@ -176,13 +176,13 @@ The data is available in Analytics after a few minutes.
 ## Error responses
 
 * **400 bad request**: indicates that the request payload is invalid. Check:
- * Correct instrumentation key.
- * Valid time value. It should be the time now in UTC.
- * JSON of the event conforms to the schema.
+  * Correct instrumentation key.
+  * Valid time value. It should be the time now in UTC.
+  * JSON of the event conforms to the schema.
 * **403 Forbidden**: The blob you've sent is not accessible. Make sure that the shared access key is valid and has not expired.
 * **404 Not Found**:
- * The blob doesn't exist.
- * The sourceId is wrong.
+  * The blob doesn't exist.
+  * The sourceId is wrong.
 
 More detailed information is available in the response error message.
 

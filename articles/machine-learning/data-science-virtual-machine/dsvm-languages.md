@@ -25,13 +25,14 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 ## Python
 
-|    |           |
-| ------------- | ------------- |
-| Language versions Supported | 2.7 and 3.5 |
-| Supported DSVM Editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 2.7 . <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5       |
-| Links to Samples      | Sample Jupyter notebooks for Python are included     |
-| Related Tools on the DSVM      | PySpark, R, Julia      |
+|                                               |                                                                                                                                                                                           |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          Language versions Supported          |                                                                                        2.7 and 3.5                                                                                        |
+|            Supported DSVM Editions            |                                                                                      Linux, Windows                                                                                       |
+| How is it configured / installed on the DSVM? | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 2.7 . <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5 |
+|               Links to Samples                |                                                                     Sample Jupyter notebooks for Python are included                                                                      |
+|           Related Tools on the DSVM           |                                                                                     PySpark, R, Julia                                                                                     |
+
 ### How to use / run it?    
 
 **Windows**:
@@ -48,7 +49,6 @@ python --version
 # To run Python 3.5
 activate py35
 python --version
-
 ```
 * Using in an IDE
 
@@ -79,7 +79,6 @@ python --version
 # To run Python 3.5
 source activate py35
 python --version
-
 ```
 * Using in an IDE
 
@@ -95,13 +94,14 @@ The default Python environments on the DSVM are global environments readable by 
 
 ## R
 
-|    |           |
-| ------------- | ------------- |
-| Language versions Supported | Microsoft R Open 3.x (100% compatible with CRAN-R<br /> Microsoft R Server 9.x Developer edition (A Scalable Enterprise ready R platform)|
-| Supported DSVM Editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
-| Links to Samples      | Sample Jupyter notebooks for R are included     |
-| Related Tools on the DSVM      | SparkR, Python, Julia      |
+|                                               |                                                                                                                                           |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|          Language versions Supported          | Microsoft R Open 3.x (100% compatible with CRAN-R<br /> Microsoft R Server 9.x Developer edition (A Scalable Enterprise ready R platform) |
+|            Supported DSVM Editions            |                                                              Linux, Windows                                                               |
+| How is it configured / installed on the DSVM? |                Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`                 |
+|               Links to Samples                |                                                Sample Jupyter notebooks for R are included                                                |
+|           Related Tools on the DSVM           |                                                           SparkR, Python, Julia                                                           |
+
 ### How to use / run it?    
 
 **Windows**:
@@ -143,13 +143,14 @@ R is installed on the DSVM in a  global environment readable by all users. But o
 
 ## Julia
 
-|    |           |
-| ------------- | ------------- |
-| Language versions Supported | 0.5 |
-| Supported DSVM Editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: Installed at `C:\JuliaPro-VERSION`<br /> Linux: Installed at `/opt/JuliaPro-VERSION`    |
-| Links to Samples      | Sample Jupyter notebooks for Julia are included     |
-| Related Tools on the DSVM      | Python, R      |
+|                                               |                                                                                               |
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------|
+|          Language versions Supported          |                                              0.5                                              |
+|            Supported DSVM Editions            |                                        Linux, Windows                                         |
+| How is it configured / installed on the DSVM? | Windows: Installed at `C:\JuliaPro-VERSION`<br /> Linux: Installed at `/opt/JuliaPro-VERSION` |
+|               Links to Samples                |                        Sample Jupyter notebooks for Julia are included                        |
+|           Related Tools on the DSVM           |                                           Python, R                                           |
+
 ### How to use / run it?    
 
 **Windows**:

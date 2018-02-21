@@ -63,7 +63,7 @@ Logic Apps handle the workflow process. The following screenshots show the Logic
 
 1. **HL7-FHIR-Mapping app**: Receive the HL7 C-CDA document and transform it to an FHIR resource using the Enterprise Integration Pack for Logic Apps. The Enterprise Integration Pack handles the mapping from the C-CDA to FHIR resources.
 
-	![The Logic App used to receive HL7 FHIR healthcare records](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
+    ![The Logic App used to receive HL7 FHIR healthcare records](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
 
 2. **EHR app**: Query the Azure Cosmos DB FHIR repository and save the response to a Service Bus queue. The code for the GetNewOrModifiedFHIRDocuments app is below.
@@ -72,7 +72,7 @@ Logic Apps handle the workflow process. The following screenshots show the Logic
 
 3. **Process notification app**: Send an email notification with the FHIR resource documents in the body.
 
-	![The Logic App that sends patient email with the HL7 FHIR resource in the body](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
+    ![The Logic App that sends patient email with the HL7 FHIR resource in the body](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
 #### Service Bus
 The following figure shows the patients queue. The Tag property value is used for
@@ -81,6 +81,7 @@ the email subject.
 ![The Service Bus Queue used in this HL7 FHIR tutorial](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
 
 <a id="api-app"></a>
+
 
 #### API app
 An API app connects to Azure Cosmos DB and queries for new or modified FHIR 
@@ -104,109 +105,109 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 <a id="api-app-source"></a>
 
+
 **Source for the API app**
 
 ```csharp
 
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Net;
-	using System.Net.Http;
-	using System.Threading.Tasks;
-	using System.Web.Http;
-	using Microsoft.Azure.Documents;
-	using Microsoft.Azure.Documents.Client;
-	using Swashbuckle.Swagger.Annotations;
-	using TRex.Metadata;
-	
-	namespace FhirNotificationApi.Controllers
-	{
-	    /// <summary>
-	    ///     FHIR Resource Type Controller
-	    /// </summary>
-	    /// <seealso cref="System.Web.Http.ApiController" />
-	    public class FhirResourceTypeController : ApiController
-	    {
-	        /// <summary>
-	        ///     Gets the new or modified FHIR documents from Last Run Date 
-	        ///		or create date of the collection
-	        /// </summary>
-	        /// <param name="databaseId"></param>
-	        /// <param name="collectionId"></param>
-	        /// <param name="resourceType"></param>
-	        /// <param name="startfromBeginning"></param>
-	        /// <param name="maximumItemCount">-1 returns all (default)</param>
-	        /// <returns></returns>
-	        [Metadata("Get New or Modified FHIR Documents",
-	            "Query for new or modifed FHIR Documents By Resource Type " +
-	            "from Last Run Date or Begining of Collection creation"
-	        )]
-	        [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
-	        [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]
-	        [SwaggerOperation("GetNewOrModifiedFHIRDocuments")]
-	        public async Task<dynamic> GetNewOrModifiedFhirDocuments(
-	            [Metadata("Database Id", "Database Id")] string databaseId,
-	            [Metadata("Collection Id", "Collection Id")] string collectionId,
-	            [Metadata("Resource Type", "FHIR resource type name")] string resourceType,
-	            [Metadata("Start from Beginning ", "Change Feed Option")] bool startfromBeginning,
-	            [Metadata("Maximum Item Count", "Number of documents returned. '-1 returns all' (default)")] int maximumItemCount = -1
-	        )
-	        {
-	            var collectionLink = UriFactory.CreateDocumentCollectionUri(databaseId, collectionId);
-	
-	            var context = new DocumentDbContext();	
-	
-	            var docs = new List<dynamic>();
-	
-	            var partitionKeyRanges = new List<PartitionKeyRange>();
-	            FeedResponse<PartitionKeyRange> pkRangesResponse;
-	
-	            do
-	            {
-	                pkRangesResponse = await context.Client.ReadPartitionKeyRangeFeedAsync(collectionLink);
-	                partitionKeyRanges.AddRange(pkRangesResponse);
-	            } while (pkRangesResponse.ResponseContinuation != null);
-	
-	            foreach (var pkRange in partitionKeyRanges)
-	            {
-	                var changeFeedOptions = new ChangeFeedOptions
-	                {
-	                    StartFromBeginning = startfromBeginning,
-	                    RequestContinuation = null,
-	                    MaxItemCount = maximumItemCount,
-	                    PartitionKeyRangeId = pkRange.Id
-	                };
-	
-	                using (var query = context.Client.CreateDocumentChangeFeedQuery(collectionLink, changeFeedOptions))
-	                {
-	                    do
-	                    {
-	                        if (query != null)
-	                        {
-	                            var results = await query.ExecuteNextAsync<dynamic>().ConfigureAwait(false);
-	                            if (results.Count > 0)
-	                                docs.AddRange(results.Where(doc => doc.resourceType == resourceType));
-	                        }
-	                        else
-	                        {
-	                            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
-	                        }
-	                    } while (query.HasMoreResults);
-	                }
-	            }
-	            if (docs.Count > 0)
-	                return docs;
-	            var msg = new StringContent("No documents found for " + resourceType + " Resource");
-	            var response = new HttpResponseMessage
-	            {
-	                StatusCode = HttpStatusCode.NotFound,
-	                Content = msg
-	            };
-	            return response;
-	        }
-	    }
-	}
-	
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using System.Web.Http;
+    using Microsoft.Azure.Documents;
+    using Microsoft.Azure.Documents.Client;
+    using Swashbuckle.Swagger.Annotations;
+    using TRex.Metadata;
+
+    namespace FhirNotificationApi.Controllers
+    {
+        /// <summary>
+        ///     FHIR Resource Type Controller
+        /// </summary>
+        /// <seealso cref="System.Web.Http.ApiController" />
+        public class FhirResourceTypeController : ApiController
+        {
+            /// <summary>
+            ///     Gets the new or modified FHIR documents from Last Run Date 
+            ///     or create date of the collection
+            /// </summary>
+            /// <param name="databaseId"></param>
+            /// <param name="collectionId"></param>
+            /// <param name="resourceType"></param>
+            /// <param name="startfromBeginning"></param>
+            /// <param name="maximumItemCount">-1 returns all (default)</param>
+            /// <returns></returns>
+            [Metadata("Get New or Modified FHIR Documents",
+                "Query for new or modifed FHIR Documents By Resource Type " +
+                "from Last Run Date or Begining of Collection creation"
+            )]
+            [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
+            [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]
+            [SwaggerOperation("GetNewOrModifiedFHIRDocuments")]
+            public async Task<dynamic> GetNewOrModifiedFhirDocuments(
+                [Metadata("Database Id", "Database Id")] string databaseId,
+                [Metadata("Collection Id", "Collection Id")] string collectionId,
+                [Metadata("Resource Type", "FHIR resource type name")] string resourceType,
+                [Metadata("Start from Beginning ", "Change Feed Option")] bool startfromBeginning,
+                [Metadata("Maximum Item Count", "Number of documents returned. '-1 returns all' (default)")] int maximumItemCount = -1
+            )
+            {
+                var collectionLink = UriFactory.CreateDocumentCollectionUri(databaseId, collectionId);
+
+                var context = new DocumentDbContext();  
+
+                var docs = new List<dynamic>();
+
+                var partitionKeyRanges = new List<PartitionKeyRange>();
+                FeedResponse<PartitionKeyRange> pkRangesResponse;
+
+                do
+                {
+                    pkRangesResponse = await context.Client.ReadPartitionKeyRangeFeedAsync(collectionLink);
+                    partitionKeyRanges.AddRange(pkRangesResponse);
+                } while (pkRangesResponse.ResponseContinuation != null);
+
+                foreach (var pkRange in partitionKeyRanges)
+                {
+                    var changeFeedOptions = new ChangeFeedOptions
+                    {
+                        StartFromBeginning = startfromBeginning,
+                        RequestContinuation = null,
+                        MaxItemCount = maximumItemCount,
+                        PartitionKeyRangeId = pkRange.Id
+                    };
+
+                    using (var query = context.Client.CreateDocumentChangeFeedQuery(collectionLink, changeFeedOptions))
+                    {
+                        do
+                        {
+                            if (query != null)
+                            {
+                                var results = await query.ExecuteNextAsync<dynamic>().ConfigureAwait(false);
+                                if (results.Count > 0)
+                                    docs.AddRange(results.Where(doc => doc.resourceType == resourceType));
+                            }
+                            else
+                            {
+                                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
+                            }
+                        } while (query.HasMoreResults);
+                    }
+                }
+                if (docs.Count > 0)
+                    return docs;
+                var msg = new StringContent("No documents found for " + resourceType + " Resource");
+                var response = new HttpResponseMessage
+                {
+                    StatusCode = HttpStatusCode.NotFound,
+                    Content = msg
+                };
+                return response;
+            }
+        }
+    }
 ```
 
 ### Testing the FhirNotificationApi 

@@ -60,13 +60,13 @@ var postBody = $"{{\"question\": \"{query}\"}}";
 //Send the POST request
 using (WebClient client = new WebClient())
 {
-	//Set the encoding to UTF8
-	client.Encoding = System.Text.Encoding.UTF8;
-	
-	//Add the subscription key header
-	client.Headers.Add("Ocp-Apim-Subscription-Key", qnamakerSubscriptionKey);
-	client.Headers.Add("Content-Type", "application/json");
-	responseString = client.UploadString(builder.Uri, postBody);
+    //Set the encoding to UTF8
+    client.Encoding = System.Text.Encoding.UTF8;
+    
+    //Add the subscription key header
+    client.Headers.Add("Ocp-Apim-Subscription-Key", qnamakerSubscriptionKey);
+    client.Headers.Add("Content-Type", "application/json");
+    responseString = client.UploadString(builder.Uri, postBody);
 }
 ```
 

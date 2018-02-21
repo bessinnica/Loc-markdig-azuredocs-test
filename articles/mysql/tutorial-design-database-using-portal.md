@@ -39,18 +39,20 @@ An Azure Database for MySQL server is created with a defined set of [compute and
 
 In this example, fill out the Azure Database for MySQL form with the following information:
 
-| **Setting** | **Suggested value** | **Field Description** |
-|---|---|---|
-| *Server name* | myserver4demo  | Server name has to be globally unique. |
-| *Subscription* | mysubscription | Select your subscription from the drop-down. |
-| *Resource group* | myresourcegroup | Create a resource group or use an existing one. |
-| *Server admin login* | myadmin | Setup admin account name. |
-| *Password* |  | Set a strong admin account password. |
-| *Confirm password* |  | Confirm the admin account password. |
-| *Location* |  | Select an available region. |
-| *Version* | 5.7 | Choose the latest version. |
-| *Configure performance* | Basic, 50 compute units, 50 GB  | Choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**. |
-| *Pin to Dashboard* | Check | Recommended to check this box so you may find the server easily later on |
+
+|    <strong>Setting</strong>    | <strong>Suggested value</strong> |                                                    <strong>Field Description</strong>                                                    |
+|--------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+|      <em>Server name</em>      |          myserver4demo           |                                                  Server name has to be globally unique.                                                  |
+|     <em>Subscription</em>      |          mysubscription          |                                               Select your subscription from the drop-down.                                               |
+|    <em>Resource group</em>     |         myresourcegroup          |                                             Create a resource group or use an existing one.                                              |
+|  <em>Server admin login</em>   |             myadmin              |                                                        Setup admin account name.                                                         |
+|       <em>Password</em>        |                                  |                                                   Set a strong admin account password.                                                   |
+|   <em>Confirm password</em>    |                                  |                                                   Confirm the admin account password.                                                    |
+|       <em>Location</em>        |                                  |                                                       Select an available region.                                                        |
+|        <em>Version</em>        |               5.7                |                                                        Choose the latest version.                                                        |
+| <em>Configure performance</em> |  Basic, 50 compute units, 50 GB  | Choose <strong>Pricing tier</strong>, <strong>Compute Units</strong>, <strong>Storage (GB)</strong>, and then click <strong>OK</strong>. |
+|   <em>Pin to Dashboard</em>    |              Check               |                                 Recommended to check this box so you may find the server easily later on                                 |
+
 Then, click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
 ## Configure firewall
@@ -72,7 +74,7 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 2. Under the Settings heading, click **Properties**. Note down **SERVER NAME** and **SERVER ADMIN LOGIN NAME**. You may click the copy button next to each field to copy to the clipboard.
    ![4-2 server properties](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
 
-In this example, the server name is *myserver4demo.mysql.database.azure.com*, and the server admin login is *myadmin@myserver4demo*.
+In this example, the server name is <em>myserver4demo.mysql.database.azure.com</em>, and the server admin login is <em>myadmin<xref href="myserver4demo" data-throw-if-not-resolved="False" data-raw-source="@myserver4demo"></xref></em>.
 
 ## Connect to the server using mysql
 Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line tool from the Azure Cloud Shell in the browser or from your own machine using mysql tools installed locally. To launch the Azure Cloud Shell, click the `Try It` button on a code block in this article, or visit the Azure portal and click the `>_` icon in the top right toolbar. 
@@ -99,9 +101,9 @@ Now that you know how to connect to the Azure Database for MySQL database, you c
 First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
-	id serial PRIMARY KEY, 
-	name VARCHAR(50), 
-	quantity INTEGER
+    id serial PRIMARY KEY, 
+    name VARCHAR(50), 
+    quantity INTEGER
 );
 ```
 
@@ -138,14 +140,14 @@ Imagine you have accidentally deleted an important database table, and cannot re
    ![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
 2. Fill out the **Restore** form with the required information.
-   
+
    ![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
-   
+
    - **Restore point**: Select a point-in-time that you want to restore to, within the timeframe listed. Make sure to convert your local timezone to UTC.
    - **Restore to new server**: Provide a new server name you want to restore to.
    - **Location**: The region is same as the source server, and cannot be changed.
    - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
-   
+
 3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify. 
 
 ## Next steps

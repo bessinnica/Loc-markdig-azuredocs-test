@@ -63,8 +63,7 @@ If you want to combine data from multiple Application Insights applications, use
 
 ```AIQL
 
-	union app('fabrikamstage').requests, app('fabrikamprod').requests
-	
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
 ```
 
 ## [Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) and [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
@@ -166,7 +165,6 @@ Other examples:
     requests
     | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
     | top 5 by duration
-
 ```
 
 [Dates and times reference](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
@@ -553,7 +551,6 @@ To extract these values in Analytics:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 To verify whether a custom dimension is of a particular type:
@@ -713,3 +710,4 @@ Advanced queries:
 * [SQL-users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
+

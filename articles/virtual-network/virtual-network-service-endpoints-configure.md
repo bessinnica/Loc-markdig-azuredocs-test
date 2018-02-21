@@ -25,8 +25,8 @@ This article provides steps to enable and disable service endpoints. Once endpoi
 
 Service endpoints can be configured using [Azure portal](#azure-portal), [Azure PowerShell](#azure-powershell), [Azure command-line interface](#azure-cli), or an Azure Resource Manager [template](#resource-manager-template).
 
->[!NOTE]
-During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
+> [!NOTE]
+> During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
 ## Service endpoint configuration overview
 
@@ -40,8 +40,8 @@ During preview, Vnet service endpoints feature is supported for specific regions
 
 - Location is configured automatically for an endpoint. By default, service endpoints are configured to the VNet's region. For Azure Storage, to support regional failover scenarios, endpoints are automatically configured to [Azure paired regions.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)
 
-  >[!NOTE]
-  Depending on the size of VNet/subnet, enabling service endpoint may take some time to finish. Ensure no critical tasks are in progress when enabling service endpoints. Service endpoints switch routes on every NIC in your subnet and may terminate any open TCP connections. 
+  > [!NOTE]
+  > Depending on the size of VNet/subnet, enabling service endpoint may take some time to finish. Ensure no critical tasks are in progress when enabling service endpoints. Service endpoints switch routes on every NIC in your subnet and may terminate any open TCP connections. 
 
 - Service endpoint call returns “succeeded” after traffic flows to the service on all NICs in the subnet have been switched to Vnet private IP addresses.
 
@@ -49,8 +49,8 @@ During preview, Vnet service endpoints feature is supported for specific regions
 
    To validate if service endpoint is configured correctly, "effective routes" on any NIC in the subnet shows a new "default" route with nextHopType: VirtualNetworkServiceEndpoint, per service, per region. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
-   >[!NOTE]
-   Effective routes can only be viewed if you have one or more network interfaces (NICs) configured and associated with a running virtual machine in the subnet.
+  > [!NOTE]
+  >  Effective routes can only be viewed if you have one or more network interfaces (NICs) configured and associated with a running virtual machine in the subnet.
 
 ## Azure Portal
 
@@ -61,17 +61,17 @@ Log in to Azure using your Azure account. If you don't have an Azure account, yo
 2. Click +New > Networking > Virtual network > +Add.
 3. On "Create virtual network", enter the following values, and then click Create:
 
-Setting | Value
-------- | -----
-Name    | myVnet
-Address space | 10.0.0.0/16
-Subnet name|mySubnet
-Subnet address range|10.0.0.0/24
-Resource group|Leave Create new selected, and then enter a name.
-Location|Any supported region, say, Australia East
-Subscription|Select your subscription.
-__ServiceEndpoints__|Enabled
-__Services__ | Select one or all of the available services. Supported services: __"Microsoft.Storage", "Microsoft.Sql"__.
+|              Setting              |                                                          Value                                                          |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|               Name                |                                                         myVnet                                                          |
+|           Address space           |                                                       10.0.0.0/16                                                       |
+|            Subnet name            |                                                        mySubnet                                                         |
+|       Subnet address range        |                                                       10.0.0.0/24                                                       |
+|          Resource group           |                                    Leave Create new selected, and then enter a name.                                    |
+|             Location              |                                        Any supported region, say, Australia East                                        |
+|           Subscription            |                                                Select your subscription.                                                |
+| <strong>ServiceEndpoints</strong> |                                                         Enabled                                                         |
+|     <strong>Services</strong>     | Select one or all of the available services. Supported services: <strong>"Microsoft.Storage", "Microsoft.Sql"</strong>. |
 
 Select services for endpoints: 
 ![Select Service Endpoint Services](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
@@ -133,6 +133,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Output: 
+
 Name | ID | Type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
@@ -228,9 +229,9 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 
 Set-up pre-requisites:
 - Log in to your Azure subscription with the [az login](/cli/azure/#az_login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
- - The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
+  - The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 
- For full list of commands for virtual networks, see [Azure CLI Virtual Network commands](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)
+  For full list of commands for virtual networks, see [Azure CLI Virtual Network commands](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)
 
 ### Get available service endpoints for Azure region
 

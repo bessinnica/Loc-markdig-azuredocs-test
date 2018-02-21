@@ -38,6 +38,7 @@ To complete the connection configuration, make sure you have the following items
 The network example values table shows the sample values that are used in this article. You can use these values or you can refer to them to better understand the examples in this article.
 
 **Network example values table**
+
 |   |Azure Stack|Azure|
 |---------|---------|---------|
 |Virtual network name     |Azs-VNet|AzureVNet |
@@ -160,7 +161,7 @@ you sign in.
 2. On the **Settings** section, select **Subnets**.
 3. To add a gateway subnet to
    the virtual network, select **Gateway Subnet**.
-   
+
     ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
 4. By default, the subnet name is set to **GatewaySubnet**.
@@ -248,7 +249,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 2. In the left navigation bar, select **Virtual Machines**.
 3. In the list of VMs, find **Azs-VM** that you created previously, and then select it.
 4. On the section for the virtual machine, click **Connect**, and then open the Azs-VM.rdp file.
-   
+
      ![Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 5. Sign in with the account that you configured when you created the virtual machine.
 6. Open an elevated **Windows PowerShell** window.
@@ -288,7 +289,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
    the tunnel. To do this, you ping the DIP that you recorded from Azs-VM.
    In the example environment, this is **10.1.0.4**, but be sure to ping the address you
    noted in your lab. You should see a result that looks like the following screenshot:
-   
+
     ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. A reply from the remote virtual machine indicates a successful test! You can
    close the virtual machine window. To test your connection, you can try other kinds of
@@ -305,7 +306,7 @@ went through the VPN connection.
 2. Go to **All resources**, and then select the **Azs-Azure** connection. **Connections** appears.
 4. On the **Connection** section, the statistics for **Data in** and
    **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
-   
+
     ![Data in and out](media/azure-stack-connect-vpn/Connection.png)
 
 ## Next steps

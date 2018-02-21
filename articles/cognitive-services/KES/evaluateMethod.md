@@ -24,14 +24,15 @@ Name|Value|Description
 ----|----|----
 expr       | Text string | Structured query expression that selects a subset of index entities.
 attributes | Text string | Comma-delimited list of attributes to include in response.
-count	   | Number (default=10) | Maximum number of results to return.
+count      | Number (default=10) | Maximum number of results to return.
 offset     | Number (default=0) | Index of the first result to return.
-orderby |	Text string | Name of attribute used to sort the results, followed by optional sort order (default=asc): "*attrname*[:(asc&#124;desc)]".  If not specified, the results are returned by decreasing natural log probability.
+orderby |   Text string | Name of attribute used to sort the results, followed by optional sort order (default=asc): "*attrname*[:(asc&#124;desc)]".  If not specified, the results are returned by decreasing natural log probability.
 timeout  | Number (default=1000) | Timeout in milliseconds. Only results computed before the timeout has elapsed are returned.
 
 Using the *count* and *offset* parameters, a large number of results may be obtained incrementally over multiple requests.
-  
+
 ## Response (JSON)
+
 JSONPath|Description
 ----|----
 $.expr | *expr* parameter from the request.

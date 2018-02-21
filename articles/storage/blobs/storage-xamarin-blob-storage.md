@@ -247,3 +247,4 @@ In this tutorial, you learned how to create a cross-platform application in Xama
 * [Get started with Azure Queue storage using .NET](../queues/storage-dotnet-how-to-use-queues.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+

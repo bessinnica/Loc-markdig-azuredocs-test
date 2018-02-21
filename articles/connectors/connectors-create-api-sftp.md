@@ -28,8 +28,6 @@ Before your logic app can access any service, you first need to create a *connec
 
 ### Create a connection to SFTP
 > [!INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
-> 
-> 
 
 ## Use an SFTP trigger
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
@@ -39,20 +37,14 @@ In this example, the **SFTP - When a file is added or modified** trigger is used
 In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent customer orders.  You could then use an SFTP connector action, such as **Get file content**, to get the contents of the order for further processing and storage in an orders database.
 
 > [!INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
-> 
-> 
 
 ## Add a condition
 > [!INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
-> 
-> 
 
 ## Use an SFTP action
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
-> 
-> 
 
 ## Connector-specific details
 

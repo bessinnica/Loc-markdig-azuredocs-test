@@ -61,19 +61,19 @@ DSVM IP address | xxx|
 
 * An HDInsight Spark Cluster, with Hortonworks Data Platform version 3.6 and Spark version 2.1.x, preferably in East US region where the data locates. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type `D12 V2` for head node, and `D14 V2` for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
 
- Field name| Value |  
- |------------|------|
- Cluster name| xxx|
- User name  | xxx (sshuser by default)|
- Password   | xxx|
+  Field name| Value |  
+  |------------|------|
+  Cluster name| xxx|
+  User name  | xxx (sshuser by default)|
+  Password   | xxx|
 
 
 * An Azure Storage account. You can follow [these instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create one. Also, create two private blob containers with the names `fullmodel` and `onemonthmodel` in this storage account. The storage account is used to save intermediate compute results and machine learning models. You need the storage account name and access key to try out this example. Save the following table with the Azure storage account info for later steps:
 
- Field name| Value |  
- |------------|------|
- Storage account name| xxx|
- Access key  | xxx|
+  Field name| Value |  
+  |------------|------|
+  Storage account name| xxx|
+  Access key  | xxx|
 
 
 The Ubuntu DSVM and the Azure HDInsight cluster created in the prerequisite list are compute targets. Compute targets are the compute resource in the context of Machine Learning Workbench, which might be different from the computer where Workbench runs.   
@@ -81,11 +81,11 @@ The Ubuntu DSVM and the Azure HDInsight cluster created in the prerequisite list
 ## Create a new Workbench project
 
 Create a new project by using this example as a template:
-1.	Open Machine Learning Workbench.
-2.	On the **Projects** page, select the **+** sign, and select **New Project**.
-3.	In the **Create New Project** pane, fill in the information for your new project.
-4.	In the **Search Project Templates** search box, type **Workload Forecasting on Terabytes Data**, and select the template.
-5.	Select **Create**.
+1.  Open Machine Learning Workbench.
+2.  On the **Projects** page, select the **+** sign, and select **New Project**.
+3.  In the **Create New Project** pane, fill in the information for your new project.
+4.  In the **Search Project Templates** search box, type **Workload Forecasting on Terabytes Data**, and select the template.
+5.  Select **Create**.
 
 You can create a Workbench project with a pre-created git repository by following [this instruction](./tutorial-classifying-iris-part-1.md).  
 Run `git status` to inspect the status of the files for version tracking.
@@ -98,22 +98,22 @@ The total data size is approximately 1 TB. Each file is about 1-3 GB, and is in 
 
 Column number | Field name| Type | Description |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datetime |	Session start time
-2  |`SessionEnd`	| Datetime | Session end time
-3 |`ConcurrentConnectionCounts` | Integer |	Number of concurrent connections
-4 | `MbytesTransferred`	| Double | Normalized data transferred in megabytes
-5 | `ServiceGrade` | Integer |	Service grade for the session
-6 | `HTTP1` | Integer|	Session uses HTTP1 or HTTP2
-7 |`ServerType` | Integer	|Server type
-8 |`SubService_1_Load` | Double |	Subservice 1 load
-9 | `SubService_2_Load` | Double | 	Subservice 2 load
-10 | `SubService_3_Load` | Double | 	Subservice 3 load
-11 |`SubService_4_Load`	| Double |  Subservice 4 load
-12 | `SubService_5_Load`| Double |  	Subservice 5 load
-13 |`SecureBytes_Load`	| Double | Secure bytes load
-14 |`TotalLoad`	| Double | Total load on server
-15 |`ClientIP` | String|	Client IP address
-16 |`ServerIP` | String|	Server IP address
+1  | `SessionStart` | Datetime |    Session start time
+2  |`SessionEnd`    | Datetime | Session end time
+3 |`ConcurrentConnectionCounts` | Integer | Number of concurrent connections
+4 | `MbytesTransferred` | Double | Normalized data transferred in megabytes
+5 | `ServiceGrade` | Integer |  Service grade for the session
+6 | `HTTP1` | Integer|  Session uses HTTP1 or HTTP2
+7 |`ServerType` | Integer   |Server type
+8 |`SubService_1_Load` | Double |   Subservice 1 load
+9 | `SubService_2_Load` | Double |  Subservice 2 load
+10 | `SubService_3_Load` | Double |     Subservice 3 load
+11 |`SubService_4_Load` | Double |  Subservice 4 load
+12 | `SubService_5_Load`| Double |      Subservice 5 load
+13 |`SecureBytes_Load`  | Double | Secure bytes load
+14 |`TotalLoad` | Double | Total load on server
+15 |`ClientIP` | String|    Client IP address
+16 |`ServerIP` | String|    Server IP address
 
 
 

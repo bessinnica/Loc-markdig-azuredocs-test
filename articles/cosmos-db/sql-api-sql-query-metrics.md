@@ -238,7 +238,6 @@ FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 
 // Returns metrics by partition key range Id
 IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
-
 ```
 
 | Metric | Unit | Description | 

@@ -67,37 +67,37 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 
 1. Installing the PowerShell Module
 
-	```powershell
-	(new-object Net.WebClient).DownloadString("https://aka.ms/AzureCT") | Invoke-Expression
-	
-	```
+    ```powershell
+    (new-object Net.WebClient).DownloadString("https://aka.ms/AzureCT") | Invoke-Expression
+    
+    ```
 
-	This command downloads the PowerShell module and installs it locally.
+    This command downloads the PowerShell module and installs it locally.
 
 2. Install the supporting applications
-	```powershell
-	Install-LinkPerformance
-	```
-	This AzureCT command installs iPerf and PSPing in a new directory "C:\ACTTools", it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
+    ```powershell
+    Install-LinkPerformance
+    ```
+    This AzureCT command installs iPerf and PSPing in a new directory "C:\ACTTools", it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
 
 3. Run the performance test
 
-	First, on the remote host you must install and run iPerf in server mode. Also ensure the remote host is listening on either 3389 (RDP for Windows) or 22 (SSH for Linux) and allowing traffic on port 5201 for iPerf. If the remote host is windows, install the AzureCT and run the Install-LinkPerformance command to set up iPerf and the firewall rules needed to start iPerf in server mode successfully. 
-	
-	Once the remote machine is ready, open PowerShell on the local machine and start the test:
-	```powershell
-	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
-	```
+    First, on the remote host you must install and run iPerf in server mode. Also ensure the remote host is listening on either 3389 (RDP for Windows) or 22 (SSH for Linux) and allowing traffic on port 5201 for iPerf. If the remote host is windows, install the AzureCT and run the Install-LinkPerformance command to set up iPerf and the firewall rules needed to start iPerf in server mode successfully. 
+    
+    Once the remote machine is ready, open PowerShell on the local machine and start the test:
+    ```powershell
+    Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
+    ```
 
-	This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
+    This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
 
 4. Review the output of the tests
 
     The PowerShell output format looks similar to:
 
-	[![4]][4]
+    [![4]][4]
 
-	The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
+    The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
 
 ## Troubleshooting
 If the performance test is not giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach generally provides a faster path to resolution than jumping around and potentially needlessly doing the same testing multiple times.
@@ -164,9 +164,9 @@ Test setup:
  - A DS5v2 VM running Windows Server 2016 on the VNet. The VM was non-domain joined, built from the default Azure image (no optimization or customization) with AzureCT installed.
  - All testing was using the AzureCT Get-LinkPerformance command with a 5-minute load test for each of the six test runs. For example:
 
-	```powershell
-	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
-	```
+    ```powershell
+    Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
+    ```
  - The data flow for each test had the load flowing from the on-premises physical server (iPerf client in Seattle) up to the Azure VM (iPerf server in the listed Azure region).
  - The "Latency" column data is from the No Load test (a TCP latency test without iPerf running).
  - The "Max Bandwidth" column data is from the 16 TCP flow load test with a 1-Mb window size.
@@ -179,23 +179,23 @@ Test setup:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Region|Estimated<br/>Distance (km)|Latency|1 Session<br/>Bandwidth|Maximum<br/>Bandwidth|
-| Seattle | West US 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec | 21
-| Seattle | West US          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec | 20
-| Seattle | Central US       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec | 17
-| Seattle | South Central US |  2,877 km |  51 ms |  30.6 Mbits/sec |  2.49 Gbits/sec | 19
-| Seattle | North Central US |  2,792 km |  55 ms |  27.7 Mbits/sec |  2.19 Gbits/sec | 18
-| Seattle | East US 2        |  3,769 km |  73 ms |  21.3 Mbits/sec |  1.79 Gbits/sec | 16
-| Seattle | East US          |  3,699 km |  74 ms |  21.1 Mbits/sec |  1.78 Gbits/sec | 15
-| Seattle | Japan East       |  7,705 km | 106 ms |  14.6 Mbits/sec |  1.22 Gbits/sec | 28
-| Seattle | UK South         |  7,708 km | 146 ms |  10.6 Mbits/sec |   896 Mbits/sec | 24
-| Seattle | West Europe      |  7,834 km | 153 ms |  10.2 Mbits/sec |   761 Mbits/sec | 23
-| Seattle | Australia East   | 12,484 km | 165 ms |   9.4 Mbits/sec |   794 Mbits/sec | 26
-| Seattle | Southeast Asia   | 12,989 km | 170 ms |   9.2 Mbits/sec |   756 Mbits/sec | 25
-| Seattle | Brazil South *   | 10,930 km | 189 ms |   8.2 Mbits/sec |   699 Mbits/sec | 22
-| Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec | 27
+|                           |                  |                             |         |                         |                       |
+|---------------------------|------------------|-----------------------------|---------|-------------------------|-----------------------|
+| ExpressRoute<br/>Location | Azure<br/>Region | Estimated<br/>Distance (km) | Latency | 1 Session<br/>Bandwidth | Maximum<br/>Bandwidth |
+|          Seattle          |    West US 2     |           191 km            |  5 ms   |     262.0 Mbits/sec     |    3.74 Gbits/sec     |
+|          Seattle          |     West US      |          1,094 km           |  18 ms  |     82.3 Mbits/sec      |    3.70 Gbits/sec     |
+|          Seattle          |    Central US    |          2,357 km           |  40 ms  |     38.8 Mbits/sec      |    2.55 Gbits/sec     |
+|          Seattle          | South Central US |          2,877 km           |  51 ms  |     30.6 Mbits/sec      |    2.49 Gbits/sec     |
+|          Seattle          | North Central US |          2,792 km           |  55 ms  |     27.7 Mbits/sec      |    2.19 Gbits/sec     |
+|          Seattle          |    East US 2     |          3,769 km           |  73 ms  |     21.3 Mbits/sec      |    1.79 Gbits/sec     |
+|          Seattle          |     East US      |          3,699 km           |  74 ms  |     21.1 Mbits/sec      |    1.78 Gbits/sec     |
+|          Seattle          |    Japan East    |          7,705 km           | 106 ms  |     14.6 Mbits/sec      |    1.22 Gbits/sec     |
+|          Seattle          |     UK South     |          7,708 km           | 146 ms  |     10.6 Mbits/sec      |     896 Mbits/sec     |
+|          Seattle          |   West Europe    |          7,834 km           | 153 ms  |     10.2 Mbits/sec      |     761 Mbits/sec     |
+|          Seattle          |  Australia East  |          12,484 km          | 165 ms  |      9.4 Mbits/sec      |     794 Mbits/sec     |
+|          Seattle          |  Southeast Asia  |          12,989 km          | 170 ms  |      9.2 Mbits/sec      |     756 Mbits/sec     |
+|          Seattle          |  Brazil South *  |          10,930 km          | 189 ms  |      8.2 Mbits/sec      |     699 Mbits/sec     |
+|          Seattle          |   South India    |          12,918 km          | 202 ms  |      7.7 Mbits/sec      |     634 Mbits/sec     |
 
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. I would expect that the latency would be in the neighborhood of 160 ms, but is actually 189 ms. This difference against my expectation could indicate a network issue somewhere, but most likely that the fiber run does not go to Brazil in a straight line and has an extra 1,000 km or so of travel to get to Brazil from Seattle.
 

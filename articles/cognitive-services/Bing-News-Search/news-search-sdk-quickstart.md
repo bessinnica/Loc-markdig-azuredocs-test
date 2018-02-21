@@ -12,11 +12,11 @@ ms.date: 01/30/2018
 ms.author: v-gedod
 ---
 
-#News Search SDK C# quickstart
+# News Search SDK C# quickstart
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing News Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.NewsSearch` package.
 
@@ -25,23 +25,19 @@ Installing the [NuGet News Search SDK package](https://www.nuget.org/packages/Mi
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-##News Search client
+## News Search client
 To create an instance of the `NewsSearchAPI` client, add using directive:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
-
 ```
 Then, instantiate the client:
 ```
 var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-
 ```
 Use the client to search with a query text:
 ```
 var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
 Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
-
 ```
 Parse the news returned in the results of the previous query:
 ```
@@ -62,9 +58,8 @@ else
 {
     Console.WriteLine("Couldn't find news results!");
 }
-
 ```
-##Complete console application
+## Complete console application
 
 The following console application executes the previously defined query and searches news for "Quantum  Computing". The request includes `market` and `count` parameters. The code verifies the number of results and prints out `totalEstimatedMatches`, `name`, `url`, `description`, `published time` and `name` of `provider` for the first news result.
 
@@ -127,9 +122,8 @@ namespace NewsSrchSDK
 
     }
 }
-
 ```
-##Recent news, freshness and sortBy parameters
+## Recent news, freshness and sortBy parameters
 The following code searches most recent news for "Artificial Intelligence" with `freshness` and `sortBy` parameters. It verifies the number of results and prints out `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, and `name` of provider of the first news result.
 ```
         public static void NewsSearchWithFilters(NewsSearchAPI client)
@@ -169,10 +163,9 @@ The following code searches most recent news for "Artificial Intelligence" with 
                 Console.WriteLine("Encountered exception. " + ex.Message);
             }
         }
-
 ```
 
-##Category news, safe search
+## Category news, safe search
 The following code searches category news for movie and TV entertainment with safe search.  It verifies the number of results and prints out `category`, `name`, `url`, `description`, `published time`, and `name` of provider of the first news result.
 ```
         public static void NewsCategory(NewsSearchAPI client)
@@ -212,9 +205,8 @@ The following code searches category news for movie and TV entertainment with sa
                 Console.WriteLine("Encountered exception. " + ex.Message);
             }
         }
-
 ```
-##Trending topics
+## Trending topics
 The following code searches news trending topics in Bing. It verifies the number of results and prints out `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, and `image.Url` of the first news result.
 ```
         public static void TrendingTopics(NewsSearchAPI client)
@@ -253,9 +245,8 @@ The following code searches news trending topics in Bing. It verifies the number
                 Console.WriteLine("Encountered exception. " + ex.Message);
             }
         }
-
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

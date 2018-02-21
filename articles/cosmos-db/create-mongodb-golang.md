@@ -27,10 +27,12 @@ In other words, your Golang application only knows that it's connecting to a dat
 
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
+
 - [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
 - An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
 
 <a id="create-account"></a>
+
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
@@ -54,6 +56,7 @@ Clone the sample application and install the required packages.
 The [mgo](http://labix.org/mgo) driver (pronounced as *mango*) is a [MongoDB](http://www.mongodb.org/) driver for the [Go language](http://golang.org/) that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
 
 <a id="connection-string"></a>
+
 
 ## Update your connection string
 
@@ -127,6 +130,7 @@ collection := session.DB(“database”).C(“package”)
 
 <a id="create-document"></a>
 
+
 ### Create a document
 
 ```go
@@ -199,7 +203,7 @@ if err != nil {
    return
 }
 ```
-    
+
 ## Run the app
 
 1. In Goglang, ensure that your GOPATH (available under **File**, **Settings**, **Go**, **GOPATH**) include the location in which the gopkg was installed, which is USERPROFILE\go by default. 
@@ -207,15 +211,15 @@ if err != nil {
 3. In Goglang, click **Run**, and then click **Run 'Build main.go and run'**.
 
     The app finishes and displays the description of the document created in [Create a document](#create-document).
-    
+
     ```
     Description: A framework for building native apps with React.
-    
+
     Process finished with exit code 0
     ```
 
     ![Goglang showing the output of the app](./media/create-mongodb-golang/goglang-cosmos-db.png)
-    
+
 ## Review your document in Data Explorer
 
 Go back to the Azure portal to see your document in Data Explorer.
@@ -223,7 +227,7 @@ Go back to the Azure portal to see your document in Data Explorer.
 1. Click **Data Explorer (Preview)** in the left navigation menu, expand **golang-coach**, **package**, and then click **Documents**. In the **Documents** tab, click the \_id to display the document in the right pane. 
 
     ![Data Explorer showing the newly created document](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
-    
+
 2. You can then work with the document inline and click **Update** to save it. You can also delete the document, or create new documents or queries.
 
 ## Review SLAs in the Azure portal

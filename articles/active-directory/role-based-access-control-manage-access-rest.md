@@ -72,7 +72,6 @@ Status code: 200
   ],
   "nextLink": null
 }
-
 ```
 
 ## Get information about a role assignment
@@ -113,7 +112,6 @@ Status code: 200
   "type": "Microsoft.Authorization/roleAssignments",
   "name": "196965ae-6088-4121-a92a-f1e33fdcc73e"
 }
-
 ```
 
 ## Create a Role Assignment
@@ -145,7 +143,6 @@ For the request body, provide the values in the following format:
     "principalId": "5ac84765-1c8c-4994-94b2-629461bd191b"
   }
 }
-
 ```
 
 | Element Name | Required | Type | Description |
@@ -171,7 +168,6 @@ Status code: 201
   "type": "Microsoft.Authorization/roleAssignments",
   "name": "2e9e86c8-0e91-4958-b21f-20f51f27bab2"
 }
-
 ```
 
 ## Delete a Role Assignment
@@ -212,7 +208,6 @@ Status code: 200
   "type": "Microsoft.Authorization/roleAssignments",
   "name": "5eec22ee-ea5c-431e-8f41-82c560706fd2"
 }
-
 ```
 
 ## List all Roles
@@ -295,7 +290,6 @@ Status code: 200
   ],
   "nextLink": null
 }
-
 ```
 
 ## Get information about a Role
@@ -375,7 +369,6 @@ Status code: 200
   ],
   "nextLink": null
 }
-
 ```
 
 ## Create a Custom Role
@@ -428,7 +421,6 @@ For the request body, provide the values in the following format:
     ]
   }
 }
-
 ```
 
 | Element Name | Required | Type | Description |
@@ -478,7 +470,6 @@ Status code: 201
   "type": "Microsoft.Authorization/roleDefinitions",
   "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
 }
-
 ```
 
 ## Update a Custom Role
@@ -531,7 +522,6 @@ For the request body, provide the values in the following format:
     ]
   }
 }
-
 ```
 
 | Element Name | Required | Type | Description |
@@ -581,7 +571,6 @@ Status code: 201
   "type": "Microsoft.Authorization/roleDefinitions",
   "name": "7c8c8ccd-9838-4e42-b38c-60f0bbe9a9d7"
 }
-
 ```
 
 ## Delete a Custom Role
@@ -641,9 +630,9 @@ Status code: 200
   "type": "Microsoft.Authorization/roleDefinitions",
   "name": "0bd62a70-e1b8-4e0b-a7c2-75cab365c95b"
 }
-
 ```
 
 ## Next steps
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+

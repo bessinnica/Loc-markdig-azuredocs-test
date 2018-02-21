@@ -53,7 +53,7 @@ The connections category tracks errors that occur when devices connect or discon
     "operationName": "deviceConnect",
     "category": "Connections",
     "level": "Information",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
+    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
     "location": "Resource location"
 }
 ```
@@ -123,7 +123,7 @@ The device telemetry category tracks errors that occur at the IoT hub and are re
     "level": "Error",
     "resultType": "Event status",
     "resultDescription": "MessageDescription",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
+    "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
     "location": "Resource location"
 }
 ```
@@ -165,7 +165,7 @@ The cloud-to-device twin operations category tracks service-initiated events on 
     "category": "C2DTwinOperations",
     "level": "Information",
     "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
+    "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
     "location": "Resource location"
 }
 ```
@@ -182,7 +182,7 @@ The device-to-cloud twin operations category tracks device-initiated events on d
     "category": "D2CTwinOperations",
     "level": "Information",
     "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
+    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
     "location": "Resource location"
 }
 ```
@@ -199,7 +199,7 @@ The twin queries category reports on query requests for device twins that are in
     "category": "TwinQueries",
     "level": "Information",
     "durationMs": "1",
-    "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
+    "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
     "location": "Resource location"
 }
 ```
@@ -216,7 +216,7 @@ The jobs operations category reports on job requests to update device twins or i
     "category": "JobsOperations",
     "level": "Information",
     "durationMs": "1",
-    "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
+    "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
     "location": "Resource location"
 }
 ```
@@ -233,7 +233,7 @@ The direct methods category tracks request-reponse interactions sent to individu
     "category": "DirectMethods",
     "level": "Information",
     "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+    "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
     "location": "Resource location"
 }
 ```
@@ -243,67 +243,67 @@ The direct methods category tracks request-reponse interactions sent to individu
 After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them. This sample code retrieves logs from an event hub:
 
 ```
-class Program 
-{ 
-    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
-    static EventHubClient eventHubClient; 
-//This is the Diagnostic Settings schema 
-    class AzureMonitorDiagnosticLog 
-    { 
-        string time { get; set; } 
-        string resourceId { get; set; } 
-        string operationName { get; set; } 
-        string category { get; set; } 
-        string level { get; set; } 
-        string resultType { get; set; } 
-        string resultDescription { get; set; } 
-        string durationMs { get; set; } 
-        string callerIpAddress { get; set; } 
-        string correlationId { get; set; } 
-        string identity { get; set; } 
-        string location { get; set; } 
-        Dictionary<string, string> properties { get; set; } 
-    }; 
-    static void Main(string[] args) 
-    { 
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
-        CancellationTokenSource cts = new CancellationTokenSource(); 
-        var tasks = new List<Task>(); 
-        foreach (string partition in d2cPartitions) 
-        { 
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
-        } 
-        Console.ReadLine(); 
-        Console.WriteLine("Exiting..."); 
-        cts.Cancel(); 
-        Task.WaitAll(tasks.ToArray()); 
-    } 
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
-    { 
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
-        while (true) 
-        { 
-            if (ct.IsCancellationRequested) 
-            { 
-                await eventHubReceiver.CloseAsync(); 
-                break; 
-            } 
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
-            if (eventData != null) 
-            { 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
-                var deserializer = new JavaScriptSerializer(); 
-                //deserialize json data to azure monitor object 
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
- 
-            } 
-        } 
-    } 
-} 
+class Program 
+{ 
+    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
+    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
+    static EventHubClient eventHubClient; 
+//This is the Diagnostic Settings schema 
+    class AzureMonitorDiagnosticLog 
+    { 
+        string time { get; set; } 
+        string resourceId { get; set; } 
+        string operationName { get; set; } 
+        string category { get; set; } 
+        string level { get; set; } 
+        string resultType { get; set; } 
+        string resultDescription { get; set; } 
+        string durationMs { get; set; } 
+        string callerIpAddress { get; set; } 
+        string correlationId { get; set; } 
+        string identity { get; set; } 
+        string location { get; set; } 
+        Dictionary<string, string> properties { get; set; } 
+    }; 
+    static void Main(string[] args) 
+    { 
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
+        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
+        CancellationTokenSource cts = new CancellationTokenSource(); 
+        var tasks = new List<Task>(); 
+        foreach (string partition in d2cPartitions) 
+        { 
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
+        } 
+        Console.ReadLine(); 
+        Console.WriteLine("Exiting..."); 
+        cts.Cancel(); 
+        Task.WaitAll(tasks.ToArray()); 
+    } 
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
+    { 
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
+        while (true) 
+        { 
+            if (ct.IsCancellationRequested) 
+            { 
+                await eventHubReceiver.CloseAsync(); 
+                break; 
+            } 
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
+            if (eventData != null) 
+            { 
+                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
+                var deserializer = new JavaScriptSerializer(); 
+                //deserialize json data to azure monitor object 
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
+ 
+            } 
+        } 
+    } 
+} 
 ```
 
 ## Use Azure Resource Health

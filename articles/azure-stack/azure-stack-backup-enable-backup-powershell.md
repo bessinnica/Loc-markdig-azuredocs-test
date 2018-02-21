@@ -34,10 +34,9 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
    ```powershell
     cd C:\tools\AzureStack-Tools-master\Connect
     Import-Module .\AzureStack.Connect.psm1
-    
+
     cd C:\tools\AzureStack-Tools-master\Infrastructure
     Import-Module .\AzureStack.Infra.psm1 
-    
    ```
 
 ##  Setup Rm environment and log into the operator management endpoint
@@ -53,31 +52,30 @@ In the same PowerShell session, Edit the following PowerShell script by adding t
    ```powershell
    # Specify Azure Active Directory tenant name
     $TenantName = "contoso.onmicrosoft.com"
-    
+
     # Set the module repository and the execution policy
     Set-PSRepository `
       -Name "PSGallery" `
       -InstallationPolicy Trusted
-    
+
     Set-ExecutionPolicy RemoteSigned `
       -force
-    
+
     # Configure the Azure Stack operator’s PowerShell environment.
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
       -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
-    
+
     Set-AzureRmEnvironment `
       -Name "AzureStackAdmin" `
       -GraphAudience "https://graph.windows.net/"
-    
+
     $TenantID = Get-AzsDirectoryTenantId `
       -AADTenantName $TenantName `
       -EnvironmentName AzureStackAdmin
-    
+
     # Sign-in to the operator's console.
     Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
-    
    ```
 ## Generate a new encryption key
 
@@ -106,10 +104,10 @@ In the same PowerShell session, edit the following PowerShell script by adding t
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-    
+
     Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
-   
+
 ##  Confirm backup settings
 
 In the same PowerShell session, run the following commands:
@@ -132,5 +130,5 @@ The result should look like the following JSON output:
 
 ## Next steps
 
- - Learn to run a backup, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md ).  
-- Learn to verify that your backup ran, see [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md ).
+- Learn to run a backup, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md ).  
+  - Learn to verify that your backup ran, see [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md ).

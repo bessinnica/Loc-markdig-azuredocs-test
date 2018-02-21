@@ -36,40 +36,40 @@ Receive and Send settings are oriented from the point of view of the Hosted Part
 
 1. In the Azure portal, select **Browse**.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
 
 2. In the filter search box, enter **integration**, then select **Integration Accounts** in the results list.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
 
 3. Select the integration account where you want to add your partners.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Select the **Partners** tile.
 
-	![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+    ![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
 5. In the Partners blade, choose **Add**.
 
-	![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+    ![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
 6. Enter a name for your partner, then select a **Qualifier**. Finally, enter a **Value** to help identify documents that come into your apps.
 
-	![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+    ![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
 7. To see the progress for your partner creation process, select the *bell* notification icon.
 
-	![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
+    ![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
 
 8. To confirm that your new partners were successfully added, select the **Partners** tile.
 
-	![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+    ![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
-	After you select the Partners tile, you'll also see 
-	newly added partners in the Partners blade.
+    After you select the Partners tile, you'll also see 
+    newly added partners in the Partners blade.
 
-	![](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+    ![](./media/logic-apps-enterprise-integration-partners/partner-6.png)
 
 ## How to edit existing partners in your integration account
 
@@ -78,7 +78,7 @@ Receive and Send settings are oriented from the point of view of the Hosted Part
 3. On the **Update Partner** tile, make your changes.
 4. After you're done, choose **Save**, or to cancel your changes, select **Discard**.
 
-	![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+    ![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 
 ## How to delete a partner
 
@@ -86,7 +86,7 @@ Receive and Send settings are oriented from the point of view of the Hosted Part
 2. After the Partner blade opens, select the partner that you want to delete.
 3. Choose **Delete**.
 
-	![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+    ![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 
 ## Next steps
 * [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  

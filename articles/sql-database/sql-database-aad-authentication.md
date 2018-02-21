@@ -29,10 +29,10 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 * It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Azure AD authentication uses contained database users to authenticate identities at the database level.
 * Azure AD supports token-based authentication for applications connecting to SQL Database.
-* Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
+* Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
 * Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
 
->  [!NOTE]  
+> [!NOTE]
 >  Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.  
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
@@ -93,9 +93,9 @@ Azure Active Directory authentication supports the following methods of connecti
 * SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure AD authentication.   
 * [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory authentication however `bcp.exe` cannot connect using Azure Active Directory authentication because it uses an older ODBC provider.   
 * `sqlcmd` supports Azure Active Directory authentication beginning with version 13.1 available from the [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).   
-* SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure AD users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+* SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure AD users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).   
-* PolyBase cannot authenticate by using Azure AD authentication.   
+* PolyBase cannot authenticate by using Azure AD authentication.   
 * Azure AD authentication is supported for SQL Database by the Azure portal **Import Database** and **Export Database** blades. Import and export using Azure AD authentication is also supported from the PowerShell command.   
 * Azure AD authentication is supported for SQL Database and SQL Data Warehouse by use CLI. For more information, see [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md) and [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 

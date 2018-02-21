@@ -19,7 +19,7 @@
 | Storage accounts | 1,000<sup>(5)</sup> (fixed) |
 | Policies | 1,000,000<sup>(6)</sup> |
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
-  
+
 <sup>1</sup> S3 RUs are not available in India West. If you change the type (for example, from S2 to S1,) the max RU limits are reset.
 
 <sup>2</sup> This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs. You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request.
@@ -41,8 +41,10 @@ As of April 1, 2017, any Job record in your account older than 90 days will be a
 
 The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. However, additional limits apply in Azure Media Services based on the VM sizes that are used by the service. The following table shows the limits on each of the Media Reserved Units (S1, S2, S3.) If your source file is larger than the limits defined in the table, your encoding job will fail. If you are encoding 4K resolution sources of long duration, you are required to use S3 Media Reserved Units to achieve the performance needed. If you have 4K content that is larger than 260 GB limit on the S3 Media Reserved Units, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
 
-| Media Reserved Unit type | Maximum Input Size (GB)| 
-| --- | --- | 
-|S1	| 325|
-|S2	| 640|
-|S3	| 260|
+
+| Media Reserved Unit type | Maximum Input Size (GB) |
+|--------------------------|-------------------------|
+|            S1            |           325           |
+|            S2            |           640           |
+|            S3            |           260           |
+

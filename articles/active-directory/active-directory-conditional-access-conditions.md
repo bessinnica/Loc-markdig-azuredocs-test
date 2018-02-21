@@ -61,7 +61,7 @@ Targeting specific sets of users is useful for the deployment of a new policy. I
 
 ## Cloud apps 
 
-A cloud app is a web sites or service. This includes web sites protected by the Azure Application Proxy. For a detailed description of the supported cloud apps, see [cloud apps assignment](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments). 	
+A cloud app is a web sites or service. This includes web sites protected by the Azure Application Proxy. For a detailed description of the supported cloud apps, see [cloud apps assignment](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).    
 
 The cloud apps condition is mandatory in a conditional access policy. In your policy, you can either select **All cloud apps** or select specific apps.
 

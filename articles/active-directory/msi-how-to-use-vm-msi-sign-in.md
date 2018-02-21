@@ -18,7 +18,8 @@ ms.author: daveba
 
 # How to use an Azure VM Managed Service Identity (MSI) for sign in 
 
-[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+
 This article provides PowerShell and CLI script examples for sign-in using an MSI service principal, and guidance on important topics such as error handling.
 
 ## Prerequisites
@@ -49,7 +50,7 @@ The following script demonstrates how to:
 
    ```azurecli
    az login --msi
-   
+
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
    ```
@@ -88,7 +89,7 @@ See [Azure services that support Azure AD authentication](msi-overview.md#azure-
 Responses such as the following may indicate that the VM's MSI has not been correctly configured:
 
 - PowerShell: *Invoke-WebRequest : Unable to connect to the remote server*
-- CLI: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
+- CLI: <em>MSI: Failed to retrieve a token from '<http://localhost:50342/oauth2/token>' with an error of 'HTTPConnectionPool(host='localhost', port=50342)</em> 
 
 If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 

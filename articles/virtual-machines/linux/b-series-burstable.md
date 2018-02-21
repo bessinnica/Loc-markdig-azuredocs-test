@@ -23,7 +23,6 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-b-series-burstable](../../../includes/virtual-machines-common-b-series-burstable.md)]
 
-
 ## Other sizes
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)

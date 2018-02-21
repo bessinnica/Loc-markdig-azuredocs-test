@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights support for multiple components, microservices, and containers | Microsoft Docs
 description: Monitoring apps that consist of multiple components or roles for performance and usage.
 services: application-insights
@@ -52,7 +52,7 @@ Update or install the Application Insights packages in the project for each serv
 3. If Application Insights packages appear in Updates, select them. 
 
     Otherwise, browse for and install the appropriate package:
-    
+
     * Microsoft.ApplicationInsights.WindowsServer
     * Microsoft.ApplicationInsights.ServiceFabric - for components running as guest executables and Docker containers running a in Service Fabric application
     * Microsoft.ApplicationInsights.ServiceFabric.Native - for reliable services in ServiceFabric applications
@@ -99,7 +99,6 @@ If a component runs in a Docker hosted on an Azure Windows VM, you can collect a
     }
     ...
 }
-
 ```
 
 ## Use cloud_RoleName to separate components

@@ -47,6 +47,7 @@ ms.author: carolz
 </div>
 
 <h2 style="margin-top: 36px">Reference</h2>
+
 <ul class="panelContent cardsD">
     <li>
         <div class="cardSize">
@@ -61,4 +62,6 @@ ms.author: carolz
         </div>
     </li>
 </ul>
+
 </div>
+

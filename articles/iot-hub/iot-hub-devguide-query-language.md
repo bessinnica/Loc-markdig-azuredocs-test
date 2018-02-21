@@ -500,7 +500,7 @@ In routes conditions, the following math functions are supported:
 | ABS(x) | Returns the absolute (positive) value of the specified numeric expression. |
 | EXP(x) | Returns the exponential value of the specified numeric expression (e^x). |
 | POWER(x,y) | Returns the value of the specified expression to the specified power (x^y).|
-| SQUARE(x)	| Returns the square of the specified numeric value. |
+| SQUARE(x) | Returns the square of the specified numeric value. |
 | CEILING(x) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
 | FLOOR(x) | Returns the largest integer less than or equal to the specified numeric expression. |
 | SIGN(x) | Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.|

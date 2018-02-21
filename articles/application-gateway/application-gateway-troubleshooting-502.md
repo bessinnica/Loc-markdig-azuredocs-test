@@ -76,12 +76,13 @@ If present, ensure that the DNS server is able to resolve backend pool member's 
 
 502 errors can also be frequent indicators that the default health probe is not able to reach back-end VMs. When an Application Gateway instance is provisioned, it automatically configures a default health probe to each BackendAddressPool using properties of the BackendHttpSetting. No user input is required to set this probe. Specifically, when a load balancing rule is configured, an association is made between a BackendHttpSetting and BackendAddressPool. A default probe is configured for each of these associations and Application Gateway initiates a periodic health check connection to each instance in the BackendAddressPool at the port specified in the BackendHttpSetting element. Following table lists the values associated with the default health probe.
 
-| Probe property | Value | Description |
-| --- | --- | --- |
-| Probe URL |http://127.0.0.1/ |URL path |
-| Interval |30 |Probe interval in seconds |
-| Time-out |30 |Probe time-out in seconds |
-| Unhealthy threshold |3 |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+
+|   Probe property    |       Value       |                                                           Description                                                            |
+|---------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------|
+|      Probe URL      | http://127.0.0.1/ |                                                             URL path                                                             |
+|      Interval       |        30         |                                                    Probe interval in seconds                                                     |
+|      Time-out       |        30         |                                                    Probe time-out in seconds                                                     |
+| Unhealthy threshold |         3         | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 ### Solution
 

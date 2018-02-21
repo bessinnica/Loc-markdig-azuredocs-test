@@ -58,19 +58,19 @@ To configure the integration of Perception United States (Non-UltiPro) into Azur
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Perception United States (Non-UltiPro)**, select **Perception United States (Non-UltiPro)** from result panel then click **Add** button to add the application.
 
-	![Perception United States (Non-UltiPro) in the results list](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
+    ![Perception United States (Non-UltiPro) in the results list](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,42 +96,42 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Perception United States (Non-UltiPro)** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_samlbase.png)
 
 3. On the **Perception United States (Non-UltiPro) Domain and URLs** section, perform the following steps:
 
-	![Perception United States (Non-UltiPro) Domain and URLs single sign-on information](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
+    ![Perception United States (Non-UltiPro) Domain and URLs single sign-on information](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
     a. In the **Identifier** textbox, type the URL: `https://perception.kanjoya.com/sp`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-	> [!NOTE] 
-	> The value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial.
+    > [!NOTE] 
+    > The value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial.
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_400.png)
 
 6. On the **Perception United States (Non-UltiPro) Configuration** section, click **Configure Perception United States (Non-UltiPro)** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
 
-	a. The **Perception United States (Non-UltiPro)** application requires the **SAML Entity ID** value, which you have copied, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
+    a. The **Perception United States (Non-UltiPro)** application requires the **SAML Entity ID** value, which you have copied, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
 
-	b. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
+    b. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
 
-	`https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
-	
-	c. Paste the above value in the **Reply URL** textbox in **Perception United States (Non-UltiPro) Domain and URLs** section.
+    `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
+    
+    c. Paste the above value in the **Reply URL** textbox in **Perception United States (Non-UltiPro) Domain and URLs** section.
 
-	![Perception United States (Non-UltiPro) Configuration](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_configure.png) 
+    ![Perception United States (Non-UltiPro) Configuration](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_configure.png) 
 
 7. In another browser window, sign on to your Perception United States (Non-UltiPro) company site as an administrator.
 
@@ -141,31 +141,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. On the **Account Settings** page, perform the following steps:
 
-	![Perception United States (Non-UltiPro) user](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
+    ![Perception United States (Non-UltiPro) user](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-	a. In the **Company Name** textbox, type the name of the **Company**.
-	
-	b. In the **Account Name** textbox, type the name of the **Account**.
+    a. In the **Company Name** textbox, type the name of the **Company**.
+    
+    b. In the **Account Name** textbox, type the name of the **Account**.
 
-	c. In **Default Reply-To Email** text box, type the valid **Email**.
+    c. In **Default Reply-To Email** text box, type the valid **Email**.
 
-	d. Select **SSO Identity Provider** as **SAML 2.0**.
+    d. Select **SSO Identity Provider** as **SAML 2.0**.
 
 10. On the **SSO Configuration** page, perform the following steps:
 
     ![Perception United States (Non-UltiPro) SSOConfig](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
-	a. Select **SAML NameID Type** as **EMAIL**.
+    a. Select **SAML NameID Type** as **EMAIL**.
 
-	b. In the **SSO Configuration Name** textbox, type the name of your **Configuration**.
-	
-	c. In **Identity Provider Name** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal. 
+    b. In the **SSO Configuration Name** textbox, type the name of your **Configuration**.
+    
+    c. In **Identity Provider Name** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal. 
 
-	d. In **SAML Domain textbox**, enter the domain like **@contoso.com**.
+    d. In <strong>SAML Domain textbox</strong>, enter the domain like <strong><xref href="contoso.com" data-throw-if-not-resolved="False" data-raw-source="@contoso.com"></xref></strong>.
 
-	e. Click on **Upload Again** to upload the **Metadata XML** file.
+    e. Click on **Upload Again** to upload the **Metadata XML** file.
 
-	f. Click **Update**.
+    f. Click **Update**.
 
 
 > [!TIP]
@@ -217,32 +217,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Perception United States (Non-UltiPro)**.
 
-	![The Perception United States (Non-UltiPro) link in the Applications list](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_app.png)  
+    ![The Perception United States (Non-UltiPro) link in the Applications list](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Perception United States (Non-UltiPro) tile in the Access Panel, you should get automatically signed-on to your Perception United States (Non-UltiPro) application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -200,19 +200,19 @@ Before enabling synchronization of the UserType attribute, you must first decide
 
     If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
 
-- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. 
+- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as <strong>Guest</strong> if their on-premises AD userPrincipalName attribute ends with domain part <em><xref href="partners.fabrikam123.org" data-throw-if-not-resolved="False" data-raw-source="@partners.fabrikam123.org"></xref></em>. 
 
     As mentioned previously, Azure AD Connect does not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
 
 The steps to enable synchronization of the UserType attribute can be summarized as:
 
-1.	Disable the sync scheduler and verify there is no synchronization in progress.
-2.	Add the source attribute to the on-premises AD Connector schema.
-3.	Add the UserType to the Azure AD Connector schema.
-4.	Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory.
-5.	Create an outbound synchronization rule to flow the attribute value to Azure AD.
-6.	Run a full synchronization cycle.
-7.	Enable the sync scheduler.
+1.  Disable the sync scheduler and verify there is no synchronization in progress.
+2.  Add the source attribute to the on-premises AD Connector schema.
+3.  Add the UserType to the Azure AD Connector schema.
+4.  Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory.
+5.  Create an outbound synchronization rule to flow the attribute value to Azure AD.
+6.  Run a full synchronization cycle.
+7.  Enable the sync scheduler.
 
 >[!NOTE]
 > The rest of this section covers these steps. They are described in the context of an Azure AD deployment with single-forest topology and without custom synchronization rules. If you have multi-forest topology, custom synchronization rules configured, or have a staging server, you need to adjust the steps accordingly.
@@ -254,15 +254,17 @@ The inbound synchronization rule permits the attribute value to flow from the so
 3. Click the **Add new rule** button to create a new inbound rule.
 4. Under the **Description** tab, provide the following configuration:
 
-    | Attribute | Value | Details |
-    | --- | --- | --- |
-    | Name | *Provide a name* | For example, *In from AD – User UserType* |
-    | Description | *Provide a description* |  |
-    | Connected System | *Pick the on-premises AD connector* |  |
-    | Connected System Object Type | **User** |  |
-    | Metaverse Object Type | **Person** |  |
-    | Link Type | **Join** |  |
-    | Precedence | *Choose a number between 1–99* | 1–99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
+
+   |          Attribute           |                   Value                    |                                                  Details                                                  |
+   |------------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+   |             Name             |          <em>Provide a name</em>           |                             For example, <em>In from AD – User UserType</em>                              |
+   |         Description          |       <em>Provide a description</em>       |                                                                                                           |
+   |       Connected System       | <em>Pick the on-premises AD connector</em> |                                                                                                           |
+   | Connected System Object Type |           <strong>User</strong>            |                                                                                                           |
+   |    Metaverse Object Type     |          <strong>Person</strong>           |                                                                                                           |
+   |          Link Type           |           <strong>Join</strong>            |                                                                                                           |
+   |          Precedence          |   <em>Choose a number between 1–99</em>    | 1–99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
+
 
 5. Go to the **Scoping filter** tab and add a **single scoping filter group** with the following clause:
 
@@ -278,11 +280,13 @@ The inbound synchronization rule permits the attribute value to flow from the so
     | --- | --- | --- | --- | --- |
     | Direct | UserType | extensionAttribute1 | Unchecked | Update |
 
-    In another example, you want to derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. You can implement an expression like this:
+    In another example, you want to derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD userPrincipalName attribute ends with domain part <em><xref href="partners.fabrikam123.org" data-throw-if-not-resolved="False" data-raw-source="@partners.fabrikam123.org"></xref></em>. You can implement an expression like this:
 
-    | Flow type | Target attribute | Source | Apply once | Merge type |
-    | --- | --- | --- | --- | --- |
-    | Direct | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked | Update |
+
+   | Flow type | Target attribute |                                                                                              Source                                                                                              | Apply once | Merge type |
+   |-----------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|------------|
+   |  Direct   |     UserType     | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked  |   Update   |
+
 
 7. Click **Add** to create the inbound rule.
 
@@ -337,8 +341,8 @@ You can use the following steps to verify the changes while manually running the
    3. In the pop-up dialog box, select **Full Import** and then click **OK**.
    4. Wait for the operation to finish.
 
-    > [!NOTE]
-    > You can skip a full import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any changes during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > You can skip a full import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any changes during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Run a **Full import** on the **Azure AD Connector**:
 
@@ -349,7 +353,7 @@ You can use the following steps to verify the changes while manually running the
 3. Verify the synchronization rule changes on an existing User object:
 
     The source attribute from on-premises Active Directory and the UserType from Azure AD have been imported into their respective Connector Spaces. Before proceeding with a full synchronization, do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you chose should have the source attribute populated.
-    
+
     A successful **Preview** with the UserType populated in the metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a **Preview**, refer to the section [Verify the change](#verify-the-change).
 
 4. Run a **Full Synchronization** on the **on-premises AD Connector**:

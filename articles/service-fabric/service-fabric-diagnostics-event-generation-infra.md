@@ -92,7 +92,6 @@ If you are going to deploy containers to your cluster, enable WAD to pick up doc
         "sampleRate": "PT1M"
     }
 },
-
 ```
 
 ## Measuring performance

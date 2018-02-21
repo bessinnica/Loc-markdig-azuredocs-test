@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting Azure Active Directory B2B collaboration | Microsoft Docs
 description: Remedies for common problems with Azure Active Directory B2B collaboration
 services: active-directory
@@ -29,7 +29,7 @@ Here are some remedies for common problems with Azure Active Directory (Azure AD
 In cases where external users are not populated in the list, the object might take a few minutes to replicate.
 
 ## A B2B guest user is not showing up in SharePoint Online/OneDrive people picker 
- 
+ 
 The ability to search for existing guest users in the SharePoint Online (SPO) people picker is OFF by default to match legacy behavior.
 
 You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. You can set the feature using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.

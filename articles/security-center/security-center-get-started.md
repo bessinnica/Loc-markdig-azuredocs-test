@@ -32,7 +32,7 @@ To upgrade a subscription to the Standard tier, you must be assigned the role of
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
- ![Security Center overview][2]
+   ![Security Center overview][2]
 
 **Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
@@ -52,12 +52,12 @@ For the purpose of the Security Center quickstarts and tutorials you must upgrad
 
 2. Under **Onboarding to advanced security**, Security Center lists subscriptions and workspaces eligible for onboarding. Select a subscription from the list.
 
-  ![Select a subscription][4]
+   ![Select a subscription][4]
 
 3. **Security policy** provides information on the resource groups contained in the subscription. **Pricing** also opens.
 4. Under **Pricing**, select **Standard** to upgrade from Free to Standard and click **Save**.
 
-  ![Select Standard][5]
+   ![Select Standard][5]
 
 Now that you’ve upgraded to the Standard tier, you have access to additional Security Center features, including **adaptive application controls**, **just in time VM access**, **security alerts**, **threat intelligence**, **automation playbooks**, and more. Note that security alerts will only appear when Security Center detects malicious activity.
 
@@ -76,7 +76,7 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
 4. Under **Data Collection**, select **On** to enable automatic provisioning.
 5. Select **Save**.
 
-  ![Enable automatic provisioning][6]
+   ![Enable automatic provisioning][6]
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
 

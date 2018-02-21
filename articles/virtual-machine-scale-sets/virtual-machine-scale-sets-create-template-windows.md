@@ -36,18 +36,19 @@ For more information on templates, see [Azure Resource Manager overview](https:/
 
 A template defines the configuration for each resource type. A virtual machine scale set resource type is similar to an individual VM. The core parts of the virtual machine scale set resource type are:
 
-| Property                     | Description of property                                  | Example template value                    |
+
+|           Property           |                 Description of property                  |          Example template value           |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| type                         | Azure resource type to create                            | Microsoft.Compute/virtualMachineScaleSets |
-| name                         | The scale set name                                       | myScaleSet                                |
-| location                     | The location to create the scale set                     | East US                                   |
-| sku.name                     | The VM size for each scale set instance                  | Standard_A1                               |
-| sku.capacity                 | The number of VM instances to initially create           | 2                                         |
-| upgradePolicy.mode           | VM instance upgrade mode when changes occur              | Automatic                                 |
-| imageReference               | The platform or custom image to use for the VM instances | Microsoft Windows Server 2016 Datacenter  |
-| osProfile.computerNamePrefix | The name prefix for each VM instance                     | myvmss                                    |
-| osProfile.adminUsername      | The username for each VM instance                        | azureuser                                 |
-| osProfile.adminPassword      | The password for each VM instance                        | P@ssw0rd!                                 |
+|             type             |              Azure resource type to create               | Microsoft.Compute/virtualMachineScaleSets |
+|             name             |                    The scale set name                    |                myScaleSet                 |
+|           location           |           The location to create the scale set           |                  East US                  |
+|           sku.name           |         The VM size for each scale set instance          |                Standard_A1                |
+|         sku.capacity         |      The number of VM instances to initially create      |                     2                     |
+|      upgradePolicy.mode      |       VM instance upgrade mode when changes occur        |                 Automatic                 |
+|        imageReference        | The platform or custom image to use for the VM instances | Microsoft Windows Server 2016 Datacenter  |
+| osProfile.computerNamePrefix |           The name prefix for each VM instance           |                  myvmss                   |
+|   osProfile.adminUsername    |            The username for each VM instance             |                 azureuser                 |
+|   osProfile.adminPassword    |            The password for each VM instance             |                 P@ssw0rd!                 |
 
  The following example shows the core scale set resource definition. To customize a scale set template, you can change the VM size or initial capacity, or use a different platform or a custom image.
 

@@ -58,19 +58,19 @@ To configure the integration of Adobe Experience Manager into Azure AD, you need
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Adobe Experience Manager**, select **Adobe Experience Manager** from result panel then click **Add** button to add the application.
 
-	![Adobe Experience Manager in the results list](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_addfromgallery.png)
+    ![Adobe Experience Manager in the results list](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,106 +96,106 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Adobe Experience Manager** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_samlbase.png)
 
 3. On the **Adobe Experience Manager Domain and URLs** section, perform the following steps if you want to configure the app in **IdP** mode:
 
-	![Adobe Experience Manager Domain and URLs single sign-on information](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_url1.png)
+    ![Adobe Experience Manager Domain and URLs single sign-on information](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_url1.png)
 
     a. In the **Identifier** textbox, type a unique value which you define on your AEM server as well. 
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<AEM Server Url>/saml_login`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<AEM Server Url>/saml_login`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Experience Manager support team](https://helpx.adobe.com/support/experience-manager.html) to get these values.
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Experience Manager support team](https://helpx.adobe.com/support/experience-manager.html) to get these values.
  
 4. Check Show advanced URL settings and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Adobe Experience Manager Domain and URLs single sign-on information](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_spconfigure.png)
+    ![Adobe Experience Manager Domain and URLs single sign-on information](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_spconfigure.png)
 
-	In the **Sign On URL** textbox, type your Adobe Experience Manager server URL. 
+    In the **Sign On URL** textbox, type your Adobe Experience Manager server URL. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
 
 6. On the Adobe Experience Manager Configuration section, click Configure Adobe Experience Manager to open Configure sign-on window. Copy the **SAML Sign-On Service URL**, **SAML Entity ID** and **Sign-Out ID** from the Quick Reference section.
 
-	![Configuration Section link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
+    ![Configuration Section link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_general_400.png)
 
 8. Open **Adobe Experience Manager** admin portal in another browser window.
 
 9. Select **Settings** -> **Security** -> **Users**.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 10. Select **Administrator** or any other relevant user.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 11. Select **Account Settings** -> **Create/Manage TrustStore**.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 12. Click **Select Certificate File** from **Add Certificate from CER file** button. Browse and select the certificate file, which you have downloaded from Azure portal.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 13. The certificate is added to the TrustStore. Note the alias of the certificate.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 14. On **Users** page, select **authentication-service**.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 15. Select **Account settings** -> **Create/Manage KeyStore**. Create KeyStore by supplying a password.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 16. Go back to the admin screen and select **Settings** -> **Operations** -> **Web Console**.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
 17. This opens the Configuration page.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
 
 18. Find **Adobe Granite SAML 2.0 Authentication Handler** and click on **Add** icon.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 19. Perform following actions on this page.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-	a. In the **Path** textbox, enter **/**.
+    a. In the **Path** textbox, enter **/**.
 
-	b. In **IDP URL** textbox, enter the value of **SAML Sign-On Service URL**, which you have copied from Azure Portal.
+    b. In **IDP URL** textbox, enter the value of **SAML Sign-On Service URL**, which you have copied from Azure Portal.
 
-	c. In **IDP Certificate Alias** textbox, enter the value of **Certificate Alias**, which you have added in TrustStore.
+    c. In **IDP Certificate Alias** textbox, enter the value of **Certificate Alias**, which you have added in TrustStore.
 
-	d. In **Security Provided Entity ID** textbox, enter the value of unique **SAML Entity ID**, which you have configured in Azure Portal.
+    d. In **Security Provided Entity ID** textbox, enter the value of unique **SAML Entity ID**, which you have configured in Azure Portal.
 
-	e. In **Assertion Consumer Service URL** textbox, enter the value of **Reply URL**, which you have configured in Azure Portal.
+    e. In **Assertion Consumer Service URL** textbox, enter the value of **Reply URL**, which you have configured in Azure Portal.
 
-	f. In **Password of Key Store** textbox, enter the **Password**, which you have set in KeyStore.
+    f. In **Password of Key Store** textbox, enter the **Password**, which you have set in KeyStore.
 
-	g. In **User Attribute ID** textbox, enter **Name ID** or other User ID which is relevant in your case.
+    g. In **User Attribute ID** textbox, enter **Name ID** or other User ID which is relevant in your case.
 
-	h. Select **Autocreate CRX Users.**
+    h. Select **Autocreate CRX Users.**
 
-	i. In **Logout URL** textbox, enter the value of unique **Sign-Out URL** which you have from Azure Portal.
+    i. In **Logout URL** textbox, enter the value of unique **Sign-Out URL** which you have from Azure Portal.
 
-	j. Click **Save**
+    j. Click **Save**
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -236,7 +236,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In this section, you create a user called Britta Simon in Adobe Experience Manager. If you have selected **Autocreate CRX Users** option then users will be created automatically after successful authentication. 
 
-If you want to create users manually, please work with [Adobe Experience Manager support team](https://helpx.adobe.com/support/experience-manager.html) to add the users in the Adobe Experience Manager platform. 
+If you want to create users manually, please work with [Adobe Experience Manager support team](https://helpx.adobe.com/support/experience-manager.html) to add the users in the Adobe Experience Manager platform. 
 
 ### Assign the Azure AD test user
 
@@ -248,32 +248,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Adobe Experience Manager**.
 
-	![The Adobe Experience Manager link in the Applications list](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
+    ![The Adobe Experience Manager link in the Applications list](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Adobe Experience Manager tile in the Access Panel, you should get automatically signed-on to your Adobe Experience Manager application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

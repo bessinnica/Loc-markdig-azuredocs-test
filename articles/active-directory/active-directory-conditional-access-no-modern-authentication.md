@@ -56,7 +56,7 @@ In addition to modern authentication, SharePoint Online also supports legacy aut
 
 You can disable legacy authentication protocols for SharePoint access by using the **[Set-SPOTenant](https://technet.microsoft.com/library/fp161390.aspx)** cmdlet: 
 
-	Set-SPOTenant -LegacyAuthProtocolsEnabled $false
+    Set-SPOTenant -LegacyAuthProtocolsEnabled $false
 
 ## Control access to Exchange Online
 

@@ -50,7 +50,7 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
          * **Number of questions required to register**: The minimum for successful registration. A user can choose to answer more questions to create a pool of questions to pull from. This option can be set to three to five questions and must be greater than or equal to the number of questions required to reset their password. The user can add custom questions if they select the **Custom** button when they select their security questions.
          * **Number of questions required to reset**: Can be set from three to five questions to be answered correctly before you allow a user's password to be reset or unlocked.
             
-    ![Authentication][Authentication]
+     ![Authentication][Authentication]
 
 4. Recommended: Under **Customization**, you can change the **Contact your administrator** link to point to a page or email address you define. We recommend that you set this link to something like an email address or website that your users already use for support questions.
 

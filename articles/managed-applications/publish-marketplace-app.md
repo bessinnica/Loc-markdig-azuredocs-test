@@ -161,7 +161,7 @@ Follow these guidelines for the hero logo icon:
 *   The publisher display name, the plan title, and the offer long summary are displayed in white. Therefore, don't use a light color for the background of the hero icon. A black, white, or transparent background isn't allowed for hero icons.
 *   After the offer is listed, elements are embedded programmatically inside the hero logo. The embedded elements include the publisher display name, the plan title, the offer long summary, and the **Create** button. Consequently, don't enter any text while you design the hero logo. Leave empty space on the right because the text is included programmatically in that space. The empty space for the text should be 415 x 100 pixels on the right. It's offset by 370 pixels from the left.
 
-	![Hero logo example](./media/publish-marketplace-app/publishvm14.png)
+    ![Hero logo example](./media/publish-marketplace-app/publishvm14.png)
 
 ## Support form
 

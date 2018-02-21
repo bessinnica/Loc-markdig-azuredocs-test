@@ -24,7 +24,7 @@ ms.author: erikje
 ## Create a Marketplace item
 1. [Download](http://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packager tool and the sample Azure Stack Marketplace item.
 2. Open the sample Marketplace item and rename the **SimpleVMTemplate** folder. (Use the same name as your Marketplace item--for example, **Contoso.TodoList**.) This folder contains:
-   
+
        /Contoso.TodoList/
        /Contoso.TodoList/Manifest.json
        /Contoso.TodoList/UIDefinition.json
@@ -36,14 +36,14 @@ ms.author: erikje
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
 7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder, and add text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](#reference-marketplace-item-ui) for a detailed description.
-   
+
    > [!NOTE]
    > All four icon sizes (small, medium, large, wide) are required for building the Marketplace item correctly.
    > 
    > 
 8. In the **manifest.json** file, change **name** to the name of your Marketplace item. Also change **publisher** to your name or company.
 9. Under **artifacts**, change **name** and **path** to the correct information for the Azure Resource Manager template that you included.
-   
+
          "artifacts": [
             {
                 "name": "Type your template name",
@@ -52,15 +52,15 @@ ms.author: erikje
                 "isDefault": true
             }
 10. Replace **My Marketplace Items** with a list of the categories where your Marketplace item should appear.
-    
+
              "categories":[
                  "My Marketplace Items"
               ],
 11. For any further edits to manifest.json, refer to [Reference: Marketplace item manifest.json](#reference-marketplace-item-manifestjson).
 12. To package the folders into an .azpkg file, open a command prompt and run the following command:
-    
+
         AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-    
+
     > [!NOTE]
     > The full path to the output package must exist. For example, if the output path is C:\MarketPlaceItem\yourpackage.azpkg, the folder C:\MarketPlaceItem must exist.
     > 
@@ -70,26 +70,26 @@ ms.author: erikje
 1. Use PowerShell or Azure Storage Explorer to upload your Marketplace item (.azpkg) to Azure Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible.
 2. On the client virtual machine in the Microsoft Azure Stack environment, make sure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](user/azure-stack-deploy-template-powershell.md).
 3. Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
-   
+
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
-   
+
    | Parameter | Description |
    | --- | --- |
    | SubscriptionID |Admin subscription ID. You can retrieve it by using PowerShell. If you'd prefer to get it in the portal, go to the provider subscription and copy the subscription ID. |
    | GalleryItemUri |Blob URI for your gallery package that has already been uploaded to storage. |
    | Apiversion |Set as **2015-04-01**. |
 4. Go to the portal. You can now see the Marketplace item in the portal--as an operator or as a user.
-   
+
    > [!NOTE]
    > The package might take several minutes to appear.
    > 
    > 
 5. Your Marketplace item has now been saved to the Azure Stack Marketplace. You can choose to delete it from your Blob storage location.
 6. You can remove a Marketplace item by using the **Remove-AzureRMGalleryItem** cmdlet. Example:
-   
+
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
-   
+
    > [!NOTE]
    > The Marketplace UI may show an error after you remove an item. To fix the error, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.
    > 
@@ -97,6 +97,7 @@ ms.author: erikje
 
 ## Reference: Marketplace item manifest.json
 ### Identity information
+
 | Name | Required | Type | Constraints | Description |
 | --- | --- | --- | --- | --- |
 | Name |X |String |[A-Za-z0-9]+ | |
@@ -104,6 +105,7 @@ ms.author: erikje
 | Version |X |String |[SemVer v2](http://semver.org/) | |
 
 ### Metadata
+
 | Name | Required | Type | Constraints | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Recommendation of 80 characters |The portal might not display your item name gracefully if it is longer than 80 characters. |

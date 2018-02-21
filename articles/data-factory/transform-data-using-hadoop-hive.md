@@ -56,6 +56,7 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 }
 ```
 ## Syntax details
+
 | Property            | Description                              | Required |
 | ------------------- | ---------------------------------------- | -------- |
 | name                | Name of the activity                     | Yes      |

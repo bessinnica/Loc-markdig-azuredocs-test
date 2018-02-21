@@ -22,6 +22,7 @@ ms.author: kevin;barbkess
 This topic lists some of the more common troubleshooting questions we hear from our customers.
 
 ## Connecting
+
 | Issue | Resolution |
 |:--- |:--- |
 | Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) |This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
@@ -31,12 +32,14 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Cannot connect with tool or driver |SQL Data Warehouse recommends using [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio], or [sqlcmd][sqlcmd] to query your data. For more details on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] and [Connect to Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] articles. |
 
 ## Tools
+
 | Issue | Resolution |
 |:--- |:--- |
 | Visual Studio object explorer is missing AAD users |This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
 |Manual scripting, using the scripting wizard, or connecting via SSMS is slow, hung, or producing errors| Please make sure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”.|
 
 ## Performance
+
 | Issue | Resolution |
 |:--- |:--- |
 | Query performance troubleshooting |If you are trying to troubleshoot a particular query, start with [Learning how to monitor your queries][Learning how to monitor your queries]. |
@@ -47,6 +50,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Poor query performance as a result of poor index quality |Some times queries can slowdown because of [Poor columnstore index quality][Poor columnstore index quality].  See this article for more information and how to [Rebuild indexes to improve segment quality][Rebuild indexes to improve segment quality]. |
 
 ## System management
+
 | Issue | Resolution |
 |:--- |:--- |
 | Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. |Either reduce the [DWU][DWU] of the database you are trying to create or [request a quota increase][request a quota increase]. |
@@ -55,12 +59,14 @@ This topic lists some of the more common troubleshooting questions we hear from 
 |Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## Polybase
+
 | Issue | Resolution |
 |:--- |:--- |
 | Load fails because of large rows |Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loads for large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release. |
 | bcp load of table with MAX data type is failing |There is a known issue which requires that VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX) be placed at the end of the table in some scenarios.  Try moving your MAX columns to the end of the table. |
 
 ## Differences from SQL Database
+
 | Issue | Resolution |
 |:--- |:--- |
 | Unsupported SQL Database features |See [Unsupported table features][Unsupported table features]. |

@@ -20,9 +20,6 @@ We recommend that you deploy the configuration server as a highly available VMwa
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-
-
-
 ## Capacity planning
 
 The sizing requirements for the configuration server depend on the potential data change rate. Use this table as a guide.
@@ -47,8 +44,8 @@ Site Recovery provides a downloadable template to set up the configuration serve
 3. In **Add Server**, check that **Configuration server for VMware** appears in **Server type**.
 4. Download the Open Virtualization Format (OVF) template for the configuration server.
 
-  > [!TIP]
-  The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver)
+   > [!TIP]
+   > The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver)
 
 
 ## Import the template in VMware
@@ -63,10 +60,10 @@ Site Recovery provides a downloadable template to set up the configuration serve
 4. In **Review details**, click **Next**.
 5. In **Select name and folder**, and **Select configuration**, accept the default settings.
 6. In **Select storage**, for best performance select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
-4. In the rest of the wizard pages, accept the default settings.
-5. In **Ready to complete**:
-  - To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
-  - If you want to add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
+7. In the rest of the wizard pages, accept the default settings.
+8. In **Ready to complete**:
+   - To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
+   - If you want to add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
 
 
 ## Add an additional adapter
@@ -77,7 +74,7 @@ If you want to add an additional NIC to the configuration server, do that before
 2. In **Hardware**, click **Add** > **Ethernet Adapter**. Then click **Next**.
 3. Select and adapter type, and a network. 
 4. To connect the virtual NIC when the VM is turned on, select **Connect at power on**. Click **Next** > **Finish**, and then click **OK**.
- 
+
 
 ## Register the configuration server 
 
@@ -107,8 +104,6 @@ If you want to add an additional NIC to the configuration server, do that before
 ## Troubleshoot deployment issues
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## Next steps
 

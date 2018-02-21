@@ -44,57 +44,57 @@ To create the route table and route needed for the front end subnet based on the
 
 1. Run the following command to create a route table for the front-end subnet:
 
-	```powershell
-	New-AzureRouteTable -Name UDR-FrontEnd -Location uswest `
-	-Label "Route table for front end subnet"
-	```
+    ```powershell
+    New-AzureRouteTable -Name UDR-FrontEnd -Location uswest `
+    -Label "Route table for front end subnet"
+    ```
 
 2. Run the following command to create a route in the route table to send all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4):
 
-	```powershell
-	Get-AzureRouteTable UDR-FrontEnd `
-	|Set-AzureRoute -RouteName RouteToBackEnd -AddressPrefix 192.168.2.0/24 `
-	-NextHopType VirtualAppliance `
-	-NextHopIpAddress 192.168.0.4
-	```
+    ```powershell
+    Get-AzureRouteTable UDR-FrontEnd `
+    |Set-AzureRoute -RouteName RouteToBackEnd -AddressPrefix 192.168.2.0/24 `
+    -NextHopType VirtualAppliance `
+    -NextHopIpAddress 192.168.0.4
+    ```
 
 3. Run the following command to associate the route table with the **FrontEnd** subnet:
 
-	```powershell
-	Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-	-SubnetName FrontEnd `
-	-RouteTableName UDR-FrontEnd
-	```
+    ```powershell
+    Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
+    -SubnetName FrontEnd `
+    -RouteTableName UDR-FrontEnd
+    ```
 
 ## Create the UDR for the back-end subnet
 To create the route table and route needed for the back end subnet based on the scenario, complete the following steps:
 
 1. Run the following command to create a route table for the back-end subnet:
 
-	```powershell
-	New-AzureRouteTable -Name UDR-BackEnd `
-	-Location uswest `
-	-Label "Route table for back end subnet"
-	```
+    ```powershell
+    New-AzureRouteTable -Name UDR-BackEnd `
+    -Location uswest `
+    -Label "Route table for back end subnet"
+    ```
 
 2. Run the following command to create a route in the route table to send all traffic destined to the front-end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4):
 
-	```powershell
-	Get-AzureRouteTable UDR-BackEnd
-	| Set-AzureRoute `
-	-RouteName RouteToFrontEnd `
-	-AddressPrefix 192.168.1.0/24 `
-	-NextHopType VirtualAppliance `
-	-NextHopIpAddress 192.168.0.4
-	```
+    ```powershell
+    Get-AzureRouteTable UDR-BackEnd
+    | Set-AzureRoute `
+    -RouteName RouteToFrontEnd `
+    -AddressPrefix 192.168.1.0/24 `
+    -NextHopType VirtualAppliance `
+    -NextHopIpAddress 192.168.0.4
+    ```
 
 3. Run the following command to associate the route table with the **BackEnd** subnet:
 
-	```powershell
-	Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-	-SubnetName BackEnd `
-	-RouteTableName UDR-BackEnd
-	```
+    ```powershell
+    Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
+    -SubnetName BackEnd `
+    -RouteTableName UDR-BackEnd
+    ```
 
 ## Enable IP forwarding on the FW1 VM
 
@@ -102,14 +102,14 @@ To enable IP forwarding in the FW1 VM, complete the following steps:
 
 1. Run the following command to check the status of IP forwarding:
 
-	```powershell
-	Get-AzureVM -Name FW1 -ServiceName TestRGFW `
-	| Get-AzureIPForwarding
-	```
+    ```powershell
+    Get-AzureVM -Name FW1 -ServiceName TestRGFW `
+    | Get-AzureIPForwarding
+    ```
 
 2. Run the following command to enable IP forwarding for the *FW1* VM:
 
-	```powershell
-	Get-AzureVM -Name FW1 -ServiceName TestRGFW `
-	| Set-AzureIPForwarding -Enable
-	```
+    ```powershell
+    Get-AzureVM -Name FW1 -ServiceName TestRGFW `
+    | Set-AzureIPForwarding -Enable
+    ```

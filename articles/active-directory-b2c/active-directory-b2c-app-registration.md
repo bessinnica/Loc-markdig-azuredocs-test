@@ -120,12 +120,12 @@ Ensure there are no special characters like underscores in the redirect uri.
 
 ### Faulted apps
 
-B2C applications should NOT be edited:
+B2C applications should NOT be edited:
 
-* On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
+* On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
 * Using Graph API or PowerShell
 
-If you edit the Azure AD B2C application as described and try to edit it again in Azure AD B2C features on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You need to delete the application and create it again.
+If you edit the Azure AD B2C application as described and try to edit it again in Azure AD B2C features on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You need to delete the application and create it again.
 
 To delete the app, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 

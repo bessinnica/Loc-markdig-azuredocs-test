@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Bing Entity Search API with C# 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with C#.
+
+This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with C#.
 
 ## Prerequisites
 

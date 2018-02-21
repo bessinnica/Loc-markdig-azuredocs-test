@@ -46,6 +46,7 @@ Please make sure you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
+
 * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 ## Create an Azure Cosmos DB account
@@ -67,10 +68,10 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
    ![Screen shot of the New Project window](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-new-project-2.png)
 
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
-    
+
     ![Screen shot of the Right Clicked Menu for the Project](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **NuGet** tab, click **Browse**, and type **documentdb** in the search box.
-<!---stopped here--->
+   <!---stopped here--->
 6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
    The package ID for the Azure Cosmos DB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
    ![Screen shot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
@@ -246,7 +247,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     UriFactory.CreateDocumentCollectionUri("db", "coll"))
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
-    
+
 The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. Note that you have to specify the EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` in the REST API) to have the SDK to execute a query across partitions.
 
 ```csharp
@@ -268,7 +269,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
     .OrderBy(m => m.MetricValue);
 ```
-    
+
 You can manage parallel query execution by tuning the following parameters:
 
 * By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the collection's partitions. If you set this to -1, the degree of parallelism is managed by the SDK. If the `MaxDegreeOfParallelism` is not specified or set to 0, which is the default value, there will be a single network connection to the collection's partitions.

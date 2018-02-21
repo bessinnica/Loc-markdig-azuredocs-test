@@ -108,7 +108,7 @@ The entries for adding the service used are all shown:
 For the remainder of this tutorial, we are working in the **TestContainer** directory. For example, *./TestContainer/TestContainer*. The contents of this directory should be as follows.
 ```bash
 $ ls
-ApplicationManifest.xml	azurevotefrontPkg azurevotebackPkg
+ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
 ## Configure the application manifest with credentials for Azure Container Registry
@@ -142,7 +142,7 @@ In the **ApplicationManifest.xml**, add the code snippet under the **ServiceMani
 ### Configure communication port
 
 Configure an HTTP endpoint so clients can communicate with your service. Open the *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* file and declare an endpoint resource in the **ServiceManifest** element.  Add the protocol, port, and name. For this tutorial, the service listens on port 80. The following snippet is placed under the *ServiceManifest* tag in the resource.
-  
+
 ```xml
 <Resources>
   <Endpoints>
@@ -152,9 +152,8 @@ Configure an HTTP endpoint so clients can communicate with your service. Open th
     <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
   </Endpoints>
 </Resources>
-
 ```
-  
+
 Similarly, modify the Service Manifest for the backend service. Open the *./TestContainer/azurevotebackPkg/ServiceManifest.xml* and declare an endpoint resource in the **ServiceManifest** element. For this tutorial, the redis default of 6379 is maintained. The following snippet is placed under the *ServiceManifest* tag in the resource.
 
 ```xml
@@ -171,7 +170,7 @@ Providing the **UriScheme**automatically registers the container endpoint with t
 
 ### Map container ports to a service
 In order to expose the containers in the cluster, we also need to create a port binding in the 'ApplicationManifest.xml'. The **PortBinding** policy references the **Endpoints** we defined in the **ServiceManifest.xml** files. Incoming requests to these endpoints get mapped to the container ports that are opened and bounded here. In the **ApplicationManifest.xml** file, add the following code to bind port 80 and 6379 to the endpoints. A full **ApplicationManifest.xml** is available at the end of this document. 
-  
+
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
@@ -185,9 +184,9 @@ In order to expose the containers in the cluster, we also need to create a port 
 ```
 
 ### Add a DNS name to the backend service
-  
+
 For Service Fabric to assign this DNS name to the backend service, the name needs to be specified in the **ApplicationManifest.xml**. Add the **ServiceDnsName** attribute to the **Service** element as shown: 
-  
+
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
   <StatelessService ServiceTypeName="azurevotebackType" InstanceCount="1">
@@ -197,11 +196,11 @@ For Service Fabric to assign this DNS name to the backend service, the name need
 ```
 
 The frontend service reads an environment variable to know the DNS name of the Redis instance. This environment variable is already defined in the Dockerfile that was used to generate the Docker image and no action needs to be taken here.
-  
+
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
-  
+
 The following code snippet illustrates how the front-end Python code picks up the environment variable described in the Dockerfile. No action needs to be taken here. 
 
 ```python
@@ -307,7 +306,7 @@ Use the uninstall script provided in the template to delete the application inst
       <StatelessServiceType ServiceTypeName="azurevotefrontType" UseImplicitHost="true">
    </StatelessServiceType>
    </ServiceTypes>
-   
+
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
@@ -316,7 +315,7 @@ Use the uninstall script provided in the template to delete the application inst
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables> 
-      </EnvironmentVariables> 
+      </EnvironmentVariables> 
    </CodePackage>
 
   <Resources>
@@ -341,7 +340,7 @@ Use the uninstall script provided in the template to delete the application inst
       <StatelessServiceType ServiceTypeName="azurevotebackType" UseImplicitHost="true">
    </StatelessServiceType>
    </ServiceTypes>
-   
+
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
@@ -350,7 +349,7 @@ Use the uninstall script provided in the template to delete the application inst
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables> 
-      </EnvironmentVariables> 
+      </EnvironmentVariables> 
    </CodePackage>
      <Resources>
     <Endpoints>

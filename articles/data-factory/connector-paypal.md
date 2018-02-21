@@ -45,7 +45,7 @@ The following properties are supported for PayPal linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **PayPal** | Yes |
-| host | The URL of the PayPal instance. (that is, api.sandbox.paypal.com)  | Yes |
+| host | The URL of the PayPal instance. (that is, api.sandbox.paypal.com)  | Yes |
 | clientId | The client ID associated with your PayPal application.  | Yes |
 | clientSecret | The client secret associated with your PayPal application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |

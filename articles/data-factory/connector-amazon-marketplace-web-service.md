@@ -99,7 +99,6 @@ To copy data from Amazon Marketplace Web Service, set the type property of the d
         }
     }
 }
-
 ```
 
 ## Copy activity properties

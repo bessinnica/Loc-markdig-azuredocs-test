@@ -39,13 +39,13 @@ You can access the named location configuration page in the **Security** section
 
     - In the **Manage** section, click **Named locations**.
     
-	    ![The Named locations command](./media/active-directory-named-locations/06.png)
+        ![The Named locations command](./media/active-directory-named-locations/06.png)
 
 - **Risky sign-ins:**
 
     - In the toolbar on the top, click **Add known IP address ranges**.
 
-	   ![The Named locations command](./media/active-directory-named-locations/35.png)
+       ![The Named locations command](./media/active-directory-named-locations/35.png)
 
 
 
@@ -57,26 +57,26 @@ You can access the named location configuration page in the **Security** section
 
 2. In the left pane, click **Azure Active Directory**.
 
-	![The Azure Active Directory link in the left pane](./media/active-directory-named-locations/01.png)
+    ![The Azure Active Directory link in the left pane](./media/active-directory-named-locations/01.png)
 
 3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
-	![The Conditional access command](./media/active-directory-named-locations/05.png)
+    ![The Conditional access command](./media/active-directory-named-locations/05.png)
 
 
 4. On the **Conditional Access** page, in the **Manage** section, click **Named locations**.
 
-	![The Named locations command](./media/active-directory-named-locations/06.png)
+    ![The Named locations command](./media/active-directory-named-locations/06.png)
 
 
 5. On the **Named locations** page, click **New location**.
 
-	![The New location command](./media/active-directory-named-locations/07.png)
+    ![The New location command](./media/active-directory-named-locations/07.png)
 
 
 6. On the **New** page, do the following:
 
-	![The New blade](./media/active-directory-named-locations/56.png)
+    ![The New blade](./media/active-directory-named-locations/56.png)
 
     a. In the **Name** box, type a name for your named location.
 

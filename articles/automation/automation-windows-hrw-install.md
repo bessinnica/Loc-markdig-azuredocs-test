@@ -23,6 +23,7 @@ Runbooks in Azure Automation cannot access resources in other clouds or in your 
 
 This functionality is illustrated in the following image:<br>
 
+
 ![Hybrid Runbook Worker Overview](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
 For a technical overview of the Hybrid Runbook Worker role and deployment considerations, see [Automation architecture overview](automation-offering-get-started.md#automation-architecture-overview).
@@ -42,7 +43,7 @@ To install and configure a Windows Hybrid Runbook Worker, there are two methods 
 If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your OMS workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups already defined in your Automation account.  The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.  
 
 Review the following information regarding the [hardware and software requirements](automation-offering-get-started.md#hybrid-runbook-worker) and [information for preparing your network](automation-offering-get-started.md#network-planning) before you begin deploying a Hybrid Runbook Worker.  After you have successfully deployed a runbook worker, review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.  
- 
+
 ### Automated deployment
 
 Perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role.  
@@ -51,11 +52,11 @@ Perform the following steps to automate the installation and configuration of th
 
     The *New-OnPremiseHybridWorker.ps1* script requires the following parameters during execution:
 
-  * *AutomationAccountName* (mandatory) - the name of your Automation account.  
-  * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account.  
-  * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario. 
-  *  *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in.
-  *  *WorkspaceName* (optional) - the OMS workspace name.  If you do not have an OMS workspace, the script creates and configures one.  
+   * *AutomationAccountName* (mandatory) - the name of your Automation account.  
+   * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account.  
+   * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario. 
+   * *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in.
+   * *WorkspaceName* (optional) - the OMS workspace name.  If you do not have an OMS workspace, the script creates and configures one.  
 
      > [!NOTE]
      > Currently the only Automation regions supported for integration with OMS are - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**.  If your Automation account is not in one of those regions, the script creates an OMS workspace but it warns you that it cannot link them together.
@@ -66,7 +67,7 @@ Perform the following steps to automate the installation and configuration of th
      > [!NOTE] 
      > You are prompted to authenticate with Azure after you execute the script.  You **must** sign in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.  
      >  
-    
+
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
@@ -131,12 +132,12 @@ Since the primary purpose of the Hybrid Runbook Worker feature is to manage loca
 The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If  registration of the worker fails, here are some possible causes for the error:  
 
 1. The hybrid worker is behind a proxy or firewall.  
-	Verify the computer has outbound access to *.azure-automation.net on port 443.  
+    Verify the computer has outbound access to *.azure-automation.net on port 443.  
 
 2. The computer the hybrid worker is running on has less than the minimum hardware [requirements](automation-offering-get-started.md#hybrid-runbook-worker).  
     Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer will become over utilized and cause runbook job delays or timeouts.
     Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.  If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows.  If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
-    
+
 3. The Microsoft Monitoring Agent service is not running.  
     If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation.  Verify the agent is running by entering the following command in PowerShell: `get-service healthservice`.  If the service is stopped, enter the following command in PowerShell to start the service: `start-service healthservice`.  
 

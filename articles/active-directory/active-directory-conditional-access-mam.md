@@ -47,7 +47,7 @@ You can combine app-based conditional access policies with other policies such a
  
 
 
-##Before you begin
+## Before you begin
 
 This topic assumes that you are familiar with:
 
@@ -286,13 +286,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require one of the selected controls**   
+   - **Require one of the selected controls**   
  
-    ![Conditional access](./media/active-directory-conditional-access-mam/11.png)
+     ![Conditional access](./media/active-directory-conditional-access-mam/11.png)
 
 
 
@@ -312,7 +312,7 @@ For the conditional access policy in this step, you need to configure the follow
 
 4. **Conditions:** As **Conditions**, you need to configure **Client apps**. 
 
-    As **Client apps*, select **Exchange Active Sync**.
+    As <strong>Client apps*, select **Exchange Active Sync</strong>.
 
     ![Conditional access](./media/active-directory-conditional-access-mam/08.png)
 
@@ -343,13 +343,13 @@ This scenario consists of an app-based and compliant device conditional access p
 
 This scenario assumes that a user:
  
--	Configures email using a native mail application on iOS or Android to connect to Exchange
--	Receives an email that indicates that access requires your device to be enrolled
--	Downloads the company portal and signs in to company portal
--	Checks mail and is asked to use the Outlook app
--	Downloads the Outlook app
--	Opens the Outlook app and enters the credentials used in the enrollment
--	User is able to access email
+-   Configures email using a native mail application on iOS or Android to connect to Exchange
+-   Receives an email that indicates that access requires your device to be enrolled
+-   Downloads the company portal and signs in to company portal
+-   Checks mail and is asked to use the Outlook app
+-   Downloads the Outlook app
+-   Opens the Outlook app and enters the credentials used in the enrollment
+-   User is able to access email
 
 Any Intune app protection policies are activated at the time of access to the corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform)
 
@@ -382,13 +382,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require all the selected controls**   
+   - **Require all the selected controls**   
  
-    ![Conditional access](./media/active-directory-conditional-access-mam/13.png)
+     ![Conditional access](./media/active-directory-conditional-access-mam/13.png)
 
 
 
@@ -414,13 +414,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require all the selected controls**   
+   - **Require all the selected controls**   
  
-    ![Conditional access](./media/active-directory-conditional-access-mam/64.png)
+     ![Conditional access](./media/active-directory-conditional-access-mam/64.png)
 
 
 

@@ -43,10 +43,10 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 
 ### *Chinese support notes
 
- - In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
- - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
- - See the [prebuilt domains reference ](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
-<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+- In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
+- The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
+- See the [prebuilt domains reference ](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
+  <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ## Rare or foreign words in an application
 In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](Add-Features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
@@ -56,14 +56,16 @@ To perform machine learning, LUIS breaks an utterance into tokens. A token is th
 
 Tokenization is based on the application's culture.
 
-|Language|  every space or special character | character level|compound words
-|--|:--:|:--:|:--:|
-|Chinese||✔||
-|Dutch|||✔|
-|English|✔ |||
-|French|✔|||
-|German|||✔|
-|Italian|✔|||
-|Korean||✔|||
-|Portuguese (Brazil)|✔|||
-|Spanish|✔|||
+
+|      Language       | every space or special character | character level | compound words |
+|---------------------|:--------------------------------:|:---------------:|:--------------:|
+|       Chinese       |                                  |        ✔        |                |
+|        Dutch        |                                  |                 |       ✔        |
+|       English       |                ✔                 |                 |                |
+|       French        |                ✔                 |                 |                |
+|       German        |                                  |                 |       ✔        |
+|       Italian       |                ✔                 |                 |                |
+|       Korean        |                                  |        ✔        |                |
+| Portuguese (Brazil) |                ✔                 |                 |                |
+|       Spanish       |                ✔                 |                 |                |
+

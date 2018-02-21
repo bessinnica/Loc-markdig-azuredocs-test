@@ -29,13 +29,13 @@ After you finish the preceding tutorial, you should have the following items rea
 - An IoT Edge runtime that runs on your development machine.
 
 ## Build your IoT Edge module for debugging
-1. To start debugging, use **dockerfile.debug** to rebuild your Docker image and deploy your IoT Edge solution again. In Visual Studio Code Explorer, select the Docker folder to open it. Then select the **linux-x64** folder, right-click **Dockerfile.debug**, and select **Build IoT Edge module Docker image**.
+1. To start debugging, use **dockerfile.debug** to rebuild your Docker image and deploy your IoT Edge solution again. In Visual Studio Code Explorer, select the Docker folder to open it. Then select the **linux-x64** folder, right-click **Dockerfile.debug**, and select **Build IoT Edge module Docker image**.
 
     ![Screenshot of VS Code Explorer](./media/how-to-debug-csharp-module/build-debug-image.png)
 
 3. In the **Select Folder** window, either browse to or enter **./bin/Debug/netcoreapp2.0/publish**. Then select **Select Folder as EXE_DIR**.
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. If you are deploying to local registry, it should be: `localhost:5000/filtermodule:latest`.
-5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command, and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in the previous step.
+5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command, and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in the previous step.
 6. You can reuse the `deployment.json` to redeploy. In the command palette, type and select **Edge: Restart Edge** to get your filter module running with the debug version.
 
 ## Start debugging in VS Code

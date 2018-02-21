@@ -27,16 +27,16 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
 
 1. Create a folder called **RemoteMonitoring** on your development machine. Navigate to this folder in your command-line environment.
 
-1. Run the following commands to download and install the packages you need to complete the sample app:
+2. Run the following commands to download and install the packages you need to complete the sample app:
 
     ```
     npm init
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. In the **RemoteMonitoring** folder, create a file called **remote_monitoring.js**. Open this file in a text editor.
+3. In the **RemoteMonitoring** folder, create a file called **remote_monitoring.js**. Open this file in a text editor.
 
-1. In the **remote_monitoring.js** file, add the following `require` statements:
+4. In the **remote_monitoring.js** file, add the following `require` statements:
 
     ```nodejs
     'use strict';
@@ -47,14 +47,14 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     var Message = require('azure-iot-device').Message;
     ```
 
-1. Add the following variable declarations after the `require` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard. Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
+5. Add the following variable declarations after the `require` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard. Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
 
     ```nodejs
     var connectionString = 'HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. Add the following variables to define some base telemetry data:
+6. Add the following variables to define some base telemetry data:
 
     ```nodejs
     var temperature = 50;
@@ -62,7 +62,7 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     var externalTemperature = 55;
     ```
 
-1. Add the following helper function to print operation results:
+7. Add the following helper function to print operation results:
 
     ```nodejs
     function printErrorFor(op) {
@@ -72,7 +72,7 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     }
     ```
 
-1. Add the following helper function to use to randomize the telemetry values:
+8. Add the following helper function to use to randomize the telemetry values:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -80,7 +80,7 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     }
     ```
 
-1. Add the following definition for the **DeviceInfo** object the device sends on startup:
+9. Add the following definition for the **DeviceInfo** object the device sends on startup:
 
     ```nodejs
     var deviceMetaData = {
@@ -94,85 +94,85 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     };
     ```
 
-1. Add the following definition for the device twin reported values. This definition includes descriptions of the direct methods the device supports:
+10. Add the following definition for the device twin reported values. This definition includes descriptions of the direct methods the device supports:
 
-    ```nodejs
-    var reportedProperties = {
-        "Device": {
-            "DeviceState": "normal",
-            "Location": {
-                "Latitude": 47.642877,
-                "Longitude": -122.125497
-            }
-        },
-        "Config": {
-            "TemperatureMeanValue": 56.7,
-            "TelemetryInterval": 45
-        },
-        "System": {
-            "Manufacturer": "Contoso Inc.",
-            "FirmwareVersion": "2.22",
-            "InstalledRAM": "8 MB",
-            "ModelNumber": "DB-14",
-            "Platform": "Plat 9.75",
-            "Processor": "i3-9",
-            "SerialNumber": "SER99"
-        },
-        "Location": {
-            "Latitude": 47.642877,
-            "Longitude": -122.125497
-        },
-        "SupportedMethods": {
-            "Reboot": "Reboot the device",
-            "InitiateFirmwareUpdate--FwPackageURI-string": "Updates device Firmware. Use parameter FwPackageURI to specifiy the URI of the firmware file"
-        },
-    }
-    ```
+     ```nodejs
+     var reportedProperties = {
+         "Device": {
+             "DeviceState": "normal",
+             "Location": {
+                 "Latitude": 47.642877,
+                 "Longitude": -122.125497
+             }
+         },
+         "Config": {
+             "TemperatureMeanValue": 56.7,
+             "TelemetryInterval": 45
+         },
+         "System": {
+             "Manufacturer": "Contoso Inc.",
+             "FirmwareVersion": "2.22",
+             "InstalledRAM": "8 MB",
+             "ModelNumber": "DB-14",
+             "Platform": "Plat 9.75",
+             "Processor": "i3-9",
+             "SerialNumber": "SER99"
+         },
+         "Location": {
+             "Latitude": 47.642877,
+             "Longitude": -122.125497
+         },
+         "SupportedMethods": {
+             "Reboot": "Reboot the device",
+             "InitiateFirmwareUpdate--FwPackageURI-string": "Updates device Firmware. Use parameter FwPackageURI to specifiy the URI of the firmware file"
+         },
+     }
+     ```
 
-1. Add the following function to handle the **Reboot** direct method call:
+11. Add the following function to handle the **Reboot** direct method call:
 
-    ```nodejs
-    function onReboot(request, response) {
-        // Implement actual logic here.
-        console.log('Simulated reboot...');
+     ```nodejs
+     function onReboot(request, response) {
+         // Implement actual logic here.
+         console.log('Simulated reboot...');
 
-        // Complete the response
-        response.send(200, "Rebooting device", function(err) {
-            if(!!err) {
-                console.error('An error occurred when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
-            }
-        });
-    }
-    ```
+         // Complete the response
+         response.send(200, "Rebooting device", function(err) {
+             if(!!err) {
+                 console.error('An error occurred when sending a method response:\n' + err.toString());
+             } else {
+                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
+             }
+         });
+     }
+     ```
 
-1. Add the following function to handle the **InitiateFirmwareUpdate** direct method call. This direct method uses a parameter to specify the location of the firmware image to download, and initiates the firmware update on the device asynchronously:
+12. Add the following function to handle the **InitiateFirmwareUpdate** direct method call. This direct method uses a parameter to specify the location of the firmware image to download, and initiates the firmware update on the device asynchronously:
 
-    ```nodejs
-    function onInitiateFirmwareUpdate(request, response) {
-        console.log('Simulated firmware update initiated, using: ' + request.payload.FwPackageURI);
+     ```nodejs
+     function onInitiateFirmwareUpdate(request, response) {
+         console.log('Simulated firmware update initiated, using: ' + request.payload.FwPackageURI);
 
-        // Complete the response
-        response.send(200, "Firmware update initiated", function(err) {
-            if(!!err) {
-                console.error('An error occurred when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
-            }
-        });
+         // Complete the response
+         response.send(200, "Firmware update initiated", function(err) {
+             if(!!err) {
+                 console.error('An error occurred when sending a method response:\n' + err.toString());
+             } else {
+                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
+             }
+         });
 
-        // Add logic here to perform the firmware update asynchronously
-    }
-    ```
+         // Add logic here to perform the firmware update asynchronously
+     }
+     ```
 
-1. Add the following code to create a client instance:
+13. Add the following code to create a client instance:
 
-    ```nodejs
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
+     ```nodejs
+     var client = Client.fromConnectionString(connectionString, Protocol);
+     ```
 
-1. Add the following code to:
+14. Add the following code to:
 
     * Open the connection.
     * Send the **DeviceInfo** object.
@@ -181,8 +181,8 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     * Register handlers for the direct methods.
     * Start sending telemetry.
 
-    ```nodejs
-    client.open(function (err) {
+      ```nodejs
+      client.open(function (err) {
         if (err) {
             printErrorFor('open')(err);
         } else {
@@ -236,16 +236,16 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
                 client.close(printErrorFor('client.close'));
             });
         }
-    });
-    ```
+      });
+      ```
 
-1. Save the changes to the **remote_monitoring.js** file.
+15. Save the changes to the **remote_monitoring.js** file.
 
-1. Run the following command at a command prompt to launch the sample application:
+16. Run the following command at a command prompt to launch the sample application:
    
-    ```
-    node remote_monitoring.js
-    ```
+     ```
+     node remote_monitoring.js
+     ```
 
 [!INCLUDE [iot-suite-v1-visualize-connecting](../../includes/iot-suite-v1-visualize-connecting.md)]
 

@@ -326,7 +326,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | This blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                                                                                                                                                                             |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | This blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                                                                                                       Not Applicable                                                                                                                                        |
+

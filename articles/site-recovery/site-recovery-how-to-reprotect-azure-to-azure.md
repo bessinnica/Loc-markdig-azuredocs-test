@@ -82,7 +82,7 @@ Just like after the first enable protection, following are the artifacts that ge
 1. A cache storage account gets created in the East Asia region.
 2. If the target storage account (the original storage account of the Southeast Asia VM) does not exist, a new one is created. The name is the East Asia virtual machine's storage account suffixed with "asr".
 3. If the target AV set does not exist, and the defaults detect that it needs to create a new AV set, then it will be created as part of the reprotect job. If you have customized the reprotect, then the selected AV set will be used.
-4.
+   4.
 
 The following are the list of steps that happen when you trigger a reprotect job. This is in the case the target side virtual machine exists.
 
@@ -103,6 +103,6 @@ After the reprotect job succeed, the virtual machine will enter a protected stat
 
 After the virtual machine has entered a protected state, you can initiate a failover. The failover will shut down the virtual machine in East Asia Azure region and then create and boot the Southeast Asia region virtual machine. Hence there is a small downtime for the application. So, choose the time for failover when your application can tolerate a downtime. It is recommended that you first test failover the virtual machine to make sure it is coming up correctly, before initiating a failover.
 
--	[Steps to initiate test failover of the virtual machine](site-recovery-test-failover-to-azure.md)
+-   [Steps to initiate test failover of the virtual machine](site-recovery-test-failover-to-azure.md)
 
--	[Steps to initiate failover of the virtual machine](site-recovery-failover.md)
+-   [Steps to initiate failover of the virtual machine](site-recovery-failover.md)

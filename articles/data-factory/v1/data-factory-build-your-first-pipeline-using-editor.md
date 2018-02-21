@@ -128,21 +128,21 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
 2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet describes the properties that are used to create the HDInsight cluster on demand.
 
-	```JSON
+    ```JSON
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
             "type": "HDInsightOnDemand",
             "typeProperties": {
-			    "version": "3.5",
+                "version": "3.5",
                 "clusterSize": 1,
-			    "timeToLive": "00:05:00",
+                "timeToLive": "00:05:00",
                 "osType": "Linux",
-			    "linkedServiceName": "AzureStorageLinkedService"
+                "linkedServiceName": "AzureStorageLinkedService"
             }
         }
     }
-	```
+    ```
 
     The following table provides descriptions for the JSON properties used in the snippet.
 
@@ -182,7 +182,7 @@ In this step, you create datasets to represent the input and output data for Hiv
 
 2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is in the blob container called **adfgetstarted** and the folder called **inputdata**.
 
-	```JSON
+    ```JSON
     {
         "name": "AzureBlobInput",
         "properties": {
@@ -204,7 +204,7 @@ In this step, you create datasets to represent the input and output data for Hiv
             "policy": {}
         }
     }
-	```
+    ```
     The following table provides descriptions for the JSON properties used in the snippet.
 
    | Property | Description |
@@ -229,7 +229,7 @@ Now, you create the output dataset to represent the output data stored in the bl
 
 2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobOutput** to specify the structure of the data that is produced by the Hive script. You also specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced monthly.
 
-	```JSON
+    ```JSON
     {
       "name": "AzureBlobOutput",
       "properties": {
@@ -248,7 +248,7 @@ Now, you create the output dataset to represent the output data stored in the bl
         }
       }
     }
-	```
+    ```
     For descriptions of these properties, see the section "Create the input dataset." You do not set the external property on an output dataset because the dataset is produced by the Data Factory service.
 
 3. Select **Deploy** on the command bar to deploy the newly created dataset.
@@ -271,50 +271,50 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
    >
    >
 
-	```JSON
-	{
-	    "name": "MyFirstPipeline",
-	    "properties": {
-	        "description": "My first Azure Data Factory pipeline",
-	        "activities": [
-	            {
-	                "type": "HDInsightHive",
-	                "typeProperties": {
-	                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-	                    "scriptLinkedService": "AzureStorageLinkedService",
-	                    "defines": {
-	                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-	                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-	                    }
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "AzureBlobInput"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "AzureBlobOutput"
-	                    }
-	                ],
-	                "policy": {
-	                    "concurrency": 1,
-	                    "retry": 3
-	                },
-	                "scheduler": {
-	                    "frequency": "Month",
-	                    "interval": 1
-	                },
-	                "name": "RunSampleHiveActivity",
-	                "linkedServiceName": "HDInsightOnDemandLinkedService"
-	            }
-	        ],
-	        "start": "2017-07-01T00:00:00Z",
-	        "end": "2017-07-02T00:00:00Z",
-	        "isPaused": false
-	    }
-	}
-	```
+    ```JSON
+    {
+        "name": "MyFirstPipeline",
+        "properties": {
+            "description": "My first Azure Data Factory pipeline",
+            "activities": [
+                {
+                    "type": "HDInsightHive",
+                    "typeProperties": {
+                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                        "scriptLinkedService": "AzureStorageLinkedService",
+                        "defines": {
+                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "AzureBlobInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "policy": {
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "scheduler": {
+                        "frequency": "Month",
+                        "interval": 1
+                    },
+                    "name": "RunSampleHiveActivity",
+                    "linkedServiceName": "HDInsightOnDemandLinkedService"
+                }
+            ],
+            "start": "2017-07-01T00:00:00Z",
+            "end": "2017-07-02T00:00:00Z",
+            "isPaused": false
+        }
+    }
+    ```
 
     In the JSON snippet, you create a pipeline that consists of a single activity that uses Hive to process data on an HDInsight cluster.
 
@@ -397,8 +397,8 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
 
     ![Activity run details window](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
-   From the log files, you can see the Hive query that was executed and the status information. These logs are useful for troubleshooting any issues.
-   For more information, see [Monitor and manage pipelines by using Azure portal blades](data-factory-monitor-manage-pipelines.md).
+    From the log files, you can see the Hive query that was executed and the status information. These logs are useful for troubleshooting any issues.
+    For more information, see [Monitor and manage pipelines by using Azure portal blades](data-factory-monitor-manage-pipelines.md).
 
 > [!IMPORTANT]
 > The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (**input.log**) to the **inputdata** folder of the **adfgetstarted** container.
@@ -434,9 +434,11 @@ In this tutorial, you created a data factory to process data by running a Hive s
 In this article, you created a pipeline with a transformation activity (HDInsight activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy activity to copy data from blob storage to a SQL database, see [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## See also
-| Topic | Description |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
-| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of the Data Factory application model. |
-| [Monitor and manage pipelines by using the Monitor & Manage app](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines by using the Monitor & Manage app. |
+
+| Topic                                                                                                | Description                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Pipelines](data-factory-create-pipelines.md)                                                        | This article helps you understand pipelines and activities in Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
+| [Datasets](data-factory-create-datasets.md)                                                          | This article helps you understand datasets in Data Factory.                                                                                                                 |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md)                                 | This article explains the scheduling and execution aspects of the Data Factory application model.                                                                           |
+| [Monitor and manage pipelines by using the Monitor & Manage app](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines by using the Monitor & Manage app.                                                                       |
+

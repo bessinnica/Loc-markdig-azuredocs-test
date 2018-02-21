@@ -127,6 +127,7 @@ Still in the Query Editor, switch back to the FabrikamComments query, change to 
 
 ![[Invoke Custom Function button]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
+
 In the Invoke Custom Function dialog, enter `keyphrases` as the name of the new column. Choose our custom function, `KeyPhrases`, as the Function Query. 
 
 A new field appears in the dialog, asking which field we want to pass to our function as the `text` parameter. Choose `Merged` (the column we created earlier by merging the subject and message fields) from the drop-down menu.
@@ -174,6 +175,7 @@ Let's use this column to generate a word cloud. To get started, click the Report
 If you don't already have the Word Cloud custom visual installed, install it. In the Visualizations panel to the right of the workspace, click the three dots (**...**) and choose **Import From Store**. Then search for "cloud" and click the **Add** button next the Word Cloud visual. Power BI installs the Word Cloud visual and lets you know it installed successfully.
 
 ![[adding a custom visual]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
+
 
 Now, let's make our word cloud!
 

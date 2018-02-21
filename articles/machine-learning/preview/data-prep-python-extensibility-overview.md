@@ -44,7 +44,7 @@ Module
     
 ```python
 def newvalue(row): 
-        return math.log(row["Score"])
+        return math.log(row["Score"])
 ```
 
 
@@ -95,7 +95,7 @@ To use a package that's not installed by default, you first need to install it i
 To install your packages in a compute target, you have to modify the conda_dependencies.yml file located in the aml_config folder under the root of your project.
 
 ### Windows 
-To find the location on Windows, find the app-specific installation of Python and its scripts directory. The default location is:  
+To find the location on Windows, find the app-specific installation of Python and its scripts directory. The default location is:  
 
 `C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
 
@@ -166,14 +166,14 @@ The File Reader extension point lets you fully control the process of reading a 
 ### How to use 
 You access this extension point from the **Open Data Source** wizard. Choose **File** on the first page, and then choose your file location. On the **Choose File Parameters** page, in the **File Type** drop-down list, choose **Custom File (Script)**. 
 
-Your code is given a Pandas dataframe named "df" that contains information about the files you need to read. If you chose to open a directory that contains multiple files, the dataframe contains more than one row.  
+Your code is given a Pandas dataframe named "df" that contains information about the files you need to read. If you chose to open a directory that contains multiple files, the dataframe contains more than one row.  
 
 This dataframe has the following columns:
 
 - Path: The file to be read.
 - PathHint: Tells you where the file is located. Values: Local, AzureBlobStorage, and AzureDataLakeStorage.
 - AuthenticationType: The type of authentication used to access the file. Values: None, SasToken, and OAuthToken.
-- AuthenticationValue: Contains None or the token to be used.
+- AuthenticationValue: Contains None or the token to be used.
 
 ### Syntax 
 Expression 
@@ -188,9 +188,9 @@ Module
 ```python
 PathHint = Local  
 def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
+    paths = df['Path'].tolist()  
+    filedf = pd.read_csv(paths[0])  
+    return filedf  
 ```
  
 
@@ -216,8 +216,8 @@ Module
 
 ```python
 def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
+    df.to_csv('c:\\temp\\output.csv')  
+    return df
 ```
  
  
@@ -241,7 +241,7 @@ Module
 
 ```python
 def newvalue(row):  
-     return math.log(row["Score"])
+     return math.log(row["Score"])
 ```
  
 
@@ -293,9 +293,9 @@ Module
 
 ```python
 def transform(df):  
-    df['index-column'] = range(1, len(df) + 1)  
-    df = df.reset_index()  
-    return df
+    df['index-column'] = range(1, len(df) + 1)  
+    df = df.reset_index()  
+    return df
 ```
   
 
@@ -325,10 +325,10 @@ Module
 
 ```python
 def transform(df, index):
-    df['partition-id'] = index
-    df['index-column'] = range(1, len(df) + 1)
-    df = df.reset_index()
-    return df
+    df['partition-id'] = index
+    df['index-column'] = range(1, len(df) + 1)
+    df = df.reset_index()
+    return df
 ```
 
 

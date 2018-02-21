@@ -58,19 +58,19 @@ To configure the integration of IMAGE WORKS into Azure AD, you need to add IMAGE
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **IMAGE WORKS**, select **IMAGE WORKS** from result panel then click **Add** button to add the application.
 
-	![IMAGE WORKS in the results list](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_addfromgallery.png)
+    ![IMAGE WORKS in the results list](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,34 +96,34 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **IMAGE WORKS** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_samlbase.png)
 
 3. On the **IMAGE WORKS Domain and URLs** section, perform the following steps:
 
-	![IMAGE WORKS Domain and URLs single sign-on information](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_url.png)
+    ![IMAGE WORKS Domain and URLs single sign-on information](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [IMAGE WORKS Client support team](mailto:iw-sd-support@fujifilm.com) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [IMAGE WORKS Client support team](mailto:iw-sd-support@fujifilm.com) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-imageworks-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-imageworks-tutorial/tutorial_general_400.png)
 
 6. On the **IMAGE WORKS Configuration** section, click **Configure IMAGE WORKS** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![IMAGE WORKS Configuration](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
+    ![IMAGE WORKS Configuration](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
 
 7. To configure single sign-on on **IMAGE WORKS** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID and SAML Single Sign-On Service URL** to [IMAGE WORKS support team](mailto:iw-sd-support@fujifilm.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -165,7 +165,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a IMAGE WORKS test user
 
-In this section, you create a user called Britta Simon in IMAGE WORKS. Work with [IMAGE WORKS support team](mailto:iw-sd-support@fujifilm.com) to add the users in the IMAGE WORKS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in IMAGE WORKS. Work with [IMAGE WORKS support team](mailto:iw-sd-support@fujifilm.com) to add the users in the IMAGE WORKS platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
@@ -177,32 +177,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **IMAGE WORKS**.
 
-	![The IMAGE WORKS link in the Applications list](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_app.png)  
+    ![The IMAGE WORKS link in the Applications list](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the IMAGE WORKS tile in the Access Panel, you should get automatically signed-on to your IMAGE WORKS application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

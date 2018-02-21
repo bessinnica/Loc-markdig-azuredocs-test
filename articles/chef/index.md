@@ -17,9 +17,8 @@ ms.author: carolz
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
         <img src="media/chef.png" alt="Chef Logo" align="right">
-			Chef is a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef to automate Infrastructure as Code (IaC) recipes and manage and deploy VMs on Azure with quickstarts and tutorials.          
+            Chef is a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef to automate Infrastructure as Code (IaC) recipes and manage and deploy VMs on Azure with quickstarts and tutorials.<br/>        </div>
         </div>
-    	</div>
 <h2>5-Minute Quickstarts</h2>
 <p>Learn how to deploy Chef on Azure:</p> 
   <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview">Deploy Chef Automate on Azure</a><br/>

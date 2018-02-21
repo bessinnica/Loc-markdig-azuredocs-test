@@ -1,4 +1,4 @@
-﻿---
+---
 title: Authenticate with Mobile Engagement REST APIs
 description: Describes how to authenticate with Azure Mobile Engagement REST APIs
 services: mobile-engagement
@@ -105,23 +105,23 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
    
    * **HTTP Request Body** as `grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
-    The following is an example request:
-    ```
-    POST /{TENANT_ID}/oauth2/token HTTP/1.1
-    Host: login.microsoftonline.com
-    Content-Type: application/x-www-form-urlencoded
-    grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
-    urce=https%3A%2F%2Fmanagement.core.windows.net%2F
-    ```
-    Following is an example response:
-    ```
-    HTTP/1.1 200 OK
-    Content-Type: application/json; charset=utf-8
-    Content-Length: 1234
+     The following is an example request:
+     ```
+     POST /{TENANT_ID}/oauth2/token HTTP/1.1
+     Host: login.microsoftonline.com
+     Content-Type: application/x-www-form-urlencoded
+     grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
+     urce=https%3A%2F%2Fmanagement.core.windows.net%2F
+     ```
+     Following is an example response:
+     ```
+     HTTP/1.1 200 OK
+     Content-Type: application/json; charset=utf-8
+     Content-Length: 1234
 
-    {"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
-    5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
-    ```
+     {"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
+     5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
+     ```
      This example includes the URL encoding of the POST parameters, in which `resource` value is actually `https://management.core.windows.net/`. Be careful to also URL-encode `{CLIENT_SECRET}`, because it might contain special characters.
 
      > [!NOTE]

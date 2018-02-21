@@ -66,6 +66,7 @@ The Standard tier removes the per-namespace brokered connection limit and counts
 
 <br />
 
+
 > [!NOTE]
 > Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
 >

@@ -207,9 +207,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 > This section applies to:
->
+> 
 > ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
->
 
 If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
@@ -243,7 +242,7 @@ For critical SAP components, you have achieved the following so far:
     Potential planned or unplanned unavailability of an Azure fault or upgrade domain will cause unavailability of a restricted number of VMs with their SAP application server instances.
 
     Each SAP application server instance is placed in its own Azure storage account. The potential unavailability of one Azure storage account will cause the unavailability of only one VM with its SAP application server instance. However, be aware that there is a limit on the number of Azure storage accounts within one Azure subscription. To ensure automatic start of an ASCS/SCS instance after the VM reboot, set the Autostart parameter in the ASCS/SCS instance start profile that is described in the [Using Autostart for SAP instances][planning-guide-11.5] section.
-  
+
     For more information, see [High availability for SAP application servers][planning-guide-11.4.1].
 
     Even if you use managed disks, the disks are stored in an Azure storage account and might be unavailable in the event of a storage outage.
@@ -257,7 +256,7 @@ For critical SAP components, you have achieved the following so far:
 * *Higher availability* of the DBMS server
 
     As in the preceding SAP ASCS/SCS instance use case, you utilize Azure VM restart to protect the VM with installed DBMS software, and you achieve “higher availability” of DBMS software through VM restart.
-  
+
     A DBMS that's running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
 
 ## Using Autostart for SAP instances

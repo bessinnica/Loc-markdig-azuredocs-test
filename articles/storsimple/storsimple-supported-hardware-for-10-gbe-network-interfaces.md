@@ -25,11 +25,13 @@ This article provides information about supplementary hardware that works with y
 Microsoft has tested the following small form-factor pluggable (SFP) transceivers, cables, and switches to ensure that they function optimally with devices. (The following tables will be updated as new hardware is tested.)
 
 ### SFP+ Transceivers
+
 | Make | Model |
 | --- | --- |
 | Cisco |SFP-10G-SR |
 
 ### Cables
+
 | S. No. | Make | Model |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
@@ -38,6 +40,7 @@ Microsoft has tested the following small form-factor pluggable (SFP) transceiver
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### Switches
+
 | S. No. | Make | Model |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |

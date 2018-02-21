@@ -135,7 +135,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 5. Download and install the [latest version of the agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 6. Verify that the Windows Guest Agent services appears in services.
 7. Run an on-demand backup: 
-	* In the portal, select **Backup Now**.
+    * In the portal, select **Backup Now**.
 
 Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
 
@@ -146,15 +146,15 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
 1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
+   > [!NOTE]
+   > We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
 
 2. Ensure that the Azure agent is running on the VM by running the following command: `ps -e`
 
- If the process isn't running, restart it by using the following commands:
+   If the process isn't running, restart it by using the following commands:
 
- * For Ubuntu: `service walinuxagent start`
- * For other distributions: `service waagent start`
+   * For Ubuntu: `service walinuxagent start`
+   * For other distributions: `service waagent start`
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, collect the following logs from the VM:
@@ -189,8 +189,10 @@ If extensions can't load, backup fails because a snapshot can't be taken.
 **For Windows guests:**
 Verify that the iaasvmprovider service is enabled and has a startup type of *automatic*. If the service isn't configured this way, enable the service to determine whether the next backup succeeds.
 
-**For Linux guests:**
-Verify that the latest version of VMSnapshot for Linux (the extension used by Backup) is 1.0.91.0.<br>
+<strong>For Linux guests:</strong>
+Verify that the latest version of VMSnapshot for Linux (the extension used by Backup) is 1.0.91.0.
+<br>
+
 
 
 If the backup extension still fails to update or load, uninstall the extension to force the VMSnapshot extension to reload. The next backup attempt reloads the extension.
@@ -211,20 +213,21 @@ This issue is specific to managed VMs in which the user locks the resource group
 #### Solution
 
 To resolve the issue, complete the following steps to remove the restore point collection: <br>
- 
+
+
 1. Remove the lock in the resource group in which the VM is located. 
 2. Install ARMClient by using Chocolatey: <br>
    https://github.com/projectkudu/ARMClient
 3. Log in to ARMClient: <br>
-	`.\armclient.exe login`
+    `.\armclient.exe login`
 4. Get the restore point collection that corresponds to the VM: <br>
-   	`.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
     Example: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
 5. Delete the restore point collection: <br>
-	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. The next scheduled backup automatically creates a restore point collection and new restore points.
 
- 
+
 The problem will reoccur if you lock the resource group again. 
 

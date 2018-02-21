@@ -69,7 +69,7 @@ Prebuilt entity   |   Example utterance   |   JSON
  ```builtin.datetime``` | See [builtin.datetime](#builtindatetime) | See [builtin.datetime](#builtindatetime) |
  ```builtin.geography``` | See separate table | See separate table following this table |
  ```builtin.encyclopedia``` | See separate table | See separate table following this table |
- 
+
  The last 3 built-in entity types listed in the table above encompass multiple subtypes. These are covered later in this article.
 
 ## builtin.number resolution
@@ -311,13 +311,13 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <tr><td>endIndex</td><td><b>int</b>. The index in the utterance at which the entity ends.</td></tr>
    <tr><td>resolution</td><td>
    Contains a <code>values</code> array that has one, two, or four values. 
-   <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. When there is an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. When there is an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li>
+   <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. When there is an ambiguous date, <code>values</code> contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. When there is an ambiguous time, <code>values</code> contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li>
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
    <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
    <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code>, or <code>datetimerange</code>.</td></tr></table>
    </td></tr>
-   <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
+   <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange&lt;/code, or <code>datetimerange</code>.</td></tr></table>
    </td></tr></table>
   </td></tr>
 </table>
@@ -508,15 +508,15 @@ Prebuilt entity   |   Example utterance   |   JSON
 ```builtin.datetimeV2.date```    |   ```monday```    |```{ "entity": "monday", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "XXXX-WXX-1", "type": "date", "value": "2017-06-19" },{"timex": "XXXX-WXX-1","type": "date", "value": "2017-06-26"}]} }```|
 ```builtin.datetimeV2.daterange```    |   ```next week```   |```{ "entity": "next week", "type": "builtin.datetime.dateV2.daterange", "resolution": { "values": [{ "timex": "2017-W27", "type": "daterange", "start": "2017-06-26", "end": "2017-07-03"}] } }```|
 ```builtin.datetimeV2.date```    |   ```next monday```   |```{ "entity": "next monday", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "2017-06-26", "type": "date", "value": "2017-06-26" }] } }```|
-```builtin.datetimeV2.time```      |   ```3 : 00```   |```{ "type": "builtin.datetimeV2.time", "entity": "3 : 00", "resolution": { "values": [{ "timex": "T03:00", "type": "time", "value": "03:00:00" }, { "timex": "T15:00", "type": "time", "value": "15:00:00" }]}	}```|
-```builtin.datetimeV2.time```      |   ```4 pm```     |```{ "type": "builtin.datetimeV2.time", "entity": "4 pm", "resolution": { "values": [{"timex": "T16",  "type": "time", "value": "16:00:00"}] }	}```|
+```builtin.datetimeV2.time```      |   ```3 : 00```   |```{ "type": "builtin.datetimeV2.time", "entity": "3 : 00", "resolution": { "values": [{ "timex": "T03:00", "type": "time", "value": "03:00:00" }, { "timex": "T15:00", "type": "time", "value": "15:00:00" }]}  }```|
+```builtin.datetimeV2.time```      |   ```4 pm```     |```{ "type": "builtin.datetimeV2.time", "entity": "4 pm", "resolution": { "values": [{"timex": "T16",  "type": "time", "value": "16:00:00"}] }   }```|
 ```builtin.datetimeV2.timerange```    |   ```next week```   |```{ "entity": "6pm to 7pm", "type": "builtin.datetime.dateV2.timerange", "resolution": { "values": [{ "timex": "(T18,T19,PT1H)", "type": "timerange", "start": "18:00:00", "end": "19:00:00"}] } }```|
 ```builtin.datetimeV2.datetimerange```      |   ```tomorrow morning```   |```{ "entity": "tomorrow morning", "type": "builtin.datetimev2.datetimerange", "resolution": { "values": [{"timex": "2017-06-21TMO","type": "datetimerange", "start": "2017-06-21 08:00:00", "end": "2017-06-21 12:00:00"}]} }```|
 ```builtin.datetimeV2.datetimerange```      |   ```tonight```  |```{ "entity": "tonight", "type": "builtin.datetimeV2.datetimerange", "resolution": { "values": [{"timex": "2017-06-20TNI","type": "datetimerange", "start": "2017-06-20 20:00:00", "end": "2017-06-20 23:59:59"}]} }```|
 ```builtin.datetimeV2.duration```      |    ```for 3 hours```    |```{ "type": "builtin.datetimeV2.duration", "entity": "3 hours", "resolution": { "values": [{ "timex": "PT3H", "type": "duration", "value": "10800"}] } }```|  
-```builtin.datetimeV2.duration```      |    ```30 minutes long```   |```{ "type": "builtin.datetimeV2.duration", "entity": "30 minutes", "resolution": { "values": [{ "timex": "PT30M", "type": "duration", "value": "1800"}] }	}```|    
-```builtin.datetimeV2.duration```      |    ```all day```    |```{ "type": "builtin.datetimeV2.duration", "entity": "all day", "resolution": { "values": [{ "timex": "P1D", "type": "duration", "value": "86400"}] }	}```|
-```builtin.datetimeV2.set```    |   ```daily```   |```{ "type": "builtin.datetimeV2.set", "entity": "daily", "resolution": { "values": [{ "timex": "P1D", "type": "set", "value": "not resolved"}]}	}```|
+```builtin.datetimeV2.duration```      |    ```30 minutes long```   |```{ "type": "builtin.datetimeV2.duration", "entity": "30 minutes", "resolution": { "values": [{ "timex": "PT30M", "type": "duration", "value": "1800"}] } }```|    
+```builtin.datetimeV2.duration```      |    ```all day```    |```{ "type": "builtin.datetimeV2.duration", "entity": "all day", "resolution": { "values": [{ "timex": "P1D", "type": "duration", "value": "86400"}] }    }```|
+```builtin.datetimeV2.set```    |   ```daily```   |```{ "type": "builtin.datetimeV2.set", "entity": "daily", "resolution": { "values": [{ "timex": "P1D", "type": "set", "value": "not resolved"}]} }```|
 ```builtin.datetimeV2.set```    |   ```every tuesday```   |```{ "entity": "every tuesday", "type": "builtin.datetimeV2.set", "resolution": { "values": [{ "timex": "XXXX-WXX-2", "type": "set", "value": "not resolved"}]} }```|   
 ```builtin.datetimeV2.set```    |   ```every week```   |```{ "entity": "every week", "type": "builtin.datetimeV2.set", "resolution": {"time": "XXXX-WXX"} }```|
 
@@ -547,30 +547,30 @@ Prebuilt entity   |   Example utterance   |   JSON
 ```builtin.datetimeV2.daterange```    |   ```next week```   |```{ "entity": "next week", "type": "builtin.datetime.dateV2.daterange", "resolution": { "values": [{ "timex": "2017-W27", "type": "daterange", "start": "2017-06-26", "end": "2017-07-03"}] } }```|
 ```builtin.datetime.date```      |   ```next monday```   |```{ "entity": "next monday", "type": "builtin.datetime.date", "resolution": {"date": "2017-06-26"} }```|
 ```builtin.datetimeV2.date```    |   ```next monday```   |```{ "entity": "next monday", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "2017-06-26", "type": "date", "value": "2017-06-26" }] } }```|
-```builtin.datetime.time```      |   ```3 : 00```   |```{ "type": "builtin.datetime.time", "entity": "3 : 00", "resolution": {"comment": "ampm", "time": "T03:00"}	}```|
-```builtin.datetimeV2.time```      |   ```3 : 00```   |```{ "type": "builtin.datetimeV2.time", "entity": "3 : 00", "resolution": { "values": [{ "timex": "T03:00", "type": "time", "value": "03:00:00" }, { "timex": "T15:00", "type": "time", "value": "15:00:00" }]}	}```|
-```builtin.datetime.time```      |   ```4 pm```     |```{ "type": "builtin.datetime.time", "entity": "4 pm", "resolution": {"time": "T16"}	}```|
-```builtin.datetimeV2.time```      |   ```4 pm```     |```{ "type": "builtin.datetimeV2.time", "entity": "4 pm", "resolution": { "values": [{"timex": "T16",  "type": "time", "value": "16:00:00"}] }	}```|
+```builtin.datetime.time```      |   ```3 : 00```   |```{ "type": "builtin.datetime.time", "entity": "3 : 00", "resolution": {"comment": "ampm", "time": "T03:00"}  }```|
+```builtin.datetimeV2.time```      |   ```3 : 00```   |```{ "type": "builtin.datetimeV2.time", "entity": "3 : 00", "resolution": { "values": [{ "timex": "T03:00", "type": "time", "value": "03:00:00" }, { "timex": "T15:00", "type": "time", "value": "15:00:00" }]}  }```|
+```builtin.datetime.time```      |   ```4 pm```     |```{ "type": "builtin.datetime.time", "entity": "4 pm", "resolution": {"time": "T16"}  }```|
+```builtin.datetimeV2.time```      |   ```4 pm```     |```{ "type": "builtin.datetimeV2.time", "entity": "4 pm", "resolution": { "values": [{"timex": "T16",  "type": "time", "value": "16:00:00"}] }   }```|
 ```builtin.datetime.time```      |   ```tomorrow morning```   |```{ "entity": "tomorrow morning", "type": "builtin.datetime.time", "resolution": {"time": "2015-08-15TMO"} }```|
 ```builtin.datetimeV2.datetimerange```      |   ```tomorrow morning```   |```{ "entity": "tomorrow morning", "type": "builtin.datetimev2.datetimerange", "resolution": { "values": [{"timex": "2017-06-21TMO","type": "datetimerange", "start": "2017-06-21 08:00:00", "end": "2017-06-21 12:00:00"}]} }```|
 ```builtin.datetime.time```      |   ```tonight```  |```{ "entity": "tonight", "type": "builtin.datetime.time", "resolution": {"time": "2015-08-14TNI"} }```|
 ```builtin.datetimeV2.datetimerange```      |   ```tonight```  |```{ "entity": "tonight", "type": "builtin.datetimeV2.datetimerange", "resolution": { "values": [{"timex": "2017-06-20TNI","type": "datetimerange", "start": "2017-06-20 20:00:00", "end": "2017-06-20 23:59:59"}]} }```|
 ```builtin.datetime.duration```      |    ```for 3 hours```    |```{ "type": "builtin.datetime.duration", "entity": "3 hours", "resolution": {"duration": "PT3H"} }```|
 ```builtin.datetimeV2.duration```      |    ```for 3 hours```    |```{ "type": "builtin.datetimeV2.duration", "entity": "3 hours", "resolution": { "values": [{ "timex": "PT3H", "type": "duration", "value": "10800"}] } }```|
-```builtin.datetime.duration```      |    ```30 minutes long```   |```{ "type": "builtin.datetime.duration", "entity": "30 minutes", "resolution": {"duration": "PT30M"}	}```|    
-```builtin.datetimeV2.duration```      |    ```30 minutes long```   |```{ "type": "builtin.datetimeV2.duration", "entity": "30 minutes", "resolution": { "values": [{ "timex": "PT30M", "type": "duration", "value": "1800"}] }	}```|    
-```builtin.datetime.duration```      |    ```all day```    |```{ "type": "builtin.datetime.duration", "entity": "all day", "resolution": {"duration": "P1D"}	}```|
-```builtin.datetimeV2.duration```      |    ```all day```    |```{ "type": "builtin.datetimeV2.duration", "entity": "all day", "resolution": { "values": [{ "timex": "P1D", "type": "duration", "value": "86400"}] }	}```|
-```builtin.datetime.set```    |   ```daily```   |```{ "type": "builtin.datetime.set", "entity": "daily", "resolution": "set": {"XXXX-XX-XX"}	}```|
-```builtin.datetimeV2.set```    |   ```daily```   |```{ "type": "builtin.datetimeV2.set", "entity": "daily", "resolution": { "values": [{ "timex": "P1D", "type": "set", "value": "not resolved"}]}	}```|
+```builtin.datetime.duration```      |    ```30 minutes long```   |```{ "type": "builtin.datetime.duration", "entity": "30 minutes", "resolution": {"duration": "PT30M"}    }```|    
+```builtin.datetimeV2.duration```      |    ```30 minutes long```   |```{ "type": "builtin.datetimeV2.duration", "entity": "30 minutes", "resolution": { "values": [{ "timex": "PT30M", "type": "duration", "value": "1800"}] } }```|    
+```builtin.datetime.duration```      |    ```all day```    |```{ "type": "builtin.datetime.duration", "entity": "all day", "resolution": {"duration": "P1D"}    }```|
+```builtin.datetimeV2.duration```      |    ```all day```    |```{ "type": "builtin.datetimeV2.duration", "entity": "all day", "resolution": { "values": [{ "timex": "P1D", "type": "duration", "value": "86400"}] }    }```|
+```builtin.datetime.set```    |   ```daily```   |```{ "type": "builtin.datetime.set", "entity": "daily", "resolution": "set": {"XXXX-XX-XX"}    }```|
+```builtin.datetimeV2.set```    |   ```daily```   |```{ "type": "builtin.datetimeV2.set", "entity": "daily", "resolution": { "values": [{ "timex": "P1D", "type": "set", "value": "not resolved"}]} }```|
 ```builtin.datetime.set```    |   ```every tuesday```   |```{ "entity": "every tuesday", "type": "builtin.datetime.set", "resolution":  {"time": "XXXX-WXX-2"} }```|  
 ```builtin.datetimeV2.set```    |   ```every tuesday```   |```{ "entity": "every tuesday", "type": "builtin.datetimeV2.set", "resolution": { "values": [{ "timex": "XXXX-WXX-2", "type": "set", "value": "not resolved"}]} }```|   
 ```builtin.datetime.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetime.set", "resolution": {"time": "XXXX-WXX"} }```|
 ```builtin.datetimeV2.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetimeV2.set", "resolution": {"time": "XXXX-WXX"} }```|
 
 <!-- TODO: Re-add when the behavior of the following work as intended 
-builtin.datetime.set    |   every morning   |```{ "type": "builtin.datetime.set", "entity": "every morning", "resolution": {"time": "XXXX-XX-XXTMO"}	}```|
-builtin.datetimeV2.timerange    |   every morning   |```{ "type": "builtin.datetimeV2.timerange", "entity": "morning", "resolution": { "values": [{"timex": "TMO", "type": "timerange", "start": "08:00:00", "end": "12:00:00"}]	} }```|
+builtin.datetime.set    |   every morning   |```{ "type": "builtin.datetime.set", "entity": "every morning", "resolution": {"time": "XXXX-XX-XXTMO"}    }```|
+builtin.datetimeV2.timerange    |   every morning   |```{ "type": "builtin.datetimeV2.timerange", "entity": "morning", "resolution": { "values": [{"timex": "TMO", "type": "timerange", "start": "08:00:00", "end": "12:00:00"}]    } }```|
 
 builtin.datetime.date      |   week of september 30th   |```{ "entity": "week of september 30th", "type": "builtin.datetime.date", "resolution": {"comment": "weekof", "date": "XXXX-09-30"} }```|
 builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "september 30th", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "XXXX-09-30", "type": "date", "value": "2016-09-30" },{"timex": "XXXX-09-30","type": "date", "value": "2017-09-30" }]} }```|
@@ -618,101 +618,99 @@ Prebuilt entity   |   Example utterance   |   JSON
  ```
 
 
-Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
-------|------|------|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.cinematographer```| ```adam greenberg  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.royalty.monarch ```| ``` elizabeth ii  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.director ```| ```steven spielberg  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.writer  ```| ``` alfred hitchcock  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.actor  ```| ``` robert de niro  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.martial_arts.martial_artist  ```| ``` bruce lee  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.architecture.architect  ```| ```james gallier  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.geography.mountaineer  ```| ``` jean couzy  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.celebrities.celebrity  ```| ``` angelina jolie  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.music.musician  ```| ``` bob dylan  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.soccer.player ```| ``` diego maradona  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.baseball.player  ```| ``` babe ruth  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.basketball.player  ```| ``` heiko schaffartzik  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.olympics.athlete  ```| ``` andre agassi  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.basketball.coach  ```| ``` bob huggins  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.american_football.coach  ```| ``` james franklin  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.cricket.coach  ```| ``` andy flower  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.ice_hockey.coach  ```| ``` david quinn  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.ice_hockey.player  ```| ``` vincent lecavalier  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.government.politician  ```| ``` harold nicolson  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.government.us_president  ```| ``` barack obama  ```|
-```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.government.us_vice_president  ```| ``` dick cheney  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.organization.organization  ```| ``` united nations  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.sports.league  ```| ``` american league  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.ice_hockey.conference  ```| ``` western hockey league  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.baseball.division  ```| ``` american league east  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.baseball.league  ```| ``` major league baseball  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.basketball.conference  ```| ``` national basketball league  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.basketball.division  ```| ``` pacific division  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.soccer.league  ```| ``` premier league  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.american_football.division  ```| ``` afc north  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.broadcast.broadcast```| ```nebraska educational telecommunications```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.broadcast.tv_station  ```| ``` abc  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.broadcast.tv_channel  ```| ``` cnbc world  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.broadcast.radio_station  ```| ``` bbc radio 1  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.business.operation  ```| ``` bank of china  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.music.record_label  ```| ``` pixar  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.aviation.airline  ```| ``` air france  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.automotive.company  ```| ``` general motors  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.music.musical_instrument_company```| ```gibson guitar corporation``` |
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.tv.network  ```| ``` cartoon network  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.education.educational_institution  ```| ``` cornwall hill college``` |
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.education.school  ```| ``` boston arts academy  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.education.university  ```| ``` johns hopkins university  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.sports.team  ```| ``` united states national handball team  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.basketball.team  ```| ``` chicago bulls  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.sports.professional_sports_team  ```| ``` boston celtics  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.cricket.team  ```| ``` mumbai indians  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.baseball.team  ```| ``` houston astros  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.american_football.team  ```| ``` green bay packers  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.ice_hockey.team  ```| ``` hamilton bulldogs  ```|
-```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.soccer.team  ```| ``` fc bayern munich  ```|
-```builtin.encyclopedia.organization.organization |builtin.encyclopedia.government.political_party|pertubuhan kebangsaan melayu singapura```|
-```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.time.event  ```| ``` 1740 batavia massacre   ```|
-```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.sports.championship_event  ```| ``` super bowl xxxix  ```|
-```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.award.competition  ```| ``` eurovision song contest 2003  ```|
-```builtin.encyclopedia.tv.series_episode  ```| ``` builtin.encyclopedia.tv.series_episode  ```| ``` the magnificent seven  ```|
-```builtin.encyclopedia.tv.series_episode  ```| ``` builtin.encyclopedia.tv.multipart_tv_episode  ```| ``` the deadly assassin  ```|
-```builtin.encyclopedia.commerce.consumer_product  ```| ``` builtin.encyclopedia.commerce.consumer_product  ```| ``` nokia lumia 620  ```|
-```builtin.encyclopedia.commerce.consumer_product  ```| ``` builtin.encyclopedia.music.album  ```| ``` dance pool  ```|
-```builtin.encyclopedia.commerce.consumer_product  ```| ``` builtin.encyclopedia.automotive.model  ```| ``` pontiac fiero  ```|
-```builtin.encyclopedia.commerce.consumer_product  ```| ``` builtin.encyclopedia.computer.computer  ```| ```toshiba satellite  ```|
-```builtin.encyclopedia.commerce.consumer_product  ```| ``` builtin.encyclopedia.computer.web_browser  ```| ``` internet explorer  ```|
-```builtin.encyclopedia.commerce.brand  ```| ``` builtin.encyclopedia.commerce.brand  ```| ``` diet coke  ```|
-```builtin.encyclopedia.commerce.brand  ```| ``` builtin.encyclopedia.automotive.make  ```| ``` chrysler  ```|
-```builtin.encyclopedia.music.artist  ```| ``` builtin.encyclopedia.music.artist  ```| ``` michael jackson  ```|
-```builtin.encyclopedia.music.artist  ```| ``` builtin.encyclopedia.music.group  ```| ``` the yardbirds  ```|
-```builtin.encyclopedia.music.music_video  ```| ``` builtin.encyclopedia.music.music_video  ```| ``` the beatles anthology  ```|
-```builtin.encyclopedia.theater.play  ```| ``` builtin.encyclopedia.theater.play  ```| ``` camelot  ```|
-```builtin.encyclopedia.sports.fight_song  ```| ``` builtin.encyclopedia.sports.fight_song  ```| ``` the cougar song  ```|
-```builtin.encyclopedia.film.series  ```| ``` builtin.encyclopedia.film.series  ```| ``` the twilight saga  ```|
-```builtin.encyclopedia.tv.program  ```| ``` builtin.encyclopedia.tv.program  ```| ``` late night with david letterman  ```|
-```builtin.encyclopedia.radio.radio_program  ```| ``` builtin.encyclopedia.radio.radio_program  ```| ``` grand ole opry  ```|
-```builtin.encyclopedia.film.film  ```| ``` builtin.encyclopedia.film.film  ```| ``` alice in wonderland  ```|
-```builtin.encyclopedia.cricket.tournament  ```| ``` builtin.encyclopedia.cricket.tournament  ```| ``` cricket world cup  ```|
-```builtin.encyclopedia.government.government  ```| ``` builtin.encyclopedia.government.government  ```| ``` european commission  ```|
-```builtin.encyclopedia.sports.team_owner  ```| ``` builtin.encyclopedia.sports.team_owner ```| ``` bob castellini  ```|
-```builtin.encyclopedia.music.genre  ```| ``` builtin.encyclopedia.music.genre  ```| ``` eastern europe  ```|
-```builtin.encyclopedia.ice_hockey.division  ```| ``` builtin.encyclopedia.ice_hockey.division  ```| ``` hockeyallsvenskan  ```|
-```builtin.encyclopedia.architecture.style  ```| ``` builtin.encyclopedia.architecture.style  ```| ``` spanish colonial revival architecture  ```|
-```builtin.encyclopedia.broadcast.producer  ```| ``` builtin.encyclopedia.broadcast.producer  ```| ``` columbia tristar television  ```|
-```builtin.encyclopedia.book.author  ```| ``` builtin.encyclopedia.book.author  ```| ``` adam maxwell  ```|
-```builtin.encyclopedia.religion.founding_figur  ```| ``` builtin.encyclopedia.religion.founding_figur  ```| ``` gautama buddha  ```|
-```builtin.encyclopedia.martial_arts.martial_art  ```| ``` builtin.encyclopedia.martial_arts.martial_art  ```| ``` american kenpo  ```|
-```builtin.encyclopedia.sports.school  ```| ``` builtin.encyclopedia.sports.school  ```| ``` yale university  ```|
-```builtin.encyclopedia.business.product_line  ```| ``` builtin.encyclopedia.business.product_line  ```| ``` canon powershot  ```|
-```builtin.encyclopedia.internet.website  ```| ``` builtin.encyclopedia.internet.website  ```| ``` bing  ```|
-```builtin.encyclopedia.time.holiday  ```| ``` builtin.encyclopedia.time.holiday  ```| ``` easter  ```|
-```builtin.encyclopedia.food.candy_bar  ```| ``` builtin.encyclopedia.food.candy_bar  ```| ``` cadbury dairy milk  ```|
-```builtin.encyclopedia.finance.stock_exchange  ```| ``` builtin.encyclopedia.finance.stock_exchange  ```| ``` tokyo stock exchange  ```|
-```builtin.encyclopedia.film.festival  ```| ``` builtin.encyclopedia.film.festival  ```| ``` berlin international film festival  ```|
-
-
+|                    Prebuilt entity                     |                  Prebuilt entity (sub-types)                   |               Example utterance                |
+|--------------------------------------------------------|----------------------------------------------------------------|------------------------------------------------|
+|        ```builtin.encyclopedia.people.person```        |           ```builtin.encyclopedia.people.person ```            |               ```bryan adams```                |
+|        ```builtin.encyclopedia.people.person```        |           ```builtin.encyclopedia.film.producer ```            |               ```walt disney```                |
+|        ```builtin.encyclopedia.people.person```        |        ```builtin.encyclopedia.film.cinematographer```         |             ```adam greenberg  ```             |
+|        ```builtin.encyclopedia.people.person```        |          ```builtin.encyclopedia.royalty.monarch ```           |             ``` elizabeth ii  ```              |
+|        ```builtin.encyclopedia.people.person```        |           ```builtin.encyclopedia.film.director ```            |            ```steven spielberg  ```            |
+|        ```builtin.encyclopedia.people.person```        |            ```builtin.encyclopedia.film.writer  ```            |           ``` alfred hitchcock  ```            |
+|        ```builtin.encyclopedia.people.person```        |            ```builtin.encyclopedia.film.actor  ```             |            ``` robert de niro  ```             |
+|        ```builtin.encyclopedia.people.person```        |    ```builtin.encyclopedia.martial_arts.martial_artist  ```    |               ``` bruce lee  ```               |
+|        ```builtin.encyclopedia.people.person```        |      ```builtin.encyclopedia.architecture.architect  ```       |             ```james gallier  ```              |
+|        ```builtin.encyclopedia.people.person```        |       ```builtin.encyclopedia.geography.mountaineer  ```       |              ``` jean couzy  ```               |
+|        ```builtin.encyclopedia.people.person```        |       ```builtin.encyclopedia.celebrities.celebrity  ```       |            ``` angelina jolie  ```             |
+|        ```builtin.encyclopedia.people.person```        |          ```builtin.encyclopedia.music.musician  ```           |               ``` bob dylan  ```               |
+|        ```builtin.encyclopedia.people.person```        |           ```builtin.encyclopedia.soccer.player ```            |            ``` diego maradona  ```             |
+|        ```builtin.encyclopedia.people.person```        |          ```builtin.encyclopedia.baseball.player  ```          |               ``` babe ruth  ```               |
+|        ```builtin.encyclopedia.people.person```        |         ```builtin.encyclopedia.basketball.player  ```         |          ``` heiko schaffartzik  ```           |
+|        ```builtin.encyclopedia.people.person```        |         ```builtin.encyclopedia.olympics.athlete  ```          |             ``` andre agassi  ```              |
+|        ```builtin.encyclopedia.people.person```        |         ```builtin.encyclopedia.basketball.coach  ```          |              ``` bob huggins  ```              |
+|        ```builtin.encyclopedia.people.person```        |      ```builtin.encyclopedia.american_football.coach  ```      |            ``` james franklin  ```             |
+|        ```builtin.encyclopedia.people.person```        |           ```builtin.encyclopedia.cricket.coach  ```           |              ``` andy flower  ```              |
+|        ```builtin.encyclopedia.people.person```        |         ```builtin.encyclopedia.ice_hockey.coach  ```          |              ``` david quinn  ```              |
+|        ```builtin.encyclopedia.people.person```        |         ```builtin.encyclopedia.ice_hockey.player  ```         |          ``` vincent lecavalier  ```           |
+|        ```builtin.encyclopedia.people.person```        |       ```builtin.encyclopedia.government.politician  ```       |            ``` harold nicolson  ```            |
+|        ```builtin.encyclopedia.people.person```        |      ```builtin.encyclopedia.government.us_president  ```      |             ``` barack obama  ```              |
+|        ```builtin.encyclopedia.people.person```        |   ```builtin.encyclopedia.government.us_vice_president  ```    |              ``` dick cheney  ```              |
+|  ```builtin.encyclopedia.organization.organization```  |     ```builtin.encyclopedia.organization.organization  ```     |            ``` united nations  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |           ```builtin.encyclopedia.sports.league  ```           |            ``` american league  ```            |
+|  ```builtin.encyclopedia.organization.organization```  |       ```builtin.encyclopedia.ice_hockey.conference  ```       |         ``` western hockey league  ```         |
+|  ```builtin.encyclopedia.organization.organization```  |         ```builtin.encyclopedia.baseball.division  ```         |         ``` american league east  ```          |
+|  ```builtin.encyclopedia.organization.organization```  |          ```builtin.encyclopedia.baseball.league  ```          |         ``` major league baseball  ```         |
+|  ```builtin.encyclopedia.organization.organization```  |       ```builtin.encyclopedia.basketball.conference  ```       |      ``` national basketball league  ```       |
+|  ```builtin.encyclopedia.organization.organization```  |        ```builtin.encyclopedia.basketball.division  ```        |           ``` pacific division  ```            |
+|  ```builtin.encyclopedia.organization.organization```  |           ```builtin.encyclopedia.soccer.league  ```           |            ``` premier league  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |    ```builtin.encyclopedia.american_football.division  ```     |               ``` afc north  ```               |
+|  ```builtin.encyclopedia.organization.organization```  |         ```builtin.encyclopedia.broadcast.broadcast```         | ```nebraska educational telecommunications```  |
+|  ```builtin.encyclopedia.organization.organization```  |       ```builtin.encyclopedia.broadcast.tv_station  ```        |                  ``` abc  ```                  |
+|  ```builtin.encyclopedia.organization.organization```  |       ```builtin.encyclopedia.broadcast.tv_channel  ```        |              ``` cnbc world  ```               |
+|  ```builtin.encyclopedia.organization.organization```  |      ```builtin.encyclopedia.broadcast.radio_station  ```      |              ``` bbc radio 1  ```              |
+|  ```builtin.encyclopedia.organization.organization```  |        ```builtin.encyclopedia.business.operation  ```         |             ``` bank of china  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |        ```builtin.encyclopedia.music.record_label  ```         |                 ``` pixar  ```                 |
+|  ```builtin.encyclopedia.organization.organization```  |         ```builtin.encyclopedia.aviation.airline  ```          |              ``` air france  ```               |
+|  ```builtin.encyclopedia.organization.organization```  |        ```builtin.encyclopedia.automotive.company  ```         |            ``` general motors  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |  ```builtin.encyclopedia.music.musical_instrument_company```   |        ```gibson guitar corporation```         |
+|  ```builtin.encyclopedia.organization.organization```  |            ```builtin.encyclopedia.tv.network  ```             |            ``` cartoon network  ```            |
+|  ```builtin.encyclopedia.organization.organization```  | ```builtin.encyclopedia.education.educational_institution  ``` |          ``` cornwall hill college```          |
+|  ```builtin.encyclopedia.organization.organization```  |         ```builtin.encyclopedia.education.school  ```          |          ``` boston arts academy  ```          |
+|  ```builtin.encyclopedia.organization.organization```  |       ```builtin.encyclopedia.education.university  ```        |       ``` johns hopkins university  ```        |
+|  ```builtin.encyclopedia.organization.organization```  |            ```builtin.encyclopedia.sports.team  ```            | ``` united states national handball team  ```  |
+|  ```builtin.encyclopedia.organization.organization```  |          ```builtin.encyclopedia.basketball.team  ```          |             ``` chicago bulls  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |  ```builtin.encyclopedia.sports.professional_sports_team  ```  |            ``` boston celtics  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |           ```builtin.encyclopedia.cricket.team  ```            |            ``` mumbai indians  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |           ```builtin.encyclopedia.baseball.team  ```           |            ``` houston astros  ```             |
+|  ```builtin.encyclopedia.organization.organization```  |      ```builtin.encyclopedia.american_football.team  ```       |           ``` green bay packers  ```           |
+|  ```builtin.encyclopedia.organization.organization```  |          ```builtin.encyclopedia.ice_hockey.team  ```          |           ``` hamilton bulldogs  ```           |
+|  ```builtin.encyclopedia.organization.organization```  |            ```builtin.encyclopedia.soccer.team  ```            |           ``` fc bayern munich  ```            |
+|   ```builtin.encyclopedia.organization.organization    |        builtin.encyclopedia.government.political_party         |   pertubuhan kebangsaan melayu singapura```    |
+|        ```builtin.encyclopedia.time.event  ```         |            ``` builtin.encyclopedia.time.event  ```            |        ``` 1740 batavia massacre   ```         |
+|        ```builtin.encyclopedia.time.event  ```         |    ``` builtin.encyclopedia.sports.championship_event  ```     |           ``` super bowl xxxix  ```            |
+|        ```builtin.encyclopedia.time.event  ```         |        ``` builtin.encyclopedia.award.competition  ```         |     ``` eurovision song contest 2003  ```      |
+|     ```builtin.encyclopedia.tv.series_episode  ```     |        ``` builtin.encyclopedia.tv.series_episode  ```         |         ``` the magnificent seven  ```         |
+|     ```builtin.encyclopedia.tv.series_episode  ```     |     ``` builtin.encyclopedia.tv.multipart_tv_episode  ```      |          ``` the deadly assassin  ```          |
+| ```builtin.encyclopedia.commerce.consumer_product  ``` |    ``` builtin.encyclopedia.commerce.consumer_product  ```     |            ``` nokia lumia 620  ```            |
+| ```builtin.encyclopedia.commerce.consumer_product  ``` |           ``` builtin.encyclopedia.music.album  ```            |              ``` dance pool  ```               |
+| ```builtin.encyclopedia.commerce.consumer_product  ``` |         ``` builtin.encyclopedia.automotive.model  ```         |             ``` pontiac fiero  ```             |
+| ```builtin.encyclopedia.commerce.consumer_product  ``` |        ``` builtin.encyclopedia.computer.computer  ```         |           ```toshiba satellite  ```            |
+| ```builtin.encyclopedia.commerce.consumer_product  ``` |       ``` builtin.encyclopedia.computer.web_browser  ```       |           ``` internet explorer  ```           |
+|      ```builtin.encyclopedia.commerce.brand  ```       |          ``` builtin.encyclopedia.commerce.brand  ```          |               ``` diet coke  ```               |
+|      ```builtin.encyclopedia.commerce.brand  ```       |         ``` builtin.encyclopedia.automotive.make  ```          |               ``` chrysler  ```                |
+|       ```builtin.encyclopedia.music.artist  ```        |           ``` builtin.encyclopedia.music.artist  ```           |            ``` michael jackson  ```            |
+|       ```builtin.encyclopedia.music.artist  ```        |           ``` builtin.encyclopedia.music.group  ```            |             ``` the yardbirds  ```             |
+|     ```builtin.encyclopedia.music.music_video  ```     |        ``` builtin.encyclopedia.music.music_video  ```         |         ``` the beatles anthology  ```         |
+|       ```builtin.encyclopedia.theater.play  ```        |           ``` builtin.encyclopedia.theater.play  ```           |                ``` camelot  ```                |
+|     ```builtin.encyclopedia.sports.fight_song  ```     |        ``` builtin.encyclopedia.sports.fight_song  ```         |            ``` the cougar song  ```            |
+|        ```builtin.encyclopedia.film.series  ```        |           ``` builtin.encyclopedia.film.series  ```            |           ``` the twilight saga  ```           |
+|        ```builtin.encyclopedia.tv.program  ```         |            ``` builtin.encyclopedia.tv.program  ```            |    ``` late night with david letterman  ```    |
+|    ```builtin.encyclopedia.radio.radio_program  ```    |       ``` builtin.encyclopedia.radio.radio_program  ```        |            ``` grand ole opry  ```             |
+|         ```builtin.encyclopedia.film.film  ```         |            ``` builtin.encyclopedia.film.film  ```             |          ``` alice in wonderland  ```          |
+|    ```builtin.encyclopedia.cricket.tournament  ```     |        ``` builtin.encyclopedia.cricket.tournament  ```        |           ``` cricket world cup  ```           |
+|   ```builtin.encyclopedia.government.government  ```   |      ``` builtin.encyclopedia.government.government  ```       |          ``` european commission  ```          |
+|     ```builtin.encyclopedia.sports.team_owner  ```     |         ``` builtin.encyclopedia.sports.team_owner ```         |            ``` bob castellini  ```             |
+|        ```builtin.encyclopedia.music.genre  ```        |           ``` builtin.encyclopedia.music.genre  ```            |            ``` eastern europe  ```             |
+|    ```builtin.encyclopedia.ice_hockey.division  ```    |       ``` builtin.encyclopedia.ice_hockey.division  ```        |           ``` hockeyallsvenskan  ```           |
+|    ```builtin.encyclopedia.architecture.style  ```     |        ``` builtin.encyclopedia.architecture.style  ```        | ``` spanish colonial revival architecture  ``` |
+|    ```builtin.encyclopedia.broadcast.producer  ```     |        ``` builtin.encyclopedia.broadcast.producer  ```        |      ``` columbia tristar television  ```      |
+|        ```builtin.encyclopedia.book.author  ```        |           ``` builtin.encyclopedia.book.author  ```            |             ``` adam maxwell  ```              |
+|  ```builtin.encyclopedia.religion.founding_figur  ```  |     ``` builtin.encyclopedia.religion.founding_figur  ```      |            ``` gautama buddha  ```             |
+| ```builtin.encyclopedia.martial_arts.martial_art  ```  |     ``` builtin.encyclopedia.martial_arts.martial_art  ```     |            ``` american kenpo  ```             |
+|       ```builtin.encyclopedia.sports.school  ```       |          ``` builtin.encyclopedia.sports.school  ```           |            ``` yale university  ```            |
+|   ```builtin.encyclopedia.business.product_line  ```   |      ``` builtin.encyclopedia.business.product_line  ```       |            ``` canon powershot  ```            |
+|     ```builtin.encyclopedia.internet.website  ```      |         ``` builtin.encyclopedia.internet.website  ```         |                 ``` bing  ```                  |
+|       ```builtin.encyclopedia.time.holiday  ```        |           ``` builtin.encyclopedia.time.holiday  ```           |                ``` easter  ```                 |
+|      ```builtin.encyclopedia.food.candy_bar  ```       |          ``` builtin.encyclopedia.food.candy_bar  ```          |          ``` cadbury dairy milk  ```           |
+|  ```builtin.encyclopedia.finance.stock_exchange  ```   |      ``` builtin.encyclopedia.finance.stock_exchange  ```      |         ``` tokyo stock exchange  ```          |
+|       ```builtin.encyclopedia.film.festival  ```       |          ``` builtin.encyclopedia.film.festival  ```           |  ``` berlin international film festival  ```   |
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
@@ -104,7 +104,7 @@ Open the Browser blade to show aggregated performance data from your users' brow
 
 ![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
 
-*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
+<em>No data yet? Click **Refresh</em>* at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
 
 The Browser blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 

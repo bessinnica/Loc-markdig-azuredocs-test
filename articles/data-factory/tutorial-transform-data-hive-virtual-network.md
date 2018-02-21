@@ -36,10 +36,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
 - **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/quick-create-portal.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
-	![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
+    ![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
 - **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Here is a sample configuration of HDInsight in a virtual network. 
 
-	![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
+    ![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### Upload Hive script to your Blob Storage account
@@ -64,7 +64,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 3. Create a folder named **hivescripts**.
 4. Upload the **hivescript.hql** file to the **hivescripts** subfolder.
 
- ​
+
 
 ## Create a data factory
 
@@ -88,10 +88,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+5. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
-        
+
     ```powershell
     Login-AzureRmAccount
     ```        
@@ -105,12 +105,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. Create the resource group: ADFTutorialResourceGroup if it does not exist already in your subscription. 
+6. Create the resource group: ADFTutorialResourceGroup if it does not exist already in your subscription. 
 
     ```powershell
     New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
     ```
-4. Create the data factory. 
+7. Create the data factory. 
 
     ```powershell
      $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -161,7 +161,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 You author and deploy two Linked Services in this section:
 - An Azure Storage Linked Service that links an Azure Storage account to the data factory. This storage is the primary storage used by your HDInsight cluster. In this case, we also use this Azure Storage account to keep the Hive script and output of the script.
-- An HDInsight Linked Service. Azure Data Factory submits the Hive script to this HDInsight cluster for execution.​
+- An HDInsight Linked Service. Azure Data Factory submits the Hive script to this HDInsight cluster for execution. 
 
 ### Azure Storage linked service
 
@@ -225,8 +225,8 @@ Update values for the following properties in the linked service definition:
 
   1. From Azure portal, open the Virtual Network the HDInsight is in. Open the network interface with name starting with `nic-gateway-0`. Note down its private IP address. For example, 10.6.0.15. 
   2. If your Azure Virtual Network has DNS server, update the DNS record so the HDInsight cluster URL `https://<clustername>.azurehdinsight.net` can be resolved to `10.6.0.15`. This is the recommended approach. If you don’t have a DNS server in your Azure Virtual Network, you can temporarily work around this by editing the hosts file (C:\Windows\System32\drivers\etc) of all VMs that registered as self-hosted integration runtime nodes by adding an entry like this: 
-  
-		`10.6.0.15 myHDIClusterName.azurehdinsight.net`
+
+        `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
 ## Create linked services
 In the PowerShell, switch to the folder where you created JSON files, and run the following command to deploy the linked services: 
@@ -274,7 +274,6 @@ In this step, you create a new pipeline with a Hive activity. The activity execu
     ]
   }
 }
-
 ```
 
 Note the following points:
@@ -316,7 +315,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
         ($result | Format-List | Out-String)
         Start-Sleep -Seconds 15
     }
-    
+
     Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
     $result.Output -join "`r`n"
 
@@ -328,7 +327,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 
     ```json
     Pipeline run status: In Progress
-    
+
     ResourceGroupName : ADFV2SampleRG2
     DataFactoryName   : SampleV2DataFactory2
     ActivityName      : MyHiveActivity
@@ -342,9 +341,9 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
     DurationInMs      :
     Status            : InProgress
     Error             :
-    
+
     Pipeline ' MyHivePipeline' run finished. Result:
-    
+
     ResourceGroupName : ADFV2SampleRG2
     DataFactoryName   : SampleV2DataFactory2
     ActivityName      : MyHiveActivity
@@ -358,7 +357,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
     DurationInMs      : 63636
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     Activity Output section:
     "logLocation": "wasbs://adfjobs@adfv2samplestor.blob.core.windows.net/HiveQueryJobs/000000000-0000-47c3-9b28-1cdc7f3f2ba2/18_09_2017_06_58_18_023/Status"
     "clusterInUse": "https://adfv2HivePrivate.azurehdinsight.net"

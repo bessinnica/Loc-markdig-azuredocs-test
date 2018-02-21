@@ -81,24 +81,24 @@ To run the sample, perform the following steps:
         // Perform the REST API call.
         $.ajax({
             url: uriBase + "?" + $.param(params),
-            
+
             // Request headers.
             beforeSend: function(xhrObj){
                 xhrObj.setRequestHeader("Content-Type","application/json");
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
             },
-            
+
             type: "POST",
-            
+
             // Request body.
             data: '{"url": ' + '"' + sourceImageUrl + '"}',
         })
-        
+
         .done(function(data) {
             // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
         })
-        
+
         .fail(function(jqXHR, textStatus, errorThrown) {
             // Display error message.
             var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
@@ -250,7 +250,7 @@ identify people based on a detected face and people database (defined as a perso
         var params = {
             // Request parameters
         };
-      
+
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
             //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
@@ -277,7 +277,6 @@ identify people based on a detected face and people database (defined as a perso
 </script>
 </body>
 </html>
-
 ```
 
 #### Face Identify response

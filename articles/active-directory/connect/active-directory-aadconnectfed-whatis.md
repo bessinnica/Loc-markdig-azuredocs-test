@@ -23,6 +23,7 @@ Azure Active Directory (Azure AD) Connect lets you configure federation with on-
 This topic is the home for information on federation-related functionalities for Azure AD Connect. It lists links to all related topics. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 ## Azure AD Connect: federation topics
+
 | Topic | What it covers and when to read it |
 |:--- |:--- |
 | **Azure AD Connect user sign-in options** | |

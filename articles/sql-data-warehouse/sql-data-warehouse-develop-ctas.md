@@ -43,7 +43,7 @@ CREATE TABLE [dbo].[FactInternetSales_new]
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,	CLUSTERED COLUMNSTORE INDEX
+,   CLUSTERED COLUMNSTORE INDEX
 )
 AS
 SELECT  *
@@ -274,7 +274,6 @@ WHERE NOT EXISTS
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
 RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
-
 ```
 
 ## CTAS recommendation: Explicitly state data type and nullability of output

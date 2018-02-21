@@ -175,6 +175,7 @@ You can add, change, or delete a schedule for an existing indexer by using a **P
 
 <a name="CaptureChangedRows"></a>
 
+
 ## Capture new, changed, and deleted rows
 
 Azure Search uses **incremental indexing** to avoid having to re-index the entire table or view every time an indexer runs. Azure Search provides two change detection policies to support incremental indexing. 
@@ -208,6 +209,7 @@ To use this policy, create or update your data source like this:
 When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
 
 <a name="HighWaterMarkPolicy"></a>
+
 
 ### High Water Mark Change Detection policy
 
@@ -279,7 +281,9 @@ The **softDeleteMarkerValue** must be a string – use the string representation
 
 <a name="TypeMapping"></a>
 
+
 ## Mapping between SQL and Azure Search data types
+
 | SQL data type | Allowed target index field types | Notes |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |

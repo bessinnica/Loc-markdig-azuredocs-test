@@ -33,15 +33,15 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
 ## Modify your iOS app
 1. Open the Single Page view app you created in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
-   
+
    > [!NOTE]
    > In this section we assume that your project is configured with an empty organization name. If not, you will need to prepend your organization name to all class names.
    > 
    > 
 2. In your Main.storyboard add the components shown in the screenshot below from the object library.
-   
+
     ![][1]
-   
+
    * **Username**: A UITextField with placeholder text, *Enter Username*, immediately beneath the send results label and constrained to the left and right margins and beneath the send results label.
    * **Password**: A UITextField with placeholder text, *Enter Password*, immediately beneath the username text field and constrained to the left and right margins and beneath the username text field. Check the **Secure Text Entry** option in the Attribute Inspector, under *Return Key*.
    * **Log in**: A UIButton labeled immediately beneath the password text field and uncheck the **Enabled** option in the Attributes Inspector, under *Control-Content*
@@ -50,56 +50,56 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
    * **APNS**: Label and switch to enable sending the notification to the Apple Platform Notification Service.
    * **Recipent Username**:A UITextField with placeholder text, *Recipient username tag*, immediately beneath the GCM label and constrained to the left and right margins and beneath the GCM label.
 
-    Some components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
+     Some components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
 
-1. **Ctrl** drag from the components in the view to ViewController.h and add these new outlets.
-   
+3. **Ctrl** drag from the components in the view to ViewController.h and add these new outlets.
+
         @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
         @property (weak, nonatomic) IBOutlet UITextField *PasswordField;
         @property (weak, nonatomic) IBOutlet UITextField *RecipientField;
         @property (weak, nonatomic) IBOutlet UITextField *NotificationField;
-   
+
         // Used to enable the buttons on the UI
         @property (weak, nonatomic) IBOutlet UIButton *LogInButton;
         @property (weak, nonatomic) IBOutlet UIButton *SendNotificationButton;
-   
+
         // Used to enabled sending notifications across platforms
         @property (weak, nonatomic) IBOutlet UISwitch *WNSSwitch;
         @property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
         @property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
-   
+
         - (IBAction)LogInAction:(id)sender;
-2. In ViewController.h, add the following `#define` just below your import statements. Substitute the *<Enter Your Backend Endpoint\>* placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://you_backend.azurewebsites.net*.
-   
+4. In ViewController.h, add the following `#define` just below your import statements. Substitute the *<Enter Your Backend Endpoint\>* placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://you_backend.azurewebsites.net*.
+
         #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
-3. In your project, create a new **Cocoa Touch class** named **RegisterClient** to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the RegisterClient.h.
-   
+5. In your project, create a new **Cocoa Touch class** named **RegisterClient** to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the RegisterClient.h.
+
         @interface RegisterClient : NSObject
-   
+
         @property (strong, nonatomic) NSString* authenticationHeader;
-   
+
         -(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
             andCompletion:(void(^)(NSError*))completion;
-   
+
         -(instancetype) initWithEndpoint:(NSString*)Endpoint;
-   
+
         @end
-4. In the RegisterClient.m update the `@interface` section:
-   
+6. In the RegisterClient.m update the `@interface` section:
+
         @interface RegisterClient ()
-   
+
         @property (strong, nonatomic) NSURLSession* session;
         @property (strong, nonatomic) NSURLSession* endpoint;
-   
+
         -(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry
                     andCompletion:(void(^)(NSError*))completion;
         -(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token
                     completion:(void(^)(NSString*, NSError*))completion;
         -(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token
                     tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
-   
+
         @end
-5. Replace the `@implementation` section in the RegisterClient.m with the following code.
+7. Replace the `@implementation` section in the RegisterClient.m with the following code.
 
         @implementation RegisterClient
 
@@ -262,20 +262,20 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
     Note that this class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the log in.
 
-1. In ViewController.h, add a `#import` statement for RegisterClient.h. Then add a declaration for the device token and reference to a `RegisterClient` instance in the `@interface` section:
-   
+8. In ViewController.h, add a `#import` statement for RegisterClient.h. Then add a declaration for the device token and reference to a `RegisterClient` instance in the `@interface` section:
+
         #import "RegisterClient.h"
-   
+
         @property (strong, nonatomic) NSData* deviceToken;
         @property (strong, nonatomic) RegisterClient* registerClient;
-2. In ViewController.m, add a private method declaration in the `@interface` section:
-   
+9. In ViewController.m, add a private method declaration in the `@interface` section:
+
         @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
-   
+
         // create the Authorization header to perform Basic authentication with your app back-end
         -(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
                         AndPassword:(NSString*)password;
-   
+
         @end
 
 > [!NOTE]
@@ -284,40 +284,40 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 > 
 
 1. Then in the `@implementation` section of ViewController.m add the following code which adds the implementation for setting the device token and authentication header.
-   
+
         -(void) setDeviceToken: (NSData*) deviceToken
         {
             _deviceToken = deviceToken;
             self.LogInButton.enabled = YES;
         }
-   
+
         -(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
                         AndPassword:(NSString*)password;
         {
             NSString* headerValue = [NSString stringWithFormat:@"%@:%@", username, password];
-   
+
             NSData* encodedData = [[headerValue dataUsingEncoding:NSUTF8StringEncoding] base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
-   
+
             self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData
                                                         encoding:NSUTF8StringEncoding];
         }
-   
+
         -(BOOL)textFieldShouldReturn:(UITextField *)textField
         {
             [textField resignFirstResponder];
             return YES;
         }
-   
+
     Note how setting the device token enables the log in button. This is becasue as a part of the login action, the view controller registers for push notifications with the app backend. Hence, we do not want Log In action to be accessible till the device token has been properly set up. You can decouple the log in from the push registration as long as the former happens before the latter.
 2. In ViewController.m, use the following snippets to implement the action method for your **Log In** button and a method to send the notification message using the ASP.NET backend.
-   
+
        - (IBAction)LogInAction:(id)sender {
            // create authentication header and set it in register client
            NSString* username = self.UsernameField.text;
            NSString* password = self.PasswordField.text;
-   
+
            [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
-   
+
            __weak ViewController* selfie = self;
            [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil
                andCompletion:^(NSError* error) {
@@ -392,35 +392,37 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
         }
 
 
-        -(void)SendToEnabledPlatforms
-        {
-            NSString* json = [NSString stringWithFormat:@"\"%@\"",self.notificationMessage.text];
+~~~
+    -(void)SendToEnabledPlatforms
+    {
+        NSString* json = [NSString stringWithFormat:@"\"%@\"",self.notificationMessage.text];
 
-            [self.sendResults setText:@""];
+        [self.sendResults setText:@""];
 
-            if ([self.WNSSwitch isOn])
-                [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
+        if ([self.WNSSwitch isOn])
+            [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
 
-            if ([self.GCMSwitch isOn])
-                [self SendNotificationASPNETBackend:@"gcm" UsernameTag:self.RecipientField.text Message:json];
+        if ([self.GCMSwitch isOn])
+            [self SendNotificationASPNETBackend:@"gcm" UsernameTag:self.RecipientField.text Message:json];
 
-            if ([self.APNSSwitch isOn])
-                [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
-        }
+        if ([self.APNSSwitch isOn])
+            [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
+    }
+~~~
 
 
 
 1. In function **ViewDidLoad**, add the following to instantiate the RegisterClient instance and set the delegate for your text fields.
-   
+
        self.UsernameField.delegate = self;
        self.PasswordField.delegate = self;
        self.RecipientField.delegate = self;
        self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
 2. Now in **AppDelegate.m**, remove all the content of the method **application:didRegisterForPushNotificationWithDeviceToken:** and replace it with the following to make sure that the view controller contains the latest device token retrieved from APNs:
-   
+
        // Add import to the top of the file
        #import "ViewController.h"
-   
+
        - (void)application:(UIApplication *)application
                    didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
        {
@@ -428,7 +430,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
            rvc.deviceToken = deviceToken;
        }
 3. Finally in **AppDelegate.m**, make sure you have the following method:
-   
+
        - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
            NSLog(@"%@", userInfo);
            [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
@@ -437,14 +439,14 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 ## Test the Application
 1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
 2. In the iOS app UI, enter a username and password. These can be any string, but they must both be the same string value. Then click **Log In**.
-   
+
     ![][2]
 3. You should see a pop-up informing you of registration success. Click **OK**.
-   
+
     ![][3]
 4. In the **Recipient username tag* text field, enter the user name tag used with the registration from another device.
 5. Enter a notification message and click **Send Notification**.  Only the devices that have a registration with the recipient user name tag receive the notification message.  It is only sent to those users.
-   
+
     ![][4]
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png

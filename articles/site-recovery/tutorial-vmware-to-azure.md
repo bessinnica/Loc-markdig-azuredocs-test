@@ -56,8 +56,8 @@ To set up the configuration server as a highly-available VMware VM, you download
 3. In **Add Server**, check that **Configuration server for VMware** appears in **Server type**.
 4. Download the Open Virtualization Format (OVF) template for the configuration server.
 
-  > [!TIP]
-  The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   > The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 ## Import the template in VMware
 
@@ -70,10 +70,10 @@ To set up the configuration server as a highly-available VMware VM, you download
 4. In **Review details**, click **Next**.
 5. In **Select name and folder**, and **Select configuration**, accept the default settings.
 6. In **Select storage**, for best performance select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
-4. In the rest of the wizard pages, accept the default settings.
-5. In **Ready to complete**:
-  - To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
-  - If you want to add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
+7. In the rest of the wizard pages, accept the default settings.
+8. In **Ready to complete**:
+   - To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
+   - If you want to add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
 
   
 ## Add an additional adapter

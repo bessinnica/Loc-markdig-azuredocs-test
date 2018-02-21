@@ -58,6 +58,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
 <a id="EA"></a>
 
+
 ## Transfer subscription ownership for Enterprise Agreement (EA) customers
 
 The Enterprise Administrator can transfer ownership of subscriptions within an enrollment. To get started, see [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.
@@ -73,6 +74,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 1. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure portal](https://portal.azure.com).
 
 <a id="supported"></a>
+
 
 ## What's supported:
 
@@ -93,6 +95,7 @@ Self-serve subscription transfer is available for the offers or subscription typ
 \* [Via the EA portal](#EA)
 
 <a id="faq"></a>
+
 
 ## Frequently asked questions (FAQ)
 

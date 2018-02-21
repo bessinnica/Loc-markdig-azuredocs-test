@@ -23,6 +23,7 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 This article addresses recommendations that apply to your network.  Network recommendations center around next generation firewalls, Network Security Groups, configuring inbound traffic rules, and more.  Use the table below as a reference to help you understand the available network recommendations and what each one does if you apply it.
 
 ## Available network recommendations
+
 | Recommendation | Description |
 | --- | --- |
 | [Add a Next Generation Firewall](security-center-add-next-generation-firewall.md) |Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner to increase your security protections. |

@@ -4,7 +4,7 @@ Data factory is a multi-tenant service that has the following default limits in 
 
 | Resource | Default Limit | Maximum Limit | 
 | -------- | ------------- | ------------- | 
-| Data factories in an Azure subscription |	50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Data factories in an Azure subscription | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Pipelines within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Datasets within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Triggers within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |

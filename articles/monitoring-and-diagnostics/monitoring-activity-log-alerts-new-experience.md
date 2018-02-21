@@ -28,10 +28,9 @@ Typically, you create activity log alerts to receive notifications when specific
 
 You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. However, the portal shows the most common options as detailed in the following sections:
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > When the category is "administrative", You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
->
 
 When an activity log alert is activated, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert, you have two options. You can:
 
@@ -55,12 +54,12 @@ To learn more about service health notifications, see [Receive activity log aler
 ## Create an alert rule for an activity log
 
 > [!NOTE]
-
+> 
 >  While creating the alert rules, ensure the following:
-
+> 
 > - Subscription in the scope is not different from the subscription where the alert is created.
-- Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
-- There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
+> - Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
+> - There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
 
 
 Use the following procedure:
@@ -76,37 +75,37 @@ Use the following procedure:
 
 3. **Under Define Alert condition,** provide the following information, and click **Done**.
 
-    - **Alert Target:** To view and select the target for the new alert, use **Filter by subscription** / **Filter by resource type** and select the resource or resource group from the list displayed.
+   - **Alert Target:** To view and select the target for the new alert, use **Filter by subscription** / **Filter by resource type** and select the resource or resource group from the list displayed.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > you can select a resource, resource group, or an entire subscription.
 
-    > you can select a resource, resource group, or an entire subscription.
-
-    **Alert target sample view**
+     **Alert target sample view**
 
      ![Select Target](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Under **Target Criteria, click **add criteria** select the signal type as **Activity log**.
+   - Under <strong>Target Criteria, click **add criteria</strong> select the signal type as <strong>Activity log</strong>.
 
-    - Select the signal from the list displayed.
+   - Select the signal from the list displayed.
 
-    You can select the log history timeline and the corresponding alert logic for this target signal:
+     You can select the log history timeline and the corresponding alert logic for this target signal:
 
-    **Add criteria screen**
+     **Add criteria screen**
 
-    ![add criteria](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+     ![add criteria](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
 
-    **History time**: Over the last 6/12/24 hours, Over the last Week.
+     **History time**: Over the last 6/12/24 hours, Over the last Week.
 
-    **Alert logic**:
+     **Alert logic**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
+     - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
+     - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
 
-        **Sample signal graph with alert logic applied** :
+       **Sample signal graph with alert logic applied** :
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+       ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. Under **define alert rules,** provide the following details:
 
@@ -139,15 +138,15 @@ Use the following procedure:
 
     You can use the available filters - **Subscription**, **Resource group**, or **Resource** to find the activity rule that you want to edit.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > You can only edit **Description** , **Target criteria** and **Action groups**.
 
-    > You can only edit **Description** , **Target criteria** and **Action groups**.
+3. Select the rule and double-click to edit the rule options. Make the required changes and then click **Save**.
 
-3.  Select the rule and double-click to edit the rule options. Make the required changes and then click **Save**.
+   ![ manage alert rules](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
 
-    ![ manage alert rules](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
-
-4.  You can disable, enable, or delete a rule. Select the appropriate option at the top of the window, after selecting the rule as detailed in step 2.
+4. You can disable, enable, or delete a rule. Select the appropriate option at the top of the window, after selecting the rule as detailed in step 2.
 
 
 ## Next steps

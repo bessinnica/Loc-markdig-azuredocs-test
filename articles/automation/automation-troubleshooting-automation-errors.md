@@ -163,8 +163,9 @@ Any of the following solutions fix the problem:
 
 ## Common errors when working with Desired State Configuration (DSC)
 ### Scenario: Node is in failed status with a "Not found" error
-**Error:**
-The node has a report with **Failed** status and containing the error "The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found."
+<strong>Error:</strong>
+The node has a report with 
+<strong>Failed</strong> status and containing the error "The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found."
 
 **Reason for the error:**
 This error typically occurs when the node is assigned to a configuration name (for example, ABC) instead of a node configuration name (for example, ABC.WebServer).
@@ -235,7 +236,7 @@ This error code means that the deployment failed due to violation of one or more
 
 In order to successfully deploy the solution, you need to consider altering the indicated policy. As there are many different types of policies that can be defined, the specific changes required depend on the policy that is violated. For example, if a policy was defined on a resource group that denied permission to change the contents of certain types of resources within that resource group, you could, for example, do any of the following:
 
-*	Remove the policy altogether.
+*   Remove the policy altogether.
 * Try to onboard to a different resource group.
 * Revise the policy, by, for example:
    * Re-targeting the policy to a a specific resource (such as to a specific Automation account).

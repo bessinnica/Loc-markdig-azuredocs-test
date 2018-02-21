@@ -35,7 +35,7 @@ This example shows a typical resource section of a template for creating a speci
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",	
+      "name": "virtualMachineLoop", 
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -218,7 +218,7 @@ When you need more than one virtual machine for your application, you can use a 
 
 ```
 "copy": {
-  "name": "virtualMachineLoop",	
+  "name": "virtualMachineLoop", 
   "count": "[parameters('numberOfInstances')]"
 },
 ```

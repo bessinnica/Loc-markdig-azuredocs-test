@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure geographic traffic routing method using Azure Traffic Manager | Microsoft Docs
 description: This article explains how to configure the geographic traffic routing method using Azure Traffic Manager
 services: traffic-manager
@@ -52,7 +52,7 @@ The Geographic traffic routing method allows you to direct traffic to specific e
 ![Add a Traffic Manager endpoint](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
 
 ## Use the Traffic Manager profile
-1.	In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section and click on the traffic manager profile in the results that the displayed.
+1.  In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section and click on the traffic manager profile in the results that the displayed.
 2. In the **Traffic Manager profile** blade, click **Overview**.
 3. The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (for example, by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type.  In the case of geographic routing, Traffic Manager looks at the source IP of the incoming request and determines the region from which it is originating. If that region is mapped to an endpoint, traffic is routed to there. If this region is not mapped to an endpoint, then Traffic Manager returns a NODATA query response.
 

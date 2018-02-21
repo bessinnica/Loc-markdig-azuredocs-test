@@ -97,7 +97,6 @@ You can use a custom EventListener to listen for the service event and then appr
         // TBD: Need to add method for sample event.
 
 }
-
 ```
 
 
@@ -111,18 +110,18 @@ You can use a custom EventListener to listen for the service event and then appr
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-	    { 
-                 // report all event information               
- 		 Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-		    Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-	        else             
-		{ 
-	                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-	                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
-		}
-           }
+            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
+        { 
+                 // report all event information               
+         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                if (eventData.Message != null)              
+            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
+            else             
+        { 
+                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
+        }
+           }
         }
     }
 ```

@@ -471,7 +471,7 @@ The histogram is not helpful, as the outliers are skewing the graph.
 
     ![Histogram of the logtripduration column](media/tutorial-bikeshare-dataprep/logtriphistogram.png)
 
-  Visually, this histogram seems like a Normal Distribution with an abnormal tail.
+   Visually, this histogram seems like a Normal Distribution with an abnormal tail.
 
 ## Use Advanced Filter
 
@@ -664,7 +664,7 @@ To save the **Join Result** Dataflow to a .CSV file, you must change the `BikeSh
 
 1. In Azure Machine Learning Workbench, open the command-line window, select the **File** menu, and then select **Open Command Prompt**. Your command prompt starts in the project folder with the prompt `C:\Projects\BikeShare>`.
 
- ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+   ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
 
    >[!IMPORTANT]
    >You must use the command-line window (opened from the workbench) to accomplish the steps that follow.
@@ -692,8 +692,8 @@ To save the **Join Result** Dataflow to a .CSV file, you must change the `BikeSh
     az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
     az ml experiment prepare -c hdinsight
     ```
-> [!NOTE]
-> When a blank project is created, the default run configurations are **local** and **docker**. This step creates a new run configuration that is available in the **Azure Machine Learning Workbench** when you run your scripts. 
+   > [!NOTE]
+   > When a blank project is created, the default run configurations are **local** and **docker**. This step creates a new run configuration that is available in the **Azure Machine Learning Workbench** when you run your scripts. 
 
 ## Run in HDInsight Cluster
 

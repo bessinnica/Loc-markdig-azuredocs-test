@@ -33,7 +33,7 @@ We'll dive into the impact of accessing resources you don't have control over th
 
 ### App types impacted
 
-In most common cases, conditional access does not change an app's behavior or requires any changes from the developer.  Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle conditional access "challenges".  It may be as simple as performing an interactive sign-in request. 
+In most common cases, conditional access does not change an app's behavior or requires any changes from the developer.  Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle conditional access "challenges".  It may be as simple as performing an interactive sign-in request. 
 
 Specifically, the following scenarios require code to handle conditional access "challenges": 
 

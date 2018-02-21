@@ -87,16 +87,16 @@ Run the following PowerShell commands:
    Login-AzureRmAccount
    ```
     You are prompted to enter your Azure credentials.
-1. Get the contents of the JSON file and convert it to a string:
+2. Get the contents of the JSON file and convert it to a string:
     ```powershell
-    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
+    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
     `JsonPath` is the path where you saved the JSON file.
-1. Convert the string contents of `$json` to a PowerShell object:
+3. Convert the string contents of `$json` to a PowerShell object:
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
-1. Create a hashtable for the parameters for `Start-AzureRmAutomationRunbook`:
+4. Create a hashtable for the parameters for `Start-AzureRmAutomationRunbook`:
    ```powershell
    $RBParams = @{
         AutomationAccountName = 'AATest'
@@ -106,7 +106,7 @@ Run the following PowerShell commands:
    }
    ```
    Notice that you are setting the value of `Parameters` to the PowerShell object that contains the values from the JSON file. 
-1. Start the runbook
+5. Start the runbook
    ```powershell
    $job = Start-AzureRmAutomationRunbook @RBParams
    ```

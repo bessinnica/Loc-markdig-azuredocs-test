@@ -84,11 +84,11 @@ Follow these steps to create a Data Lake Store.
 
     You should see an output like this:
 
-		ResourceGroupName : hdiadlgrp
-		Location          : eastus2
-		ProvisioningState : Succeeded
-		Tags              :
-		ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+        ResourceGroupName : hdiadlgrp
+        Location          : eastus2
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
 
 3. Create an Azure Data Lake Store account. The account name you specify must only contain lowercase letters and numbers.
 
@@ -97,20 +97,20 @@ Follow these steps to create a Data Lake Store.
 
     You should see an output like the following:
 
-		...
-		ProvisioningState           : Succeeded
-		State                       : Active
-		CreationTime                : 5/5/2017 10:53:56 PM
-		EncryptionState             : Enabled
-		...
-		LastModifiedTime            : 5/5/2017 10:53:56 PM
-		Endpoint                    : hdiadlstore.azuredatalakestore.net
-		DefaultGroup                :
-		Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
-		Name                        : hdiadlstore
-		Type                        : Microsoft.DataLakeStore/accounts
-		Location                    : East US 2
-		Tags                        : {}
+        ...
+        ProvisioningState           : Succeeded
+        State                       : Active
+        CreationTime                : 5/5/2017 10:53:56 PM
+        EncryptionState             : Enabled
+        ...
+        LastModifiedTime            : 5/5/2017 10:53:56 PM
+        Endpoint                    : hdiadlstore.azuredatalakestore.net
+        DefaultGroup                :
+        Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+        Name                        : hdiadlstore
+        Type                        : Microsoft.DataLakeStore/accounts
+        Location                    : East US 2
+        Tags                        : {}
 
 5. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
@@ -174,8 +174,8 @@ In this section, you perform the steps to create a service principal for an Azur
         $objectId = $servicePrincipal.Id
 3. Grant the service principal access to the Data Lake Store folder and the file that you will access from the HDInsight cluster. The snippet below provides access to the root of the Data Lake Store account (where you copied the sample data file), and the file itself.
 
-		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
-		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
+        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
+        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
 ## Create an HDInsight Linux cluster with Data Lake Store as additional storage
 

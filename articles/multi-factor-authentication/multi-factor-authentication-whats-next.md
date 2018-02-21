@@ -42,7 +42,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA Server** > **Block/unblock users**.
 3. Select **Add** to block a user.
-4. Select the **Replication Group**. Enter the username for the blocked user as **username<span></span>@domain.com**. Enter a comment in the **Reason** field.
+4. Select the <strong>Replication Group</strong>. Enter the username for the blocked user as <strong>username<span></span><xref href="domain.com" data-throw-if-not-resolved="False" data-raw-source="@domain.com"></xref></strong>. Enter a comment in the <strong>Reason</strong> field.
 5. Select **Add** to finish blocking the user.
 
 ### Unblock a user
@@ -94,7 +94,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
-5. Enter the username as **username<span></span>@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass. 
+5. Enter the username as <strong>username<span></span><xref href="domain.com" data-throw-if-not-resolved="False" data-raw-source="@domain.com"></xref></strong>. Enter the number of seconds that the bypass should last. Enter the reason for the bypass. 
 6. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires. 
 
 ### View the one-time bypass report
@@ -180,18 +180,18 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
 4. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
-   
+
    * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
      ```
      c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);
      ```
-     
+
    * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box by using CIDR notation.
-   
+
      * For IP addresses that are in the range xxx.xxx.xxx.1 through xxx.xxx.xxx.254, use notation like **xxx.xxx.xxx.0/24**.
      * For a single IP address, use notation like **xxx<span></span>.xxx.xxx.xxx/32**.
-     
+
      Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
 
 5. Select **Save**.
@@ -203,7 +203,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
-   
+
    * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
      ```
@@ -211,10 +211,10 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
      ```
 
    * **For requests from a specified range of IP address subnets**: To choose this option, enter the IP addresses in the text box by using CIDR notation. 
-     
+
      * For IP addresses that are in the range xxx.xxx.xxx.1 through xxx.xxx.xxx.254, use notation like **xxx.xxx.xxx.0/24**.
      * For a single IP address, use notation like **xxx<span></span>.xxx.xxx.xxx/32**.
-     
+
      Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
 
 6. Select **Save**.
@@ -298,6 +298,7 @@ Users can create app passwords during their initial registration. The user has t
 Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](./end-user/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
+
 ## Remember Multi-Factor Authentication for trusted devices
 The _remember Multi-Factor Authentication_ feature for devices and browsers that are trusted by the user is a free feature for all Multi-Factor Authentication users. Users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform two-step verification on the same device.
 

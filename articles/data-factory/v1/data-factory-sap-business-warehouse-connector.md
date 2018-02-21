@@ -241,7 +241,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                 "typeProperties": {
                     "source": {
                         "type": "RelationalSource",
-        				"query": "<MDX query for SAP BW>"
+                        "query": "<MDX query for SAP BW>"
                     },
                     "sink": {
                         "type": "BlobSink",
@@ -288,7 +288,7 @@ When moving data from SAP BW, the following mappings are used from SAP BW types 
 
 Data type in the ABAP Dictionary | .Net Data Type
 -------------------------------- | --------------
-ACCP |	Int
+ACCP |  Int
 CHAR | String
 CLNT | String
 CURR | Decimal

@@ -30,12 +30,12 @@ Learn how to use Azure Log Analytics to monitor Hadoop cluster operations in HDI
 
 * **An Azure HDInsight cluster**. Currently, you can use Azure Operations Management Suite with the following HDInsight cluster types:
 
-    * Hadoop
-    * HBase
-    * Interactive Query
-    * Kafka
-    * Spark
-    * Storm
+  * Hadoop
+  * HBase
+  * Interactive Query
+  * Kafka
+  * Spark
+  * Storm
 
     For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 

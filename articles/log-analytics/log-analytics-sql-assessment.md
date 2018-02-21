@@ -108,7 +108,6 @@ Use the following information to set the Operations Manager Run As account for S
     -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
     -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
     EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
-
 ```
 
 #### To configure the SQL Run As account using Windows PowerShell
@@ -170,7 +169,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### To identify recommendations that you will ignore
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.

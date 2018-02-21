@@ -24,15 +24,15 @@ ms.custom:
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
- 
 
-|   |   |
-|---|---|
-|**SDK download**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**API documentation**|[Python API reference documentation](https://azure.github.io/azure-cosmosdb-python/)|
-|**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
+
+|                                                |                                                                                                                         |
+|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|         <strong>SDK download</strong>          |                               [PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)                                |
+|       <strong>API documentation</strong>       |                  [Python API reference documentation](https://azure.github.io/azure-cosmosdb-python/)                   |
+| <strong>SDK installation instructions</strong> | [Python SDK installation instructions](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table) |
+|       <strong>Contribute to SDK</strong>       |                [GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)                |
+|  <strong>Current supported platform</strong>   |  [Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6](https://www.python.org/downloads/)   |
 
 > [!IMPORTANT]
 > If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
@@ -52,6 +52,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 New features and functionality and optimizations are only added to the current SDK, as such it is  recommended that you always upgrade to the latest SDK version as early as possible. 
 
 <br/>
+
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

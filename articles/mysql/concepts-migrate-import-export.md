@@ -53,11 +53,11 @@ For example, if you have a WordPress or web app that uses the MyISAM engine, fir
    ```
 
 ## Performance recommendations for import and export
--	Create clustered indexes and primary keys before loading data. Load data in primary key order. 
--	Delay creation of secondary indexes until after data is loaded. Create all secondary indexes after loading. 
--	Disable foreign key constraints before loading. Disabling foreign key checks provides significant performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
--	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources by using the metrics available in the Azure portal. 
--	Use partitioned tables when appropriate.
+-   Create clustered indexes and primary keys before loading data. Load data in primary key order. 
+-   Delay creation of secondary indexes until after data is loaded. Create all secondary indexes after loading. 
+-   Disable foreign key constraints before loading. Disabling foreign key checks provides significant performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
+-   Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources by using the metrics available in the Azure portal. 
+-   Use partitioned tables when appropriate.
 
 ## Import and export by using MySQL Workbench
 There are two ways to export and import data in MySQL Workbench. Each serves a different purpose. 

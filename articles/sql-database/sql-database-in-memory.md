@@ -141,6 +141,7 @@ If you have a **clustered** columnstore index, the whole table becomes unavailab
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
+
 &nbsp;
 
 ## 1. Install the In-Memory OLTP sample
@@ -165,8 +166,8 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 ```
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
-	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
-	...
+    [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
+    ...
 ) WITH (MEMORY_OPTIMIZED = ON);
 ```
 
@@ -204,8 +205,8 @@ Or you can query the catalog views, such as:
 
 ```
 SELECT is_memory_optimized, name, type_desc, durability_desc
-	FROM sys.tables
-	WHERE is_memory_optimized = 1;
+    FROM sys.tables
+    WHERE is_memory_optimized = 1;
 ```
 
 
@@ -214,8 +215,8 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 
 ```
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
-	FROM sys.sql_modules
-	WHERE uses_native_compilation = 1;
+    FROM sys.sql_modules
+    WHERE uses_native_compilation = 1;
 ```
 
 
@@ -225,8 +226,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 The only difference between the following two *stored procedures* is that the first procedure uses memory-optimized versions of the tables, while the second procedure uses the regular on-disk tables:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT<strong>.</strong>usp_InsertSalesOrder<strong>_inmem</strong>
+- SalesLT<strong>.</strong>usp_InsertSalesOrder<strong>_ondisk</strong>
 
 
 In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes for the two stress runs to finish.
@@ -255,24 +256,24 @@ The following script inserts a sample sales order with five line items into the 
 
 ```
 DECLARE
-	@i int = 0,
-	@od SalesLT.SalesOrderDetailType_inmem,
-	@SalesOrderID int,
-	@DueDate datetime2 = sysdatetime(),
-	@CustomerID int = rand() * 8000,
-	@BillToAddressID int = rand() * 10000,
-	@ShipToAddressID int = rand() * 10000;
+    @i int = 0,
+    @od SalesLT.SalesOrderDetailType_inmem,
+    @SalesOrderID int,
+    @DueDate datetime2 = sysdatetime(),
+    @CustomerID int = rand() * 8000,
+    @BillToAddressID int = rand() * 10000,
+    @ShipToAddressID int = rand() * 10000;
 
 INSERT INTO @od
-	SELECT OrderQty, ProductID
-	FROM Demo.DemoSalesOrderDetailSeed
-	WHERE OrderID= cast((rand()*60) as int);
+    SELECT OrderQty, ProductID
+    FROM Demo.DemoSalesOrderDetailSeed
+    WHERE OrderID= cast((rand()*60) as int);
 
 WHILE (@i < 20)
 begin;
-	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
-		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
-	SET @i = @i + 1;
+    EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+        @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+    SET @i = @i + 1;
 end
 ```
 
@@ -352,9 +353,9 @@ After you have the result from the *_inmem* run, perform the following steps for
 
 
 1. Reset the database by running the following command in SSMS to delete all the data that was inserted by the previous run:
-```
-EXECUTE Demo.usp_DemoReset;
-```
+   ```
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. Edit the ostress.exe command line to replace all *_inmem* with *_ondisk*.
 
@@ -368,6 +369,7 @@ EXECUTE Demo.usp_DemoReset;
 Our In-Memory tests have shown that performance improved by **nine times** for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
 
 &nbsp;
 
@@ -385,13 +387,13 @@ For real-time analytics on an OLTP workload, it's often best to use a noncluster
 
 
 1. Use the Azure portal to create a fresh AdventureWorksLT database from the sample.
- - Use that exact name.
- - Choose any Premium service tier.
+   - Use that exact name.
+   - Choose any Premium service tier.
 
 2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
- - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
- - The script creates the Dimension table and two fact tables. The fact tables are populated with 3.5 million rows each.
- - The script might take 15 minutes to complete.
+   - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
+   - The script creates the Dimension table and two fact tables. The fact tables are populated with 3.5 million rows each.
+   - The script might take 15 minutes to complete.
 
 3. Paste the T-SQL script into SSMS, and then execute the script. The **COLUMNSTORE** keyword in the **CREATE INDEX** statement is crucial, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
@@ -440,13 +442,13 @@ SET STATISTICS TIME ON
 GO
 
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_PageCompressed a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
@@ -465,13 +467,13 @@ SET STATISTICS IO ON
 SET STATISTICS TIME ON
 GO
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_CCI a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey

@@ -28,17 +28,17 @@ This article provides help troubleshooting errors you might experience with the 
 
 ### Resolutions
 1. Reonboard to the Log Analytics service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
+   `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
-* Double check that the following Log Analytics service endpoints are whitelisted:
+3. Double check that the following Log Analytics service endpoints are whitelisted:
 
-    |Agent Resource| Ports |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | Port 443|   
-    |*.oms.opinsights.azure.com | Port 443|   
-    |ods.systemcenteradvisor.com | Port 443|   
-    |*.blob.core.windows.net/ | Port 443|   
+     |Agent Resource| Ports |  
+     |------|---------|  
+     |*.ods.opinsights.azure.com | Port 443|   
+     |*.oms.opinsights.azure.com | Port 443|   
+     |ods.systemcenteradvisor.com | Port 443|   
+     |*.blob.core.windows.net/ | Port 443|   
 
 ## Issue: You receive a 403 error when trying to onboard
 

@@ -17,19 +17,21 @@ ms.author: alch
 The academic graph is composed of 7 types of entity. All entities will have a Entity ID and a Entity type.
 
 ## Common Entity Attributes
-Name	|Description	            |Type       | Operations
+
+Name    |Description                |Type       | Operations
 ------- | ------------------------- | --------- | ----------------------------
-Id		|Entity ID					|Int64		|Equals
-Ty 		|Entity type 				|enum	|Equals
+Id      |Entity ID                  |Int64      |Equals
+Ty      |Entity type                |enum   |Equals
 
 ## Entity type enum
-Name 															|value
+
+Name                                                            |value
 ----------------------------------------------------------------|-----
-[Paper](PaperEntityAttributes.md)								|0
-[Author](AuthorEntityAttributes.md)								|1
-[Journal](JournalEntityAttributes.md)	 						|2
-[Conference Series](JournalEntityAttributes.md)					|3
-[Conference Instance](ConferenceInstanceEntityAttributes.md)	|4
-[Affiliation](AffiliationEntityAttributes.md)					|5
-[Field Of Study](FieldsOfStudyEntityAttributes.md)						|6
+[Paper](PaperEntityAttributes.md)                               |0
+[Author](AuthorEntityAttributes.md)                             |1
+[Journal](JournalEntityAttributes.md)                           |2
+[Conference Series](JournalEntityAttributes.md)                 |3
+[Conference Instance](ConferenceInstanceEntityAttributes.md)    |4
+[Affiliation](AffiliationEntityAttributes.md)                   |5
+[Field Of Study](FieldsOfStudyEntityAttributes.md)                      |6
 

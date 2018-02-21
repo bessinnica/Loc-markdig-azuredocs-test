@@ -56,9 +56,9 @@ Follow the guidance provided by your Linux distributor to get the latest trusted
 
 Because SuSE Linux uses symlinks to maintain a certificate list, follow these steps:
 
-1.	Sign in as a root user.
+1.  Sign in as a root user.
 
-2.	Run this command to change the directory.
+2.  Run this command to change the directory.
 
       ``# cd /etc/ssl/certs``
 
@@ -191,11 +191,11 @@ You can use [Remove stale ASR configuration script](https://gallery.technet.micr
 
 To enable replication on the VM, the provisioning state should be **Succeeded**. You can check the VM state by following the steps below.
 
-1.	Select the **Resource Explorer** from **All Services** in Azure portal.
-2.	Expand the **Subscriptions** list and select your subscription.
-3.	Expand the **ResourceGroups** list and select the resource group of the VM.
-4.	Expand the **Resources** list and select your virtual machine
-5.	Check the **provisioningState** field in Instance view on right hand side.
+1.  Select the **Resource Explorer** from **All Services** in Azure portal.
+2.  Expand the **Subscriptions** list and select your subscription.
+3.  Expand the **ResourceGroups** list and select the resource group of the VM.
+4.  Expand the **Resources** list and select your virtual machine
+5.  Check the **provisioningState** field in Instance view on right hand side.
 
 ### Fix the problem
 

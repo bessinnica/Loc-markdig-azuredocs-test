@@ -23,13 +23,13 @@ You are not charged for services included for free with Azure free account, unle
 
 ## Check usage on the Azure portal
 
-1.	Log in to the [Azure portal]( http://portal.azure.com).
+1.  Log in to the [Azure portal]( http://portal.azure.com).
 
-2.	From bottom of left navigation, select **More services**.
+2.  From bottom of left navigation, select **More services**.
 
-3.	Select **Subscriptions**.
+3.  Select **Subscriptions**.
 
-4.	Select the subscription that you created when you signed up for free account.
+4.  Select the subscription that you created when you signed up for free account.
 
     ![Screenshot that shows all the subscriptions](./media/billing-check-usage-of-free-services/select-free-account-subscription.png)
 
@@ -41,7 +41,7 @@ You are not charged for services included for free with Azure free account, unle
 
     ![Screenshot that shows subscription cost information](./media/billing-check-usage-of-free-services/subscription-cost-information.png)
 
-7.	The final part of the overview section has a table on usage of free services. 
+7.  The final part of the overview section has a table on usage of free services. 
 
     ![Screenshot that shows usage of free services](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 

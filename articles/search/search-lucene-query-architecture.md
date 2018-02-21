@@ -72,6 +72,7 @@ For this request, the search engine does the following:
 The majority of this article is about processing of the *search query*: `"Spacious, air-condition* +\"Ocean view\""`. Filtering and ordering are out of scope. For more information, see the [Search API reference documentation](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
+
 ## Stage 1: Query parsing 
 
 As noted, the query string is the first line of the request: 
@@ -126,6 +127,7 @@ A modified query tree for this query would be as follows, where a matching docum
 > Choosing `searchMode=any` over `searchMode=all` is a decision best arrived at by running representative queries. Users who are likely to include operators (common when searching document stores) might find results more intuitive if `searchMode=all` informs boolean query constructs. For more about the interplay between `searchMode` and operators, see [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
+
 ## Stage 2: Lexical analysis 
 
 Lexical analyzers process *term queries* and *phrase queries* after the query tree is structured. An analyzer accepts the text inputs given to it by the parser, processes the text, and then sends back tokenized terms to be incorporated into the query tree. 
@@ -182,11 +184,13 @@ The standard analyzer breaks the input text into the following two tokens, annot
 
 <a name="exceptions"></a>
 
+
 ### Exceptions to lexical analysis 
 
 Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query with term *air-condition\** in our example, are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
 
 <a name="stage3"></a>
+
 
 ## Stage 3: Document retrieval 
 
@@ -267,28 +271,28 @@ For the **description** field, the index is as follows:
 
 | Term | Document list |
 |------|---------------|
-| air |	3
-| and |	4
+| air | 3
+| and | 4
 | beach | 1
-| conditioned |	3
-| comfortable |	3
+| conditioned | 3
+| comfortable | 3
 | distance | 1
 | island | 2
 | kauaʻi | 2
-| located |	2
+| located | 2
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
 | on |2
 | quiet | 4
-| rooms	 | 1, 3
+| rooms  | 1, 3
 | secluded | 4
-| shore	| 2
+| shore | 2
 | spacious | 1
 | the | 1, 2
 | to | 1
 | view | 1, 2, 3
-| walking |	1
+| walking | 1
 | with | 3
 
 

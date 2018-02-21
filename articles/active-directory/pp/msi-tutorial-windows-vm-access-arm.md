@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Use a Windows VM Managed Service Identity (MSI) to access Resource Manager
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows virtual machine (VM). You can then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
 
@@ -41,12 +41,12 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
 
-1.	Click the **New** button found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
+1.  Click the **New** button found on the upper left-hand corner of the Azure portal.
+2.  Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
+3.  Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
 4.  Choose the proper **Subscription** for the virtual machine in the dropdown.
-5.	To select a new **Resource Group** in which to create your virtual machine, choose **Create New**. When complete, click **OK**.
-6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults, and click **OK**.
+5.  To select a new **Resource Group** in which to create your virtual machine, choose **Create New**. When complete, click **OK**.
+6.  Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults, and click **OK**.
 
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
@@ -54,10 +54,10 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
 A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
 
-1.	Select the **Virtual Machine** that you want to enable MSI on.  
-2.	On the left navigation bar click **Configuration**. 
-3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
-4.	Ensure you click **Save** to save the configuration.  
+1.  Select the **Virtual Machine** that you want to enable MSI on.  
+2.  On the left navigation bar click **Configuration**. 
+3.  You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
+4.  Ensure you click **Save** to save the configuration.  
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** will appear in the list.
@@ -67,13 +67,13 @@ A VM MSI enables you to get access tokens from Azure AD without you needing to p
 ## Grant your VM access to a resource group in Resource Manager
 Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s identity access to a resource in Resource Manager, in this case the Resource Group in which the VM is contained.  
 
-1.	Navigate to the tab for **Resource Groups**. 
-2.	Select the specific **Resource Group** you created for your **Windows VM**. 
-3.	Go to **Access control (IAM)** in the left panel. 
-4.	Then **Add** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
-5.	In the next drop-down, **Assign access to** the resource **Virtual Machine**. 
-6.	Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**. 
-7.	Finally, in **Select** choose your Windows VM in the dropdown and click **Save**.
+1.  Navigate to the tab for **Resource Groups**. 
+2.  Select the specific **Resource Group** you created for your **Windows VM**. 
+3.  Go to **Access control (IAM)** in the left panel. 
+4.  Then **Add** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
+5.  In the next drop-down, **Assign access to** the resource **Virtual Machine**. 
+6.  Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**. 
+7.  Finally, in **Select** choose your Windows VM in the dropdown and click **Save**.
 
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
@@ -81,10 +81,10 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
 You will need to use **PowerShell** in this portion.  If you don’t have installed, download it [here](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). 
 
-1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
-2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4.	Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
+1.  In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
+2.  Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
+3.  Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
+4.  Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}

@@ -160,11 +160,11 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
 
     ```json
     {
-        "routes": {                                                               
-          "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
-          "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream", 
-          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")", 
-          "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")" 
+        "routes": {                                                               
+          "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
+          "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream", 
+          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")", 
+          "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")" 
         }
     }
     ```

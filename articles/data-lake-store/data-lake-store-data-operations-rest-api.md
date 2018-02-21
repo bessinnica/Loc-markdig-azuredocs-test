@@ -87,22 +87,22 @@ This operation is based on the WebHDFS REST API call defined [here](http://hadoo
 
 Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
+    curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
 
 In the preceding syntax **-T** parameter is the location of the file you are uploading.
 
 The output is similar to the following snippet:
    
-	HTTP/1.1 307 Temporary Redirect
-	...
-	Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE&write=true
-	...
-	Content-Length: 0
+    HTTP/1.1 307 Temporary Redirect
+    ...
+    Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE&write=true
+    ...
+    Content-Length: 0
 
-	HTTP/1.1 100 Continue
+    HTTP/1.1 100 Continue
 
-	HTTP/1.1 201 Created
-	...
+    HTTP/1.1 201 Created
+    ...
 
 ## Read data
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).

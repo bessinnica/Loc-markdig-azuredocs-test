@@ -27,8 +27,8 @@ The mapping from the old tiers to scale units is shown in the following table:
 
 | Tier | Concurrent requests (old model) | Migration | Concurrent requests |
 |----- | ----- | ---- | ---- |
-| S0 | 	5	|	=> **S2** with 1 scale unit |	5 |
-| S1 |	12	|	=> **S2** with 3 scale units |	15 |
+| S0 |  5   |   => **S2** with 1 scale unit |   5 |
+| S1 |  12  |   => **S2** with 3 scale units |  15 |
 
 To migrate to the new tier, do the following:
 

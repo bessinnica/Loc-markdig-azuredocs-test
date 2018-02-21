@@ -78,11 +78,11 @@ This example requires an HDInsight Spark cluster and an Azure storage account to
 #### Create a new Workbench project
 
 Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Aerial Image Classification" and select the template
-5.	Click **Create**
+1.  Open Azure Machine Learning Workbench
+2.  On the **Projects** page, click the **+** sign and select **New Project**
+3.  In the **Create New Project** pane, fill in the information for your new project
+4.  In the **Search Project Templates** search box, type "Aerial Image Classification" and select the template
+5.  Click **Create**
  
 #### Create the resource group
 

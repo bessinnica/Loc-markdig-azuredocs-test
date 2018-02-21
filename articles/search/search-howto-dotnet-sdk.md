@@ -161,33 +161,33 @@ This time we use a query key since we do not need write access to the index. You
 
 If you run this application with a valid service name and API keys, the output should look like this:
 
-	Deleting index...
-	
-	Creating index...
-	
-	Uploading documents...
-	
-	Waiting for documents to be indexed...
-	
-	Search the entire index for the term 'budget' and return only the hotelName field:
-	
-	Name: Roach Motel
-	
-	Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
-	
-	ID: 2   Description: Cheapest hotel in town
-	ID: 3   Description: Close to town hall and the river
-	
-	Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
-	
-	Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-	Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
-	
-	Search the entire index for the term 'motel':
-	
-	ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-	
-	Complete.  Press any key to end application...
+    Deleting index...
+
+    Creating index...
+
+    Uploading documents...
+
+    Waiting for documents to be indexed...
+
+    Search the entire index for the term 'budget' and return only the hotelName field:
+
+    Name: Roach Motel
+
+    Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
+
+    ID: 2   Description: Cheapest hotel in town
+    ID: 3   Description: Close to town hall and the river
+
+    Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+
+    Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
+    Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+
+    Search the entire index for the term 'motel':
+
+    ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
+
+    Complete.  Press any key to end application...
 
 The full source code of the application is provided at the end of this article.
 
@@ -409,6 +409,7 @@ For this reason, we recommend that you use nullable types in your model classes 
 
 <a name="JsonDotNet"></a>
 
+
 #### Custom Serialization with JSON.NET
 The SDK uses JSON.NET for serializing and deserializing documents. You can customize serialization and deserialization if needed by defining your own `JsonConverter` or `IContractResolver` (see the [JSON.NET documentation](http://www.newtonsoft.com/json/help/html/Introduction.htm) for more details). This can be useful when you want to adapt an existing model class from your application for use with Azure Search, and other more advanced scenarios. For example, with custom serialization you can:
 
@@ -517,7 +518,7 @@ WriteDocuments(results);
 
 In this case, we're searching for hotels that match the word "budget", and we want to get back only the hotel names, as specified by the `Select` parameter. Here are the results:
 
-	Name: Roach Motel
+    Name: Roach Motel
 
 Next, we want to find the hotels with a nightly rate of less than $150, and return only the hotel ID and description:
 
@@ -538,8 +539,8 @@ This query uses an OData `$filter` expression, `baseRate lt 150`, to filter the 
 
 Here are the results of the query:
 
-	ID: 2   Description: Cheapest hotel in town
-	ID: 3   Description: Close to town hall and the river
+    ID: 2   Description: Cheapest hotel in town
+    ID: 3   Description: Close to town hall and the river
 
 Next, we want to find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
 
@@ -561,8 +562,8 @@ In this case, we again use OData syntax to specify the `OrderBy` parameter as `l
 
 Here are the results:
 
-	Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-	Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+    Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
+    Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 
 Finally, we want to find all hotels that match the word "motel":
 
@@ -575,7 +576,7 @@ WriteDocuments(results);
 
 And here are the results, which include all fields since we did not specify the `Select` property:
 
-	ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
+    ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
 This step completes the tutorial, but don't stop here. **Next steps** provides additional resources for learning more about Azure Search.
 

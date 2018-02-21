@@ -184,31 +184,31 @@ To add a rule allowing **inbound** traffic to port **443** from any machine to t
 
 1. Run the following command to retrieve the existing NSG and store it in a variable:
 
-	```powershell   
-	$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-	```
+    ```powershell   
+    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
+    ```
 
 2. Run the following command to add a rule to the NSG:
 
-	```powershell
-	Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-	-Name https-rule `
-	-Description "Allow HTTPS" `
-	-Access Allow `
-	-Protocol Tcp `
-	-Direction Inbound `
-	-Priority 102 `
-	-SourceAddressPrefix * `
-	-SourcePortRange * `
-	-DestinationAddressPrefix * `
-	-DestinationPortRange 443
-	```
+    ```powershell
+    Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+    -Name https-rule `
+    -Description "Allow HTTPS" `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 102 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 443
+    ```
 
 3. To save the changes made to the NSG, run the following command:
 
-	```powershell
-	Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-	```
+    ```powershell
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
     Expected output showing only the security rules:
    
         Name                 : NSG-FrontEnd
@@ -244,31 +244,31 @@ To change the rule created above to allow inbound traffic from the **Internet** 
 
 1. Run the following command to retrieve the existing NSG and store it in a variable:
 
-	```powershell 
-	$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-	```
+    ```powershell 
+    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
+    ```
 
 2. Run the following command with the new rule settings:
 
-	```powershell
-	Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-	-Name https-rule `
-	-Description "Allow HTTPS" `
-	-Access Allow `
-	-Protocol Tcp `
-	-Direction Inbound `
-	-Priority 102 `
-	-SourceAddressPrefix Internet `
-	-SourcePortRange * `
-	-DestinationAddressPrefix * `
-	-DestinationPortRange 443
-	```
+    ```powershell
+    Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+    -Name https-rule `
+    -Description "Allow HTTPS" `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 102 `
+    -SourceAddressPrefix Internet `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 443
+    ```
 
 3. To save the changes made to the NSG, run the following command:
 
-	```powershell
-	Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-	```
+    ```powershell
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
     Expected output showing only the security rules:
    
@@ -303,21 +303,21 @@ To change the rule created above to allow inbound traffic from the **Internet** 
 ### Delete a rule
 1. Run the following command to retrieve the existing NSG and store it in a variable:
 
-	```powershell
-	$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-	```
+    ```powershell
+    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
+    ```
 
 2. Run the following command to remove the rule from the NSG:
 
-	```powershell
-	Remove-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name https-rule
-	```
+    ```powershell
+    Remove-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name https-rule
+    ```
 
 3. Save the changes made to the NSG, by running the following command:
 
-	```powershell
-	Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-	```
+    ```powershell
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
     Expected output showing only the security rules, notice the **https-rule** is no longer listed:
    
@@ -342,27 +342,27 @@ To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, complete the f
 
 1. Run the following command to retrieve the existing NSG and store it in a variable:
 
-	```powershell
-	$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-	```
+    ```powershell
+    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
+    ```
 
 2. Run the following command to retrieve the existing NIC and store it in a variable:
 
-	```powershell
-	$nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
-	```
+    ```powershell
+    $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
+    ```
 
 3. Set the **NetworkSecurityGroup** property of the **NIC** variable to the value of the **NSG** variable, by entering the following command:
 
-	```powershell
-	$nic.NetworkSecurityGroup = $nsg
-	```
+    ```powershell
+    $nic.NetworkSecurityGroup = $nsg
+    ```
 
 4. To save the changes made to the NIC, run the following command:
 
-	```powershell
-	Set-AzureRmNetworkInterface -NetworkInterface $nic
-	```
+    ```powershell
+    Set-AzureRmNetworkInterface -NetworkInterface $nic
+    ```
    
     Expected output showing only the **NetworkSecurityGroup** property:
    
@@ -379,21 +379,21 @@ To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete th
 
 1. Run the following command to retrieve the existing NIC and store it in a variable:
 
-	```powershell
-	$nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
-	```
+    ```powershell
+    $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
+    ```
 
 2. Set the **NetworkSecurityGroup** property of the **NIC** variable to **$null** by running the following command:
 
-	```powershell
-	$nic.NetworkSecurityGroup = $null
-	```
+    ```powershell
+    $nic.NetworkSecurityGroup = $null
+    ```
 
 3. To save the changes made to the NIC, run the following command:
 
-	```powershell
-	Set-AzureRmNetworkInterface -NetworkInterface $nic
-	```
+    ```powershell
+    Set-AzureRmNetworkInterface -NetworkInterface $nic
+    ```
    
     Expected output showing only the **NetworkSecurityGroup** property:
    
@@ -404,27 +404,27 @@ To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, complete th
 
 1. Run the following command to retrieve the existing VNet and store it in a variable:
 
-	```powershell
-	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG -Name TestVNet
-	```
+    ```powershell
+    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG -Name TestVNet
+    ```
 
 2. Run the following command to retrieve the **FrontEnd** subnet and store it in a variable:
 
-	```powershell
-	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
-	```
+    ```powershell
+    $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
+    ```
  
 3. Set the **NetworkSecurityGroup** property of the **subnet** variable to **$null** by entering the following command:
 
-	```powershell
-	$subnet.NetworkSecurityGroup = $null
-	```
+    ```powershell
+    $subnet.NetworkSecurityGroup = $null
+    ```
 
 4. To save the changes made to the subnet, run the following command:
 
-	```powershell
-	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-	```
+    ```powershell
+    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    ```
 
     Expected output showing only the properties of the **FrontEnd** subnet. Notice there isn't a property for **NetworkSecurityGroup**:
    
@@ -453,33 +453,33 @@ To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, complete 
 
 1. Run the following command to retrieve the existing VNet and store it in a variable:
 
-	```powershell
-	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG -Name TestVNet
-	```
+    ```powershell
+    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG -Name TestVNet
+    ```
 
 2. Run the following command to retrieve the **FrontEnd** subnet and store it in a variable:
 
-	```powershell
-	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
-	```
+    ```powershell
+    $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
+    ```
  
 3. Run the following command to retrieve the existing NSG and store it in a variable:
 
-	```powershell
-	$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-	```
+    ```powershell
+    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
+    ```
 
 4. Set the **NetworkSecurityGroup** property of the **subnet** variable to **$null** by running the following command:
 
-	```powershell
-	$subnet.NetworkSecurityGroup = $nsg
-	```
+    ```powershell
+    $subnet.NetworkSecurityGroup = $nsg
+    ```
 
 5. To save the changes made to the subnet, run the following command:
 
-	```powershell
-	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-	```
+    ```powershell
+    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    ```
 
     Expected output showing only the **NetworkSecurityGroup** property of the **FrontEnd** subnet:
    
@@ -501,9 +501,9 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
 3. If the NSG is associated to any subnet, run the `azure network vnet subnet set` as shown in [Dissociate an NSG from a subnet](#Dissociate-an-NSG-from-a-subnet) for each subnet.
 4. To delete the NSG, run the following command:
 
-	```powershell
-	Remove-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd -Force
-	```
+    ```powershell
+    Remove-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd -Force
+    ```
    
    > [!NOTE]
    > The `-Force` parameter ensures you don't need to confirm the deletion.

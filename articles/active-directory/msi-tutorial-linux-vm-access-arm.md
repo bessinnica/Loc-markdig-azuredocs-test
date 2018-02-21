@@ -18,7 +18,7 @@ ms.author: daveba
 
 # Use a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, and then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
 You learn how to:
@@ -85,22 +85,22 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
 To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
-2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
- 
-    The CURL request for the access token is below.  
+1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
+2. **Connect** to the VM with the SSH client of your choice. 
+3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
+ 
+    The CURL request for the access token is below.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
     ```
     
     > [!NOTE]
-    > The value of the “resource” parameter must be an exact match for what is expected by Azure AD.  In the case of the Resource Manager resource ID, you must include the trailing slash on the URI. 
+    > The value of the “resource” parameter must be an exact match for what is expected by Azure AD.  In the case of the Resource Manager resource ID, you must include the trailing slash on the URI. 
     
-    The response includes the access token you need to access Azure Resource Manager. 
+    The response includes the access token you need to access Azure Resource Manager. 
     
-    Response:  
+    Response:  
 
     ```bash
     {"access_token":"eyJ0eXAiOi...",
@@ -109,24 +109,24 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     "expires_on":"1504130527",
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
+    "token_type":"Bearer"} 
     ```
     
-    You can use this access token to access Azure Resource Manager, for example to read the details of the Resource Group to which you previously granted this VM access. Replace the values of \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\>, and \<ACCESS TOKEN\> with the ones you created earlier. 
+    You can use this access token to access Azure Resource Manager, for example to read the details of the Resource Group to which you previously granted this VM access. Replace the values of \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\>, and \<ACCESS TOKEN\> with the ones you created earlier. 
     
     > [!NOTE]
-    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
+    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
     
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    The response back with the specific Resource Group information: 
-     
+    The response back with the specific Resource Group information: 
+     
     ```bash
-    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
+    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
     ```
-     
+     
 ## Related content
 
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).

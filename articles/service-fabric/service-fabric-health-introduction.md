@@ -27,6 +27,7 @@ The following Microsoft Virtual Academy video also describes the Service Fabric 
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
+
 > [!NOTE]
 > We started the health subsystem to address a need for monitored upgrades. Service Fabric provides monitored application and cluster upgrades that ensure full availability, no downtime and minimal to no user intervention. To achieve these goals, the upgrade checks health based on configured upgrade policies. An upgrade can proceed only when health respects desired thresholds. Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues. To learn more about application upgrades, see [this article](service-fabric-application-upgrade.md).
 > 
@@ -196,7 +197,7 @@ The [health reports](https://docs.microsoft.com/dotnet/api/system.fabric.health.
 
 * **SourceId**. A string that uniquely identifies the reporter of the health event.
 * **Entity identifier**. Identifies the entity where the report is applied. It differs based on the [entity type](service-fabric-health-introduction.md#health-entities-and-hierarchy):
-  
+
   * Cluster. None.
   * Node. Node name  (string).
   * Application. Application name (URI). Represents the name of the application instance deployed in the cluster.

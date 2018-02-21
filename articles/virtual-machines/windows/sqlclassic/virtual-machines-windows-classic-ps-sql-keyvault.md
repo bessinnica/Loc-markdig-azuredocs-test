@@ -46,20 +46,21 @@ First, [install the SQL Server IaaS Extension](../classic/sql-server-agent-exten
 ### Understand the input parameters
 The following table lists the parameters required to run the PowerShell script in the next section.
 
-| Parameter | Description | Example |
-| --- | --- | --- |
-| **$akvURL** |**The key vault URL** |"https://contosokeyvault.vault.azure.net/" |
-| **$spName** |**Service Principal name** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
-| **$spSecret** |**Service Principal secret** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
-| **$credName** |**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. |"mycred1" |
-| **$vmName** |**Virtual machine name**: The name of a previously created SQL VM. |"myvmname" |
-| **$serviceName** |**Service name**: The Cloud Service name that is associated with the SQL VM. |"mycloudservicename" |
+
+|           Parameter           |                                                                                  Description                                                                                  |                    Example                     |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+|   <strong>$akvURL</strong>    |                                                                      <strong>The key vault URL</strong>                                                                       |  "<https://contosokeyvault.vault.azure.net/>"  |
+|   <strong>$spName</strong>    |                                                                    <strong>Service Principal name</strong>                                                                    |     "fde2b411-33d5-4e11-af04eb07b669ccf2"      |
+|  <strong>$spSecret</strong>   |                                                                   <strong>Service Principal secret</strong>                                                                   | "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
+|  <strong>$credName</strong>   | <strong>Credential name</strong>: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. |                   "mycred1"                    |
+|   <strong>$vmName</strong>    |                                                <strong>Virtual machine name</strong>: The name of a previously created SQL VM.                                                |                   "myvmname"                   |
+| <strong>$serviceName</strong> |                                           <strong>Service name</strong>: The Cloud Service name that is associated with the SQL VM.                                           |              "mycloudservicename"              |
 
 ### Enable AKV Integration with PowerShell
 The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configuration object for the Azure Key Vault Integration feature. The **Set-AzureVMSqlServerExtension** configures this integration with the **KeyVaultCredentialSettings** parameter. The following steps show how to use these commands.
 
 1. In Azure PowerShell, first configure the input parameters with your specific values as described in the previous sections of this topic. The following script is an example.
-   
+
         $akvURL = "https://contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
@@ -67,7 +68,7 @@ The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configurat
         $vmName = "myvmname"
         $serviceName = "mycloudservicename"
 2. Then use the following script to configure and enable AKV Integration.
-   
+
         $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
         $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
         Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM

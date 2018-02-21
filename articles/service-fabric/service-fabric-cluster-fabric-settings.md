@@ -1,4 +1,3 @@
-
 ---
 title: Change Azure Service Fabric cluster settings | Microsoft Docs
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
@@ -21,9 +20,9 @@ ms.author: chackdan
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
 This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
 
-> [!NOTE]
-> Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
-> 
+> [!NOTE]
+> Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
+> 
 
 ## Customize cluster settings using Resource Manager templates
 The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
@@ -48,6 +47,7 @@ The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *D
 The following is a list of Fabric settings that you can customize, organized by section.
 
 ### Section Name: Diagnostics
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | ConsumerInstances |String | Dynamic |The list of DCA consumer instances. |
@@ -62,11 +62,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 | EnableCircularTraceSession |Bool, default is false | Static |Flag indicates whether circular trace sessions should be used. |
 
 ### Section Name: Trace/Etw
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | Level |Int, default is 4 | Dynamic |Trace etw level can take values 1, 2, 3, 4. To be supported you must keep the trace level at 4 |
 
 ### Section Name: PerformanceCounterLocalStore
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | IsEnabled |Bool, default is true | Dynamic |Flag indicates whether performance counter collection on local node is enabled. |
@@ -76,6 +78,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | NewCounterBinaryFileCreationIntervalInMinutes |Int, default is 10 | Dynamic |Maximum interval (in seconds) after which a new performance counter binary file is created. |
 
 ### Section Name: Setup
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab |
@@ -87,6 +90,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ContainerNetworkName|string, default is L""| Static |The network name to use when setting up a container network.|
 
 ### Section Name: TransactionalReplicator
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | MaxCopyQueueSize |Uint, default is 16384 | Static |This is the maximum value defines the initial size for the queue which maintains replication operations. Note that it must be a power of 2. If during runtime the queue grows to this size operation will be throttled between the primary and secondary replicators. |
@@ -111,6 +115,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | MinLogSizeInMB |Int, default is 0 |Static|Minimum size of the transactional log. The log will not be allowed to truncate to a size below this setting. 0 indicates that the replicator will determine the minimum log size according to other settings. Increasing this value increases the possibility of doing partial copies and incremental backups since chances of relevant log records being truncated is lowered. |
 
 ### Section Name: FabricClient
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | NodeAddresses |string, default is "" |Static|A collection of addresses (connection strings) on different nodes that can be used to communicate with the the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
@@ -125,32 +130,38 @@ The following is a list of Fabric settings that you can customize, organized by 
 | MaxFileSenderThreads |Uint, default is 10 |Static|The max number of files that are transferred in parallel. |
 
 ### Section Name: Common
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | PerfMonitorInterval |Time in seconds, default is 1 |Dynamic|Specify timespan in seconds. Performance monitoring interval. Setting to 0 or negative value disables monitoring. |
 
 ### Section Name: HealthManager
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per application type health evaluation. |
 
 ### Section Name: NodeDomainIds
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | UpgradeDomainId |string, default is "" |Static|Describes the upgrade domain a node belongs to. |
 | PropertyGroup |NodeFaultDomainIdCollection |Static|Describes the fault domains a node belongs to. The fault domain is defined through a URI that describes the location of the node in the datacenter.  Fault Domain URIs are of the format fd:/fd/ followed by a URI path segment.|
 
 ### Section Name: NodeProperties
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | PropertyGroup |NodePropertyCollectionMap |Static|A collection of string key-value pairs for node properties. |
 
 ### Section Name: NodeCapacities
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | PropertyGroup |NodeCapacityCollectionMap |Static|A collection of node capacities for different metrics. |
 
 ### Section Name: FabricNode
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | StateTraceInterval |Time in seconds, default is 300 |Static|Specify timespan in seconds. The interval for tracing node status on each node and up nodes on FM/FMM. |
@@ -174,11 +185,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 | UserRoleClientX509FindValueSecondary |string, default is "" |Dynamic|Search filter value used to locate certificate for default user role FabricClient. |
 
 ### Section Name: Paas
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | ClusterId |string, default is "" |Not Allowed|X509 certificate store used by fabric for configuration protection. |
 
 ### Section Name: FabricHost
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | StopTimeout |Time in seconds, default is 300 |Dynamic|Specify timespan in seconds. The timeout for hosted service activation; deactivation and upgrade. |
@@ -192,6 +205,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 
 ### Section Name: FailoverManager
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Time in seconds, default is 60.0 * 30 |Dynamic|Specify timespan in seconds. When a persisted replica goes down; Windows Fabric waits for this duration for the replica to come back up before creating new replacement  replicas (which would require a copy of the state). |
@@ -215,6 +229,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PlacementTimeLimit|TimeSpan, default is Common::TimeSpan::FromSeconds(600)|Dynamic|Specify timespan in seconds. The time limit for reaching target replica count; after which a warning health report will be initiated |
 
 ### Section Name: NamingService
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 7 |Not Allowed|The number of replica sets for each partition of the Naming Service store. Increasing the number of replica sets increases the level of reliability for the information in the Naming Service Store; decreasing the change that the information will be lost as a result of node failures; at a cost of increased load on Windows Fabric and the amount of time it takes to perform updates to the naming data.|
@@ -237,34 +252,39 @@ The following is a list of Fabric settings that you can customize, organized by 
 | PartitionCount |Int, default is 3 |Not Allowed|The number of partitions of the Naming Service store to be created. Each partition owns a single partition key that corresponds to its index; so partition keys [0; PartitionCount) exist. Increasing the number of Naming Service partitions increases the scale that the Naming Service can perform at by decreasing the average amount of data held by any backing replica set; at a cost of increased utilization of resources (since PartitionCount*ReplicaSetSize service replicas must be maintained).|
 
 ### Section Name: RunAs
-| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
-| --- | --- | --- | --- |
-| RunAsAccountName |string, default is "" |Dynamic|Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|string, default is "" |Dynamic|Indicates the RunAs account type. This is needed for any RunAs section Valid values are "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
-|RunAsPassword|string, default is "" |Dynamic|Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+
+| <strong>Parameter</strong> | <strong>Allowed Values</strong> | <strong>Upgrade Policy</strong> |                                                          <strong>Guidance or short Description</strong>                                                          |
+|----------------------------|---------------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      RunAsAccountName      |      string, default is ""      |             Dynamic             | Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
+|      RunAsAccountType      |      string, default is ""      |             Dynamic             |      Indicates the RunAs account type. This is needed for any RunAs section Valid values are "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".      |
+|       RunAsPassword        |      string, default is ""      |             Dynamic             |                                     Indicates the RunAs account password. This is only needed for "DomainUser" account type.                                     |
 
 ### Section Name: RunAs_Fabric
-| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
-| --- | --- | --- | --- |
-| RunAsAccountName |string, default is "" |Dynamic|Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|string, default is "" |Dynamic|Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|string, default is "" |Dynamic|Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+
+| <strong>Parameter</strong> | <strong>Allowed Values</strong> | <strong>Upgrade Policy</strong> |                                                          <strong>Guidance or short Description</strong>                                                          |
+|----------------------------|---------------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      RunAsAccountName      |      string, default is ""      |             Dynamic             | Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
+|      RunAsAccountType      |      string, default is ""      |             Dynamic             | Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|       RunAsPassword        |      string, default is ""      |             Dynamic             |                                     Indicates the RunAs account password. This is only needed for "DomainUser" account type.                                     |
 
 ### Section Name: RunAs_HttpGateway
-| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
-| --- | --- | --- | --- |
-| RunAsAccountName |string, default is "" |Dynamic|Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|string, default is "" |Dynamic|Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|string, default is "" |Dynamic|Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+
+| <strong>Parameter</strong> | <strong>Allowed Values</strong> | <strong>Upgrade Policy</strong> |                                                           <strong>Guidance or short Description</strong>                                                           |
+|----------------------------|---------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      RunAsAccountName      |      string, default is ""      |             Dynamic             | Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@"domain"". |
+|      RunAsAccountType      |      string, default is ""      |             Dynamic             |  Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".  |
+|       RunAsPassword        |      string, default is ""      |             Dynamic             |                                      Indicates the RunAs account password. This is only needed for "DomainUser" account type.                                      |
 
 ### Section Name: RunAs_DCA
-| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
-| --- | --- | --- | --- |
-| RunAsAccountName |string, default is "" |Dynamic|Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|string, default is "" |Dynamic|Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|string, default is "" |Dynamic|Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+
+| <strong>Parameter</strong> | <strong>Allowed Values</strong> | <strong>Upgrade Policy</strong> |                                                          <strong>Guidance or short Description</strong>                                                          |
+|----------------------------|---------------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      RunAsAccountName      |      string, default is ""      |             Dynamic             | Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
+|      RunAsAccountType      |      string, default is ""      |             Dynamic             | Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|       RunAsPassword        |      string, default is ""      |             Dynamic             |                                     Indicates the RunAs account password. This is only needed for "DomainUser" account type.                                     |
 
 ### Section Name: HttpGateway
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |IsEnabled|Bool, default is false |Static| Enables/Disables the HttpGateway. HttpGateway is disabled by default. |
@@ -273,6 +293,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |HttpGatewayHealthReportSendInterval |Time in seconds, default is 30 |Static|Specify timespan in seconds. The interval at which the Http Gateway sends accumulated health reports to the Health Manager. |
 
 ### Section Name: KtlLogger
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, default is 1 |Dynamic|Flag that indicates if the memory settings should be automatically and dynamically configured. If zero then the memory configuration settings are used directly and do not change based on system conditions. If one then the memory settings are configured automatically and may change based on system conditions. |
@@ -284,6 +305,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SharedLogSizeInMB |Int, default is 8192 |Static|The number of MB to allocate in the shared log container. |
 
 ### Section Name: ApplicationGateway/Http
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |IsEnabled |Bool, default is false |Static| Enables/Disables the HttpApplicationGateway. HttpApplicationGateway is disabled by default and this config needs to be set to enable it. |
@@ -306,11 +328,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ForwardClientCertificate|bool, default is FALSE|Dynamic| |
 
 ### Section Name: ApplicationGateway/Http/ServiceCommonNameAndIssuer
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, default is None|Dynamic|  |
 
 ### Section Name: Management
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | ImageStoreConnectionString |SecureString |Static|Connection string to the Root for ImageStore. |
@@ -323,6 +347,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableServerSideCopy | Bool, default is false |Static|This configuration enables or disables server-side copy of application package on the ImageStore during application provisioning. |
 
 ### Section Name: HealthManager/ClusterHealthPolicy
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | ConsiderWarningAsError |Bool, default is false |Static|Cluster health evaluation policy: warnings are treated as errors. |
@@ -330,12 +355,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 | MaxPercentUnhealthyApplications | Int, default is 0 |Static|Cluster health evaluation policy: maximum percent of unhealthy applications allowed for the cluster to be healthy. |
 
 ### Section Name: HealthManager/ClusterUpgradeHealthPolicy
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|int, default is 10|Static|Cluster upgrade health evaluation policy: maximum percent of delta unhealthy nodes allowed for the cluster to be healthy |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, default is 15|Static|Cluster upgrade health evaluation policy: maximum percent of delta of unhealthy nodes in an upgrade domain allowed for the cluster to be healthy |
 
 ### Section Name: FaultAnalysisService
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 0 |Static|NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
@@ -352,6 +379,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ReplicaDropWaitDurationInSeconds|int, default is 600|Static|This parameter is used when the data loss api is called.  It controls how long the system will wait for a replica to get dropped after remove replica is internally invoked on it. |
 
 ### Section Name: FileStoreService
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | NamingOperationTimeout |Time in seconds, default is 60 |Dynamic|Specify timespan in seconds. The timeout for performing naming operation. |
@@ -385,6 +413,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |CommonName2Ntlmx509CommonName|string, default is L""|Static|The common name of the X509 certificate used to generate HMAC on the CommonName2NtlmPasswordSecret  when using NTLM authentication |
 
 ### Section Name: ImageStoreService
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | Enabled |Bool, default is false |Static|The Enabled flag for ImageStoreService. Default: false |
@@ -396,6 +425,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | PlacementConstraints | string, default is "" |Static| The PlacementConstraints for ImageStoreService. |
 
 ### Section Name: ImageStoreClient
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | ClientUploadTimeout |Time in seconds, default is 1800 |Dynamic|Specify timespan in seconds. Time out value for top-level upload request to Image Store Service. |
@@ -405,11 +435,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ClientDefaultTimeout | Time in seconds, default is 180 |Dynamic| Specify timespan in seconds. Time out value for all non-upload/non-download requests (e.g. exists; delete) to Image Store Service. |
 
 ### Section Name: TokenValidationService
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | Providers |string, default is "DSTS" |Static|Comma separated list of token validation providers to enable (valid providers are: DSTS; AAD). Currently only a single provider can be enabled at any time. |
 
 ### Section Name: UpgradeOrchestrationService
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 0 |Static |The TargetReplicaSetSize for UpgradeOrchestrationService. |
@@ -422,6 +454,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | UpgradeApprovalRequired | Bool, default is false | Static|Setting to make code upgrade require administrator approval before proceeding. |
 
 ### Section Name: UpgradeService
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | PlacementConstraints |string, default is "" |Not Allowed|The PlacementConstraints for Upgrade service. |
@@ -439,75 +472,84 @@ The following is a list of Fabric settings that you can customize, organized by 
 | TestCabFolder | string, default is "" |Static| TestCabFolder for UpgradeService. |
 
 ### Section Name: Security
-| **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
-| --- | --- | --- | --- |
-|ClusterCredentialType|string, default is L"None"|Not Allowed|Indicates the type of security credentials to use in order to secure the cluster. Valid values are "None/X509/Windows" |
-|ServerAuthCredentialType|string, default is L"None"|Static|Indicates the type of security credentials to use in order to secure the communication between FabricClient and the Cluster. Valid values are "None/X509/Windows" |
-|ClientRoleEnabled|bool, default is FALSE|Static|Indicates if client role is enabled; when set to true; clients are assigned roles based on their identities. For V2; enabling this means client not in AdminClientCommonNames/AdminClientIdentities can only execute read-only operations. |
-|ClusterCertThumbprints|string, default is L""|Dynamic|Thumbprints of certificates allowed to join the cluster; a comma-separated name list. |
-|ServerCertThumbprints|string, default is L""|Dynamic|Thumbprints of server certificates used by cluster to talk to clients; clients use this to authenticate the cluster. It is a comma-separated name list. |
-|ClientCertThumbprints|string, default is L""|Dynamic|Thumbprints of certificates used by clients to talk to the cluster; cluster uses this authorize incoming connection. It is a comma-separated name list. |
-|AdminClientCertThumbprints|string, default is L""|Dynamic|Thumbprints of certificates used by clients in admin role. It is a comma-separated name list. |
-|CrlCheckingFlag|uint, default is 0x40000000|Dynamic|Default certificate chain validation flag; may be overridden by component-specific flag; e.g. Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Setting to 0 disables CRL checking Full list of supported values is documented by dwFlags of CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
-|IgnoreCrlOfflineError|bool, default is FALSE|Dynamic|Whether to ignore CRL offline error when server-side verifies incoming client certificates |
-|IgnoreSvrCrlOfflineError|bool, default is TRUE|Dynamic|Whether to ignore CRL offline error when client side verifies incoming server certificates; default to true. Attacks with revoked server certificates require compromising DNS; harder than with revoked client certificates. |
-|CrlDisablePeriod|TimeSpan, default is Common::TimeSpan::FromMinutes(15)|Dynamic|Specify timespan in seconds. How long CRL checking is disabled for a given certificate after encountering offline error; if CRL offline error can be ignored. |
-|CrlOfflineHealthReportTtl|TimeSpan, default is Common::TimeSpan::FromMinutes(1440)|Dynamic|Specify timespan in seconds. |
-|CertificateHealthReportingInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(3600 * 8)|Static|Specify timespan in seconds. Specify interval for certificate health reporting; default to 8 hours; setting to 0 disables certificate health reporting |
-|CertificateExpirySafetyMargin|TimeSpan, default is Common::TimeSpan::FromMinutes(43200)|Static|Specify timespan in seconds. Safety margin for certificate expiration; certificate health report status changes from OK to Warning when expiration is closer than this. Default is 30 days. |
-|ClientClaimAuthEnabled|bool, default is FALSE|Static|Indicates if claim-based authentication is enabled on clients; setting this true implicitly sets ClientRoleEnabled. |
-|ClientClaims|string, default is L""|Dynamic|All possible claims expected from clients for connecting to gateway. This is a 'OR' list: ClaimsEntry || ClaimsEntry || ClaimsEntry ... each ClaimsEntry is a "AND" list: ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
-|AdminClientClaims|string, default is L""|Dynamic|All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims. |
-|ClusterSpn|string, default is L""|Not Allowed|Service principal name of the cluster; when fabric runs as a single domain user (gMSA/domain user account). It is the SPN of lease listeners and listeners in fabric.exe: federation listeners; internal replication listeners; runtime service listener and naming gateway listener. This should be left empty when fabric runs as machine accounts; in which case connecting side compute listener SPN from listener transport address. |
-|ClusterIdentities|string, default is L""|Dynamic|Windows identities of cluster nodes; used for cluster membership authorization. It is a comma-separated list; each entry is a domain account name or group name |
-|ClientIdentities|string, default is L""|Dynamic|Windows identities of FabricClient; naming gateway uses this to authorize incoming connections. It is a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically allowed; so are group ServiceFabricAllowedUsers and ServiceFabricAdministrators. |
-|AdminClientIdentities|string, default is L""|Dynamic|Windows identities of fabric clients in admin role; used to authorize privileged fabric operations. It is a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically assigned admin role; so is group ServiceFabricAdministrators. |
-|AADTenantId|string, default is L""|Static|Tenant ID (GUID) |
-|AADClusterApplication|string, default is L""|Static|Web API application name or ID representing the cluster |
-|AADClientApplication|string, default is L""|Static|Native Client application name or ID representing Fabric Clients |
-|X509Folder|string, default is /var/lib/waagent|Static|Folder where X509 certificates and private keys are located |
-|FabricHostSpn| string, default is L"" |Static| Service principal name of FabricHost; when fabric runs as a single domain user (gMSA/domain user account) and FabricHost runs under machine account. It is the SPN of IPC listener for FabricHost; which by default should be left empty since FabricHost runs under machine account |
-|DisableFirewallRuleForPublicProfile| bool, default is TRUE | Static|Indicates if firewall rule should not be enabled for public profile |
-|DisableFirewallRuleForPrivateProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for private profile | 
-|DisableFirewallRuleForDomainProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for domain profile |
-|SettingsX509StoreName| string, default is L"MY"| Dynamic|X509 certificate store used by fabric for configuration protection |
+
+|      <strong>Parameter</strong>      |               <strong>Allowed Values</strong>                | <strong>Upgrade Policy</strong> |                                                                                                                                                                                                                                           <strong>Guidance or short Description</strong>                                                                                                                                                                                                                                            |
+|--------------------------------------|--------------------------------------------------------------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        ClusterCredentialType         |                  string, default is L"None"                  |           Not Allowed           |                                                                                                                                                                                                       Indicates the type of security credentials to use in order to secure the cluster. Valid values are "None/X509/Windows"                                                                                                                                                                                                        |
+|       ServerAuthCredentialType       |                  string, default is L"None"                  |             Static              |                                                                                                                                                                                  Indicates the type of security credentials to use in order to secure the communication between FabricClient and the Cluster. Valid values are "None/X509/Windows"                                                                                                                                                                                  |
+|          ClientRoleEnabled           |                    bool, default is FALSE                    |             Static              |                                                                                                                                             Indicates if client role is enabled; when set to true; clients are assigned roles based on their identities. For V2; enabling this means client not in AdminClientCommonNames/AdminClientIdentities can only execute read-only operations.                                                                                                                                              |
+|        ClusterCertThumbprints        |                    string, default is L""                    |             Dynamic             |                                                                                                                                                                                                                        Thumbprints of certificates allowed to join the cluster; a comma-separated name list.                                                                                                                                                                                                                        |
+|        ServerCertThumbprints         |                    string, default is L""                    |             Dynamic             |                                                                                                                                                                                       Thumbprints of server certificates used by cluster to talk to clients; clients use this to authenticate the cluster. It is a comma-separated name list.                                                                                                                                                                                       |
+|        ClientCertThumbprints         |                    string, default is L""                    |             Dynamic             |                                                                                                                                                                                       Thumbprints of certificates used by clients to talk to the cluster; cluster uses this authorize incoming connection. It is a comma-separated name list.                                                                                                                                                                                       |
+|      AdminClientCertThumbprints      |                    string, default is L""                    |             Dynamic             |                                                                                                                                                                                                                    Thumbprints of certificates used by clients in admin role. It is a comma-separated name list.                                                                                                                                                                                                                    |
+|           CrlCheckingFlag            |                 uint, default is 0x40000000                  |             Dynamic             | Default certificate chain validation flag; may be overridden by component-specific flag; e.g. Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Setting to 0 disables CRL checking Full list of supported values is documented by dwFlags of CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|        IgnoreCrlOfflineError         |                    bool, default is FALSE                    |             Dynamic             |                                                                                                                                                                                                                     Whether to ignore CRL offline error when server-side verifies incoming client certificates                                                                                                                                                                                                                      |
+|       IgnoreSvrCrlOfflineError       |                    bool, default is TRUE                     |             Dynamic             |                                                                                                                                                    Whether to ignore CRL offline error when client side verifies incoming server certificates; default to true. Attacks with revoked server certificates require compromising DNS; harder than with revoked client certificates.                                                                                                                                                    |
+|           CrlDisablePeriod           |    TimeSpan, default is Common::TimeSpan::FromMinutes(15)    |             Dynamic             |                                                                                                                                                                                    Specify timespan in seconds. How long CRL checking is disabled for a given certificate after encountering offline error; if CRL offline error can be ignored.                                                                                                                                                                                    |
+|      CrlOfflineHealthReportTtl       |   TimeSpan, default is Common::TimeSpan::FromMinutes(1440)   |             Dynamic             |                                                                                                                                                                                                                                                    Specify timespan in seconds.                                                                                                                                                                                                                                                     |
+|  CertificateHealthReportingInterval  | TimeSpan, default is Common::TimeSpan::FromSeconds(3600 * 8) |             Static              |                                                                                                                                                                                       Specify timespan in seconds. Specify interval for certificate health reporting; default to 8 hours; setting to 0 disables certificate health reporting                                                                                                                                                                                        |
+|    CertificateExpirySafetyMargin     |  TimeSpan, default is Common::TimeSpan::FromMinutes(43200)   |             Static              |                                                                                                                                                                     Specify timespan in seconds. Safety margin for certificate expiration; certificate health report status changes from OK to Warning when expiration is closer than this. Default is 30 days.                                                                                                                                                                     |
+|        ClientClaimAuthEnabled        |                    bool, default is FALSE                    |             Static              |                                                                                                                                                                                                         Indicates if claim-based authentication is enabled on clients; setting this true implicitly sets ClientRoleEnabled.                                                                                                                                                                                                         |
+|             ClientClaims             |                    string, default is L""                    |             Dynamic             |                                                                                                                                                                                                                All possible claims expected from clients for connecting to gateway. This is a 'OR' list: ClaimsEntry                                                                                                                                                                                                                |
+|          AdminClientClaims           |                    string, default is L""                    |             Dynamic             |                                                                                                                                                                     All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims.                                                                                                                                                                     |
+|              ClusterSpn              |                    string, default is L""                    |           Not Allowed           |                                              Service principal name of the cluster; when fabric runs as a single domain user (gMSA/domain user account). It is the SPN of lease listeners and listeners in fabric.exe: federation listeners; internal replication listeners; runtime service listener and naming gateway listener. This should be left empty when fabric runs as machine accounts; in which case connecting side compute listener SPN from listener transport address.                                              |
+|          ClusterIdentities           |                    string, default is L""                    |             Dynamic             |                                                                                                                                                                                   Windows identities of cluster nodes; used for cluster membership authorization. It is a comma-separated list; each entry is a domain account name or group name                                                                                                                                                                                   |
+|           ClientIdentities           |                    string, default is L""                    |             Dynamic             |                                                                                                Windows identities of FabricClient; naming gateway uses this to authorize incoming connections. It is a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically allowed; so are group ServiceFabricAllowedUsers and ServiceFabricAdministrators.                                                                                                 |
+|        AdminClientIdentities         |                    string, default is L""                    |             Dynamic             |                                                                                                        Windows identities of fabric clients in admin role; used to authorize privileged fabric operations. It is a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically assigned admin role; so is group ServiceFabricAdministrators.                                                                                                        |
+|             AADTenantId              |                    string, default is L""                    |             Static              |                                                                                                                                                                                                                                                          Tenant ID (GUID)                                                                                                                                                                                                                                                           |
+|        AADClusterApplication         |                    string, default is L""                    |             Static              |                                                                                                                                                                                                                                       Web API application name or ID representing the cluster                                                                                                                                                                                                                                       |
+|         AADClientApplication         |                    string, default is L""                    |             Static              |                                                                                                                                                                                                                                  Native Client application name or ID representing Fabric Clients                                                                                                                                                                                                                                   |
+|              X509Folder              |             string, default is /var/lib/waagent              |             Static              |                                                                                                                                                                                                                                     Folder where X509 certificates and private keys are located                                                                                                                                                                                                                                     |
+|            FabricHostSpn             |                    string, default is L""                    |             Static              |                                                                                                                        Service principal name of FabricHost; when fabric runs as a single domain user (gMSA/domain user account) and FabricHost runs under machine account. It is the SPN of IPC listener for FabricHost; which by default should be left empty since FabricHost runs under machine account                                                                                                                         |
+| DisableFirewallRuleForPublicProfile  |                    bool, default is TRUE                     |             Static              |                                                                                                                                                                                                                                 Indicates if firewall rule should not be enabled for public profile                                                                                                                                                                                                                                 |
+| DisableFirewallRuleForPrivateProfile |                    bool, default is TRUE                     |             Static              |                                                                                                                                                                                                                                Indicates if firewall rule should not be enabled for private profile                                                                                                                                                                                                                                 |
+| DisableFirewallRuleForDomainProfile  |                    bool, default is TRUE                     |             Static              |                                                                                                                                                                                                                                 Indicates if firewall rule should not be enabled for domain profile                                                                                                                                                                                                                                 |
+|        SettingsX509StoreName         |                   string, default is L"MY"                   |             Dynamic             |                                                                                                                                                                                                                                 X509 certificate store used by fabric for configuration protection                                                                                                                                                                                                                                  |
 
 ### Section Name: Security/AdminClientX509Names
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, default is None|Dynamic| |
 
 ### Section Name: Security/ClientX509Names
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, default is None|Dynamic| |
 
 ### Section Name: Security/ClusterX509Names
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, default is None|Dynamic| |
 
 ### Section Name: Security/ServerX509Names
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, default is None|Dynamic| |
 
 ### Section Name: Security/ClientCertificateIssuerStores
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, default is None |Dynamic|X509 issuer certificate stores for client certificates; Name = clientIssuerCN; Value = comma separated list of stores |
 
 ### Section Name: Security/ClusterCertificateIssuerStores
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, default is None |Dynamic|X509 issuer certificate stores for cluster certificates; Name = clusterIssuerCN; Value = comma separated list of stores |
 
 ### Section Name: Security/ServerCertificateIssuerStores
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, default is None |Dynamic|X509 issuer certificate stores for server certificates; Name = serverIssuerCN; Value = comma separated list of stores |
 
 ### Section Name: Security/ClientAccess
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | CreateName |string, default is "Admin" |Dynamic|Security configuration for Naming URI creation. |
@@ -601,6 +643,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SetUpgradeOrchestrationServiceState|string, default is L"Admin"| Dynamic|Induces SetUpgradeOrchestrationServiceState on a partition |
 
 ### Section Name: ReconfigurationAgent
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Time in seconds, default is 900 |Dynamic|Specify timespan in seconds. The duration for which the system will wait before terminating service hosts that have replicas that are stuck in close during Application Upgrade.|
@@ -614,6 +657,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ReplicaChangeRoleFailureWarningReportThreshold|int, default is 2147483647|Dynamic| Integer. Specify the number of API failures during primary promotion after which warning health report will be raised.|
 
 ### Section Name: PlacementAndLoadBalancing
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | TraceCRMReasons |Bool, default is true |Dynamic|Specifies whether to trace reasons for CRM issued movements to the operational events channel. |
@@ -669,6 +713,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AutoDetectAvailableResources|bool, default is TRUE|Static|This config will trigger auto detection of available resources on node (CPU and Memory) When this config is set to true - we will read real capacities and correct them if user specified bad node capacities or didn't define them at all If this config is set to false - we will trace a warning that user specified bad node capacities; but we will not correct them; meaning that user wants to have the capacities specified as > than the node really has or if capacities are undefined; it will assume unlimited capacity |
 
 ### Section Name: Hosting
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Time in Seconds, default is 300 |Dynamic|Maximum time allowed for the ServiceType to be  registered with fabric |
@@ -702,12 +747,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 |EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
 
 ### Section Name: Federation
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | LeaseDuration |Time in seconds, default is 30 |Dynamic|Duration that a lease lasts between a node and its neighbors. |
 | LeaseDurationAcrossFaultDomain |Time in seconds, default is 30 |Dynamic|Duration that a lease lasts between a node and its neighbors across fault domains. |
 
 ### Section Name: ClusterManager
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | UpgradeStatusPollInterval |Time in seconds, default is 60 |Dynamic|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |
@@ -736,42 +783,50 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ReplicaSetCheckTimeoutRollbackOverride |Time in seconds, default is 1200 |Dynamic| Specify timespan in seconds. If ReplicaSetCheckTimeout is set to the maximum value of DWORD; then it's overridden with the value of this config for the purposes of rollback. The value used for roll-forward is never overridden. |
 
 ### Section Name: DefragmentationEmptyNodeDistributionPolicy
+
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, default is None|Dynamic|Specifies the policy defragmentation follows when emptying nodes. For a given metric 0 indicates that SF should try to defragment nodes evenly across UDs and FDs; 1 indicates only that the nodes must be defragmented |
 
 ### Section Name: DefragmentationMetrics
+
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, default is None|Dynamic|Determines the set of metrics that should be used for defragmentation and not for load balancing. |
 
 ### Section Name: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
+
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, default is None|Dynamic|Determines the number of free nodes which are needed to consider cluster defragmented by specifying either percent in range [0.0 - 1.0) or number of empty nodes as number >= 1.0 |
 
 ### Section Name: DnsService
+
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, default is FALSE|Static| |
 |InstanceCount|int, default is -1|Static|  |
 
 ### Section Name: MetricActivityThresholds
+
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, default is None|Dynamic|Determines the set of MetricActivityThresholds for the metrics in the cluster. Balancing will work if maxNodeLoad is greater than MetricActivityThresholds. For defrag metrics it defines the amount of load equal to or below which Service Fabric will consider the node empty |
 
 ### Section Name: MetricBalancingThresholds
+
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, default is None|Dynamic|Determines the set of MetricBalancingThresholds for the metrics in the cluster. Balancing will work if maxNodeLoad/minNodeLoad is greater than MetricBalancingThresholds. Defragmentation will work if maxNodeLoad/minNodeLoad in at least one FD or UD is smaller than MetricBalancingThresholds. |
 
 ### Section Name: NodeBufferPercentage
+
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, default is None|Dynamic|Node capacity percentage per metric name; used as a buffer in order to keep some free place on a node for the failover case. |
 
 ### Section Name: Replication
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy**| **Guidance or short Description** |
 | --- | --- | --- | --- |
 |MaxCopyQueueSize|uint, default is 1024|Static|This is the maximum value defines the initial size for the queue which maintains replication operations.  Note that it must be a power of 2.  If during runtime the queue grows to this size operation will be throttled between the primary and secondary replicators.|
@@ -789,6 +844,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |RetryInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(5)|Static|Specify timespan in seconds. When an operation is lost or rejected this timer determines how often the replicator will retry sending the operation.|
 
 ### Section Name: Transport
+
 | **Parameter** | **Allowed Values** |**Upgrade policy** |**Guidance or short Description** |
 | --- | --- | --- | --- |
 |ResolveOption|string, default is L"unspecified"|Static|Determines how FQDN is resolved.  Valid values are "unspecified/ipv4/ipv6". |

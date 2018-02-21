@@ -54,7 +54,7 @@ Azure API Management provides you the ability to customize the content of develo
             {% endif %}  
                 <h3><a href="/applications/details/{{app.application.id}}">{{app.application.title}}</a></h3>  
                 {{app.application.description}}  
-            </li>	  
+            </li>     
         {% endfor %}  
         </ul>  
         <paging-control></paging-control>  

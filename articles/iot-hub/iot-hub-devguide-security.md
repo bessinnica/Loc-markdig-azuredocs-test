@@ -219,7 +219,6 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
     return token;
 }
-
 ```
 
 

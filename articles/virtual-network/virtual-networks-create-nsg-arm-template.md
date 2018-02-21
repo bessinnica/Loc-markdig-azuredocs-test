@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create network security groups - Azure Resource Manager Template| Microsoft Docs
 description: Learn how to create and deploy network security groups using an Azure Resource Manager template.
 services: virtual-network
@@ -103,13 +103,13 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 1. If you have never used Azure PowerShell, follow the instructions in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) to install and configure it.
 2. Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 
-	```powershell
-	New-AzureRmResourceGroup -Name TestRG -Location uswest `
-	-TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-	-TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-	```
+    ```powershell
+    New-AzureRmResourceGroup -Name TestRG -Location uswest `
+    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
+    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+    ```
 
-	Expected output:
+    Expected output:
 
         ResourceGroupName : TestRG
         Location          : westus
@@ -151,21 +151,21 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
-	```azurecli
-	azure config mode arm
-	```
+    ```azurecli
+    azure config mode arm
+    ```
 
-	The following is the expected output for the command:
+    The following is the expected output for the command:
 
         info:    New mode is arm
 
 3. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-	```azurecli
-	azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-	```
+    ```azurecli
+    azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+    ```
 
-	Expected output:
+    Expected output:
    
         info:    Executing command group create
         info:    Getting resource group TestRG

@@ -62,7 +62,6 @@ Before you create a key vault, create a resource group so that all of the resour
 
 ```PowerShell
 New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
-
 ```
 
 **Output**
@@ -80,7 +79,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![New key vault](media/azure-stack-kv-manage-powershell/image4.png)
 
-The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it uses the **Vault URI** property shown in the output. For example, the vault Uniform Resource Identifier (URI) in this case is "https://vault01.vault.local.azurestack.external". Applications that interact with this key vault through REST API must use this URI.
+The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it uses the <strong>Vault URI</strong> property shown in the output. For example, the vault Uniform Resource Identifier (URI) in this case is "<https://vault01.vault.local.azurestack.external>". Applications that interact with this key vault through REST API must use this URI.
 
 In Active Directory Federation Services (AD FS)-based deployments, when you create a key vault by using PowerShell, you might receive a warning that says "Access policy is not set. No user or application has access permission to use this vault." To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) command:
 
@@ -112,8 +111,8 @@ The **Destination** parameter is used to specify that the key is software protec
 
 You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key. You can access the previous version by using the version-specific URI of the key. For example: 
 
-* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" to always get the current version. 
-* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" to get this specific version.
+* Use "<https://vault10.vault.local.azurestack.external:443/keys/key01>" to always get the current version. 
+* Use "<https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a>" to get this specific version.
 
 ### Get a key
 

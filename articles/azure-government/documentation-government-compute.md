@@ -24,6 +24,7 @@ For details on this service and how to use it, see [Azure Virtual Machines Sizes
 ### Variations
 For available virtual machine sizes in Azure Government, see <a href="https://azure.microsoft.com/regions/services/">Products Available by Region</a>
 
+
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
 
@@ -70,8 +71,8 @@ The URLs for Function are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| Functions | .azurewebsites.net | .azurewebsites.us|	
-	
+| Functions | .azurewebsites.net | .azurewebsites.us|   
+
 ### Quickstarts
 The [Functions Quickstart for Government](documentation-government-functions.md) will guide you through creating your first Azure Function on Azure Government and contains other useful tutorials. 
 
@@ -88,4 +89,5 @@ For details on this service and how to use it, see [Azure Service Fabric documen
 ## Next Steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+
 

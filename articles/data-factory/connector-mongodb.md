@@ -113,7 +113,6 @@ To copy data from MongoDB, set the type property of the dataset to **MongoDbColl
             "collectionName": "<Collection name>"
         }
     }
-
 ```
 
 ## Copy activity properties

@@ -44,11 +44,11 @@ The following diagram shows the logical connectivity of an on-premises network t
 
 ## Calculate the maximum expected ingress/egress
 
-1.	Determine your application's baseline throughput requirements.
-2.	Determine your Azure VPN gateway throughput limits. For help, see the "Aggregate throughput by SKU and VPN type" section of [Planning and design for VPN Gateway](vpn-gateway-plan-design.md).
-3.	Determine the [Azure VM throughput guidance](../virtual-machines/virtual-machines-windows-sizes.md) for your VM size.
-4.	Determine your Internet Service Provider (ISP) bandwidth.
-5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
+1.  Determine your application's baseline throughput requirements.
+2.  Determine your Azure VPN gateway throughput limits. For help, see the "Aggregate throughput by SKU and VPN type" section of [Planning and design for VPN Gateway](vpn-gateway-plan-design.md).
+3.  Determine the [Azure VM throughput guidance](../virtual-machines/virtual-machines-windows-sizes.md) for your VM size.
+4.  Determine your Internet Service Provider (ISP) bandwidth.
+5.  Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
 
 If your calculated throughput does not meet your application's baseline throughput requirements, you need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing expected Internet bandwidth, you may also want to contact your ISP.
 
@@ -73,45 +73,46 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 2. On both nodes, enable a firewall exception for port 5001.
 
-	**Windows:** Run the following command as an administrator:
+    **Windows:** Run the following command as an administrator:
 
-	```CMD
-	netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
-	```
+    ```CMD
+    netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
+    ```
 
-	To remove the rule when testing is complete, run this command:
+    To remove the rule when testing is complete, run this command:
 
-	```CMD
-	netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
-	```
-	</br>
-	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
+    ```CMD
+    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
+    ```
+    </br>
+ 
+   <strong>Azure Linux:</strong>  Azure Linux images have permissive firewalls. If there is an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
 
 3. On the server node, change to the directory where iperf3.exe is extracted. Then run iPerf in server mode and set it to listen on port 5001 as the following commands:
 
-	 ```CMD
-	 cd c:\iperf-3.1.2-win65
+     ```CMD
+     cd c:\iperf-3.1.2-win65
 
-	 iperf3.exe -s -p 5001
-	 ```
+     iperf3.exe -s -p 5001
+     ```
 
 4. On the client node, change to the directory where iperf tool is extracted and then run the following command:
 
-	```CMD
-	iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
-	```
+    ```CMD
+    iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
+    ```
 
-	The client is inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
+    The client is inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
 
-	The following screen shows the output from this example:
+    The following screen shows the output from this example:
 
-	![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
+    ![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 5. (OPTIONAL) To preserve the testing results, run this command:
 
-	```CMD
-	iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
-	```
+    ```CMD
+    iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
+    ```
 
 6. After completing the previous steps, execute the same steps with the roles reversed, so that the server node will now be the client and vice-versa.
 

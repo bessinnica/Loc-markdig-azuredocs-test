@@ -51,19 +51,19 @@ Once the STONITH device is configured, Microsoft Service Management team does pr
 
 To set up the end to end HA using STONITH, the following steps needs to be followed:
 
-1.	Identify the SBD device
-2.	Initialize the SBD device
-3.	Configuring the Cluster
-4.	Setting Up the Softdog Watchdog
-5.	Join the node to the cluster
-6.	Validate the cluster
-7.	Configure the resources to the cluster
-8.	Test the failover process
+1.  Identify the SBD device
+2.  Initialize the SBD device
+3.  Configuring the Cluster
+4.  Setting Up the Softdog Watchdog
+5.  Join the node to the cluster
+6.  Validate the cluster
+7.  Configure the resources to the cluster
+8.  Test the failover process
 
-## 1.	Identify the SBD device
+## 1.   Identify the SBD device
 This section describes on how to determine the SBD device for your set up after Microsoft service management team has configured the STONITH. **This section only applies to the existing customer**. If you are a new customer, Microsoft service management team does provide SBD device name to you and you can skip this section.
 
-1.1	Modify */etc/iscsi/initiatorname.isci* to 
+1.1 Modify */etc/iscsi/initiatorname.isci* to 
 ``` 
 iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
 ```
@@ -74,7 +74,7 @@ Microsoft service management does provide this string. Modify the file on **both
 
 1.2 Modify */etc/iscsi/iscsid.conf*: Set *node.session.timeo.replacement_timeout=5* and *node.startup = automatic*. Modify the file on **both** the nodes.
 
-1.3	Execute the discovery command, it shows four sessions. Run it on both the nodes.
+1.3 Execute the discovery command, it shows four sessions. Run it on both the nodes.
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -82,7 +82,7 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4	Execute the command to log in to the iSCSI device, it shows four sessions. Run it on **both** the nodes.
+1.4 Execute the command to log in to the iSCSI device, it shows four sessions. Run it on **both** the nodes.
 
 ```
 iscsiadm -m node -l
@@ -96,7 +96,7 @@ rescan-scsi-bus.sh
 ```
 ![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-1.6	To get the device name run the command *fdisk –l*. Run it on both the nodes. Pick the device with the size of **178 MiB**.
+1.6 To get the device name run the command *fdisk –l*. Run it on both the nodes. Pick the device with the size of **178 MiB**.
 
 ```
   fdisk –l
@@ -104,25 +104,25 @@ rescan-scsi-bus.sh
 
 ![fdisk-l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
-## 2.	Initialize the SBD device
+## 2.   Initialize the SBD device
 
-2.1	Initialize the SBD device on **both** the nodes
+2.1 Initialize the SBD device on **both** the nodes
 
 ```
 sbd -d <SBD Device Name> create
 ```
 ![sbdcreate.png](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
 
-2.2	Check what has been written to the device. Do it on **both** the nodes
+2.2 Check what has been written to the device. Do it on **both** the nodes
 
 ```
 sbd -d <SBD Device Name> dump
 ```
 
-## 3.	Configuring the Cluster
+## 3.   Configuring the Cluster
 This section describes the steps to set up the SUSE HA cluster.
-### 3.1	Package installation
-3.1.1	Please check that ha_sles and SAPHanaSR-doc patterns are installed. If it is not installed, install them. Install it on **both** the nodes.
+### 3.1 Package installation
+3.1.1   Please check that ha_sles and SAPHanaSR-doc patterns are installed. If it is not installed, install them. Install it on **both** the nodes.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -130,8 +130,8 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternha_sles.png](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
-### 3.2	Setting up the cluster
-3.2.1	You can either use *ha-cluster-init* command, or use the yast2 wizard to set up the cluster. In this case, we used yast2 wizard. You perform this step **only on the Primary node**.
+### 3.2 Setting up the cluster
+3.2.1   You can either use *ha-cluster-init* command, or use the yast2 wizard to set up the cluster. In this case, we used yast2 wizard. You perform this step **only on the Primary node**.
 
 Follow yast2> High Availability > Cluster 
 ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
@@ -167,58 +167,58 @@ Click **Next**
 In the default option, Booting was off, change it to “on” so pacemaker is started on boot. You can make the choice based on your set up requirements.
 Click **Next** and the cluster configuration is complete.
 
-## 4.	Setting Up the Softdog Watchdog
+## 4.   Setting Up the Softdog Watchdog
 This section describes the configuration of the watchdog (softdog).
 
-4.1	Add the following line to */etc/init.d/boot.local* on **both** the nodes.
+4.1 Add the following line to */etc/init.d/boot.local* on **both** the nodes.
 ```
 modprobe softdog
 ```
 ![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2	Update the file */etc/sysconfig/sbd* on **both** the nodes as following:
+4.2 Update the file */etc/sysconfig/sbd* on **both** the nodes as following:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
 ![sbd-device.png](media/HowToHLI/HASetupWithStonith/sbd-device.png)
 
-4.3	Load the kernel module on **both** the nodes by running the following command
+4.3 Load the kernel module on **both** the nodes by running the following command
 ```
 modprobe softdog
 ```
 ![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4.4	Check and ensure that softdog is running as following on **both** the nodes:
+4.4 Check and ensure that softdog is running as following on **both** the nodes:
 ```
 lsmod | grep dog
 ```
 ![lsmod-grep-dog.png](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
 
-4.5	Start the SBD device on **both** the nodes
+4.5 Start the SBD device on **both** the nodes
 ```
 /usr/share/sbd/sbd.sh start
 ```
 ![sbd-sh-start.png](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
 
-4.6	Test the SBD daemon on **both** the nodes. You see two entries after you configure it on **both** the nodes
+4.6 Test the SBD daemon on **both** the nodes. You see two entries after you configure it on **both** the nodes
 ```
 sbd -d <SBD Device Name> list
 ```
 ![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
-4.7	Send a test message to **one** of your nodes
+4.7 Send a test message to **one** of your nodes
 ```
 sbd  -d <SBD Device Name> message <node2> <message>
 ```
 ![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
-4.8	On the **Second** node (node2) you can check the message status
+4.8 On the **Second** node (node2) you can check the message status
 ```
 sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9	To adopt the sbd config, update the file */etc/sysconfig/sbd* as following. Update the file on **both** the nodes
+4.9 To adopt the sbd config, update the file */etc/sysconfig/sbd* as following. Update the file on **both** the nodes
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -226,7 +226,7 @@ SBD_PACEMAKER="yes"
 SBD_STARTMODE="clean" 
 SBD_OPTS=""
 ```
-4.10	Start the pacemaker service on the **Primary node** (node1)
+4.10    Start the pacemaker service on the **Primary node** (node1)
 ```
 systemctl start pacemaker
 ```
@@ -234,17 +234,17 @@ systemctl start pacemaker
 
 If the pacemaker service *fails*, refer to *Scenario 5: Pacemaker service fails*
 
-## 5.	Joining the cluster
+## 5.   Joining the cluster
 This section describes on how to join the node to the cluster.
 
-### 5.1	Add the node
+### 5.1 Add the node
 Run the following command on **node2** to let node2 join the cluster.
 ```
 ha-cluster-join
 ```
 If you receive an *error* during joining the cluster, refer *Scenario 6: Node 2 unable to join the cluster*.
 
-## 6.	Validating the cluster
+## 6.   Validating the cluster
 
 ### 6.1 Start the cluster service
 To check and optionally start the cluster for the first time on **both** nodes.

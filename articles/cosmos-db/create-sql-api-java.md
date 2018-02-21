@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Create a document database using Java and the Azure portal
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases.
 
@@ -28,7 +28,8 @@ This quickstart creates a document database using the Azure portal tools for Azu
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 In addition: 
@@ -52,6 +53,7 @@ Before you can create a document database, you need to create a SQL database acc
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
+
 ## Add sample data
 
 You can now add data to your new collection using Data Explorer.
@@ -59,7 +61,7 @@ You can now add data to your new collection using Data Explorer.
 1. Expand the **Items** collection, click **Documents** > **New Document**.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
+
 2. Now add a document to the collection with the following structure and click **Save**.
 
      ```json
@@ -132,7 +134,7 @@ This step is optional. If you're interested in learning how the database resourc
     ```java
     Database database = new Database();
     database.setId(databaseName);
-    
+
     this.client.createDatabase(database, null);
     ```
 
@@ -195,7 +197,7 @@ Now go back to the Azure portal to get your connection string information and co
 4. Go back to portal and copy the PRIMARY KEY value as shown in the screenshot. Paste the PRIMARY KEY value from the portal over `FILLME` on line 46.
 
     The getStartedDemo method should now look similar to this: 
-    
+
     ```java
     private void getStartedDemo() throws DocumentClientException, IOException {
         this.client = new DocumentClient("https://youraccountname.documents.azure.com:443/",
@@ -227,13 +229,13 @@ Now go back to the Azure portal to get your connection string information and co
     ```
 
     The terminal window displays a notification that the FamilyDB database was created. 
-    
+
 4. Press a key to create the collection. 
 
 5. Switch back to the Data Explorer and you'll see that it now contains a FamilyDB database.
-    
+
 6. Continue to press keys in the console window to have the code create documents and perform a query.
-    
+
     At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges. 
 
     ![Console output](./media/create-sql-api-java/console-output.png)

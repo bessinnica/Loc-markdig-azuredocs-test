@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Azure AD Privileged Identity Management | Microsoft Docs
 description: A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security.
 services: active-directory
@@ -30,7 +30,7 @@ Azure AD Privileged Identity Management helps your organization:
 
 - See which users are assigned privileged roles to manage Azure resources (Preview), as well as which users are assigned administrative roles in Azure AD
 - Enable on-demand, "just in time" administrative access to Microsoft Online Services like Office 365 and Intune, and to Azure resources (Preview) of subscriptions, resource groups, and individual resources such as Virtual Machines 
--	See a history of administrator activation, including what changes administrators made to Azure resources (Preview)
+-   See a history of administrator activation, including what changes administrators made to Azure resources (Preview)
 - Get alerts about changes in administrator assignments
 - Require approval to activate Azure AD privileged admin roles (Preview) 
 - Review membership of administrative roles and require users to provide a justification for continued membership
@@ -86,8 +86,8 @@ Azure AD Privileged Identity Manager provides an admin dashboard that gives you 
 * The number of users who are assigned to each privileged role  
 * The number of eligible and permanent admins
 * A graph of privileged role activations in your directory
-*	The number of Just-In-Time, Time-bound, and Permanent assignments for Azure Resource roles (Preview)
-*	Users and groups with new role assignments in the last 30 days (Azure Resource roles)
+*   The number of Just-In-Time, Time-bound, and Permanent assignments for Azure Resource roles (Preview)
+*   Users and groups with new role assignments in the last 30 days (Azure Resource roles)
 
 
 ![PIM dashboard - screenshot][2]

@@ -33,13 +33,13 @@ The Azure Migrate Service assists with migration of on-premises virtual machines
 
 ### Q. What is a summary of the steps required to use the Azure Database Migration Service to perform a database migration?
 During a typical, simple database migration, you:
-1.	Create a target database(s).
-2.	Migrate the database(s) schema by using the [Database Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595).
-3.	Create an instance of the Azure Database Migration Service.
-4.	Create a migration project specifying the source database(s), target database(s), and tables to migrate.
-5.	Initiate the full load.
-6.	Pick the subsequent validation.
-7.	Perform a manual switchover of your production environment to the new cloud-based database. 
+1.  Create a target database(s).
+2.  Migrate the database(s) schema by using the [Database Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595).
+3.  Create an instance of the Azure Database Migration Service.
+4.  Create a migration project specifying the source database(s), target database(s), and tables to migrate.
+5.  Initiate the full load.
+6.  Pick the subsequent validation.
+7.  Perform a manual switchover of your production environment to the new cloud-based database. 
 
 ### Q. What are the prerequisites for using the Azure Database Migration Service?
 There are several prerequisites required to ensure that the Azure Database Migration Service runs smoothly when performing database migrations. Some of the prerequisites apply across all scenarios (source-target pairs) supported by the service, while other prerequisites are unique to a specific scenario.

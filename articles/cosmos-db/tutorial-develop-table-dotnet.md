@@ -73,7 +73,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 > You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs. 
 >
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
+[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Clone the sample application
 

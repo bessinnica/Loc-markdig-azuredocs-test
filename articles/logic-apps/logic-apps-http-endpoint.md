@@ -194,6 +194,7 @@ but replace `{customerID}` with `123456`, and press Enter.
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### Tokens generated from JSON schemas for your logic app
 
 When you provide a JSON schema in your **Request** trigger, 
@@ -320,7 +321,7 @@ Here's what the JSON schema looks like now for the **Response** action:
          "name": "@{triggerBody()?['name']}"
       },
       "headers": {
-		   "content-type": "application/json"
+           "content-type": "application/json"
       },
       "statusCode": 200
    },

@@ -61,14 +61,14 @@ Install the following NuGet packages for the TermLists project.
 
 Modify the program's using statements as follows.
 
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Threading;
-	using Microsoft.Azure.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
+    using Microsoft.CognitiveServices.ContentModerator;
+    using Microsoft.CognitiveServices.ContentModerator.Models;
+    using Newtonsoft.Json;
 
 
 ### Add private properties
@@ -78,51 +78,51 @@ Add the following private properties to namespace VideoTranscriptReviews, class 
 Where indicated, replace the example values for these properties.
 
 
-	namespace VideoReviews
-	{
-    	class Program
-    	{
-	        // NOTE: Replace this example location with the location for your Content Moderator account.
-	        /// <summary>
-	        /// The region/location for your Content Moderator account, 
-	        /// for example, westus.
-	        /// </summary>
-	        private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
+    namespace VideoReviews
+    {
+        class Program
+        {
+            // NOTE: Replace this example location with the location for your Content Moderator account.
+            /// <summary>
+            /// The region/location for your Content Moderator account, 
+            /// for example, westus.
+            /// </summary>
+            private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
 
-	        // NOTE: Replace this example key with a valid subscription key.
-	        /// <summary>
-	        /// Your Content Moderator subscription key.
-	        /// </summary>
-	        private static readonly string CMSubscriptionKey = "YOUR CONTENT MODERATOR KEY";
+            // NOTE: Replace this example key with a valid subscription key.
+            /// <summary>
+            /// Your Content Moderator subscription key.
+            /// </summary>
+            private static readonly string CMSubscriptionKey = "YOUR CONTENT MODERATOR KEY";
 
-	        // NOTE: Replace this example team name with your Content Moderator team name.
-	        /// <summary>
-	        /// The name of the team to assign the job to.
-	        /// </summary>
-	        /// <remarks>This must be the team name you used to create your 
-	        /// Content Moderator account. You can retrieve your team name from
-	        /// the Conent Moderator web site. Your team name is the Id associated 
-	        /// with your subscription.</remarks>
-	        public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+            // NOTE: Replace this example team name with your Content Moderator team name.
+            /// <summary>
+            /// The name of the team to assign the job to.
+            /// </summary>
+            /// <remarks>This must be the team name you used to create your 
+            /// Content Moderator account. You can retrieve your team name from
+            /// the Conent Moderator web site. Your team name is the Id associated 
+            /// with your subscription.</remarks>
+            public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
-	        /// <summary>
-	        /// The base URL fragment for Content Moderator calls.
-	        /// </summary>
-	        private static readonly string AzureBaseURL =
-	            $"{AzureRegion}.api.cognitive.microsoft.com";
+            /// <summary>
+            /// The base URL fragment for Content Moderator calls.
+            /// </summary>
+            private static readonly string AzureBaseURL =
+                $"{AzureRegion}.api.cognitive.microsoft.com";
 
-	        /// <summary>
-	        /// The minimum amount of time, in milliseconds, to wait between calls
-	        /// to the Content Moderator APIs.
-	        /// </summary>
-	        private const int throttleRate = 2000;
+            /// <summary>
+            /// The minimum amount of time, in milliseconds, to wait between calls
+            /// to the Content Moderator APIs.
+            /// </summary>
+            private const int throttleRate = 2000;
 
 
 ### Create Content Moderator Client object
 
 Add the following method definition to namespace VideoTranscriptReviews, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Returns a new Content Moderator client for your subscription.
     /// </summary>
     /// <returns>The new client.</returns>
@@ -131,9 +131,9 @@ Add the following method definition to namespace VideoTranscriptReviews, class P
     /// you should dispose of it either directly or indirectly. </remarks>
     public static ContentModeratorClient NewClient()
     {
-    	return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
+        return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-        	BaseUrl = AzureBaseURL
+            BaseUrl = AzureBaseURL
         };
     }
 
@@ -143,8 +143,8 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 
 **CreateVideoReviews** has the following required parameters:
 1. A string that contains a MIME type, which should be "application/json." 
-1. Your Content Moderator team name.
-1. An **IList<CreateVideoReviewsBodyItem>** object. Each **CreateVideoReviewsBodyItem** object represents a video review. This quickstart creates one review at a time.
+2. Your Content Moderator team name.
+3. An <strong>IList<CreateVideoReviewsBodyItem></strong> object. Each <strong>CreateVideoReviewsBodyItem</strong> object represents a video review. This quickstart creates one review at a time.
 
 **CreateVideoReviewsBodyItem** has several properties. At a minimum, you set the following properties:
 - **Content**. The URL of the video to be reviewed.
@@ -157,7 +157,7 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 
 Add the following method definition to namespace VideoReviews, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Create a video review. For more information, see the API reference:
     /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 
     /// </summary>
@@ -167,17 +167,17 @@ Add the following method definition to namespace VideoReviews, class Program.
     /// <returns>The ID of the video review.</returns>
     private static string CreateReview(ContentModeratorClient client, string id, string content)
     {
-    	Console.WriteLine("Creating a video review.");
+        Console.WriteLine("Creating a video review.");
 
         List<CreateVideoReviewsBodyItem> body = new List<CreateVideoReviewsBodyItem>() {
-        	new CreateVideoReviewsBodyItem
-        	{
-        		Content = content,
-            	ContentId = id,
-            	/* Note: to create a published review, set the Status to "Pending".
-            	However, you cannot add video frames or a transcript to a published review. */
-            	Status = "Unpublished",
-        	}
+            new CreateVideoReviewsBodyItem
+            {
+                Content = content,
+                ContentId = id,
+                /* Note: to create a published review, set the Status to "Pending".
+                However, you cannot add video frames or a transcript to a published review. */
+                Status = "Unpublished",
+            }
         };
 
         var result = client.Reviews.CreateVideoReviews("application/json", TeamName, body);
@@ -209,7 +209,7 @@ The transcript must be in the WebVTT format. For more information, see [WebVTT: 
 
 Add the following method definition to namespace VideotranscriptReviews, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Add a transcript to the indicated video review.
     /// The transcript must be in the WebVTT format.
     /// For more information, see the API reference:
@@ -220,7 +220,7 @@ Add the following method definition to namespace VideotranscriptReviews, class P
     /// <param name="transcript">The video transcript.</param>
     static void AddTranscript(ContentModeratorClient client, string review_id, string transcript)
     {
-    	Console.WriteLine("Adding a transcript to the review with ID {0}.", review_id);
+        Console.WriteLine("Adding a transcript to the review with ID {0}.", review_id);
         client.Reviews.AddVideoTranscript(TeamName, review_id, new MemoryStream(System.Text.Encoding.UTF8.GetBytes(transcript)));
         Thread.Sleep(throttleRate);
     }
@@ -231,19 +231,19 @@ In addition to adding a transcript to a video review, you also add the result of
 
 **AddVideoTranscriptModerationResult** has the following required parameters:
 1. A string that contains a MIME type, which should be "application/json." 
-1. Your Content Moderator team name.
-1. The video review ID returned by **CreateVideoReviews**.
-1. An IList<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** has the following properties:
-- **Terms**. An IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
-- **Index**. The zero-based index of the term.
-- **Term**. A string that contains the term.
-- **Timestamp**. A string that contains, in seconds, the time in the transcript at which the terms are found.
+2. Your Content Moderator team name.
+3. The video review ID returned by **CreateVideoReviews**.
+4. An IList<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** has the following properties:
+5. **Terms**. An IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
+6. **Index**. The zero-based index of the term.
+7. **Term**. A string that contains the term.
+8. **Timestamp**. A string that contains, in seconds, the time in the transcript at which the terms are found.
 
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
 Add the following method definition to namespace VideoTranscriptReviews, class Program. This method submits a transcript to the **ContentModeratorClient.TextModeration.ScreenText** method. It also translates the result into an IList<TranscriptModerationBodyItem>, and submits to **AddVideoTranscriptModerationResult**.
 
-	/// <summary>
+    /// <summary>
     /// Add the results of moderating a video transcript to the indicated video review.
     /// For more information, see the API reference:
     /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff
@@ -253,7 +253,7 @@ Add the following method definition to namespace VideoTranscriptReviews, class P
     /// <param name="transcript">The video transcript.</param>
     static void AddTranscriptModerationResult(ContentModeratorClient client, string review_id, string transcript)
     {
-    	Console.WriteLine("Adding a transcript moderation result to the review with ID {0}.", review_id);
+        Console.WriteLine("Adding a transcript moderation result to the review with ID {0}.", review_id);
 
         // Screen the transcript using the Text Moderation API. For more information, see:
         // https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f
@@ -263,20 +263,20 @@ Add the following method definition to namespace VideoTranscriptReviews, class P
         List<TranscriptModerationBodyItemTermsItem> terms = new List<TranscriptModerationBodyItemTermsItem>();
         if (null != screen.Terms)
         {
-        	foreach (var term in screen.Terms)
+            foreach (var term in screen.Terms)
             {
-    	        if (term.Index.HasValue)
+                if (term.Index.HasValue)
                 {
-        	        terms.Add(new TranscriptModerationBodyItemTermsItem(term.Index.Value, term.Term));
+                    terms.Add(new TranscriptModerationBodyItemTermsItem(term.Index.Value, term.Term));
                 }
             }
-		}
+        }
 
         List<TranscriptModerationBodyItem> body = new List<TranscriptModerationBodyItem>()
         {
-	        new TranscriptModerationBodyItem()
+            new TranscriptModerationBodyItem()
             {
-    	        Timestamp = "0",
+                Timestamp = "0",
                 Terms = terms
             }
         };
@@ -284,7 +284,7 @@ Add the following method definition to namespace VideoTranscriptReviews, class P
         client.Reviews.AddVideoTranscriptModerationResult("application/json", TeamName, review_id, body);
 
         Thread.Sleep(throttleRate);
-	}
+    }
 
 
 ## Publish video review
@@ -295,7 +295,7 @@ You publish a video review with **ContentModeratorClient.Reviews.PublishVideoRev
 
 Add the following method definition to namespace VideoReviews, class Program.
 
-	/// <summary>
+    /// <summary>
     /// Publish the indicated video review. For more information, see the reference API:
     /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7bb29e7151f0b10d45201
     /// </summary>
@@ -303,10 +303,10 @@ Add the following method definition to namespace VideoReviews, class Program.
     /// <param name="review_id">The video review ID.</param>
     private static void PublishReview(ContentModeratorClient client, string review_id)
     {
-    	Console.WriteLine("Publishing the review with ID {0}.", review_id);
+        Console.WriteLine("Publishing the review with ID {0}.", review_id);
         client.Reviews.PublishVideoReview(TeamName, review_id);
         Thread.Sleep(throttleRate);
-	}
+    }
 
 ## Putting it all together
 
@@ -316,11 +316,11 @@ Add the **Main** method definition to namespace VideoTranscriptReviews, class Pr
 > The program uses a sample transcript in the VTT format. In a real-world solution, you use 
 > the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video. 
 
-	static void Main(string[] args)
+    static void Main(string[] args)
     {
-	    using (ContentModeratorClient client = NewClient())
+        using (ContentModeratorClient client = NewClient())
         {
-    	    // Create a review with the content pointing to a streaming endpoint (manifest)
+            // Create a review with the content pointing to a streaming endpoint (manifest)
             var streamingcontent = "https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest";
             string review_id = CreateReview(client, "review1", streamingcontent);
 
@@ -343,19 +343,19 @@ Add the **Main** method definition to namespace VideoTranscriptReviews, class Pr
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
             Console.Read();
-		}
-	}
+        }
+    }
 
 ## Run the program and review the output
 
 When you run the application, you see an output on the following lines:
 
-	Creating a video review.
-	Adding a transcript to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
-	Adding a transcript moderation result to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
-	Publishing the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
-	Open your Content Moderator Dashboard and select Review > Video to see the review.
-	Press any key to close the application.
+    Creating a video review.
+    Adding a transcript to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
+    Adding a transcript moderation result to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
+    Publishing the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
+    Open your Content Moderator Dashboard and select Review > Video to see the review.
+    Press any key to close the application.
 
 ## Navigate to your video transcript review
 

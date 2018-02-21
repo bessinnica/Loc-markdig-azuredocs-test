@@ -121,7 +121,6 @@ During configuration, for the default storage endpoint you specify a blob contai
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-
 ### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 
 

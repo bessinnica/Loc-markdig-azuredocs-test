@@ -29,6 +29,7 @@ To scale-up a web app to **PremiumV2**, you need to have a Web App in Azure App 
 
 <a name="availability"></a>
 
+
 ## PremiumV2 availability
 
 The PremiumV2 tier is currently available for App Service on _Windows_ only. Linux containers are not yet supported.
@@ -42,6 +43,7 @@ az appservice list-locations --sku P1V2
 If you receive an error during app creation or App Service plan creation, then **PremiumV2** is most likely not available for your region of choice.
 
 <a name="create"></a>
+
 
 ## Create an app in PremiumV2 tier
 
@@ -93,6 +95,7 @@ Select the App Service plan you just created.
 Once the change operation completes, your app is running in **PremiumV2** tier.
 
 <a name="unsupported"></a>
+
 
 ## Scale up from an unsupported region
 

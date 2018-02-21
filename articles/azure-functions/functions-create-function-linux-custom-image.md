@@ -153,7 +153,6 @@ Linux hosting for Functions is currently not supported on consumption plans. You
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-
 ## Create and deploy the custom image
 
 The function app hosts the execution of your functions. Create a function app from a Docker Hub image by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command. 

@@ -33,6 +33,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 <a id="listkeys" />
 <a id="list" />
 
+
 ## listKeys and list{Value}
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
@@ -77,7 +78,7 @@ Any operation that starts with **list** can be used as a function in your templa
 To determine which resource types have a list operation, you have the following options:
 
 * View the [REST API operations](/rest/api/) for a resource provider, and look for list operations. For example, storage accounts have the [listKeys operation](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
-* Use the [Get-​Azure​Rm​Provider​Operation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet. The following example gets all list operations for storage accounts:
+* Use the [Get- Azure Rm Provider Operation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet. The following example gets all list operations for storage accounts:
 
   ```powershell
   Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
@@ -140,6 +141,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="providers" />
+
 
 ## providers
 `providers(providerNamespace, [resourceType])`
@@ -228,6 +230,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="reference" />
+
 
 ## reference
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
@@ -438,6 +441,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourcegroup" />
 
+
 ## resourceGroup
 `resourceGroup()`
 
@@ -520,6 +524,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="resourceid" />
+
 
 ## resourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
@@ -669,6 +674,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="subscription" />
+
 
 ## subscription
 `subscription()`

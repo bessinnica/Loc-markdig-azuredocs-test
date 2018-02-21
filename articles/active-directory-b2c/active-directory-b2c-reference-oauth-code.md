@@ -126,7 +126,6 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
-
 ```
 
 | Parameter | Required? | Description |
@@ -150,6 +149,7 @@ A successful token response looks like this:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | Parameter | Description |
 | --- | --- |
 | not_before |The time at which the token is considered valid, in epoch time. |
@@ -214,6 +214,7 @@ A successful token response looks like this:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | Parameter | Description |
 | --- | --- |
 | not_before |The time at which the token is considered valid, in epoch time. |

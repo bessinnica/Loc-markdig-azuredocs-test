@@ -49,11 +49,11 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 ## Create a channel
 1. In the AMSE tool, navigate to the **Live** tab, and right-click within the channel area. Select **Create channel…** from the menu.
 
-	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
+    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
 2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is.
 
-	Make sure the **Start the new channel now** is selected.
+    Make sure the **Start the new channel now** is selected.
 
 3. Click **Create Channel**.
 
@@ -146,7 +146,7 @@ If an error is received, the channel will need to be reset and encoder settings 
 
     >[!NOTE]
     >Program creation takes less time than channel creation.
-        
+
 5. Once the program is running, confirm playback by right-clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
 6. Once confirmed, right-click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu).
 
@@ -162,3 +162,4 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

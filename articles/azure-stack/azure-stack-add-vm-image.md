@@ -113,15 +113,15 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
 
 3. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the `Add-AzsVMImage` cmdlet, specify `osType` as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. For information about allowed parameters, see [Parameters](#parameters). The parameters are used by Azure Resource Manager templates to reference the VM image. The following example invokes the script:
 
-  ```powershell
-  Add-AzsVMImage `
+   ```powershell
+   Add-AzsVMImage `
     -publisher "Canonical" `
     -offer "UbuntuServer" `
     -sku "14.04.3-LTS" `
     -version "1.0.0" `
     -osType Linux `
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
-  ```
+   ```
 
 The command does the following:
 
@@ -175,15 +175,15 @@ Images must be able to be referenced by a Blob storage URI. Prepare a Windows or
 
    * Azure Stack supports the fixed disk VHD format. The fixed format structures the logical disk linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. To confirm if your disk is fixed, use the [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell command.  
 
-    > [!IMPORTANT]
-   >  Azure Stack does not support dynamic disk VHDs. Resizing a dynamic disk that is attached to a VM will leave the VM in a failed state. To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. The, convert the VHD from a dynamic disk to a fixed disk and re-create the virtual machine.
+     > [!IMPORTANT]
+     >  Azure Stack does not support dynamic disk VHDs. Resizing a dynamic disk that is attached to a VM will leave the VM in a failed state. To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. The, convert the VHD from a dynamic disk to a fixed disk and re-create the virtual machine.
 
    * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the image to the Azure Stack image repository.
 
    * When you upload the [Windows VM image](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), make sure to substitute the **Login to Azure** step with the [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md) step.  
 
    * Make a note of the Blob storage URI where you upload the image. The Blob storage URI has the following format:
-  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
+     *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
    * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded. Select **Blob**, and then select **Access Policy**. Optionally, you can instead generate a shared access signature for the container, and include it as part of the blob URI.
 

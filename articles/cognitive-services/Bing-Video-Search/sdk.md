@@ -14,10 +14,10 @@ ms.author: v-gedod
 ---
 # Bing Search SDK preview
 The Bing Video Search API samples include scenarios that:
-1.	Query for a simple video.
-2.	Query restricted to free, short, and with certain aspect ratio, showing video filtering capabilities.
-3.	Search for videos trending on various social networks at the moment.
-4.	Query using rich information of the video such as source of the video, title, etc.
+1.  Query for a simple video.
+2.  Query restricted to free, short, and with certain aspect ratio, showing video filtering capabilities.
+3.  Search for videos trending on various social networks at the moment.
+4.  Query using rich information of the video such as source of the video, title, etc.
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

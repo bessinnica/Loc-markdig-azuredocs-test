@@ -38,6 +38,7 @@ Notice that *upgrade* is not listed as an administrative task. Because resources
 
 <a id="admin-rights"></a>
 
+
 ## Administrator rights
 Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator.
 
@@ -46,6 +47,7 @@ Within a service, anyone with access to the service URL and an admin api-key has
 All user interaction with Azure Search falls within one of these modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). For more information, see [Manage the api-keys](#manage-keys).
 
 <a id="sys-info"></a>
+
 
 ## Set RBAC roles for administrative access
 Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
@@ -61,6 +63,7 @@ For Azure Search, RBAC permissions determine the following administrative tasks:
 Roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md).
 
 <a id="secure-keys"></a>
+
 ## Logging and system information
 Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
@@ -71,6 +74,7 @@ In terms of general information about your service, you can obtain information i
 * Via [search traffic analytics](search-traffic-analytics.md), as noted previously.
 
 <a id="manage-keys"></a>
+
 
 ## Manage api-keys
 All requests to a search service need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
@@ -92,6 +96,7 @@ To get or regenerate api-keys, open the service dashboard. Click **KEYS** to sli
 
 <a id="rbac"></a>
 
+
 ## Secure api-keys
 Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
@@ -103,6 +108,7 @@ Key security is ensured by restricting access via the portal or Resource Manager
 Another way to view access permissions is to click **Roles** on the Users blade. Doing so displays available roles and the number of users or groups assigned to each role.
 
 <a id="sub-5"></a>
+
 
 ## Monitor resource usage
 In the dashboard, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service. On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
@@ -130,6 +136,7 @@ To rebuild an index, you would delete it (assuming it exists), recreate the inde
 
 
 <a id="scale"></a>
+
 
 ## Scale up or down
 Every search service starts with a minimum of one replica and one partition. If you signed up for a [tier that provides dedicated resources](search-limits-quotas-capacity.md), click the **SCALE** tile in the service dashboard to adjust resource usage.
@@ -164,6 +171,7 @@ To help with future planning, you might want to check storage (using [Get Index 
 
 <a id="advanced-deployment"></a>
 
+
 ## Best practices on scale and deployment
 This 30-minute video reviews best practices for advanced deployment scenarios, including geo-distributed workloads. You can also see [Performance and optimization in Azure Search](search-performance-optimization.md) for help pages that cover the same points.
 
@@ -172,6 +180,7 @@ This 30-minute video reviews best practices for advanced deployment scenarios, i
 > 
 
 <a id="next-steps"></a>
+
 
 ## Next steps
 Once you understand the concepts behind service administration, consider using [PowerShell](search-manage-powershell.md) to automate tasks.

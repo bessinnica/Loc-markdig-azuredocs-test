@@ -31,6 +31,7 @@ To perform the tasks listed in this article, you need:
 
 <br>
 
+
 ## Task 1 - Provision a domain-joined virtual machine to remotely administer Group Policy for the managed domain
 Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Similarly, Group Policy for the managed domain can be administered remotely using the Group Policy administration tools.
 

@@ -27,11 +27,12 @@ For reporting issues on your Service Fabric cluster deployed on Azure, open a ti
 or [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
- 
+
 - [Support from Microsoft for Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
+
 
 ## Report production issues or request paid support for standalone Service Fabric clusters
 
@@ -63,7 +64,7 @@ Refer to the following documents on details on how to keep your cluster running 
 
 - [Upgrade Service Fabric version on an Azure cluster ](service-fabric-cluster-upgrade.md)
 - [Upgrade Service Fabric version on a standalone windows server cluster ](service-fabric-cluster-upgrade-windows-server.md)
- 
+
 Here are the list of the Service Fabric versions that are supported and their support end dates.
 
 | **Service Fabric runtime in the cluster** | **Can upgrade directly from cluster version** |**Compatible SDK / NuGet Package Versions** | **End of Support Date** |

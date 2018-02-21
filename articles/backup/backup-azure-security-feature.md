@@ -104,6 +104,7 @@ Typically, when a critical operation is performed, the subscription admin is sen
 The security features mentioned in this article provide defense mechanisms against targeted attacks. More importantly, if an attack happens, these features give you the ability to recover your data.
 
 ## Troubleshooting errors
+
 | Operation | Error details | Resolution |
 | --- | --- | --- |
 | Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |**Cause:**<br/>This error comes when security settings are enabled, you try to reduce retention range below the minimum values specified above and you are on unsupported  version (supported versions are specified in first note of this article). <br/>**Recommended Action:**<br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly) to proceed with policy related udpates. Optionally, preferred approach would be to update backup agent, Azure Backup Server and/or DPM UR to leverage all the security updates. |

@@ -57,7 +57,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
         )
     )};
 }
-
 ```
 
 ## Writing clients for the WCF communication stack
@@ -84,7 +83,6 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
        {
        }
    }
-
 ```
 
 Client code can use the **WcfCommunicationClientFactory** along with the **WcfCommunicationClient** which implements **ServicePartitionClient** to determine the service endpoint and communicate with the service.
@@ -112,7 +110,6 @@ var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
 //
 var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
-
 ```
 > [!NOTE]
 > The default ServicePartitionResolver assumes that the client is running in same cluster as the service. If that is not the case, create a ServicePartitionResolver object and pass in the cluster connection endpoints.

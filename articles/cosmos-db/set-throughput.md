@@ -55,6 +55,7 @@ The following table lists the throughput available for containers:
 
 <a id="set-throughput-sdk"></a>
 
+
 ## To set the throughput by using the SQL API for .NET
 
 ```csharp
@@ -72,6 +73,7 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 <a id="set-throughput-java"></a>
+
 
 ## To set the throughput by using the SQL API for Java
 

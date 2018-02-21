@@ -85,7 +85,6 @@ This schema defines the possible values you can use to initialize diagnostic con
     </DiagnosticMonitorConfiguration>  
   </WadCfg>  
 </PublicConfig>  
-
 ```  
 
 ## Diagnostics Configuration Namespace  
@@ -199,6 +198,8 @@ Defines configuration settings for the telemetry data to be collected. The follo
 ## WindowsEventLog Element  
  The following table describes child elements:  
 
-|Element Name|Description|  
-|------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> To collect all events, specify “*”.|
+
+|        Element Name         |                                                                                                                                                                                             Description                                                                                                                                                                                             |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <strong>DataSource</strong> | The Windows Event logs to collect. Required attribute:<br /><br /> <strong>name</strong> - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> To collect all events, specify “*”. |
+

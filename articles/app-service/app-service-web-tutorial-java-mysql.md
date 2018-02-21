@@ -392,7 +392,7 @@ Update the application to include an additional column in the todo list for what
 When you refresh the app, a **Time Created** column is now visible. When you add a new task, the app will populate the timestamp automatically. Your existing tasks remain unchanged and work with the app even though the underlying data model has changed. 
 
 ![Java app updated with a new column](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
-      
+
 ## Stream diagnostic logs 
 
 While your Java application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
@@ -424,13 +424,14 @@ These tabs in the page show the many great features you can add to your web app.
 
 ## Clean up resources
 
-If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
-  
+If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
+  
 ```azurecli-interactive
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
+
 
 ## Next steps
 

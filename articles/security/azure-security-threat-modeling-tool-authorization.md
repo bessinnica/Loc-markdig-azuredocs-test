@@ -19,6 +19,7 @@ ms.author: rodsan
 ---
 
 # Security Frame: Authorization | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Machine Trust Boundary** | <ul><li>[Ensure that proper ACLs are configured to restrict unauthorized access to data on the device](#acl-restricted-access)</li><li>[Ensure that sensitive user-specific application content is stored in user-profile directory](#sensitive-directory)</li><li>[Ensure that the deployed applications are run with least privileges](#deployed-privileges)</li></ul> |
@@ -450,11 +451,12 @@ public class CustomController : ApiController
 
 ## <a id="field-permission"></a>Perform authorization checks in the Field Gateway if it supports various actions that require different permission levels
 
-| Title                   | Details      |
-| ----------------------- | ------------ |
-| **Component**               | IoT Field Gateway | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Generic |
-| **Attributes**              | N/A  |
-| **References**              | N/A  |
-| **Steps** | The Field Gateway should authorize the caller to check if the caller has the required permissions to perform the action requested. For e.g. there should be different permissions for an admin user interface/API used to configure a field gateway v/s devices that connect to it.|
+|                  Title                   |                                                                                                                                       Details                                                                                                                                       |
+|------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        <strong>Component</strong>        |                                                                                                                                  IoT Field Gateway                                                                                                                                  |
+|        <strong>SDL Phase</strong>        |                                                                                                                                        Build                                                                                                                                        |
+| <strong>Applicable Technologies</strong> |                                                                                                                                       Generic                                                                                                                                       |
+|       <strong>Attributes</strong>        |                                                                                                                                         N/A                                                                                                                                         |
+|       <strong>References</strong>        |                                                                                                                                         N/A                                                                                                                                         |
+|          <strong>Steps</strong>          | The Field Gateway should authorize the caller to check if the caller has the required permissions to perform the action requested. For e.g. there should be different permissions for an admin user interface/API used to configure a field gateway v/s devices that connect to it. |
+

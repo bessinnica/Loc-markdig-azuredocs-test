@@ -28,9 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This article requires that you have version 4.4.0 or higher of the AzureRM module installed. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
 
->[!NOTE]
-[Load Balancer Standard SKU](https://aka.ms/azureloadbalancerstandard) is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. 
-
+> [!NOTE]
+> [Load Balancer Standard SKU](https://aka.ms/azureloadbalancerstandard) is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. 
+> 
 > [!NOTE]
 > Availability zones are in preview and are ready for your development and test scenarios. Support is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
@@ -57,7 +57,7 @@ Create a Public IP Standard using the following command:
 
 ```powershell
 $publicIp = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Name 'myPublicIP' `
-  -Location westeurope -AllocationMethod Static -Sku Standard 
+  -Location westeurope -AllocationMethod Static -Sku Standard 
 ```
 
 ## Create a front-end IP configuration for the website
@@ -97,8 +97,8 @@ Create a Load Balancer Standard using the following command:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `
-  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
-  -Probe $probe -LoadBalancingRule $rule -Sku Standard
+  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
+  -Probe $probe -LoadBalancingRule $rule -Sku Standard
 ```
 
 ## Next steps

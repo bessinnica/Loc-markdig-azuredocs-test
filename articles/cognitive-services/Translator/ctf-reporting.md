@@ -25,10 +25,11 @@ The Collaborative Translation Framework (CTF) Reporting API returns statistics a
 ## Endpoint
 The endpoint of the CTF Reporting API is
 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## Methods
-| Name |	Description|
+
+| Name |    Description|
 |:---|:---|
 | GetUserTranslationCounts Method | Get counts of the translations that are created by the user. |
 | GetUserTranslations Method | Retrieves the translations that are created by the user. |
@@ -48,25 +49,25 @@ This method gets the count of translations that are created by the user. It prov
 **Syntax**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslationCount[]GetUserTranslationCounts(
-           string appId,
-           string uriPrefix,
-           string from,
-           string to,
-           int? minRating,
-           int? maxRating,
-           string user, 
-           string category
-           DateTime? minDateUtc,
-           DateTime? maxDateUtc,
-           int? skip,
-           int? take);
-```
+> ```cs
+> UserTranslationCount[]GetUserTranslationCounts(
+>            string appId,
+>            string uriPrefix,
+>            string from,
+>            string to,
+>            int? minRating,
+>            int? maxRating,
+>            string user, 
+>            string category
+>            DateTime? minDateUtc,
+>            DateTime? maxDateUtc,
+>            int? skip,
+>            int? take);
+> ```
 
 **Parameters**
 
-| Parameter	| Description |
+| Parameter | Description |
 |:---|:---|
 | appId | **Required** If the Authorization header is used, leave the appid field empty else specify a string containing "Bearer" + " " + access token.|
 | uriPrefix | **Optional** A string containing prefix of URI of the translation.|
@@ -74,7 +75,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 | to | **Optional** A string representing the language code to translate the text into.|
 | minRating| **Optional** An integer value representing the minimum quality rating for the translated text. The valid value is between -10 and 10. The default value is 1.|
 | maxRating| **Optional** An integer value representing the maximum quality rating for the translated text. The valid value is between -10 and 10. The default value is 1.|
-| user | **Optional** A string that is used to filter the result based on the originator of the submission.	|
+| user | **Optional** A string that is used to filter the result based on the originator of the submission. |
 | category| **Optional** A string containing the category or domain of the translation. This parameter supports only the default option general.|
 | minDateUtc| **Optional** The date from when you want to retrieve the translations. The date must be in the UTC format. |
 | maxDateUtc| **Optional** The date till when you want to retrieve the translations. The date must be in the UTC format. |
@@ -88,7 +89,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 The result set contains array of the **UserTranslationCount**. Each UserTranslationCount has the following elements:
 
-| Field	| Description |
+| Field | Description |
 |:---|:---|
 | Count| The number of results that is retrieved|
 | From | The source language|
@@ -99,7 +100,7 @@ The result set contains array of the **UserTranslationCount**. Each UserTranslat
 
 **Exceptions**
 
-| Exception	| Message | Conditions |
+| Exception | Message | Conditions |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**'.| The value of the parameter **maxDateUtc** is lesser than the value of the parameter **minDateUtc**.|
 | TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.</li></ul>|
@@ -119,25 +120,25 @@ This method retrieves the translations that are created by the user. It provides
 **Syntax**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslation[] GetUserTranslations (
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user, 
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take); 
-```
+> ```cs
+> UserTranslation[] GetUserTranslations (
+>             string appId,
+>             string uriPrefix,
+>             string from,
+>             string to,
+>             int? minRating,
+>             int? maxRating,
+>             string user, 
+>             string category
+>             DateTime? minDateUtc,
+>             DateTime? maxDateUtc,
+>             int? skip,
+>             int? take); 
+> ```
 
 **Parameters**
 
-| Parameter	| Description |
+| Parameter | Description |
 |:---|:---|
 | appId | **Required** If the Authorization header is used, leave the appid field empty else specify a string containing "Bearer" + " " + access token.|
 | uriPrefix| **Optional** A string containing prefix of URI of the translation.|
@@ -159,20 +160,20 @@ UserTranslation[] GetUserTranslations (
 
 The result set contains array of the **UserTranslation**. Each UserTranslation has the following elements:
 
-| Field	| Description |
+| Field | Description |
 |:---|:---|
 | CreatedDateUtc| The creation date of the entry using AddTranslation()|
-| From|	The source language|
-| OriginalText|	The source language text that is used when submitting the request|
-|Rating	|The rating that is applied by the submitter in the AddTranslation() method call|
-|To|	The target language|
-|TranslatedText|	The translation as submitted in the AddTranslation() method call|
-|Uri|	The URI applied in the AddTranslation() method call|
-|User	|The user name|
+| From| The source language|
+| OriginalText| The source language text that is used when submitting the request|
+|Rating |The rating that is applied by the submitter in the AddTranslation() method call|
+|To|    The target language|
+|TranslatedText|    The translation as submitted in the AddTranslation() method call|
+|Uri|   The URI applied in the AddTranslation() method call|
+|User   |The user name|
 
 **Exceptions**
 
-| Exception	| Message | Conditions |
+| Exception | Message | Conditions |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**'.| The value of the parameter **maxDateUtc** is lesser than the value of the parameter **minDateUtc**.|
 | TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.</li></ul>|

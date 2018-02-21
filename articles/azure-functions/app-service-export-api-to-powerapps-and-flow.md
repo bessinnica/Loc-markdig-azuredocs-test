@@ -57,6 +57,7 @@ To export the API definition, follow these steps:
 > The custom connector uses a *copy* of the API definition, so PowerApps and Microsoft Flow will not immediately know if you make changes to the application and its API definition. If you do make changes, repeat the export steps for the new version.
 
 <a name="express"></a>
+
 ## Use express export
 
 To complete the export in **Express** mode, follow these steps:
@@ -70,7 +71,7 @@ To complete the export in **Express** mode, follow these steps:
     |**Environment**|Select the environment that the custom connector should be saved to. For more information, see [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Custom API Name**|Enter a name, which PowerApps and Microsoft Flow builders will see in their connector list.|
     |**Prepare security configuration**|If required, provide the security configuration details needed to grant users access to your API. This example shows an API key. For more information, see [Specify authentication type](#auth) below.|
- 
+
     ![Express export to PowerApps and Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
 
 3. Click **OK**. The custom connector is now built and added to the environment you specified.
@@ -78,14 +79,15 @@ To complete the export in **Express** mode, follow these steps:
 For examples of using **Express** mode with Azure Functions, see [Call a function from PowerApps](functions-powerapps-scenario.md) and [Call a function from Microsoft Flow](functions-flow-scenario.md).
 
 <a name="manual"></a>
+
 ## Use manual export
 
 To complete the export in **Manual** mode, follow these steps:
 
 1. Click **Download** and save the file, or click the copy button and save the URL. You will use the download file or the URL during import.
- 
+
     ![Manual export to PowerApps and Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-manual.png)
- 
+
 2. If your API definition includes any security definitions, these are called out in step #2. During import, PowerApps and Microsoft Flow detects these and prompts for security information. Gather the credentials related to each definition for use in the next section. For more information, see [Specify authentication type](#auth) below.
 
     ![Security for manual export](media/app-service-export-api-to-powerapps-and-flow/export-manual-security.png)
@@ -129,6 +131,7 @@ To import the API definition into PowerApps and Microsoft Flow, follow these ste
 You can now connect to the custom connector in PowerApps and Microsoft Flow. For more information on creating connectors in the PowerApps and Microsoft Flow portals, see [Register your custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) and [Register your custom connector (Microsoft  Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
 
 <a name="auth"></a>
+
 ## Specify authentication type
 
 PowerApps and Microsoft Flow support a collection of identity providers that provide authentication for custom connectors. If your API requires authentication, ensure that it is captured as a _security definition_ in your OpenAPI document, like the following example:

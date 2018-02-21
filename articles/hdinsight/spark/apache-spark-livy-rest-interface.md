@@ -160,7 +160,7 @@ Perform the following steps:
 
 HDInsight 3.5 cluster, by default, disables use of local file paths to access sample data files or jars. We encourage you to use the `wasb://` path instead to access jars or sample data files from the cluster. If you do want to use local path, you must update the Ambari configuration accordingly. To do so:
 
-1. Go to the Ambari portal for the cluster. The Ambari Web UI is available on your HDInsight cluster at https://**CLUSTERNAME**.azurehdidnsight.net, where CLUSTERNAME is the name of your cluster.
+1. Go to the Ambari portal for the cluster. The Ambari Web UI is available on your HDInsight cluster at https://<strong>CLUSTERNAME</strong>.azurehdidnsight.net, where CLUSTERNAME is the name of your cluster.
 
 2. From the left navigation, click **Livy**, and then click **Configs**.
 

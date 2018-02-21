@@ -26,9 +26,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Register for Availability Zones, Load Balancer Standard, and Public IP Standard Preview
  
->[!NOTE]
-[Load Balancer Standard SKU](https://aka.ms/azureloadbalancerstandard) is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. 
-
+> [!NOTE]
+> [Load Balancer Standard SKU](https://aka.ms/azureloadbalancerstandard) is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. 
+> 
 > [!NOTE]
 > Availability zones are in preview and are ready for your development and test scenarios. Support is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
@@ -42,7 +42,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
 2. On the top left-hand side of the screen, select **New** > **Networking** > **Load Balancer.**
-3. In the **Create load balancer, under **Name** type **myPublicLB**.
+3. In the <strong>Create load balancer, under **Name</strong> type <strong>myPublicLB</strong>.
 4. Under **Type**, select **Public**.
 5. Under SKU, select **Standard (Preview)**.
 6. Click **Public IP address**, click **Create new**, on the **Create a public IP address** page, under name, type **myPublicIPStandard**, and for **Availability zone (Preview)**, select **Zone-redundant**.

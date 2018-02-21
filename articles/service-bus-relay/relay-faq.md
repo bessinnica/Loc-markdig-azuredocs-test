@@ -73,6 +73,7 @@ Sending a message to a Service Bus relay is treated as a "full through" send to 
 Relays that are opened by using the **netTCPRelay** WCF binding treat messages not as individual messages, but as a stream of data flowing through the system. When you use this binding, only the sender and listener have visibility into the framing of the individual messages sent and received. For relays that use the **netTCPRelay** binding, all data is treated as a stream for calculating billable messages. In this case, Service Bus calculates the total amount of data sent or received via each individual relay on a 5-minute basis. Then, it divides that total amount of data by 64 KB to determine the number of billable messages for that relay during that time period.
 
 ## Quotas
+
 | Quota name | Scope | Type | Behavior when exceeded | Value |
 | --- | --- | --- | --- | --- |
 | Concurrent listeners on a relay |Entity |Static |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |

@@ -26,6 +26,7 @@ Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Ser
 
 <a id="setup_dev_env"></a>
 
+
 ## Set up the development environment
 
 To set up .NET dev environment, see [this](media-services-dotnet-how-to-use.md) topic.  
@@ -33,6 +34,7 @@ To set up .NET dev environment, see [this](media-services-dotnet-how-to-use.md) 
 To set up REST dev environment, see [this](media-services-rest-how-to-use.md) topic.  
 
 <a id="connect"></a>
+
 
 ## Connect programmatically
 

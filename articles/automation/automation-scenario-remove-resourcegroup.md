@@ -25,6 +25,7 @@ This scenario is based on a PowerShell runbook and is designed to remove one or 
 ## Getting the scenario
 This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). You can also import it directly from the [Runbook Gallery](automation-runbook-gallery.md) in the Azure portal.<br><br>
 
+
 | Runbook | Description |
 | --- | --- |
 | Remove-ResourceGroup |Removes one or more Azure resource groups and associated resources from the subscription. |

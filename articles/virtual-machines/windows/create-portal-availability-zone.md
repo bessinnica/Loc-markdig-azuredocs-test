@@ -25,7 +25,6 @@ This article steps through using the Azure portal to create a virtual machine in
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-
 ## Log in to Azure 
 
 Log in to the Azure portal at https://portal.azure.com.

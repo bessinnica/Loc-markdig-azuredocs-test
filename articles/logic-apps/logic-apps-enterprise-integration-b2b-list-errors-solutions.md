@@ -61,10 +61,11 @@ This article helps you troubleshoot errors that might happen in Logic Apps B2B s
 
 ### * AS2 message decryption failure
 
-|   |   | 
-|---|---|
-| Error description |  [processed/Error: decryption-failed] | 
-| User action | Add @base64ToBinary to AS2Message before sending to partner 
+|                   |                                                             |
+|-------------------|-------------------------------------------------------------|
+| Error description |            [processed/Error: decryption-failed]             |
+|    User action    | Add @base64ToBinary to AS2Message before sending to partner |
+
 ```java
             "HTTP": {
                 "inputs": {
@@ -73,15 +74,15 @@ This article helps you troubleshoot errors that might happen in Logic Apps B2B s
                     "method": "POST",
                     "uri": "xxxxx.xxx"
                 },
-                
 ``` 
 
 ### * MDN decryption failure
 
-|   |   | 
-|---|---|
-| Error description |  [processed/Error: decryption-failed] | 
-| User action | Add @base64ToBinary to MDN before sending to partner 
+|                   |                                                      |
+|-------------------|------------------------------------------------------|
+| Error description |         [processed/Error: decryption-failed]         |
+|    User action    | Add @base64ToBinary to MDN before sending to partner |
+
 ```java
             "Response": {
                 "inputs": {
@@ -89,7 +90,6 @@ This article helps you troubleshoot errors that might happen in Logic Apps B2B s
                     "headers": "@body('Decode_AS2_message')?['OutgoingMDN']?['OutboundHeaders']",
                     "statusCode": 200
                 },
-                
 ``` 
 
 ### * Missing signing certificate

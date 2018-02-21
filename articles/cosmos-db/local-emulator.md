@@ -23,15 +23,15 @@ ms.author: danoble
 <table>
 <tr>
   <td><strong>Binaries</strong></td>
-  <td>[Download MSI](https://aka.ms/cosmosdb-emulator)</td>
+  <td><a href="https://aka.ms/cosmosdb-emulator" data-raw-source="[Download MSI](https://aka.ms/cosmosdb-emulator)">Download MSI</a></td>
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td><a href="https://hub.docker.com/r/microsoft/azure-documentdb-emulator/" data-raw-source="[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)">Docker Hub</a></td>
 </tr>
 <tr>
   <td><strong>Docker source</strong></td>
-  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+  <td><a href="https://github.com/azure/azure-documentdb-emulator-docker" data-raw-source="[Github](https://github.com/azure/azure-documentdb-emulator-docker)">Github</a></td>
 </tr>
 </table>
   
@@ -78,9 +78,9 @@ The Azure Cosmos DB Emulator has the following hardware and software requirement
 
 * Software requirements
   * Windows Server 2012 R2, Windows Server 2016, or Windows 10
-*	Minimum Hardware requirements
-  *	2 GB RAM
-  *	10 GB available hard disk space
+* Minimum Hardware requirements
+  * 2 GB RAM
+  * 10 GB available hard disk space
 
 ## Installation
 You can download and install the Azure Cosmos DB Emulator from the [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) or you can run the emulator on Docker for Windows. For instructions on using the Emulator on Docker for Windows, see [Running on Docker](#running-on-docker). 
@@ -247,13 +247,13 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>Don't show document explorer on startup.</td>
+  <td>Don&#39;t show document explorer on startup.</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>
 <tr>
   <td>PartitionCount</td>
-  <td>Specifies the maximum number of partitioned collections. See [Change the number of collections](#set-partitioncount) for more information.</td>
+  <td>Specifies the maximum number of partitioned collections. See <a href="#set-partitioncount" data-raw-source="[Change the number of collections](#set-partitioncount)">Change the number of collections</a> for more information.</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: Maximum number of allowed single partition collections. Default is 25. Maximum allowed is 250.</td>
 </tr>
@@ -271,7 +271,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 </tr>
 <tr>
   <td>NoFirewall</td>
-  <td>Don't adjust firewall rules when /AllowNetworkAccess is used.</td>
+  <td>Don&#39;t adjust firewall rules when /AllowNetworkAccess is used.</td>
   <td>CosmosDB.Emulator.exe /NoFirewall</td>
   <td></td>
 </tr>
@@ -285,7 +285,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
   <td>Consistency</td>
   <td>Set the default consistency level for the account.</td>
   <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;consistency&gt;: Value must be one of the following [consistency levels](consistency-levels.md): Session, Strong, Eventual, or BoundedStaleness.  The default value is Session.</td>
+  <td>&lt;consistency&gt;: Value must be one of the following <a href="consistency-levels.md" data-raw-source="[consistency levels](consistency-levels.md)">consistency levels</a>: Session, Strong, Eventual, or BoundedStaleness.  The default value is Session.</td>
 </tr>
 <tr>
   <td>?</td>

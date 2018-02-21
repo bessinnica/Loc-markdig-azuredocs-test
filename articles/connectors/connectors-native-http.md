@@ -82,11 +82,11 @@ An action is an operation that is carried out by the workflow that is defined in
 
 1. Choose **New Step** > **Add an action**.
 3. In the action search box, type **http** to list the HTTP actions.
-   
+
     ![Select the HTTP action](./media/connectors-native-http/using-action-1.png)
 
 4. Add any required parameters for the HTTP call.
-   
+
     ![Complete the HTTP action](./media/connectors-native-http/using-action-2.png)
 
 5. On the designer toolbar, click **Save**. 
@@ -122,6 +122,7 @@ A * means that it is a required field.
 | Authentication |authentication |Details in the [Authentication](#authentication) section |
 
 <br>
+
 
 #### Output details
 The following are output details for the HTTP response.

@@ -187,18 +187,19 @@ Now go back to the Azure portal to get your connection information and copy it i
    ```
 
 3. In the git terminal window, use the following command to start the PHP application.
-    
+
     ```
     php connect.php
     ```
 
     The terminal window displays the vertices being added to the graph. 
-    
+
     If you experience timeout errors, check that you updated the connection information correctly in [Update your connection information](#update-your-connection-information), and also try running the last command again. 
-    
+
     Once the program stops, press Enter, then switch back to the Azure portal in your internet browser. 
 
 <a id="add-sample-data"></a>
+
 ## Review and add sample data
 
 You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
@@ -236,11 +237,13 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 9. Click **Add property** to add each of the following properties:
 
-    key|value|Notes
-    ----|----|----
-    id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
-    gender|male| 
-    school|MIT| 
+
+   |   key   | value  |                                            Notes                                            |
+   |---------|--------|---------------------------------------------------------------------------------------------|
+   |    id   | rakesh | The unique identifier for the vertex. If you don't specify an id, one is generated for you. |
+   |  gender |  male  |                                                                                             |
+   |  school |  MIT   |                                                                                             |
+
 
 10. Click **OK**. 
 
@@ -250,17 +253,17 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 12. Now we can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
-   ![Change the target of a vertex in a graph](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Change the target of a vertex in a graph](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check.
 
-   ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-   ![Two vertices connected in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Two vertices connected in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   That completes the resource creation part of this tutorial.You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
+    That completes the resource creation part of this tutorial.You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 

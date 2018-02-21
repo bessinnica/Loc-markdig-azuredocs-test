@@ -55,10 +55,11 @@ References:
 
 ## Other SAP Workload supported on Azure
 
-| SAP Product | Guest OS | RDBMS | Virtual Machine Types |
-| --- | --- | --- | --- |
-| SAP Business One on SQL Server | Windows  | SQL Server | All NetWeaver certified VM types |
-| SAP BPC 10.01 MS SP08 | Windows | | All NetWeaver Certified VM types<br /> SAP Note #2451795 |
-| SAP Business Objects BI platform | Windows | | SAP Note #2145537 |
-| SAP Data Services 4.2 | | | SAP Note #2288344 |
-| SAP Hybris Commerce Platform 5.x and 6.x | Windows | SQL Server, Oracle | All NetWeaver certified VM types<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |
+|               SAP Product                | Guest OS |       RDBMS        |                                                       Virtual Machine Types                                                        |
+|------------------------------------------|----------|--------------------|------------------------------------------------------------------------------------------------------------------------------------|
+|      SAP Business One on SQL Server      | Windows  |     SQL Server     |                                                  All NetWeaver certified VM types                                                  |
+|          SAP BPC 10.01 MS SP08           | Windows  |                    |                                      All NetWeaver Certified VM types<br /> SAP Note #2451795                                      |
+|     SAP Business Objects BI platform     | Windows  |                    |                                                         SAP Note #2145537                                                          |
+|          SAP Data Services 4.2           |          |                    |                                                         SAP Note #2288344                                                          |
+| SAP Hybris Commerce Platform 5.x and 6.x | Windows  | SQL Server, Oracle | All NetWeaver certified VM types<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |
+

@@ -26,7 +26,7 @@ The Wingtip Tickets SaaS app is built using a database-per-tenant model, where e
 In this tutorial you learn two data recovery patterns:
 
 > [!div class="checklist"]
-
+> 
 > * Restore a database into a parallel database (side-by-side)
 > * Restore a database in place
 
@@ -66,11 +66,11 @@ Run the ticket generator script and create additional data. The ticket generator
 
 ### Open the Events app to review the current events
 
-1. Open the *Events Hub* (http://events.wtp.&lt;user&gt;.trafficmanager.net) and click **Contoso Concert Hall**:
+1. Open the <em>Events Hub</em> (http://events.wtp.&lt;user&gt;.trafficmanager.net) and click <strong>Contoso Concert Hall</strong>:
 
    ![events hub](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
-1. Scroll the list of events and make a note of the last event in the list:
+2. Scroll the list of events and make a note of the last event in the list:
 
    ![last event](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
@@ -135,7 +135,7 @@ You successfully restored the database to a point in time before the event was d
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Restore a database into a parallel database (side-by-side)
 > * Restore a database in place
 

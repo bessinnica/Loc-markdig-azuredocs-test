@@ -21,7 +21,7 @@ ms.author: juliako
 ---
 # Streaming endpoints overview 
 
-##Overview
+## Overview
 
 In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or progressive download of your asset in your Media Services account. Each Azure Media Services account includes a default StreamingEndpoint. Additional StreamingEndpoints can be created under the account. There are two versions of StreamingEndpoints, 1.0 and 2.0. Starting with January 10th 2017, any newly created AMS accounts will include version 2.0 **default** StreamingEndpoint. Additional streaming endpoints that you add to this account will also be version 2.0. This change will not impact the existing accounts; existing StreamingEndpoints will be version 1.0 and can be upgraded to version 2.0. With this change there will be behavior, billing and feature changes (for more information, see the **Streaming types and versions** section documented below).
 
@@ -40,10 +40,11 @@ This topic gives an overview of the main functionalities that are provided by st
 
 Starting with the January 2017 release of Media Services, you have two streaming types: **Standard** and **Premium**. These types are part of the Streaming endpoint version "2.0".
 
-Type|Description
----|---
-**Standard**|This is the default option that would work for the majority of the scenarios.<br/>With this option, you get fixed/limited SLA, first 15 days after you start the streaming endpoint is free.<br/>If you create more than one streaming endpoints, only the first one is free for the first 15 days, the others are billed as soon as you start them. <br/>Note that free trial only applies to newly created media services accounts and default streaming endpoint. Existing streaming endpoints and additionally created streaming endpoints doesn't includes free trial period even they are upgraded to version 2.0 or they are created as version 2.0.
-**Premium**|This option is suitable for professional scenarios that require higher scale or control.<br/>Variable SLA that is based on premium streaming unit (SU) capacity purchased, dedicated streaming endpoints live in isolated environment and do not compete for resources.
+
+|           Type            |                                                                                                                                                                                                                                                                                                                         Description                                                                                                                                                                                                                                                                                                                         |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <strong>Standard</strong> | This is the default option that would work for the majority of the scenarios.<br/>With this option, you get fixed/limited SLA, first 15 days after you start the streaming endpoint is free.<br/>If you create more than one streaming endpoints, only the first one is free for the first 15 days, the others are billed as soon as you start them. <br/>Note that free trial only applies to newly created media services accounts and default streaming endpoint. Existing streaming endpoints and additionally created streaming endpoints doesn't includes free trial period even they are upgraded to version 2.0 or they are created as version 2.0. |
+| <strong>Premium</strong>  |                                                                                                                                                                                           This option is suitable for professional scenarios that require higher scale or control.<br/>Variable SLA that is based on premium streaming unit (SU) capacity purchased, dedicated streaming endpoints live in isolated environment and do not compete for resources.                                                                                                                                                                                           |
 
 For more detailed information, see the **Compare Streaming types** following section.
 
@@ -58,7 +59,7 @@ If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU
 >
 >Beware that this operation cannot be rolled back and has a pricing impact.
 >
- 
+
 ## Comparing streaming types
 
 ### Versions

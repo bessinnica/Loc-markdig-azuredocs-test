@@ -70,7 +70,7 @@ Start by creating a Jupyter notebook associated with the Spark cluster. You use 
     ![Provide a name for the notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the notebook")
 
 You can now start creating your application.
-	
+    
 ## Read data from Azure SQL database
 
 In this section, you read data from a table (for example, **SalesLT.Address**) that exists in the AdventureWorks database.

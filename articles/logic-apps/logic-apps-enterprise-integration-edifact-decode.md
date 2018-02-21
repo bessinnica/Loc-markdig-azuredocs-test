@@ -55,26 +55,26 @@ and select the integration account that you want to connect.
    
     ![create integration account](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)
 
-	Properties with an asterisk are required.
+    Properties with an asterisk are required.
 
-	| Property | Details |
-	| --- | --- |
-	| Connection Name * |Enter any name for your connection. |
-	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+    | Property | Details |
+    | --- | --- |
+    | Connection Name * |Enter any name for your connection. |
+    | Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
 4. When you're done to finish creating your connection, choose **Create**. 
 Your connection details should look similar to this example:
 
-	![integration account details](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
+    ![integration account details](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 
 5. After your connection is created, as shown in this example, 
 select the EDIFACT flat file message to decode.
 
-	![integration account connection created](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
+    ![integration account connection created](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-	For example:
+    For example:
 
-	![Select EDIFACT flat file message for decoding](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+    ![Select EDIFACT flat file message for decoding](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
 ## EDIFACT decoder details
 

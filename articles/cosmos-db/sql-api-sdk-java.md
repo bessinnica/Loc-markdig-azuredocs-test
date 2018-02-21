@@ -36,18 +36,20 @@ ms.custom: H1Hack27Feb2017
 
 <table>
 
-<tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td><strong>SDK Download</strong></td><td><a href="http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22" data-raw-source="[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)">Maven</a></td></tr>
 
-<tr><td>**API documentation**</td><td>[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)</td></tr>
+<tr><td><strong>API documentation</strong></td><td><a href="/java/api/com.microsoft.azure.documentdb" data-raw-source="[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)">Java API reference documentation</a></td></tr>
 
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td><strong>Contribute to SDK</strong></td><td><a href="https://github.com/Azure/azure-documentdb-java/" data-raw-source="[GitHub](https://github.com/Azure/azure-documentdb-java/)">GitHub</a></td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](sql-api-java-get-started.md)</td></tr>
+<tr><td><strong>Get started</strong></td><td><a href="sql-api-java-get-started.md" data-raw-source="[Get started with the Java SDK](sql-api-java-get-started.md)">Get started with the Java SDK</a></td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-java-application.md)</td></tr>
+<tr><td><strong>Web app tutorial</strong></td><td><a href="sql-api-java-application.md" data-raw-source="[Web application development with Azure Cosmos DB](sql-api-java-application.md)">Web application development with Azure Cosmos DB</a></td></tr>
 
-<tr><td>**Minimum supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td><strong>Minimum supported runtime</strong></td><td><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" data-raw-source="[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)">JDK 7</a></td></tr>
+
 </table></br>
+
 
 ## Release Notes
 
@@ -177,6 +179,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 > 
 
 <br/>
+
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

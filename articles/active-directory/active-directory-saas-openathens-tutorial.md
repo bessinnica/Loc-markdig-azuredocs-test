@@ -55,19 +55,19 @@ To configure the integration of OpenAthens into Azure AD, you need to add OpenAt
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Browse to **Enterprise applications**, and then go to **All applications**.
 
-	![The Enterprise applications pane][2]
-	
+    ![The Enterprise applications pane][2]
+    
 3. To add new application, select the **New application** button on the top of the dialog box.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **OpenAthens**, select **OpenAthens** from the results panel, and then select the **Add** button.
 
-	![OpenAthens in the results list](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_addfromgallery.png)
+    ![OpenAthens in the results list](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -93,55 +93,55 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **OpenAthens** application integration page, select **Single sign-on**.
 
-	![Configure the single sign-on link][4]
+    ![Configure the single sign-on link][4]
 
 2. To enable single sign-on, in the **Single sign-on** dialog box, select **SAML-based Sign-on** as the **Mode**.
  
-	![Single sign-on dialog box](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_samlbase.png)
 
 3. In the **OpenAthens Domain and URLs** section, enter the value `https://login.openathens.net/saml/2/metadata-sp` in the **Identifier** text box.
 
-	![OpenAthens domain and URLs single sign-on information](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_url.png)
+    ![OpenAthens domain and URLs single sign-on information](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_url.png)
 
 4. In the **SAML Signing Certificate** section, select **Metadata XML**, and then save the metadata file on your computer.
 
-	![The AMSL Signing Certificate download link](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_certificate.png) 
+    ![The AMSL Signing Certificate download link](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_certificate.png) 
 
 5. Select the **Save** button.
 
-	![The single sign-on Save button](./media/active-directory-saas-openathens-tutorial/tutorial_general_400.png)
+    ![The single sign-on Save button](./media/active-directory-saas-openathens-tutorial/tutorial_general_400.png)
 
 6. In a different web browser window, log in to your OpenAthens company site as an administrator.
 
 7. Select **Connections** from the list under the **Management** tab. 
 
-	![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application1.png)
+    ![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application1.png)
 
 8. Select **SAML 1.1/2.0**, and then select the **Configure** button.
 
-	![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application2.png)
-	
+    ![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application2.png)
+    
 9. To add the configuration, select the **Browse** button to upload the metadata .xml file that you downloaded from the Azure portal, and then select **Add**.
 
-	![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application3.png)
+    ![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application3.png)
 
 10. Perform the following steps under the **Details** tab.
 
-	![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application4.png)
+    ![Configure single sign-on](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_application4.png)
 
-	a. In **Display name mapping**, select **Use attribute**.
+    a. In **Display name mapping**, select **Use attribute**.
 
-	b. In the **Display name attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-	
-	c. In **Unique user mapping**, select **Use attribute**.
+    b. In the **Display name attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    
+    c. In **Unique user mapping**, select **Use attribute**.
 
-	d. In the **Unique user attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    d. In the **Unique user attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-	e. In **Status**, select all the three check boxes.
+    e. In **Status**, select all the three check boxes.
 
-	f. In **Create local accounts**, select **automatically**.
+    f. In **Create local accounts**, select **automatically**.
 
-	g. Select **Save changes**.
+    g. Select **Save changes**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. For more about the embedded documentation feature, see the [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985).
@@ -192,32 +192,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, browse to the directory view and go to **Enterprise applications**, and then select **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the **Applications** list, select **OpenAthens**.
 
-	![The OpenAthens link in the Applications list](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_app.png)  
+    ![The OpenAthens link in the Applications list](./media/active-directory-saas-openathens-tutorial/tutorial_openathens_app.png)  
 
 3. In the menu on the left, select **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Select the **Add** button. Then select **Users and groups** in the **Add Assignment** pane.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. In the **Users and groups** list, select **Britta Simon**.
 
 6. Select the **Select** button in the **Users and groups** list.
 
 7. Select the **Assign** button in the **Add Assignment** pane.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
 When you select the **OpenAthens** tile in the Access Panel, you should be automatically signed on to your OpenAthens application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

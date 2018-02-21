@@ -66,7 +66,7 @@ The Device Provisioning Service Client SDK helps implement the selected security
         ```
 
 1. The SDK provides default support for devices running Windows or Ubuntu implementations for TPM and X.509 HSMs. For these supported HSMs, proceed to the section titled [Extract the security artifacts](#extractsecurity) below. 
- 
+
 ## Support custom TPM and X.509 devices
 
 The Device Provisioning System Client SDK does not provide default support for any TPM and X.509 devices that do not run either Windows or Ubuntu. For such devices, you need to write the custom code for your particular HSM chip, as shown in the following steps:
@@ -86,7 +86,7 @@ Once your library successfully builds on its own, you can move to the IoThub C-S
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   
+
 1. Open the SDK in visual studio and build it. 
 
     - The build process will compile the SDK library.
@@ -95,6 +95,7 @@ Once your library successfully builds on its own, you can move to the IoThub C-S
 1. Run the `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` sample to verify if your HSM is implemented correctly.
 
 <a id="extractsecurity"></a>
+
 ## Extract the security artifacts
 
 The next step is to extract the security artifacts for the HSM on your device.
@@ -155,14 +156,14 @@ int main()
     prov_dev_security_init(hsm_type); // initialize your HSM 
 
     prov_transport = Prov_Device_HTTP_Protocol;
-    
+
     PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
     if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
-	    do {
-   		// The register_callback is called when registration is complete or fails
-    		Prov_Client_LL_DoWork(handle);
-	    } while (user_info.reg_complete == 0);
+        do {
+        // The register_callback is called when registration is complete or fails
+            Prov_Client_LL_DoWork(handle);
+        } while (user_info.reg_complete == 0);
     }
     Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...

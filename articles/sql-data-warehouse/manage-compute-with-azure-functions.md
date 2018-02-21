@@ -42,6 +42,7 @@ Once you have the above information, deploy this template:
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
+
 Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption based Function App plan, and a storage account which will handle the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
 
 ### Change the scale up or scale down compute level
@@ -58,14 +59,14 @@ Once you've deployed the template, you should find three new resources: a free A
 
 4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up. 
 
-  ![Change function schedule](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Change function schedule](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  For example *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
+   For example *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
 
 
 ### Change the scale up or scale down time
@@ -147,7 +148,7 @@ Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 
 | Function  | Schedule     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW600"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
 #### Example 2: 
@@ -156,7 +157,7 @@ Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm and scale down 
 
 | Function  | Schedule     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW1000"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
@@ -166,7 +167,7 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 
 | Function  | Schedule       | Operation                                |
 | :-------- | :------------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW1000"}` |
+| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
 | Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |

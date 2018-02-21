@@ -78,50 +78,50 @@ This article assumes that you have already installed a CentOS (or similar deriva
         baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
         enabled=1
         gpgcheck=0
-		
-		[base]
-		name=CentOS-$releasever - Base
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-		gpgcheck=1
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-		
-		#released updates
-		[updates]
-		name=CentOS-$releasever - Updates
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-		gpgcheck=1
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-		
-		#additional packages that may be useful
-		[extras]
-		name=CentOS-$releasever - Extras
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-		gpgcheck=1
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+        
+        [base]
+        name=CentOS-$releasever - Base
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+        
+        #released updates
+        [updates]
+        name=CentOS-$releasever - Updates
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+        
+        #additional packages that may be useful
+        [extras]
+        name=CentOS-$releasever - Extras
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-		#additional packages that extend functionality of existing packages
-		[centosplus]
-		name=CentOS-$releasever - Plus
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-		gpgcheck=1
-		enabled=0
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-		
-		#contrib - packages by Centos Users
-		[contrib]
-		name=CentOS-$releasever - Contrib
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
-		gpgcheck=1
-		enabled=0
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+        #additional packages that extend functionality of existing packages
+        [centosplus]
+        name=CentOS-$releasever - Plus
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+        gpgcheck=1
+        enabled=0
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+        
+        #contrib - packages by Centos Users
+        [contrib]
+        name=CentOS-$releasever - Contrib
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+        gpgcheck=1
+        enabled=0
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-	>[!Note]
-	The rest of this guide will assume you are using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
+   > [!Note]
+   >  The rest of this guide will assume you are using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
 
 
 9. Add the following line to /etc/yum.conf:
@@ -132,21 +132,21 @@ This article assumes that you have already installed a CentOS (or similar deriva
     
         # yum clean all
 
-	Unless you are creating an image for an older version of CentOS, it is recommended to update all the packages to the latest:
+    Unless you are creating an image for an older version of CentOS, it is recommended to update all the packages to the latest:
 
-		# sudo yum -y update
+        # sudo yum -y update
 
-	A reboot may be required after running this command.
+    A reboot may be required after running this command.
 
 11. (Optional) Install the drivers for the Linux Integration Services (LIS).
    
-	>[!IMPORTANT]
-	The step is **required** for CentOS 6.3 and earlier, and optional for later releases.
+    > [!IMPORTANT]
+    > The step is **required** for CentOS 6.3 and earlier, and optional for later releases.
 
-		# sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
-		# sudo yum install microsoft-hyper-v
+        # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
+        # sudo yum install microsoft-hyper-v
 
-	Alternatively, you can follow the manual installation instructions on the [LIS download page](https://go.microsoft.com/fwlink/?linkid=403033) to install the RPM onto your VM.
+    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://go.microsoft.com/fwlink/?linkid=403033) to install the RPM onto your VM.
  
 12. Install the Azure Linux Agent and dependencies:
     
@@ -167,8 +167,8 @@ This article assumes that you have already installed a CentOS (or similar deriva
     
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.  The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-	>[!Important]
-	CentOS 6.5 and earlier must also set the kernel parameter `numa=off`. See Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+    > [!Important]
+    > CentOS 6.5 and earlier must also set the kernel parameter `numa=off`. See Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 14. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
@@ -234,51 +234,51 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
         baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
         enabled=1
         gpgcheck=0
-		
-		[base]
-		name=CentOS-$releasever - Base
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-		gpgcheck=1
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
-		#released updates
-		[updates]
-		name=CentOS-$releasever - Updates
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-		gpgcheck=1
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
-		#additional packages that may be useful
-		[extras]
-		name=CentOS-$releasever - Extras
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-		gpgcheck=1
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
-		#additional packages that extend functionality of existing packages
-		[centosplus]
-		name=CentOS-$releasever - Plus
-		#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
-		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-		gpgcheck=1
-		enabled=0
-		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        
+        [base]
+        name=CentOS-$releasever - Base
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        
+        #released updates
+        [updates]
+        name=CentOS-$releasever - Updates
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        
+        #additional packages that may be useful
+        [extras]
+        name=CentOS-$releasever - Extras
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        
+        #additional packages that extend functionality of existing packages
+        [centosplus]
+        name=CentOS-$releasever - Plus
+        #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
+        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+        gpgcheck=1
+        enabled=0
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-	>[!Note]
-	The rest of this guide will assume you are using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
+   > [!Note]
+   >  The rest of this guide will assume you are using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
 
 7. Run the following command to clear the current yum metadata and install any updates:
    
         # sudo yum clean all
 
-	Unless you are creating an image for an older version of CentOS, it is recommended to update all the packages to the latest:
+    Unless you are creating an image for an older version of CentOS, it is recommended to update all the packages to the latest:
 
-		# sudo yum -y update
+        # sudo yum -y update
 
-	A reboot maybe required after running this command.
+    A reboot maybe required after running this command.
 
 8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
    
@@ -296,11 +296,11 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 10. If building the image from **VMWare, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
    
-   Edit `/etc/dracut.conf`, add content:
+    Edit `/etc/dracut.conf`, add content:
    
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
    
-   Rebuild the initramfs:
+    Rebuild the initramfs:
    
         # sudo dracut –f -v
 
@@ -311,7 +311,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 12. Do not create swap space on the OS disk.
    
-   The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
    
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

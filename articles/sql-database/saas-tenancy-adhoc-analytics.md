@@ -27,7 +27,7 @@ In this tutorial, you run distributed queries across the entire set of tenant da
 In this tutorial you learn:
 
 > [!div class="checklist"]
-
+> 
 > * About the global views in each database, these views enable efficient querying across tenants
 > * How to deploy an ad hoc reporting database
 > * How to run distributed queries across all tenant databases
@@ -181,7 +181,7 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the 
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Run distributed queries across all tenant databases
 > * Deploy an ad hoc reporting database and add schema to it to run distributed queries.
 

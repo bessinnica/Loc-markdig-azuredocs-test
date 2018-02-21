@@ -29,6 +29,7 @@ Examples of tools and technologies that help in collecting and/or viewing EventS
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
+
 | Event name | Event ID | Level | Event description |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informational |Emitted when the service RunAsync task is started |

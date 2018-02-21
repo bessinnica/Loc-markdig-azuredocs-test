@@ -316,14 +316,14 @@ The Bing News Search API returns up to four different kinds of related results, 
 
 As previously seen in `renderSearchResults()`, we render only the `relatedItems` suggestions and place the resulting links in the page's sidebar.
 
-##Rendering result items
+## Rendering result items
 
 In the JavaScript code the object, `searchItemRenderers`, contains *renderers:* functions that generate HTML for each kind of search result.
 
 ```javascript
 searchItemRenderers = {
-	news: function(item) { ... },
-	webPages: function (item) { ... }, 
+    news: function(item) { ... },
+    webPages: function (item) { ... }, 
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }

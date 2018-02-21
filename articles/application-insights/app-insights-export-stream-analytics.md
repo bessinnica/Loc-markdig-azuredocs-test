@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export using Stream Analytics from Azure Application Insights | Microsoft Docs
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
 services: application-insights
@@ -32,25 +32,25 @@ In this example, we'll create an adaptor that takes data from Application Insigh
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
 1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
-   
+
    ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-stream-analytics/030.png)
 2. Create a container
-   
+
     ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-stream-analytics/040.png)
 3. Copy the storage access key
-   
+
     You'll need it soon to set up the input to the stream analytics service.
-   
+
     ![In the storage, open Settings, Keys, and take a copy of the Primary Access Key](./media/app-insights-export-stream-analytics/045.png)
 
 ## Start continuous export to Azure storage
 [Continuous export](app-insights-export-telemetry.md) moves data from Application Insights into Azure storage.
 
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
-   
+
     ![Choose Browse, Application Insights, your application](./media/app-insights-export-stream-analytics/050.png)
 2. Create a continuous export.
-   
+
     ![Choose Settings, Continuous Export, Add](./media/app-insights-export-stream-analytics/060.png)
 
     Select the storage account you created earlier:
@@ -62,12 +62,12 @@ Continuous export always outputs data to an Azure Storage account, so you need t
     ![Choose event types](./media/app-insights-export-stream-analytics/080.png)
 
 1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
-   
+
     And also, the data will export to your storage. 
 2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
-   
+
     ![](./media/app-insights-export-stream-analytics/04-data.png)
-   
+
     Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to pipe the data to Power BI.
@@ -159,7 +159,6 @@ Paste this query:
       [export-input] A
     OUTER APPLY GetElements(A.context.custom.metrics) as flat
     GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
-
 ``` 
 
 * This query drills into the metrics telemetry to get the event time and the metric value. The metric values are inside an array, so we use the OUTER APPLY GetElements pattern to extract the rows. "myMetric" is the name of the metric in this case. 
@@ -181,7 +180,6 @@ Paste this query:
      BusinessUnitId
     INTO AIOutput
     FROM flat
-
 ```
 
 * This query includes values of the dimension properties without depending on a particular dimension being at a fixed index in the dimension array.

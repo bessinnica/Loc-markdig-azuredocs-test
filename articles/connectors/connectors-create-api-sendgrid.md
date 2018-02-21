@@ -31,7 +31,6 @@ To create Logic apps with SendGrid, you must first create a **connection** then 
 | ApiKey |Yes |Provide Your SendGrid Api Key |
 
 > [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
-> 
 
 
 After you create the connection, you can use it to execute the actions and listen for the triggers.

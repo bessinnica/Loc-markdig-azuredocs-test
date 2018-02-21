@@ -58,7 +58,7 @@ storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGro
 
 az resource move \
     --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
-	--destination-group "myDestinationResourceGroup"
+    --destination-group "myDestinationResourceGroup"
 ```
 
 If you want to move the VM and its resources to a different subscription, add the **--destination-subscriptionId** parameter to specify the destination subscription.

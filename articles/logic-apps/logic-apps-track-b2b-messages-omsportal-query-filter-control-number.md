@@ -113,6 +113,7 @@ Your previous results are now filtered too.
 
 <a name="save-oms-query"></a>
 
+
 ## Save your query for future use
 
 1. From your query on the **Log Search** page, choose **Save**. 

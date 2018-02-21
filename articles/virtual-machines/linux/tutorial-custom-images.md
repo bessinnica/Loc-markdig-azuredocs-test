@@ -122,7 +122,7 @@ Delete an image. This example deletes the image named *myOldImage* from the *myR
 ```azurecli-interactive 
 az image delete \
     --name myOldImage \
-	--resource-group myResourceGroup
+    --resource-group myResourceGroup
 ```
 
 ## Next steps

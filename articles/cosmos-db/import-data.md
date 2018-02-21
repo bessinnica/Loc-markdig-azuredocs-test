@@ -205,10 +205,10 @@ Similar to the SQL source, the nesting separator property may be used to create 
 
 Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of ‘.’, the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
-*{
+<em>{
   "DomainInfo": {
     "Domain_Name": "ACUS.GOV",
-    "Domain_Name_Address": "http://www.ACUS.GOV"
+    "Domain_Name_Address": "<http://www.ACUS.GOV>"
   },
   "Federal Agency": "Administrative Conference of the United States",
   "RedirectInfo": {
@@ -216,7 +216,7 @@ Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By
     "Redirect_Destination": ""
   },
   "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
-}*
+}</em>
 
 The import tool attempts to infer type information for unquoted values in CSV files (quoted values are always treated as strings).  Types are identified in the following order: number, datetime, boolean.  
 

@@ -87,9 +87,9 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```nodejs
     function createKeyspace(next) {
-    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
-    	client.execute(query, next);
-    	console.log("created keyspace");    
+        var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
+        client.execute(query, next);
+        console.log("created keyspace");    
   }
     ```
 
@@ -97,9 +97,9 @@ This step is optional. If you're interested in learning how the database resourc
 
    ```nodejs
    function createTable(next) {
-   	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
-    	client.execute(query, next);
-    	console.log("created table");
+    var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+        client.execute(query, next);
+        console.log("created table");
    },
    ```
 
@@ -132,15 +132,15 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```nodejs
     function selectById(next) {
-    	console.log("\Getting by id");
-    	var query = 'SELECT * FROM uprofile.user where user_id=1';
-    	client.execute(query, { prepare: true}, function (err, result) {
-      	if (err) return next(err);
-      		result.rows.forEach(function(row) {
-        	console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      	}, this);
-      	next();
-    	});
+        console.log("\Getting by id");
+        var query = 'SELECT * FROM uprofile.user where user_id=1';
+        client.execute(query, { prepare: true}, function (err, result) {
+        if (err) return next(err);
+            result.rows.forEach(function(row) {
+            console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+        }, this);
+        next();
+        });
     }
     ```  
 

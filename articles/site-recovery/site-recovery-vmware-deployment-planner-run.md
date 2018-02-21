@@ -24,9 +24,9 @@ This article is the Azure Site Recovery Deployment Planner user guide for VMware
 ## Modes of running deployment planner
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes: 
 
-1.	[Profiling](#profile-vmware-vms)
-2.	[Report generation](#generate-report)
-3.	[Get throughput](#get-throughput)
+1.  [Profiling](#profile-vmware-vms)
+2.  [Report generation](#generate-report)
+3.  [Get throughput](#get-throughput)
 
 First, run the tool in profiling mode to gather VM data churn and IOPS. Next, run the tool to generate the report to find the network bandwidth, storage requirements and DR cost.
 
@@ -43,22 +43,22 @@ First, you need a list of the VMs to be profiled. You can get all the names of V
 2. Open the VMware vSphere PowerCLI console.
 3. Ensure that the execution policy is enabled for the script. If it is disabled, launch the VMware vSphere PowerCLI console in administrator mode, and then enable it by running the following command:
 
-			Set-ExecutionPolicy –ExecutionPolicy AllSigned
+            Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. You may optionly need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
  
-			Add-PSSnapin VMware.VimAutomation.Core 
+            Add-PSSnapin VMware.VimAutomation.Core 
 
 5. To get all the names of VMs on a vCenter server/vSphere ESXi host and store the list in a .txt file, run the two commands listed here.
 Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; with your inputs.
 
-			Connect-VIServer -Server <server name> -User <user name> -Password <password>
+            Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
-			Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+            Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
 6. Open the output file in Notepad, and then copy the names of all VMs that you want to profile to another file (for example, ProfileVMList.txt), one VM name per line. This file is used as input to the *-VMListFile* parameter of the command-line tool.
 
-	![VM name list in the deployment planner
+    ![VM name list in the deployment planner
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
 
 ### Start profiling
@@ -68,24 +68,24 @@ After you have the list of VMs to be profiled, you can run the tool in profiling
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameter name | Description |
-|---|---|
-| -Operation | StartProfiling |
-| -Server | The fully qualified domain name or IP address of the vCenter server/vSphere ESXi host whose VMs are to be profiled.|
-| -User | The user name to connect to the vCenter server/vSphere ESXi host. The user needs to have read-only access, at minimum.|
-| -VMListFile |	The file that contains the list of VMs to be profiled. The file path can be absolute or relative. The file should contain one VM name/IP address per line. Virtual machine name specified in the file should be the same as the VM name on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
-|-NoOfMinutesToProfile|The number of minutes for which profiling is to be run. Minimum is 30 minutes.|
-|-NoOfHoursToProfile|The number of hours for which profiling is to be run.|
-| -NoOfDaysToProfile | The number of days for which profiling is to be run. We recommend that you run profiling for more than 7 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation. |
-|-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
-| -Directory | (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name is not given, the directory named ‘ProfiledData’ under the current path will be used as the default directory. |
-| -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you will be prompted for it when the command is executed.|
-|-Port|(Optional) Port number to connect to vCenter/ESXi host. Default port is 443.|
-|-Protocol| (Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.|
-| -StorageAccountName | (Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be either  general purpose v1 or storageV2 (general purpose v2)|
-| -StorageAccountKey | (Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1. |
-| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds. |
 
+|    Parameter name     |                                                                                                                                                                                                            Description                                                                                                                                                                                                             |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      -Operation       |                                                                                                                                                                                                           StartProfiling                                                                                                                                                                                                           |
+|        -Server        |                                                                                                                                                        The fully qualified domain name or IP address of the vCenter server/vSphere ESXi host whose VMs are to be profiled.                                                                                                                                                         |
+|         -User         |                                                                                                                                                       The user name to connect to the vCenter server/vSphere ESXi host. The user needs to have read-only access, at minimum.                                                                                                                                                       |
+|      -VMListFile      | The file that contains the list of VMs to be profiled. The file path can be absolute or relative. The file should contain one VM name/IP address per line. Virtual machine name specified in the file should be the same as the VM name on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -NoOfMinutesToProfile |                                                                                                                                                                           The number of minutes for which profiling is to be run. Minimum is 30 minutes.                                                                                                                                                                           |
+|  -NoOfHoursToProfile  |                                                                                                                                                                                       The number of hours for which profiling is to be run.                                                                                                                                                                                        |
+|  -NoOfDaysToProfile   |                                                                                    The number of days for which profiling is to be run. We recommend that you run profiling for more than 7 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation.                                                                                     |
+|    -Virtualization    |                                                                                                                                                                                        Specify the virtualization type (VMware or Hyper-V).                                                                                                                                                                                        |
+|      -Directory       |                                                                                  (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name is not given, the directory named ‘ProfiledData’ under the current path will be used as the default directory.                                                                                   |
+|       -Password       |                                                                                                                            (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you will be prompted for it when the command is executed.                                                                                                                             |
+|         -Port         |                                                                                                                                                                            (Optional) Port number to connect to vCenter/ESXi host. Default port is 443.                                                                                                                                                                            |
+|       -Protocol       |                                                                                                                                                            (Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.                                                                                                                                                            |
+|  -StorageAccountName  |                                                             (Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be either  general purpose v1 or storageV2 (general purpose v2)                                                              |
+|  -StorageAccountKey   |                                                                                                                     (Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <<em>Storage account name</em>> > Settings > Access Keys > Key1.                                                                                                                     |
+|     -Environment      |                                                                           (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds.                                                                           |
 
 We recommend that you profile your VMs for more than 7 days. If churn pattern varies in a month, we recommend to profile during the week when you see the maximum churn. The best way is to profile for 31 days to get better recommendation. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes.
 

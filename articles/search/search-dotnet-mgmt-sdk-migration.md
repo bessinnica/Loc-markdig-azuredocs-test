@@ -23,6 +23,7 @@ Version 2 of the Azure Search .NET Management SDK contains some changes from ear
 
 <a name="WhatsNew"></a>
 
+
 ## What's new in version 2
 Version 2 of the Azure Search .NET Management SDK targets the same generally available version of the Azure Search Management REST API as previous SDK versions, specifically 2015-08-19. The changes to the SDK are strictly client-side changes to improve the usability of the SDK itself. These changes include the following:
 
@@ -31,6 +32,7 @@ Version 2 of the Azure Search .NET Management SDK targets the same generally ava
 * New methods `Services.Update` and its asynchronous versions have been added to the SDK. These methods use HTTP PATCH to support incremental updating of a service. For example, you can now scale a service by passing a `SearchService` instance to these methods that contains only the desired `partitionCount` and `replicaCount` properties. The old way of calling `Services.Get`, modifying the returned `SearchService`, and passing it to `Services.CreateOrUpdate` is still supported, but is no longer necessary. 
 
 <a name="UpgradeSteps"></a>
+
 
 ## Steps to upgrade
 First, update your NuGet reference for `Microsoft.Azure.Management.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.

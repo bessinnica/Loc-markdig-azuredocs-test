@@ -78,7 +78,7 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
 
 Azure Cosmos DB provides the best capabilities of relational and non-relational databases.
 
-| Capabilities | Relational databases	| Non-relational (NoSQL) databases | 	Azure Cosmos DB |
+| Capabilities | Relational databases   | Non-relational (NoSQL) databases |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Global distribution | No | No | Yes, turnkey distribution in 30+ regions, with multi-homing APIs|
 | Horizontal scale | No | Yes | Yes, you can independently scale storage and throughput | 

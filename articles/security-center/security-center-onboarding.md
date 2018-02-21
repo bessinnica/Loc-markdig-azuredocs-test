@@ -41,14 +41,14 @@ To upgrade all subscriptions to Standard:
 1. Under the Security Center main menu, select **Onboarding**.
 2. Under **Onboarding to advanced security**, Security Center lists subscriptions eligible for onboarding. You can upgrade all of the listed subscriptions by selecting **Apply Standard plan**.
 
-  ![Upgrade all subscriptions][1]
+   ![Upgrade all subscriptions][1]
 
 To upgrade an individual subscription to Standard:
 You can upgrade a subscription from **Onboarding** by selecting **Apply Standard Tier**. To upgrade a resource group under the subscription to Standard, select the subscription:
 1. Select a subscription.  **Security policy** provides information on the resource group contained in the subscription.
 2. Select the subscription or a resource group.
 
-  ![Upgrade all subscriptions][2]
+   ![Upgrade all subscriptions][2]
 
 3. Select **Standard** to upgrade from Free to Standard.
 4. Select **Save**.
@@ -64,7 +64,7 @@ Applying Standard to the workspace applies to all resources reporting to the wor
 1. Return to the **Onboarding** blade.
 2. Select a workspace.
 
-  ![Upgrade a workspace][8]
+   ![Upgrade a workspace][8]
 
 3. Select **Standard** to upgrade.  
 4. Select **Save**.
@@ -82,7 +82,7 @@ Security Center can monitor the security posture of your non-Azure computers but
 1. Return to **Onboarding**.   
 2. Select **Do you want to add new non-Azure computers**.
 
-  ![Add non-Azure computer][3]
+   ![Add non-Azure computer][3]
 
 If you have existing workspaces, they are listed under **Add new Non-Azure computers**. You can add computers to an existing workspace or create a new workspace. To create a new workspace, select the link **add a new workspace**.
 
@@ -119,7 +119,7 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
    ![Add computers][7]
 
- The **Direct Agent** blade provides a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.   
+   The **Direct Agent** blade provides a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.   
 
 ## Next steps
 In this article you learned how to onboard Azure and non-Azure resources in order to benefit from Security Center’s advanced security.  To do more with your onboarded resources, see

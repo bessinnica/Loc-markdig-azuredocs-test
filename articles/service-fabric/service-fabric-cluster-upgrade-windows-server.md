@@ -123,7 +123,6 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade Power
 ```powershell
 
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
-
 ```
 
 #### Cluster upgrade workflow
@@ -136,7 +135,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade Power
 
     ###### Get list of all upgrade compatible packages  
     Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
-	```
+    ```
 
 3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on doesn't have to be part of the cluster.
 
@@ -190,14 +189,12 @@ Before you initiate the configuration upgrade, you can test your new cluster con
 ```powershell
 
     TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
-
 ```
 Or use this script:
 
 ```powershell
 
     TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
-
 ```
 
 Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
@@ -207,7 +204,6 @@ To upgrade the cluster configuration upgrade, run Start-ServiceFabricClusterConf
 ```powershell
 
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
-
 ```
 
 ### Cluster certificate config upgrade  

@@ -121,12 +121,14 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
 * Complete a virtual network peering tutorial. A virtual network peering is created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
 
-    |Azure deployment model  | Subscription  |
-    |---------|---------|
-    |Both Resource Manager |[Same](virtual-network-create-peering.md)|
-    | |[Different](create-peering-different-subscriptions.md)|
-    |One Resource Manager, one classic     |[Same](create-peering-different-deployment-models.md)|
-    | |[Different](create-peering-different-deployment-models-subscriptions.md)|
+
+  |      Azure deployment model       |                               Subscription                               |
+  |-----------------------------------|--------------------------------------------------------------------------|
+  |       Both Resource Manager       |                [Same](virtual-network-create-peering.md)                 |
+  |                                   |          [Different](create-peering-different-subscriptions.md)          |
+  | One Resource Manager, one classic |          [Same](create-peering-different-deployment-models.md)           |
+  |                                   | [Different](create-peering-different-deployment-models-subscriptions.md) |
+
 
 * Learn how to create a [hub and spoke network topology.](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md)

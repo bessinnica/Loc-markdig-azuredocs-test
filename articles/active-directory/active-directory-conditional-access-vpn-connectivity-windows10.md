@@ -24,9 +24,9 @@ With [Azure Active Directory (Azure AD) conditional access](active-directory-con
 
 To configure conditional access for VPN connectivity, you need to complete the following steps: 
 
-1.	Configure your VPN server.
-2.	Configure your VPN client.
-3.	Configure your conditional access policy.
+1.  Configure your VPN server.
+2.  Configure your VPN client.
+3.  Configure your conditional access policy.
 
 
 ## Before you begin

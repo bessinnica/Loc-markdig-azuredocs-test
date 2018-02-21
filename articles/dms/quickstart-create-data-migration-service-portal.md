@@ -41,13 +41,13 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 
 3. On the **Database Migration Service** screen: 
 
-    - Choose a **Service name** that is memorable and unique to identify your instance of the Azure Database Migration Service.
-    - Select the Azure **Subscription** in which you want to create the instance.
-    - Create a new **Network** with a unique name.
-    - Choose the **Location** that is closest to your source or target server.
-    - Select Basic: 1 vCore for the **Pricing tier**.
+   - Choose a **Service name** that is memorable and unique to identify your instance of the Azure Database Migration Service.
+   - Select the Azure **Subscription** in which you want to create the instance.
+   - Create a new **Network** with a unique name.
+   - Choose the **Location** that is closest to your source or target server.
+   - Select Basic: 1 vCore for the **Pricing tier**.
 
-    ![Create migration service](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+     ![Create migration service](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
 4. Select **Create**.
 
 After a few moments, your instance of the Azure Database Migration service is created and ready to use. The Database Migration Service displays as shown in the following image:

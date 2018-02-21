@@ -311,12 +311,12 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
    ![restore](./media/sql-database-design-first-database/restore.png)
 
 2. Fill out the **Restore** form with the required information:
-	* Database name: Provide a database name 
-	* Point-in-time: Select the **Point-in-time** tab on the Restore form 
-	* Restore point: Select a time that occurs before the database was changed
-	* Target server: You cannot change this value when restoring a database 
-	* Elastic database pool: Select **None**  
-	* Pricing tier: Select **20 DTUs** and **40 GB** of storage.
+    * Database name: Provide a database name 
+    * Point-in-time: Select the **Point-in-time** tab on the Restore form 
+    * Restore point: Select a time that occurs before the database was changed
+    * Target server: You cannot change this value when restoring a database 
+    * Elastic database pool: Select **None**  
+    * Pricing tier: Select **20 DTUs** and **40 GB** of storage.
 
    ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 

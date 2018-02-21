@@ -71,7 +71,7 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
 
     Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the password for the SSH user account. For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-4. To create the Kafka topics that are used by this example, use the following commands:
+2. To create the Kafka topics that are used by this example, use the following commands:
 
     ```bash
     sudo apt -y install jq
@@ -92,36 +92,36 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
     > [!NOTE]
     > If your cluster login is different than the default value of `admin`, replace the `admin` value in the previous commands with your cluster login name.
 
-5. To run this example, you must do three things:
+3. To run this example, you must do three things:
 
-    * Start the Streams solution contained in `kafka-streaming.jar`.
-    * Start a producer that writes to the `test` topic.
-    * Start a consumer so that you can see the output written to the `wordcounts` topic
+   * Start the Streams solution contained in `kafka-streaming.jar`.
+   * Start a producer that writes to the `test` topic.
+   * Start a consumer so that you can see the output written to the `wordcounts` topic
 
-    > [!NOTE]
-    > You need to verify that the `auto.create.topics.enable` property is set to `true` in the Kafka Broker config file. This property can be viewed and modified in the Advanced Kafka Broker Configuration file by using the Ambari Web UI. Otherwise, you need to create the intermediate topic `RekeyedIntermediateTopic` manually before running this example using the following command:
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
-    ```
+     > [!NOTE]
+     > You need to verify that the `auto.create.topics.enable` property is set to `true` in the Kafka Broker config file. This property can be viewed and modified in the Advanced Kafka Broker Configuration file by using the Ambari Web UI. Otherwise, you need to create the intermediate topic `RekeyedIntermediateTopic` manually before running this example using the following command:
+     > ```bash
+     > /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+     > ```
     
-    You could accomplish these operations by opening three SSH sessions. But you then have to set `$KAFKABROKERS` and `$KAFKAZKHOSTS` for each by running step 4 from this section in each SSH session. An easier solution is to use the `tmux` utility, which can split the current SSH display into multiple sections. To start the stream, producer, and consumer using `tmux`, use the following command:
+     You could accomplish these operations by opening three SSH sessions. But you then have to set `$KAFKABROKERS` and `$KAFKAZKHOSTS` for each by running step 4 from this section in each SSH session. An easier solution is to use the `tmux` utility, which can split the current SSH display into multiple sections. To start the stream, producer, and consumer using `tmux`, use the following command:
 
-    ```bash
-    tmux new-session '/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer' \; split-window -h 'java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS' \; split-window -v '/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test' \; attach
-    ```
+     ```bash
+     tmux new-session '/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer' \; split-window -h 'java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS' \; split-window -v '/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test' \; attach
+     ```
 
-    This command splits the SSH display into three sections:
+     This command splits the SSH display into three sections:
 
-    * The left section runs a console consumer, which reads messages from the `wordcounts` topic: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
+   * The left section runs a console consumer, which reads messages from the `wordcounts` topic: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
 
-        > [!NOTE]
-        > The `--property` parameters tell the console consumer to print the key (word) along with the count (value). This parameter also configures the deserializer to use when reading these values from Kafka.
+       > [!NOTE]
+       > The `--property` parameters tell the console consumer to print the key (word) along with the count (value). This parameter also configures the deserializer to use when reading these values from Kafka.
 
-    * The top right section runs the Streams API solution: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
+   * The top right section runs the Streams API solution: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
 
-    * The lower right section runs the console producer, and waits on you to enter messages to send to the `test` topic: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
+   * The lower right section runs the console producer, and waits on you to enter messages to send to the `test` topic: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
  
-6. After the `tmux` command splits the display, your cursor is in the lower right section. Start entering sentences. After each sentence, the left pane is updated to show a count of unique words. The output is similar to the following text:
+4. After the `tmux` command splits the display, your cursor is in the lower right section. Start entering sentences. After each sentence, the left pane is updated to show a count of unique words. The output is similar to the following text:
    
         dwarfs  13635
         ago     13664
@@ -139,7 +139,7 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
     > [!NOTE]
     > The count increments each time a word is encountered.
 
-7. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
+5. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
 
 ## Next steps
 

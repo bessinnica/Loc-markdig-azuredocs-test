@@ -259,7 +259,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     <tr><th>Name</th><th>Value</th></tr>
     <tr><td>Filter Year</td><td>2013 </td></tr>
     <tr><td>Filter Period</td><td>January</td></tr>
-    <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
+    <tr><td>Fields</td><td><em>Year</em>, <em>FlightDate</em>, <em>UniqueCarrier</em>, <em>Carrier</em>, <em>FlightNum</em>, <em>OriginAirportID</em>, <em>Origin</em>, <em>OriginCityName</em>, <em>OriginState</em>, <em>DestAirportID</em>, <em>Dest</em>, <em>DestCityName</em>, <em>DestState</em>, <em>DepDelayMinutes</em>, <em>ArrDelay</em>, <em>ArrDelayMinutes</em>, <em>CarrierDelay</em>, <em>WeatherDelay</em>, <em>NASDelay</em>, <em>SecurityDelay</em>, <em>LateAircraftDelay</em> (clear all other fields)</td></tr>
     </table>
 3. Click **Download**.
 4. Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder. Each file is a CSV file and is approximately 60GB in size.

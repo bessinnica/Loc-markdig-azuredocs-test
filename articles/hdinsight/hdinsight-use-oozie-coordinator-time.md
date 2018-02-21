@@ -219,7 +219,7 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
     For more information about Oozie workflow and using the workflow actions, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight cluster version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight cluster version 2.1).
 
-1. Save the file as **C:\Tutorials\UseOozie\workflow.xml** by using ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.)
+2. Save the file as **C:\Tutorials\UseOozie\workflow.xml** by using ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.)
 
 **To define coordinator**
 
@@ -391,7 +391,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
     ![Tutorial preparation output][img-preparation-output]
 
 ## Run the Oozie project
-Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight cluster version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight cluster version 2.1).
+Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the <strong>Invoke-RestMethod</strong> cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight cluster version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight cluster version 2.1).
 
 **To submit an Oozie job**
 

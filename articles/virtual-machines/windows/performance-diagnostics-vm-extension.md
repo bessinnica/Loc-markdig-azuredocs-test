@@ -41,18 +41,18 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
         "autoUpgradeMinorVersion": true,
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
-			      "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-			      "perfCounterTrace": "[parameters('perfCounterTrace')]",
-			      "networkTrace": "[parameters('networkTrace')]",
-			      "xperfTrace": "[parameters('xperfTrace')]",
-			      "storPortTrace": "[parameters('storPortTrace')]",
+                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
+                  "networkTrace": "[parameters('networkTrace')]",
+                  "xperfTrace": "[parameters('xperfTrace')]",
+                  "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-		  "protectedSettings": {
+          "protectedSettings": {
             "storageAccountName": "[parameters('storageAccountName')]",
-            "storageAccountKey": "[parameters('storageAccountKey')]"		
-		    }
+            "storageAccountKey": "[parameters('storageAccountKey')]"        
+            }
       }
     }
 ```
@@ -120,52 +120,52 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
   "parameters": {
     "vmName": {
       "type": "string",
-	  "defaultValue": "yourVMName"
+      "defaultValue": "yourVMName"
     },
     "location": {
       "type": "string",
-	  "defaultValue": "southcentralus"
+      "defaultValue": "southcentralus"
     },
     "storageAccountName": {
       "type": "securestring"
-	  "defaultValue": "yourStorageAccount"
+      "defaultValue": "yourStorageAccount"
     },
     "storageAccountKey": {
       "type": "securestring"
-	  "defaultValue": "yourStorageAccountKey"
+      "defaultValue": "yourStorageAccountKey"
     },
     "performanceScenario": {
       "type": "string",
-	  "defaultValue": "basic"
+      "defaultValue": "basic"
     },
     "srNumber": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
-	"traceDurationInSeconds": {
-	  "type": "int",
+    "traceDurationInSeconds": {
+      "type": "int",
     "defaultValue": 300
-	},
+    },
     "perfCounterTrace": {
       "type": "string",
-	  "defaultValue": "p"
+      "defaultValue": "p"
     },
     "networkTrace": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
     "xperfTrace": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
     "storPortTrace": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
     "requestTimeUtc": {
-	  "type": "string",
+      "type": "string",
       "defaultValue": "10/2/2017 11:06:00 PM"
-    }		
+    }       
   },
   "resources": [
     {
@@ -180,18 +180,18 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
         "autoUpgradeMinorVersion": true,
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
-			      "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-			      "perfCounterTrace": "[parameters('perfCounterTrace')]",
-			      "networkTrace": "[parameters('networkTrace')]",
-			      "xperfTrace": "[parameters('xperfTrace')]",
-			      "storPortTrace": "[parameters('storPortTrace')]",
+                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
+                  "networkTrace": "[parameters('networkTrace')]",
+                  "xperfTrace": "[parameters('xperfTrace')]",
+                  "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-		  "protectedSettings": {
+          "protectedSettings": {
             "storageAccountName": "[parameters('storageAccountName')]",
-            "storageAccountKey": "[parameters('storageAccountKey')]"		
-		    }
+            "storageAccountKey": "[parameters('storageAccountKey')]"        
+            }
       }
     }
   ]

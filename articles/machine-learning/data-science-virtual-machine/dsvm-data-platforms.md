@@ -46,7 +46,7 @@ The database server is already pre-configured and the Windows services related t
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
         (Please replace the %COMPUTERNAME% with your VM name)
-       
+
 In order to run SQL Server Management Studio, you can search for "SQL Server Management Studio" on program list or use Windows Search to find and run it. When prompted for credentials, choose "Windows Authentication" and use the machine name or ```localhost``` in SQL Server Name. 
 
 ### How to use / run it?  
@@ -96,6 +96,7 @@ A sample demonstrating how to develop and test MRS in remote Spark context (whic
 
 
 ### How is it configured / installed on the DSVM? 
+
 |Platform|Install Location ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|

@@ -497,24 +497,24 @@ In addition to defining a preset file, you also have to let Media Services know 
 If you are using .NET, add the following two functions to the .NET example defined in [this](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) topic. The **UploadMediaFilesFromFolder** function uploads files from a folder (for example, BigBuckBunny.mp4 and Image001.png) and sets the mp4 file to be the primary file in the asset. The **EncodeWithOverlay** function uses the custom preset file that was passed to it (for example, the preset that follows) to create the encoding task.
 
 
-	static public IAsset UploadMediaFilesFromFolder(string folderPath)
-	{
-	    IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-	
-	    foreach (var af in asset.AssetFiles)
-	    {
-	        // The following code assumes 
-	        // you have an input folder with one MP4 and one overlay image file.
-	        if (af.Name.Contains(".mp4"))
-	            af.IsPrimary = true;
-	        else
-	            af.IsPrimary = false;
-	
-	        af.Update();
-	    }
-	
-	    return asset;
-	}
+    static public IAsset UploadMediaFilesFromFolder(string folderPath)
+    {
+        IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+    
+        foreach (var af in asset.AssetFiles)
+        {
+            // The following code assumes 
+            // you have an input folder with one MP4 and one overlay image file.
+            if (af.Name.Contains(".mp4"))
+                af.IsPrimary = true;
+            else
+                af.IsPrimary = false;
+    
+            af.Update();
+        }
+    
+        return asset;
+    }
 
     static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
     {

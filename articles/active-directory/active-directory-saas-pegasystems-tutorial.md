@@ -58,19 +58,19 @@ To configure the integration of Pega Systems into Azure AD, you need to add Pega
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Pega Systems**, select **Pega Systems** from result panel then click **Add** button to add the application.
 
-	![Pega Systems in the results list](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_addfromgallery.png)
+    ![Pega Systems in the results list](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,107 +96,107 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Pega Systems** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_samlbase.png)
 
 3. On the **Pega Systems Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Pega Systems Domain and URLs single sign-on information](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_url.png)
+    ![Pega Systems Domain and URLs single sign-on information](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Pega Systems Domain and URLs single sign-on information](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_url1.png)
+    ![Pega Systems Domain and URLs single sign-on information](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_url1.png)
 
     In the **Relay State** textbox, type a URL using the following pattern: `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Relay State URL. You can find the values of Identifier and Reply URL from Pega application which is explained later in this tutorial. For Relay State, please contact [Pega Systems Client support team](https://www.pega.com/contact-us) to get the value. 
+     
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Relay State URL. You can find the values of Identifier and Reply URL from Pega application which is explained later in this tutorial. For Relay State, please contact [Pega Systems Client support team](https://www.pega.com/contact-us) to get the value. 
 
 5. The Pega Systems application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. These claims are customer specific and depends on your requirement. Following optional claims are example only which you can configure for your application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
-	| uid | *********** |
-	| cn  | *********** |
-	| mail | *********** |
-	| accessgroup | *********** |
-	| organization | *********** |
-	| orgdivision | *********** |
-	| orgunit | *********** |
-	| workgroup | *********** |
-	| Phone | *********** |
+    
+    | Attribute Name | Attribute Value |
+    | ------------------- | -------------------- |    
+    | uid | *********** |
+    | cn  | *********** |
+    | mail | *********** |
+    | accessgroup | *********** |
+    | organization | *********** |
+    | orgdivision | *********** |
+    | orgunit | *********** |
+    | workgroup | *********** |
+    | Phone | *********** |
 
-	> [!NOTE]
-	> These are customer specific values. Please provide your appropriate values.
+    > [!NOTE]
+    > These are customer specific values. Please provide your appropriate values.
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-pegasystems-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**.
 
 7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_certificate.png) 
 8. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_general_400.png)
+    
 9. To configure single sign-on on **Pega Systems** side, open the **Pega Portal** with admin account in another browser window.
 
 10. Select **Create** -> **SysAdmin** -> **Authentication Service**.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin.png)
+    
 11. Perform following actions on **Create Aauthentication Service** screen:
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin1.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
-	a. Select **SAML 2.0** from Type
+    a. Select **SAML 2.0** from Type
 
-	b. In the **Name** textbox, enter any name e.g Azure AD SSO
+    b. In the **Name** textbox, enter any name e.g Azure AD SSO
 
-	c. In the **Short Description** textbox, enter any description  
+    c. In the **Short Description** textbox, enter any description  
 
-	d. Click on **Create and open** 
-	
+    d. Click on **Create and open** 
+    
 12. In **Identity Provider (IdP) information** section, click on **Import IdP metadata** and browse the metadata file which you have downloaded from the Azure portal. Click **Submit** to load the metadata.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin2.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin2.png)
+    
 13. This will populate the IdP data as shown below.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin3.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin3.png)
+    
 14. Perform following actions on **Service Provider (SP) settings** section:
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin4.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
-	a. Copy the **Entity Identification** value and paste back in Azure Portal's **Identifier** textbox.
+    a. Copy the **Entity Identification** value and paste back in Azure Portal's **Identifier** textbox.
 
-	b.  Copy the **Assertion Consumer Service (ACS) location** value and paste back in Azure Portal's **Reply URL** textbox.
+    b.  Copy the **Assertion Consumer Service (ACS) location** value and paste back in Azure Portal's **Reply URL** textbox.
 
-	c. Select **Disable request signing**.
+    c. Select **Disable request signing**.
 
 15. Click **Save**
-	
+    
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
@@ -247,32 +247,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Pega Systems**.
 
-	![The Pega Systems link in the Applications list](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_app.png)  
+    ![The Pega Systems link in the Applications list](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Pega Systems tile in the Access Panel, you should get automatically signed-on to your Pega Systems application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

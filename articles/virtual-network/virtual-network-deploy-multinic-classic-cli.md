@@ -49,92 +49,92 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
-	```azurecli
-	location="useast2"
-	vnetName="WTestVNet"
-	backendSubnetName="BackEnd"
-	```
+    ```azurecli
+    location="useast2"
+    vnetName="WTestVNet"
+    backendSubnetName="BackEnd"
+    ```
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
-	```azurecli
-	backendCSName="IaaSStory-Backend"
-	prmStorageAccountName="iaasstoryprmstorage"
-	image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
-	avSetName="ASDB"
-	vmSize="Standard_DS3"
-	diskSize=127
-	vmNamePrefix="DB"
-	osDiskName="osdiskdb"
-	dataDiskPrefix="db"
-	dataDiskName="datadisk"
-	ipAddressPrefix="192.168.2."
-	username='adminuser'
-	password='adminP@ssw0rd'
-	numberOfVMs=2
-	```
+    ```azurecli
+    backendCSName="IaaSStory-Backend"
+    prmStorageAccountName="iaasstoryprmstorage"
+    image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
+    avSetName="ASDB"
+    vmSize="Standard_DS3"
+    diskSize=127
+    vmNamePrefix="DB"
+    osDiskName="osdiskdb"
+    dataDiskPrefix="db"
+    dataDiskName="datadisk"
+    ipAddressPrefix="192.168.2."
+    username='adminuser'
+    password='adminP@ssw0rd'
+    numberOfVMs=2
+    ```
 
 ### Step 2 - Create necessary resources for your VMs
 1. Create a new cloud service for all backend VMs. Notice the use of the `$backendCSName` variable for the resource group name, and `$location` for the Azure region.
 
-	```azurecli
-	azure service create --serviceName $backendCSName \
-		--location $location
-	```
+    ```azurecli
+    azure service create --serviceName $backendCSName \
+        --location $location
+    ```
 
 2. Create a premium storage account for the OS and data disks to be used by yours VMs.
 
-	```azurecli
-	azure storage account create $prmStorageAccountName \
-		--location $location \
-		--type PLRS
-	```
+    ```azurecli
+    azure storage account create $prmStorageAccountName \
+        --location $location \
+        --type PLRS
+    ```
 
 ### Step 3 - Create VMs with multiple NICs
 1. Start a loop to create multiple VMs, based on the `numberOfVMs` variables.
 
-	```azurecli
-	for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
-	do
-	```
+    ```azurecli
+    for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
+    do
+    ```
 
 2. For each VM, specify the name and IP address of each of the two NICs.
 
-	```azurecli
-	nic1Name=$vmNamePrefix$suffixNumber-DA
-	x=$((suffixNumber+3))
-	ipAddress1=$ipAddressPrefix$x
+    ```azurecli
+    nic1Name=$vmNamePrefix$suffixNumber-DA
+    x=$((suffixNumber+3))
+    ipAddress1=$ipAddressPrefix$x
 
-	nic2Name=$vmNamePrefix$suffixNumber-RA
-	x=$((suffixNumber+53))
-	ipAddress2=$ipAddressPrefix$x
-	```
+    nic2Name=$vmNamePrefix$suffixNumber-RA
+    x=$((suffixNumber+53))
+    ipAddress2=$ipAddressPrefix$x
+    ```
 
 3. Create the VM. Notice the usage of the `--nic-config` parameter, containing a list of all NICs with name, subnet, and IP address.
 
-	```azurecli
-	azure vm create $backendCSName $image $username $password \
-		--connect $backendCSName \
-		--vm-name $vmNamePrefix$suffixNumber \
-		--vm-size $vmSize \
-		--availability-set $avSetName \
-		--blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
-		--virtual-network-name $vnetName \
-		--subnet-names $backendSubnetName \
-		--nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
-	```
+    ```azurecli
+    azure vm create $backendCSName $image $username $password \
+        --connect $backendCSName \
+        --vm-name $vmNamePrefix$suffixNumber \
+        --vm-size $vmSize \
+        --availability-set $avSetName \
+        --blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
+        --virtual-network-name $vnetName \
+        --subnet-names $backendSubnetName \
+        --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
+    ```
 
 4. For each VM, create two data disks.
 
-	```azurecli
-	azure vm disk attach-new $vmNamePrefix$suffixNumber \
-		$diskSize \
-		vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
+    ```azurecli
+    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+        $diskSize \
+        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
 
-	azure vm disk attach-new $vmNamePrefix$suffixNumber \
-		$diskSize \
-		vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
-	done
-	```
+    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+        $diskSize \
+        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
+    done
+    ```
 
 ### Step 4 - Run the script
 Now that you downloaded and changed the script based on your needs, run the script to create the back end database VMs with multiple NICs.

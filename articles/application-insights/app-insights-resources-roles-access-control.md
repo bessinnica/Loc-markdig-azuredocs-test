@@ -1,4 +1,4 @@
-﻿---
+---
 title: Resources, roles and access control in Azure Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
 services: application-insights
@@ -28,12 +28,13 @@ You can control who has read and update access to your data in Azure [Applicatio
 First, some definitions:
 
 * **Resource** - An instance of a Microsoft Azure service. Your Application Insights resource collects, analyzes and displays the telemetry data sent from your application.  Other types of Azure resources include web apps, databases, and VMs.
-  
+
     To see your resources, open the [Azure Portal][portal], sign in, and click All Resources. To find a resource, type part of its name in the filter field.
-  
+
     ![List of Azure resources](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
+
 
 * [**Resource group**][group] - Every resource belongs to one group. A group is a convenient way to manage related resources, particularly for access control. For example, into one resource group you could put a Web App, an Application Insights resource to monitor the app, and a Storage resource to keep exported data.
 

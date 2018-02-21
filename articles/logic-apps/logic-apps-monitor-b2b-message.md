@@ -98,6 +98,7 @@ Otherwise, select the values that you want:
 
 <a name="azure-monitor-service"></a>
 
+
 ### Turn on diagnostics logging through Azure Monitor
 
 1. In the [Azure portal](https://portal.azure.com), 

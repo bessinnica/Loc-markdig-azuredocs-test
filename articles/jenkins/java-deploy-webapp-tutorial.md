@@ -43,12 +43,12 @@ To complete this tutorial, you need:
 2. Select the **Available** tab.
 3. Search for and select the checkbox next to the following plug-ins:   
 
-    - [Azure App Service Plug-in](https://plugins.jenkins.io/azure-app-service)
-    - [GitHub Branch Source Plug-in](https://plugins.jenkins.io/github-branch-source)
+   - [Azure App Service Plug-in](https://plugins.jenkins.io/azure-app-service)
+   - [GitHub Branch Source Plug-in](https://plugins.jenkins.io/github-branch-source)
 
-    If the plugins do not appear, make sure they aren't already installed by checking the **Installed** tab.
+     If the plugins do not appear, make sure they aren't already installed by checking the **Installed** tab.
 
-1. Select **Download now and install after restart** to enable the plugins in your Jenkins configuration.
+4. Select **Download now and install after restart** to enable the plugins in your Jenkins configuration.
 
 ## Configure GitHub and Jenkins
 

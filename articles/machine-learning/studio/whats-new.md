@@ -25,9 +25,9 @@ ms.author: raymondl
 
 * Dedicated Capacity for Azure Machine Learning BES Jobs
 
-	Machine Learning Batch Pool processing uses the [Azure Batch](../../batch/batch-technical-overview.md) service to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Batch Pool processing allows you to create Azure Batch pools on which you can submit batch jobs and have them execute in a predictable manner.
+    Machine Learning Batch Pool processing uses the [Azure Batch](../../batch/batch-technical-overview.md) service to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Batch Pool processing allows you to create Azure Batch pools on which you can submit batch jobs and have them execute in a predictable manner.
 
-	For more information, see [Azure Batch service for Machine Learning jobs](dedicated-capacity-for-bes-jobs.md).
+    For more information, see [Azure Batch service for Machine Learning jobs](dedicated-capacity-for-bes-jobs.md).
 
 
 ### The August 2016 release of Microsoft Azure Machine Learning updates provide the following features:

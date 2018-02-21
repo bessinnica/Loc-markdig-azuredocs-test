@@ -28,8 +28,6 @@ Before your logic app can access any service, you first need to create a *connec
 
 ### Create a connection to Dropbox
 > [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
-> 
-> 
 
 ## Use a Dropbox trigger
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).

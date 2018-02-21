@@ -55,7 +55,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 ### Sample table and stored procedure
 1. Create the following **table** in your Azure SQL Database using SQL Server Management Studio or any other tool you are comfortable with. The datetimestamp column is the date and time when the corresponding ID is generated.
 
-	```SQL
+    ```SQL
     CREATE TABLE dbo.sampletable
     (
         Id uniqueidentifier,
@@ -65,15 +65,15 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 
     CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
     GO
-	```
+    ```
     Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
     
-	![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
+    ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
-	In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in an Azure SQL Data Warehouse and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
+    In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in an Azure SQL Data Warehouse and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
-	```SQL
+    ```SQL
     CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
     AS
 
@@ -81,7 +81,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
         INSERT INTO [sampletable]
         VALUES (newid(), @DateTime)
     END
-	```
+    ```
 
    > [!IMPORTANT]
    > **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON. In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
@@ -132,7 +132,7 @@ You must specify an output dataset for a stored procedure activity even if the s
     ![tree view with linked service](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copy/paste the following JSON script in to the JSON editor.
 
-	```JSON
+    ```JSON
     {                
         "name": "sprocsampleout",
         "properties": {
@@ -147,7 +147,7 @@ You must specify an output dataset for a stored procedure activity even if the s
             }
         }
     }
-	```
+    ```
 3. To deploy the dataset, click **Deploy** on the command bar. Confirm that you see the dataset in the tree view.
 
     ![tree view with linked services](media/data-factory-stored-proc-activity/tree-view-2.png)
@@ -164,7 +164,7 @@ Notice the following properties:
 1. Click **... More** on the command bar and click **New pipeline**.
 2. Copy/paste the following JSON snippet:   
 
-	```JSON
+    ```JSON
     {
         "name": "SprocActivitySamplePipeline",
         "properties": {
@@ -194,7 +194,7 @@ Notice the following properties:
             "isPaused": false
         }
     }
-	```
+    ```
 3. To deploy the pipeline, click **Deploy** on the toolbar.  
 
 ### Monitor the pipeline
@@ -227,51 +227,51 @@ For more information on chaining activities, see [multiple activities in a pipel
 ```json
 {
 
-	"name": "ADFTutorialPipeline",
-	"properties": {
-		"description": "Copy data from a blob to blob",
-		"activities": [
-			{
-				"type": "Copy",
-				"typeProperties": {
-					"source": {
-						"type": "BlobSource"
-					},
-					"sink": {
-						"type": "BlobSink",
-						"writeBatchSize": 0,
-						"writeBatchTimeout": "00:00:00"
-					}
-				},
-				"inputs": [ { "name": "InputDataset" } ],
-				"outputs": [ { "name": "OutputDataset" } ],
-				"policy": {
-					"timeout": "01:00:00",
-					"concurrency": 1,
-					"executionPriorityOrder": "NewestFirst"
-				},
-				"name": "CopyFromBlobToSQL"
-			},
-			{
-				"type": "SqlServerStoredProcedure",
-				"typeProperties": {
-					"storedProcedureName": "SPSproc"
-				},
-				"inputs": [ { "name": "OutputDataset" } ],
-				"outputs": [ { "name": "SQLOutputDataset" } ],
-				"policy": {
-					"timeout": "01:00:00",
-					"concurrency": 1,
-					"retry": 3
-				},
-				"name": "RunStoredProcedure"
-			}
+    "name": "ADFTutorialPipeline",
+    "properties": {
+        "description": "Copy data from a blob to blob",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [ { "name": "InputDataset" } ],
+                "outputs": [ { "name": "OutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst"
+                },
+                "name": "CopyFromBlobToSQL"
+            },
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "SPSproc"
+                },
+                "inputs": [ { "name": "OutputDataset" } ],
+                "outputs": [ { "name": "SQLOutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "name": "RunStoredProcedure"
+            }
 
-		],
-		"start": "2017-04-12T00:00:00Z",
-		"end": "2017-04-13T00:00:00Z",
-		"isPaused": false,
-	}
+        ],
+        "start": "2017-04-12T00:00:00Z",
+        "end": "2017-04-13T00:00:00Z",
+        "isPaused": false,
+    }
 }
 ```
 
@@ -328,7 +328,7 @@ CREATE TABLE dbo.sampletable2
 (
     Id uniqueidentifier,
     datetimestamp nvarchar(127),
-	scenario nvarchar(127)
+    scenario nvarchar(127)
 )
 GO
 

@@ -55,6 +55,7 @@ There is a one-to-one correspondence between limits on indexes and limits on ind
 <sup>3</sup> Indexer maximum execution time for the Free tier is 3 minutes for blob sources and 1 minute for all other data sources.
 
 ## Document size limits
+
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Individual document size per Index API |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |

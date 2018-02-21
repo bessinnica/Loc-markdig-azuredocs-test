@@ -58,19 +58,19 @@ To configure the integration of Workrite into Azure AD, you need to add Workrite
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Workrite**, select **Workrite** from result panel then click **Add** button to add the application.
 
-	![Workrite in the results list](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_addfromgallery.png)
+    ![Workrite in the results list](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,32 +96,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Workrite** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_samlbase.png)
 
 3. On the **Workrite Domain and URLs** section, perform the following steps:
 
-	![Workrite Domain and URLs single sign-on information](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_url.png)
+    ![Workrite Domain and URLs single sign-on information](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_url.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=<uniqueid>`
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Workrite Client support team](mailto:support@workrite.co.uk) to get this value.
+    > [!NOTE] 
+    > This value is not real. Update this value with the actual Sign-On URL. Contact [Workrite Client support team](mailto:support@workrite.co.uk) to get this value.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-workrite-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-workrite-tutorial/tutorial_general_400.png)
 
 6. On the **Workrite Configuration** section, click **Configure Workrite** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Workrite Configuration](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_configure.png) 
+    ![Workrite Configuration](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_configure.png) 
 
 7. To configure single sign-on on **Workrite** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Workrite support team](mailto:support@workrite.co.uk).
 
@@ -180,16 +180,16 @@ The objective of this section is to create a user called Britta Simon in Workrit
 4. On the **Create User** dialog, perform the following steps:
    
     ![Create User Dailog][402]
-	
-	a. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
+    
+    a. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
 
-	b. In the **First Name** textbox, type the firstname of user like Britta.
+    b. In the **First Name** textbox, type the firstname of user like Britta.
 
-	c. In the **Surname** textbox, type the surname of user like Simon.
-	
-	d. Select **Client Administrator** as **Choose Role**.
-	
-	e. Click **Save**.   
+    c. In the **Surname** textbox, type the surname of user like Simon.
+    
+    d. Select **Client Administrator** as **Choose Role**.
+    
+    e. Click **Save**.   
 
 ### Assign the Azure AD test user
 
@@ -201,26 +201,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Workrite**.
 
-	![The Workrite link in the Applications list](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_app.png)  
+    ![The Workrite link in the Applications list](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD SSO configuration using the Access Panel.

@@ -96,7 +96,7 @@ You are charged for a cluster's lifetime. If there are only specific times that 
 
 > [!NOTE]
 > When a cluster is deleted, its default Hive metastore is also deleted. To persist the metastore for the next cluster re-creation, use an external metadata store such as Azure Database or Oozie.
-<!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
+> <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### Isolate cluster job errors
 

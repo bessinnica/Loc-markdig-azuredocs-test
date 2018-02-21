@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understand Azure Reserved Virtual Machine Instances discount application | Microsoft Docs
 description: Learn how Azure Reserved VM Instance discount is applied to running VMs. 
 services: 'billing'
@@ -31,15 +31,15 @@ After you buy a Reserved VM Instance, the reservation discount is automatically 
 
 ![Reserved VM Instance application](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
-1.	Any usage that’s above the Reserved VM Instance line gets charged at the regular pay-as-you-go rates. You're not charge for any usage below the Reserved VM Instances line, since it has been already paid as part of reservation purchase.
-2.	In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You are charged the pay-as-you-go rates for the remaining 0.25 hours.
-3.	For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reservation and the other is charged at pay-as-you-go rates.
-4.	For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
+1.  Any usage that’s above the Reserved VM Instance line gets charged at the regular pay-as-you-go rates. You're not charge for any usage below the Reserved VM Instances line, since it has been already paid as part of reservation purchase.
+2.  In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You are charged the pay-as-you-go rates for the remaining 0.25 hours.
+3.  For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reservation and the other is charged at pay-as-you-go rates.
+4.  For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
 
 To understand and view the application of your reservations in billing usage reports, see [Understand Reserved VM Instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## Application of reservation discount to Windows VMs
-When you are running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You are charged separately for Windows software on a per vCPU basis. See [Windows software costs with reservations](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+When you are running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You are charged separately for Windows software on a per vCPU basis. See [Windows software costs with reservations](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## Next steps
 To learn more about Reserved Virtual Machine Instances, see the following articles.

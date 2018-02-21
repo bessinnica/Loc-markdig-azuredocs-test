@@ -68,23 +68,23 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
-1. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement Key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
+2. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement Key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
 
     ![TPM setup](./media/python-quick-create-simulated-device/tpm-setup.png)
 
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+3. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
-1. Under the **Add enrollment list entry**, enter the following information:
-    - Select **TPM** as the identity attestation *Mechanism*.
-    - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
-    - Select an IoT hub linked with your provisioning service.
-    - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-    - Update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+5. Under the **Add enrollment list entry**, enter the following information:
+   - Select **TPM** as the identity attestation *Mechanism*.
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
+   - Select an IoT hub linked with your provisioning service.
+   - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
+   - Update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, click the **Save** button. 
 
-    ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enter-device-enrollment.png)  
+     ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enter-device-enrollment.png)  
 
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
@@ -94,21 +94,21 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables.
     - If you are using Windows OS, then [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
 
-1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
+2. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
-    > [!NOTE]
-        > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
+   > [!NOTE]
+   > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
+   > 
+   > [!NOTE]
+   > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
 
-    > [!NOTE]
-        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
-
-1. Navigate to the samples folder.
+3. Navigate to the samples folder.
 
     ```cmd/sh
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py**. Modify the _GLOBAL\_PROV\_URI_ and _ID\_SCOPE_ variables to the values noted previously.
+4. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py**. Modify the _GLOBAL\_PROV\_URI_ and _ID\_SCOPE_ variables to the values noted previously.
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -119,17 +119,17 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Service information](./media/python-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Run the sample. 
+5. Run the sample. 
 
     ```cmd/sh
     python provisioning_device_client_sample.py
     ```
 
-1. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. 
+6. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. 
 
     ![Successful registration](./media/python-quick-create-simulated-device/registration-success.png)
 
-1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade.
+7. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade.
 
     ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device/hub-registration.png) 
 

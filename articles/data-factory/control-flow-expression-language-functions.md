@@ -25,13 +25,13 @@ This article provides details about expressions and functions supported by Azure
 
 ## Introduction
 JSON values in the definition can be literal or expressions that are evaluated at runtime. For example:  
-  
+
 ```json
 "name": "value"
 ```
 
  (or)  
-  
+
 ```json
 "name": "@pipeline().parameters.password"
 ```
@@ -43,28 +43,29 @@ JSON values in the definition can be literal or expressions that are evaluated a
 
 ## Expressions  
 Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (@). If a literal string is needed that starts with @, it must be escaped by using @@. The following examples show how expressions are evaluated.  
-  
+
 |JSON value|Result|  
 |----------------|------------|  
 |"parameters"|The characters 'parameters' are returned.|  
 |"parameters[1]"|The characters 'parameters[1]' are returned.|  
 |"@@"|A 1 character string that contains '@' is returned.|  
 |" @"|A 2 character string that contains ' @' is returned.|  
-  
+
  Expressions can also appear inside strings, using a feature called *string interpolation* where expressions are wrapped in `@{ ... }`. For example: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
-  
+
  Using string interpolation, the result is always a string. Say I have defined `myNumber` as `42` and  `myString` as  `foo`:  
-  
-|JSON value|Result|  
-|----------------|------------|  
-|"@pipeline().parameters.myString"| Returns `foo` as a string.|  
-|"@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
-|"@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
-|"@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
-|"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
-  
+
+
+|                            JSON value                            |                               Result                               |
+|------------------------------------------------------------------|--------------------------------------------------------------------|
+|               "@"pipeline().parameters.myString""                |                     Returns `foo` as a string.                     |
+|               "@{pipeline().parameters.myString}"                |                     Returns `foo` as a string.                     |
+|                "@pipeline().parameters.myNumber"                 |                 Returns `42` as a <em>number</em>.                 |
+|               "@{pipeline().parameters.myNumber}"                |                 Returns `42` as a <em>string</em>.                 |
+|          "Answer is: @{pipeline().parameters.myNumber}"          |                Returns the string `Answer is: 42`.                 |
+| "@concat('Answer is: ', string(pipeline().parameters.myNumber))" |                 Returns the string `Answer is: 42`                 |
+|         "Answer is: @@{pipeline().parameters.myNumber}"          | Returns the string `Answer is: @{pipeline().parameters.myNumber}`. |
+
 ### Examples
 
 #### A dataset with a parameter
@@ -141,13 +142,13 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
     }
 }
 ```
-  
+
 ## Functions  
  You can call functions within expressions. The following sections provide information about the functions that can be used in an expression.  
 
 ## String functions  
  The following functions only apply to strings. You can also use a number of the collection functions on strings.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |concat|Combines any number of strings together. For example, if parameter1 is `foo,` the following expression would return `somevalue-foo-somevalue`:  `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Parameter number**: 1 ... *n*<br /><br /> **Name**: String *n*<br /><br /> **Description**: Required. The strings to combine into a single string.|  
@@ -161,11 +162,11 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 |startswith|Checks if the string starts with a value case insensitively. For example, the following expression returns `true`: `lastindexof('hello, world', 'hello')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value the string may start with.|  
 |endswith|Checks if the string ends with a value case insensitively. For example, the following expression returns `true`: `lastindexof('hello, world', 'world')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value the string may end with.|  
 |split|Splits the string using a separator. For example, the following expression returns `["a", "b", "c"]`: `split('a;b;c',';')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that is split.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The separator.|  
-  
-  
+
+
 ## Collection functions  
  These functions operate over collections such as arrays, strings, and sometimes dictionaries.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |contains|Returns true if dictionary contains a key, list contains value, or string contains substring. For example, the following expression returns `true:``contains('abacaba','aca')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Within collection<br /><br /> **Description**: Required. The collection to search within.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Find object<br /><br /> **Description**: Required. The object to find inside the **Within collection**.|  
@@ -177,10 +178,10 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 |last|Returns the last element in the array or string passed in. For example, this function returns `3`:<br /><br /> `last('0123')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Collection<br /><br /> **Description**: Required. The collection to take the last object from.|  
 |take|Returns the first **Count** elements from the array or string passed in, for example this function returns `[1, 2]`:  `take([1, 2, 3, 4], 2)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Collection<br /><br /> **Description**: Required. The collection to take the first **Count** objects from.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Count<br /><br /> **Description**: Required. The number of objects to take from the **Collection**. Must be a positive integer.|  
 |skip|Returns the elements in the array starting at index **Count**, for example this function returns `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Collection<br /><br /> **Description**: Required. The collection to skip the first **Count** objects from.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Count<br /><br /> **Description**: Required. The number of objects to remove from the front of **Collection**. Must be a positive integer.|  
-  
+
 ## Logical functions  
  These functions are useful inside conditions, they can be used to evaluate any type of logic.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |equals|Returns true if two values are equal. For example, if parameter1 is foo, the following expression would return `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Object 1<br /><br /> **Description**: Required. The object to compare to **Object 2**.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Object 2<br /><br /> **Description**: Required. The object to compare to **Object 1**.|  
@@ -192,22 +193,22 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 |or|Returns true if either of the parameters are true. Both arguments need to be Booleans. The following returns `true`:  `or(greater(1,10),equals(0,0))`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Boolean 1<br /><br /> **Description**: Required. The first argument that may be `true`.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Boolean 2<br /><br /> **Description**: Required. The second argument may be `true`.|  
 |not|Returns true if the parameter is `false`. Both arguments need to be Booleans. The following returns `true`:  `not(contains('200 Success','Fail'))`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Boolean<br /><br /> **Description**: Returns true if the parameter is `false`. Both arguments need to be Booleans. The following returns `true`:  `not(contains('200 Success','Fail'))`|  
 |if|Returns a specified value based on if the expression provided results in `true` or `false`.  For example, the following returns `"yes"`: `if(equals(1, 1), 'yes', 'no')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Expression<br /><br /> **Description**: Required. A boolean value that determines which value is returned by the expression.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: True<br /><br /> **Description**: Required. The value to return if the expression is `true`.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: False<br /><br /> **Description**: Required. The value to return if the expression is `false`.|  
-  
+
 ## Conversion functions  
  These functions are used to convert between each of the native types in the language:  
-  
+
 -   string  
-  
+
 -   integer  
-  
+
 -   float  
-  
+
 -   boolean  
-  
+
 -   arrays  
-  
+
 -   dictionaries  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |int|Convert the parameter to an integer. For example, the following expression returns 100 as a number, rather than a string:  `int('100')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to an integer.|  
@@ -237,7 +238,7 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 
 ## Math functions  
  These functions can be used for either types of numbers: **integers** and **floats**.  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |add|Returns the result of the addition of the two numbers. For example, this function returns `20.333`:  `add(10,10.333)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Summand 1<br /><br /> **Description**: Required. The number to add to **Summand 2**.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Summand 2<br /><br /> **Description**: Required. The number to add to **Summand 1**.|  
@@ -249,9 +250,9 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 |max|There are two different patterns for calling this function:  `max([0,1,2])`<br /><br /> Here max takes an array. This expression returns `2`. Alternatively, this function can take a comma-separated list of values:  `max(0,1,2)` This function returns 2. Note, all values must be numbers, so if the parameter is an array it has to only have numbers in it.<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Collection or Value<br /><br /> **Description**: Required. It can either be an array of values to find the maximum value, or the first value of a set.<br /><br /> **Parameter number**: 2 ... *n*<br /><br /> **Name**: Value *n*<br /><br /> **Description**: Optional. If the first parameter is a Value, then you can pass additional values and the maximum of all passed values are returned.|  
 |range| Generates an array of integers starting from a certain number, and you define the length of the returned array. For example, this function returns `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Start index<br /><br /> **Description**: Required. It is the first integer in the array.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Count<br /><br /> **Description**: Required. Number of integers that are in the array.|  
 |rand| Generates a random integer within the specified range (inclusive on both ends. For example, this could return `42`:<br /><br /> `rand(-1000,1000)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Minimum<br /><br /> **Description**: Required. The lowest integer that could be returned.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Maximum<br /><br /> **Description**: Required. The highest integer that could be returned.|  
-  
+
 ## Date functions  
-  
+
 |Function name|Description|  
 |-------------------|-----------------|  
 |utcnow|Returns the current timestamp as a string. For example `2015-03-15T13:27:36Z`:<br /><br /> `utcnow()`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  

@@ -5,7 +5,7 @@ services: hdinsight
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,7 +14,7 @@ ms.date: 12/05/2017
 ms.author: carolz
 ---
 
-#Azure HDInsight Documentation
+# Azure HDInsight Documentation
 
 Learn how to use Azure HDInsight to analyze streaming or historical data. Tutorials and other documentation show you how to create clusters, process and analyze big data, and develop solutions using the most popular open-source frameworks, like Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
 
@@ -187,6 +187,7 @@ Azure HDInsight is a fully managed, full-spectrum, open-source analytics service
 
 ---
 <h2>Learning Resources</h2>
+
 <ul class="panelContent cardsFTitle">
     <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=hdinsight">
@@ -227,49 +228,52 @@ Azure HDInsight is a fully managed, full-spectrum, open-source analytics service
     <li>
 </ul>
 
+
 ---
- 
+
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight">.NET (Hadoop)</a></p>
-                        <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
-                        <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight">.NET (Hadoop)</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
+                        <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
-                        <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
+                        <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 
 

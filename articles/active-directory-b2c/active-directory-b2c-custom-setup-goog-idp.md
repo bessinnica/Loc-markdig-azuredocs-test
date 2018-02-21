@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using custom policies'
 description: Sample using Google+ as identity provider using OAuth2 protocol
 services: active-directory-b2c
@@ -38,51 +38,51 @@ These steps include:
 ## Create a Google+ account application
 To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Google+ application and supply it with the right parameters. You can register a Google+ application here: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
 
-1.  Go to the [Google Developers Console](https://console.developers.google.com/) and sign in with your Google+ account credentials.
-2.  Click **Create project**, enter a **Project name**, and then click **Create**.
+1. Go to the [Google Developers Console](https://console.developers.google.com/) and sign in with your Google+ account credentials.
+2. Click **Create project**, enter a **Project name**, and then click **Create**.
 
-3.  Click on the **Projects menu**.
+3. Click on the **Projects menu**.
 
-    ![Google+ account - Select project](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
+   ![Google+ account - Select project](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
-4.  Click on the **+** button.
+4. Click on the **+** button.
 
-    ![Google+ account - Create new project](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
+   ![Google+ account - Create new project](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
-5.  Enter a **Project name**, and then click **Create**.
+5. Enter a **Project name**, and then click **Create**.
 
-    ![Google+ account - New project](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
+   ![Google+ account - New project](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
 
-6.  Wait until the project is ready and click on the **Projects menu**.
+6. Wait until the project is ready and click on the **Projects menu**.
 
-    ![Google+ account - Wait until new project is ready to use](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
+   ![Google+ account - Wait until new project is ready to use](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
 
-7.  Click on your project name.
+7. Click on your project name.
 
-    ![Google+ account - Select the new project](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
+   ![Google+ account - Select the new project](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
 
-8.  Click **API Manager** and then click **Credentials** in the left navigation.
-9.  Click the **OAuth consent screen** tab at the top.
+8. Click **API Manager** and then click **Credentials** in the left navigation.
+9. Click the **OAuth consent screen** tab at the top.
 
-    ![Google+ account - Set OAuth consent screen](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
+   ![Google+ account - Set OAuth consent screen](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
 
-10.  Select or specify a valid **Email address**, provide a **Product name**, and click **Save**.
+10. Select or specify a valid **Email address**, provide a **Product name**, and click **Save**.
 
     ![Google+ - Application credentials](media/active-directory-b2c-custom-setup-goog-idp/goog-consent-screen.png)
 
-11.  Click **New credentials** and then choose **OAuth client ID**.
+11. Click **New credentials** and then choose **OAuth client ID**.
 
     ![Google+ - Create new application credentials](media/active-directory-b2c-custom-setup-goog-idp/goog-add-oauth2-client-id.png)
 
-12.  Under **Application type**, select **Web application**.
+12. Under **Application type**, select **Web application**.
 
     ![Google+ - Select application type](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Provide a **Name** for your application, enter `https://login.microsoftonline.com` in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). The **{tenant}** value is case-sensitive. Click **Create**.
+13. Provide a **Name** for your application, enter `https://login.microsoftonline.com` in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). The **{tenant}** value is case-sensitive. Click **Create**.
 
     ![Google+ - Provide Authorized JavaScript origins and redirect URIs](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
-14.  Copy the values of **Client Id** and **Client secret**. You need both to configure Google+ as an identity provider in your tenant. **Client secret** is an important security credential.
+14. Copy the values of **Client Id** and **Client secret**. You need both to configure Google+ as an identity provider in your tenant. **Client secret** is an important security credential.
 
     ![Google+ - Copy the values of client Id and Client secret](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
 

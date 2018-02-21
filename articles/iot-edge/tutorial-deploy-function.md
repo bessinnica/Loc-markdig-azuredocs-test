@@ -139,13 +139,13 @@ The following steps show you how to create an IoT Edge function using Visual Stu
     3. Navigate to the **FilterFunction** project folder and click **Select Folder as EXE_DIR**. 
     4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filterfunction:latest`. The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`.
  
-4. Sign in to Docker. In the integrated terminal, enter the following command: 
+2. Sign in to Docker. In the integrated terminal, enter the following command: 
 
    ```csh/sh
    docker login -u <username> -p <password> <Login server>
    ```
         
-   To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
+   To find the user name, password and login server to use in this command, go to the [Azure portal](https://portal.azure.com). From <strong>All resources</strong>, click the tile for your Azure container registry to open its properties, then click <strong>Access keys</strong>. Copy the values in the <strong>Username</strong>, <strong>password</strong>, and <strong>Login server</strong> fields. 
 
 3. Push the image to your Docker repository. Select **View** > **Command Palette...** then search for **Edge: Push IoT Edge module Docker image**.
 4. In the pop-up text box, enter the same image name that you used in step 1.d.

@@ -70,16 +70,16 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 5. Add the following statements at the top of the SimpleEventProcessor.cs file:
     
-  ```csharp
-  using Microsoft.ServiceBus.Messaging;
-  using System.Diagnostics;
-  ```
+   ```csharp
+   using Microsoft.ServiceBus.Messaging;
+   using System.Diagnostics;
+   ```
     
-  Then, substitute the following code for the body of the class:
+   Then, substitute the following code for the body of the class:
     
-  ```csharp
-  class SimpleEventProcessor : IEventProcessor
-  {
+   ```csharp
+   class SimpleEventProcessor : IEventProcessor
+   {
     Stopwatch checkpointStopWatch;
     
     async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
@@ -116,21 +116,21 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
             this.checkpointStopWatch.Restart();
         }
     }
-  }
-  ```
+   }
+   ```
     
-  This class is called by the **EventProcessorHost** to process events received from the event hub. The `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This processing ensures that, if the receiver is restarted, it loses no more than five minutes of processing work.
+   This class is called by the **EventProcessorHost** to process events received from the event hub. The `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This processing ensures that, if the receiver is restarted, it loses no more than five minutes of processing work.
 6. In the **Program** class, add the following `using` statement at the top of the file:
     
-  ```csharp
-  using Microsoft.ServiceBus.Messaging;
-  ```
+   ```csharp
+   using Microsoft.ServiceBus.Messaging;
+   ```
     
-  Then, replace the `Main` method in the `Program` class with the following code, substituting the event hub name and the namespace-level connection string that you saved previously, and the storage account and key that you copied in the previous sections. 
+   Then, replace the `Main` method in the `Program` class with the following code, substituting the event hub name and the namespace-level connection string that you saved previously, and the storage account and key that you copied in the previous sections. 
     
-  ```csharp
-  static void Main(string[] args)
-  {
+   ```csharp
+   static void Main(string[] args)
+   {
     string eventHubConnectionString = "{Event Hubs namespace connection string}";
     string eventHubName = "{Event Hub name}";
     string storageAccountName = "{storage account name}";
@@ -147,8 +147,8 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
     Console.WriteLine("Receiving. Press enter key to stop worker.");
     Console.ReadLine();
     eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-  }
-  ```
+   }
+   ```
 
 7. Run the program, and ensure that there are no errors.
   

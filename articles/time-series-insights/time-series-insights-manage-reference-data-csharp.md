@@ -122,7 +122,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-		},
+        },
         ""properties"": [""BladeCount""]
     }]
 }";
@@ -138,7 +138,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 {
     ""delete"": [{
         ""DeviceId"": ""Fan1""
-	}]
+    }]
 }";
                 await SendRequestAsync(request, input);
                 string output = await GetResponseAsync(request);

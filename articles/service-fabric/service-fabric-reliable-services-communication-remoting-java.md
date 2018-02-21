@@ -78,7 +78,6 @@ Calling methods on a service by using the remoting stack is done by using a loca
 MyService helloWorldClient = ServiceProxyBase.create(MyService.class, new URI("fabric:/MyApplication/MyHelloWorldService"));
 
 CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
-
 ```
 
 The remoting framework propagates exceptions thrown at the service to the client. So exception-handling logic at the client by using `ServiceProxyBase` can directly handle exceptions that the service throws.

@@ -25,6 +25,7 @@ Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure y
 
 
 ## Hardware
+
 | Component | Minimum | Recommended |
 | --- | --- | --- |
 | Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
@@ -62,6 +63,7 @@ Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure y
 Sample OEM configurations are available.
 
 ## Operating system
+
 |  | **Requirements** |
 | --- | --- |
 | **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
@@ -74,17 +76,17 @@ Typically, you deploy the development kit with internet connectivity, where you 
 
 If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
 
->[!NOTE]
-If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
+> [!NOTE]
+> If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
 
 ### Azure Active Directory accounts
 To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
 
 1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
-   
+
     Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
-   
+
    | **Azure Active Directory account** | **Supported?** |
    | --- | --- |
    | Work or school account with valid Public Azure Subscription |Yes |

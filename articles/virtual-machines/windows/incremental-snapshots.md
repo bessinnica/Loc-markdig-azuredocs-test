@@ -18,3 +18,4 @@ ms.author: aungoo
 
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]
+

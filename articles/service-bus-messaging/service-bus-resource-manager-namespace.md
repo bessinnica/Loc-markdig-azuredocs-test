@@ -80,7 +80,6 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
     "metadata": { 
         "description": "The messaging tier for service Bus namespace" 
     } 
-
 ```
 
 The template defines the values that are permitted for this parameter (Standard or Premium). If no value is specified, the resource manager assigns a default value (Standard).

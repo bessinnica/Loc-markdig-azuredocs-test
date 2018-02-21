@@ -58,19 +58,19 @@ To configure the integration of Adobe Creative Cloud into Azure AD, you need to 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Adobe Creative Cloud**, select **Adobe Creative Cloud** from result panel then click **Add** button to add the application.
 
-	![Adobe Creative Cloud in the results list](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_addfromgallery.png)
+    ![Adobe Creative Cloud in the results list](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,90 +96,90 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Adobe Creative Cloud** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_samlbase.png)
 
 3. On the **Adobe Creative Cloud Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
 
-	![Adobe Creative Cloud Domain and URLs single sign-on information](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
+    ![Adobe Creative Cloud Domain and URLs single sign-on information](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.okta.com/saml2/service-provider/<token>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Creative Cloud Client support team](https://helpx.adobe.com/in/contact/support.html) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Creative Cloud Client support team](https://helpx.adobe.com/in/contact/support.html) to get these values. 
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Adobe Creative Cloud Domain and URLs single sign-on information](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url2.png)
+    ![Adobe Creative Cloud Domain and URLs single sign-on information](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url2.png)
 
     In the **Sign-on URL** textbox, type the value as: `https://adobe.com`
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_certificate.png)
-	 
+    ![The Certificate download link](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_certificate.png)
+     
 6. Adobe Creative Cloud application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attribute** tab of the application. The following screenshot shows an example for this.
 
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute.png)
 
 7. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
-	| Attribute Name | Attribute Value |
-	| ---------------| ----------------|
-	| FirstName |user.givenname |
-	| LastName |user.surname |
-	| Email |user.mail |
+    | Attribute Name | Attribute Value |
+    | ---------------| ----------------|
+    | FirstName |user.givenname |
+    | LastName |user.surname |
+    | Email |user.mail |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
-	
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
-	
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
+    
+    b. In the **Name** textbox, type the attribute name shown for that row.
+    
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**.
+    
 8. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_400.png)
+    
 9. On the **Adobe Creative Cloud Configuration** section, click **Configure Adobe Creative Cloud** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section**.
 
-	![Adobe Creative Cloud Configuration](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
-	
+    ![Adobe Creative Cloud Configuration](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
+    
 10. In a different web browser window, sign-in to [Adobe Admin Console](https://adminconsole.adobe.com) as an administrator.
 
 11. Go to **Settings** on the top navigation bar and then choose **Identity**. The list of domains opens. Click **Configure** link against your domain. Then perform the following steps on **Single Sign On Configuration Required** section. For more information, see [Setup a domain](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-	![Settings](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Settings")
-	
-	a. Click **Browse** to upload the downloaded certificate from Azure AD to **IDP Certificate**.
-	
-	b. In the **IDP issuer** textbox, put the value of **SAML Entity Id** which you copied from **Configure sign-on** section in Azure portal.
-	
-	c. In the **IDP Login URL** textbox, put the value of **SAML SSO Service URL** which you copied from **Configure sign-on** section in Azure portal.
-	
-	d. Select **HTTP - Redirect** as **IDP Binding**.
-	
-	e. Select **Email Address** as **User Login Setting**.
-	
-	f. Click **Save** button.
+    ![Settings](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Settings")
+    
+    a. Click **Browse** to upload the downloaded certificate from Azure AD to **IDP Certificate**.
+    
+    b. In the **IDP issuer** textbox, put the value of **SAML Entity Id** which you copied from **Configure sign-on** section in Azure portal.
+    
+    c. In the **IDP Login URL** textbox, put the value of **SAML SSO Service URL** which you copied from **Configure sign-on** section in Azure portal.
+    
+    d. Select **HTTP - Redirect** as **IDP Binding**.
+    
+    e. Select **Email Address** as **User Login Setting**.
+    
+    f. Click **Save** button.
 
 12. The dashboard will now present the XML **"Download Metadata"** file. It contains Adobe’s EntityDescriptor URL and AssertionConsumerService URL. Please open the file and configure them in the Azure AD application.
 
-	![Configure Single Sign-On On App Side](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
+    ![Configure Single Sign-On On App Side](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
-	a. Use the EntityDescriptor value Adobe provided you for **Identifier** on the **Configure App Settings** dialog.
+    a. Use the EntityDescriptor value Adobe provided you for **Identifier** on the **Configure App Settings** dialog.
 
-	b. Use the AssertionConsumerService value Adobe provided you for **Reply URL** on the **Configure App Settings** dialog.
+    b. Use the AssertionConsumerService value Adobe provided you for **Reply URL** on the **Configure App Settings** dialog.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -227,9 +227,9 @@ In order to enable Azure AD users to log into Adobe Creative Cloud, they must be
 2. Add the user within Adobe’s console as Federated ID and assign them to a Product Profile. For detailed information on adding users, see [Add users in Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. At this point, type your email address/upn into the Adobe signin form, press tab, and you should be federated back to Azure AD:
-	* Web access: www.adobe.com > sign-in
-	* Within the desktop app utility > sign-in
-	* Within the application > help > sign-in
+   * Web access: www.adobe.com > sign-in
+   * Within the desktop app utility > sign-in
+   * Within the application > help > sign-in
 
 ### Assign the Azure AD test user
 
@@ -241,32 +241,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Adobe Creative Cloud**.
 
-	![The Adobe Creative Cloud link in the Applications list](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_app.png)  
+    ![The Adobe Creative Cloud link in the Applications list](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Adobe Creative Cloud tile in the Access Panel, you should get automatically signed-on to your Adobe Creative Cloud application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

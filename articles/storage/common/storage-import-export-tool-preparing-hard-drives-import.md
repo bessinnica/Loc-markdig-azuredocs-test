@@ -154,12 +154,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. 
 
->[!NOTE] 
->The session id should match the previous session id. Journal file should match the one specified in previous session.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> The session id should match the previous session id. Journal file should match the one specified in previous session.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Example:**
 
@@ -312,7 +312,7 @@ If the data size is greater than the disk size, the WAImportExport tool will dis
 
 #### Where can I find previous version of WAImportExport tool?
 
-WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple sources and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
+WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple sources and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
 
 #### What is a session ID?
 
@@ -358,6 +358,7 @@ It is possible that your machine does not have TPM chip. If you do not get an ou
 > 
 
 In order to disable TPM in BitLocker, go through the following steps:<br/>
+
 1. Launch **Group Policy Editor** by typing gpedit.msc on a command prompt. If **Group Policy Editor** appears to be unavailable, for enabling BitLocker first. See previous FAQ.
 2. Open **Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates &gt; Windows Components&gt; BitLocker Drive Encryption &gt; Operating System Drives**.
 3. Edit **Require additional authentication at startup** policy.
@@ -410,7 +411,7 @@ WAImportExport Tool reads and writes files batch by batch, one batch contains ma
 * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup.md)
 * [Setting properties and metadata during the import process](storage-import-export-tool-setting-properties-metadata-import.md)
 * [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference.md) 
+* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference.md) 
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)

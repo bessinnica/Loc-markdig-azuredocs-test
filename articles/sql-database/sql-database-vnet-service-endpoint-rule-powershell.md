@@ -64,6 +64,7 @@ Our demonstration PowerShell script is divided into a sequence of smaller script
 
 <a name="a-script-10" />
 
+
 ## Script 1: Variables
 
 This first PowerShell script assigns values to variables. The subsequent scripts depend on these variables.
@@ -116,6 +117,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 
 <a name="a-script-20" />
+
 
 ## Script 2: Prerequisites
 
@@ -213,6 +215,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
+
 ## Script 3: Create an endpoint and a rule
 
 This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your SQL Database server, thereby creating a rule.
@@ -304,6 +307,7 @@ Write-Host 'Completed script 3, the "Virtual-Netowrk-Rule".';
 
 <a name="a-script-40" />
 
+
 ## Script 4: Clean-up
 
 This final script deletes the resources that the previous scripts created for the demonstration. However, the script asks for confirmation before it deletes the following:
@@ -363,14 +367,14 @@ $yesno = Read-Host 'CAUTION !: Do you want to DELETE your Azure SQL Database ser
 if ('yes' -eq $yesno)
 {
     Write-Host "Remove the Azure SQL DB server.";
-    
+
     Remove-AzureRmSqlServer `
       -ServerName        $SqlDbServerName `
       -ResourceGroupName $ResourceGroupName `
       -ErrorAction       SilentlyContinue;
-    
+
     Write-Host "Remove the Azure Resource Group.";
-    
+
     Remove-AzureRmResourceGroup `
       -Name        $ResourceGroupName `
       -ErrorAction SilentlyContinue;
@@ -389,6 +393,7 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 
 
 <a name="a-actual-output" />
+
 
 ## Actual output from scripts 1 through 4
 
@@ -452,9 +457,9 @@ Add the subnet .Id as a rule, into the ACLs for your Azure SQL Database server.
 ProvisioningState Service       Locations      
 ----------------- -------       ---------      
 Succeeded         Microsoft.Sql {westcentralus}
-                                               
+
 Verify that the rule is in the SQL DB ACL.
-                                               
+
 Completed script 3, the "Virtual-Network-Rule".
 
 
@@ -491,6 +496,7 @@ This is the end of our main PowerShell script.
 
 
 <a name="a-verify-subnet-is-endpoint-ps-100" />
+
 
 ## Verify your subnet is an endpoint
 

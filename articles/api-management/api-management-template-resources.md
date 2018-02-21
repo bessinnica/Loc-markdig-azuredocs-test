@@ -308,11 +308,11 @@ Azure API Management provides the following types of resources for use in the de
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|Send us an e-mail|  
 |PageTitleError|Sorry, there was a problem serving the requested page|  
-|TextblockPotentialCauseIntermittentIssue|This may be an intermittent data access issue that is already gone.​|  
-|TextblockPotentialCauseOldLink|The link you have clicked on may be old and not point to the correct location anymore.​​|  
-|TextblockPotentialCauseTechnicalProblem|There may be a technical problem on our end.​|  
-|TextblockPotentialSolutionRefresh|Try refreshing the page.​​|  
-|TextblockPotentialSolutionStartOver|Start over from our {0}.​|  
+|TextblockPotentialCauseIntermittentIssue|This may be an intermittent data access issue that is already gone. |  
+|TextblockPotentialCauseOldLink|The link you have clicked on may be old and not point to the correct location anymore.  |  
+|TextblockPotentialCauseTechnicalProblem|There may be a technical problem on our end. |  
+|TextblockPotentialSolutionRefresh|Try refreshing the page.  |  
+|TextblockPotentialSolutionStartOver|Start over from our {0}. |  
 |TextblockPotentialSolutionTryAgain|Go {0} and try the action you performed again.|  
 |TextReportProblem|{0} describing what went wrong and we will look at it as soon as we can.|  
 |TitlePotentialCause|Potential cause|  
@@ -335,8 +335,8 @@ Azure API Management provides the following types of resources for use in the de
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|send us an e-mail|  
-|PageTitleNotFound|Sorry, we can’t find the page you are looking for​|  
-|TextblockPotentialCauseMisspelledUrl|You may have misspelled the URL if you typed it in.​|  
+|PageTitleNotFound|Sorry, we can’t find the page you are looking for |  
+|TextblockPotentialCauseMisspelledUrl|You may have misspelled the URL if you typed it in. |  
 |TextblockPotentialCauseOldLink|The link you have clicked on may be old and not point to the correct location anymore.|  
 |TextblockPotentialSolutionRetype|Try retyping the URL.|  
 |TextblockPotentialSolutionStartOver|Start over from our {0}.|  

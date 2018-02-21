@@ -93,25 +93,25 @@ As a prerequisite, you need to create a storage account. You will need an Azure 
 9. Select **Blob** as the **Access type**. Click **Create**.
 10. The container that you created will appear in the list on the **Blob service blade**.
 11. Close the **Blobs** blade.
-12.	On the **storage account blade**, click the **Key** icon. An **Access keys blade** opens up.  
-13.	Write down the value of **key1**. This value will be later referred as *key1*.
+12. On the **storage account blade**, click the **Key** icon. An **Access keys blade** opens up.  
+13. Write down the value of **key1**. This value will be later referred as *key1*.
 
 ## Downloading the helper tool
 
-1.	Download the helper tool from [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
-2.	Save the *B2C-AzureBlobStorage-Client-master.zip* file on your local machine.
-3.	Extract the content of the B2C-AzureBlobStorage-Client-master.zip file on your local disk, for example under the **UI-Customization-Pack** folder. This will create a *B2C-AzureBlobStorage-Client-master* folder underneath.
-4.	Open that folder and extract the content of the archive file *B2CAzureStorageClient.zip* within it.
+1.  Download the helper tool from [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
+2.  Save the *B2C-AzureBlobStorage-Client-master.zip* file on your local machine.
+3.  Extract the content of the B2C-AzureBlobStorage-Client-master.zip file on your local disk, for example under the **UI-Customization-Pack** folder. This will create a *B2C-AzureBlobStorage-Client-master* folder underneath.
+4.  Open that folder and extract the content of the archive file *B2CAzureStorageClient.zip* within it.
 
 ## Upload the UI-Customization-Pack sample files
 
-1.	Using Windows Explorer, navigate to the folder *B2C-AzureBlobStorage-Client-master* located under the *UI-Customization-Pack* folder created in the previous section.
-2.	Run the *B2CAzureStorageClient.exe* file. This program will simply upload all the files in the directory that you specify to your storage account, and enable CORS access for those files.
-3.	When prompted, specify:
-    a.	The name of your storage account, *storageAccountName*, for example *contoso369b2c*.
-    b.	The primary access key of your azure blob storage, *key1*, for example *contoso369b2c*.
-    c.	The name of your storage blob storage container, *containerName*, for example *b2c*.
-    d.	The path of the *Starter-Pack* sample files, for example *..\B2CTemplates\wingtiptoys*.
+1.  Using Windows Explorer, navigate to the folder *B2C-AzureBlobStorage-Client-master* located under the *UI-Customization-Pack* folder created in the previous section.
+2.  Run the *B2CAzureStorageClient.exe* file. This program will simply upload all the files in the directory that you specify to your storage account, and enable CORS access for those files.
+3.  When prompted, specify:
+    a.  The name of your storage account, *storageAccountName*, for example *contoso369b2c*.
+    b.  The primary access key of your azure blob storage, *key1*, for example *contoso369b2c*.
+    c.  The name of your storage blob storage container, *containerName*, for example *b2c*.
+    d.  The path of the *Starter-Pack* sample files, for example *..\B2CTemplates\wingtiptoys*.
 
 If you followed the steps above, the HTML5 and CSS files of the *UI-Customization-Pack* for the fictitious company **wingtiptoys** will now be pointing to your storage account.  You can verify that the content has been uploaded correctly by opening the related container blade in the Azure portal. You can alternatively verify that the content has been uploaded correctly by accessing the page from a browser. For more information, see [Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
@@ -123,16 +123,16 @@ To verify that the storage you are hosting your content on has CORS enabled, pro
 
 1. Open a browsing session and navigate to the page *unified.html* using the full URL of its location in your storage account, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. For example, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Navigate to http://test-cors.org. This site allows you to verify that the page you are using has CORS enabled.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. In **Remote URL**, enter the full URL for your unified.html content, and click **Send Request**.
 4. Verify that the output in the **Results** section contains *XHR status: 200*. This indicates that CORS is enabled.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-The storage account should now contain a blob container named *b2c* in our illustration that contains the following wingtiptoys templates from the *Starter-Pack*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   The storage account should now contain a blob container named *b2c* in our illustration that contains the following wingtiptoys templates from the *Starter-Pack*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
@@ -152,7 +152,7 @@ The following table describes the purpose of the above HTML5 pages.
 
 You can add a link to your HTML5/CSS templates to your user journey by editing a custom policy directly.
 
-The custom HTML5/CSS templates to use in your user journey have to be specified in a list of content definitions that can be used in those user journeys. For that purpose, an optional *<ContentDefinitions>* XML element must be declared under the *<BuildingBlocks>* section of your custom policy XML file.
+The custom HTML5/CSS templates to use in your user journey have to be specified in a list of content definitions that can be used in those user journeys. For that purpose, an optional <em><ContentDefinitions></em> XML element must be declared under the <em><BuildingBlocks></em> section of your custom policy XML file.
 
 The following table describes the set of content definition ids recognized by the Azure AD B2C identity experience engine and the type of pages that relates to them.
 

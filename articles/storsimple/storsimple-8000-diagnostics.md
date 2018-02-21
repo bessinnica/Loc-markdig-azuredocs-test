@@ -41,9 +41,9 @@ Once you have connected to the Windows PowerShell interface of the device, perfo
 
 2. Type the following command:
 
-	`Invoke-HcsDiagnostics`
+    `Invoke-HcsDiagnostics`
 
-	If the scope parameter is not specified, the cmdlet executes all the diagnostic tests. These tests include system, hardware component health, network, and performance. 
+    If the scope parameter is not specified, the cmdlet executes all the diagnostic tests. These tests include system, hardware component health, network, and performance. 
     
     To run only a specific test, specify the scope parameter. For instance, to run only the network test, type
 

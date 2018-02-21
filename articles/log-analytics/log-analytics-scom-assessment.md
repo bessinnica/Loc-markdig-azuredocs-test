@@ -42,11 +42,11 @@ The solution works with Microsoft System Operations Manager 2012 Service Pack (S
 
 Use the following information to install and configure the solution.
 
- - Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
+- After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
 
- ![System Center Operations Manager dashboard tile](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager dashboard tile](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > Configuration of System Center Operations Manager can be done using a script by following the steps mentioned in the configuration page of the solution in Log Analytics.
@@ -145,7 +145,6 @@ GO
 USE [OperationsManager]
 GO
 ALTER ROLE [db_owner] ADD MEMBER [UserName]
-
 ```
 
 ### Configure the health check rule
@@ -159,8 +158,8 @@ By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment R
 1. In the **Authoring** workspace of the Operations Manager Operations console, search for the rule *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* in the **Rules** pane.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Overrides** > **For a specific object of class: Management Server**.
-4.	In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
-5.	Ensure that you change override value to **True** for the **Enabled** parameter value.<br><br> ![override parameter](./media/log-analytics-scom-assessment/rule.png)
+4.  In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
+5.  Ensure that you change override value to **True** for the **Enabled** parameter value.<br><br> ![override parameter](./media/log-analytics-scom-assessment/rule.png)
 
     While still in this window, configure the run frequency using the next procedure.
 
@@ -225,7 +224,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 If you have recommendations that you want to ignore, you can create a text file that Log Analytics uses to prevent recommendations from appearing in your assessment results.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### To identify recommendations that you want to ignore
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.

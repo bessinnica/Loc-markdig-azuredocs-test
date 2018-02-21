@@ -176,7 +176,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    
    **telcodatagen.exe 1000 .2 2**
     
-6.	Start the Stream Analytics job.
+6.  Start the Stream Analytics job.
 
 ## Check Azure Redis Cache for results
 

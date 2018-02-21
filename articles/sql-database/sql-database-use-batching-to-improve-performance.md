@@ -157,7 +157,7 @@ In code, you create a **DataTable** with the exact same names and types of the t
         cmd.ExecuteNonQuery();
     }
 
-In the previous example, the **SqlCommand** object inserts rows from a table-valued parameter, **@TestTvp**. The previously created **DataTable** object is assigned to this parameter with the **SqlCommand.Parameters.Add** method. Batching the inserts in one call significantly increases the performance over sequential inserts.
+In the previous example, the <strong>SqlCommand</strong> object inserts rows from a table-valued parameter, <strong><xref href="TestTvp" data-throw-if-not-resolved="False" data-raw-source="@TestTvp"></xref></strong>. The previously created <strong>DataTable</strong> object is assigned to this parameter with the <strong>SqlCommand.Parameters.Add</strong> method. Batching the inserts in one call significantly increases the performance over sequential inserts.
 
 To improve the previous example further, use a stored procedure instead of a text-based command. The following Transact-SQL command creates a stored procedure that takes the **SimpleTestTableType** table-valued parameter.
 
@@ -530,7 +530,7 @@ Then define a stored procedure that accepts tables of these types. This procedur
     JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
     GO
 
-In this example, the locally defined @IdentityLink table stores the actual OrderID values from the newly inserted rows. These order identifiers are different from the temporary OrderID values in the @orders and @details table-valued parameters. For this reason, the @IdentityLink table then connects the OrderID values from the @orders parameter to the real OrderID values for the new rows in the PurchaseOrder table. After this step, the @IdentityLink table can facilitate inserting the order details with the actual OrderID that satisfies the foreign key constraint.
+In this example, the locally defined @"IdentityLink" table stores the actual OrderID values from the newly inserted rows. These order identifiers are different from the temporary OrderID values in the @orders and @details table-valued parameters. For this reason, the @IdentityLink table then connects the OrderID values from the @orders parameter to the real OrderID values for the new rows in the PurchaseOrder table. After this step, the @IdentityLink table can facilitate inserting the order details with the actual OrderID that satisfies the foreign key constraint.
 
 This stored procedure can be used from code or from other Transact-SQL calls. See the table-valued parameters section of this paper for a code example. The following Transact-SQL shows how to call the sp_InsertOrdersBatch.
 

@@ -22,6 +22,7 @@ ms.author: cynthn
 The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## A-series - compute-intensive
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 |8 |1 |Intel Xeon CPU E5-2670 0 @ 2.6 GHz |179 |110,294 |554 |
@@ -30,6 +31,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_A11 |16 |2 |Intel Xeon CPU E5-2670 0 @ 2.6 GHz |188 |210,727 |2,073 |
 
 ## Dv2-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 |1 |1 |Intel Xeon E5-2673 v3 @ 2.4 GHz |140 |14,852 |780 |
@@ -44,6 +46,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_D15_v2 |20 |2 |Intel Xeon E5-2673 v3 @ 2.4 GHz |28 |268,560 |4,667 |
 
 ## F-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1 |1 |1 |Intel Xeon E5-2673 v3 @ 2.4 GHz |154 |15,602 |787 |
@@ -53,6 +56,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_F16 |16 |2 |Intel Xeon E5-2673 v3 @ 2.4 GHz |42 |218,571 |5,113 |
 
 ## G-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |83 |31,310 |2,891 |
@@ -62,6 +66,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_G5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |84 |360,329 |14,212 |
 
 ## GS-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |84 |28,613 |1,884 |
@@ -71,6 +76,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |84 |357,396 |16,228 |
 
 ## H-series
+
 | Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3.2 GHz |28 |140,782 |2,512 |

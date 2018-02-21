@@ -5,7 +5,7 @@ services: notification-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: notification-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,7 +14,7 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-#Notification Hubs Documentation
+# Notification Hubs Documentation
 
 Learn how to use Notification Hubs, a multi-platform, scalable push-notification engine for quickly sending millions of messages. Tutorials, API references, and other documentation show you how to set up and send push notifications from any backend to any mobile device. 
 
@@ -168,6 +168,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -206,4 +207,5 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
         </div>
     </li>
 </ul>
+
 

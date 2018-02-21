@@ -134,7 +134,7 @@ rows = cursor.fetchall()
 
 # Print all rows
 for row in rows:
-	print "Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]))
+    print "Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]))
 
 # Cleanup
 conn.commit()

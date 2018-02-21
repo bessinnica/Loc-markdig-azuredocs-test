@@ -113,7 +113,7 @@ The default configuration denies all access to the HTTP endpoint. This is the re
 The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
 
 ### Changing the Configuration
-The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
+The group of access control rules that apply to and endpoint are configured in the <strong><EndpointAcls></strong> section in the <strong>service configuration file</strong>.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />

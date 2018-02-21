@@ -70,7 +70,7 @@ To complete this tutorial:
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 
 6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Azure Cosmos DB account connection**. 
- 
+
 8. After the connection string is set, select **Save** to create the binding.
 
 ## Update the function code
@@ -107,7 +107,6 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
         return req.CreateResponse(HttpStatusCode.BadRequest);
     }
 }
-
 ```
 This code sample reads the HTTP Request query strings and assigns them to fields in the `taskDocument` object. The `taskDocument` binding sends the object data from this binding parameter to be stored in the bound document database. The database is created the first time the function runs.
 

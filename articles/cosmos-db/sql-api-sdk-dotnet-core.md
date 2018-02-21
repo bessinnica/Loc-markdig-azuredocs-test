@@ -36,18 +36,20 @@ ms.custom: H1Hack27Feb2017
 
 <table>
 
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
+<tr><td><strong>SDK download</strong></td><td><a href="https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/" data-raw-source="[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)">NuGet</a></td></tr>
 
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
+<tr><td><strong>API documentation</strong></td><td><a href="/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet" data-raw-source="[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)">.NET API reference documentation</a></td></tr>
 
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
+<tr><td><strong>Samples</strong></td><td><a href="sql-api-dotnet-samples.md" data-raw-source="[.NET code samples](sql-api-dotnet-samples.md)">.NET code samples</a></td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td><strong>Get started</strong></td><td><a href="sql-api-dotnetcore-get-started.md" data-raw-source="[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)">Get started with the Azure Cosmos DB .NET Core SDK</a></td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
+<tr><td><strong>Web app tutorial</strong></td><td><a href="sql-api-dotnet-application.md" data-raw-source="[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)">Web application development with Azure Cosmos DB</a></td></tr>
 
-<tr><td>**Current supported framework**</td><td>[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td><strong>Current supported framework</strong></td><td><a href="https://www.nuget.org/packages/NETStandard.Library" data-raw-source="[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)">.NET Standard 1.6 and .NET Standard 1.5</a></td></tr>
+
 </table></br>
+
 
 ## Release Notes
 
@@ -57,16 +59,16 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 ### <a name="1.7.1"/>1.7.1
- 
+
  * Adds the ability to specify unique indexes for the documents by using UniqueKeyPolicy property on the DocumentCollection.
  * Fixed a bug in which the custom JsonSerializer settings were not being honored for some queries and stored procedure execution.
 
 ### <a name="1.7.0"/>1.7.0
- 
+
  * Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package. 
  * Expose diagnostic information and latency from the response of requests sent with direct connectivity mode. The property names are RequestDiagnosticsString and RequestLatency on ResourceResponse class.
  * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
- 
+
 ### <a name="1.6.0"/>1.6.0
 
 * Added several reliability fixes and improvements.
@@ -82,27 +84,27 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.4.1"/>1.4.1
 
-*	Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
+*   Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
 
 ### <a name="1.4.0"/>1.4.0
 
-*	Added support for specifying custom JsonSerializerSettings while instantiating a [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) instance.
+*   Added support for specifying custom JsonSerializerSettings while instantiating a [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) instance.
 
 ### <a name="1.3.2"/>1.3.2
 
-*	Supporting .NET Standard 1.5 as one of the target frameworks.
+*   Supporting .NET Standard 1.5 as one of the target frameworks.
 
 ### <a name="1.3.1"/>1.3.1
 
-*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running Azure Cosmos DB queries.
+*   Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running Azure Cosmos DB queries.
 
 ### <a name="1.3.0"/>1.3.0
 
-*	Added support for a new consistency level called ConsistentPrefix.
-*	Added support for query metrics for individual partitions.
-*	Added support for limiting the size of the continuation token for queries.
-*	Added support for more detailed tracing for failed requests.
-*	Made some performance improvements in the SDK.
+*   Added support for a new consistency level called ConsistentPrefix.
+*   Added support for query metrics for individual partitions.
+*   Added support for limiting the size of the continuation token for queries.
+*   Added support for more detailed tracing for failed requests.
+*   Made some performance improvements in the SDK.
 
 ### <a name="1.2.2"/>1.2.2
 
@@ -136,7 +138,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.0.0"/>1.0.0
 
-The Azure Cosmos DB .NET Core SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux. The latest release of the Azure Cosmos DB .NET Core SDK is fully [Xamarin](https://www.xamarin.com) compatible and be used to build applications that target iOS, Android, and Mono (Linux).  
+The Azure Cosmos DB .NET Core SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux. The latest release of the Azure Cosmos DB .NET Core SDK is fully [Xamarin](https://www.xamarin.com) compatible and be used to build applications that target iOS, Android, and Mono (Linux).  
 
 ### <a name="0.1.0-preview"/>0.1.0-preview
 

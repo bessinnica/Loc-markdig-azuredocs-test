@@ -104,28 +104,29 @@ for the **Logic Apps Management** solution.
 
 <a name="view-logic-app-runs-oms"></a>
 
+
 ## View your logic app runs in your OMS workspace
 
 1. To view the count and status for your logic app runs, 
-go to the overview page for your OMS workspace. 
-Review the details on the **Logic Apps Management** tile.
+   go to the overview page for your OMS workspace. 
+   Review the details on the **Logic Apps Management** tile.
 
    ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    > [!Note]
    > If this upgrade banner appears instead of the Logic Apps Management tile, choose the banner so that you upgrade your OMS workspace first.
-  
+   > 
    > ![Upgrade "OMS Workspace"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. To view a summary with more details about your logic app runs, 
-choose the **Logic Apps Management** tile.
+   choose the **Logic Apps Management** tile.
 
    Here, your logic app runs are grouped by name or by execution status. You can also see details about the failures in actions or triggers for the logic app runs.
 
    ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
-   
+
 3. To view all the runs for a specific logic app or status, 
-select the row for a logic app or a status.
+   select the row for a logic app or a status.
 
    Here is an example that shows all the runs for a specific logic app:
 
@@ -134,7 +135,7 @@ select the row for a logic app or a status.
    There are two advanced options on this page:
    * **Tracked properties:**
      This column shows tracked properties, which are grouped by actions, for the logic app. To view the tracked properties, choose **View**. You can search the tracked properties by using the column filter.
-   
+
      ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
      Any newly added tracked properties might take 10-15 minutes before they appear first time. Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
@@ -155,27 +156,27 @@ select the row for a logic app or a status.
    or to limit the number of runs that appear, 
    use the scope control at the top of the page. 
    By default, only 1,000 records appear at a time. 
-   
+
      ![Change the time window](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
- 
+
 5. To view all the actions and their details for a specific run, 
-select a row for a logic app run.
+   select a row for a logic app run.
 
    Here is an example that shows all the actions for a specific logic app run:
 
    ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
-   
+
 6. On any results page, to view the query behind the results or to see all results, choose **See All**, which opens the Log Search page.
-   
+
    ![See All on Results pages](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
-   
+
    On the Log Search page,
    * To view the query results in a table, choose **Table**.
    * To change the query, you can edit the query string in the search bar. 
    For a better experience, choose **Advanced Analytics**.
 
      ![View actions and details for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-     
+
      Here on the Azure Log Analytics page, 
      you can update queries and view the results from the table. 
      This query uses [Kusto query language](https://docs.loganalytics.io/docs/Language-Reference), 

@@ -193,11 +193,13 @@ Source with height "720" and framerate "23.970" produces 5 video layers:
 ### Example 3
 Source with height "360" and framerate "29.970" produces 3 video layers:
 
-|Layer|Height|Width|Bitrate(kbps)|
-|---|---|---|---|
-|1|360|640|700|
-|2|270|480|440|
-|3|180|320|230|
+
+| Layer | Height | Width | Bitrate(kbps) |
+|-------|--------|-------|---------------|
+|   1   |  360   |  640  |      700      |
+|   2   |  270   |  480  |      440      |
+|   3   |  180   |  320  |      230      |
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

@@ -283,7 +283,7 @@ if(!$resource)
 {
     $serviceName = $siteName + "sbn"
     $properties = @{
-	    "sku" = @{
+        "sku" = @{
             "name"= "Standard"
             "tier"= "Standard"
             "capacity"= 1
@@ -313,7 +313,6 @@ if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
 }
-
 ```
 ## Next steps
 [Configure the Hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

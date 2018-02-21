@@ -51,100 +51,100 @@ using System.Text;
 
 namespace CSHttpClientSample
 {
-	static class Program
-	{
-		// **********************************************
-		// *** Update or verify the following values. ***
-		// **********************************************
+    static class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
 
-		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
-		// Replace or verify the region.
-		//
-		// You must use the same region in your REST API call as you used to obtain your subscription keys.
-		// For example, if you obtained your subscription keys from the westus region, replace 
-		// "westcentralus" in the URI below with "westus".
-		//
-		// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-		// a free trial subscription key, you should not need to change this region.
-		const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze";
-
-
-		static void Main()
-		{
-			// Get the path and filename to process from the user.
-			Console.WriteLine("Analyze an image:");
-			Console.Write("Enter the path to an image you wish to analzye: ");
-			string imageFilePath = Console.ReadLine();
-
-			// Execute the REST API call.
-			MakeAnalysisRequest(imageFilePath);
-
-			Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
-			Console.ReadLine();
-		}
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze";
 
 
-		/// <summary>
-		/// Gets the analysis of the specified image file by using the Computer Vision REST API.
-		/// </summary>
-		/// <param name="imageFilePath">The image file.</param>
-		static async void MakeAnalysisRequest(string imageFilePath)
-		{
-			HttpClient client = new HttpClient();
+        static void Main()
+        {
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Analyze an image:");
+            Console.Write("Enter the path to an image you wish to analzye: ");
+            string imageFilePath = Console.ReadLine();
 
-			// Request headers.
-			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            // Execute the REST API call.
+            MakeAnalysisRequest(imageFilePath);
 
-			// Request parameters. A third optional parameter is "details".
-			string requestParameters = "visualFeatures=Categories,Description,Color&language=en";
-
-			// Assemble the URI for the REST API Call.
-			string uri = uriBase + "?" + requestParameters;
-
-			HttpResponseMessage response;
-
-			// Request body. Posts a locally stored JPEG image.
-			byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-			using (ByteArrayContent content = new ByteArrayContent(byteData))
-			{
-				// This example uses content type "application/octet-stream".
-				// The other content types you can use are "application/json" and "multipart/form-data".
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-				
-				// Execute the REST API call.
-				response = await client.PostAsync(uri, content);
-
-				// Get the JSON response.
-				string contentString = await response.Content.ReadAsStringAsync();
-
-				// Display the JSON response.
-				Console.WriteLine("\nResponse:\n");
-				Console.WriteLine(JsonPrettyPrint(contentString));
-			}
-		}
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
+            Console.ReadLine();
+        }
 
 
-		/// <summary>
-		/// Returns the contents of the specified file as a byte array.
-		/// </summary>
-		/// <param name="imageFilePath">The image file to read.</param>
-		/// <returns>The byte array of the image data.</returns>
-		static byte[] GetImageAsByteArray(string imageFilePath)
-		{
-			FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-			BinaryReader binaryReader = new BinaryReader(fileStream);
-			return binaryReader.ReadBytes((int)fileStream.Length);
-		}
+        /// <summary>
+        /// Gets the analysis of the specified image file by using the Computer Vision REST API.
+        /// </summary>
+        /// <param name="imageFilePath">The image file.</param>
+        static async void MakeAnalysisRequest(string imageFilePath)
+        {
+            HttpClient client = new HttpClient();
+
+            // Request headers.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+            // Request parameters. A third optional parameter is "details".
+            string requestParameters = "visualFeatures=Categories,Description,Color&language=en";
+
+            // Assemble the URI for the REST API Call.
+            string uri = uriBase + "?" + requestParameters;
+
+            HttpResponseMessage response;
+
+            // Request body. Posts a locally stored JPEG image.
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+            using (ByteArrayContent content = new ByteArrayContent(byteData))
+            {
+                // This example uses content type "application/octet-stream".
+                // The other content types you can use are "application/json" and "multipart/form-data".
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                
+                // Execute the REST API call.
+                response = await client.PostAsync(uri, content);
+
+                // Get the JSON response.
+                string contentString = await response.Content.ReadAsStringAsync();
+
+                // Display the JSON response.
+                Console.WriteLine("\nResponse:\n");
+                Console.WriteLine(JsonPrettyPrint(contentString));
+            }
+        }
 
 
-		/// <summary>
-		/// Formats the given JSON string by adding line breaks and indents.
-		/// </summary>
-		/// <param name="json">The raw JSON string to format.</param>
-		/// <returns>The formatted JSON string.</returns>
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+
+        /// <summary>
+        /// Formats the given JSON string by adding line breaks and indents.
+        /// </summary>
+        /// <param name="json">The raw JSON string to format.</param>
+        /// <returns>The formatted JSON string.</returns>
         static string JsonPrettyPrint(string json)
         {
             if (string.IsNullOrEmpty(json))
@@ -313,103 +313,103 @@ using System.Text;
 
 namespace CSHttpClientSample
 {
-	static class Program
-	{
-		// **********************************************
-		// *** Update or verify the following values. ***
-		// **********************************************
+    static class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
 
-		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
-		// Replace or verify the region.
-		//
-		// You must use the same region in your REST API call as you used to obtain your subscription keys.
-		// For example, if you obtained your subscription keys from the westus region, replace 
-		// "westcentralus" in the URI below with "westus".
-		//
-		// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-		// a free trial subscription key, you should not need to change this region.
-		//
-		// Also, if you want to use the celebrities model, change "landmarks" to "celebrities" here and in 
-		// requestParameters to use the Celebrities model.
-		const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze";
-
-
-		static void Main()
-		{
-			// Get the path and filename to process from the user.
-			Console.WriteLine("Domain-Specific Model:");
-			Console.Write("Enter the path to an image you wish to analzye for landmarks: ");
-			string imageFilePath = Console.ReadLine();
-
-			// Execute the REST API call.
-			MakeAnalysisRequest(imageFilePath);
-
-			Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit ...\n");
-			Console.ReadLine();
-		}
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        //
+        // Also, if you want to use the celebrities model, change "landmarks" to "celebrities" here and in 
+        // requestParameters to use the Celebrities model.
+        const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze";
 
 
-		/// <summary>
-		/// Gets a thumbnail image from the specified image file by using the Computer Vision REST API.
-		/// </summary>
-		/// <param name="imageFilePath">The image file to use to create the thumbnail image.</param>
-		static async void MakeAnalysisRequest(string imageFilePath)
-		{
-			HttpClient client = new HttpClient();
+        static void Main()
+        {
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Domain-Specific Model:");
+            Console.Write("Enter the path to an image you wish to analzye for landmarks: ");
+            string imageFilePath = Console.ReadLine();
 
-			// Request headers.
-			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            // Execute the REST API call.
+            MakeAnalysisRequest(imageFilePath);
 
-			// Request parameters. Change "landmarks" to "celebrities" here and in uriBase to use the Celebrities model.
-			string requestParameters = "model=landmarks";
-
-			// Assemble the URI for the REST API Call.
-			string uri = uriBase + "?" + requestParameters;
-
-			HttpResponseMessage response;
-
-			// Request body. Posts a locally stored JPEG image.
-			byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-			using (ByteArrayContent content = new ByteArrayContent(byteData))
-			{
-				// This example uses content type "application/octet-stream".
-				// The other content types you can use are "application/json" and "multipart/form-data".
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-				
-				// Execute the REST API call.
-				response = await client.PostAsync(uri, content);
-
-				// Get the JSON response.
-				string contentString = await response.Content.ReadAsStringAsync();
-
-				// Display the JSON response.
-				Console.WriteLine("\nResponse:\n");
-				Console.WriteLine(JsonPrettyPrint(contentString));
-			}
-		}
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit ...\n");
+            Console.ReadLine();
+        }
 
 
-		/// <summary>
-		/// Returns the contents of the specified file as a byte array.
-		/// </summary>
-		/// <param name="imageFilePath">The image file to read.</param>
-		/// <returns>The byte array of the image data.</returns>
-		static byte[] GetImageAsByteArray(string imageFilePath)
-		{
-			FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-			BinaryReader binaryReader = new BinaryReader(fileStream);
-			return binaryReader.ReadBytes((int)fileStream.Length);
-		}
+        /// <summary>
+        /// Gets a thumbnail image from the specified image file by using the Computer Vision REST API.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to use to create the thumbnail image.</param>
+        static async void MakeAnalysisRequest(string imageFilePath)
+        {
+            HttpClient client = new HttpClient();
+
+            // Request headers.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+            // Request parameters. Change "landmarks" to "celebrities" here and in uriBase to use the Celebrities model.
+            string requestParameters = "model=landmarks";
+
+            // Assemble the URI for the REST API Call.
+            string uri = uriBase + "?" + requestParameters;
+
+            HttpResponseMessage response;
+
+            // Request body. Posts a locally stored JPEG image.
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+            using (ByteArrayContent content = new ByteArrayContent(byteData))
+            {
+                // This example uses content type "application/octet-stream".
+                // The other content types you can use are "application/json" and "multipart/form-data".
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                
+                // Execute the REST API call.
+                response = await client.PostAsync(uri, content);
+
+                // Get the JSON response.
+                string contentString = await response.Content.ReadAsStringAsync();
+
+                // Display the JSON response.
+                Console.WriteLine("\nResponse:\n");
+                Console.WriteLine(JsonPrettyPrint(contentString));
+            }
+        }
 
 
-		/// <summary>
-		/// Formats the given JSON string by adding line breaks and indents.
-		/// </summary>
-		/// <param name="json">The raw JSON string to format.</param>
-		/// <returns>The formatted JSON string.</returns>
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+
+        /// <summary>
+        /// Formats the given JSON string by adding line breaks and indents.
+        /// </summary>
+        /// <param name="json">The raw JSON string to format.</param>
+        /// <returns>The formatted JSON string.</returns>
         static string JsonPrettyPrint(string json)
         {
             if (string.IsNullOrEmpty(json))
@@ -528,109 +528,109 @@ using System.Text;
 
 namespace CSHttpClientSample
 {
-	static class Program
-	{
-		// **********************************************
-		// *** Update or verify the following values. ***
-		// **********************************************
+    static class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
 
-		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
-		// Replace or verify the region.
-		//
-		// You must use the same region in your REST API call as you used to obtain your subscription keys.
-		// For example, if you obtained your subscription keys from the westus region, replace 
-		// "westcentralus" in the URI below with "westus".
-		//
-		// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-		// a free trial subscription key, you should not need to change this region.
-		const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail";
-
-
-		static void Main()
-		{
-			// Get the path and filename to process from the user.
-			Console.WriteLine("Thumbnail:");
-			Console.Write("Enter the path to an image you wish to use to create a thumbnail image: ");
-			string imageFilePath = Console.ReadLine();
-
-			// Execute the REST API call.
-			MakeThumbNailRequest(imageFilePath);
-
-			Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit ...\n");
-			Console.ReadLine();
-		}
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail";
 
 
-		/// <summary>
-		/// Gets a thumbnail image from the specified image file by using the Computer Vision REST API.
-		/// </summary>
-		/// <param name="imageFilePath">The image file to use to create the thumbnail image.</param>
-		static async void MakeThumbNailRequest(string imageFilePath)
-		{
-			HttpClient client = new HttpClient();
+        static void Main()
+        {
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Thumbnail:");
+            Console.Write("Enter the path to an image you wish to use to create a thumbnail image: ");
+            string imageFilePath = Console.ReadLine();
 
-			// Request headers.
-			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            // Execute the REST API call.
+            MakeThumbNailRequest(imageFilePath);
 
-			// Request parameters.
-			string requestParameters = "width=200&height=150&smartCropping=true";
-
-			// Assemble the URI for the REST API Call.
-			string uri = uriBase + "?" + requestParameters;
-
-			HttpResponseMessage response;
-
-			// Request body. Posts a locally stored JPEG image.
-			byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-			using (ByteArrayContent content = new ByteArrayContent(byteData))
-			{
-				// This example uses content type "application/octet-stream".
-				// The other content types you can use are "application/json" and "multipart/form-data".
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-				
-				// Execute the REST API call.
-				response = await client.PostAsync(uri, content);
-
-				if (response.IsSuccessStatusCode)
-				{
-					// Display the response data.
-					Console.WriteLine("\nResponse:\n");
-					Console.WriteLine(response);
-
-					// Get the image data.
-					byte[] thumbnailImageData = await response.Content.ReadAsByteArrayAsync();
-				}
-				else
-				{
-					// Display the JSON error data.
-					Console.WriteLine("\nError:\n");
-					Console.WriteLine(JsonPrettyPrint(await response.Content.ReadAsStringAsync()));
-				}
-			}
-		}
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit ...\n");
+            Console.ReadLine();
+        }
 
 
-		/// <summary>
-		/// Returns the contents of the specified file as a byte array.
-		/// </summary>
-		/// <param name="imageFilePath">The image file to read.</param>
-		/// <returns>The byte array of the image data.</returns>
-		static byte[] GetImageAsByteArray(string imageFilePath)
-		{
-			FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-			BinaryReader binaryReader = new BinaryReader(fileStream);
-			return binaryReader.ReadBytes((int)fileStream.Length);
-		}
+        /// <summary>
+        /// Gets a thumbnail image from the specified image file by using the Computer Vision REST API.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to use to create the thumbnail image.</param>
+        static async void MakeThumbNailRequest(string imageFilePath)
+        {
+            HttpClient client = new HttpClient();
+
+            // Request headers.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+            // Request parameters.
+            string requestParameters = "width=200&height=150&smartCropping=true";
+
+            // Assemble the URI for the REST API Call.
+            string uri = uriBase + "?" + requestParameters;
+
+            HttpResponseMessage response;
+
+            // Request body. Posts a locally stored JPEG image.
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+            using (ByteArrayContent content = new ByteArrayContent(byteData))
+            {
+                // This example uses content type "application/octet-stream".
+                // The other content types you can use are "application/json" and "multipart/form-data".
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                
+                // Execute the REST API call.
+                response = await client.PostAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Display the response data.
+                    Console.WriteLine("\nResponse:\n");
+                    Console.WriteLine(response);
+
+                    // Get the image data.
+                    byte[] thumbnailImageData = await response.Content.ReadAsByteArrayAsync();
+                }
+                else
+                {
+                    // Display the JSON error data.
+                    Console.WriteLine("\nError:\n");
+                    Console.WriteLine(JsonPrettyPrint(await response.Content.ReadAsStringAsync()));
+                }
+            }
+        }
 
 
-		/// <summary>
-		/// Formats the given JSON string by adding line breaks and indents.
-		/// </summary>
-		/// <param name="json">The raw JSON string to format.</param>
-		/// <returns>The formatted JSON string.</returns>
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+
+        /// <summary>
+        /// Formats the given JSON string by adding line breaks and indents.
+        /// </summary>
+        /// <param name="json">The raw JSON string to format.</param>
+        /// <returns>The formatted JSON string.</returns>
         static string JsonPrettyPrint(string json)
         {
             if (string.IsNullOrEmpty(json))
@@ -748,100 +748,100 @@ using System.Text;
 
 namespace CSHttpClientSample
 {
-	static class Program
-	{
-		// **********************************************
-		// *** Update or verify the following values. ***
-		// **********************************************
+    static class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
 
-		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
-		// Replace or verify the region.
-		//
-		// You must use the same region in your REST API call as you used to obtain your subscription keys.
-		// For example, if you obtained your subscription keys from the westus region, replace 
-		// "westcentralus" in the URI below with "westus".
-		//
-		// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-		// a free trial subscription key, you should not need to change this region.
-		const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr";
-
-
-		static void Main()
-		{
-			// Get the path and filename to process from the user.
-			Console.WriteLine("Optical Character Recognition:");
-			Console.Write("Enter the path to an image with text you wish to read: ");
-			string imageFilePath = Console.ReadLine();
-
-			// Execute the REST API call.
-			MakeOCRRequest(imageFilePath);
-
-			Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
-			Console.ReadLine();
-		}
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr";
 
 
-		/// <summary>
-		/// Gets the text visible in the specified image file by using the Computer Vision REST API.
-		/// </summary>
-		/// <param name="imageFilePath">The image file.</param>
-		static async void MakeOCRRequest(string imageFilePath)
-		{
-			HttpClient client = new HttpClient();
+        static void Main()
+        {
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Optical Character Recognition:");
+            Console.Write("Enter the path to an image with text you wish to read: ");
+            string imageFilePath = Console.ReadLine();
 
-			// Request headers.
-			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            // Execute the REST API call.
+            MakeOCRRequest(imageFilePath);
 
-			// Request parameters.
-			string requestParameters = "language=unk&detectOrientation=true";
-
-			// Assemble the URI for the REST API Call.
-			string uri = uriBase + "?" + requestParameters;
-
-			HttpResponseMessage response;
-
-			// Request body. Posts a locally stored JPEG image.
-			byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-			using (ByteArrayContent content = new ByteArrayContent(byteData))
-			{
-				// This example uses content type "application/octet-stream".
-				// The other content types you can use are "application/json" and "multipart/form-data".
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-				
-				// Execute the REST API call.
-				response = await client.PostAsync(uri, content);
-
-				// Get the JSON response.
-				string contentString = await response.Content.ReadAsStringAsync();
-
-				// Display the JSON response.
-				Console.WriteLine("\nResponse:\n");
-				Console.WriteLine(JsonPrettyPrint(contentString));
-			}
-		}
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
+            Console.ReadLine();
+        }
 
 
-		/// <summary>
-		/// Returns the contents of the specified file as a byte array.
-		/// </summary>
-		/// <param name="imageFilePath">The image file to read.</param>
-		/// <returns>The byte array of the image data.</returns>
-		static byte[] GetImageAsByteArray(string imageFilePath)
-		{
-			FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-			BinaryReader binaryReader = new BinaryReader(fileStream);
-			return binaryReader.ReadBytes((int)fileStream.Length);
-		}
+        /// <summary>
+        /// Gets the text visible in the specified image file by using the Computer Vision REST API.
+        /// </summary>
+        /// <param name="imageFilePath">The image file.</param>
+        static async void MakeOCRRequest(string imageFilePath)
+        {
+            HttpClient client = new HttpClient();
+
+            // Request headers.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+            // Request parameters.
+            string requestParameters = "language=unk&detectOrientation=true";
+
+            // Assemble the URI for the REST API Call.
+            string uri = uriBase + "?" + requestParameters;
+
+            HttpResponseMessage response;
+
+            // Request body. Posts a locally stored JPEG image.
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+            using (ByteArrayContent content = new ByteArrayContent(byteData))
+            {
+                // This example uses content type "application/octet-stream".
+                // The other content types you can use are "application/json" and "multipart/form-data".
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                
+                // Execute the REST API call.
+                response = await client.PostAsync(uri, content);
+
+                // Get the JSON response.
+                string contentString = await response.Content.ReadAsStringAsync();
+
+                // Display the JSON response.
+                Console.WriteLine("\nResponse:\n");
+                Console.WriteLine(JsonPrettyPrint(contentString));
+            }
+        }
 
 
-		/// <summary>
-		/// Formats the given JSON string by adding line breaks and indents.
-		/// </summary>
-		/// <param name="json">The raw JSON string to format.</param>
-		/// <returns>The formatted JSON string.</returns>
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+
+        /// <summary>
+        /// Formats the given JSON string by adding line breaks and indents.
+        /// </summary>
+        /// <param name="json">The raw JSON string to format.</param>
+        /// <returns>The formatted JSON string.</returns>
         static string JsonPrettyPrint(string json)
         {
             if (string.IsNullOrEmpty(json))
@@ -1018,135 +1018,135 @@ using System.Text;
 
 namespace CSHttpClientSample
 {
-	static class Program
-	{
-		// **********************************************
-		// *** Update or verify the following values. ***
-		// **********************************************
+    static class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
 
-		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
-		// Replace or verify the region.
-		//
-		// You must use the same region in your REST API call as you used to obtain your subscription keys.
-		// For example, if you obtained your subscription keys from the westus region, replace 
-		// "westcentralus" in the URI below with "westus".
-		//
-		// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-		// a free trial subscription key, you should not need to change this region.
-		const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText";
-
-
-		static void Main()
-		{
-			// Get the path and filename to process from the user.
-			Console.WriteLine("Handwriting Recognition:");
-			Console.Write("Enter the path to an image with handwritten text you wish to read: ");
-			string imageFilePath = Console.ReadLine();
-
-			// Execute the REST API call.
-			ReadHandwrittenText(imageFilePath);
-
-			Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
-			Console.ReadLine();
-		}
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText";
 
 
-		/// <summary>
-		/// Gets the handwritten text from the specified image file by using the Computer Vision REST API.
-		/// </summary>
-		/// <param name="imageFilePath">The image file with handwritten text.</param>
-		static async void ReadHandwrittenText(string imageFilePath)
-		{
-			HttpClient client = new HttpClient();
+        static void Main()
+        {
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Handwriting Recognition:");
+            Console.Write("Enter the path to an image with handwritten text you wish to read: ");
+            string imageFilePath = Console.ReadLine();
 
-			// Request headers.
-			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            // Execute the REST API call.
+            ReadHandwrittenText(imageFilePath);
 
-			// Request parameter. Set "handwriting" to false for printed text.
-			string requestParameters = "handwriting=true";
-
-			// Assemble the URI for the REST API Call.
-			string uri = uriBase + "?" + requestParameters;
-
-			HttpResponseMessage response = null;
-
-			// This operation requrires two REST API calls. One to submit the image for processing,
-			// the other to retrieve the text found in the image. This value stores the REST API
-			// location to call to retrieve the text.
-			string operationLocation = null;
-
-			// Request body. Posts a locally stored JPEG image.
-			byte[] byteData = GetImageAsByteArray(imageFilePath);
-			ByteArrayContent content = new ByteArrayContent(byteData);
-
-			// This example uses content type "application/octet-stream".
-			// You can also use "application/json" and specify an image URL.
-			content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-
-			// The first REST call starts the async process to analyze the written text in the image.
-			response = await client.PostAsync(uri, content);
-
-			// The response contains the URI to retrieve the result of the process.
-			if (response.IsSuccessStatusCode)
-				operationLocation = response.Headers.GetValues("Operation-Location").FirstOrDefault();
-			else
-			{
-				// Display the JSON error data.
-				Console.WriteLine("\nError:\n");
-				Console.WriteLine(JsonPrettyPrint(await response.Content.ReadAsStringAsync()));
-				return;
-			}
-
-			// The second REST call retrieves the text written in the image.
-			//
-			// Note: The response may not be immediately available. Handwriting recognition is an
-			// async operation that can take a variable amount of time depending on the length
-			// of the handwritten text. You may need to wait or retry this operation.
-			//
-			// This example checks once per second for ten seconds.
-			string contentString;
-			int i = 0;
-			do
-			{
-				System.Threading.Thread.Sleep(1000);
-				response = await client.GetAsync(operationLocation);
-				contentString = await response.Content.ReadAsStringAsync();
-				++i;
-			}
-			while (i < 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1);
-
-			if (i == 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1)
-			{
-				Console.WriteLine("\nTimeout error.\n");
-				return;
-			}
-
-			// Display the JSON response.
-			Console.WriteLine("\nResponse:\n");
-			Console.WriteLine(JsonPrettyPrint(contentString));
-		}
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
+            Console.ReadLine();
+        }
 
 
-		/// <summary>
-		/// Returns the contents of the specified file as a byte array.
-		/// </summary>
-		/// <param name="imageFilePath">The image file to read.</param>
-		/// <returns>The byte array of the image data.</returns>
-		static byte[] GetImageAsByteArray(string imageFilePath)
-		{
-			FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-			BinaryReader binaryReader = new BinaryReader(fileStream);
-			return binaryReader.ReadBytes((int)fileStream.Length);
-		}
+        /// <summary>
+        /// Gets the handwritten text from the specified image file by using the Computer Vision REST API.
+        /// </summary>
+        /// <param name="imageFilePath">The image file with handwritten text.</param>
+        static async void ReadHandwrittenText(string imageFilePath)
+        {
+            HttpClient client = new HttpClient();
+
+            // Request headers.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+            // Request parameter. Set "handwriting" to false for printed text.
+            string requestParameters = "handwriting=true";
+
+            // Assemble the URI for the REST API Call.
+            string uri = uriBase + "?" + requestParameters;
+
+            HttpResponseMessage response = null;
+
+            // This operation requrires two REST API calls. One to submit the image for processing,
+            // the other to retrieve the text found in the image. This value stores the REST API
+            // location to call to retrieve the text.
+            string operationLocation = null;
+
+            // Request body. Posts a locally stored JPEG image.
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
+            ByteArrayContent content = new ByteArrayContent(byteData);
+
+            // This example uses content type "application/octet-stream".
+            // You can also use "application/json" and specify an image URL.
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+
+            // The first REST call starts the async process to analyze the written text in the image.
+            response = await client.PostAsync(uri, content);
+
+            // The response contains the URI to retrieve the result of the process.
+            if (response.IsSuccessStatusCode)
+                operationLocation = response.Headers.GetValues("Operation-Location").FirstOrDefault();
+            else
+            {
+                // Display the JSON error data.
+                Console.WriteLine("\nError:\n");
+                Console.WriteLine(JsonPrettyPrint(await response.Content.ReadAsStringAsync()));
+                return;
+            }
+
+            // The second REST call retrieves the text written in the image.
+            //
+            // Note: The response may not be immediately available. Handwriting recognition is an
+            // async operation that can take a variable amount of time depending on the length
+            // of the handwritten text. You may need to wait or retry this operation.
+            //
+            // This example checks once per second for ten seconds.
+            string contentString;
+            int i = 0;
+            do
+            {
+                System.Threading.Thread.Sleep(1000);
+                response = await client.GetAsync(operationLocation);
+                contentString = await response.Content.ReadAsStringAsync();
+                ++i;
+            }
+            while (i < 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1);
+
+            if (i == 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1)
+            {
+                Console.WriteLine("\nTimeout error.\n");
+                return;
+            }
+
+            // Display the JSON response.
+            Console.WriteLine("\nResponse:\n");
+            Console.WriteLine(JsonPrettyPrint(contentString));
+        }
 
 
-		/// <summary>
-		/// Formats the given JSON string by adding line breaks and indents.
-		/// </summary>
-		/// <param name="json">The raw JSON string to format.</param>
-		/// <returns>The formatted JSON string.</returns>
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+
+        /// <summary>
+        /// Formats the given JSON string by adding line breaks and indents.
+        /// </summary>
+        /// <param name="json">The raw JSON string to format.</param>
+        /// <returns>The formatted JSON string.</returns>
         static string JsonPrettyPrint(string json)
         {
             if (string.IsNullOrEmpty(json))

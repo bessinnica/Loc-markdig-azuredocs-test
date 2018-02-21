@@ -57,7 +57,7 @@ This section takes an example script and details the various steps required to r
 
 Before you begin, ensure that you have:
 
-*	Azure PowerShell installed. To install Azure PowerShell modules:
+*   Azure PowerShell installed. To install Azure PowerShell modules:
     * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
     * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
 
@@ -76,7 +76,7 @@ The script used in this example lists all the jobs on a StorSimple device. This 
 2. [Download NuGet CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
 
     You can also run the following command to download and store the script in the same folder that you created earlier.
-    
+
     ```
         wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
     ```
@@ -95,7 +95,7 @@ The script used in this example lists all the jobs on a StorSimple device. This 
     ```
 
 5. Run the script. When prompted to authenticate, provide your Azure credentials. This script should output a filtered list of all the jobs on your StorSimple device.
-           
+
     ```           
         .\Get-StorSimpleJob.ps1 -SubscriptionId [subid] -TenantId [tenant id] -DeviceName [name of device] -ResourceGroupName [name of resource group] -ManagerName[name of device manager] -FilterByStatus [Filter for job status] -FilterByJobType [Filter for job type] -FilterByStartTime [Filter for start date time] -FilterByEndTime [Filter for end date time]
 
@@ -166,7 +166,6 @@ Kind              : Series8000
 
 PS C:\Scripts\StorSimpleSDKTools>
 --------------------------------------------
-
 ```
 
 

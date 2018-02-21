@@ -35,6 +35,7 @@ for the requested time frame. There is no request body.
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### Arguments
+
 | **Argument** | **Description** |
 | --- | --- |
 | *Armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of Azure Resource Manager endpoint is in the format `https://management.{domain-name}`. For example, for the development kit, the domain name is local.azurestack.external, then the Resource Manager  endpoint is `https://management.local.azurestack.external`. |
@@ -74,6 +75,7 @@ GET
 ```
 
 ### Response details
+
 | **Argument** | **Description** |
 | --- | --- |
 | *id* |Unique ID of the usage aggregate |

@@ -17,9 +17,9 @@ A Custom Search instance lets you tailor the search experience to include conten
 To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
 The following are the ways that you can define a slice of the web: 
 
-1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
-2.	Subsite. A subsite slice includes all content found in the subsite and paths below it. You may specify a maximum of two subsites in the path. For example, www.microsoft.com/en-us/windows/ 
-3.	Webpage. A webpage slice can include only that webpage in a custom search. An option in the Definition Editor  specifies whether to include subsites.
+1. Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
+2. Subsite. A subsite slice includes all content found in the subsite and paths below it. You may specify a maximum of two subsites in the path. For example, www.microsoft.com/en-us/windows/ 
+3. Webpage. A webpage slice can include only that webpage in a custom search. An option in the Definition Editor  specifies whether to include subsites.
 
 All domains, subsites, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
 
@@ -30,7 +30,7 @@ When you define your custom search instance, you specify the active and blocked 
 - Active: A list of domains, subsites, or webpages to include in the search. 
 - Blocked: A list of domain, subsites, or webpages to exclude from the search. The items that you block should be content found under the domains and subpages listed in your Active list 
 
- To access each list, click on the Active and Blocked tabs in your custom search instance. 
+  To access each list, click on the Active and Blocked tabs in your custom search instance. 
 
 ## Active and Blocked lists 
 To specify a slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
@@ -64,6 +64,7 @@ At any time, you can test out your search instance by using the preview pane. Th
 > Searches will hit the en-US Bing market
 
 <a name="adjustrank"></a>
+
 ## Adjust rank
 The portal lets you adjust ranking to manipulate the results that Bing returns. In the Preview pane, enter a search term and run the query. The preview pane list the search result for the query. To the right of each result is the list of adjustments you can make. 
 
@@ -84,8 +85,8 @@ Super boost, boost, and demote changes are automatically saved and reflect insta
 ## Pin to top
 To pin a webpage to the top of the search results for a specific query, choose one of the following options:
 
-1.	In the Pinned tab, enter the URL of the webpage to pin to the top of the results and the exact query that will trigger the pinning. 
-2.	In the Preview pane, enter a query term and click search. Next, identify the webpage in the results that you want to pin to the top of the results if the user enters the same query. Then, click Pin to top. The service adds the webpage and query to the Pinned list. 
+1.  In the Pinned tab, enter the URL of the webpage to pin to the top of the results and the exact query that will trigger the pinning. 
+2.  In the Preview pane, enter a query term and click search. Next, identify the webpage in the results that you want to pin to the top of the results if the user enters the same query. Then, click Pin to top. The service adds the webpage and query to the Pinned list. 
 
 You can track your pins in the Pinned tab. The pins are shown as '\<query\>, \<webpage\>' pairs. 
 
@@ -102,12 +103,12 @@ There are a couple of ways to specify the slices of the web that make up your cu
 But if you’re not sure which slices to include, you can run Bing queries in the Preview pane and see what Bing returns. You can then select the slices that you want to include in your custom search. You likely need to run multiple query terms to make sure you identify all the slices that you want for your instance. 
 
 Follow these steps to use Bing to add slices to your Custom Search instance. 
-1.	Sign in to Bing Custom Search [portal](https://customsearch.ai).
-2.	Create an instance or select an instance to update .
-3.	In the Preview pane on the right side, select Bing from the dropdown list.
-4.	In the search box, enter a query term that’s relevant for your instance.
-5.	Click **Add site** next to the result you want to include.
-6.	Click the **Ok** button.
+1.  Sign in to Bing Custom Search [portal](https://customsearch.ai).
+2.  Create an instance or select an instance to update .
+3.  In the Preview pane on the right side, select Bing from the dropdown list.
+4.  In the search box, enter a query term that’s relevant for your instance.
+5.  Click **Add site** next to the result you want to include.
+6.  Click the **Ok** button.
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.

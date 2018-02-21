@@ -29,6 +29,7 @@ This article walks you through the steps for creating a Service Fabric standalon
 
 <a id="getsupport"></a>
 
+
 ## Get support for the Service Fabric for Windows Server package
 * Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
@@ -37,6 +38,7 @@ This article walks you through the steps for creating a Service Fabric standalon
 * To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
+
 
 ## Download the Service Fabric for Windows Server package
 To create the cluster, use the Service Fabric for Windows Server package (Windows Server 2012 R2 and newer) found here: <br>
@@ -51,6 +53,7 @@ Find Standalone Cluster Configuration samples at: <br>
 [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 <a id="createcluster"></a>
+
 
 ## Create the cluster
 Service Fabric can be deployed to a one-machine development cluster by using the *ClusterConfig.Unsecure.DevCluster.json* file included in [Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
@@ -81,7 +84,7 @@ After you have gone through the planning and preparation steps detailed at the b
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
     Running Best Practices Analyzer...
     Best Practices Analyzer completed successfully.
-    
+
     LocalAdminPrivilege        : True
     IsJsonValid                : True
     IsCabValid                 : True
@@ -134,6 +137,7 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 You can add or remove nodes to your standalone Service Fabric cluster as your business needs change. See [Add or Remove nodes to a Service Fabric standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) for detailed steps.
 
 <a id="removecluster" name="removecluster_anchor"></a>
+
 ## Remove a cluster
 To remove a cluster, run the *RemoveServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. You can optionally specify a location for the log of the deletion.
 
@@ -150,6 +154,7 @@ This script can be run on any machine that has administrator access to all the m
 ```
 
 <a id="telemetry"></a>
+
 
 ## Telemetry data collected and how to opt out of it
 As a default, the product collects telemetry on the Service Fabric usage to improve the product. The Best Practice Analyzer that runs as a part of the setup checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). If it is not reachable, the setup fails unless you opt out of telemetry.
@@ -181,6 +186,7 @@ As a default, the product collects telemetry on the Service Fabric usage to impr
 To disable telemetry, add the following to *properties* in your cluster config: *enableTelemetry: false*.
 
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
+
 
 ## Preview features included in this package
 None.

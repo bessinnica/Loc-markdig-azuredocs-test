@@ -27,7 +27,7 @@ You'll need to do the following to use the code in this topic:
 1. Acquire a Twilio account and authentication token from your [Twilio Console][twilio_console]. To get started with Twilio, evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. You can sign up for a trial account at [https://www.twilio.com/try-twilio][try_twilio].
 2. Obtain the [Twilio library for PHP](https://github.com/twilio/twilio-php) or install it as a PEAR package. For more information, see the [readme file](https://github.com/twilio/twilio-php/blob/master/README.md).
 3. Install the Azure SDK for PHP. 
-<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
+   <!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
 
 ## Create a web form for making a call
 The following HTML code shows how to build a web page (**callform.html**) that retrieves user data for making a call:

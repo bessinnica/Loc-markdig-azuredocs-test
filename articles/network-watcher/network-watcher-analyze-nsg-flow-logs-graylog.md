@@ -35,7 +35,7 @@ Network security group flow logs are enabled using Network Watcher. Flow logs fl
 ### Enable network security group flow logging
 
 For this scenario, you must have network security group flow logging enabled on at least one network security group in your account. For instructions on
-enabling network security group flow logs, refer to the following article [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md).
+enabling network security group flow logs, refer to the following article [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md).
 
 ### Setting up Graylog
 
@@ -58,95 +58,95 @@ prerequisites:
 
 Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. Flattening the flow logs makes the logs easier to organize and search in Graylog.
 
-1.  To install Logstash, run the following commands:
+1. To install Logstash, run the following commands:
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
-    sudo dpkg -i logstash-5.2.0.deb
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
+   sudo dpkg -i logstash-5.2.0.deb
+   ```
 
-2.  Configure Logstash to parse the flow logs and send them to Graylog. Create a Logstash.conf file:
+2. Configure Logstash to parse the flow logs and send them to Graylog. Create a Logstash.conf file:
 
-    ```bash
-    sudo touch /etc/logstash/conf.d/logstash.conf
-    ```
+   ```bash
+   sudo touch /etc/logstash/conf.d/logstash.conf
+   ```
 
-3.  Add the following content to the file. Change the highlighted values to reflect your storage account details:
+3. Add the following content to the file. Change the highlighted values to reflect your storage account details:
 
-    ```
-    input {
-        azureblob
-        {
-            storage_account_name => "mystorageaccount"
-            storage_access_key => "NrUZmx7pJSKaRJzvQbeiZWi5nBRWOTr7Wwr9DrvK7YtDBrADYxT1y0oEExtSlkDnGRt7qcRiZzEBCCyRYND8SxSt"
-            container => "insights-logs-networksecuritygroupflowevent"
-            registry_create_policy => "start_over"
-            codec => "json"
-            file_head_bytes => 21
-            file_tail_bytes => 9
-            # Possible options: `do_not_break`, `with_head_tail`, `without_head_tail`
-            break_json_down_policy  => 'with_head_tail'
-            break_json_batch_count => 2
-            interval => 5
-        }
-    }
+   ```
+   input {
+       azureblob
+       {
+           storage_account_name => "mystorageaccount"
+           storage_access_key => "NrUZmx7pJSKaRJzvQbeiZWi5nBRWOTr7Wwr9DrvK7YtDBrADYxT1y0oEExtSlkDnGRt7qcRiZzEBCCyRYND8SxSt"
+           container => "insights-logs-networksecuritygroupflowevent"
+           registry_create_policy => "start_over"
+           codec => "json"
+           file_head_bytes => 21
+           file_tail_bytes => 9
+           # Possible options: `do_not_break`, `with_head_tail`, `without_head_tail`
+           break_json_down_policy  => 'with_head_tail'
+           break_json_batch_count => 2
+           interval => 5
+       }
+   }
     
-    filter {
-        split { field => "[records]" }
-        split { field => "[records][properties][flows]"}
-        split { field => "[records][properties][flows][flows]"}
-        split { field => "[records][properties][flows][flows][flowTuples]"
-    }
+   filter {
+       split { field => "[records]" }
+       split { field => "[records][properties][flows]"}
+       split { field => "[records][properties][flows][flows]"}
+       split { field => "[records][properties][flows][flows][flowTuples]"
+   }
     
-     mutate {
-        split => { "[records][resourceId]" => "/"}
-        add_field =>{
-                    "Subscription" => "%{[records][resourceId][2]}"
-                    "ResourceGroup" => "%{[records][resourceId][4]}"
-                    "NetworkSecurityGroup" => "%{[records][resourceId][8]}"
-        }
-        convert => {"Subscription" => "string"}
-        convert => {"ResourceGroup" => "string"}
-        convert => {"NetworkSecurityGroup" => "string"}
-        split => { "[records][properties][flows][flows][flowTuples]" => ","}
-        add_field => {
-                    "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
-                    "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
-                    "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
-                    "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
-                    "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
-                    "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
-                    "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
-                    "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-        }
-        add_field => {
-                    "time" => "%{[records][time]}"
-                    "systemId" => "%{[records][systemId]}"
-                    "category" => "%{[records][category]}"
-                    "resourceId" => "%{[records][resourceId]}"
-                    "operationName" => "%{[records][operationName}}"
-                    "Version" => "%{[records][properties][Version}}"
-                    "rule" => "%{[records][properties][flows][rule]}"
-                    "mac" => "%{[records][properties][flows][flows][mac]}"
-        }
-        convert => {"unixtimestamp" => "integer"}
-        convert => {"srcPort" => "integer"}
-        convert => {"destPort" => "integer"}
-        add_field => { "message" => "%{Message}" }
-    }
-        date {
-            match => ["unixtimestamp" , "UNIX"]
-        }
-    }
-    output {
-        stdout { codec => rubydebug }
-        udp {
-            host => "127.0.0.1"
-            port => 12201
-        }
-    }
-    ```
-The Logstash config file provided is composed of three parts: the input, filter, and output. The input section designates the input source of the logs that Logstash will process – in this case we are going to use an Azure blog input plugin (installed in the next steps) that allows us to access the network security group flow log JSON files stored in blob storage.
+    mutate {
+       split => { "[records][resourceId]" => "/"}
+       add_field =>{
+                   "Subscription" => "%{[records][resourceId][2]}"
+                   "ResourceGroup" => "%{[records][resourceId][4]}"
+                   "NetworkSecurityGroup" => "%{[records][resourceId][8]}"
+       }
+       convert => {"Subscription" => "string"}
+       convert => {"ResourceGroup" => "string"}
+       convert => {"NetworkSecurityGroup" => "string"}
+       split => { "[records][properties][flows][flows][flowTuples]" => ","}
+       add_field => {
+                   "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
+                   "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
+                   "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
+                   "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
+                   "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
+                   "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
+                   "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
+                   "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+       }
+       add_field => {
+                   "time" => "%{[records][time]}"
+                   "systemId" => "%{[records][systemId]}"
+                   "category" => "%{[records][category]}"
+                   "resourceId" => "%{[records][resourceId]}"
+                   "operationName" => "%{[records][operationName}}"
+                   "Version" => "%{[records][properties][Version}}"
+                   "rule" => "%{[records][properties][flows][rule]}"
+                   "mac" => "%{[records][properties][flows][flows][mac]}"
+       }
+       convert => {"unixtimestamp" => "integer"}
+       convert => {"srcPort" => "integer"}
+       convert => {"destPort" => "integer"}
+       add_field => { "message" => "%{Message}" }
+   }
+       date {
+           match => ["unixtimestamp" , "UNIX"]
+       }
+   }
+   output {
+       stdout { codec => rubydebug }
+       udp {
+           host => "127.0.0.1"
+           port => 12201
+       }
+   }
+   ```
+   The Logstash config file provided is composed of three parts: the input, filter, and output. The input section designates the input source of the logs that Logstash will process – in this case we are going to use an Azure blog input plugin (installed in the next steps) that allows us to access the network security group flow log JSON files stored in blob storage.
 
 The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
 
@@ -155,7 +155,7 @@ Finally, the output section forwards each Logstash event to the Graylog server. 
    > [!NOTE]
    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
 
-For further instructions on installing Logstash, see the Logstash [documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
+For further instructions on installing Logstash, see the Logstash [documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
 ### Install the Logstash input plug-in for Azure blob storage
 
@@ -253,5 +253,5 @@ you have Graylog set up and connected to Azure, feel free to continue to explore
 
 ## Next steps
 
-Learn how to visualize your network security group flow logs with Power BI by visiting [Visualize network security group flows logs with Power
+Learn how to visualize your network security group flow logs with Power BI by visiting [Visualize network security group flows logs with Power
 BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

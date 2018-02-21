@@ -119,9 +119,9 @@ Now that you know how to connect to the Azure Database for MySQL database, compl
 First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
-	id serial PRIMARY KEY, 
-	name VARCHAR(50), 
-	quantity INTEGER
+    id serial PRIMARY KEY, 
+    name VARCHAR(50), 
+    quantity INTEGER
 );
 ```
 

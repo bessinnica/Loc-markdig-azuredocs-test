@@ -171,14 +171,14 @@ Optional steps after you deploy the template:
     ```
     
 4. You can deploy the template by using one of the following parameters options:
-    - **Default parameter values**. Enter the following command:
+   - **Default parameter values**. Enter the following command:
     
-        ```azurecli-interactive
-        az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
-        ```
-    - **Custom parameter values**. Download and modify the template before you deploy the template. You also can deploy the template by using parameters at the command line, or deploy the template with a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json** or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
+       ```azurecli-interactive
+       az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
+       ```
+   - **Custom parameter values**. Download and modify the template before you deploy the template. You also can deploy the template by using parameters at the command line, or deploy the template with a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json** or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
 
-    To learn more about how to deploy templates by using these methods, type `az group deployment create --help`.
+     To learn more about how to deploy templates by using these methods, type `az group deployment create --help`.
 
 ### <a name="template-powershell"></a>PowerShell
 
@@ -191,15 +191,15 @@ Optional steps after you deploy the template:
     ```
     
 4. You can deploy the template by using one of the following parameters options:
-    - **Default parameter values**. Enter the following command:
+   - **Default parameter values**. Enter the following command:
     
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
-        ```
+       ```powershell
+       New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
+       ```
         
-    - **Custom parameter values**. Download and modify the template before you deploy it. You also can deploy the template by using parameters at the command line, or deploy the template with a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
+   - **Custom parameter values**. Download and modify the template before you deploy it. You also can deploy the template by using parameters at the command line, or deploy the template with a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
 
-    To learn more about how to deploy templates by using these methods, type `Get-Help New-AzureRmResourceGroupDeployment`. 
+     To learn more about how to deploy templates by using these methods, type `Get-Help New-AzureRmResourceGroupDeployment`. 
 
 ## <a name="delete"></a>Delete resources
 

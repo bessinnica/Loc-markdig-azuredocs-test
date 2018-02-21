@@ -180,7 +180,7 @@ The sample application can simulate temperature and humidity data in case you do
    define SIMULATED_DATA true
    ```
    ![configure the sample application to use simulated data](media/iot-hub-sparkfun-thing-dev-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
-   
+
 1. Save with `Control-s`.
 
 ### Deploy the sample application to Sparkfun ESP8266 Thing Dev
@@ -223,3 +223,4 @@ If you see the following output from the serial monitor window and the blinking 
 You have successfully connected a Sparkfun ESP8266 Thing Dev to your IoT hub and sent the captured sensor data to your IoT hub. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

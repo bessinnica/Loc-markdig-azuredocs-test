@@ -139,3 +139,4 @@ Following constraints apply to the cropping feature. If these are not met, the e
 See Azure Media Services learning paths to help you learn about great features offered by AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+

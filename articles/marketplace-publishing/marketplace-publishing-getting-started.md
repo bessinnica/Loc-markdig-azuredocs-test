@@ -1,5 +1,3 @@
-
-
 ---
 title: Overview of how to create and deploy an offer to the Marketplace | Microsoft Docs
 description: Understand the steps required to become an approved Microsoft developer and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace

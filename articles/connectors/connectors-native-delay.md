@@ -35,10 +35,10 @@ Here’s an example sequence of how to use a delay step in a logic app:
 
 1. After adding a trigger, click **New Step** to add an action.
 2. Search for **delay** to bring up the delay actions. In this example, we will select **Delay**.
-   
+
     ![Delay actions](./media/connectors-native-delay/using-action-1.png)
 3. Complete any of the action properties to configure the delay.
-   
+
     ![Delay config](./media/connectors-native-delay/using-action-2.png)
 4. Click **Save** to publish and activate the logic app.
 
@@ -56,6 +56,7 @@ A * means that it is a required field.
 
 <br>
 
+
 ### Delay-until action
 This action delays the run until a specified date/time.
 A * means that it is a required field.
@@ -67,6 +68,7 @@ A * means that it is a required field.
 | Day* |timestamp |The day to delay until (GMT) |
 
 <br>
+
 
 ## Next steps
 Now, try out the platform and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).

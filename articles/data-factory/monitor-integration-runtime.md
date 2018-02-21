@@ -114,32 +114,32 @@ Sample output (assumes that there are two nodes associated with this self-hosted
 
 ```json
 {
-	"IntegrationRuntimeName":  "<Name of your integration runtime>",
+    "IntegrationRuntimeName":  "<Name of your integration runtime>",
     "ResourceGroupName":  "<Resource Group Name>",
     "DataFactoryName":  "<Data Factory Name>",
     "Nodes":  [
-		{
-			"NodeName":  "<Node Name>",
-			"AvailableMemoryInMB":  <Value>,
-			"CpuUtilization":  <Value>,
-			"ConcurrentJobsLimit":  <Value>,
-			"ConcurrentJobsRunning":  <Value>,
-			"MaxConcurrentJobs":  <Value>,
-			"SentBytes":  <Value>,
-			"ReceivedBytes":  <Value>
-		},
-		{
-			"NodeName":  "<Node Name>",
-			"AvailableMemoryInMB":  <Value>,
-			"CpuUtilization":  <Value>,
-			"ConcurrentJobsLimit":  <Value>,
-			"ConcurrentJobsRunning":  <Value>,
-			"MaxConcurrentJobs":  <Value>,
-			"SentBytes":  <Value>,
-			"ReceivedBytes":  <Value>
-		}
+        {
+            "NodeName":  "<Node Name>",
+            "AvailableMemoryInMB":  <Value>,
+            "CpuUtilization":  <Value>,
+            "ConcurrentJobsLimit":  <Value>,
+            "ConcurrentJobsRunning":  <Value>,
+            "MaxConcurrentJobs":  <Value>,
+            "SentBytes":  <Value>,
+            "ReceivedBytes":  <Value>
+        },
+        {
+            "NodeName":  "<Node Name>",
+            "AvailableMemoryInMB":  <Value>,
+            "CpuUtilization":  <Value>,
+            "ConcurrentJobsLimit":  <Value>,
+            "ConcurrentJobsRunning":  <Value>,
+            "MaxConcurrentJobs":  <Value>,
+            "SentBytes":  <Value>,
+            "ReceivedBytes":  <Value>
+        }
 
-	]
+    ]
 } 
 ```
 

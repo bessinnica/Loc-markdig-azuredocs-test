@@ -190,9 +190,9 @@ You can manually remove the Microsoft Monitoring Agent. This is not recommended 
 
 To manually remove the agent:
 
-1.	In the portal, open **Log Analytics**.
-2.	On the Log Analytics blade, select a workspace:
-3.	Select each VM that you don’t want to monitor and select **Disconnect**.
+1. In the portal, open **Log Analytics**.
+2. On the Log Analytics blade, select a workspace:
+3. Select each VM that you don’t want to monitor and select **Disconnect**.
 
    ![Remove the agent][3]
 

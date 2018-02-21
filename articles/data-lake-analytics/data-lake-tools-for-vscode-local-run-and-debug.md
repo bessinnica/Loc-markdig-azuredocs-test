@@ -1,4 +1,3 @@
-
 ---
 title: 'Azure Data Lake Tools: U-SQL local run and local debug with Visual Studio Code | Microsoft Docs'
 description: 'Learn how to use Azure Data Lake Tools for Visual Studio Code to local run and local debug.'
@@ -48,7 +47,7 @@ In this document, you learn how to run U-SQL jobs on a local development machine
 
 
 ## Start the local run service and submit the U-SQL job to a local account 
-For the first-time user, use **ADL: Download Local Run Dependency** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
+For the first-time user, use **ADL: Download Local Run Dependency** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
 
 1. Select Ctrl+Shift+P to open the command palette, and then enter **ADL: Start Local Run Service**.   
 2. Select **Accept** to accept the Microsoft Software License Terms for the first time. 
@@ -69,11 +68,11 @@ For the first-time user, use **ADL: Download Local Run Dependency** to downloa
 ## Start a local debug for the U-SQL job  
 For the first-time user:
 
-1. Use **ADL: Download Local Run Dependency** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
-2. Install .NET Core SDK 2.0 as suggested in the message box, if not installed.
- 
-  ![reminder installs Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
-3. Install C# for Visual Studio Code as suggested in the message box if not installed. Click **Install** to continue, and then restart VSCode.
+1. Use **ADL: Download Local Run Dependency** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
+2. Install .NET Core SDK 2.0 as suggested in the message box, if not installed.
+ 
+   ![reminder installs Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
+3. Install C# for Visual Studio Code as suggested in the message box if not installed. Click **Install** to continue, and then restart VSCode.
 
     ![Reminder to install C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 

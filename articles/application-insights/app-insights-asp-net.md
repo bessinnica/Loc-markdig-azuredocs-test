@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up web app analytics for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and usage analytics for your ASP.NET website, hosted on-premises or in Azure.
 services: application-insights
@@ -26,8 +26,8 @@ Setup takes just a few clicks in Visual Studio. You have the option to avoid cha
 To add Application Insights to your ASP.NET website, you need to:
 
 - Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-	- ASP.NET and web development
-	- Azure development
+    - ASP.NET and web development
+    - Azure development
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -81,6 +81,7 @@ In the Visual Studio Application Insights Search window, you will see the data f
 [Learn more about Application Insights tools in Visual Studio](app-insights-visual-studio.md).
 
 <a name="monitor"></a>
+
 ### See telemetry in web portal
 
 You can also see telemetry in the Application Insights web portal (unless you chose to install only the SDK). The portal has more charts, analytic tools, and cross-component views than Visual Studio. The portal also provides alerts.

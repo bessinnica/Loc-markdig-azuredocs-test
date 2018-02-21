@@ -74,7 +74,6 @@ namespace WorkerRole1
         }
     }
 }
-
 ```
 
 ### Service Fabric Stateless Service
@@ -99,7 +98,6 @@ namespace Stateless1
         }
     }
 }
-
 ```
 
 Both have a primary "Run" override in which to begin processing. Service Fabric services  combine `Run`, `Start`, and `Stop` into a single entry point, `RunAsync`. Your service should begin working when `RunAsync` starts, and should stop working when the `RunAsync` method's CancellationToken is signaled. 
@@ -138,7 +136,6 @@ Configuration settings from ServiceConfiguration.*.cscfg can be accessed through
 ```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
-
 ```
 
 #### Service Fabric
@@ -160,7 +157,6 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 {
     MySettings settings = JsonConvert.DeserializeObject<MySettings>(reader.ReadToEnd());
 }
-
 ```
 
 ### Configuration update events
@@ -180,7 +176,6 @@ foreach (var settingChange in settingChanges)
       Trace.WriteLine("Setting: " + settingChange.ConfigurationSettingName, "Information");
    }
 }
-
 ```
 
 #### Service Fabric
@@ -198,7 +193,6 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
     this.UpdateCustomConfig(e.NewPackage.Path);
     this.UpdateSettings(e.NewPackage.Settings);
 }
-
 ```
 
 ## Startup tasks
@@ -225,7 +219,6 @@ In Cloud Services a startup entry point is configured per role in ServiceDefinit
     </Startup>
     ...
 </ServiceDefinition>
-
 ```
 
 ### Service Fabric
@@ -242,7 +235,6 @@ In Service Fabric a startup entry point is configured per service in ServiceMani
     </SetupEntryPoint>
     ...
 </ServiceManifest>
-
 ``` 
 
 ## A note about development environment

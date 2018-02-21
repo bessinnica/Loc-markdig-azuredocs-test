@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analytics - the powerful search and query tool of Azure Application Insights | Microsoft Docs
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
@@ -24,7 +24,9 @@ app's [overview blade](app-insights-dashboards.md).
 
 You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) which is a free demo environment with a lot of sample data.
 <br>
+
 <br>
+
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## Query data in Analytics
@@ -37,9 +39,12 @@ requests
 | render piechart
 ```
 
-We start with the table name *requests* and add piped elements as needed.  First we define a time filter to review only records from the last 3 hours.
-We then count the number of records per country (that data is found in the column *client_CountryOrRegion*). Finally, we render the results in a pie chart.
+We start with the table name <em>requests</em> and add piped elements as needed.  First we define a time filter to review only records from the last 3 hours.
+We then count the number of records per country (that data is found in the column 
+<em>client_CountryOrRegion</em>). Finally, we render the results in a pie chart.
+
 <br>
+
 
 ![Query results](./media/app-insights-analytics/030.png)
 

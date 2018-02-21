@@ -57,23 +57,23 @@ To configure the integration of Intacct into Azure AD, you need to add Intacct f
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **Intacct**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_search.png)
 
 5. In the results panel, select **Intacct**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Intacct based on a test user called "Britta Simon".
@@ -98,36 +98,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Intacct** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_samlbase.png)
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_samlbase.png)
 
 3. On the **Intacct Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_url.png)
 
-	In the **Reply URL** textbox, type a URL using the following pattern:
-	| |
-	|--|
-	| `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|
-	| `https://www.intacct.com/ia/acct/sso_response.phtml` |
+    In the **Reply URL** textbox, type a URL using the following pattern:
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [Intacct support team](https://us.intacct.com/support) to get this value.
+    | |
+    |--|
+    | `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|
+    | `https://www.intacct.com/ia/acct/sso_response.phtml` |
+
+    > [!NOTE] 
+    > This value is not real. Update this value with the actual Reply URL. Contact [Intacct support team](https://us.intacct.com/support) to get this value.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_general_400.png)
 
 6. On the **Intacct Configuration** section, click **Configure Intacct** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_configure.png) 
 
 7. In a different web browser window, sign in to your Intacct company site as an administrator.
 
@@ -141,18 +142,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 10. In the **Single sign on (SSO)** section, perform the following steps:
 
-   	![Single sign on](./media/active-directory-saas-intacct-tutorial/ic790039.png "single sign on")
+    ![Single sign on](./media/active-directory-saas-intacct-tutorial/ic790039.png "single sign on")
 
     a. Select **Enable single sign on**.
 
     b. As **Identity provider type**, select **SAML 2.0**.
 
     c. In **Issuer URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
-   
+
     d. In **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
     e. Open your **base-64** encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** box.
-   
+
     f. Click **Save**.
 
 > [!TIP]
@@ -168,28 +169,28 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_02.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_03.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_04.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating an Intacct test user
 
 To set up Azure AD users so they can sign in to Intacct, they must be provisioned into Intacct. For Intacct, provisioning is a manual task.
@@ -211,12 +212,12 @@ To set up Azure AD users so they can sign in to Intacct, they must be provisione
     a. Enter the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title**, and the **Phone** of an Azure AD account that you want to provision into the **User Information** section.
 
     b. Select the **Admin privileges** of an Azure AD account that you want to provision.
-   
+
     c. Click **Save**. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
 
 >[!NOTE]
 >To provision Azure AD user accounts, you can use other Intacct user account creation tools or APIs that are provided by Intacct.
-		
+
 ### Assigning the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Intacct.
@@ -227,26 +228,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Intacct**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.

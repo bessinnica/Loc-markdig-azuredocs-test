@@ -35,30 +35,30 @@ You can create subscriptions for both public and private offers.  If do not want
 After you create a subscription for a user, that user can log into the user portal and will find that they are subscribed to the offer.  
 
 ### To create the subscription for a user
-1.	In the Admin portal, go to **User subscriptions.**
-2.	Select **Add** to open the **New user subscription** pane. Here you specify the following details:  
+1. In the Admin portal, go to **User subscriptions.**
+2. Select **Add** to open the **New user subscription** pane. Here you specify the following details:  
 
-  a. **Display name** – A friendly name for identifying the subscription that appears as the *User subscription name*.
+   a. **Display name** – A friendly name for identifying the subscription that appears as the *User subscription name*.
 
-  b. **User** – Specify a user from an available directory tenant for this subscription. The user name appears as *Owner*.  The format of the user name depends on your identity solution. For example:   
+   b. **User** – Specify a user from an available directory tenant for this subscription. The user name appears as *Owner*.  The format of the user name depends on your identity solution. For example:   
 
-     -  **Azure AD:**  *&lt;user1>@&lt;contoso.onmicrosoft.com>*
+    -  **Azure AD:**  *&lt;user1>@&lt;contoso.onmicrosoft.com>*
 
-     -   **AD FS:**  *&lt;user1>@&lt;azurestack.local>*     
+    -   **AD FS:**  *&lt;user1>@&lt;azurestack.local>*     
 
-  c.	**Directory tenant** –  Select the directory tenant where the user account belongs. If you have not enabled multi-tenancy, only your local directory tenant is available.
+   c.    **Directory tenant** –  Select the directory tenant where the user account belongs. If you have not enabled multi-tenancy, only your local directory tenant is available.
 
-3.	Select **Offer** to open the **Offers** pane, and then choose an **Offer** for this subscription. Because you are creating a subscription for a user, you can select a private or public offer.
+3. Select **Offer** to open the **Offers** pane, and then choose an **Offer** for this subscription. Because you are creating a subscription for a user, you can select a private or public offer.
 
-4.	Select **Create** to create the subscription. The **User subscriptions** pane now displays the new subscription.  Later, when the user logs into the user portal, they can view details about this subscription.
+4. Select **Create** to create the subscription. The **User subscriptions** pane now displays the new subscription.  Later, when the user logs into the user portal, they can view details about this subscription.
 
 ### To make an add-on plan available  
 A cloud operator can add an add-on plan to a previously created subscription at any time:   
-1.	In the admin portal go to **More Services** > **User subscriptions**, and then select the subscription you want to change.   
+1.  In the admin portal go to **More Services** > **User subscriptions**, and then select the subscription you want to change.   
 
-2.	Select **Add-ons** > **Add**  to open the **Add plan** pane.  
+2.  Select **Add-ons** > **Add**  to open the **Add plan** pane.  
 
-3.	Select the plan you want to add as an add-on.  The console then displays the plans associated with the subscription.
+3.  Select the plan you want to add as an add-on.  The console then displays the plans associated with the subscription.
 
 
 

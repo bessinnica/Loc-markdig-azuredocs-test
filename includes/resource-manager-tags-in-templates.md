@@ -5,9 +5,9 @@ The following example shows a storage account with two tags (`Dept` and `Environ
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"resources": [
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
     {
       "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
@@ -23,7 +23,7 @@ The following example shows a storage account with two tags (`Dept` and `Environ
       "kind": "Storage",
       "properties": { }
     }
-	]
+    ]
 }
 ```
 
@@ -66,9 +66,9 @@ To store many values in a single tag, apply a JSON string that represents the va
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"resources": [
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
     {
       "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
@@ -83,6 +83,6 @@ To store many values in a single tag, apply a JSON string that represents the va
       "kind": "Storage",
       "properties": { }
     }
-	]
+    ]
 }
 ```

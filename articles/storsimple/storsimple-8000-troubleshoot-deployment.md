@@ -50,10 +50,10 @@ The following steps summarize the setup wizard process. For detailed setup infor
    * Optional web proxy – The [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet is executed in the background. It sets and enables the web proxy configuration for your StorSimple solution.
 3. Set up the password: the next step is to set up the device administrator password.
    The device administrator password is used to log on to your device. The default device password is **Password1**.
-        
+
      > [!IMPORTANT]
      > Passwords are collected before registration, but applied only after you successfully register the device. If there is a failure to apply a password, you will be prompted to supply the password again until the required passwords (that meet the complexity requirements) are collected.
-     
+
 4. Register the device: the final step is to register the device with the StorSimple Device Manager service running in Microsoft Azure. The registration requires you to [get the service registration key](storsimple-8000-manage-service.md#get-the-service-registration-key) from the Azure portal, and provide it in the setup wizard. **After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.**
 
 ## Common errors during device deployment
@@ -65,6 +65,7 @@ The following tables list the common errors that you might encounter when you:
 * Register the device.
 
 ## Errors during the required network settings
+
 | No. | Error message | Possible causes | Recommended action |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: This command can only be run on the active controller. |Configuration was being performed on the passive controller. |Run this command from the active controller. For more information, see [Identify an active controller on your device](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
@@ -76,6 +77,7 @@ The following tables list the common errors that you might encounter when you:
 | 7 |Invoke-HcsSetupWizard: There are no more endpoints available from the endpoint mapper. (Exception from HRESULT: 0x800706D9) |The cluster functionality is not working. |[Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) for next steps. |
 
 ## Errors during the optional web proxy settings
+
 | No. | Error message | Possible causes | Recommended action |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: Invalid parameter (Exception from HRESULT: 0x80070057) |One of the parameters provided for the proxy settings is not valid. |The URI is not provided in the correct format. Use the following format: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
@@ -148,15 +150,15 @@ A support package contains all the relevant logs that can assist the Microsoft S
 2. Download the [decryption script](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client computer.
 3. Use this [step-by-step procedure](storsimple-8000-create-manage-support-package.md#edit-a-support-package) to open and decrypt the support package.
 4. The decrypted support package logs are in etw/etvx format. You can perform the following steps to view these files in Windows Event Viewer:
-   
+
    1. Run the **eventvwr** command on your Windows client. This will start the Event Viewer.
    2. In the **Actions** pane, click **Open Saved Log** and point to the log files in etvx/etw format (the support package). You can now view the file. After you open the file, you can right-click and save the file as text.
-      
+
       > [!IMPORTANT]
       > You can also use the **Get-WinEvent** cmdlet to open these files in Windows PowerShell. For more information, see [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) in the Windows PowerShell cmdlet reference documentation.
-     
+
 5. When the logs open in Event Viewer, look for the following logs that contain issues related to the device configuration:
-   
+
    * hcs_pfconfig/Operational Log
    * hcs_pfconfig/Config
 6. In the log files, search for strings related to the cmdlets called by the setup wizard. See [First-time setup wizard process](#first-time-setup-wizard-process) for a list of these cmdlets.
@@ -179,7 +181,7 @@ When you configure network interfaces for a first-time device deployment, the ha
 ### To see a list of all the network adapters on your device
 1. Start Windows PowerShell for StorSimple, and then type `Get-NetAdapter`. 
 2. Use the output of the `Get-NetAdapter` cmdlet and the following guidelines to understand the status of your network interface.
-   
+
    * If the interface is healthy and enabled, the **ifIndex** status is shown as **Up**.
    * If the interface is healthy but is not physically connected (by a network cable), the **ifIndex** is shown as **Disabled**.
    * If the interface is healthy but not enabled, the **ifIndex** status is shown as **NotPresent**.
@@ -268,29 +270,29 @@ Use the `Test-HcsmConnection` cmdlet for a device that is already connected to a
 ### To run the Test-HcsmConnection cmdlet
 1. Make sure that the device is registered.
 2. Check the device status. If the device is deactivated, in maintenance mode, or offline, you might see one of the following errors:
-   
+
    * ErrorCode.CiSDeviceDecommissioned – this indicates that the device is deactivated.
    * ErrorCode.DeviceNotReady – this indicates that the device is in maintenance mode.
    * ErrorCode.DeviceNotReady – this indicates that the device is not online.
 3. Verify that the StorSimple Device Manager service is running (use the [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) cmdlet). If the service is not running, you might see the following errors:
-   
+
    * ErrorCode.CiSApplianceAgentNotOnline
    * ErrorCode.CisPowershellScriptHcsError – this indicates that there was an exception when you ran Get-ClusterResource.
 4. Check the Access Control Service (ACS) token. If it throws a web exception, it might be the result of a gateway problem, a missing proxy authentication, an incorrect DNS, or an authentication failure. You might see the following errors:
-   
+
    * ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: the name resolver service could not resolve the host name.
    * ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server.
    * ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
    * ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
-     
+
      If it does not throw a web exception, check for ErrorCode.CiSApplianceFailure. This indicates that the appliance failed.
 5. Check the cloud service connectivity. If the service throws a web exception, you might see the following errors:
-   
+
    * ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: an intermediate proxy server received a bad request from another proxy or from the original server.
    * ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server.
    * ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
    * ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
-     
+
      If it does not throw a web exception, check for ErrorCode.CiSApplianceSaasServiceError. This indicates a problem with the StorSimple Device Manager service.
 6. Check Azure Service Bus connectivity. ErrorCode.CiSApplianceServiceBusError indicates that the device cannot connect to the Service Bus.
 
@@ -488,31 +490,31 @@ The error could be caused by any of the following:
 
 ### To locate and fix the device registration problem
 1. Check your device configuration: on the active controller, run `Invoke-HcsSetupWizard`.
-   
+
    > [!NOTE]
    > The setup wizard must run on the active controller. To verify that you are connected to the active controller, look at the banner presented in the serial console. The banner indicates whether you are connected to controller 0 or controller 1, and whether the controller is active or passive. For more information, go to [Identify an active controller on your device](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-   
+
 2. Make sure that the device is cabled correctly: check the network cabling on the device back plane. The cabling is specific to the device model. For more information, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
-   
+
    > [!NOTE]
    > If you are using 10 GbE network ports, you will need to use the provided QSFP-SFP adapters and SFP cables. For more information, see the [list of cables, switches, and transceivers recommended for the 10 GbE ports](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
-  
+
 3. Verify the health of the network interface:
-   
+
    * Use the Get-NetAdapter cmdlet to detect the health of the network interfaces for DATA 0. 
    * If the link isn't functioning, the **ifindex** status will indicate that the interface is down. You will then need to check the network connection of the port to the appliance and to the switch. You will also need to rule out bad cables. 
    * If you suspect that the DATA 0 port on the active controller has failed, you can confirm this by connecting to the DATA 0 port on controller 1. To confirm this, disconnect the network cable from the back of the device from controller 0, connect the cable to controller 1, and then run the Get-NetAdapter cmdlet again.
      If the DATA 0 port on a controller fails, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) for next steps. You might need to replace the controller on your system.
 4. Verify the connectivity to the switch:
-   
+
    * Make sure that DATA 0 network interfaces on controller 0 and controller 1 in your primary enclosure are on the same subnet. 
    * Check the hub or router. Typically, you should connect both controllers to the same hub or router. 
    * Make sure that the switches you use for the connection have DATA 0 for both controllers in the same vLAN.
 5. Eliminate any user errors:
-   
+
    * Run the setup wizard again (run **Invoke-HcsSetupWizard**), and enter the values again to make sure that there are no errors. 
    * Verify the registration key used. The same registration key can be used to connect multiple devices to a StorSimple Device Manager service. Use the procedure in [Get the service registration key](storsimple-8000-manage-service.md#get-the-service-registration-key) to ensure that you are using the correct registration key.
-     
+
      > [!IMPORTANT]
      > If you have multiple services running, you will need to ensure that the registration key for the appropriate service is used to register the device. If you have registered a device with the wrong StorSimple Device Manager service, you will need to [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) for next steps. You may have to perform a factory reset of the device (which could result in data loss) to then connect it to the intended service.
      > 

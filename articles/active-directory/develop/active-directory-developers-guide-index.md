@@ -44,13 +44,15 @@ These articles describe specific concepts and features of Azure Active Directory
 ## Reference
 These articles provide a foundation for REST and authentication library APIs, protocols, errors, code samples, and endpoints.
 
-|                                                                                     | |
-| ----------------------------------------------------------------------------------- | --- |
-| [Authentication Libraries (ADAL)](active-directory-authentication-libraries.md)     | An overview of the libraries & SDKs provided by Azure AD |
-| [Authentication Protocols](active-directory-authentication-protocols.md)            | Details of Azure AD's implementation of OAuth, OpenID Connect, and SAML |
-| [Glossary](active-directory-dev-glossary.md)                                        | Terminology and definitions of words used throughout this documentation |
-| [Application Objects](active-directory-application-objects.md)                      | An explanation of Azure AD's application model |
-| [Application Manifest](active-directory-application-manifest.md)                    | An explanation of the elements that make up an Azure AD app registration |
-| [Token Lifetimes](../active-directory-configurable-token-lifetimes.md)              | The default lifetimes of Azure AD tokens and customization instructions |
-| [Service Limits & Restrictions](../active-directory-service-limits-restrictions.md) | Limitations of Azure AD entities and objects |
-| [Code Samples](active-directory-code-samples.md)                                    | A list of all Azure AD code samples |
+
+|                                                                                     |                                                                          |
+|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|   [Authentication Libraries (ADAL)](active-directory-authentication-libraries.md)   |         An overview of the libraries & SDKs provided by Azure AD         |
+|      [Authentication Protocols](active-directory-authentication-protocols.md)       | Details of Azure AD's implementation of OAuth, OpenID Connect, and SAML  |
+|                    [Glossary](active-directory-dev-glossary.md)                     | Terminology and definitions of words used throughout this documentation  |
+|           [Application Objects](active-directory-application-objects.md)            |              An explanation of Azure AD's application model              |
+|          [Application Manifest](active-directory-application-manifest.md)           | An explanation of the elements that make up an Azure AD app registration |
+|       [Token Lifetimes](../active-directory-configurable-token-lifetimes.md)        | The default lifetimes of Azure AD tokens and customization instructions  |
+| [Service Limits & Restrictions](../active-directory-service-limits-restrictions.md) |               Limitations of Azure AD entities and objects               |
+|                  [Code Samples](active-directory-code-samples.md)                   |                   A list of all Azure AD code samples                    |
+

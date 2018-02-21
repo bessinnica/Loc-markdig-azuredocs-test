@@ -13,7 +13,7 @@ ms.author: tomfitz
 
 # Azure Event Grid event schema for resource groups
 
-This article provides the properties and schema for resource group events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for resource group events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 Azure subscriptions and resource groups emit the same event types. The event types are related to changes in resources. The primary difference is that resource groups emit events for resources within the resource group, and Azure subscriptions emit events for resources across the subscription. 
 

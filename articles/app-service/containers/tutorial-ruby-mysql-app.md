@@ -64,6 +64,7 @@ quit
 
 <a name="step2"></a>
 
+
 ## Create a Ruby on Rails app locally
 In this step, you get a Ruby on Rails sample application, configure its database connection, and run it locally. 
 
@@ -127,7 +128,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL (Preview)
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create a MySQL server
 
@@ -204,6 +205,7 @@ quit
 In this step, you connect the Ruby on Rails application to the MySQL database you created in Azure Database for MySQL (Preview).
 
 <a name="devconfig"></a>
+
 
 ### Configure the database connection
 
@@ -534,6 +536,7 @@ The left menu provides pages for configuring your app.
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 
 ## Next steps
 

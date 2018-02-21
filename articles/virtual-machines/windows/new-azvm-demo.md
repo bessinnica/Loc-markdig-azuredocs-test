@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create Windows VM using simplified New-AzureRMVM cmdlet in Azure Cloud Shell| Microsoft Docs
 description: Quickly learn to create Windows virtual machines with the simplified New-AzureRMVM cmdlet in Azure Cloud Shell.
 services: virtual-machines-windows
@@ -47,7 +47,7 @@ It takes a minute to create the VM and the associated resources. When finished, 
 
 ```azurepowershell-interactive
 Find-AzureRmResource `
-	-ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
 ```
 
 ## Connect to the VM
@@ -58,7 +58,7 @@ Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azur
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
-	-ResourceGroupName myVMResourceGroup | Select IpAddress
+    -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
 On your local machine, open a cmd prompt and use the **mstsc** command to start a remote desktop session with your new VM. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.

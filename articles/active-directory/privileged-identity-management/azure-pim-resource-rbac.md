@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure PIM Resource RBAC | Microsoft Docs
 description: Get an overview of the RBAC feature in PIM including Terminology and notifications
 services: active-directory
@@ -39,8 +39,8 @@ Azure AD PIM can manage the built-in Azure Resource roles, as well as custom (RB
 - Security Admin
 - Security Manager, and more
 
->[!NOTE]
-Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../role-based-access-built-in-roles.md).
+> [!NOTE]
+> Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../role-based-access-built-in-roles.md).
 
 ## Tasks
 
@@ -94,8 +94,8 @@ Administrators can manage role assignments by selecting either Roles or Members 
 
 ![](media/azure-pim-resource-rbac/members.png)
 
->[!NOTE]
-If you have a role pending activation, a notification banner is displayed at the top of the page when viewing membership.
+> [!NOTE]
+> If you have a role pending activation, a notification banner is displayed at the top of the page when viewing membership.
 
 ## Assign roles
 
@@ -103,8 +103,8 @@ To assign a user or group to a role, select the role (if viewing Roles), or clic
 
 ![](media/azure-pim-resource-rbac/members2.png)
 
->[!NOTE]
-If adding a user or group from the Members tab, you’ll need to select a role from the Add menu before you can select a user or group.
+> [!NOTE]
+> If adding a user or group from the Members tab, you’ll need to select a role from the Add menu before you can select a user or group.
 
 ![](media/azure-pim-resource-rbac/select-role.png)
 
@@ -122,8 +122,8 @@ Choose the appropriate assignment type from the dropdown menu.
 
 A check box below the assignment type dropdown allows you to specify if the assignment should be permanent (permanently eligible to activate Just in Time Assignment/permanently active for Direct Assignment). To specify a specific assignment duration, unselect the check box and modify the start and/or end date and time fields.
 
->[!NOTE]
-The check box may be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
+> [!NOTE]
+> The check box may be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
 
 ![](media/azure-pim-resource-rbac/calendar.png)
 
@@ -153,8 +153,8 @@ Select Review from the action bar to view existing access reviews and select Add
 
 [Learn more about access reviews](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
->[!NOTE]
-Reviews are only supported for Subscription resource types at this time.
+> [!NOTE]
+> Reviews are only supported for Subscription resource types at this time.
 
 ## Configure role settings
 

@@ -58,19 +58,19 @@ To configure the integration of lr into Azure AD, you need to add lr from the ga
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **lr**, select **lr** from result panel then click **Add** button to add the application.
 
-	![lr in the results list](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+    ![lr in the results list](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -94,31 +94,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **lr** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
 
 3. On the **lr Domain and URLs** section, perform the following steps:
 
-	![lr Domain and URLs single sign-on information](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+    ![lr Domain and URLs single sign-on information](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
 
-	a.  In the **Sign-on URL** textbox, type a URL: `https://secure.loginradius.com/login`
+    a.  In the **Sign-on URL** textbox, type a URL: `https://secure.loginradius.com/login`
 
     b. In the **Identifier** textbox, type a URL: `https://lr.hub.loginradius.com/`
-	 
-	> [!NOTE] 
-	> Open the Sign-on URL page. Click on **Single Sign-On** tab and enter **plugin name** given by the [lr support team](mailto:support@loginradius.com) then click **Sign in** button and you will be redirected to the Azure AD page for login. 
+     
+    > [!NOTE] 
+    > Open the Sign-on URL page. Click on **Single Sign-On** tab and enter **plugin name** given by the [lr support team](mailto:support@loginradius.com) then click **Sign in** button and you will be redirected to the Azure AD page for login. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
+    
 7. To configure single sign-on on **lr** side, you need to send the downloaded **Metadata XML** to [lr support team](mailto:support@loginradius.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
@@ -158,7 +158,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a lr test user
 
-In this section, you create a user called Britta Simon in lr. Work with [lr support team](mailto:support@loginradius.com) to add the users in the lr platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in lr. Work with [lr support team](mailto:support@loginradius.com) to add the users in the lr platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -170,32 +170,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **lr**.
 
-	![The lr link in the Applications list](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+    ![The lr link in the Applications list](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the lr tile in the Access Panel, you should get automatically signed-on to your lr application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

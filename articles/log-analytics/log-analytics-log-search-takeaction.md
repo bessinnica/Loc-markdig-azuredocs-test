@@ -35,9 +35,9 @@ To take action on an event and initiate a runbook from your log search results, 
 4. From the log search results, click the ellipse to the left of one of the fields and from the popup, select **Take action on**.<br><br> ![Select Take Action from search result](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
 5. From the Take action blade, select **Run a runbook**, and on the **Run a runbook** blade you can select a runbook to run.  You can select any runbook in the Automation account that is linked to the Log Analytics workspace.  Note the following:
 
-	* Runbooks are organized by tags
-	* Runbook input parameter values can be selected directly from the fields of the search result.  A drop-down list will appear displaying all the available fields from the result to select from.  
-	* You can choose to run the runbook on a [hybrid runbook worker](../automation/automation-hybrid-runbook-worker.md) that you have installed on the machine that has the issue if you have a corresponding Hybrid Runbook Worker group that only contains this machine as a member.  If the name of the Hybrid Worker group matches the name of the computer that is in the log search result, then the group is selected automatically.    
+    * Runbooks are organized by tags
+    * Runbook input parameter values can be selected directly from the fields of the search result.  A drop-down list will appear displaying all the available fields from the result to select from.  
+    * You can choose to run the runbook on a [hybrid runbook worker](../automation/automation-hybrid-runbook-worker.md) that you have installed on the machine that has the issue if you have a corresponding Hybrid Runbook Worker group that only contains this machine as a member.  If the name of the Hybrid Worker group matches the name of the computer that is in the log search result, then the group is selected automatically.    
 
 6. After you click **Run**, the runbook job blade will open to allow you to review the status of the job.   
 

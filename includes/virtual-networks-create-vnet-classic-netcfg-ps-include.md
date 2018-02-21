@@ -18,8 +18,8 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Open the file you saved in step 2 using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network is displayed as its own **<VirtualNetworkSite>** element.
-4. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
+3. Open the file you saved in step 2 using any XML or text editor application, and look for the <strong><VirtualNetworkSites></strong> element. If you have any networks already created, each network is displayed as its own <strong><VirtualNetworkSite></strong> element.
+4. To create the virtual network described in this scenario, add the following XML just under the <strong><VirtualNetworkSites></strong> element:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

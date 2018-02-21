@@ -64,7 +64,7 @@ The provisioning summary report is visible in the **Provisioning** tab for given
 
 The provisioning summary report should be the first place admins look to check on the operational health of the provisioning job.
 
- ![Summary report](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
+ ![Summary report](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
 ### Provisioning audit logs
 All activities performed by the provisioning service are recorded in the Azure AD audit logs, which can be viewed in the **Audit logs** tab under the **Account Provisioning** category. Logged activity event types include:

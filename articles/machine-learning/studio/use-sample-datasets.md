@@ -40,7 +40,7 @@ You can use any of these datasets in your own experiment by dragging it to your 
 <tr>
   <td>Adult Census Income Binary Classification dataset</td>
   <td>
-A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of > 100.
+A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of &gt; 100.
 <p></p>
 <b>Usage:</b> Classify people using demographics to predict whether a person earns over 50K a year.
 <p></p>
@@ -100,7 +100,7 @@ Donor data includes the months since last donation), and frequency, or the total
 <p></p>
 <b>Related Research:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
-Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, &quot;Knowledge discovery on RFM model using Bernoulli sequence, &quot;Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -111,7 +111,7 @@ One of three cancer-related datasets provided by the Oncology Institute that app
 <p></p>
 <b>Usage:</b> Classify the type of cancer, based on 9 attributes, some of which are linear and some are categorical. 
 <p></p>
-<b>Related Research:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>Related Research:</b> Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -125,7 +125,7 @@ The dataset contains information for 102K suspicious regions (candidates) of X-r
 <tr>
   <td>Breast Cancer Info</td>
   <td>
-The dataset contains additional information for each suspicious region of X-ray image. Each example provides information (for example, label, patient ID, coordinates of patch relative to the whole image) about the corresponding row number in the Breast Cancer Features dataset. Each patient has a number of examples. For patients who have a cancer, some examples are positive and some are negative. For patients who don't have a cancer, all examples are negative. The dataset has 102K examples. The dataset is biased, 0.6% of the points are positive, the rest are negative. The dataset was made available by Siemens Healthcare.
+The dataset contains additional information for each suspicious region of X-ray image. Each example provides information (for example, label, patient ID, coordinates of patch relative to the whole image) about the corresponding row number in the Breast Cancer Features dataset. Each patient has a number of examples. For patients who have a cancer, some examples are positive and some are negative. For patients who don&#39;t have a cancer, all examples are negative. The dataset has 102K examples. The dataset is biased, 0.6% of the points are positive, the rest are negative. The dataset was made available by Siemens Healthcare.
   </td>
 </tr>
 
@@ -166,7 +166,7 @@ A collection of simulated energy profiles, based on 12 different building shapes
 <p></p>
 <b>Usage:</b> Use either regression or classification to predict the energy-efficiency rating based as one of two real valued responses. For multi-class classification, is round the response variable to the nearest integer. 
 <p></p>
-<b>Related Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>Related Research:</b> Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -192,7 +192,7 @@ Records of airplane flight arrivals and departures within United States from Oct
 <p></p>
 <b>Usage:</b> Predict flight delays. 
 <p></p>
-<b>Related Research:</b> From US Dept. of Transportation <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Related Research:</b> From US Dept. of Transportation <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -203,7 +203,7 @@ Contains weather data, such as temperature and humidity indices and wind speed. 
 <p></p>
 <b>Usage:</b> This is a difficult regression task, where the aim is to predict the burned area of forest fires. 
 <p></p>
-<b>Related Research:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>Related Research:</b> Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
 [Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
@@ -221,7 +221,7 @@ The dataset classifies people, described by a set of attributes, as low or high 
 <tr>
   <td>IMDB Movie Titles</td>
   <td>
-The dataset contains information about movies that were rated in Twitter tweets: IMDB movie ID, movie name, genre, and production year. There are 17K movies in the dataset. The dataset was introduced in the paper "S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
+The dataset contains information about movies that were rated in Twitter tweets: IMDB movie ID, movie name, genre, and production year. There are 17K movies in the dataset. The dataset was introduced in the paper &quot;S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013.&quot;
   </td>
 </tr>
 
@@ -230,8 +230,7 @@ The dataset contains information about movies that were rated in Twitter tweets:
   <td>
 This is perhaps the best known database to be found in the pattern recognition literature. The dataset is relatively small, containing 50 examples each of petal measurements from three iris varieties.
 <p></p>
-<b>Usage:</b> Predict the iris type from the measurements.  
-<p></p>
+<b>Usage:</b> Predict the iris type from the measurements.<br/><p></p>
 <b>Related Research:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
@@ -263,7 +262,7 @@ A subset of data from the National Institute of Diabetes and Digestive and Kidne
 <p></p>
 <b>Usage:</b> Predict whether the subject has diabetes (binary classification). 
 <p></p>
-<b>Related Research:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>Related Research:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml&quot;</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -307,9 +306,9 @@ This dataset contains a series of records from steel annealing trials. It contai
 <p></p>
 <b>Usage:</b> Predict any of two numeric class attributes; hardness or strength. You might also analyze correlations among attributes.
 <p></p>
-Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific 'grade' (the class variable) and want to understand the values needed. 
+Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific &#39;grade&#39; (the class variable) and want to understand the values needed. 
 <p></p>
-<b>Related Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>Related Research:</b> Sterling, D. &amp; Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
 A useful guide to steel grades can be found here: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -352,7 +351,7 @@ The weather data covers observations made from airport weather stations, coverin
 <tr>
   <td>Wikipedia SP 500 Dataset</td>
   <td>
-Data is derived from Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) based on articles of each S&P 500 company, stored as XML data.
+Data is derived from Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) based on articles of each S&amp;P 500 company, stored as XML data.
 <p></p>
 Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:
 <ul>
@@ -400,14 +399,14 @@ The dataset was downloaded and stored in Azure Blob storage (<a href="https://az
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-Topic assignments for news articles in the RCV1-V2 Reuters news dataset. A news article can be assigned to several topics. The format of each row is "&lt;topic name&gt; &lt;document id&gt; 1". The dataset contains 2.6M topic assignments. The dataset was made available by David. D. Lewis.
+Topic assignments for news articles in the RCV1-V2 Reuters news dataset. A news article can be assigned to several topics. The format of each row is &quot;&lt;topic name&gt; &lt;document id&gt; 1&quot;. The dataset contains 2.6M topic assignments. The dataset was made available by David. D. Lewis.
   </td>
 </tr>
 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge dataset from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> or <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., &amp; Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge dataset from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> or <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
 <p></p>
 The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) and contains log files from a student tutoring system. The supplied features include problem ID and its brief description, student ID, timestamp, and how many attempts the student made before solving the problem in the right way. The original dataset has 8.9M records; this dataset has been down-sampled to the first 100K rows. The dataset has 23 tab-separated columns of various types: numeric, categorical, and timestamp.
   </td>

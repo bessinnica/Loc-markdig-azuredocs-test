@@ -47,10 +47,10 @@ The enrollment list tells the DPS which method of attestation (the method for co
 
 ## Set the DPS allocation policy
 
-The allocation policy is a DPS setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
+The allocation policy is a DPS setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
 
 1. **Lowest latency**: Devices are provisioned to an IoT hub based on the hub with the lowest latency to the device.
-2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
+2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
 3. **Static configuration via the enrollment list**: Specification of the desired IoT hub in the enrollment list takes priority over the DPS-level allocation policy.
 
 Follow these steps to set the allocation policy:

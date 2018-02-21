@@ -62,11 +62,13 @@ To create two HBase clusters in the same virtual network, select the following i
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
+
 ### Set up two virtual networks in the same region
 
 To create two virtual networks with virtual network peering and two HBase clusters in the same region, select the following image. The template is stored at [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
 
 
 
@@ -85,7 +87,7 @@ HBase replication uses IP addresses of the ZooKeeper VMs. You must set up static
 7. In the list, select **ipConfig1**.
 8. Select **Static**, and copy or write down the actual IP address. You need the IP address when you run the script action to enable replication.
 
-  ![HDInsight HBase replication ZooKeeper static IP address](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
+   ![HDInsight HBase replication ZooKeeper static IP address](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
 9. Repeat step 6 to set the static IP address for the other two ZooKeeper nodes.
 
@@ -96,6 +98,7 @@ For the cross-virtual network scenario, you must use the **-ip** switch when you
 To create two virtual networks in two different regions and the VPN connection between the VNets, click the following image. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
 
 Some of the hard-coded values in the template:
 
@@ -164,16 +167,16 @@ The following steps describe how to call the script action script from the Azure
 4. At the top of the page, select **Submit New**.
 5. Select or enter the following information:
 
-  1. **Name**: Enter **Enable replication**.
-  2. **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Head**: Ensure this is selected. Clear the other node types.
-  4. **Parameters**: The following sample parameters enable replication for all existing tables, and then copy all data from the source cluster to the destination cluster:
+   1. **Name**: Enter **Enable replication**.
+   2. **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   3. **Head**: Ensure this is selected. Clear the other node types.
+   4. **Parameters**: The following sample parameters enable replication for all existing tables, and then copy all data from the source cluster to the destination cluster:
 
           -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
-    
-    >[!note]
-    >
-    > Use hostname instead of FQDN for both the source and destination cluster DNS name.
+
+      >[!note]
+      >
+      > Use hostname instead of FQDN for both the source and destination cluster DNS name.
 
 6. Select **Create**. The script can take a while to run, especially when you use the **-copydata** argument.
 

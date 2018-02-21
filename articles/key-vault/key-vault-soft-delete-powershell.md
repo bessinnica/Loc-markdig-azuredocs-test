@@ -92,20 +92,20 @@ With soft-delete enabled:
 
 - When a key vault is deleted, it is removed from its resource group and placed in a reserved namespace that is only associated with the location where it was created. 
 - Objects in a deleted key vault, such as keys, secrets and, certificates, are inaccessible and remain so while their containing key vault is in the deleted state. 
-- The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
+- The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
 
 You may view deleted state key vaults, associated with your subscription, using the following command:
 
 ```powershell
 PS C:\> Get-AzureRmKeyVault -InRemovedStateVault 
 
-Name           : ContosoVault
-Location             : westus
-Id                   : /subscriptions/xxx/providers/Microsoft.KeyVault/locations/westus/deletedVaults/ContosoVault
-Resource ID          : /subscriptions/xxx/resourceGroups/ContosoVault/providers/Microsoft.KeyVault/vaults/ContosoVault
-Deletion Date        : 5/9/2017 12:14:14 AM
+Name           : ContosoVault
+Location             : westus
+Id                   : /subscriptions/xxx/providers/Microsoft.KeyVault/locations/westus/deletedVaults/ContosoVault
+Resource ID          : /subscriptions/xxx/resourceGroups/ContosoVault/providers/Microsoft.KeyVault/vaults/ContosoVault
+Deletion Date        : 5/9/2017 12:14:14 AM
 Scheduled Purge Date : 8/7/2017 12:14:14 AM
-Tags                 :
+Tags                 :
 ```
 
 The *Resource ID* in the output refers to the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. The *Id* field can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
@@ -142,17 +142,17 @@ When you delete a key in a key vault with soft-delete enabled, it may take a few
 
 ```powershell
   Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
-  Vault Name           : ContosoVault
-  Name                 : ContosoFirstKey
-  Id                   : https://ContosoVault.vault.azure.net:443/keys/ContosoFirstKey
-  Deleted Date         : 2/14/2017 8:20:52 PM
+  Vault Name           : ContosoVault
+  Name                 : ContosoFirstKey
+  Id                   : https://ContosoVault.vault.azure.net:443/keys/ContosoFirstKey
+  Deleted Date         : 2/14/2017 8:20:52 PM
   Scheduled Purge Date : 5/15/2017 8:20:52 PM
-  Enabled              : True
-  Expires              :
-  Not Before           :
-  Created              : 2/14/2017 8:16:07 PM
-  Updated              : 2/14/2017 8:16:07 PM
-  Tags                 :
+  Enabled              : True
+  Expires              :
+  Not Before           :
+  Created              : 2/14/2017 8:16:07 PM
+  Updated              : 2/14/2017 8:16:07 PM
+  Tags                 :
 ```
 
 ### Using soft-delete with key vault objects
@@ -192,24 +192,24 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@
 Like keys, secrets in a key vault are operated on with their own commands. Following, are the commands for deleting, listing, recovering, and purging secrets.
 
 - Delete a secret named SQLPassword: 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```powershell
-Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - Recover a secret in the deleted state: 
-```powershell
-Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - Purge a secret in deleted state: 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
-```
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  ```
 
 >[!NOTE]
 >Purging a secret will permanently delete it, meaning it will not be recoverable.

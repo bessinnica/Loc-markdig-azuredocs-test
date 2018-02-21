@@ -53,7 +53,6 @@ Learn about Azure Marketplace, an online applications and services marketplace t
             </div>
         </div>
         </a>
-    </li>    
-</ul>
+    </li><br/></ul>
 
 

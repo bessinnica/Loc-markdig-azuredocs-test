@@ -236,9 +236,9 @@ Make sure that the `UNUserNotificationCenter` object's delegate is set to your d
 For instance, if you implemented the above proposal 1:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-		// Any other code
+        // Any other code
 
-		[UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
 

@@ -37,7 +37,7 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **USERNAME_CANONICALIZATION_ERROR** | Verify that the user is present in your on-premises Active Directory instance, and that the NPS Service has permissions to access the directory. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
 
 
-   
+
 
 ### Alternate login ID errors
 
@@ -69,11 +69,12 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 
 Sometimes, your users may get messages from Multi-Factor Authentication because their authentication request failed. These aren't errors in the product of configuration, but are intentional warnings explaining why an authentication request was denied.
 
-| Error code | Error message | Recommended steps | 
-| ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | Not an error,User has entered wrong code. | The user entered the wrong code. Have them try again by requesting a new code or signing in again. | 
-| **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached | The user failed the verification challenge too many times. Depending on your settings, they may need to be unblocked by an admin now.  |
-| **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
+
+|                        Error code                        |                 Error message                 |                                                           Recommended steps                                                           |
+|----------------------------------------------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|            <strong>OathCodeIncorrect</strong>            |    Wrong code entered\OATH Code Incorrect     |                                               Not an error,User has entered wrong code.                                               |
+| <strong>SMSAuthFailedMaxAllowedCodeRetryReached</strong> |      Maximum allowed code retry reached       | The user failed the verification challenge too many times. Depending on your settings, they may need to be unblocked by an admin now. |
+|      <strong>SMSAuthFailedWrongCodeEntered</strong>      | Wrong code entered/Text Message OTP Incorrect |                  The user entered the wrong code. Have them try again by requesting a new code or signing in again.                   |
 
 ## Errors that require support
 

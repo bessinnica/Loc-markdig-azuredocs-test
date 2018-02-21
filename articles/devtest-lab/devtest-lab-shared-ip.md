@@ -27,7 +27,7 @@ When you create a lab, it resides in a subnet of a virtual network.  By default,
 
 ![New lab subnet](media/devtest-lab-shared-ip/lab-subnet.png)
 
-For existing labs, you can enable this option by selecting **Configuration and policies > Virtual Networks**. Then, select a virtual network from the list and choose **ENABLE SHARED PUBLIC IP** for a selected subnet. You can also disable this option in any lab if you don't want to share a public IP address across lab VMs.
+For existing labs, you can enable this option by selecting **Configuration and policies > Virtual Networks**. Then, select a virtual network from the list and choose **ENABLE SHARED PUBLIC IP** for a selected subnet. You can also disable this option in any lab if you don't want to share a public IP address across lab VMs.
 
 Any VMs created in this lab default to using a shared IP.  When creating the VM, this setting can be observed in the **Advanced settings** blade under **IP address configuration**.
 
@@ -37,7 +37,7 @@ Any VMs created in this lab default to using a shared IP.  When creating the VM,
 - **Public:** Every VM you create has its own IP address and is created in its own resource group.
 - **Private:** Every VM you create uses a private IP address. You will not be able to connect to this VM directly from the internet with Remote Desktop.
 
-Whenever a VM with shared IP enabled is added to the subnet, DevTest Labs automatically adds the VM to a load balancer and assigns a TCP port number on the public IP address, forwarding to the RDP port on the VM.  
+Whenever a VM with shared IP enabled is added to the subnet, DevTest Labs automatically adds the VM to a load balancer and assigns a TCP port number on the public IP address, forwarding to the RDP port on the VM.  
 
 ## Using the shared IP
 

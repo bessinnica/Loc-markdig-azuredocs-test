@@ -83,7 +83,7 @@ You have full control over the requests that can access your application. App Se
   
     In this case, the Authentication / Authorization feature is off. The tasks of authentication and authorization are entirely up to your application code.
 
-The previous behaviors are controlled by the **Action to take when request is not authenticated** option in the Azure portal. If you choose **Log in with *provider name* **, all requests have to be authenticated. **Allow request (no action)** defers the authorization decision to your code, but it still provides authentication information. If you want to have your code handle everything, you can disable the Authentication / Authorization feature.
+The previous behaviors are controlled by the <strong>Action to take when request is not authenticated</strong> option in the Azure portal. If you choose <strong>Log in with <em>provider name</em> **, all requests have to be authenticated. **Allow request (no action)</strong> defers the authorization decision to your code, but it still provides authentication information. If you want to have your code handle everything, you can disable the Authentication / Authorization feature.
 
 ## Working with user identities in your application
 App Service passes some user information to your application by using special headers. External requests prohibit these headers and will only be present if set by App Service Authentication / Authorization. Some example headers include:

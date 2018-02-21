@@ -42,23 +42,24 @@ To create and manage Azure Redis Cache instances using Azure CLI, you must compl
 ## Redis Cache properties
 The following properties are used when creating and updating Redis Cache instances.
 
-| Property | Switch | Description |
-| --- | --- | --- |
-| name |-n, --name |Name of the Redis Cache. |
-| resource group |-g, --resource-group |Name of the Resource Group. |
-| location |-l, --location |Location to create cache. |
-| size |-z, --size |Size of the Redis Cache. Valid values: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| sku |-x, --sku |Redis SKU. Should be one of : [Basic, Standard, Premium] |
-| EnableNonSslPort |-e, --enable-non-ssl-port |EnableNonSslPort property of the Redis Cache. Add this flag if you want to enable the Non SSL Port for your cache |
-| Redis Configuration |-c, --redis-configuration |Redis Configuration. Enter a JSON formatted string of configuration keys and values here. Format:"{"":"","":""}" |
-| Redis Configuration |-f, --redis-configuration-file |Redis Configuration. Enter the path of a file containing configuration keys and values here. Format for the file entry: {"":"","":""} |
-| Shard Count |-r, --shard-count |Number of Shards to create on a Premium Cluster Cache with clustering. |
-| Virtual Network |-v, --virtual-network |When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| key type |-t, --key-type |Type of key to renew. Valid values: [Primary, Secondary] |
-| StaticIP |-p, --static-ip <static-ip> |When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet. |
-| Subnet |t, --subnet <subnet> |When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache. |
-| VirtualNetwork |-v, --virtual-network <virtual-network> |When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Subscription |-s, --subscription |The subscription identifier. |
+
+|      Property       |                 Switch                  |                                                                                                                     Description                                                                                                                      |
+|---------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        name         |               -n, --name                |                                                                                                               Name of the Redis Cache.                                                                                                               |
+|   resource group    |          -g, --resource-group           |                                                                                                             Name of the Resource Group.                                                                                                              |
+|      location       |             -l, --location              |                                                                                                              Location to create cache.                                                                                                               |
+|        size         |               -z, --size                |                                                                                 Size of the Redis Cache. Valid values: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4]                                                                                  |
+|         sku         |                -x, --sku                |                                                                                               Redis SKU. Should be one of : [Basic, Standard, Premium]                                                                                               |
+|  EnableNonSslPort   |        -e, --enable-non-ssl-port        |                                                                  EnableNonSslPort property of the Redis Cache. Add this flag if you want to enable the Non SSL Port for your cache                                                                   |
+| Redis Configuration |        -c, --redis-configuration        |                                                                   Redis Configuration. Enter a JSON formatted string of configuration keys and values here. Format:"{"":"","":""}"                                                                   |
+| Redis Configuration |     -f, --redis-configuration-file      |                                                        Redis Configuration. Enter the path of a file containing configuration keys and values here. Format for the file entry: {"":"","":""}                                                         |
+|     Shard Count     |            -r, --shard-count            |                                                                                        Number of Shards to create on a Premium Cluster Cache with clustering.                                                                                        |
+|   Virtual Network   |          -v, --virtual-network          | When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+|      key type       |             -t, --key-type              |                                                                                               Type of key to renew. Valid values: [Primary, Secondary]                                                                                               |
+|      StaticIP       |       -p, --static-ip <static-ip>       |                                                When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet.                                                 |
+|       Subnet        |          t, --subnet <subnet>           |                                                                          When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache.                                                                           |
+|   VirtualNetwork    | -v, --virtual-network <virtual-network> | When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+|    Subscription     |           -s, --subscription            |                                                                                                             The subscription identifier.                                                                                                             |
 
 ## See all Redis Cache commands
 To see all Redis Cache commands and their parameters, use the `azure rediscache -h` command.
@@ -194,6 +195,7 @@ For more information about this command, run the `azure rediscache show -h` comm
     help:    Current Mode: arm (Azure Resource Management)
 
 <a name="scale"></a>
+
 
 ## Change settings of an existing Redis Cache
 To change settings of an existing Redis Cache, use the following command:

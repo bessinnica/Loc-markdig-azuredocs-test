@@ -77,14 +77,14 @@ Here's the binding data in the *function.json* file:
 ```
 
 Here's the C# script code:
- 
+
 ```cs 
     #r "Microsoft.Azure.Documents.Client"
-    
+
     using System;
     using Microsoft.Azure.Documents;
     using System.Collections.Generic;
-    
+
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
@@ -158,7 +158,7 @@ The following table explains the binding configuration properties that you set i
 |**leaseCollectionName** | **LeaseCollectionName** | (Optional) The name of the collection used to store leases. When not set, the value `leases` is used. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optional) When set to `true`, the leases collection is automatically created when it doesn't already exist. The default value is `false`. |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optional) Defines the amount of Request Units to assign when the leases collection is created. This setting is only used When `createLeaseCollectionIfNotExists` is set to `true`. This parameter is  automatically set when the binding is created using the portal.
-| |**LeaseOptions** | Configure lease options by setting properties in an instance of the [Change​Feed​Host​Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) class.
+| |**LeaseOptions** | Configure lease options by setting properties in an instance of the [Change Feed Host Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) class.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -260,6 +260,7 @@ Here's the C# script code:
 ```
 
 <a name="infsharp"></a>
+
 
 ### Input - F# example
 
@@ -436,7 +437,7 @@ Here's the JavaScript code:
         for (var i = 0; i < documents.length; i++) {
             var document = documents[i];
             // operate on each document
-        }	    
+        }       
         context.done();
     };
 ```

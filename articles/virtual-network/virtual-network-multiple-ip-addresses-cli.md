@@ -36,13 +36,13 @@ The steps that follow explain how to create an example virtual machine with mult
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with the two NICs attached to it. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
 ```bash
-	
+
 #!/bin/sh
-	
+
 RgName="myResourceGroup"
 Location="westcentralus"
 az group create --name $RgName --location $Location
-	
+
 # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
 # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
 # of IP adresses unique to each Azure region. Download and view the file from
@@ -87,7 +87,7 @@ az network nic create \
 --private-ip-address 10.0.0.4
 --vnet-name $VnetName \
 --public-ip-address $PipName
-	
+
 # Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
 # static public IP address and a static private IP address.
 
@@ -105,7 +105,7 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and	# no public IP address.
+# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
@@ -170,106 +170,107 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 2. Complete the steps in one of the following sections, based on your requirements:
 
-	**Add a private IP address**
-	
-	To add a private IP address to a NIC, you must create an IP configuration using the command that follows. The static IP address must be an unused address for the subnet.
+    **Add a private IP address**
 
-	```bash
-	az network nic ip-config create \
-	--resource-group myResourceGroup \
-	--nic-name myNic1 \
-	--private-ip-address 10.0.0.7 \
-	--name IPConfig-4
-	```
-	
-	Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
+    To add a private IP address to a NIC, you must create an IP configuration using the command that follows. The static IP address must be an unused address for the subnet.
 
-	**Add a public IP address**
-	
-	A public IP address is added by associating it to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
+    ```bash
+    az network nic ip-config create \
+    --resource-group myResourceGroup \
+    --nic-name myNic1 \
+    --private-ip-address 10.0.0.7 \
+    --name IPConfig-4
+    ```
 
-	Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+    Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
 
-	- **Associate the resource to a new IP configuration**
-	
-		Whenever you add a public IP address in a new IP configuration, you must also add a private IP address, because all IP configurations must have a private IP address. You can either add an existing public IP address resource, or create a new one. To create a new one, enter the following command:
-	
-		```bash
-		az network public-ip create \
-		--resource-group myResourceGroup \
-		--location westcentralus \
-		--name myPublicIP3 \
-		--dns-name mypublicdns3
-		```
+    **Add a public IP address**
 
- 		To create a new IP configuration with a static private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:
+    A public IP address is added by associating it to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
-		```bash
-		az network nic ip-config create \
-		--resource-group myResourceGroup \
-		--nic-name myNic1 \
-		--name IPConfig-5 \
-		--private-ip-address 10.0.0.8
-		--public-ip-address myPublicIP3
-		```
+    Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
-	- **Associate the resource to an existing IP configuration**
-		A public IP address resource can only be associated to an IP configuration that doesn't already have one associated. You can determine whether an IP configuration has an associated public IP address by entering the following command:
+    - **Associate the resource to a new IP configuration**
 
-		```bash
-		az network nic ip-config list \
-		--resource-group myResourceGroup \
-		--nic-name myNic1 \
-		--query "[?provisioningState=='Succeeded'].{ Name: name, PublicIpAddressId: publicIpAddress.id }" --output table
-		```
+        Whenever you add a public IP address in a new IP configuration, you must also add a private IP address, because all IP configurations must have a private IP address. You can either add an existing public IP address resource, or create a new one. To create a new one, enter the following command:
 
-		Returned output:
-	
-			Name        PublicIpAddressId
-			
-			ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-			IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-			IPConfig-3
+        ```bash
+        az network public-ip create \
+        --resource-group myResourceGroup \
+        --location westcentralus \
+        --name myPublicIP3 \
+        --dns-name mypublicdns3
+        ```
 
-		Since the **PublicIpAddressId** column for *IpConfig-3* is blank in the output, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
+        To create a new IP configuration with a static private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:
 
-		```bash
-		az network public-ip create \
-		--resource-group  myResourceGroup
-		--location westcentralus \
-		--name myPublicIP3 \
-		--dns-name mypublicdns3 \
-		--allocation-method Static
-		```
-	
-		Enter the following command to associate the public IP address resource to the existing IP configuration named *IPConfig-3*:
-	
-		```bash
-		az network nic ip-config update \
-		--resource-group myResourceGroup \
-		--nic-name myNic1 \
-		--name IPConfig-3 \
-		--public-ip myPublicIP3
-		```
+        ```bash
+        az network nic ip-config create \
+        --resource-group myResourceGroup \
+        --nic-name myNic1 \
+        --name IPConfig-5 \
+        --private-ip-address 10.0.0.8
+        --public-ip-address myPublicIP3
+        ```
+
+    - **Associate the resource to an existing IP configuration**
+        A public IP address resource can only be associated to an IP configuration that doesn't already have one associated. You can determine whether an IP configuration has an associated public IP address by entering the following command:
+
+        ```bash
+        az network nic ip-config list \
+        --resource-group myResourceGroup \
+        --nic-name myNic1 \
+        --query "[?provisioningState=='Succeeded'].{ Name: name, PublicIpAddressId: publicIpAddress.id }" --output table
+        ```
+
+        Returned output:
+
+            Name        PublicIpAddressId
+
+            ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+            IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+            IPConfig-3
+
+        Since the **PublicIpAddressId** column for *IpConfig-3* is blank in the output, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
+
+        ```bash
+        az network public-ip create \
+        --resource-group  myResourceGroup
+        --location westcentralus \
+        --name myPublicIP3 \
+        --dns-name mypublicdns3 \
+        --allocation-method Static
+        ```
+
+        Enter the following command to associate the public IP address resource to the existing IP configuration named *IPConfig-3*:
+
+        ```bash
+        az network nic ip-config update \
+        --resource-group myResourceGroup \
+        --nic-name myNic1 \
+        --name IPConfig-3 \
+        --public-ip myPublicIP3
+        ```
 
 3. View the private IP addresses and the public IP address resource Ids assigned to the NIC by entering the following command:
 
-	```bash
-	az network nic ip-config list \
-	--resource-group myResourceGroup \
-	--nic-name myNic1 \
-	--query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
-	```
+    ```bash
+    az network nic ip-config list \
+    --resource-group myResourceGroup \
+    --nic-name myNic1 \
+    --query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
+    ```
 
-	Returned output: <br>
-	
-		Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
-		
-		ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-		IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-		IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
-	
+    Returned output: <br>
+
+        Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
+
+        ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+        IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+        IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+
 
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+

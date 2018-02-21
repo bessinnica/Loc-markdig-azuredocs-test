@@ -15,6 +15,7 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Translator Text API with Ruby 
 <a name="HOLTop"></a>
 
+
 This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/Ruby).
 
 ## Prerequisites
@@ -24,6 +25,7 @@ You will need [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later to ru
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Text API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Translate"></a>
+
 
 ## Translate text
 

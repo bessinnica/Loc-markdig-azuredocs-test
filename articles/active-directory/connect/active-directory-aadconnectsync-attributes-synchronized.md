@@ -32,6 +32,7 @@ In this case, start with the list of attributes in this topic and identify those
 >
 
 ## Office 365 ProPlus
+
 | Attribute Name | User | Comment |
 | --- |:---:| --- |
 | accountEnabled |X |Defines if an account is enabled. |
@@ -44,6 +45,7 @@ In this case, start with the list of attributes in this topic and identify those
 | userPrincipalName |X |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Exchange Online
+
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -168,6 +170,7 @@ In this case, start with the list of attributes in this topic and identify those
 | wWWHomePage |X |X | | |
 
 ## SharePoint Online
+
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -250,6 +253,7 @@ In this case, start with the list of attributes in this topic and identify those
 | wWWHomePage |X |X | | |
 
 ## Lync Online (subsequently known as Skype for Business)
+
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -299,6 +303,7 @@ In this case, start with the list of attributes in this topic and identify those
 | wWWHomePage |X |X | | |
 
 ## Azure RMS
+
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -315,6 +320,7 @@ In this case, start with the list of attributes in this topic and identify those
 | userPrincipalName |X | | |This UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Intune
+
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -334,6 +340,7 @@ In this case, start with the list of attributes in this topic and identify those
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Dynamics CRM
+
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |

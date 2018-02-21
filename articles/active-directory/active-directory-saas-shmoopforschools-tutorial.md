@@ -57,19 +57,19 @@ To configure the integration of Shmoop For Schools into Azure AD, you need to ad
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Go to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add a new application, select the **New application** button on the top of dialog box.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Shmoop For Schools**. Select **Shmoop For Schools** from the results, then select the **Add** button to add the application.
 
-	![Shmoop For Schools in the results list](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
+    ![Shmoop For Schools in the results list](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -95,53 +95,53 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Shmoop For Schools** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
 2. In the **Single sign-on** dialog box, in the drop-down menu under **Single Sign-on Mode**, select **SAML-based Sign-on**.
  
-	![Single sign-on dialog box](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_samlbase.png)
 
 3. In the **Shmoop For Schools Domain and URLs** section, take the following steps:
 
-	![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
+    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
     a. In the **Sign-on URL** box, type a URL with the following pattern: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
-	b. In the **Identifier** box, type a URL with the following pattern: `https://schools.shmoop.com/<uniqueid>`
+    b. In the **Identifier** box, type a URL with the following pattern: `https://schools.shmoop.com/<uniqueid>`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual sign-on URL and identifier. Contact the [Shmoop For Schools Client support team](mailto:support@shmoop.com) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual sign-on URL and identifier. Contact the [Shmoop For Schools Client support team](mailto:support@shmoop.com) to get these values. 
  
 4. The Shmoop For Schools application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. The following screenshot shows how to configure the assertions:
 
-	![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute.png)
+    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute.png)
 
-	> [!NOTE]
-	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see  [Roles-based access control in cloud applications using Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
-	
+    > [!NOTE]
+    > Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see  [Roles-based access control in cloud applications using Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
+    
 5. In the **User Attributes** section in the **Single sign-on** dialog box, configure the SAML token attribute as shown in the previous image.  Then take the following steps:
 
-	| Attribute name | Attribute value |
-	| -------------- | --------------- |
-	| role           | user.assignedroles |
+    | Attribute name | Attribute value |
+    | -------------- | --------------- |
+    | role           | user.assignedroles |
 
-	a. To open the **Add Attribute** dialog box, select **Add attribute**.
-	
-	![Configure single sign-on ](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute_04.png)
-	
-	![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** box, type the attribute name that's shown for that row.
-	
-	c. From the **Value** list, select the attribute value that's shown for that row.
+    a. To open the **Add Attribute** dialog box, select **Add attribute**.
+    
+    ![Configure single sign-on ](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute_04.png)
+    
+    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute_05.png)
+    
+    b. In the **Name** box, type the attribute name that's shown for that row.
+    
+    c. From the **Value** list, select the attribute value that's shown for that row.
 
-	d. Leave the **Namespace** box empty.
-	
-	e. Select **Ok**.
+    d. Leave the **Namespace** box empty.
+    
+    e. Select **Ok**.
 
 6. Select the **Save** button.
 
-	![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
+    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
 7. To generate the **Metadata** URL, take the following steps:
 
@@ -161,7 +161,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
 
-    e. Generate the **Metadata URL** by using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.	
+    e. Generate the **Metadata URL** by using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.   
 
 8. To configure single sign-on on the **Shmoop For Schools** side, you need to send the **Metadata URL** to the [Shmoop For Schools support team](mailto:support@shmoop.com).
 
@@ -218,33 +218,33 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view. Then go to **Enterprise applications** in the directory view.  Next, select **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Shmoop For Schools**.
 
-	![The Shmoop For Schools link in the applications list](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
+    ![The Shmoop For Schools link in the applications list](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
 
 3. In the menu on the left, select **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Select the **Add** button. Then, in the **Add Assignment** dialog box, select **Users and groups**.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. In the **Users and groups** dialog box, select **Britta Simon** in the users list.
 
 6. In the **Users and groups** dialog box, click the **Select** button. 
 
 7. In the **Add Assignment** dialog box, select the **Assign** button.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
 When you select the **Shmoop For Schools** tile in the Access Panel, you should get automatically signed in to your Shmoop For Schools application.
 
-For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

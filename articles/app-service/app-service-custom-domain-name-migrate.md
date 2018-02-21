@@ -92,6 +92,7 @@ The only thing left to do is remapping your active DNS record to point to App Se
 
 <a name="info"></a>
 
+
 ### Copy the app's IP address (A record only)
 
 If you are remapping a CNAME record, skip this section. 
@@ -110,11 +111,12 @@ Back in the DNS records page of your domain provider, select the DNS record to r
 
 For the `contoso.com` root domain example, remap the A or CNAME record like the examples in the following table: 
 
-| FQDN example | Record type | Host | Value |
-| - | - | - | - |
-| contoso.com (root) | A | `@` | IP address from [Copy the app's IP address](#info) |
-| www.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
-| \*.contoso.com (wildcard) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
+
+|       FQDN example        | Record type |    Host     |                       Value                        |
+|---------------------------|-------------|-------------|----------------------------------------------------|
+|    contoso.com (root)     |      A      |     `@`     | IP address from [Copy the app's IP address](#info) |
+|   www.contoso.com (sub)   |    CNAME    |    `www`    |      <em>&lt;appname>.azurewebsites.net</em>       |
+| \*.contoso.com (wildcard) |    CNAME    | <em>\*</em> |      <em>&lt;appname>.azurewebsites.net</em>       |
 
 Save your settings.
 

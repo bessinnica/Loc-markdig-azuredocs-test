@@ -37,9 +37,9 @@ a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partne
 [agreement](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), 
 or [schema](logic-apps-enterprise-integration-schemas.md).
 
-3.	Select the artifact, choose **Edit**, and enter metadata details.
+3.  Select the artifact, choose **Edit**, and enter metadata details.
 
-	![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)
+    ![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)
 
 ## Retrieve metadata from artifacts for logic apps
 
@@ -49,14 +49,14 @@ or [schema](logic-apps-enterprise-integration-schemas.md).
 
 3. In Logic App Designer, add a trigger like *Request* or *HTTP* to your logic app.
 
-4.	Choose **Next Step** > **Add an action**. Search for *integration* 
+4.  Choose **Next Step** > **Add an action**. Search for *integration* 
 so you can find and then select **Integration Account - Integration Account Artifact Lookup**.
 
-	![Select Integration Account Artifact Lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
+    ![Select Integration Account Artifact Lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
 
 5. Select the **Artifact Type**, and provide the **Artifact Name**.
 
-	![Select artifact type and specify artifact name](media/logic-apps-enterprise-integration-metadata/image3.png)
+    ![Select artifact type and specify artifact name](media/logic-apps-enterprise-integration-metadata/image3.png)
 
 ## Example: Retrieve partner metadata
 
@@ -68,12 +68,12 @@ Partner metadata has these `routingUrl` details:
 an **Integration Account - Integration Account Artifact Lookup** action for your partner, 
 and an **HTTP**.
 
-	![Add trigger, artifact lookup, and "HTTP" to your logic app](media/logic-apps-enterprise-integration-metadata/image4.png)
+    ![Add trigger, artifact lookup, and "HTTP" to your logic app](media/logic-apps-enterprise-integration-metadata/image4.png)
 
 2. To retrieve the URI, go to Code View for your logic app. Your logic app definition 
 should look like this example:
 
-	![Search lookup](media/logic-apps-enterprise-integration-metadata/image5.png)
+    ![Search lookup](media/logic-apps-enterprise-integration-metadata/image5.png)
 
 
 ## Next steps

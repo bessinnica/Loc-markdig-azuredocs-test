@@ -172,7 +172,6 @@ Function CheckForMS17-010 ()
 }
 
 CheckForMS17-010
-
 ```
 
 

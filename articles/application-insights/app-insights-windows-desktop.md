@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with HockeyApp and Application Insights.
 services: application-insights
@@ -33,13 +33,13 @@ ms.author: mbullwin
 2. Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. 
 3. In Visual Studio, edit the NuGet packages of your app project, and add Microsoft.ApplicationInsights.WindowsServer. (Or choose Microsoft.ApplicationInsights if you just want the bare API, without the standard telemetry collection modules.)
 4. Set the instrumentation key either in your code:
-   
+
     `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
-   
+
     or in ApplicationInsights.config (if you installed one of the standard telemetry packages):
-   
+
     `<InstrumentationKey>`*your key*`</InstrumentationKey>` 
-   
+
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Use the API](app-insights-api-custom-events-metrics.md) to send telemetry.
 6. Run your app, and see the telemetry in the resource you created in the Azure Portal.
@@ -78,7 +78,6 @@ ms.author: mbullwin
             }
             base.OnClosing(e);
         }
-
 ```
 
 ## Next steps

@@ -58,19 +58,19 @@ To configure the integration of Rollbar into Azure AD, you need to add Rollbar f
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Rollbar**, select **Rollbar** from result panel then click **Add** button to add the application.
 
-	![Rollbar in the results list](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_addfromgallery.png)
+    ![Rollbar in the results list](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,64 +96,64 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Rollbar** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_samlbase.png)
 
 3. On the **Rollbar Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Rollbar Domain and URLs single sign-on information](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
+    ![Rollbar Domain and URLs single sign-on information](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
     a. In the **Identifier** textbox, type the URL: `https://saml.rollbar.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://rollbar.com/<accountname>/saml/sso/azure/`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Rollbar Domain and URLs single sign-on information](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
+    ![Rollbar Domain and URLs single sign-on information](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://rollbar.com/<accountname>/saml/login/azure/`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Rollbar Client support team](mailto:support@rollbar.com) to get these values. 
+     
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Rollbar Client support team](mailto:support@rollbar.com) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-rollbar-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-rollbar-tutorial/tutorial_general_400.png)
+    
 7. In a different web browser window, log in to your Rollbar company site as an administrator.
 
 8. Click on the **Profile Settings** on the right top corner and then click **Account Name settings**.
-	
-	![Configuration](./media/active-directory-saas-rollbar-tutorial/general.png)
+    
+    ![Configuration](./media/active-directory-saas-rollbar-tutorial/general.png)
 
 9. Click **Identity Provider** under SECURITY.
 
-	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure1.png)
+    ![Configuration](./media/active-directory-saas-rollbar-tutorial/configure1.png)
 
 10. In the **SAML Identity Provider** section, perform the following steps:
-	
-	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure2.png)
+    
+    ![Configuration](./media/active-directory-saas-rollbar-tutorial/configure2.png)
 
-	a. Select **AZURE** from the **SAML Identity Provider** dropdown.
+    a. Select **AZURE** from the **SAML Identity Provider** dropdown.
 
-	b. Open your metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **SAML Metadata** textbox.
+    b. Open your metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **SAML Metadata** textbox.
 
-	c. Click **Save**.
+    c. Click **Save**.
 
 11. After clicking the save button, the screen will be like this. Perform the following steps in this section:
-	
-	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    
+    ![Configuration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
 
-	a. Select **Require login via SAML Identity Provider** checkbox.
+    a. Select **Require login via SAML Identity Provider** checkbox.
 
-	b. Click **Save**.
+    b. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -200,19 +200,19 @@ To enable Azure AD users to log in to Rollbar, they must be provisioned into Rol
 
 2. Click on the **Profile Settings** on the right top corner and then click **Account Name settings**.
 
-	![User](./media/active-directory-saas-rollbar-tutorial/general.png)
+    ![User](./media/active-directory-saas-rollbar-tutorial/general.png)
 
 3. Click **Users**.
-	
-	![Add Employee](./media/active-directory-saas-rollbar-tutorial/user1.png)
+    
+    ![Add Employee](./media/active-directory-saas-rollbar-tutorial/user1.png)
 
 4. Click **Invite Team Members**.
 
-	![Invite People](./media/active-directory-saas-rollbar-tutorial/user2.png)
+    ![Invite People](./media/active-directory-saas-rollbar-tutorial/user2.png)
 
 5. In the textbox, enter the name of user like **brittasimon@contoso.com** and the click **Add/Invite**.
 
-	![Invite People](./media/active-directory-saas-rollbar-tutorial/user3.png)
+    ![Invite People](./media/active-directory-saas-rollbar-tutorial/user3.png)
 
 6. User receives an invitation and after accepting it he/she created in the system.
 
@@ -226,32 +226,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Rollbar**.
 
-	![The Rollbar link in the Applications list](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_app.png)  
+    ![The Rollbar link in the Applications list](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Rollbar tile in the Access Panel, you should get automatically signed-on to your Rollbar application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

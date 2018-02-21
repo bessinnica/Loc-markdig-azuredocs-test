@@ -54,42 +54,43 @@ This tutorial has the following prerequisites:
 
 <a name="deploy"></a>
 
+
 ## Deploy a cloud service
 In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2015 to a cloud service Web role, and then integrate it with a new CDN endpoint. Follow the instructions below:
 
 1. In Visual Studio 2015, create a new Azure cloud service from the menu bar by going to **File > New > Project > Cloud > Azure Cloud Service**. Give it a name and click **OK**.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
 2. Select **ASP.NET Web Role** and click the **>** button. Click OK.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 3. Select **MVC** and click **OK**.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG)
 4. Now, publish this Web role to an Azure cloud service. Right-click the cloud service project and select **Publish**.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
 5. If you have not yet signed into Microsoft Azure, click the **Add an account...** dropdown and click the **Add an account** menu item.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.png)
 6. In the sign-in page, sign in with the Microsoft account you used to activate your Azure account.
 7. Once you're signed in, click **Next**.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png)
 8. Assuming that you haven't created a cloud service or storage account, Visual Studio will help you create both. In the **Create Cloud Service and Account** dialog, type the desired service name and select the desired region. Then, click **Create**.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png)
 9. In the publish settings page, verify the configuration and click **Publish**.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
-   
+
    > [!NOTE]
    > The publishing process for cloud services takes a long time. The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles. For more information on this option, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
    > 
    > 
-   
+
     When the **Microsoft Azure Activity Log** shows that publishing status is **Completed**, you will create a CDN endpoint that's integrated with this cloud service.
-   
+
    > [!WARNING]
    > If, after publishing, the deployed cloud service displays an error screen, it's likely because the cloud service you've deployed is using a [guest OS that does not include .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates).  You can work around this issue by [deploying .NET 4.5.2 as a startup task](../cloud-services/cloud-services-dotnet-install-dotnet.md).
    > 
@@ -109,16 +110,16 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 **To create a new CDN endpoint for your storage account**
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
-   
+
     The CDN profile blade appears.
-   
+
     ![CDN profile][cdn-profile-settings]
 2. Click the **Add Endpoint** button.
-   
+
     ![Add endpoint button][cdn-new-endpoint-button]
-   
+
     The **Add an endpoint** blade appears.
-   
+
     ![Add endpoint blade][cdn-add-endpoint]
 3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<EndpointName>.azureedge.net`.
 4. In the **Origin type** dropdown, select *Cloud service*.  
@@ -126,9 +127,9 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 6. Leave the defaults for **Origin path**, **Origin host header**, and **Protocol/Origin port**.  You must specify at least one protocol (HTTP or HTTPS).
 7. Click the **Add** button to create the new endpoint.
 8. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
-   
+
     ![CDN endpoint][cdn-endpoint-success]
-   
+
    > [!NOTE]
    > The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
    > 
@@ -168,6 +169,7 @@ The alternative is to determine which content to serve from Azure CDN on a case-
 
 <a name="caching"></a>
 
+
 ## Configure caching options for static files in your cloud service
 With Azure CDN integration in your cloud service, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your Web role project (e.g. WebRole1) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
 
@@ -197,6 +199,7 @@ In [Serve content from controller actions through Azure CDN](#controller), I wil
 
 <a name="controller"></a>
 
+
 ## Serve content from controller actions through Azure CDN
 When you integrate a cloud service Web role with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Other than serving your cloud service directly through Azure CDN (demonstrated above), [Maarten Balliauw](https://twitter.com/maartenballiauw) shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
 
@@ -209,7 +212,7 @@ You have a simple `Index` action that allows the customers to specify the superl
 Follow the steps above to setup this controller action:
 
 1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Be sure to replace the highlighted portion with your CDN name.  
-   
+
         using System;
         using System.Collections.Generic;
         using System.Diagnostics;
@@ -219,18 +222,18 @@ Follow the steps above to setup this controller action:
         using System.Web.Hosting;
         using System.Web.Mvc;
         using System.Web.UI;
-   
+
         namespace WebRole1.Controllers
         {
             public class MemeGeneratorController : Controller
             {
                 static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
-   
+
                 public ActionResult Index()
                 {
                     return View();
                 }
-   
+
                 [HttpPost, ActionName("Index")]
                 public ActionResult Index_Post(string top, string bottom)
                 {
@@ -239,10 +242,10 @@ Follow the steps above to setup this controller action:
                     {
                         Memes.Add(identifier, new Tuple<string, string>(top, bottom));
                     }
-   
+
                     return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
                 }
-   
+
                 [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
                 public ActionResult Show(string id)
                 {
@@ -251,7 +254,7 @@ Follow the steps above to setup this controller action:
                     {
                         return new HttpStatusCodeResult(HttpStatusCode.NotFound);
                     }
-   
+
                     if (Debugger.IsAttached) // Preserve the debug experience
                     {
                         return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
@@ -261,13 +264,13 @@ Follow the steps above to setup this controller action:
                         return Redirect(string.Format("http://<yourCdnName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
                     }
                 }
-   
+
                 [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
                 public ActionResult Generate(string top, string bottom)
                 {
                     string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
                     Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-   
+
                     using (Graphics graphics = Graphics.FromImage(bitmap))
                     {
                         SizeF size = new SizeF();
@@ -280,23 +283,23 @@ Follow the steps above to setup this controller action:
                             graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
                         }
                     }
-   
+
                     MemoryStream ms = new MemoryStream();
                     bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                     return File(ms.ToArray(), "image/png");
                 }
-   
+
                 private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
                 {
                     // Compute actual size, shrink if needed
                     while (true)
                     {
                         size = g.MeasureString(text, font);
-   
+
                         // It fits, back out
                         if (size.Height < i.Height &&
                              size.Width < i.Width) { return font; }
-   
+
                         // Try a smaller font (90% of old size)
                         Font oldFont = font;
                         font = new Font(font.Name, (float)(font.Size * .9), font.Style);
@@ -306,15 +309,15 @@ Follow the steps above to setup this controller action:
             }
         }
 2. Right-click in the default `Index()` action and select **Add View**.
-   
+
     ![](media/cdn-cloud-service-with-cdn/cdn-6-addview.PNG)
 3. Accept the settings below and click **Add**.
-   
+
    ![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
 4. Open the new *Views\MemeGenerator\Index.cshtml* and replace the content with the following simple HTML for submitting the superlatives:
-   
+
         <h2>Meme Generator</h2>
-   
+
         <form action="" method="post">
             <input type="text" name="top" placeholder="Enter top text here" />
             <br />
@@ -364,6 +367,7 @@ In the next section, I will show you how to serve the bundled and minified scrip
 
 <a name="bundling"></a>
 
+
 ## Integrate ASP.NET bundling and minification with Azure CDN
 Scripts and CSS stylesheets change infrequently and are prime candidates for the Azure CDN cache. Serving the entire Web role through your Azure CDN is the easiest way to integrate bundling and minification with Azure CDN. However, as you may not want to do this, I will show you how to do it while preserving the desired develper experience of ASP.NET bundling and minification, such as:
 
@@ -399,89 +403,90 @@ This enables you to debug the JavaScript code in your development environment wh
 Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
 
 1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
-   
+
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.UseCdn = true;
             var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
                 .GetName().Version.ToString();
             var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
-   
+
             bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                         "~/Scripts/jquery-{version}.js"));
-   
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
                         "~/Scripts/jquery.validate*"));
-   
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
                         "~/Scripts/modernizr-*"));
-   
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/respond.js"));
-   
+
             bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                         "~/Content/bootstrap.css",
                         "~/Content/site.css"));
         }
-   
+
     Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
-   
+
     In plain words, you are setting `bundles.UseCdn = true` and added a carefully crafted CDN URL to each bundle. For example, the first constructor in the code:
-   
+
         new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
-   
+
     is the same as:
-   
+
         new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
-   
+
     This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question. However, note two important characteristics with this carefully crafted CDN URL:
-   
+
    * The origin for this CDN URL is `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, which is actually the virtual directory of the script bundle in your cloud service.
    * Since you are using CDN constructor, the CDN script tag for the bundle no longer contains the automatically generated version string in the rendered URL. You must manually generate a unique version string every time the script bundle is modified to force a cache miss at your Azure CDN. At the same time, this unique version string must remain constant through the life of the deployment to maximize cache hits at your Azure CDN after the bundle is deployed.
    * The query string v=<W.X.Y.Z> pulls from *Properties\AssemblyInfo.cs* in your Web role project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify *Properties\AssemblyInfo.cs* in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example:
-     
+
         [assembly: AssemblyVersion("1.0.0.*")]
-     
+
      Any other strategy to streamline generating a unique string for the life of a deployment will work here.
 2. Republish the cloud service and access the home page.
 3. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your cloud service. For example:  
-   
+
         ...
-   
+
         <link href="http://camservice.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-   
+
         <script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
-   
+
         ...
-   
+
         <script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
-   
+
         <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
-   
+
         ...
 4. In Visual Studio, debug the cloud service in Visual Studio by typing `F5`.,
 5. View the HTML code for the page. You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.  
-   
+
         ...
-   
+
             <link href="/Content/bootstrap.css" rel="stylesheet"/>
         <link href="/Content/site.css" rel="stylesheet"/>
-   
+
             <script src="/Scripts/modernizr-2.6.2.js"></script>
-   
+
         ...
-   
+
             <script src="/Scripts/jquery-1.10.2.js"></script>
-   
+
             <script src="/Scripts/bootstrap.js"></script>
         <script src="/Scripts/respond.js"></script>
-   
+
         ...   
 
 <a name="fallback"></a>
+
 
 ## Fallback mechanism for CDN URLs
 When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap. It's serious enough to lose images on your website due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.
@@ -489,65 +494,65 @@ When your Azure CDN endpoint fails for any reason, you want your Web page to be 
 The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
 
 1. In your Web role project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and make the following highlighted changes to add fallback mechanism to the default bundles:  
-   
+
         public static void RegisterBundles(BundleCollection bundles)
         {
             var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
                 .GetName().Version.ToString();
             var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
             bundles.UseCdn = true;
-   
+
             bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
                         { CdnFallbackExpression = "window.jquery" }
                         .Include("~/Scripts/jquery-{version}.js"));
-   
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval"))
                         { CdnFallbackExpression = "$.validator" }
                         .Include("~/Scripts/jquery.validate*"));
-   
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer"))
                         { CdnFallbackExpression = "window.Modernizr" }
                         .Include("~/Scripts/modernizr-*"));
-   
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap"))     
                         { CdnFallbackExpression = "$.fn.modal" }
                         .Include(
                                   "~/Scripts/bootstrap.js",
                                   "~/Scripts/respond.js"));
-   
+
             bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                         "~/Content/bootstrap.css",
                         "~/Content/site.css"));
         }
-   
+
     When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
-   
+
    * `window.jquery` is defined in jquery-{version}.js
    * `$.validator` is defined in jquery.validate.js
    * `window.Modernizr` is defined in modernizer-{version}.js
    * `$.fn.modal` is defined in bootstrap.js
-     
+
      You might have noticed that I did not set CdnFallbackExpression for the `~/Cointent/css` bundle. This is because currently there is a [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) that injects a `<script>` tag for the fallback CSS instead of the expected `<link>` tag.
-     
+
      There is, however, a good [Style Bundle Fallback](https://github.com/EmberConsultingGroup/StyleBundleFallback) offered by [Ember Consulting Group](https://github.com/EmberConsultingGroup).
 2. To use the workaround for CSS, create a new .cs file in your Web role project's *App_Start* folder called *StyleBundleExtensions.cs*, and replace its content with the [code from GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 3. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your Web role's name (e.g. **WebRole1**).
 4. Go back to `App_Start\BundleConfig.cs` and modify the last `bundles.Add` statement with the following highlighted code:  
-   
+
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
             <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
             .Include(
                   "~/Content/bootstrap.css",
                   "~/Content/site.css"));
-   
+
     This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
 5. Publish the cloud service again and access the home page.
 6. View the HTML code for the page. You should find injected scripts similar to the following:    
-   
+
         ...
-   
+
         <link href="http://az632148.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
         <script>(function() {
                         var loadFallback,
@@ -567,18 +572,18 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
                         }
                         return true;
                     }())||document.write('<script src="/Content/css"><\/script>');</script>
-   
+
             <script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
         <script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-   
+
         ...
-   
+
             <script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
         <script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
-   
+
             <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
         <script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-   
+
         ...
 
     Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:

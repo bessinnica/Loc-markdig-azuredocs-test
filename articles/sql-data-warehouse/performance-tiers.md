@@ -107,13 +107,14 @@ Each query will consume zero, one, or more concurrency slots. System queries and
 
 - A query running with 10 concurrency slots can access 5 times more compute resources than a query running with 2 concurrency slots.
 - If each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
- 
+
 Only resource governed queries consume concurrency slots. The exact number of concurrency slots consumed is determined by the query's [resource class](resource-classes-for-workload-management.md).
 
 ### Optimized for Compute
 The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Compute performance tier.
 
 **Dynamic resource classes**
+
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  8                     |  16                   |  32                    |

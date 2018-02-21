@@ -58,25 +58,25 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-3. In the integrated terminal, enter the following command to install (or update) the **AzureIoTEdgeModule** template in dotnet:
+2. In the integrated terminal, enter the following command to install (or update) the **AzureIoTEdgeModule** template in dotnet:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-2. Create a project for the new module. The following command creates the project folder, **FilterModule**, in the current working folder:
+3. Create a project for the new module. The following command creates the project folder, **FilterModule**, in the current working folder:
 
     ```cmd/sh
     dotnet new aziotedgemodule -n FilterModule
     ```
  
-3. Select  **File** > **Open Folder**.
-4. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
-5. In VS Code explorer, click **Program.cs** to open it.
+4. Select  **File** > **Open Folder**.
+5. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
+6. In VS Code explorer, click **Program.cs** to open it.
 
    ![Open Program.cs][1]
 
-6. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
+7. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
 
     ```csharp
     using System.Collections.Generic;     // for KeyValuePair<>
@@ -84,13 +84,13 @@ The following steps show you how to create an IoT Edge module based on .NET core
     using Newtonsoft.Json;                // for JsonConvert
     ```
 
-6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
+8. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. Add the `MessageBody`, `Machine`, and `Ambient` classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+9. Add the `MessageBody`, `Machine`, and `Ambient` classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
@@ -111,59 +111,59 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
+10. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
 
-    ```csharp
-    // Register callback to be called when a message is received by the module
-    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+     ```csharp
+     // Register callback to be called when a message is received by the module
+     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
-    // Read TemperatureThreshold from Module Twin Desired Properties
-    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-    var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
-        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
-    }
+     // Read TemperatureThreshold from Module Twin Desired Properties
+     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+     var moduleTwinCollection = moduleTwin.Properties.Desired;
+     if (moduleTwinCollection["TemperatureThreshold"] != null)
+     {
+         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+     }
 
-    // Attach callback for Twin desired properties updates
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
+     // Attach callback for Twin desired properties updates
+     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
 
-    // Register callback to be called when a message is received by the module
-    await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
-    ```
+     // Register callback to be called when a message is received by the module
+     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+     ```
 
-9. Add the `onDesiredPropertiesUpdate` method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
+11. Add the `onDesiredPropertiesUpdate` method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
 
-    ```csharp
-    static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
-    {
-        try
-        {
-            Console.WriteLine("Desired property change:");
-            Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+     ```csharp
+     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+     {
+         try
+         {
+             Console.WriteLine("Desired property change:");
+             Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-            if (desiredProperties["TemperatureThreshold"]!=null)
-                temperatureThreshold = desiredProperties["TemperatureThreshold"];
+             if (desiredProperties["TemperatureThreshold"]!=null)
+                 temperatureThreshold = desiredProperties["TemperatureThreshold"];
 
-        }
-        catch (AggregateException ex)
-        {
-            foreach (Exception exception in ex.InnerExceptions)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error when receiving desired property: {0}", exception);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
-        }
-        return Task.CompletedTask;
-    }
-    ```
+         }
+         catch (AggregateException ex)
+         {
+             foreach (Exception exception in ex.InnerExceptions)
+             {
+                 Console.WriteLine();
+                 Console.WriteLine("Error when receiving desired property: {0}", exception);
+             }
+         }
+         catch (Exception ex)
+         {
+             Console.WriteLine();
+             Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
+         }
+         return Task.CompletedTask;
+     }
+     ```
 
-10. Replace the `PipeMessage` method with the `FilterMessages` method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
+12. Replace the `PipeMessage` method with the `FilterMessages` method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -219,9 +219,9 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-11. To build the project, right-click the **FilterModule.csproj** file in the Explorer and click **Build IoT Edge module**. This process compiles the module and exports the binary and its dependencies into a folder that is used to create a Docker image.
+13. To build the project, right-click the **FilterModule.csproj** file in the Explorer and click **Build IoT Edge module**. This process compiles the module and exports the binary and its dependencies into a folder that is used to create a Docker image.
 
-   ![Build IoT Edge module][2]
+    ![Build IoT Edge module][2]
 
 ## Create a Docker image and publish it to your registry
 

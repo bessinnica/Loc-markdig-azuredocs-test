@@ -125,9 +125,9 @@ The `hive.exec.reducers.bytes.per.reducer` parameter specifies the number of byt
 
 A Hive query is executed in one or more stages. If the independent stages can be run in parallel, that will increase query performance.
 
-1.	To enable parallel query execution, navigate to the Hive **Config** tab and search for the `hive.exec.parallel` property. The default value is false. Change the value to true, and then press **Enter** to save the value.
+1.  To enable parallel query execution, navigate to the Hive **Config** tab and search for the `hive.exec.parallel` property. The default value is false. Change the value to true, and then press **Enter** to save the value.
  
-2.	To limit the number of jobs to be run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
+2.  To limit the number of jobs to be run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
 
     ![Hive exec parallel](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Install the Azure CLI 1.0 | Microsoft Docs
 description: Install the Azure CLI 1.0 for Mac, Linux, and Windows to start using Azure services
 editor: ''

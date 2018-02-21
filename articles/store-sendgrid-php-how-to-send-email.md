@@ -52,15 +52,20 @@ You can send email using either SMTP or the Web API provided by
 SendGrid.
 
 ### SMTP API
-To send email using the SendGrid SMTP API, use *Swift Mailer*, a
+To send email using the SendGrid SMTP API, use <em>Swift Mailer</em>, a
 component-based library for sending emails from PHP applications. You
-can download the *Swift Mailer* library from
+can download the 
+<em>Swift Mailer</em> library from
+
 [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 (use [Composer] to install Swift Mailer). Sending email with the library
 involves creating instances of the
 <span class="auto-style2">Swift\_SmtpTransport</span>,
+
 <span class="auto-style2">Swift\_Mailer</span>, and
+
 <span class="auto-style2">Swift\_Message</span> classes, setting the
 appropriate properties, and calling the
+
 <span class="auto-style2">Swift\_Mailer::send</span> method.
 
     <?php

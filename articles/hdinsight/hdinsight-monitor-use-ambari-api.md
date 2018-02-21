@@ -38,13 +38,13 @@ Before you begin this tutorial, you must have the following items:
 
 * **A workstation with Azure PowerShell**.
 * (Optional) [cURL][curl]. To install it, see [cURL Releases and Downloads][curl-download].
-  
+
   > [!NOTE]
   > When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
   > 
   > 
 * **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You need the following data to go through the tutorial:
-  
+
   | Cluster property | Azure PowerShell variable name | Value | Description |
   | --- | --- | --- | --- |
   |   HDInsight cluster name |$clusterName | |The name of your HDInsight cluster. |
@@ -52,7 +52,6 @@ Before you begin this tutorial, you must have the following items:
   |   Cluster password |$clusterPassword | |Cluster user password. |
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
 
 ## Jump-start
 There are several ways to use Ambari to monitor HDInsight clusters.

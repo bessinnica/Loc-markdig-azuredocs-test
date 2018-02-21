@@ -226,9 +226,7 @@ The following NSGs are created and associated to NICs in the following VMs:
 | Allow-Inbound-HTTP-Internet | Allow | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> The source address range for the previous rules is **Internet**, not the virtual IP address of for the load balancer. The source port is *, not 500001. NAT rules for load balancers are not the same as NSG security rules. NSG security rules are always related to the original source and final destination of traffic, **not** the load balancer between the two. 
-> 
-> 
+> The source address range for the previous rules is <strong>Internet</strong>, not the virtual IP address of for the load balancer. The source port is <em>, not 500001. NAT rules for load balancers are not the same as NSG security rules. NSG security rules are always related to the original source and final destination of traffic, **not</em>* the load balancer between the two. 
 
 ### WEB2
 **Inbound rules**
@@ -258,4 +256,4 @@ Since some of the NSGs are associated to individual NICs, the rules are for reso
 * [Deploy NSGs (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [Deploy NSGs (classic)](virtual-networks-create-nsg-classic-ps.md).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md).
-* [Troubleshoot NSGs] (virtual-network-nsg-troubleshoot-portal.md)
+* [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md)

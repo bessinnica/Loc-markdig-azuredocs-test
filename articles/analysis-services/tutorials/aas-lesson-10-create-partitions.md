@@ -94,21 +94,21 @@ In Partition Manager, notice the **Last Processed** column for each of the new p
   
 #### To process the FactInternetSales partitions  
   
-1.  Click **OK** to close Partition Manager.  
+1. Click **OK** to close Partition Manager.  
   
-2.  Click the **FactInternetSales** table, then click the **Model** menu > **Process** > **Process Partitions**.  
+2. Click the **FactInternetSales** table, then click the **Model** menu > **Process** > **Process Partitions**.  
   
-3.  In the Process Partitions dialog box, verify **Mode** is set to **Process Default**.  
+3. In the Process Partitions dialog box, verify **Mode** is set to **Process Default**.  
   
-4.  Select the checkbox in the **Process** column for each of the five partitions you created, and then click **OK**.  
+4. Select the checkbox in the **Process** column for each of the five partitions you created, and then click **OK**.  
 
-    ![aas-lesson10-process-partitions](../tutorials/media/aas-lesson10-process-partitions.png)
+   ![aas-lesson10-process-partitions](../tutorials/media/aas-lesson10-process-partitions.png)
   
-    If you're prompted for Impersonation credentials, enter the Windows user name and password you specified in Lesson 2.  
+   If you're prompted for Impersonation credentials, enter the Windows user name and password you specified in Lesson 2.  
   
-    The **Data Processing** dialog box appears and displays process details for each partition. Notice that a different number of rows for each partition are transferred. Each partition includes only those rows for the year specified in the WHERE clause in the SQL Statement. When processing is finished, go ahead and close the Data Processing dialog box.  
+   The **Data Processing** dialog box appears and displays process details for each partition. Notice that a different number of rows for each partition are transferred. Each partition includes only those rows for the year specified in the WHERE clause in the SQL Statement. When processing is finished, go ahead and close the Data Processing dialog box.  
   
-    ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
+   ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## What's next?
-Go to the next lesson: [Lesson 11: Create Roles](../tutorials/aas-lesson-11-create-roles.md). 
+   ## What's next?
+   Go to the next lesson: [Lesson 11: Create Roles](../tutorials/aas-lesson-11-create-roles.md). 

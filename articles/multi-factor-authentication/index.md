@@ -5,7 +5,7 @@ services: multi-factor-authentication
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: multi-factor-authentication
 ms.tgt_pltfrm: na
 ms.devlang: na

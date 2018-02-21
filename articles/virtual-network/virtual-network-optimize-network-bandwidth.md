@@ -28,24 +28,24 @@ If your Windows VM supports [Accelerated Networking](create-vm-accelerated-netwo
 
 1. See if RSS is enabled for a network adapter with the `Get-NetAdapterRss` PowerShell command. In the following example output returned from the `Get-NetAdapterRss`, RSS is not enabled.
 
-	```powershell
-	Name					: Ethernet
-	InterfaceDescription	: Microsoft Hyper-V Network Adapter
-	Enabled				 	: False
-	```
+    ```powershell
+    Name                    : Ethernet
+    InterfaceDescription    : Microsoft Hyper-V Network Adapter
+    Enabled                 : False
+    ```
 2. To enable RSS, enter the following command:
 
-	```powershell
-	Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
-	```
-	The previous command does not have an output. The command changed NIC settings, causing temporary connectivity loss for about one minute. A Reconnecting dialog box appears during the connectivity loss. Connectivity is typically restored after the third attempt.
+    ```powershell
+    Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
+    ```
+    The previous command does not have an output. The command changed NIC settings, causing temporary connectivity loss for about one minute. A Reconnecting dialog box appears during the connectivity loss. Connectivity is typically restored after the third attempt.
 3. Confirm that RSS is enabled in the VM by entering the `Get-NetAdapterRss` command again. If successful, the following example output is returned:
 
-	```powershell
-	Name					: Ethernet
-	InterfaceDescription	: Microsoft Hyper-V Network Adapter
-	Enabled					 : True
-	```
+    ```powershell
+    Name                    : Ethernet
+    InterfaceDescription    : Microsoft Hyper-V Network Adapter
+    Enabled                  : True
+    ```
 
 ## Linux VM
 
@@ -153,5 +153,5 @@ Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing t
 
 ## Next steps
 * See the optimized result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
-* Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
+* Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md)
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

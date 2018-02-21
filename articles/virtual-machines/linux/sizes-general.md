@@ -26,7 +26,6 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-
 ## Other sizes
 - [Compute optimized](../windows/sizes-compute.md)
 - [Memory optimized](sizes-memory.md)

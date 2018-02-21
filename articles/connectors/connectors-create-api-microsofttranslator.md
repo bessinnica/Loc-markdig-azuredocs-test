@@ -29,8 +29,6 @@ You can get started by creating a logic app now, see [Create a logic app](../log
 
 ## Create a connection to Microsoft Translator
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
-> 
-> 
 
 ## Connector-specific details
 

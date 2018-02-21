@@ -28,7 +28,7 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 >
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### Azure PowerShell
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -43,222 +43,222 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 
 ```json
 {
-	"contentVersion": "1.0.0.0",
-	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"parameters": {
-		"dataFactoryName": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of the data factory. Must be globally unique."
-			}
-		},
-		"dataFactoryLocation": {
-			"type": "string",
-			"allowedValues": [
-				"East US",
-				"East US 2",
-				"West Europe"
-			],
-			"defaultValue": "East US",
-			"metadata": {
-				"description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
-			}
-		},
-		"storageAccountName": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of the Azure storage account that contains the input/output data."
-			}
-		},
-		"storageAccountKey": {
-			"type": "securestring",
-			"metadata": {
-				"description": "Key for the Azure storage account."
-			}
-		},
-		"blobContainer": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of the blob container in the Azure Storage account."
-			}
-		},
-		"inputBlobFolder": {
-			"type": "string",
-			"metadata": {
-				"description": "The folder in the blob container that has the input file."
-			}
-		},
-		"inputBlobName": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of the input file/blob."
-			}
-		},
-		"outputBlobFolder": {
-			"type": "string",
-			"metadata": {
-				"description": "The folder in the blob container that will hold the transformed data."
-			}
-		},
-		"outputBlobName": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of the output file/blob."
-			}
-		},
-		"triggerStartTime": {
-			"type": "string",
-			"metadata": {
-				"description": "Start time for the trigger."
-			}
-		},
-		"triggerEndTime": {
-			"type": "string",
-			"metadata": {
-				"description": "End time for the trigger."
-			}
-		}
-	},
-	"variables": {
-		"azureStorageLinkedServiceName": "ArmtemplateStorageLinkedService",
-		"inputDatasetName": "ArmtemplateTestDatasetIn",
-		"outputDatasetName": "ArmtemplateTestDatasetOut",
-		"pipelineName": "ArmtemplateSampleCopyPipeline",
-		"triggerName": "ArmTemplateTestTrigger"
-	},
-	"resources": [{
-		"name": "[parameters('dataFactoryName')]",
-		"apiVersion": "2017-09-01-preview",
-		"type": "Microsoft.DataFactory/factories",
-		"location": "[parameters('dataFactoryLocation')]",
-		"properties": {
-			"loggingStorageAccountName": "[parameters('storageAccountName')]",
-			"loggingStorageAccountKey": "[parameters('storageAccountKey')]"
-		},
-		"resources": [{
-				"type": "linkedservices",
-				"name": "[variables('azureStorageLinkedServiceName')]",
-				"dependsOn": [
-					"[parameters('dataFactoryName')]"
-				],
-				"apiVersion": "2017-09-01-preview",
-				"properties": {
-					"type": "AzureStorage",
-					"description": "Azure Storage linked service",
-					"typeProperties": {
-						"connectionString": {
-							"value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]",
-							"type": "SecureString"
-						}
-					}
-				}
-			},
-			{
-				"type": "datasets",
-				"name": "[variables('inputDatasetName')]",
-				"dependsOn": [
-					"[parameters('dataFactoryName')]",
-					"[variables('azureStorageLinkedServiceName')]"
-				],
-				"apiVersion": "2017-09-01-preview",
-				"properties": {
-					"type": "AzureBlob",
-					"typeProperties": {
-						"folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
-						"fileName": "[parameters('inputBlobName')]"
-					},
-					"linkedServiceName": {
-						"referenceName": "[variables('azureStorageLinkedServiceName')]",
-						"type": "LinkedServiceReference"
-					}
-				}
-			},
-			{
-				"type": "datasets",
-				"name": "[variables('outputDatasetName')]",
-				"dependsOn": [
-					"[parameters('dataFactoryName')]",
-					"[variables('azureStorageLinkedServiceName')]"
-				],
-				"apiVersion": "2017-09-01-preview",
-				"properties": {
-					"type": "AzureBlob",
-					"typeProperties": {
-						"folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
-						"fileName": "[parameters('outputBlobName')]"
-					},
-					"linkedServiceName": {
-						"referenceName": "[variables('azureStorageLinkedServiceName')]",
-						"type": "LinkedServiceReference"
-					}
-				}
-			},
-			{
-				"type": "pipelines",
-				"name": "[variables('pipelineName')]",
-				"dependsOn": [
-					"[parameters('dataFactoryName')]",
-					"[variables('azureStorageLinkedServiceName')]",
-					"[variables('inputDatasetName')]",
-					"[variables('outputDatasetName')]"
-				],
-				"apiVersion": "2017-09-01-preview",
-				"properties": {
-					"activities": [{
-						"type": "Copy",
-						"typeProperties": {
-							"source": {
-								"type": "BlobSource"
-							},
-							"sink": {
-								"type": "BlobSink"
-							}
-						},
-						"name": "MyCopyActivity",
-						"inputs": [{
-							"referenceName": "[variables('inputDatasetName')]",
-							"type": "DatasetReference"
-						}],
-						"outputs": [{
-							"referenceName": "[variables('outputDatasetName')]",
-							"type": "DatasetReference"
-						}]
-					}]
-				}
-			},
-			{
-				"type": "triggers",
-				"name": "[variables('triggerName')]",
-				"dependsOn": [
-					"[parameters('dataFactoryName')]",
-					"[variables('azureStorageLinkedServiceName')]",
-					"[variables('inputDatasetName')]",
-					"[variables('outputDatasetName')]",
-					"[variables('pipelineName')]"
-				],
-				"apiVersion": "2017-09-01-preview",
-				"properties": {
-					"type": "ScheduleTrigger",
-					"typeProperties": {
-						"recurrence": {
-							"frequency": "Hour",
-							"interval": 1,
-							"startTime": "[parameters('triggerStartTime')]",
-							"endTime": "[parameters('triggerEndTime')]",
-							"timeZone": "UTC"
-						}
-					},
-					"pipelines": [{
-						"pipelineReference": {
-							"type": "PipelineReference",
-							"referenceName": "ArmtemplateSampleCopyPipeline"
-						},
-						"parameters": {}
-					}]
-				}
-			}
-		]
-	}]
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the data factory. Must be globally unique."
+            }
+        },
+        "dataFactoryLocation": {
+            "type": "string",
+            "allowedValues": [
+                "East US",
+                "East US 2",
+                "West Europe"
+            ],
+            "defaultValue": "East US",
+            "metadata": {
+                "description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
+            }
+        },
+        "storageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Azure storage account that contains the input/output data."
+            }
+        },
+        "storageAccountKey": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Key for the Azure storage account."
+            }
+        },
+        "blobContainer": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the blob container in the Azure Storage account."
+            }
+        },
+        "inputBlobFolder": {
+            "type": "string",
+            "metadata": {
+                "description": "The folder in the blob container that has the input file."
+            }
+        },
+        "inputBlobName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the input file/blob."
+            }
+        },
+        "outputBlobFolder": {
+            "type": "string",
+            "metadata": {
+                "description": "The folder in the blob container that will hold the transformed data."
+            }
+        },
+        "outputBlobName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the output file/blob."
+            }
+        },
+        "triggerStartTime": {
+            "type": "string",
+            "metadata": {
+                "description": "Start time for the trigger."
+            }
+        },
+        "triggerEndTime": {
+            "type": "string",
+            "metadata": {
+                "description": "End time for the trigger."
+            }
+        }
+    },
+    "variables": {
+        "azureStorageLinkedServiceName": "ArmtemplateStorageLinkedService",
+        "inputDatasetName": "ArmtemplateTestDatasetIn",
+        "outputDatasetName": "ArmtemplateTestDatasetOut",
+        "pipelineName": "ArmtemplateSampleCopyPipeline",
+        "triggerName": "ArmTemplateTestTrigger"
+    },
+    "resources": [{
+        "name": "[parameters('dataFactoryName')]",
+        "apiVersion": "2017-09-01-preview",
+        "type": "Microsoft.DataFactory/factories",
+        "location": "[parameters('dataFactoryLocation')]",
+        "properties": {
+            "loggingStorageAccountName": "[parameters('storageAccountName')]",
+            "loggingStorageAccountKey": "[parameters('storageAccountKey')]"
+        },
+        "resources": [{
+                "type": "linkedservices",
+                "name": "[variables('azureStorageLinkedServiceName')]",
+                "dependsOn": [
+                    "[parameters('dataFactoryName')]"
+                ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "AzureStorage",
+                    "description": "Azure Storage linked service",
+                    "typeProperties": {
+                        "connectionString": {
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]",
+                            "type": "SecureString"
+                        }
+                    }
+                }
+            },
+            {
+                "type": "datasets",
+                "name": "[variables('inputDatasetName')]",
+                "dependsOn": [
+                    "[parameters('dataFactoryName')]",
+                    "[variables('azureStorageLinkedServiceName')]"
+                ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "AzureBlob",
+                    "typeProperties": {
+                        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
+                        "fileName": "[parameters('inputBlobName')]"
+                    },
+                    "linkedServiceName": {
+                        "referenceName": "[variables('azureStorageLinkedServiceName')]",
+                        "type": "LinkedServiceReference"
+                    }
+                }
+            },
+            {
+                "type": "datasets",
+                "name": "[variables('outputDatasetName')]",
+                "dependsOn": [
+                    "[parameters('dataFactoryName')]",
+                    "[variables('azureStorageLinkedServiceName')]"
+                ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "AzureBlob",
+                    "typeProperties": {
+                        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
+                        "fileName": "[parameters('outputBlobName')]"
+                    },
+                    "linkedServiceName": {
+                        "referenceName": "[variables('azureStorageLinkedServiceName')]",
+                        "type": "LinkedServiceReference"
+                    }
+                }
+            },
+            {
+                "type": "pipelines",
+                "name": "[variables('pipelineName')]",
+                "dependsOn": [
+                    "[parameters('dataFactoryName')]",
+                    "[variables('azureStorageLinkedServiceName')]",
+                    "[variables('inputDatasetName')]",
+                    "[variables('outputDatasetName')]"
+                ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "activities": [{
+                        "type": "Copy",
+                        "typeProperties": {
+                            "source": {
+                                "type": "BlobSource"
+                            },
+                            "sink": {
+                                "type": "BlobSink"
+                            }
+                        },
+                        "name": "MyCopyActivity",
+                        "inputs": [{
+                            "referenceName": "[variables('inputDatasetName')]",
+                            "type": "DatasetReference"
+                        }],
+                        "outputs": [{
+                            "referenceName": "[variables('outputDatasetName')]",
+                            "type": "DatasetReference"
+                        }]
+                    }]
+                }
+            },
+            {
+                "type": "triggers",
+                "name": "[variables('triggerName')]",
+                "dependsOn": [
+                    "[parameters('dataFactoryName')]",
+                    "[variables('azureStorageLinkedServiceName')]",
+                    "[variables('inputDatasetName')]",
+                    "[variables('outputDatasetName')]",
+                    "[variables('pipelineName')]"
+                ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "ScheduleTrigger",
+                    "typeProperties": {
+                        "recurrence": {
+                            "frequency": "Hour",
+                            "interval": 1,
+                            "startTime": "[parameters('triggerStartTime')]",
+                            "endTime": "[parameters('triggerEndTime')]",
+                            "timeZone": "UTC"
+                        }
+                    },
+                    "pipelines": [{
+                        "pipelineReference": {
+                            "type": "PipelineReference",
+                            "referenceName": "ArmtemplateSampleCopyPipeline"
+                        },
+                        "parameters": {}
+                    }]
+                }
+            }
+        ]
+    }]
 }
 ```
 
@@ -392,16 +392,16 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
     RuntimeState      : Stopped
     ```
-    
+
     Notice that the runtime state of the trigger is **Stopped**. 
 5. **Start the trigger**. The trigger runs the pipeline defined in the template at the hour. That's, if you executed this command at 2:25 PM, the trigger runs the pipeline at 3 PM for the first time. Then, it runs the pipeline hourly until the  end time you specified for the trigger. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
-    
+
     Here is the sample output: 
-    
+
     ```
     Confirm
     Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
@@ -413,9 +413,9 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
-    
+
     Here is the sample output:
-    
+
     ```
     TriggerName       : ArmTemplateTestTrigger
     ResourceGroupName : ADFTutorialResourceGroup
@@ -450,12 +450,12 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 
     ![Output window](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
 7. Stop the trigger once you see a successful/failure run. The trigger runs the pipeline once an hour. The pipeline copies the same file from the input folder to the output folder for each run. To stop the trigger, run the following command in the PowerShell window. 
-    
+
     ```powershell
     Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## JSON definitions for entities
 The following Data Factory entities are defined in the JSON template: 
@@ -516,7 +516,6 @@ The Azure storage linked service specifies the connection string that Data Facto
     }
     }
 },
-
 ```
 
 #### Azure blob output dataset
@@ -613,7 +612,7 @@ You define a trigger that runs the pipeline once an hour. The deployed trigger i
                 "interval": 1,
                 "startTime": "2017-11-28T00:00:00",
                 "endTime": "2017-11-29T00:00:00",
-                "timeZone": "UTC"				
+                "timeZone": "UTC"               
             }
         },
         "pipelines": [{

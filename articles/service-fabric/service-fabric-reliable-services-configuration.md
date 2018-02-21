@@ -24,6 +24,7 @@ There are two sets of configuration settings for reliable services. One set is g
 The global reliable service configuration is specified in the cluster manifest for the cluster under the KtlLogger section. It allows configuration of the shared log location and size plus the global memory limits used by the logger. The cluster manifest is a single XML file that holds settings and configurations that apply to all nodes and services in the cluster. The file is typically called ClusterManifest.xml. You can see the cluster manifest for your cluster using the Get-ServiceFabricClusterManifest powershell command.
 
 ### Configuration names
+
 | Name | Unit | Default value | Remarks |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Minimum number of KB to allocate in kernel mode for the logger write buffer memory pool. This memory pool is used for caching state information before writing to disk. |
@@ -32,7 +33,7 @@ The global reliable service configuration is specified in the cluster manifest f
 | SharedLogPath |Fully qualified path name |"" |Specifies the fully qualified path where the shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogPath in their service specific configuration. However, if SharedLogPath is specified, then SharedLogId must also be specified. |
 | SharedLogSizeInMB |Megabytes |8192 |Specifies the number of MB of disk space to statically allocate for the shared log. The value must be 2048 or larger. |
 
-In Azure ARM or on-premises JSON template, the example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
+In Azure ARM or on-premises JSON template, the example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -100,6 +101,7 @@ ReplicatorConfig
 > 
 
 ### Configuration names
+
 | Name | Unit | Default value | Remarks |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Seconds |0.015 |Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response. |

@@ -281,31 +281,31 @@ For example, if your application uses 1 GB of total working set, you should ensu
 Follow these steps to configure your Cloud Service role with a dedicated local resource for snapshots.
 
 1. Add a new local resource to your Cloud Service by editing the Cloud Service definition (.csdf) file. The following example defines a resource called `SnapshotStore` with a size of 5 GB.
-```xml
+   ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
    </LocalResources>
-```
+   ```
 
 2. Modify your role's `OnStart` method to add an environment variable that points to the `SnapshotStore` local resource.
-```csharp
+   ```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
        return base.OnStart();
    }
-```
+   ```
 
 3. Update your role's ApplicationInsights.config file to override the temporary folder location used by `SnapshotCollector`
-```xml
-  <TelemetryProcessors>
+   ```xml
+   <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
       <!-- Use the SnapshotStore local resource for snapshots -->
       <TempFolder>%SNAPSHOTSTORE%</TempFolder>
       <!-- Other SnapshotCollector configuration options -->
     </Add>
-  </TelemetryProcessors>
-```
+   </TelemetryProcessors>
+   ```
 
 ### Use Application Insights search to find exceptions with snapshots
 

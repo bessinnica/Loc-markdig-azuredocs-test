@@ -179,10 +179,10 @@ For more information, review the connectivity prerequisites in the [Prerequisite
 
 To resolve connectivity problems or other transient problems with the service, restart the Azure AD Connect Sync service:
 
-   1. As an administrator, select **Start** on the server running Azure AD Connect.
-   2. Enter **services.msc** in the search field and select **Enter**.
-   3. Look for the **Microsoft Azure AD Sync** entry.
-   4. Right-click the service entry, select **Restart**, and then wait for the operation to finish.
+1. As an administrator, select **Start** on the server running Azure AD Connect.
+2. Enter **services.msc** in the search field and select **Enter**.
+3. Look for the **Microsoft Azure AD Sync** entry.
+4. Right-click the service entry, select **Restart**, and then wait for the operation to finish.
 
    ![Restart the Azure AD Sync service][Service restart]
 
@@ -228,36 +228,36 @@ If installing the latest version of the Azure AD Connect server does not resolve
 
 Azure AD Connect requires Active Directory **Reset password** permission to perform password writeback. To find out if Azure AD Connect has the required permission for a given on-premises Active Directory user account, you can use the Windows Effective Permission feature:
 
-   1. Sign in to the Azure AD Connect server and start the **Synchronization Service Manager** by selecting **Start** > **Synchronization Service**.
-   2. Under the **Connectors** tab, select the on-premises **Active Directory Domain Services** connector, and then select **Properties**.  
+1. Sign in to the Azure AD Connect server and start the **Synchronization Service Manager** by selecting **Start** > **Synchronization Service**.
+2. Under the **Connectors** tab, select the on-premises **Active Directory Domain Services** connector, and then select **Properties**.  
 
    ![Effective permission - step 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
-  
-   3. In the pop-up window, select **Connect to Active Directory Forest** and make note of the **User name** property. This property is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform password writeback, the AD DS account must have reset password permission.  
-   
+
+3. In the pop-up window, select **Connect to Active Directory Forest** and make note of the **User name** property. This property is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform password writeback, the AD DS account must have reset password permission.  
+
    ![Effective permission - step 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
-  
-   4. Sign in to an on-premises domain controller and start the **Active Directory Users and Computers** application.
-   5. Select **View** and make sure the **Advanced Features** option is enabled.  
-   
+
+4. Sign in to an on-premises domain controller and start the **Active Directory Users and Computers** application.
+5. Select **View** and make sure the **Advanced Features** option is enabled.  
+
    ![Effective permission - step 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
-  
-   6. Look for the Active Directory user account you want to verify. Right-click the account name and select **Properties**.  
-   
+
+6. Look for the Active Directory user account you want to verify. Right-click the account name and select **Properties**.  
+
    ![Effective permission - step 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. In the pop-up window, go to the **Security** tab and select **Advanced**.  
-   
+7. In the pop-up window, go to the **Security** tab and select **Advanced**.  
+
    ![Effective permission - step 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
-   8. In the **Advanced Security Settings for Administrator** pop-up window, go to the **Effective Access** tab.
-   9. Select **Select a user**, select the AD DS account used by Azure AD Connect (see step 3), and then select **View effective access**.  
-   
+
+8. In the **Advanced Security Settings for Administrator** pop-up window, go to the **Effective Access** tab.
+9. Select **Select a user**, select the AD DS account used by Azure AD Connect (see step 3), and then select **View effective access**.  
+
    ![Effective permission - step 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
-  
-   10. Scroll down and look for **Reset password**. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
-   
-   ![Effective permission - step 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+10. Scroll down and look for **Reset password**. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
+
+    ![Effective permission - step 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## Azure AD forums
 
@@ -272,11 +272,12 @@ To properly assist you, we ask that you provide as much detail as possible when 
 * **General description of the error**: What is the error? What was the behavior that was noticed? How can we reproduce the error? Provide as much detail as possible.
 * **Page**: What page were you on when you noticed the error? Include the URL if you're able to and a screenshot of the page.
 * **Support code**: What was the support code that was generated when the user saw the error?
-    * To find this code, reproduce the error, then select the **Support code** link at the bottom of the screen and send the support engineer the GUID that results.
+  * To find this code, reproduce the error, then select the **Support code** link at the bottom of the screen and send the support engineer the GUID that results.
 
     ![Find the support code at the bottom of the screen][Support code]
 
-    * If you're on a page without a support code at the bottom, select F12 and search for the SID and CID and send those two results to the support engineer.
+  * If you're on a page without a support code at the bottom, select F12 and search for the SID and CID and send those two results to the support engineer.
+
 * **Date, time, and time zone**: Include the precise date and time *with the time zone* that the error occurred.
 * **User ID**: Who was the user who saw the error? An example is *user@contoso.com*.
     * Is this a federated user?

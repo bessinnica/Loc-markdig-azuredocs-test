@@ -45,6 +45,7 @@ To complete this tutorial:
 
 <a name="requirements"></a>
 
+
 ### Requirements for your SSL certificate
 
 To use a certificate in App Service, the certificate must meet all the following requirements:
@@ -98,6 +99,7 @@ When you see the following notification, the scale operation is complete.
 ![Scale up notification](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
 
 <a name="upload"></a>
+
 
 ## Bind your SSL certificate
 
@@ -195,6 +197,7 @@ Your web app's **Custom domain** page is updated with the new, dedicated IP addr
 
 <a name="test"></a>
 
+
 ## Test HTTPS
 
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
@@ -208,6 +211,7 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 > If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file.
 
 <a name="bkmk_enforce"></a>
+
 
 ## Enforce HTTPS
 

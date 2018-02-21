@@ -48,31 +48,31 @@ There are additional choices you can make here to customize the claim.  For a fu
 * `<UserHelpText>` helps the user understand what is required
 
 * `<UserInputType>` has the following four options highlighted below:
-    * `TextBox`
-```xml
-<ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Your city</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
-```
+  * `TextBox`
+    ```xml
+    <ClaimType Id="city">
+    <DisplayName>city where you work</DisplayName>
+    <DataType>string</DataType>
+    <UserHelpText>Your city</UserHelpText>
+    <UserInputType>TextBox</UserInputType>
+    </ClaimType>
+    ```
 
-    * `RadioSingleSelectduration` - Enforces a single selection.
-```xml
-<ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>RadioSingleSelect</UserInputType>
-  <Restriction>
+  * `RadioSingleSelectduration` - Enforces a single selection.
+    ```xml
+    <ClaimType Id="city">
+    <DisplayName>city where you work</DisplayName>
+    <DataType>string</DataType>
+    <UserInputType>RadioSingleSelect</UserInputType>
+    <Restriction>
     <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
     <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
     <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
-```
+    </Restriction>
+    </ClaimType>
+    ```
 
-    * `DropdownSingleSelect` - Allows the selection of only valid value.
+  * `DropdownSingleSelect` - Allows the selection of only valid value.
 
 ![Screen shot of dropdown option](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -114,8 +114,8 @@ Allows for the selection of one or more values.
 
 1. Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the TechnicalProfile `LocalAccountSignUpWithLogonEmail` (found in the TrustFrameworkBase policy file).  Note this TechnicalProfile uses the SelfAssertedAttributeProvider.
 
-  ```xml
-  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+   ```xml
+   <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
     <DisplayName>Email signup</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Metadata>
@@ -146,14 +146,14 @@ Allows for the selection of one or more values.
       <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
     </ValidationTechnicalProfiles>
     <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
+   </TechnicalProfile>
+   ```
 
 2. Add the claim to the AAD-UserWriteUsingLogonEmail as a `<PersistedClaim ClaimTypeReferenceId="city" />` to write the claim to the AAD directory after collecting it from the user. You may skip this step if you prefer not to persist the claim in the directory for future use.
 
-  ```xml
-  <!-- Technical profiles for local accounts -->
-  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+   ```xml
+   <!-- Technical profiles for local accounts -->
+   <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
     <Metadata>
       <Item Key="Operation">Write</Item>
       <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
@@ -182,13 +182,13 @@ Allows for the selection of one or more values.
     </OutputClaims>
     <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
+   </TechnicalProfile>
+   ```
 
 3. Add the claim to the TechnicalProfile that reads from the directory when a user logs in as an `<OutputClaim ClaimTypeReferenceId="city" />`
 
-  ```xml
-  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+   ```xml
+   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
     <Metadata>
       <Item Key="Operation">Read</Item>
       <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
@@ -210,13 +210,13 @@ Allows for the selection of one or more values.
       <OutputClaim ClaimTypeReferenceId="city" />
     </OutputClaims>
     <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-  </TechnicalProfile>
-  ```
+   </TechnicalProfile>
+   ```
 
 4. Add the `<OutputClaim ClaimTypeReferenceId="city" />` to the RP policy file SignUporSignIn.xml so this claim is sent to the application in the token after a successful user journey.
 
-  ```xml
-  <RelyingParty>
+   ```xml
+   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
@@ -232,8 +232,8 @@ Allows for the selection of one or more values.
       </OutputClaims>
       <SubjectNamingInfo ClaimType="sub" />
     </TechnicalProfile>
-  </RelyingParty>
-  ```
+   </RelyingParty>
+   ```
 
 ## Test the custom policy using "Run Now"
 

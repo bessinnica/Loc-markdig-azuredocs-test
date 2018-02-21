@@ -93,7 +93,6 @@ report = powerbi.get(reportContainer);
 
 // Switch to view mode.
 report.switchMode("view");
-
 ```
 
 ## Edit mode
@@ -109,7 +108,6 @@ report = powerbi.get(reportContainer);
 
 // Switch to edit mode.
 report.switchMode("edit");
-
 ```
 
 ## See also

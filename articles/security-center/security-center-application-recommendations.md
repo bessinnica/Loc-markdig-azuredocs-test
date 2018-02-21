@@ -23,6 +23,7 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 This article addresses recommendations that apply to applications.  Application recommendations center around deployment of a web application firewall.  Use the table below as a reference to help you understand the available application recommendations and what each one does if you apply it.
 
 ## Available application recommendations
+
 | Recommendation | Description |
 | --- | --- |
 | [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommends that you deploy a web application firewall (WAF) for web endpoints. A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).</br></br>Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).</br></br>You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. |

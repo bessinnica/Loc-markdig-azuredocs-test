@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Bing Entity Search API with PHP 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with PHP.
+
+This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with PHP.
 
 ## Prerequisites
 
@@ -53,21 +54,21 @@ $query = "italian restaurants near me";
 
 function search ($host, $path, $key, $mkt, $query) {
 
-	$params = '?mkt=' . $mkt . '&q=' . urlencode ($query);
+    $params = '?mkt=' . $mkt . '&q=' . urlencode ($query);
 
-	$headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
 
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'GET'
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path . $params, false, $context);
-	return $result;
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // http://php.net/manual/en/function.stream-context-create.php
+    $options = array (
+        'http' => array (
+            'header' => $headers,
+            'method' => 'GET'
+        )
+    );
+    $context  = stream_context_create ($options);
+    $result = file_get_contents ($host . $path . $params, false, $context);
+    return $result;
 }
 
 $result = search ($host, $path, $subscriptionKey, $mkt, $query);

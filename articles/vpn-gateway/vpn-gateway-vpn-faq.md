@@ -68,13 +68,13 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
 ### Can I update my Policy-based VPN gateway to Route-based?
-No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
+No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
 1. Delete any connections associated with the gateway to be deleted.
 2. Delete the gateway:
-* [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-* [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-3. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+3. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+4. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+5. [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+6. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -211,7 +211,6 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
 ## <a name="bgp"></a>BGP
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
@@ -231,7 +230,6 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 ### How do I troubleshoot an RDP connection to a VM
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="faq"></a>Virtual Network FAQ
 

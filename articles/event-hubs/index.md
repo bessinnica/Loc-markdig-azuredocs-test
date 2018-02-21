@@ -5,7 +5,7 @@ services: event-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -95,6 +95,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
 
 ---
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -145,3 +146,4 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
         </div>
     </li>
 </ul>
+

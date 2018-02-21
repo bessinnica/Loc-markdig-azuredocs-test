@@ -66,6 +66,7 @@ To enable secure LDAP, perform the following configuration steps:
 
 <br>
 
+
 ## Task 4 - configure DNS to access the managed domain from the internet
 > [!NOTE]
 > **Optional task** - If you do not plan to access the managed domain using LDAPS over the internet, skip this configuration task.
@@ -105,6 +106,7 @@ The following table illustrates a sample NSG you can configure, to lock down sec
 **More information** - [Network security groups](../virtual-network/virtual-networks-nsg.md).
 
 <br>
+
 
 
 ## Troubleshooting

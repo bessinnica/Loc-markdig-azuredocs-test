@@ -25,18 +25,18 @@ You may receive a specific error message when protecting your VMware virtual mac
 Most of the initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure.
 For most cases, you can troubleshoot these issues by following the steps listed below.
 
-###Check the following on SOURCE MACHINE
+### Check the following on SOURCE MACHINE
 * From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
 
-	`telnet <PS IP address> <port>`
-> [!NOTE]
-	> Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
+    `telnet <PS IP address> <port>`
+  > [!NOTE]
+    > Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
 
 If unable to connect, allow inbound port 9443 on the Process Server and check if the problem still exits. There has been some cases where process server was behind DMZ, which was causing this problem.
 
 * Check the status of service `InMage Scout VX Agent – Sentinel/OutpostStart` if it is not running and check if the problem still exists.   
 
-###Check the following on PROCESS SERVER
+### Check the following on PROCESS SERVER
 
 * **Check if process server is actively pushing data to Azure**
 
@@ -99,7 +99,7 @@ URLs for **Azure Government Cloud**:
 * **Check if Proxy Settings on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
 To check what you have provided at the time of Configuration Server setup. Go to registry key
 
-	`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
+    `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
 
 Now ensure that the same settings are being used by Azure Site Recovery agent to send data.
 Search Microsoft Azure  Backup
@@ -112,5 +112,5 @@ Open it and click on Action > Change Properties. Under Proxy Configuration tab, 
 
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
 
-##Next steps
+## Next steps
 If you need more help, then post your query to [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community and one of our engineers will be able to assist you.

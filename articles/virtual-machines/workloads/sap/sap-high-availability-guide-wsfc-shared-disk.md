@@ -181,7 +181,6 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 > ![Windows][Logo_Windows] Windows
->
 
 # Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure
 
@@ -222,10 +221,10 @@ An SAP ASCS/SCS instance has the following components:
 
 
 * SAP global host files:
-    * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
-    * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
+  * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
 
-     \\\\<ASCS/SCS virtual host name>\sapmnt\\&lt;SID&gt;\SYS\...
+    \\\\<ASCS/SCS virtual host name>\sapmnt\\&lt;SID&gt;\SYS\...
 
 
 ![Figure 2: Processes, file structure, and global host sapmnt file share of an SAP ASCS/SCS instance][sap-ha-guide-figure-8001]

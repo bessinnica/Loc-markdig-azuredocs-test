@@ -144,7 +144,6 @@ WITH
 ,   REJECT_VALUE = 0
 )
 ;
-
 ```
 
 ## External Table Considerations
@@ -182,7 +181,6 @@ To optimize query performance and columnstore compression after a load, rebuild 
 ```sql
 
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
-
 ```
 
 For more information on maintaining columnstore indexes, see the [manage columnstore indexes][manage columnstore indexes] article.

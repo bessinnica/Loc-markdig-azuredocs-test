@@ -46,92 +46,92 @@ import java.util.Properties;
 
 public class CreateTableInsertRows {
 
-	public static void main (String[] args)  throws Exception
-	{
+    public static void main (String[] args)  throws Exception
+    {
 
-		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
-		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
-		String password = "<server_admin_password>";
+        // Initialize connection variables.
+        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String database = "mypgsqldb";
+        String user = "mylogin@mypgserver-20170401";
+        String password = "<server_admin_password>";
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.postgresql.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
-		}
+        // check that the driver is installed
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
+        }
 
-		System.out.println("PostgreSQL JDBC driver detected in library path.");
+        System.out.println("PostgreSQL JDBC driver detected in library path.");
 
-		Connection connection = null;
+        Connection connection = null;
 
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:postgresql://%s/%s", host, database);
-			
-			// set up the connection properties
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("ssl", "true");
+        // Initialize connection object
+        try
+        {
+            String url = String.format("jdbc:postgresql://%s/%s", host, database);
 
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database.", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-				// Drop previous table of same name if one exists.
-				Statement statement = connection.createStatement();
-				statement.execute("DROP TABLE IF EXISTS inventory;");
-				System.out.println("Finished dropping table (if existed).");
-	
-				// Create table.
-				statement.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
-				System.out.println("Created table.");
-	
-				// Insert some data into table.
-				int nRowsInserted = 0;
-				PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, quantity) VALUES (?, ?);");
-				preparedStatement.setString(1, "banana");
-				preparedStatement.setInt(2, 150);
-				nRowsInserted += preparedStatement.executeUpdate();
+            // set up the connection properties
+            Properties properties = new Properties();
+            properties.setProperty("user", user);
+            properties.setProperty("password", password);
+            properties.setProperty("ssl", "true");
 
-				preparedStatement.setString(1, "orange");
-				preparedStatement.setInt(2, 154);
-				nRowsInserted += preparedStatement.executeUpdate();
+            // get connection
+            connection = DriverManager.getConnection(url, properties);
+        }
+        catch (SQLException e)
+        {
+            throw new SQLException("Failed to create connection to database.", e);
+        }
+        if (connection != null) 
+        { 
+            System.out.println("Successfully created connection to database.");
 
-				preparedStatement.setString(1, "apple");
-				preparedStatement.setInt(2, 100);
-				nRowsInserted += preparedStatement.executeUpdate();
-				System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
-	
-				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-	
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement.", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");
-		}
-		System.out.println("Execution finished.");
-	}
+            // Perform some SQL queries over the connection.
+            try
+            {
+                // Drop previous table of same name if one exists.
+                Statement statement = connection.createStatement();
+                statement.execute("DROP TABLE IF EXISTS inventory;");
+                System.out.println("Finished dropping table (if existed).");
+
+                // Create table.
+                statement.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+                System.out.println("Created table.");
+
+                // Insert some data into table.
+                int nRowsInserted = 0;
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, quantity) VALUES (?, ?);");
+                preparedStatement.setString(1, "banana");
+                preparedStatement.setInt(2, 150);
+                nRowsInserted += preparedStatement.executeUpdate();
+
+                preparedStatement.setString(1, "orange");
+                preparedStatement.setInt(2, 154);
+                nRowsInserted += preparedStatement.executeUpdate();
+
+                preparedStatement.setString(1, "apple");
+                preparedStatement.setInt(2, 100);
+                nRowsInserted += preparedStatement.executeUpdate();
+                System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
+
+                // NOTE No need to commit all changes to database, as auto-commit is enabled by default.
+
+            }
+            catch (SQLException e)
+            {
+                throw new SQLException("Encountered an error when executing given sql statement.", e);
+            }       
+        }
+        else {
+            System.out.println("Failed to create connection to database.");
+        }
+        System.out.println("Execution finished.");
+    }
 }
 ```
 
@@ -146,80 +146,79 @@ import java.util.Properties;
 
 public class ReadTable {
 
-	public static void main (String[] args)  throws Exception
-	{
+    public static void main (String[] args)  throws Exception
+    {
 
-		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
-		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
-		String password = "<server_admin_password>";
+        // Initialize connection variables.
+        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String database = "mypgsqldb";
+        String user = "mylogin@mypgserver-20170401";
+        String password = "<server_admin_password>";
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.postgresql.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
-		}
+        // check that the driver is installed
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
+        }
 
-		System.out.println("PostgreSQL JDBC driver detected in library path.");
+        System.out.println("PostgreSQL JDBC driver detected in library path.");
 
-		Connection connection = null;
+        Connection connection = null;
 
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:postgresql://%s/%s", host, database);
-			
-			// set up the connection properties
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("ssl", "true");
+        // Initialize connection object
+        try
+        {
+            String url = String.format("jdbc:postgresql://%s/%s", host, database);
 
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database.", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-	
-				Statement statement = connection.createStatement();
-				ResultSet results = statement.executeQuery("SELECT * from inventory;");
-				while (results.next())
-				{
-					String outputString = 
-						String.format(
-							"Data row = (%s, %s, %s)",
-							results.getString(1),
-							results.getString(2),
-							results.getString(3));
-					System.out.println(outputString);
-				}
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement.", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");
-		}
-		System.out.println("Execution finished.");
-	}
+            // set up the connection properties
+            Properties properties = new Properties();
+            properties.setProperty("user", user);
+            properties.setProperty("password", password);
+            properties.setProperty("ssl", "true");
+
+            // get connection
+            connection = DriverManager.getConnection(url, properties);
+        }
+        catch (SQLException e)
+        {
+            throw new SQLException("Failed to create connection to database.", e);
+        }
+        if (connection != null) 
+        { 
+            System.out.println("Successfully created connection to database.");
+
+            // Perform some SQL queries over the connection.
+            try
+            {
+
+                Statement statement = connection.createStatement();
+                ResultSet results = statement.executeQuery("SELECT * from inventory;");
+                while (results.next())
+                {
+                    String outputString = 
+                        String.format(
+                            "Data row = (%s, %s, %s)",
+                            results.getString(1),
+                            results.getString(2),
+                            results.getString(3));
+                    System.out.println(outputString);
+                }
+            }
+            catch (SQLException e)
+            {
+                throw new SQLException("Encountered an error when executing given sql statement.", e);
+            }       
+        }
+        else {
+            System.out.println("Failed to create connection to database.");
+        }
+        System.out.println("Execution finished.");
+    }
 }
-
 ```
 
 ## Update data
@@ -232,74 +231,74 @@ import java.sql.*;
 import java.util.Properties;
 
 public class UpdateTable {
-	public static void main (String[] args)  throws Exception
-	{
+    public static void main (String[] args)  throws Exception
+    {
 
-		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
-		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
-		String password = "<server_admin_password>";
+        // Initialize connection variables.
+        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String database = "mypgsqldb";
+        String user = "mylogin@mypgserver-20170401";
+        String password = "<server_admin_password>";
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.postgresql.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
-		}
+        // check that the driver is installed
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
+        }
 
-		System.out.println("PostgreSQL JDBC driver detected in library path.");
+        System.out.println("PostgreSQL JDBC driver detected in library path.");
 
-		Connection connection = null;
+        Connection connection = null;
 
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:postgresql://%s/%s", host, database);
-			
-			// set up the connection properties
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("ssl", "true");
+        // Initialize connection object
+        try
+        {
+            String url = String.format("jdbc:postgresql://%s/%s", host, database);
 
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database.", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-				// Modify some data in table.
-				int nRowsUpdated = 0;
-				PreparedStatement preparedStatement = connection.prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?;");
-				preparedStatement.setInt(1, 200);
-				preparedStatement.setString(2, "banana");
-				nRowsUpdated += preparedStatement.executeUpdate();
-				System.out.println(String.format("Updated %d row(s) of data.", nRowsUpdated));
-	
-				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement.", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");
-		}
-		System.out.println("Execution finished.");
-	}
+            // set up the connection properties
+            Properties properties = new Properties();
+            properties.setProperty("user", user);
+            properties.setProperty("password", password);
+            properties.setProperty("ssl", "true");
+
+            // get connection
+            connection = DriverManager.getConnection(url, properties);
+        }
+        catch (SQLException e)
+        {
+            throw new SQLException("Failed to create connection to database.", e);
+        }
+        if (connection != null) 
+        { 
+            System.out.println("Successfully created connection to database.");
+
+            // Perform some SQL queries over the connection.
+            try
+            {
+                // Modify some data in table.
+                int nRowsUpdated = 0;
+                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?;");
+                preparedStatement.setInt(1, 200);
+                preparedStatement.setString(2, "banana");
+                nRowsUpdated += preparedStatement.executeUpdate();
+                System.out.println(String.format("Updated %d row(s) of data.", nRowsUpdated));
+
+                // NOTE No need to commit all changes to database, as auto-commit is enabled by default.
+            }
+            catch (SQLException e)
+            {
+                throw new SQLException("Encountered an error when executing given sql statement.", e);
+            }       
+        }
+        else {
+            System.out.println("Failed to create connection to database.");
+        }
+        System.out.println("Execution finished.");
+    }
 }
 ```
 ## Delete data
@@ -312,73 +311,73 @@ import java.sql.*;
 import java.util.Properties;
 
 public class DeleteTable {
-	public static void main (String[] args)  throws Exception
-	{
+    public static void main (String[] args)  throws Exception
+    {
 
-		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
-		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
-		String password = "<server_admin_password>";
+        // Initialize connection variables.
+        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String database = "mypgsqldb";
+        String user = "mylogin@mypgserver-20170401";
+        String password = "<server_admin_password>";
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.postgresql.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
-		}
+        // check that the driver is installed
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
+        }
 
-		System.out.println("PostgreSQL JDBC driver detected in library path.");
+        System.out.println("PostgreSQL JDBC driver detected in library path.");
 
-		Connection connection = null;
+        Connection connection = null;
 
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:postgresql://%s/%s", host, database);
-			
-			// set up the connection properties
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("ssl", "true");
+        // Initialize connection object
+        try
+        {
+            String url = String.format("jdbc:postgresql://%s/%s", host, database);
 
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database.", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-				// Delete some data from table.
-				int nRowsDeleted = 0;
-				PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM inventory WHERE name = ?;");
-				preparedStatement.setString(1, "orange");
-				nRowsDeleted += preparedStatement.executeUpdate();
-				System.out.println(String.format("Deleted %d row(s) of data.", nRowsDeleted));
-	
-				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement.", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");
-		}
-		System.out.println("Execution finished.");
-	}
+            // set up the connection properties
+            Properties properties = new Properties();
+            properties.setProperty("user", user);
+            properties.setProperty("password", password);
+            properties.setProperty("ssl", "true");
+
+            // get connection
+            connection = DriverManager.getConnection(url, properties);
+        }
+        catch (SQLException e)
+        {
+            throw new SQLException("Failed to create connection to database.", e);
+        }
+        if (connection != null) 
+        { 
+            System.out.println("Successfully created connection to database.");
+
+            // Perform some SQL queries over the connection.
+            try
+            {
+                // Delete some data from table.
+                int nRowsDeleted = 0;
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM inventory WHERE name = ?;");
+                preparedStatement.setString(1, "orange");
+                nRowsDeleted += preparedStatement.executeUpdate();
+                System.out.println(String.format("Deleted %d row(s) of data.", nRowsDeleted));
+
+                // NOTE No need to commit all changes to database, as auto-commit is enabled by default.
+            }
+            catch (SQLException e)
+            {
+                throw new SQLException("Encountered an error when executing given sql statement.", e);
+            }       
+        }
+        else {
+            System.out.println("Failed to create connection to database.");
+        }
+        System.out.println("Execution finished.");
+    }
 }
 ```
 

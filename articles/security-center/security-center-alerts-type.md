@@ -44,44 +44,44 @@ Azure Security Center can use behavioral analytics to identify compromised resou
 Security Center uses advanced analytics to identify compromised resources based on analysis of virtual machine event logs. For example, Process Creation Events and Login Events. In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign.
 
 * **Suspicious process execution detected**: Attackers often try to execute malicious code without detection by masquerading as benign processes. These alerts indicate that a process execution matched one of the following patterns:
-	* A process known to be used for malicious purposes was executed. While individual commands may appear benign the alert is scored based on an aggregation of these commands.
-	* A process was executed from an uncommon location.
-	* A process was executed from a location in common with known suspicious files.
-	* A process was executed from a suspicious path.
-	* A process was executed in an abnormal context.
-	* A process was executed by an unusual account
-	* A process with a suspicious extension was executed.
-	* A process with a suspicious double extension was executed.
-	* A process with a suspicious right-to-left (RLO) character in its filename was executed.
-	* A process whose name is very similar to but different from a very commonly run process was executed
-	* A process whose name corresponds to a known attacker tool was executed.
-	* A process with a random name was executed.
-	* A process with a suspicious extension was executed.
-	* A hidden file was executed.
-	* A process was executed as a child of another unrelated process.
-	* An unusual process was created by a system process.
-	* An anomalous process was launched by the Windows update service.
-	* A process was executed with an unusual command line. This has been associated with legitimate processes being hijacked for execution of malicious content.
-	* An attempt to start all executables (*.exe) in a directory was executed from the command line.
-	* A process was executed by PsExec utility, which can be used to run processes remotely.
-	* The Apache Tomcat® Parent executable (Tomcat#.exe) was used to launch suspicious child processes, which can host or launch malicious commands.
-	* The Microsoft Windows "Program Compatibility Assistant" (pcalua.exe) was used to launch executable code, which could be malicious.
-	* A suspicious process termination burst was detected.
-	* The system process SVCHOST was executed in an abnormal context.
-	* The system process SVCHOST was executed in a rare service group.
-	* A suspicious command line was executed.
-	* A PowerShell script has characteristics in common with known suspicious scripts.
-	* A known malicious PowerShell Powersploit cmdlet was executed.
-	* A built-in SQL user executed a process it normally wouldn't
-	* A base-64 encoded executable was detected, which could indicate an attacker attempting to void detection by constructing an executable on-the-fly through a sequence of commands.
+    * A process known to be used for malicious purposes was executed. While individual commands may appear benign the alert is scored based on an aggregation of these commands.
+    * A process was executed from an uncommon location.
+    * A process was executed from a location in common with known suspicious files.
+    * A process was executed from a suspicious path.
+    * A process was executed in an abnormal context.
+    * A process was executed by an unusual account
+    * A process with a suspicious extension was executed.
+    * A process with a suspicious double extension was executed.
+    * A process with a suspicious right-to-left (RLO) character in its filename was executed.
+    * A process whose name is very similar to but different from a very commonly run process was executed
+    * A process whose name corresponds to a known attacker tool was executed.
+    * A process with a random name was executed.
+    * A process with a suspicious extension was executed.
+    * A hidden file was executed.
+    * A process was executed as a child of another unrelated process.
+    * An unusual process was created by a system process.
+    * An anomalous process was launched by the Windows update service.
+    * A process was executed with an unusual command line. This has been associated with legitimate processes being hijacked for execution of malicious content.
+    * An attempt to start all executables (*.exe) in a directory was executed from the command line.
+    * A process was executed by PsExec utility, which can be used to run processes remotely.
+    * The Apache Tomcat® Parent executable (Tomcat#.exe) was used to launch suspicious child processes, which can host or launch malicious commands.
+    * The Microsoft Windows "Program Compatibility Assistant" (pcalua.exe) was used to launch executable code, which could be malicious.
+    * A suspicious process termination burst was detected.
+    * The system process SVCHOST was executed in an abnormal context.
+    * The system process SVCHOST was executed in a rare service group.
+    * A suspicious command line was executed.
+    * A PowerShell script has characteristics in common with known suspicious scripts.
+    * A known malicious PowerShell Powersploit cmdlet was executed.
+    * A built-in SQL user executed a process it normally wouldn't
+    * A base-64 encoded executable was detected, which could indicate an attacker attempting to void detection by constructing an executable on-the-fly through a sequence of commands.
 
 * **Suspicious RDP resource activity**: Attackers often target open management ports like RDP with brute force attacks. These alerts indicate suspicious Remote Desktop login activity indicating:
-	* Remote Desktop logins were attempted.
-	* Remote Desktop logins were attempted using invalid accounts.
-	* Remote Desktop logins were attempted, some of which were able to successfully login to the machine.
+    * Remote Desktop logins were attempted.
+    * Remote Desktop logins were attempted using invalid accounts.
+    * Remote Desktop logins were attempted, some of which were able to successfully login to the machine.
 * **Suspicious SSH resource activity**: Attackers often target open management ports like SSH with brute force attacks. These alerts indicate suspicious SSH login activity indicating:
-	* Failed SSH logins were attempted.
-	* SSH logins were attempted, some of which were successful.
+    * Failed SSH logins were attempted.
+    * SSH logins were attempted, some of which were successful.
 * **Suspicious WindowPosition registry value**: This alert indicates that a WindowPosition registry configuration change was attempted, which could be indicative of hiding application windows in non-visible sections of the desktop.
 * **Potential attempt to bypass AppLocker**: AppLocker can be used to limit the processes that can run on Windows, limiting exposure to malware. This alert indicates a possible attempt to bypass AppLocker restrictions by using trusted executables (allowed by AppLocker policy) to execute untrusted code.
 * **Suspicious named pipe communications**: This alert indicates that data was written to a local named pipe from a Windows console command. Named pipes are known to be used by attackers to task and communicate with a malicious implant.
@@ -186,8 +186,8 @@ Security Center network threat detection works by automatically collecting secur
 Security Center resource analysis focuses on platform as a service (PaaS) services, such as the integration with [Threat Detection for Azure SQL Database](../sql-database/sql-database-threat-detection.md) and Azure SQL Data Warehouse. SQL Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and triggers the following alerts:
 
 * **Vulnerability to SQL Injection**: This alert is triggered when an application generates a faulty SQL statement in the database. This may indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for the generation of a faulty statement:
-	* A defect in application code that constructs the faulty SQL statement
-	* Application code or stored procedures don't sanitize user input when constructing the faulty SQL statement, which may be exploited for SQL Injection
+    * A defect in application code that constructs the faulty SQL statement
+    * Application code or stored procedures don't sanitize user input when constructing the faulty SQL statement, which may be exploited for SQL Injection
 * **Potential SQL injection**: This alert is triggered when an active exploit happens against an identified application vulnerability to SQL injection. This means the attacker is trying to inject malicious SQL statements using the vulnerable application code or stored procedures.
 * **Access from unusual location**: This alert is triggered when there is a change in the access pattern to SQL server, where someone has logged on to the SQL server from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
 * **Access from unusual Azure data center**: This alert is triggered when there is a change in the access pattern to SQL server, where someone has logged on to the SQL server from an unusual Azure data center that was seen on this server during the recent period. In some cases, the alert detects a legitimate action (your new application in Azure, Power BI, Azure SQL Query Editor). In other cases, the alert detects a malicious action from an Azure resource/service (former employee, external attacker).

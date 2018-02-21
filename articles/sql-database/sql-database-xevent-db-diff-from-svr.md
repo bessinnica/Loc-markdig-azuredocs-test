@@ -50,7 +50,7 @@ Prior exposure to the following items is helpful when choosing the Event File as
 
 
 - PowerShell
-	- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+    - [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
 
 ## Code samples
 
@@ -58,13 +58,13 @@ Related topics provide two code samples:
 
 
 - [Ring Buffer target code for extended events in SQL Database](sql-database-xevent-code-ring-buffer.md)
-	- Short simple Transact-SQL script.
-	- We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+    - Short simple Transact-SQL script.
+    - We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
 - [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
-	- Phase 1 is PowerShell to create an Azure Storage container.
-	- Phase 2 is Transact-SQL that uses the Azure Storage container.
+    - Phase 1 is PowerShell to create an Azure Storage container.
+    - Phase 2 is Transact-SQL that uses the Azure Storage container.
 
 ## Transact-SQL differences
 
@@ -76,7 +76,7 @@ Related topics provide two code samples:
 
 
 - A best practice is to include the event session option of **STARTUP_STATE = ON** in your **CREATE EVENT SESSION**  or **ALTER EVENT SESSION** statements.
-	- The **= ON** value supports an automatic restart after a reconfiguration of the logical database due to a failover.
+    - The **= ON** value supports an automatic restart after a reconfiguration of the logical database due to a failover.
 
 ## New catalog views
 
@@ -116,7 +116,8 @@ For extended events there are additional DMVs that are common to both Azure SQL 
 - **sys.dm_xe_objects**
 - **sys.dm_xe_packages**
 
- <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
+  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
+
 
 ## Find the available extended events, actions, and targets
 
@@ -201,7 +202,7 @@ The **Event File** target might experience network latency or failures while per
 
 
 - The Azure *Service Updates* webpage, narrowed by parameter to Azure SQL Database:
-	- [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
+    - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
 Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.

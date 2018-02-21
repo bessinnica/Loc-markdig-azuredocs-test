@@ -293,7 +293,7 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
     "parameters": { 
         "storageAccountName": { "value": "<Name of the Azure storage account>"    },
         "storageAccountKey": {
-			"value": "<Key for the Azure storage account>"
+            "value": "<Key for the Azure storage account>"
         },
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
@@ -315,24 +315,24 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 1. Start **Azure PowerShell** and run the following command:
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
-	```PowerShell
-	Login-AzureRmAccount   	
-	```  
+     ```PowerShell
+     Login-AzureRmAccount    
+     ```  
    * Run the following command to view all the subscriptions for this account.
    
-	```PowerShell
-	Get-AzureRmSubscription
-	```   
+     ```PowerShell
+     Get-AzureRmSubscription
+     ```   
    * Run the following command to select the subscription that you want to work with.
     
-	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-	```    
+     ```PowerShell
+     Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+     ```    
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
 
-	```PowerShell   
-	New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
-	```
+    ```PowerShell   
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
+    ```
 
 ## Monitor pipeline
 

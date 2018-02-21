@@ -273,11 +273,11 @@ The following table provides the Azure Site Recovery limits. These limits are ba
 
 **Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
-Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
+Standard storage | 8 KB | 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 8 KB  | 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 16 KB | 4 MB/s |  336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
 **Source data churn** | **Maximium Limit**

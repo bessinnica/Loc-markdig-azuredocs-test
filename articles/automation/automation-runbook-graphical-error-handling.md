@@ -31,7 +31,7 @@ The types of PowerShell errors that can occur during execution are terminating o
 
 * **Non-terminating error**: A non-serious error that allows execution to continue despite the failure. Examples include operational errors such as file not found errors and permissions problems.
 
-Azure Automation graphical runbooks have been improved with the capability to include error handling. You can now turn exceptions into non-terminating errors and create error links between activities. This process allows a runbook author to catch errors and manage realized or unexpected conditions.  
+Azure Automation graphical runbooks have been improved with the capability to include error handling. You can now turn exceptions into non-terminating errors and create error links between activities. This process allows a runbook author to catch errors and manage realized or unexpected conditions.  
 
 ## When to use error handling
 

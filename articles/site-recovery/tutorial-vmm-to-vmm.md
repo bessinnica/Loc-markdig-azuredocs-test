@@ -55,7 +55,6 @@ Prepare VMM as follows:
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
-
 ## Choose a protection goal
 
 Select what you want to replicate and where you want to replicate to.
@@ -135,7 +134,7 @@ Before you start, make sure that all hosts using the policy have the same operat
 6. In **Initial replication method**, if you're replicating over the network, specify whether to start the initial replication or schedule it. To save network bandwidth, you might want to schedule it outside your busy hours. Then click **OK**.
 
      ![Replication policy](./media/tutorial-vmm-to-vmm/replication-policy.png)
-     
+
 7. The new policy is automatically associated with the VMM cloud. In **Replication policy**, click **OK**. 
 
 

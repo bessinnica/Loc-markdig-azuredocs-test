@@ -39,11 +39,11 @@ The steps for this task use a VNet based on the values in the following configur
 * Virtual Network Name = "TestVNet"
 * Virtual Network address space = 192.168.0.0/16
 * Subnet Name = "FrontEnd" 
-	* Subnet address space = "192.168.1.0/24"
+    * Subnet address space = "192.168.1.0/24"
 * Resource Group = "TestRG"
 * Location = "East US"
 * Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
-	* Gateway Subnet address space = "192.168.200.0/26"
+    * Gateway Subnet address space = "192.168.200.0/26"
 * Gateway Name = "ERGW"
 * Gateway IP Name = "MyERGWVIP"
 * Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.

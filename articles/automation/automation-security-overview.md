@@ -42,10 +42,12 @@ Runbooks running on a Hybrid Runbook Worker in your datacenter or against comput
 ## Authentication methods
 The following table summarizes the different authentication methods for each environment supported by Azure Automation and the article describing how to setup authentication for your runbooks.
 
-| Method | Environment | Article |
-| --- | --- | --- |
-| Azure AD User Account |Azure Resource Manager and Azure classic |[Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md) |
-| Azure Run As Account |Azure Resource Manager |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
-| Azure Classic Run As Account |Azure classic |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
-| Windows Authentication |On-Premises Datacenter |[Authenticate Runbooks for Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) |
-| AWS Credentials |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS)](automation-config-aws-account.md) |
+
+|            Method            |               Environment                |                                              Article                                               |
+|------------------------------|------------------------------------------|----------------------------------------------------------------------------------------------------|
+|    Azure AD User Account     | Azure Resource Manager and Azure classic |      [Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md)       |
+|     Azure Run As Account     |          Azure Resource Manager          | [Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
+| Azure Classic Run As Account |              Azure classic               | [Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
+|    Windows Authentication    |          On-Premises Datacenter          |      [Authenticate Runbooks for Hybrid Runbook Workers](automation-hybrid-runbook-worker.md)       |
+|       AWS Credentials        |           Amazon Web Services            |      [Authenticate Runbooks with Amazon Web Services (AWS)](automation-config-aws-account.md)      |
+

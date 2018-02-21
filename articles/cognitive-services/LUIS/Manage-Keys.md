@@ -38,7 +38,7 @@ The programmatic key has different limits for authoring and endpoint. The subscr
 |Programmatic/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
 |Subscription - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |Subscription - S0 - Basic tier|invalid|1 million/month, 50/second|Querying your LUIS endpoint|
- 
+
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
 
@@ -46,12 +46,12 @@ If you exceed your per second quota, you receive an HTTP 429 error. If you excee
 On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the programmatic (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
- 
+
 2. In order to add the LUIS key created in the previous step, click the **Add Key** button to open the **Assign a key to your app** dialog. 
 
     ![Assign a key to your app](./media/luis-manage-keys/assign-key.png)
 3. Select a Tenant in the dialog. 
- 
+
     > [!Note]
     > In Azure, a tenant represents the Azure Active Directory ID of the client or organization associated with a service. If you previously signed up for an Azure subscription with your individual Microsoft Account, you already have a tenant! When you log in to the Azure portal, you are automatically logged in to [your default tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant). You are free to use this tenant but you may want to create an Organizational administrator account.
 
@@ -64,8 +64,11 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
+
 <a name="publishing-to-europe"></a>
+
 <a name="publishing-to-australia"></a>
+
 
 ## Publishing regions
 Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). 
@@ -74,7 +77,7 @@ Learn more about publishing [regions](luis-reference-regions.md) including publi
 ## Unassign key
 
 * In the **Resources and Keys list**, click the trash bin icon next to the entity you want to unassign. Then, click **OK** in the confirmation message to confirm deletion.
- 
+
     ![Unassign Entity](./media/luis-manage-keys/unassign-key.png)
 
 > [!NOTE]

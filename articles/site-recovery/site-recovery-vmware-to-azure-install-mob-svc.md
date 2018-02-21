@@ -68,7 +68,6 @@ Complete these prerequisite steps before you manually install Mobility Service o
 ### Command-line installation on a Linux computer
 [!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
 
-
 ## Install Mobility Service by push installation from Azure Site Recovery
 To do a push installation of Mobility Service by using Site Recovery, all target computers must meet the following prerequisites:
 
@@ -76,9 +75,8 @@ To do a push installation of Mobility Service by using Site Recovery, all target
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
-
 > [!NOTE]
-After Mobility Service is installed, in the Azure portal, select the **+Replicate** button to start protecting these VMs.
+> After Mobility Service is installed, in the Azure portal, select the **+Replicate** button to start protecting these VMs.
 
 ## Update Mobility Service
 

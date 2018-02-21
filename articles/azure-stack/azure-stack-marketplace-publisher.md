@@ -40,12 +40,12 @@ In this section, you use the Marketplace Toolkit to create a marketplace item pa
 
 ### Provide marketplace information with wizard
 1. Run the Marketplace Toolkit from a PowerShell session:
-```PowerShell
+   ```PowerShell
     .\MarketplaceToolkit.ps1
-```
+   ```
 
 2. Click the **Solution** tab.  This screen accepts information about your marketplace item. Enter information about your item as you want it to appear in the marketplace.  You can also specify a [parameters file](azure-stack-marketplace-publisher.md#use-a-parameters-file) to prepopulate the form.  
-    
+
     ![screenshot of Marketplace Toolkit first screen](./media/azure-stack-marketplace-publisher/image7.png)
 3. Click **Browse** and select an image file for each icon and screenshot field.  You can use your own icons, or the sample icons in the [support files](azure-stack-marketplace-publisher.md#support-files) section.
 4. Once all fields are populated, select "Preview Solution" for a preview of the solution within the Marketplace.  You can revise and edit the text, images, and screenshot before clicking **Next**.  
@@ -67,7 +67,7 @@ In this section, you publish the marketplace item to your Azure Stack Marketplac
 ![screenshot of Marketplace Toolkit first screen](./media/azure-stack-marketplace-publisher/image9.png)
 
 1.  The wizard requires information to publish your solution:
-    
+
     |Field|Description|
     |-----|-----|
     | Service Admin Name | Service Administrator account.  Example:  ServiceAdmin@mydomain.onmicrosoft.com |
@@ -84,6 +84,7 @@ The Marketplace Toolkit includes a *solution.parameters.ps1* you can use to crea
 
 
 ## Support files
+
 | Description | Sample |
 | ----- | ----- |
 | 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |

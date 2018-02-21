@@ -34,28 +34,31 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
 
     ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | Parameter | Suggested value |
-    |---------------|------------------------------------------------|
-    | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/fuzzy/json? |
-    | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Location Based Services Functional API reference] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
+   |   Parameter   |                Suggested value                 |
+   |---------------|------------------------------------------------|
+   |  HTTP method  |                      GET                       |
+   |  Request URL  | https://atlas.microsoft.com/search/fuzzy/json? |
+   | Authorization |                    No Auth                     |
+
+    The <strong>json</strong> attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the <strong>Get Search Fuzzy</strong> definition of the [Location Based Services Functional API reference](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
     ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Key | Value |
-    |------------------|-------------------------|
-    | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
-    | query | pizza |
+
+   |       Key        |                   Value                    |
+   |------------------|--------------------------------------------|
+   |   api-version    |                    1.0                     |
+   | subscription-key | \<your Azure Location Based Services key\> |
+   |      query       |                   pizza                    |
+
 
 4. Click **Send** and review the response body. 
 
     The ambiguous query string of "pizza" returned 10 point of interest (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
-    
+
     The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
 
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
@@ -63,15 +66,15 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Key | Value |
     |------------------|-------------------------|
     | countrySet | US |
-    
+
     The results are now bounded by the country code and the query returns pizza restaurants in the United States.
-    
+
     To provide results oriented on a particular location, you can query a point of interest and use the returned latitude and longitude values in your call to the Fuzzy Search service. In this case, you used the Search service to return the location of the Seattle Space Needle and used the lat. / lon. values to orient the search.
-    
-4. In Params, enter the following Key / Value pairs and click **Send**:
+
+6. In Params, enter the following Key / Value pairs and click **Send**:
 
     ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
-    
+
     | Key | Value |
     |-----|------------|
     | lat | 47.62039 |
@@ -85,33 +88,37 @@ You can pass a complete or partial street address to the Search Address API and 
 2. On the Builder tab, select the **GET** HTTP method, enter the request URL for your API endpoint, and select an authorization protocol, if any.
 
     ![Address Search ](./media/how-to-search-for-address/address_search_url.png)
-    
-    | Parameter | Suggested value |
-    |---------------|------------------------------------------------|
-    | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/address/json? |
-    | Authorization | No Auth |
 
-2. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
-    
+
+   |   Parameter   |                 Suggested value                  |
+   |---------------|--------------------------------------------------|
+   |  HTTP method  |                       GET                        |
+   |  Request URL  | https://atlas.microsoft.com/search/address/json? |
+   | Authorization |                     No Auth                      |
+
+
+3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
+
     ![Address Search ](./media/how-to-search-for-address/address_search_params.png)
-    
-    | Key | Value |
-    |------------------|-------------------------|
-    | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
-    | query | 400 Broad St, Seattle, WA 98109 |
-    
-3. Click **Send** and review the response body. 
-    
+
+
+   |       Key        |                   Value                    |
+   |------------------|--------------------------------------------|
+   |   api-version    |                    1.0                     |
+   | subscription-key | \<your Azure Location Based Services key\> |
+   |      query       |      400 Broad St, Seattle, WA 98109       |
+
+
+4. Click **Send** and review the response body. 
+
     In this case, you specified a complete address query and receive a single result in the response body. 
-    
-4. In Params, edit the query string to the following value:
+
+5. In Params, edit the query string to the following value:
     ```
         400 Broad, Seattle
     ```
 
-5. Add the following Key / Value pair to the **Params** section and click **Send**:
+6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|
@@ -123,38 +130,42 @@ You can pass a complete or partial street address to the Search Address API and 
 1. In Postman, click **New Request** | **GET request** and name it **Reverse Address Search**.
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
-    
+
     ![Reverse Address Search URL ](./media/how-to-search-for-address/reverse_address_search_url.png)
-    
-    | Parameter | Suggested value |
-    |---------------|------------------------------------------------|
-    | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/address/reverse/json? |
-    | Authorization | No Auth |
-    
-2. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
-    
+
+
+   |   Parameter   |                     Suggested value                      |
+   |---------------|----------------------------------------------------------|
+   |  HTTP method  |                           GET                            |
+   |  Request URL  | https://atlas.microsoft.com/search/address/reverse/json? |
+   | Authorization |                         No Auth                          |
+
+
+3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
+
     ![Reverse Address Search Parameters ](./media/how-to-search-for-address/reverse_address_search_params.png)
-    
-    | Key | Value |
-    |------------------|-------------------------|
-    | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
-    | query | 47.59093,-122.33263 |
-    
-3. Click **Send** and review the response body. 
-    
+
+
+   |       Key        |                   Value                    |
+   |------------------|--------------------------------------------|
+   |   api-version    |                    1.0                     |
+   | subscription-key | \<your Azure Location Based Services key\> |
+   |      query       |            47.59093,-122.33263             |
+
+
+4. Click **Send** and review the response body. 
+
     The response includes the POI entry for Safeco Field with a poi category of "stadium". 
-    
-4. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+5. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|
     | number | true |
 
     If the [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
-    
-5. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|
@@ -162,15 +173,15 @@ You can pass a complete or partial street address to the Search Address API and 
 
     When the [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
 
-6. Add the following Key / Value pair to the **Params** section and click **Send**:
+7. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|
     | returnSpeedLimit | true |
-    
+
     When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
 
-7. Add the following Key / Value pair to the **Params** section and click **Send**:
+8. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|
@@ -178,36 +189,40 @@ You can pass a complete or partial street address to the Search Address API and 
 
     When the [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
 
-8. Add the following Key / Value pair to the **Params** section and click **Send**:
+9. Add the following Key / Value pair to the **Params** section and click **Send**:
 
     | Key | Value |
     |-----|------------|
     | roadUse | true |
 
     You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
-    
+
 ## Search for the cross street using Reverse Address Cross Street Search
 
 1. In Postman, click **New Request** | **GET request** and name it **Reverse Address Cross Street Search**.
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
-    
+
     ![Reverse Address Cross Street Search ](./media/how-to-search-for-address/reverse_address_search_url.png)
-    
-    | Parameter | Suggested value |
-    |---------------|------------------------------------------------|
-    | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
-    | Authorization | No Auth |
-    
+
+
+   |   Parameter   |                           Suggested value                            |
+   |---------------|----------------------------------------------------------------------|
+   |  HTTP method  |                                 GET                                  |
+   |  Request URL  | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
+   | Authorization |                               No Auth                                |
+
+
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
-    
-    | Key | Value |
-    |------------------|-------------------------|
-    | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
-    | query | 47.59093,-122.33263 |
-    
+
+
+   |       Key        |                   Value                    |
+   |------------------|--------------------------------------------|
+   |   api-version    |                    1.0                     |
+   | subscription-key | \<your Azure Location Based Services key\> |
+   |      query       |            47.59093,-122.33263             |
+
+
 4. Click **Send** and review the response body. 
 
 ## Next steps

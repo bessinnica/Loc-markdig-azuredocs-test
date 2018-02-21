@@ -82,7 +82,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for MySQL - Server Admin Login](./media/connect-go/1_server-properties-name-login.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
-   
+
 
 ## Build and run Go code 
 1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE), try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
@@ -105,68 +105,67 @@ Replace the `host`, `database`, `user`, and `password` constants with your own v
 package main
 
 import (
-	"database/sql"
-	"fmt"
+    "database/sql"
+    "fmt"
 
-	_ "github.com/go-sql-driver/mysql"
+    _ "github.com/go-sql-driver/mysql"
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
-	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
-	password = "yourpassword"
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
 
-	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
-	// Initialize connection object.
-	db, err := sql.Open("mysql", connectionString)
-	checkError(err)
-	defer db.Close()
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database.")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
 
-	// Drop previous table of same name if one exists.
-	_, err = db.Exec("DROP TABLE IF EXISTS inventory;")
-	checkError(err)
-	fmt.Println("Finished dropping table (if existed).")
+    // Drop previous table of same name if one exists.
+    _, err = db.Exec("DROP TABLE IF EXISTS inventory;")
+    checkError(err)
+    fmt.Println("Finished dropping table (if existed).")
 
-	// Create table.
-	_, err = db.Exec("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
-	checkError(err)
-	fmt.Println("Finished creating table.")
+    // Create table.
+    _, err = db.Exec("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
+    checkError(err)
+    fmt.Println("Finished creating table.")
 
-	// Insert some data into table.
-	sqlStatement, err := db.Prepare("INSERT INTO inventory (name, quantity) VALUES (?, ?);")
-	res, err := sqlStatement.Exec("banana", 150)
-	checkError(err)
-	rowCount, err := res.RowsAffected()
-	fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
+    // Insert some data into table.
+    sqlStatement, err := db.Prepare("INSERT INTO inventory (name, quantity) VALUES (?, ?);")
+    res, err := sqlStatement.Exec("banana", 150)
+    checkError(err)
+    rowCount, err := res.RowsAffected()
+    fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
 
-	res, err = sqlStatement.Exec("orange", 154)
-	checkError(err)
-	rowCount, err = res.RowsAffected()
-	fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
+    res, err = sqlStatement.Exec("orange", 154)
+    checkError(err)
+    rowCount, err = res.RowsAffected()
+    fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
 
-	res, err = sqlStatement.Exec("apple", 100)
-	checkError(err)
-	rowCount, err = res.RowsAffected()
-	fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
-	fmt.Println("Done.")
+    res, err = sqlStatement.Exec("apple", 100)
+    checkError(err)
+    rowCount, err = res.RowsAffected()
+    fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
+    fmt.Println("Done.")
 }
-
 ```
 
 ## Read data
@@ -182,59 +181,59 @@ Replace the `host`, `database`, `user`, and `password` constants with your own v
 package main
 
 import (
-	"database/sql"
-	"fmt"
+    "database/sql"
+    "fmt"
 
-	_ "github.com/go-sql-driver/mysql"
+    _ "github.com/go-sql-driver/mysql"
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
-	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
-	password = "yourpassword"
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
 
-	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
-	// Initialize connection object.
-	db, err := sql.Open("mysql", connectionString)
-	checkError(err)
-	defer db.Close()
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database.")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
 
-	// Variables for printing column data when scanned.
-	var (
-		id       int
-		name     string
-		quantity int
-	)
+    // Variables for printing column data when scanned.
+    var (
+        id       int
+        name     string
+        quantity int
+    )
 
-	// Read some data from the table.
-	rows, err := db.Query("SELECT id, name, quantity from inventory;")
-	checkError(err)
-	defer rows.Close()
-	fmt.Println("Reading data:")
-	for rows.Next() {
-		err := rows.Scan(&id, &name, &quantity)
-		checkError(err)
-		fmt.Printf("Data row = (%d, %s, %d)\n", id, name, quantity)
-	}
-	err = rows.Err()
-	checkError(err)
-	fmt.Println("Done.")
+    // Read some data from the table.
+    rows, err := db.Query("SELECT id, name, quantity from inventory;")
+    checkError(err)
+    defer rows.Close()
+    fmt.Println("Reading data:")
+    for rows.Next() {
+        err := rows.Scan(&id, &name, &quantity)
+        checkError(err)
+        fmt.Printf("Data row = (%d, %s, %d)\n", id, name, quantity)
+    }
+    err = rows.Err()
+    checkError(err)
+    fmt.Println("Done.")
 }
 ```
 
@@ -251,45 +250,45 @@ Replace the `host`, `database`, `user`, and `password` constants with your own v
 package main
 
 import (
-	"database/sql"
-	"fmt"
+    "database/sql"
+    "fmt"
 
-	_ "github.com/go-sql-driver/mysql"
+    _ "github.com/go-sql-driver/mysql"
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
-	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
-	password = "yourpassword"
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
 
-	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
-	// Initialize connection object.
-	db, err := sql.Open("mysql", connectionString)
-	checkError(err)
-	defer db.Close()
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database.")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
 
-	// Modify some data in table.
-	rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
-	checkError(err)
-	rowCount, err := rows.RowsAffected()
-	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
-	fmt.Println("Done.")
+    // Modify some data in table.
+    rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
+    checkError(err)
+    rowCount, err := rows.RowsAffected()
+    fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+    fmt.Println("Done.")
 }
 ```
 
@@ -306,44 +305,44 @@ Replace the `host`, `database`, `user`, and `password` constants with your own v
 package main
 
 import (
-	"database/sql"
-	"fmt"
-	_ "github.com/go-sql-driver/mysql"
+    "database/sql"
+    "fmt"
+    _ "github.com/go-sql-driver/mysql"
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
-	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
-	password = "yourpassword"
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
 )
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
 
 func main() {
 
-	// Initialize connection string.
-	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
-	// Initialize connection object.
-	db, err := sql.Open("mysql", connectionString)
-	checkError(err)
-	defer db.Close()
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
 
-	err = db.Ping()
-	checkError(err)
-	fmt.Println("Successfully created connection to database.")
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
 
-	// Modify some data in table.
-	rows, err := db.Exec("DELETE FROM inventory WHERE name = ?", "orange")
-	checkError(err)
-	rowCount, err := rows.RowsAffected()
-	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
-	fmt.Println("Done.")
+    // Modify some data in table.
+    rows, err := db.Exec("DELETE FROM inventory WHERE name = ?", "orange")
+    checkError(err)
+    rowCount, err := rows.RowsAffected()
+    fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+    fmt.Println("Done.")
 }
 ```
 

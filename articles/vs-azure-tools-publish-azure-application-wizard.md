@@ -65,7 +65,7 @@ You can access the Publish Azure Application wizard in two ways depending on the
    
 **Enable Remote Desktop for all roles** - Check this option if you want to be able to remotely connect to the service. This option is primarily used for troubleshooting. When you select this check box, the **Remote Desktop Configuration** dialog box appears. Choose the **Settings** link to change the configuration.
    
-**Enable Web Deploy for all web roles** - Check this option, to enable web deployment for the service. You must select the **Enable Remote Desktop for all roles** option to use this feature. For more information, see [[Publishing a Azure cloud service using Visual Studio](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx). 
+<strong>Enable Web Deploy for all web roles</strong> - Check this option, to enable web deployment for the service. You must select the <strong>Enable Remote Desktop for all roles</strong> option to use this feature. For more information, see [[Publishing a Azure cloud service using Visual Studio](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx). 
 
 ## Settings page - Advanced Settings tab
 

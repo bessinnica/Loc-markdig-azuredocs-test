@@ -44,7 +44,7 @@ To install the Azure Storage Client 2.4.0 for C++, you can use one of the follow
 
 * **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
 * **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
-  
+
 ```
 Install-Package wastorage
 ```
@@ -354,6 +354,6 @@ if (share.exists())
 To learn more about Azure Storage, explore these resources:
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Azure Storage File Service Samples in C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

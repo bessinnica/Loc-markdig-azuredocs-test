@@ -61,7 +61,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -P
 
 //Get secret URI 
 
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
 
 -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
@@ -125,7 +125,7 @@ The following statements are givens for this working example.
 $yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-The output of the preceding command will include your  ServicePrincipal, which we'll call *yourKeyVaultServicePrincipalId*. 
+The output of the preceding command will include your  ServicePrincipal, which we'll call *yourKeyVaultServicePrincipalId*. 
 
 ### Set permissions
 
@@ -170,8 +170,8 @@ Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -Accoun
 Set the SAS definitions in Key Vault for your managed storage account.
 
 ```powershell
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName yourtest1  -AccountName msak01 -Name blobsas2 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List,Write
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName yourtest1  -AccountName msak01 -Name blobsas2 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List,Write
 ```
 
 ### Get token
@@ -190,8 +190,8 @@ Notice that trying to access with *$sastoken1* fails, but that we are able to ac
 ```powershell
 $context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
 $context2 = New-AzureStorageContext -SasToken $sasToken2 -StorageAccountName yourtest1
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
+Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
 ```
 
 ### Example summary

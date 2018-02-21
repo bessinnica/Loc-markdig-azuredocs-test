@@ -1,4 +1,4 @@
-﻿---
+---
 title: Network security concepts & requirements in Azure | Microsoft Docs
 description: " This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. "
 services: security
@@ -255,8 +255,8 @@ Azure Network Watcher includes a large number of capabilities that help with tro
 
 For more information on Azure Network Watcher and how to start testing some of the functionality in your labs take a look at the [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md)
 
->[!NOTE]
-Azure Network watcher is still in public preview so it may not have the same level of availability and reliability as services that are in general availability release. Certain features may not be supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher)
+> [!NOTE]
+> Azure Network watcher is still in public preview so it may not have the same level of availability and reliability as services that are in general availability release. Certain features may not be supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ### Azure Security Center
 Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.

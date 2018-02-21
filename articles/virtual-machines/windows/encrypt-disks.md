@@ -1,4 +1,4 @@
-﻿---
+---
 title: Encrypt disks on a Windows VM in Azure | Microsoft Docs
 description: How to encrypt virtual disks on a Windows VM for enhanced security using Azure PowerShell
 services: virtual-machines-windows

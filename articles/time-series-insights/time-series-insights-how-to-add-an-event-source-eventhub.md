@@ -77,9 +77,9 @@ This article describes how to use the Azure portal to add an event source that r
 
 10. Select **Create** to add the new event source.
    
-   ![Click Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+    ![Click Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
-   After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
+    After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
 
 
 ### Add a consumer group to your Event Hub

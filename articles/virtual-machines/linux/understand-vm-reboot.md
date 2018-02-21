@@ -21,3 +21,4 @@ ms.author: genli
 # Understand a system reboot for Azure VM
 
 [!INCLUDE [virtual-machines-understand-vm-reboot](../../../includes/virtual-machines-understand-vm-reboot.md)]
+

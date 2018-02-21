@@ -78,54 +78,54 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
-1. Enter the enrollment information in either of the following ways, as per your setup:
+2. Enter the enrollment information in either of the following ways, as per your setup:
 
-    - **Individual enrollment**: 
+   - **Individual enrollment**: 
 
-        1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+     1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
-        1. Under the **Add enrollment list entry**, enter the following information:
-            - Select **X.509** as the identity attestation *Mechanism*.
-            - Under the *Certificate .pem or .cer file*, select the certificate file **_X509individual.pem_** created in the previous steps using the *File Explorer* widget.
-            - Optionally, you may provide the following information:
-                - Select an IoT hub linked with your provisioning service.
-                - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-                - Update the **Initial device twin state** with the desired initial configuration for the device.
-            - Once complete, click the **Save** button. 
+     2. Under the **Add enrollment list entry**, enter the following information:
+         - Select **X.509** as the identity attestation *Mechanism*.
+         - Under the *Certificate .pem or .cer file*, select the certificate file **_X509individual.pem_** created in the previous steps using the *File Explorer* widget.
+         - Optionally, you may provide the following information:
+             - Select an IoT hub linked with your provisioning service.
+             - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+             - Update the **Initial device twin state** with the desired initial configuration for the device.
+         - Once complete, click the **Save** button. 
 
         ![Enter X.509 device enrollment information in the portal blade](./media/java-quick-create-simulated-device-x509/enter-device-enrollment.png)  
 
-       On successful enrollment, your X.509 device appears as **microsoftriotcore** under the *Registration ID* column in the *Individual Enrollments* tab. 
+        On successful enrollment, your X.509 device appears as **microsoftriotcore** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
-    - **Enrollment groups**: 
+   - **Enrollment groups**: 
 
-        1. On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
+     1. On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
 
-        1. Under the **Add Certificate**, enter the following information:
-            - Enter a unique certificate name.
-            - Select the **_X509group.pem_** file you created previously.
-            - Once complete, click the **Save** button.
+     2. Under the **Add Certificate**, enter the following information:
+         - Enter a unique certificate name.
+         - Select the **_X509group.pem_** file you created previously.
+         - Once complete, click the **Save** button.
 
         ![Add certificate](./media/java-quick-create-simulated-device-x509/add-certificate.png)
 
-        1. Select the newly created certificate:
-            - Click **Generate Verification Code**. Copy the code generated.
-            - Enter the _verification code_ or right-click to paste in your running _provisioning-x509-cert-generator_ window.  Press **Enter**.
-            - Copy to the clipboard the output of `Verification Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+     3. Select the newly created certificate:
+        - Click **Generate Verification Code**. Copy the code generated.
+        - Enter the _verification code_ or right-click to paste in your running _provisioning-x509-cert-generator_ window.  Press **Enter**.
+        - Copy to the clipboard the output of `Verification Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
             
-                ![Validation generator](./media/java-quick-create-simulated-device-x509/validation-generator.png)
+            ![Validation generator](./media/java-quick-create-simulated-device-x509/validation-generator.png)
 
-            - Create a file named **_X509validation.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
-            - Select the **_X509validation.pem_** file in the Azure portal. Click **Verfiy**.
+        - Create a file named **_X509validation.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
+        - Select the **_X509validation.pem_** file in the Azure portal. Click **Verfiy**.
 
-            ![Validate certificate](./media/java-quick-create-simulated-device-x509/validate-certificate.png)
+          ![Validate certificate](./media/java-quick-create-simulated-device-x509/validate-certificate.png)
 
-        1. Select **Manage enrollments**. Select **Enrollment Groups** tab and click the **Add** button at the top.
-            - Enter a unique group name.
-            - Select the unique certificate name created previously
-            - Optionally, you may provide the following information:
-                - Select an IoT hub linked with your provisioning service.
-                - Update the **Initial device twin state** with the desired initial configuration for the device.
+     4. Select **Manage enrollments**. Select **Enrollment Groups** tab and click the **Add** button at the top.
+         - Enter a unique group name.
+         - Select the unique certificate name created previously
+         - Optionally, you may provide the following information:
+             - Select an IoT hub linked with your provisioning service.
+             - Update the **Initial device twin state** with the desired initial configuration for the device.
 
         ![Enter X.509 group enrollment information in the portal blade](./media/java-quick-create-simulated-device-x509/enter-group-enrollment.png)
 
@@ -182,11 +182,11 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
         1. Add the following lines of code to the beginning of the `main` function.
         
             ```java
-            String intermediatePem = "<Your Signer Certificate here>";			
-    		String rootPem = "<Your Root Certificate here>";
-    			
-    		signerCertificates.add(intermediatePem);
-    		signerCertificates.add(root);
+            String intermediatePem = "<Your Signer Certificate here>";          
+            String rootPem = "<Your Root Certificate here>";
+                
+            signerCertificates.add(intermediatePem);
+            signerCertificates.add(root);
             ```
     
             - Use the following format for including your certificates:

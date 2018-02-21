@@ -89,11 +89,12 @@ Clients *must* support the standard redirection mechanisms specified by the [HTT
 
 Clients *must* use an appropriate endpoint of Speech Service. The endpoint is based on recognition mode and language. The table shows some examples.
 
-| Mode | Path | Service URI |
-| -----|-----|-----|
-| Interactive | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversation | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dictation | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+
+|     Mode     |                         Path                          |                                             Service URI                                              |
+|--------------|-------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Interactive  | /speech/recognition/interactive/cognitiveservices/v1  | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR  |
+| Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+|  Dictation   |  /speech/recognition/dictation/cognitiveservices/v1   |  https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR   |
 
 For more information, see the [Service URI](../GetStarted/GetStartedREST.md#service-uri) page.
 

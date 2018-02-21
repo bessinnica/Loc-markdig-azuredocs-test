@@ -124,13 +124,13 @@ A common requirement of all the Workday provisioning connectors is they require 
 **To create an integration system user:**
 
 1. Sign into your Workday tenant using an administrator account. In the **Workday Workbench**, enter create user in the search box, and then click **Create Integration System User**. 
-   
+
     ![Create user](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
 2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  
- * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically. 
- * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely. 
-   
-    ![Create Integration System User](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Create Integration System User")
+   * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically. 
+   * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely. 
+
+     ![Create Integration System User](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Create Integration System User")
 
 ### Create a security group
 You need to create an unconstrained integration system security group and assign the user to it.
@@ -138,12 +138,12 @@ You need to create an unconstrained integration system security group and assign
 **To create a security group:**
 
 1. Enter create security group in the search box, and then click **Create Security Group**. 
-   
+
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
 2. Complete the **Create Security Group** task.  
 3. Select Integration System Security Group—Unconstrained from the **Type of Tenanted Security Group** dropdown.
 4. Create a security group to which members will be explicitly added. 
-   
+
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
 
 ### Assign the integration system user to the security group
@@ -151,13 +151,13 @@ You need to create an unconstrained integration system security group and assign
 **To assign the integration system user:**
 
 1. Enter edit security group in the search box, and then click **Edit Security Group**. 
-   
+
     ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
 2. Search for, and select the new integration security group by name. 
-   
+
     ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "Edit Security Group")
 3. Add the new integration system user to the new security group. 
-   
+
     ![System Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
 
 ### Configure security group options
@@ -176,19 +176,19 @@ In this step, you'll grant domain security policy permissions for the worker dat
 **To configure security group options:**
 
 1. Enter domain security policies in the search box, and then click on the link **Domain Security Policies for Functional Area**.  
-   
+
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
 2. Search for system and select the **System** functional area.  Click **OK**.  
-   
+
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Domain Security Policies")  
 3. In the list of security policies for the System functional area, expand **Security Administration** and select the domain security policy **External Account Provisioning**.  
-   
+
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Domain Security Policies")  
 4. Click **Edit Permissions**, and then, on the **Edit Permissions** dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. 
-   
+
     ![Edit Permission](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
 5. Repeat step 1 above to return to the screen for selecting functional areas, and this time, search for staffing, select the **Staffing functional area** and click **OK**.
-   
+
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
 6. In the list of security policies for the Staffing functional area, expand **Worker Data: Staffing** and repeat step 4 above for each of these remaining security policies:
 
@@ -196,7 +196,7 @@ In this step, you'll grant domain security policy permissions for the worker dat
    * Worker Data: All Positions
    * Worker Data: Current Staffing Information
    * Worker Data: Business Title on Worker Profile
-   
+
 7. Repeat step 1, above, to return to the screen for selecting
     functional areas, and this time, search for **Contact Information**,
     select the Staffing functional area, and click **OK**.
@@ -208,19 +208,19 @@ In this step, you'll grant domain security policy permissions for the worker dat
     * Worker Data: Work Email
 
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Domain Security Policies")  
-    
+
 ### Activate security policy changes
 
 **To activate security policy changes:**
 
 1. Enter activate in the search box, and then click on the link **Activate Pending Security Policy Changes**. 
-   
+
     ![Activate](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
 2. Begin the Activate Pending Security Policy Changes task by entering a comment for auditing purposes, and then click **OK**. 
-   
+
     ![Activate Pending Security](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "Activate Pending Security")   
 3. Complete the task on the next screen by checking the checkbox **Confirm**, and then click **OK**. 
-   
+
     ![Activate Pending Security](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Activate Pending Security")  
 
 ## Configuring user provisioning from Workday to Active Directory
@@ -230,49 +230,50 @@ Follow these instructions to configure user account provisioning from Workday to
 
 **To configure Workday to Active Directory provisioning:**
 
-1.  Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>
 
-2.  In the left navigation bar, select **Azure Active Directory**
+2. In the left navigation bar, select **Azure Active Directory**
 
-3.  Select **Enterprise Applications**, then **All Applications**.
+3. Select **Enterprise Applications**, then **All Applications**.
 
-4.  Select **Add an application**, and select the **All** category.
+4. Select **Add an application**, and select the **All** category.
 
-5.  Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
+5. Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
 
-6.  After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**
 
-7.  Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**
 
-8.  Complete the **Admin Credentials** section as follows:
+8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday
-        integration system account, with the tenant domain name
-        appended. **Should look something like: username@contoso4**
+   * <strong>Admin Username</strong> – Enter the username of the Workday
+       integration system account, with the tenant domain name
+       appended. 
+     <strong>Should look something like: username<xref href="contoso4" data-throw-if-not-resolved="False" data-raw-source="@contoso4"></xref></strong>
 
    * **Admin password –** Enter the password of the Workday
-        integration system account
+       integration system account
 
    * **Tenant URL –** Enter the URL to the Workday web services
-        endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
-        where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string.
+       endpoint for your tenant. This should look like:
+       https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+       where contoso4 is replaced with your correct tenant name and
+       wd3-impl is replaced with the correct environment string.
 
    * **Active Directory Forest -** The “Name” of your Active
-        Directory forest, as returned by the Get-ADForest powershell
-        commandlet. This is typically a string like: *contoso.com*
+       Directory forest, as returned by the Get-ADForest powershell
+       commandlet. This is typically a string like: *contoso.com*
 
    * **Active Directory Container -** Enter the container string that
-        contains all users in your AD forest. Example: *OU=Standard
-        Users,OU=Users,DC=contoso,DC=test*
+       contains all users in your AD forest. Example: *OU=Standard
+       Users,OU=Users,DC=contoso,DC=test*
 
    * **Notification Email –** Enter your email address, and check the
-        “send email if failure occurs” checkbox.
+       “send email if failure occurs” checkbox.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
-        the top. If it fails, double-check that the Workday credentials are valid
-        in Workday. 
+       the top. If it fails, double-check that the Workday credentials are valid
+       in Workday. 
 
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
@@ -281,35 +282,35 @@ Follow these instructions to configure user account provisioning from Workday to
 In this section, you will configure how user data flows from Workday to
 Active Directory.
 
-1.  On the Provisioning tab under **Mappings**, click **Synchronize
-    Workday Workers to OnPremises**.
+1. On the Provisioning tab under **Mappings**, click **Synchronize
+   Workday Workers to OnPremises**.
 
-2.  In the **Source Object Scope** field, you can select which sets of
-    users in Workday should be in scope for provisioning to AD, by
-    defining a set of attribute-based filters. The default scope is “all
-    users in Workday”. Example filters:
+2. In the **Source Object Scope** field, you can select which sets of
+   users in Workday should be in scope for provisioning to AD, by
+   defining a set of attribute-based filters. The default scope is “all
+   users in Workday”. Example filters:
 
    * Example: Scope to users with Worker IDs between 1000000 and
-        2000000
+       2000000
 
-      * Attribute: WorkerID
+     * Attribute: WorkerID
 
-      * Operator: REGEX Match
+     * Operator: REGEX Match
 
-      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+     * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Example: Only employees and not contingent workers 
 
-      * Attribute: EmployeeID
+     * Attribute: EmployeeID
 
-      * Operator: IS NOT NULL
+     * Operator: IS NOT NULL
 
-3.  In the **Target Object Actions** field, you can globally filter what
-    actions are allowed to be performed on Active Directory. **Create**
-    and **Update** are most common.
+3. In the **Target Object Actions** field, you can globally filter what
+   actions are allowed to be performed on Active Directory. **Create**
+   and **Update** are most common.
 
-4.  In the **Attribute mappings** section, you can define how individual
-    Workday attributes map to Active Directory attributes.
+4. In the **Attribute mappings** section, you can define how individual
+   Workday attributes map to Active Directory attributes.
 
 5. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
         mappings. An individual attribute mapping supports these properties:
@@ -348,7 +349,7 @@ Active Directory.
             further matching attributes are evaluated.
 
       * **Apply this mapping**
-       
+
          * **Always** – Apply this mapping on both user creation
                 and update actions
 
@@ -374,35 +375,35 @@ Directory, with some common expressions**
 
 -   [There is documentation on writing expressions here](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 
-  
-| WORKDAY ATTRIBUTE | ACTIVE DIRECTORY ATTRIBUTE |  MATCHING ID? | CREATE / UPDATE |
-| ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  EmployeeID | **Yes** | Written on create only | 
-|  **Municipality**   |   l   |     | Create + update |
-|  **Company**         | company   |     |  Create + update |
-|  **CountryReferenceTwoLetter**      |   co |     |   Create + update |
-| **CountryReferenceTwoLetter**    |  c  |     |         Create + update |
-| **SupervisoryOrganization**  | department  |     |  Create + update |
-|  **PreferredNameData**  |  displayName |     |   Create + update |
-| **EmployeeID**    |  cn    |   |   Written on create only |
-| **Fax**      | facsimileTelephoneNumber     |     |    Create + update |
-| **FirstName**   | givenName       |     |    Create + update |
-| **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Create + update |
-| **Mobile**  |    mobile       |     |       Create + update |
-| **EmailAddress**    | mail    |     |     Create + update |
-| **ManagerReference**   | manager  |     |  Create + update |
-| **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Create + update |
-| **PostalCode**  |   postalCode  |     | Create + update |
-| **LocalReference** |  preferredLanguage  |     |  Create + update |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
-| **LastName**   |   sn   |     |  Create + update |
-| **CountryRegionReference** |  st     |     | Create + update |
-| **AddressLineData**    |  streetAddress  |     |   Create + update |
-| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Create + update |
-| **BusinessTitle**   |  title     |     |  Create + update |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Written on create only                                                   
-| **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Create + update |
-  
+
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               WORKDAY ATTRIBUTE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | ACTIVE DIRECTORY ATTRIBUTE |     MATCHING ID?     |    CREATE / UPDATE     |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|----------------------|------------------------|
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           <strong>WorkerID</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         EmployeeID         | <strong>Yes</strong> | Written on create only |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <strong>Municipality</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |             l              |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <strong>Company</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |          company           |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <strong>CountryReferenceTwoLetter</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |             co             |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <strong>CountryReferenceTwoLetter</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |             c              |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <strong>SupervisoryOrganization</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |         department         |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       <strong>PreferredNameData</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |        displayName         |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <strong>EmployeeID</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |             cn             |                      | Written on create only |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <strong>Fax</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |  facsimileTelephoneNumber  |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           <strong>FirstName</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |         givenName          |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <strong>Switch(\[Active\], , "0", "True", "1",)</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |      accountDisabled       |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <strong>Mobile</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |           mobile           |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <strong>EmailAddress</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |            mail            |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       <strong>ManagerReference</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |          manager           |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <strong>WorkSpaceReference</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | physicalDeliveryOfficeName |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <strong>PostalCode</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |         postalCode         |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <strong>LocalReference</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |     preferredLanguage      |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <strong>Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "(<a href="file:///\." data-raw-source="[\\\\.)\*\$](file:///\\.)">\\\\.)\*\$</a>*$)", , "", , )</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |       sAMAccountName       |                      | Written on create only |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           <strong>LastName</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |             sn             |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <strong>CountryRegionReference</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |             st             |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <strong>AddressLineData</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |       streetAddress        |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <strong>PrimaryWorkTelephone</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |      telephoneNumber       |                      |    Create + update     |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <strong>BusinessTitle</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |           title            |                      |    Create + update     |
+| <strong>Join("<xref href=",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(" data-throw-if-not-resolved="False" data-raw-source="@&quot;,Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(&quot;"></xref>.", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")</strong> |     userPrincipalName      |                      | Written on create only |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <strong>Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  parentDistinguishedName   |                      |    Create + update     |
+
 ### Part 3: Configure the on-premises synchronization agent
 
 In order to provision to Active Directory on-premises, an agent must be
@@ -417,8 +418,8 @@ After installing agent, run the Powershell commands below to configure the agent
 **Command #1**
 
 > cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization
-Agent\\Modules\\AADSyncAgent
-
+> Agent\\Modules\\AADSyncAgent
+> 
 > import-module AADSyncAgent.psd1
 
 **Command #2**
@@ -486,14 +487,14 @@ If your Azure Active Directory tenant is located in one of the EU data centers, 
 **Agent troubleshooting**
 
 The [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent contains events for all operations performed by the agent. To view these events:
-	
+
 1. Open **Eventvwr.msc**.
 2. Select **Windows Logs > Application**.
 3. View all events logged under the source **AADSyncAgent**. 
 4. Check for errors and warnings.
 
 If there is a permissions problem with either the Active Directory or Azure Active Directory credentials provided in the Powershell commands, you will see an error such as this one: 
-	
+
 ![Event logs](./media/active-directory-saas-workday-inbound-tutorial/Windows_Event_Logs.png) 
 
 
@@ -509,7 +510,7 @@ Once parts 1-3 have been completed, you can start the provisioning service back 
 4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
 5.  Check the [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent for any new errors or warnings. These events are viewable by launching **Eventvwr.msc** on the server and selecting **Windows Logs > Application**. All provisioning-related messages are logged under the source **AADSyncAgent**. 
-	
+
 
 6. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
@@ -537,43 +538,44 @@ The following sections describe setting up a connection between Workday and Azur
 
 **To configure Workday to Azure Active Directory provisioning for cloud-only users:**
 
-1.  Go to <https://portal.azure.com>.
+1. Go to <https://portal.azure.com>.
 
-2.  In the left navigation bar, select **Azure Active Directory**
+2. In the left navigation bar, select **Azure Active Directory**
 
-3.  Select **Enterprise Applications**, then **All Applications**.
+3. Select **Enterprise Applications**, then **All Applications**.
 
-4.  Select **Add an application**, and then select the **All** category.
+4. Select **Add an application**, and then select the **All** category.
 
-5.  Search for **Workday to Azure AD provisioning**, and add that app from the gallery.
+5. Search for **Workday to Azure AD provisioning**, and add that app from the gallery.
 
-6.  After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**
 
-7.  Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**
 
-8.  Complete the **Admin Credentials** section as follows:
+8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday
-        integration system account, with the tenant domain name
-        appended. Should look something like: username@contoso4
+   * <strong>Admin Username</strong> – Enter the username of the Workday
+       integration system account, with the tenant domain name
+       appended. Should look something like
+     : username@contoso4
 
    * **Admin password –** Enter the password of the Workday
-        integration system account
+       integration system account
 
    * **Tenant URL –** Enter the URL to the Workday web services
-        endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
-        where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
+       endpoint for your tenant. This should look like:
+       https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+       where contoso4 is replaced with your correct tenant name and
+       wd3-impl is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
 
    * **Notification Email –** Enter your email address, and check the
-        “send email if failure occurs” checkbox.
+       “send email if failure occurs” checkbox.
 
    * Click the **Test Connection** button.
 
    * If the connection test succeeds, click the **Save** button at
-        the top. If it fails, double-check that the Workday URL and credentials are valid
-        in Workday.
+       the top. If it fails, double-check that the Workday URL and credentials are valid
+       in Workday.
 
 
 ### Part 2: Configure attribute mappings 
@@ -581,35 +583,35 @@ The following sections describe setting up a connection between Workday and Azur
 In this section, you will configure how user data flows from Workday to
 Azure Active Directory for cloud-only users.
 
-1.  On the Provisioning tab under **Mappings**, click **Synchronize
-    Workers to Azure AD**.
+1. On the Provisioning tab under **Mappings**, click **Synchronize
+   Workers to Azure AD**.
 
-2.   In the **Source Object Scope** field, you can select which sets of
-    users in Workday should be in scope for provisioning to Azure AD, by
-    defining a set of attribute-based filters. The default scope is “all
-    users in Workday”. Example filters:
+2. In the **Source Object Scope** field, you can select which sets of
+   users in Workday should be in scope for provisioning to Azure AD, by
+   defining a set of attribute-based filters. The default scope is “all
+   users in Workday”. Example filters:
 
    * Example: Scope to users with Worker IDs between 1000000 and
-        2000000
+      2000000
 
-      * Attribute: WorkerID
+     * Attribute: WorkerID
 
-      * Operator: REGEX Match
+     * Operator: REGEX Match
 
-      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+     * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Example: Only contingent workers and not regular employees
 
-      * Attribute: ContingentID
+     * Attribute: ContingentID
 
-      * Operator: IS NOT NULL
+     * Operator: IS NOT NULL
 
-3.  In the **Target Object Actions** field, you can globally filter what
-    actions are allowed to be performed on Azure AD. **Create**
-    and **Update** are most common.
+3. In the **Target Object Actions** field, you can globally filter what
+   actions are allowed to be performed on Azure AD. **Create**
+   and **Update** are most common.
 
-4.  In the **Attribute mappings** section, you can define how individual
-    Workday attributes map to Active Directory attributes.
+4. In the **Attribute mappings** section, you can define how individual
+   Workday attributes map to Active Directory attributes.
 
 5. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
         mappings. An individual attribute mapping supports these properties:
@@ -681,42 +683,43 @@ Follow these instructions to configure writeback of user email addresses from Az
 
 **To configure Workday to Active Directory provisioning:**
 
-1.  Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>
 
-2.  In the left navigation bar, select **Azure Active Directory**
+2. In the left navigation bar, select **Azure Active Directory**
 
-3.  Select **Enterprise Applications**, then **All Applications**.
+3. Select **Enterprise Applications**, then **All Applications**.
 
-4.  Select **Add an application**, then select the **All** category.
+4. Select **Add an application**, then select the **All** category.
 
-5.  Search for **Workday Writeback**, and add that app from the gallery.
+5. Search for **Workday Writeback**, and add that app from the gallery.
 
-6.  After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**
 
-7.  Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**
 
-8.  Complete the **Admin Credentials** section as follows:
+8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday
-        integration system account, with the tenant domain name
-        appended. Should look something like: username@contoso4
+   * <strong>Admin Username</strong> – Enter the username of the Workday
+       integration system account, with the tenant domain name
+       appended. Should look something like
+     : username@contoso4
 
    * **Admin password –** Enter the password of the Workday
-        integration system account
+       integration system account
 
    * **Tenant URL –** Enter the URL to the Workday web services
-        endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
-        where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string (if
-        necessary).
+       endpoint for your tenant. This should look like:
+       https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+       where contoso4 is replaced with your correct tenant name and
+       wd3-impl is replaced with the correct environment string (if
+       necessary).
 
    * **Notification Email –** Enter your email address, and check the
-        “send email if failure occurs” checkbox.
+       “send email if failure occurs” checkbox.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
-        the top. If it fails, double-check that the Workday URL and credentials are valid
-        in Workday.
+       the top. If it fails, double-check that the Workday URL and credentials are valid
+       in Workday.
 
 
 ### Part 2: Configure attribute mappings 
@@ -779,13 +782,13 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 7. Set **Operation** to **Get_Workers**
 
-8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name@tenant, and leave the **WS-Security UsernameToken** option selected.
+8. Click the small <strong>configure</strong> link below the Request/Response panes to set your Workday credentials. Check <strong>Authentication</strong>, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name@tenant, and leave the <strong>WS-Security UsernameToken</strong> option selected.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+   ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
 
 9. Select **OK**.
 
-10.	The **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
+10. The **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
@@ -797,7 +800,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
-		  <wd:Response_Group>
+          <wd:Response_Group>
             <wd:Include_Reference>true</wd:Include_Reference>
             <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
             <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
@@ -812,7 +815,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
       </env:Body>
     </env:Envelope>
     ```
- 
+
 11. Click the **Send Request** (green arrow) to execute the command. If successful, the response should appear in the **Response** pane. Check the response to ensure it has the data of the user ID you entered, and not an error.
 
 12. If successful, copy the XML from the **Response** pane and save it as an XML file.
@@ -829,7 +832,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied expression. 
 
-18. If the last item in the copied expression is a node (example: "/wd:Birth_Date"), then append **/text()** at the end of the expression. This is not necessary if the last item is an attribute (example: "/@wd:type").
+18. If the last item in the copied expression is a node (example: "/wd:Birth_Date"), then append <strong>/text()</strong> at the end of the expression. This is not necessary if the last item is an attribute (example: "/@wd:type").
 
 19. The result should be something like `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. This is what you will copy into the Azure portal.
 

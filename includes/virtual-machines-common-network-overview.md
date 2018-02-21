@@ -46,7 +46,7 @@ You can assign public IP addresses to VMs or internet-facing load balancers. You
 There are two methods in which an IP address is allocated to a resource - dynamic or static. The default allocation method is dynamic, where an IP address is not allocated when it's created. Instead, the IP address is allocated when you create a VM or start a stopped VM. The IP address is released when you stop or delete the VM. 
 
 To ensure the IP address for the VM remains the same, you can set the allocation method explicitly to static. In this case, an IP address is assigned immediately. It is released only when you delete the VM or change its allocation method to dynamic.
-	
+    
 This table lists the methods that you can use to create an IP address.
 
 | Method | Description |
@@ -68,7 +68,7 @@ If you work within an organization in which someone else is responsible for the 
 
 By default, there is no security boundary between subnets, so VMs in each of these subnets can talk to one another. However, you can set up Network Security Groups (NSGs), which allow you to control the traffic flow to and from subnets and to and from VMs. 
 
-This table lists the methods that you can use to create a VNet and subnets.	
+This table lists the methods that you can use to create a VNet and subnets. 
 
 | Method | Description |
 | ------ | ----------- |
@@ -120,7 +120,7 @@ This table lists the methods that you can use to create an internet-facing load 
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md) | To provide the identifer of the public IP address that you previously created, use [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) with the **-PublicIpAddress** parameter. Use [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) to create the configuration of the back-end address pool. Use [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) to create the probes that you need. Use [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) to create the load balancer configuration. Use [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) to create the load balancer.|
 | [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md) | Use [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) to create the initial load balancer configuration. Use [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) to add the public IP address that you previously created. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) to add the configuration of the back-end address pool. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) to add NAT rules. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) to add the load balancer rules. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) to add the probes. |
 | [Template](../articles/load-balancer/load-balancer-get-started-internet-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) as a guide for deploying a load balancer using a template. |
-	
+    
 This table lists the methods that you can use to create an internal load balancer.
 
 | Method | Description |

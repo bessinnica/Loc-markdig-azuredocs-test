@@ -83,14 +83,14 @@ With Azure AD Application Proxy connector groups, you can enable a common servic
 Most customers who have deployed Application Proxy are using its single-sign-on (SSO) capabilities by performing Kerberos Constrained Delegation (KCD). To achieve this, the connector’s machines need to be joined to a domain that can delegate the users toward the application. KCD supports cross-forest capabilities. But for companies who have distinct multi-forest environments with no trust between them, a single connector cannot be used for all forests. 
 
 In this case, specific connectors can be deployed per forest, and set to serve applications that were published to serve only the users of that specific forest. Each connector group represents a different forest. While the tenant and most of the experience is unified for all forests, users can be assigned to their forest applications using Azure AD groups.
- 
+ 
 ### Disaster Recovery sites
 
 There are two different approaches you can take with a disaster recovery (DR) site, depending on how your sites are implemented:
 
 * If your DR site is built in active-active mode where it is exactly like the main site and has the same networking and AD settings, you can create the connectors on the DR site in the same connector group as the main site. This enables Azure AD to detect failovers for you.
 * If your DR site is separate from the main site, you can create a different connector group in the DR site, and either 1) have backup applications or 2) manually divert the existing application to the DR connector group as needed.
- 
+ 
 ### Serve multiple companies from a single tenant
 
 There are many different ways to implement a model in which a single service provider deploys and maintains Azure AD related services for multiple companies. Connector groups help the admin segregate the connectors and applications into different groups. One way, which is suitable for small companies, is to have a single Azure AD tenant while the different companies have their own domain name and networks. This is also true for M&A scenarios and situations where a single IT division serves several companies for regulatory or business reasons. 
@@ -98,7 +98,7 @@ There are many different ways to implement a model in which a single service pro
 ## Sample configurations
 
 Some examples that you can implement, include the following connector groups.
- 
+ 
 ### Default configuration – no use for connector groups
 
 If you don’t use connector groups, your configuration would look like this:
@@ -106,7 +106,7 @@ If you don’t use connector groups, your configuration would look like this:
 ![AzureAD No Connector Groups](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-1.png)
  
 This configuration is sufficient for small deployments and tests. It will also work well if your organization has a flat network topology.
- 
+ 
 ### Default configuration and an isolated network
 
 This configuration is an evolution of the default one, in which there is a specific app that runs in an isolated network such as IaaS virtual network: 

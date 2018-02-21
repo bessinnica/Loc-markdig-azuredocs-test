@@ -67,59 +67,59 @@ You can retrieve information from the activity logs through the portal, PowerShe
 ## PowerShell
 1. To retrieve log entries, run the **Get-AzureRmLog** command. You provide additional parameters to filter the list of entries. If you do not specify a start and end time, entries for the last hour are returned. For example, to retrieve the operations for a resource group during the past hour run:
 
-  ```powershell
-  Get-AzureRmLog -ResourceGroup ExampleGroup
-  ```
+   ```powershell
+   Get-AzureRmLog -ResourceGroup ExampleGroup
+   ```
    
     The following example shows how to use the activity log to research operations taken during a specified time. The start and end dates are specified in a date format.
 
-  ```powershell
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
-  ```
+   ```powershell
+   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+   ```
 
     Or, you can use date functions to specify the date range, such as the last 14 days.
    
-  ```powershell 
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
-  ```
+   ```powershell 
+   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+   ```
 
 2. Depending on the start time you specify, the previous commands can return a long list of operations for the resource group. You can filter the results for what you are looking for by providing search criteria. For example, if you are trying to research how a web app was stopped, you could run the following command:
 
-  ```powershell
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
-  ```
+   ```powershell
+   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+   ```
 
     Which for this example shows that a stop action was performed by someone@contoso.com. 
 
-  ```powershell 
-  Authorization     :
-  Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Action    : Microsoft.Web/sites/stop/action
-  Role      : Subscription Admin
-  Condition :
-  Caller            : someone@contoso.com
-  CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-  EventSource       : Administrative
-  EventTimestamp    : 8/28/2015 4:08:18 PM
-  OperationName     : Microsoft.Web/sites/stop/action
-  ResourceGroupName : ExampleGroup
-  ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Status            : Succeeded
-  SubscriptionId    : xxxxx
-  SubStatus         : OK
-  ```
+   ```powershell 
+   Authorization     :
+   Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+   Action    : Microsoft.Web/sites/stop/action
+   Role      : Subscription Admin
+   Condition :
+   Caller            : someone@contoso.com
+   CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
+   EventSource       : Administrative
+   EventTimestamp    : 8/28/2015 4:08:18 PM
+   OperationName     : Microsoft.Web/sites/stop/action
+   ResourceGroupName : ExampleGroup
+   ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+   Status            : Succeeded
+   SubscriptionId    : xxxxx
+   SubStatus         : OK
+   ```
 
 3. You can look up the actions taken by a particular user, even for a resource group that no longer exists.
 
-  ```powershell 
-  Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
-  ```
+   ```powershell 
+   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+   ```
 
 4. You can filter for failed operations.
 
-  ```powershell
-  Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
-  ```
+   ```powershell
+   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+   ```
 
 5. You can focus on one error by looking at the status message for that entry.
    

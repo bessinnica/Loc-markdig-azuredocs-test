@@ -97,7 +97,9 @@ The message sent to the Notification Hub contains all the following properties:
 <tr><td>day1_tempC</td><td>day2_tempC</td><td>day3_tempC</td><td>day4_tempC</td><td>day5_tempC</td></tr>
 
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
+
 </table><br/>
+
 
 By using this pattern, the backend only sends a single message without having to store specific personalization options for the app users. The following picture illustrates this scenario:
 

@@ -37,7 +37,7 @@ More regions will be added as we develop the product.  You can help us prioritiz
 
 To fully experience all capabilities of Azure Machine Learning, Azure Machine Learnign will use Visual Studio VSTS account, Azure Blob Storage, Azure Container Registry, Data Science VM or HDInsight compute, and Azure Container Service.
 
-**How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**	
+**How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**   
 
 Machine Learning Services in SQL Server 2017 is an extensible, scalable platform for integrating machine learning tasks into database workflows. It is a perfect fit for scenarios where an on-premise solution is required, for example where data movement is expensive or untenable. In contrast, cloud or hybrid workloads are a great fit for our new Azure services. 
 
@@ -186,7 +186,7 @@ The [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) 
 
 ## Pricing and billing
 
-**Are you charging for Azure Machine Learning during preview?**	
+**Are you charging for Azure Machine Learning during preview?** 
 
 A: The Azure Machine Learning Workbench applicaiton is available free of charge to Azure subscribers. The Experimentation Service and Model Management offer free tiers, in addition to paid tiers, avialable at a discount during Public Preview.
 

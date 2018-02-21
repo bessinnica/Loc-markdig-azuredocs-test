@@ -37,7 +37,7 @@ Before you configure and enable the provisioning service, you need to decide whi
 
 > [!IMPORTANT]
 > We recommend  that a single Azure AD user be assigned to Google Apps to test the provisioning configuration. You can assign additional users and groups later.
-
+> 
 > When you assign a user to Google Apps, select the **User** or **Group** role in the assignment dialog box. The **Default Access** role doesn't work for provisioning.
 
 ## Enable automated user provisioning
@@ -89,8 +89,8 @@ This section guides you through the process of connecting your Azure AD to the u
 
     e. Repeat the preceding steps for all the domains that you intend to add to your directory.
 
-	> [!NOTE]
-	For user provisioning, the Google Apps custom domain must match the domain name of the source Azure AD. If they do not match, you may be able to solve the problem by implementing attribute mapping customization.
+   > [!NOTE]
+   >  For user provisioning, the Google Apps custom domain must match the domain name of the source Azure AD. If they do not match, you may be able to solve the problem by implementing attribute mapping customization.
 
 
 5. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google Apps, take the following steps:

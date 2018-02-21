@@ -56,7 +56,6 @@ Web Activity can be used to call a custom REST endpoint from a Data Factory pipe
       ]
    }
 }
-
 ```
 
 ## Type properties
@@ -177,7 +176,6 @@ In this example, the web activity in the pipeline calls a REST end point. It pas
         }
     }
 }
-
 ```
 
 ### Pipeline parameter values
@@ -187,7 +185,6 @@ In this example, the web activity in the pipeline calls a REST end point. It pas
     "sqlTableName": "department",
     "url": "https://adftes.azurewebsites.net/api/execute/running"
 }
-
 ```
 
 ### Web service endpoint code
@@ -216,7 +213,6 @@ public HttpResponseMessage Execute(JObject payload)
 
     return this.Request.CreateResponse(HttpStatusCode.OK, result);
 }
-
 ```
 
 ## Next steps

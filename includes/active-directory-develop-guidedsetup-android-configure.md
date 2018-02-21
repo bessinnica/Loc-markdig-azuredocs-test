@@ -5,7 +5,7 @@ You can register your application in either of two ways, as described in the nex
 ### Option 1: Express mode
 You can quickly register your application by doing the following:
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.	In the **Application Name** box, enter a name for your application.
+2.  In the **Application Name** box, enter a name for your application.
 
 3. Ensure that the **Guided Setup** check box is selected, and then select **Create**.
 
@@ -22,12 +22,12 @@ To register your application and add your application registration information t
 
 5. Under **app** > **java** > **{host}.{namespace}**, open `MainActivity`. 
 
-6.	Replace *[Enter the application Id here]* in the following line with the application ID that you just registered:
+6. Replace *[Enter the application Id here]* in the following line with the application ID that you just registered:
 
-    ```java
-    final static String CLIENT_ID = "[Enter the application Id here]";
-    ```
-<!-- Workaround for Docs conversion bug -->
+   ```java
+   final static String CLIENT_ID = "[Enter the application Id here]";
+   ```
+   <!-- Workaround for Docs conversion bug -->
 7. Under **app** > **manifests**, open the *AndroidManifest.xml* file.
 
 8. In the `manifest\application` node, add the following activity. Doing so registers a `BrowserTabActivity` activity that allows the OS to resume your application after it completes the authentication:
@@ -48,5 +48,5 @@ To register your application and add your application registration information t
         </intent-filter>
     </activity>
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 9. In the `BrowserTabActivity` node, replace `[Enter the application Id here]` with the application ID.

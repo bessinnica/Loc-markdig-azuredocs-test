@@ -134,8 +134,7 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 > **Don't forget the additional configuration steps after provisioning your managed domain.**
 > After your managed domain is provisioned, you still need to complete the following tasks:
 > * **[Update DNS settings](active-directory-ds-getting-started-dns.md)** for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-* **[Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, so end users can sign in to the managed domain using their corporate credentials.
->
+> * **[Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, so end users can sign in to the managed domain using their corporate credentials.
 
 
 ## PowerShell script
@@ -220,8 +219,7 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 > **Don't forget the additional configuration steps after provisioning your managed domain.**
 > After your managed domain is provisioned, you still need to complete the following tasks:
 > * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-* Enable password synchronization to Azure AD Domain Services so end users can sign in to the managed domain using their corporate credentials.
->
+> * Enable password synchronization to Azure AD Domain Services so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
 After your managed domain is created, perform the following configuration tasks so you can use the managed domain:

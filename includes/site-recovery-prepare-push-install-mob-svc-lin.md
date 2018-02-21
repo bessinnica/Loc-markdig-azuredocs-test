@@ -6,13 +6,13 @@
 4. Install the latest openssh, openssh-server, and openssl packages on the computer that you want to replicate.
 5. Ensure that Secure Shell (SSH) is enabled and running on port 22.
 6. Enable SFTP subsystem and password authentication in the sshd_config file:
-  1.  Sign in as **root**.
-  2.  In the file /etc/ssh/sshd_config file, find the line that begins with **PasswordAuthentication**.
-  3.  Uncomment the line and change the value to **yes**.
-  4.  Find the line that begins with **Subsystem** and uncomment the line.
+   1. Sign in as **root**.
+   2. In the file /etc/ssh/sshd_config file, find the line that begins with **PasswordAuthentication**.
+   3. Uncomment the line and change the value to **yes**.
+   4. Find the line that begins with **Subsystem** and uncomment the line.
 
-     ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
-  5. Restart the **sshd** service.
+      ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
+   5. Restart the **sshd** service.
 
 7. Add the account that you created in CSPSConfigtool.
     1.  Sign in to your configuration server.

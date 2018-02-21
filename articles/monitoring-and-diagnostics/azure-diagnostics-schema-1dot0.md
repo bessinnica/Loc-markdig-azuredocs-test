@@ -269,6 +269,8 @@ Attributes:
 
  Attributes:
 
-|Attribute|Type|Description|  
-|---------------|----------|-----------------|  
-|**name**|string|Required. An XPath expression specifying the log to collect.|  
+
+|       Attribute       |  Type  |                         Description                          |
+|-----------------------|--------|--------------------------------------------------------------|
+| <strong>name</strong> | string | Required. An XPath expression specifying the log to collect. |
+

@@ -34,7 +34,6 @@ When you add this connector to your logic apps, you must authorize logic apps to
 2. Select **Authorize**, and allow your logic apps to connect and use your Facebook. 
 
 > [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
-> 
 
 
 ## Connector-specific details

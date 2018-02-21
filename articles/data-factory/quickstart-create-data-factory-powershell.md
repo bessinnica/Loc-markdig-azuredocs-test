@@ -28,7 +28,7 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 >
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### Azure PowerShell
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -49,7 +49,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 4. If you see multiple subscriptions associated with your account, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 
 ## Create a data factory
@@ -365,7 +365,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     "billedDuration": 14
     ```
 
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 

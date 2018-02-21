@@ -65,21 +65,21 @@ For this illustration, we will replicate VMs running  in the ‘East Asia’ Azu
     ![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
 In **Virtual Machines > Select virtual machines**, click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click OK.
-   	![Enable replication](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+    ![Enable replication](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 
 Under Settings section, you can configure target site properties
 
 1. **Target Location:**  This is the location where your source virtual machine data will be replicated. Depending upon your selected machines location, Site Recovery will provide you the list of suitable target regions.
 
-	> [!TIP]
-	> It is recommended to keep target location same as of your recovery services vault.
+    > [!TIP]
+    > It is recommended to keep target location same as of your recovery services vault.
 
 2. **Target resource group:** It is the resource group to which all your replicated virtual machines belong. By default Azure Site Recovery creates a new resource group in the target region with name having "asr" suffix. In case resource group created by Azure Site Recovery already exists, it will be reused. You can also choose to customize it as shown in the section below.    
 3. **Target Virtual Network:** By default, Azure Site Recovery creates a new virtual network in the target region with name having "asr" suffix. This will be mapped to your source network and will be used for any future protection.
 
-	> [!NOTE]
-	> [Check networking details](site-recovery-network-mapping-azure-to-azure.md) to know more about network mapping.
+    > [!NOTE]
+    > [Check networking details](site-recovery-network-mapping-azure-to-azure.md) to know more about network mapping.
 
 4. **Target Storage accounts:** By default, Azure Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account created by Azure Site Recovery already exist, it will be reused.
 
@@ -87,9 +87,9 @@ Under Settings section, you can configure target site properties
 
 6. **Availability set:** By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix. In case availability set created by Azure Site Recovery already exists, it is reused.
 
-7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
+7.  **Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
-	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
+    ![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 ## Customize target resources
 

@@ -45,30 +45,30 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
     ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Define the alert condition by using the **Select Resource** link and specifying the target, by selecting a resource. Filter appropriately by choosing needed *Subscription*, *Resource Type*, and finally selecting required *Resource*.
+4. Define the alert condition by using the **Select Resource** link and specifying the target, by selecting a resource. Filter appropriately by choosing needed *Subscription*, *Resource Type*, and finally selecting required *Resource*.
 
-    >[!NOTE]
+   > [!NOTE]
+   > 
+   > Verify the signals available for the selected resource before you proceed.
 
-    > Verify the signals available for the selected resource before you proceed.
+   ![Select resource](./media/monitor-alerts-unified/Alert-SelectResource.png)
 
-    ![Select resource](./media/monitor-alerts-unified/Alert-SelectResource.png)
+   As Azure Alerts (Preview) allows you to create various types of alerts from a singular interface; based on the type of alert desired choose the next step as:
 
- As Azure Alerts (Preview) allows you to create various types of alerts from a singular interface; based on the type of alert desired choose the next step as:
+   - For **Metric Alerts**: follow steps 5 to 7; then go directly to step 11
+   - For **Log Alerts**, jump to step 8.
 
-    - For **Metric Alerts**: follow steps 5 to 7; then go directly to step 11
-    - For **Log Alerts**, jump to step 8.
-
-    > [!NOTE]
-
-    > Unified Alerts (Preview) also supports Activity Log alerts. [Learn more](monitoring-activity-log-alerts-new-experience.md).
+   > [!NOTE]
+   > 
+   > Unified Alerts (Preview) also supports Activity Log alerts. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 5. *Metric Alerts*: Ensure **Resource Type** is selected platform  or monitor service (other than *Log Analytics*), then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
     ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
-    > [!NOTE]
-
-    > New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
+   > [!NOTE]
+   > 
+   > New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
 
 6. *Metric Alerts*: Once signal is selected, logic for alerting can be stated. For reference, historic data of signal is shown with option to tweak the time window using **Show History**, varying from last six hours to last week. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have triggered. Finally specify for what time duration, Alert should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**.
 
@@ -83,28 +83,28 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
    ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-
+   > 
    > **Alerts preview** lists saved log searches as signal type - Log (Saved Query), when resource chosen is Log Analytics.
-   So that you can perfect your query in Analytics and then save them for future use - more details available at [using log search in log analytics](../log-analytics/log-analytics-log-searches.md). Then you can create alert rules based on these queries directly, as shown in the following sample screen with saved searches:
+   > So that you can perfect your query in Analytics and then save them for future use - more details available at [using log search in log analytics](../log-analytics/log-analytics-log-searches.md). Then you can create alert rules based on these queries directly, as shown in the following sample screen with saved searches:
 
    ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
-9.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
+9. *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
 
- ![Configure alert rule](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+   ![Configure alert rule](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
 
- > [!NOTE]
+   > [!NOTE]
+   > 
+   > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
+   > 
+   >  For Metric Measurement type of Log Alerts using Application insights, you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
 
-    > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
+   ![aggregate on option](./media/monitor-alerts-unified/aggregate-on.png)
 
-    >  For Metric Measurement type of Log Alerts using Application insights, you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
-
-    ![aggregate on option](./media/monitor-alerts-unified/aggregate-on.png)
-
-10.  *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**.
-For **Log Alerts** alerts can be based on:
-   - *Number of Records*: An alert is created if the count of records returned by the query is either greater than or less than the value provided.
-   - *Metric Measurement*: An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples. Learn more about [Log Alerts and their types](monitor-alerts-unified-log.md).
+10. *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**.
+    For **Log Alerts** alerts can be based on:
+    - *Number of Records*: An alert is created if the count of records returned by the query is either greater than or less than the value provided.
+    - *Metric Measurement*: An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples. Learn more about [Log Alerts and their types](monitor-alerts-unified-log.md).
 
     > [!TIP]
     > Currently in Alerts (Preview) - log search alerts can take custom *period* and *frequency* value in minute(s). Values can vary from 5 minutes to 1440 minutes (that is) 24 hours. So if you want alert period to be say three hours, convert it into minutes - 180 minutes, before use

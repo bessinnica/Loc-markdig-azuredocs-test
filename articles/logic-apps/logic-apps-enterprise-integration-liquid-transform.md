@@ -45,7 +45,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 ## Create a Liquid template or map for your integration account
 
 1. Create the sample Liquid template for this example. 
-The Liquid template defines how to transform JSON input as described here:
+   The Liquid template defines how to transform JSON input as described here:
 
    ``` json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -77,7 +77,7 @@ The Liquid template defines how to transform JSON input as described here:
 
    ![Select integration account](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-5.  On the integration account tile, select **Maps**.
+5. On the integration account tile, select **Maps**.
 
    ![Select maps](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 

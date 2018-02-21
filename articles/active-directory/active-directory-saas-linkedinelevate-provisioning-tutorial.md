@@ -43,9 +43,9 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 ### Important tips for assigning users to LinkedIn Elevate
 
-*	It is recommended that a single Azure AD user be assigned to LinkedIn Elevate to test the provisioning configuration. Additional users and/or groups may be assigned later.
+*   It is recommended that a single Azure AD user be assigned to LinkedIn Elevate to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to LinkedIn Elevate, you must select the **User** role in the assignment dialog. The "Default Access" role does not work for provisioning.
+*   When assigning a user to LinkedIn Elevate, you must select the **User** role in the assignment dialog. The "Default Access" role does not work for provisioning.
 
 
 ## Configuring user provisioning to LinkedIn Elevate
@@ -66,13 +66,15 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 1)  Sign in to Account Center.
 
-2)  Select **Admin &gt; Admin Settings** .
+2)  Select <strong>Admin &gt; Admin Settings</strong> .
 
-3)  Click **Advanced Integrations** on the left sidebar. You are
+3)  Click <strong>Advanced Integrations</strong> on the left sidebar. You are
     directed to the account center.
 
-4)  Click **+ Add new SCIM configuration** and follow the procedure by
+
+4)  Click <strong>+ Add new SCIM configuration</strong> and follow the procedure by
     filling in each field.
+
 
 > When auto­assign licenses is not enabled, it means that only user
 > data is synced.
@@ -85,23 +87,24 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 ![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
-5)  Click **Generate token**. You should see your access token display
-    under the **Access token** field.
+5)  Click <strong>Generate token</strong>. You should see your access token display
+    under the 
+<strong>Access token</strong> field.
 
 6)  Save your access token to your clipboard or computer before leaving
     the page.
 
-7) Next, sign in to the [Azure portal](https://portal.azure.com), and browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+7) Next, sign in to the [Azure portal](https://portal.azure.com), and browse to the <strong>Azure Active Directory > Enterprise Apps > All applications</strong>  section.
 
-8) If you have already configured LinkedIn Elevate for single sign-on, search for your instance of LinkedIn Elevate using the search field. Otherwise, select **Add** and search for **LinkedIn Elevate** in the application gallery. Select LinkedIn Elevate from the search results, and add it to your list of applications.
+8) If you have already configured LinkedIn Elevate for single sign-on, search for your instance of LinkedIn Elevate using the search field. Otherwise, select <strong>Add</strong> and search for <strong>LinkedIn Elevate</strong> in the application gallery. Select LinkedIn Elevate from the search results, and add it to your list of applications.
 
-9)	Select your instance of LinkedIn Elevate, then select the **Provisioning** tab.
+9)  Select your instance of LinkedIn Elevate, then select the <strong>Provisioning</strong> tab.
 
-10)	Set the **Provisioning Mode** to **Automatic**.
+10) Set the <strong>Provisioning Mode</strong> to <strong>Automatic</strong>.
 
 ![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
-11)  Fill in the following fields under **Admin Credentials** :
+11)  Fill in the following fields under <strong>Admin Credentials</strong> :
 
 * In the **Tenant URL** field, enter https://api.linkedin.com.
 
@@ -110,17 +113,17 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 * You should see a success notification on the upper­right side of
     your portal.
 
-12) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
+12) Enter the email address of a person or group who should receive provisioning error notifications in the <strong>Notification Email</strong> field, and check the checkbox below.
 
-13) Click **Save**. 
+13) Click <strong>Save</strong>. 
 
-14) In the **Attribute Mappings** section, review the user and group attributes that will be synchronized from Azure AD to LinkedIn Elevate. Note that the attributes selected as **Matching** properties will be used to match the user accounts and groups in LinkedIn Elevate for update operations. Select the Save button to commit any changes.
+14) In the <strong>Attribute Mappings</strong> section, review the user and group attributes that will be synchronized from Azure AD to LinkedIn Elevate. Note that the attributes selected as <strong>Matching</strong> properties will be used to match the user accounts and groups in LinkedIn Elevate for update operations. Select the Save button to commit any changes.
 
 ![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
-15) To enable the Azure AD provisioning service for LinkedIn Elevate, change the **Provisioning Status** to **On** in the **Settings** section
+15) To enable the Azure AD provisioning service for LinkedIn Elevate, change the <strong>Provisioning Status</strong> to <strong>On</strong> in the <strong>Settings</strong> section
 
-16) Click **Save**. 
+16) Click <strong>Save</strong>. 
 
 This will start the initial synchronization of any users and/or groups assigned to LinkedIn Elevate in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your LinkedIn Elevate app.
 

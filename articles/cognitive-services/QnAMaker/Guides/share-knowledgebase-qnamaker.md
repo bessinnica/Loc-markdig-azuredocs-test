@@ -15,8 +15,8 @@ ms.author: pchoudh
 # Share your knowledge base #
 Add other users to your knowledge base, so they can contribute to it as well.
 
->[!WARNING]
-Share your knowledge base only with people you know or trust. Users can edit/publish/delete shared knowledge bases. Also, all users you share your knowledge base with, will be able to see your subscription key.
+> [!WARNING]
+> Share your knowledge base only with people you know or trust. Users can edit/publish/delete shared knowledge bases. Also, all users you share your knowledge base with, will be able to see your subscription key.
 
 ## Add users to your KB ##
 Go to the settings tab and add users.

@@ -61,31 +61,31 @@ To restore files or folders from the restore point, go to the virtual machine an
 
     If you run the script on a computer with restricted access, ensure there is access to:
 
-    - download.microsoft.com
-    - [Azure endpoints used for Azure VM backups](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
-    - outbound port 3260
+   - download.microsoft.com
+   - [Azure endpoints used for Azure VM backups](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
+   - outbound port 3260
 
-    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
-    
-    The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.         
+     For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
 
-    You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
- 
+     The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.         
+
+     You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+
 
 ### Identifying Volumes
 
 #### For Windows
 
 When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine, however, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:`\`)”, that volume can be attached on the local computer as “Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files/folder.  
-       
+
    ![File recovery menu](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
-           
+
 #### For Linux
 
 In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes, and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.
 
   ![Linux File recovery menu](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
-  
+
 
 ## Closing the connection
 
@@ -121,7 +121,7 @@ In Linux, Logical volume manager (LVM) and/or software RAID Arrays are used to m
 The following script output displays the LVM and/or RAID Arrays disks and the volumes with the partition type.
 
    ![Linux LVM Output menu](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
-   
+
 To bring these partitions online, run the commands in the following sections. 
 
 **For LVM Partitions**
@@ -199,12 +199,14 @@ The script also requires Python and bash components to execute and connect secur
 
 If you have problems while recovering files from the virtual machines, check the following table for additional information.
 
-| Error Message / Scenario | Probable Cause | Recommended action |
-| ------------------------ | -------------- | ------------------ |
-| Exe output: *Exception connecting to the target* |Script is not able to access the recovery point	| Check whether the machine fulfills the previous access requirements. |  
-|	Exe output: *The target has already been logged in via an ISCSI session.* |	The script was already executed on the same machine and the drives have been attached |	The volumes of the recovery point have already been attached. They may NOT be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file |
-| Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal.* |	The disks have been dismounted from the portal or the 12-hr limit exceeded |	This particular exe is now invalid and can’t be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe|
-| On the machine where the exe is run: The new volumes are not dismounted after the dismount button is clicked |	The ISCSI initiator on the machine is not responding/refreshing its connection to the target and maintaining the cache |	Wait for some mins after the dismount button is pressed. If the new volumes are still not dismounted, please browse through all the volumes. This forces the initiator to refresh the connection and the volume is dismounted with an error message that the disk is not available|
-| Exe output: Script is run successfully but “New volumes attached” is not displayed on the script output |	This is a transient error	| The volumes would have been already attached. Open Explorer to browse. If you are using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
-| Linux specific: Not able to view the desired volumes | The OS of the machine where the script is run may not recognize the underlying filesystem of the protected VM | Check whether the recovery point is crash consistent or file-consistent. If file consistent, run the script on another machine whose OS recognizes the protected VM's filesystem |
-| Windows specific: Not able to view the desired volumes | The disks may have been attached but the volumes were not configured | From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in offline state try making them online by right-clicking on the disk and click 'Online'|
+
+|                                                                    Error Message / Scenario                                                                    |                                                     Probable Cause                                                     |                                                                                                                                 Recommended action                                                                                                                                 |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                                    Exe output: <em>Exception connecting to the target</em>                                                     |                                    Script is not able to access the recovery point                                     |                                                                                                        Check whether the machine fulfills the previous access requirements.                                                                                                        |
+|                                        Exe output: <em>The target has already been logged in via an ISCSI session.</em>                                        |                 The script was already executed on the same machine and the drives have been attached                  |                                 The volumes of the recovery point have already been attached. They may NOT be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file                                  |
+| Exe output: <em>This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal.</em> |                       The disks have been dismounted from the portal or the 12-hr limit exceeded                       |                                                                This particular exe is now invalid and can’t be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe                                                                 |
+|                          On the machine where the exe is run: The new volumes are not dismounted after the dismount button is clicked                          | The ISCSI initiator on the machine is not responding/refreshing its connection to the target and maintaining the cache | Wait for some mins after the dismount button is pressed. If the new volumes are still not dismounted, please browse through all the volumes. This forces the initiator to refresh the connection and the volume is dismounted with an error message that the disk is not available |
+|                            Exe output: Script is run successfully but “New volumes attached” is not displayed on the script output                             |                                               This is a transient error                                                |                       The volumes would have been already attached. Open Explorer to browse. If you are using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs.                        |
+|                                                      Linux specific: Not able to view the desired volumes                                                      |     The OS of the machine where the script is run may not recognize the underlying filesystem of the protected VM      |                                                  Check whether the recovery point is crash consistent or file-consistent. If file consistent, run the script on another machine whose OS recognizes the protected VM's filesystem                                                  |
+|                                                     Windows specific: Not able to view the desired volumes                                                     |                          The disks may have been attached but the volumes were not configured                          |                                  From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in offline state try making them online by right-clicking on the disk and click 'Online'                                  |
+

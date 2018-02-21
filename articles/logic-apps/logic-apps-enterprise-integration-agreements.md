@@ -74,7 +74,7 @@ You can delete any agreement by following these steps:
 4. Choose **Delete**.
 5. Confirm that you want to delete the selected agreement.
 
-	The Agreements blade no longer shows the deleted agreement.
+    The Agreements blade no longer shows the deleted agreement.
 
 ## Next steps
 * [Create an AS2 agreement](logic-apps-enterprise-integration-as2.md)

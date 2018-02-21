@@ -106,6 +106,7 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 
 <a id="nsg"></a>
 
+
 ## Source 4: Network security groups
 Network security groups enable you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
 For more information, see [About network security groups](../../virtual-network/virtual-networks-nsg.md).

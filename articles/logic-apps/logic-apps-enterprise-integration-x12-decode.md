@@ -43,37 +43,37 @@ that's already defined in your integration account
 so you must add a trigger for starting your logic app, like a Request trigger. 
 In the Logic App Designer, add a trigger, and then add an action to your logic app.
 
-3.	In the search box, enter "x12" for your filter. 
+3.  In the search box, enter "x12" for your filter. 
 Select **X12 - Decode X12 message**.
    
-	![Search for "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
+    ![Search for "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
 3. If you didn't previously create any connections to your integration account, 
 you're prompted to create that connection now. Name your connection, 
 and select the integration account that you want to connect. 
 
-	![Provide integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
+    ![Provide integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
 
-	Properties with an asterisk are required.
+    Properties with an asterisk are required.
 
-	| Property | Details |
-	| --- | --- |
-	| Connection Name * |Enter any name for your connection. |
-	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+    | Property | Details |
+    | --- | --- |
+    | Connection Name * |Enter any name for your connection. |
+    | Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-5.	When you're done, your connection details should look similar to this example. 
+5.  When you're done, your connection details should look similar to this example. 
 To finish creating your connection, choose **Create**.
    
-	![integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+    ![integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
 6. After your connection is created, as shown in this example, 
 select the X12 flat file message to decode.
 
-	![integration account connection created](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
+    ![integration account connection created](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-	For example:
+    For example:
 
-	![Select X12 flat file message for decoding](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+    ![Select X12 flat file message for decoding](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
    > [!NOTE]
    > The actual message content or payload for the message array, good or bad, 

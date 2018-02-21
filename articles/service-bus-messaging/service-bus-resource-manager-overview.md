@@ -81,7 +81,7 @@ Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-q
   "variables": {
     "defaultSASKeyName": "RootManageSharedAccessKey",
     "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
-	"sbVersion": "2017-04-01"
+    "sbVersion": "2017-04-01"
   },
   "resources": [
     {
@@ -245,7 +245,6 @@ Parameters        :
                     serviceBusNamespaceName  String             <namespaceName>
                     serviceBusQueueName  String                 <queueName>
                     serviceBusApiVersion  String                2017-04-01
-
 ```
 
 ## Next steps

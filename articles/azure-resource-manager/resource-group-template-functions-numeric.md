@@ -34,6 +34,7 @@ Resource Manager provides the following functions for working with integers:
 
 <a id="add" />
 
+
 ## add
 `add(operand1, operand2)`
 
@@ -105,6 +106,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="copyindex" />
 
+
 ## copyIndex
 `copyIndex(loopName, offset)`
 
@@ -122,7 +124,7 @@ Returns the index of an iteration loop.
 This function is always used with a **copy** object. If no value is provided for **offset**, the current iteration value is returned. The iteration value starts at zero. You can use iteration loops when defining either resources or variables.
 
 The **loopName** property enables you to specify whether copyIndex is referring to a resource iteration or property iteration. If no value is provided for **loopName**, the current resource type iteration is used. Provide a value for **loopName** when iterating on a property. 
- 
+
 For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 For an example of using **copyIndex** when defining a variable, see [Variables](resource-group-authoring-templates.md#variables).
@@ -150,6 +152,7 @@ The following example shows a copy loop and the index value included in the name
 An integer representing the current index of the iteration.
 
 <a id="div" />
+
 
 ## div
 `div(operand1, operand2)`
@@ -222,6 +225,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="float" />
 
+
 ## float
 `float(arg1)`
 
@@ -255,6 +259,7 @@ The following example shows how to use float to pass parameters to a Logic App:
 ```
 
 <a id="int" />
+
 
 ## int
 `int(valueToConvert)`
@@ -315,6 +320,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="max" />
+
 
 ## max
 `max (arg1)`
@@ -380,6 +386,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="min" />
 
+
 ## min
 `min (arg1)`
 
@@ -443,6 +450,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="mod" />
+
 
 ## mod
 `mod(operand1, operand2)`
@@ -514,6 +522,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="mul" />
 
+
 ## mul
 `mul(operand1, operand2)`
 
@@ -584,6 +593,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 <a id="sub" />
+
 
 ## sub
 `sub(operand1, operand2)`

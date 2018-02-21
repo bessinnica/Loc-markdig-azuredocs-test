@@ -22,6 +22,7 @@ ms.author: barbkess
 This topic lists every topic that applies directly to the **SQL Data Warehouse** service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
 
 ## New
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 1 |[SQL Data Warehouse backups](sql-data-warehouse-backups.md) |Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region. |
@@ -35,6 +36,7 @@ This section lists articles which were updated recently, where the update was bi
 | 3 |[SQL Data Warehouse restore](sql-data-warehouse-restore-database-overview.md) |** Can I restore a paused data warehouse?** To restore a data warehouse that is paused, you need to first bring it back online. Once the data warehouse is back online, you have seven days of restore points to choose from. ** Restore to a geo-redundant region** If you are using the geo-redundant storage, you can restore the data warehouse to your paired data center in a different geographical region. The data warehouse is restored from the last daily backup. ** Restore timeline** You can restore a database to any restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available. ** Restore costs** The storage charge for the restored data warehouse is billed at the Azure Premium Storage rate. If you pause a restored data warehouse, you are charged for storage at the Azure Premium Storage rate. The advantage of pausing is you are not charge |2016-09-29 |
 
 ## Get started
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 4 |[Authentication to Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) |Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse. |
@@ -53,6 +55,7 @@ This section lists articles which were updated recently, where the update was bi
 | 17 |[Query Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Query SQL Data Warehouse with Visual Studio. |
 
 ## Develop
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 18 |[Optimizing transactions for SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md) |Best Practice guidance on writing efficient transaction updates in Azure SQL Data Warehouse |
@@ -70,6 +73,7 @@ This section lists articles which were updated recently, where the update was bi
 | 30 |[Design decisions and coding techniques for SQL Data Warehouse](sql-data-warehouse-overview-develop.md) |Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse. |
 
 ## Manage
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 31 |[Manage compute power in Azure SQL Data Warehouse (Overview)](sql-data-warehouse-manage-compute-overview.md) |Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs. |
@@ -86,6 +90,7 @@ This section lists articles which were updated recently, where the update was bi
 | 42 |[Restore an Azure SQL Data Warehouse (REST API)](sql-data-warehouse-restore-database-rest-api.md) |REST API tasks for restoring an Azure SQL Data Warehouse. |
 
 ## Tables and indexes
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 43 |[Data types for tables in SQL Data Warehouse](sql-data-warehouse-tables-data-types.md) |Getting started with data types for Azure SQL Data Warehouse tables. |
@@ -97,6 +102,7 @@ This section lists articles which were updated recently, where the update was bi
 | 49 |[Temporary tables in SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Getting started with temporary tables in Azure SQL Data Warehouse. |
 
 ## Integrate
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 50 |[Use Azure Data Factory with SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Tips for using Azure Data Factory (ADF) with Azure SQL Data Warehouse for developing solutions. |
@@ -106,6 +112,7 @@ This section lists articles which were updated recently, where the update was bi
 | 54 |[Leverage other services with SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Tools and partners with solutions that integrate with SQL Data Warehouse. |
 
 ## Load
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 55 |[Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory)](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md) |Learn to load data with Azure Data Factory |
@@ -120,6 +127,7 @@ This section lists articles which were updated recently, where the update was bi
 | 64 |[Load data into Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md) |Learn the common scenarios for data loading into SQL Data Warehouse. These include using PolyBase, Azure blob storage, flat files, and disk shipping. You can also use third-party tools. |
 
 ## Migrate
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 65 |[Migrate your SQL code to SQL Data Warehouse](sql-data-warehouse-migrate-code.md) |Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions. |
@@ -129,6 +137,7 @@ This section lists articles which were updated recently, where the update was bi
 | 69 |[Migrate your solution to SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Migration guidance for bringing your solution to Azure SQL Data Warehouse platform. |
 
 ## Partners
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 70 |[SQL Data Warehouse business intelligence partners](sql-data-warehouse-partner-business-intelligence.md) |Lists of third-party business intelligence partners with solutions that support SQL Data Warehouse. |
@@ -136,6 +145,7 @@ This section lists articles which were updated recently, where the update was bi
 | 72 |[SQL Data Warehouse data management partners](sql-data-warehouse-partner-data-management.md) |Lists of third-party data management partners with solutions that support SQL Data Warehouse. |
 
 ## Reference
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 73 |[Reference topics for SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Reference content links for SQL Data Warehouse. |
@@ -145,6 +155,7 @@ This section lists articles which were updated recently, where the update was bi
 | 77 |[System views](sql-data-warehouse-reference-tsql-system-views.md) |Links to system views content for SQL Data Warehouse. |
 
 ## Security
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 78 |[SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking](sql-data-warehouse-auditing-downlevel-clients.md) |Learn about SQL Data Warehouse downlevel clients support for data auditing |
@@ -154,6 +165,7 @@ This section lists articles which were updated recently, where the update was bi
 | 82 |[Secure a database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) |Tips for securing a database in Azure SQL Data Warehouse for developing solutions. |
 
 ## Miscellaneous
+
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 83 |[Install Visual Studio and SSDT for SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse |

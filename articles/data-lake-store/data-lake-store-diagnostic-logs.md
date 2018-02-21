@@ -31,21 +31,21 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
 2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Settings**, and then click **Diagnostic logs**.
 3. In the **Diagnostics logs** blade, click **Turn on diagnostics**.
 
-	![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
+    ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
 
 3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
-   
+
     ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
-   
+
    * For **Name**, enter a value for the diagnostic log configuration.
    * You can choose to store/process the data in different ways.
-     
-		* Select the option to **Archive to a storage account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
-		
-		* Select the option to **Stream to an event hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-		* Select the option to **Send to Log Analytics** to use the Azure Log Analytics service to analyze the generated log data. If you select this option, you must provide the details for the Operations Management Suite workspace that you would use the perform log analysis. See [View or analyze data collected with Log Analytics log search](../log-analytics/log-analytics-tutorial-viewdata.md) for details on using Log Analytics.
-     
+        * Select the option to **Archive to a storage account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
+
+        * Select the option to **Stream to an event hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+
+        * Select the option to **Send to Log Analytics** to use the Azure Log Analytics service to analyze the generated log data. If you select this option, you must provide the details for the Operations Management Suite workspace that you would use the perform log analysis. See [View or analyze data collected with Log Analytics log search](../log-analytics/log-analytics-tutorial-viewdata.md) for details on using Log Analytics.
+
    * Specify whether you want to get audit logs or request logs or both.
    * Specify the number of days for which the data must be retained. Retention is only applicable if you are using Azure storage account to archive log data.
    * Click **Save**.
@@ -60,27 +60,27 @@ There are two ways to view the log data for your Data Lake Store account.
 
 ### Using the Data Lake Store Settings view
 1. From your Data Lake Store account **Settings** blade, click **Diagnostic Logs**.
-   
+
     ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
 2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
-   
+
    * Request logs capture every API request made on the Data Lake Store account.
    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Store account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 3. To download the logs, click the **Download** link against each log entry.
 
 ### From the Azure Storage account that contains log data
 1. Open the Azure Storage account blade associated with Data Lake Store for logging, and then click Blobs. The **Blob service** blade lists two containers.
-   
+
     ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
-   
+
    * The container **insights-logs-audit** contains the audit logs.
    * The container **insights-logs-requests** contains the request logs.
 2. Within these containers, the logs are stored under the following structure.
-   
+
     ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
-   
+
     As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
-   
+
     Similarly, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Understand the structure of the log data
@@ -111,6 +111,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
     }
 
 #### Request log schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | time |String |The timestamp (in UTC) of the log |
@@ -124,6 +125,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | properties |JSON |See below for details |
 
 #### Request log properties schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | HttpMethod |String |The HTTP Method used for the operation. For example, GET. |
@@ -157,6 +159,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
     }
 
 #### Audit log schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | time |String |The timestamp (in UTC) of the log |
@@ -169,6 +172,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | properties |JSON |See below for details |
 
 #### Audit log properties schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | StreamName |String |The path the operation was performed on |

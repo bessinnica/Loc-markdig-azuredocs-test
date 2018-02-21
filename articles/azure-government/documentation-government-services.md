@@ -32,6 +32,7 @@ The **services available in Azure Government** are listed by category, as well a
 >
 
 ## Compute
+
 | Generally Available | Preview |
 | --- | --- |
 | [Virtual Machines](documentation-government-compute.md#virtual-machines) | [Azure Container Service**](documentation-government-compute.md#azure-container-service) |
@@ -42,6 +43,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Service Fabric](documentation-government-compute.md#service-fabric) | |
 
 ## Networking
+
 | Generally Available | Preview |
 | --- | --- |
 | [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | [Network Watcher](documentation-government-networking.md#support-for-network-watcher) | 
@@ -53,6 +55,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Application Gateway](documentation-government-networking.md#support-for-application-gateway) | |
 
 ## Storage
+
 | Generally Available | Preview |
 | --- | --- |
 | [Blob storage](documentation-government-services-storage.md#azure-storage) | |
@@ -64,6 +67,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Import/Export](documentation-government-services-storage.md#azure-importexport) | |
 
 ## Web + Mobile
+
 | Generally Available | Preview |
 | --- | --- |
 | [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) |[API Management](documentation-government-services-webandmobile.md#api-management) |
@@ -71,6 +75,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Media Services](documentation-government-services-media.md) | |
 
 ## Databases
+
 | Generally Available | Preview |
 | --- | --- |
 | [SQL Database](documentation-government-services-database.md#sql-database) | |
@@ -80,6 +85,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | |
 
 ## Data + Analytics
+
 | Generally Available | Preview |
 | --- | --- |
 | [HDInsight](documentation-government-services-dataandanalytics.md#hdinsight) | |
@@ -87,11 +93,13 @@ The **services available in Azure Government** are listed by category, as well a
 | [Azure Analysis Services](documentation-government-services-dataandanalytics.md#azure-analysis-services) | |
 
 ## AI + Cognitive Services 
+
 | Generally Available | Preview |
 | --- | --- |
 | | [Cognitive Services**](documentation-government-services-aiandcognitiveservices.md) |
 
 ## Internet of Things
+
 | Generally Available | Preview |
 | --- | --- |
 | [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub)| |
@@ -99,6 +107,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Azure Notification Hubs**](documentation-government-services-iot-hub.md#azure-notification-hubs) | |
 
 ## Enterprise Integration
+
 | Generally Available | Preview |
 | --- | --- |
 | [Service Bus](documentation-government-networking.md#support-for-service-bus)| |
@@ -106,6 +115,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
 
 ## Security + Identity
+
 | Generally Available | Preview |
 | --- | --- |
 | [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) | |
@@ -114,6 +124,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
 
 ## Monitoring + Management
+
 | Generally Available | Preview |
 | --- | --- |
 | [Automation](documentation-government-services-monitoringandmanagement.md#automation)| |

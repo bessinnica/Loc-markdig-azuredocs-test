@@ -27,7 +27,7 @@ This quickstart describes how to use the Azure Data Factory UI to create and mon
 >
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the service, which is in general availability (GA), see the [Data Factory version 1 tutorial](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### Video 
 Watching this video helps you understand the Data Factory UI: 

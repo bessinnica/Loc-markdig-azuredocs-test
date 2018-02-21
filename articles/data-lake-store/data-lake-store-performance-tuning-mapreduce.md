@@ -51,12 +51,12 @@ This will determine the maximum number of mappers or reducers to be created.  Th
 
 **Step 3: Determine Total YARN memory** - To tune mapreduce.job.maps/mapreduce.job.reduces, you should consider the amount of total YARN memory available for use.  This information is available in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  You should multiply the YARN memory with the number of nodes in your cluster to get the total YARN memory.
 
-	Total YARN memory = nodes * YARN memory per node
+    Total YARN memory = nodes * YARN memory per node
 If you are using an empty cluster, then memory can be the total YARN memory for your cluster.  If other applications are using memory, then you can choose to only use a portion of your cluster’s memory by reducing the number of mappers or reducers to the number of containers you want to use.  
 
 **Step 4: Calculate number of YARN containers** – YARN containers dictate the amount of concurrency available for the job.  Take total YARN memory and divide that by mapreduce.map.memory.  
 
-	# of YARN containers = total YARN memory / mapreduce.map.memory
+    # of YARN containers = total YARN memory / mapreduce.map.memory
 
 **Step 5: Set mapreduce.job.maps/mapreduce.job.reduces**
 Set mapreduce.job.maps/mapreduce.job.reduces to at least the number of available containers.  You can experiment further by increasing the number of mappers and reducers to see if you get better performance.  Keep in mind that more mappers will have additional overhead so having too many mappers may degrade performance.  
@@ -71,17 +71,17 @@ Let’s say you currently have a cluster composed of 8 D14 nodes and you want to
 
 **Step 2: Set mapreduce.map.memory/mapreduce.reduce.memory** – for our example, you are running an I/O intensive job and decide that 3GB of memory for map tasks will be sufficient.
 
-	mapreduce.map.memory = 3GB
+    mapreduce.map.memory = 3GB
 **Step 3: Determine Total YARN memory**
 
-	total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
+    total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Step 4: Calculate # of YARN containers**
 
-	# of YARN containers = 768GB of available memory / 3 GB of memory =   256
+    # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
 **Step 5: Set mapreduce.job.maps/mapreduce.job.reduces**
 
-	mapreduce.map.jobs = 256
+    mapreduce.map.jobs = 256
 
 ## Limitations
 
@@ -108,12 +108,12 @@ For a starting point, here are some example commands to run MapReduce Teragen, T
 
 **Teragen**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
 
 **Terasort**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
 
 **Teravalidate**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate

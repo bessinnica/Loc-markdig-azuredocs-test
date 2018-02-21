@@ -102,15 +102,16 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
-  * Port 620**&lt;nr&gt;**
+  * Port 620<strong>&lt;nr&gt;</strong>
+
 * Loadbalancing rules
-  * 32**&lt;nr&gt;** TCP
-  * 36**&lt;nr&gt;** TCP
-  * 39**&lt;nr&gt;** TCP
-  * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
+  * 39<strong>&lt;nr&gt;</strong> TCP
+  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### ERS
 * Frontend configuration
@@ -118,12 +119,13 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
-  * Port 621**&lt;nr&gt;**
+  * Port 621<strong>&lt;nr&gt;</strong>
+
 * Loadbalancing rules
-  * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### SAP HANA
 * Frontend configuration
@@ -131,10 +133,11 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the HANA cluster
 * Probe Port
-  * Port 625**&lt;nr&gt;**
+  * Port 625<strong>&lt;nr&gt;</strong>
+
 * Loadbalancing rules
-  * 3**&lt;nr&gt;**15 TCP
-  * 3**&lt;nr&gt;**17 TCP
+  * 3<strong>&lt;nr&gt;</strong>15 TCP
+  * 3<strong>&lt;nr&gt;</strong>17 TCP
 
 ## Setting up a highly available NFS server
 
@@ -145,7 +148,7 @@ You can use one of the quickstart templates on github to deploy all required res
 Follow these steps to deploy the template:
 
 1. Open the [SAP file server template][template-file-server] in the Azure portal   
-1. Enter the following parameters
+2. Enter the following parameters
    1. Resource Prefix  
       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
    2. Os Type  
@@ -169,11 +172,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>
    sudo ssh-keygen -tdsa
-   
+
    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
-   
+
    # copy the public key
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
@@ -185,11 +188,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    # insert the public key you copied in the last step into the authorized keys file on the second server
    sudo vi /root/.ssh/authorized_keys
-   
+
    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
-   
+
    # copy the public key   
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
@@ -202,7 +205,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Install HA extension
-   
+
    <pre><code>
    sudo zypper install sle-ha-release fence-agents
    </code></pre>
@@ -215,19 +218,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
    sudo vi /etc/hosts
    </code></pre>
-   
+
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment   
-   
+
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nws-nfs</b>
    </code></pre>
 
 1. **[1]** Install Cluster
-   
+
    <pre><code>
    sudo ha-cluster-init
-   
+
    # Do you want to continue anyway? [y/N] -> y
    # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
    # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
@@ -237,7 +240,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[2]** Add node to cluster
-   
+
    <pre><code> 
    sudo ha-cluster-join
 
@@ -255,13 +258,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Configure corosync to use other transport and add nodelist. Cluster does not work otherwise.
-   
+
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
    Add the following bold content to the file.
-   
+
    <pre><code> 
    [...]
      interface { 
@@ -438,7 +441,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    crm(live)configure# order o-<b>NWS</b>_drbd_before_nfs inf: \
      ms-drbd_<b>NWS</b>_nfs:promote g-<b>NWS</b>_nfs:start
-   
+
    crm(live)configure# colocation col-<b>NWS</b>_nfs_on_drbd inf: \
      g-<b>NWS</b>_nfs ms-drbd_<b>NWS</b>_nfs:Master
 
@@ -554,7 +557,7 @@ Follow these steps to deploy the template:
 
 1. Open the [ASCS/SCS Multi SID template][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal
    The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
-1. Enter the following parameters
+2. Enter the following parameters
    1. Resource Prefix (ASCS/SCS Multi SID template only)  
       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
    3. Sap System ID (converged template only)  
@@ -588,11 +591,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>
    sudo ssh-keygen -tdsa
-   
+
    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
-   
+
    # copy the public key
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
@@ -604,11 +607,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    # insert the public key you copied in the last step into the authorized keys file on the second server
    sudo vi /root/.ssh/authorized_keys
-   
+
    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
    # Enter passphrase (empty for no passphrase): -> ENTER
    # Enter same passphrase again: -> ENTER
-   
+
    # copy the public key   
    sudo cat /root/.ssh/id_dsa.pub
    </code></pre>
@@ -621,13 +624,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Install HA extension
-   
+
    <pre><code>
    sudo zypper install sle-ha-release fence-agents
    </code></pre>
 
 1. **[A]** Update SAP resource agents  
-   
+
    A patch for the resource-agents package is required to use the new configuration, that is described in this article. You can check, if the patch is already installed with the following command
 
    <pre><code>
@@ -657,9 +660,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
    sudo vi /etc/hosts
    </code></pre>
-   
+
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment   
-   
+
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nws-nfs</b>
@@ -672,10 +675,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[1]** Install Cluster
-   
+
    <pre><code>
    sudo ha-cluster-init
-   
+
    # Do you want to continue anyway? [y/N] -> y
    # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
    # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
@@ -685,7 +688,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[2]** Add node to cluster
-   
+
    <pre><code> 
    sudo ha-cluster-join
 
@@ -703,13 +706,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Configure corosync to use other transport and add nodelist. Cluster does not work otherwise.
-   
+
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
    Add the following bold content to the file.
-   
+
    <pre><code> 
    [...]
      interface { 
@@ -895,7 +898,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Configure autofs
- 
+
    <pre><code>
    sudo vi /etc/auto.master
 
@@ -923,7 +926,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Configure SWAP file
- 
+
    <pre><code>
    sudo vi /etc/waagent.conf
 
@@ -975,16 +978,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
      params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
      op monitor timeout=20s interval=10 depth=0
-   
+
    crm(live)configure# group g-<b>NWS</b>_ASCS nc_<b>NWS</b>_ASCS vip_<b>NWS</b>_ASCS fs_<b>NWS</b>_ASCS \
       meta resource-stickiness=3000
 
    crm(live)configure# order o-<b>NWS</b>_drbd_before_ASCS inf: \
      ms-drbd_<b>NWS</b>_ASCS:promote g-<b>NWS</b>_ASCS:start
-   
+
    crm(live)configure# colocation col-<b>NWS</b>_ASCS_on_drbd inf: \
      ms-drbd_<b>NWS</b>_ASCS:Master g-<b>NWS</b>_ASCS
-   
+
    crm(live)configure# commit
    crm(live)configure# exit
    </code></pre>
@@ -1008,7 +1011,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-0</b>
    </code></pre>
 
-1. **[1]** Install SAP NetWeaver ASCS  
+2. **[1]** Install SAP NetWeaver ASCS  
 
    Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>nws-ascs</b>, <b>10.0.0.10</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
 
@@ -1018,7 +1021,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-1. **[1]** Create a virtual IP resource and health-probe for the internal load balancer
+3. **[1]** Create a virtual IP resource and health-probe for the internal load balancer
 
    <pre><code>
    sudo crm node standby <b>nws-cl-0</b>
@@ -1054,18 +1057,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    crm(live)configure# order o-<b>NWS</b>_drbd_before_ERS inf: \
      ms-drbd_<b>NWS</b>_ERS:promote g-<b>NWS</b>_ERS:start
-   
+
    crm(live)configure# colocation col-<b>NWS</b>_ERS_on_drbd inf: \
      ms-drbd_<b>NWS</b>_ERS:Master g-<b>NWS</b>_ERS
-   
+
    crm(live)configure# commit
    # WARNING: Resources nc_NWS_ASCS,nc_NWS_ERS,nc_NWS_nfs violate uniqueness for parameter "binfile": "/usr/bin/nc"
    # Do you still want to commit (y/n)? y
 
    crm(live)configure# exit
-   
+
    </code></pre>
- 
+
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
    <pre><code>
@@ -1092,7 +1095,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      fs_NWS_ERS (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
    </code></pre>
 
-1. **[2]** Install SAP NetWeaver ERS  
+4. **[2]** Install SAP NetWeaver ERS  
 
    Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nws-ers</b>, <b>10.0.0.11</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
 
@@ -1106,8 +1109,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
    > 
 
-1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
- 
+5. **[1]** Adapt the ASCS/SCS and ERS instance profiles
+
    * ASCS/SCS profile
 
    <pre><code> 
@@ -1136,10 +1139,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 
-1. **[A]** Configure Keep Alive
+6. **[A]** Configure Keep Alive
 
    The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
-   
+
    The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
    <pre><code> 
@@ -1147,14 +1150,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
-1. **[A]** Configure the SAP users after the installation
- 
+7. **[A]** Configure the SAP users after the installation
+
    <pre><code>
    # Add sidadm to the haclient group
    sudo usermod -aG haclient <b>nws</b>adm   
    </code></pre>
 
-1. **[1]** Add the ASCS and ERS SAP services to the sapservice file
+8. **[1]** Add the ASCS and ERS SAP services to the sapservice file
 
    Add the ASCS service entry to the second node and copy the ERS service entry to the first node.
 
@@ -1163,7 +1166,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo ssh <b>nws-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
-1. **[1]** Create the SAP cluster resources
+9. **[1]** Create the SAP cluster resources
 
    <pre><code>
    sudo crm configure property maintenance-mode="true"
@@ -1290,26 +1293,26 @@ We generally recommend using LVM for volumes that store data and log files. For 
 
 1. **[A]** LVM  
    The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
-   
+
    Create physical volumes for all disks that you want to use.
-   
+
    <pre><code>
    sudo pvcreate /dev/sdd
    sudo pvcreate /dev/sde
    sudo pvcreate /dev/sdf
    sudo pvcreate /dev/sdg
    </code></pre>
-   
+
    Create a volume group for the data files, one volume group for the log files and one for the shared directory of SAP HANA
-   
+
    <pre><code>
    sudo vgcreate vg_hana_data /dev/sdd /dev/sde
    sudo vgcreate vg_hana_log /dev/sdf
    sudo vgcreate vg_hana_shared /dev/sdg
    </code></pre>
-   
+
    Create the logical volumes
-   
+
    <pre><code>
    sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
@@ -1318,9 +1321,9 @@ We generally recommend using LVM for volumes that store data and log files. For 
    sudo mkfs.xfs /dev/vg_hana_log/hana_log
    sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
    </code></pre>
-   
+
    Create the mount directories and copy the UUID of all logical volumes
-   
+
    <pre><code>
    sudo mkdir -p /hana/data
    sudo mkdir -p /hana/log
@@ -1331,23 +1334,23 @@ We generally recommend using LVM for volumes that store data and log files. For 
    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
-   
+
    Create autofs entries for the three logical volumes
-   
+
    <pre><code>
    sudo vi /etc/auto.direct
    </code></pre>
-   
+
    Insert this line to sudo vi /etc/auto.direct
-   
+
    <pre><code>
    /hana/data -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b>
    /hana/log -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b>
    /hana/shared -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b>
    </code></pre>
-   
+
    Mount the new volumes
-   
+
    <pre><code>
    sudo service autofs restart 
    </code></pre>
@@ -1358,19 +1361,19 @@ We generally recommend using LVM for volumes that store data and log files. For 
    ```bash
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdd'
    sudo mkfs.xfs /dev/sdd1
-   
+
    # write down the id of /dev/sdd1
    sudo /sbin/blkid
    sudo vi /etc/auto.direct
    ```
-   
+
    Insert this line to /etc/auto.direct
    <pre><code>
    /hana -fstype=xfs :UUID=<b>&lt;UUID&gt;</b>
    </code></pre>
-   
+
    Create the target directory and mount the disk.
-   
+
    <pre><code>
    sudo mkdir /hana
    sudo chattr +i /hana
@@ -1382,21 +1385,21 @@ We generally recommend using LVM for volumes that store data and log files. For 
 The following steps are based on chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide] to install SAP HANA System Replication. Please read it before you continue the installation.
 
 1. **[A]** Run hdblcm from the HANA DVD
-   
+
    <pre><code>
    sudo hdblcm --sid=<b>HDB</b> --number=<b>03</b> --action=install --batch --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
 
    sudo /hana/shared/<b>HDB</b>/hdblcm/hdblcm --action=configure_internal_network --listen_interface=internal --internal_network=<b>10.0.0/24</b> --password=<b>&lt;password for system user&gt;</b> --batch
    </code></pre>
 
-1. **[A]** Upgrade SAP Host Agent
+2. **[A]** Upgrade SAP Host Agent
 
    Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
    <pre><code>
    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>&lt;path to SAP Host Agent SAR&gt;</b> 
    </code></pre>
 
-1. **[1]** Create HANA replication (as root)  
+3. **[1]** Create HANA replication (as root)  
 
    Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 03) with the values of your SAP HANA installation.
    <pre><code>
@@ -1406,28 +1409,28 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
    hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
    </code></pre>
 
-1. **[A]** Create keystore entry (as root)
+4. **[A]** Create keystore entry (as root)
 
    <pre><code>
    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>&lt;passwd&gt;</b>
    </code></pre>
 
-1. **[1]** Backup database (as root)
+5. **[1]** Backup database (as root)
 
    <pre><code>
    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
    </code></pre>
 
-1. **[1]** Switch to the HANA sapsid user and create the primary site.
+6. **[1]** Switch to the HANA sapsid user and create the primary site.
 
    <pre><code>
    su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]** Switch to the HANA sapsid user and create the secondary site.
+7. **[2]** Switch to the HANA sapsid user and create the secondary site.
 
    <pre><code>
    su - <b>hdb</b>adm
@@ -1435,36 +1438,36 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
    hdbnsutil -sr_register --remoteHost=<b>nws-cl-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-1. **[1]** Create SAP HANA cluster resources
+8. **[1]** Create SAP HANA cluster resources
 
    First, create the topology.
-   
+
    <pre><code>
    sudo crm configure
 
    # replace the bold string with your instance number and HANA system ID
-   
+
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
      op monitor interval="10" timeout="600" \
      op start interval="0" timeout="600" \
      op stop interval="0" timeout="300" \
      params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
-    
+
    crm(live)configure# clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
      meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
 
    crm(live)configure# commit
    crm(live)configure# exit
    </code></pre>
-   
+
    Next, create the HANA resources
-   
+
    <pre><code>
    sudo crm configure
 
    # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
-    
+
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
      op start interval="0" timeout="3600" \
@@ -1474,11 +1477,11 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
      op monitor interval="61" role="Slave" timeout="700" \
      params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
      DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
-    
+
    crm(live)configure# ms msl_SAPHana_<b>HDB</b>_HDB<b>03</b> rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> \
      meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
      target-role="Started" interleave="true"
-    
+
    crm(live)configure# primitive rsc_ip_<b>HDB</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \ 
      meta target-role="Started" is-managed="true" \ 
      operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
@@ -1490,13 +1493,13 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
      op monitor timeout=20s interval=10 depth=0 
 
    crm(live)configure# group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
-    
+
    crm(live)configure# colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
      msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
 
    crm(live)configure# order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
      msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
-    
+
    crm(live)configure# commit
    crm(live)configure# exit
    </code></pre>
@@ -1538,7 +1541,7 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
    # rsc_st_azure_2  (stonith:fence_azure_arm):      <b>Started nws-cl-1</b>
    </code></pre>
 
-1. **[1]** Install the SAP NetWeaver database instance
+9. **[1]** Install the SAP NetWeaver database instance
 
    Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database for example <b>nws-db</b> and <b>10.0.0.12</b>.
 
@@ -1559,7 +1562,7 @@ Follow these steps to install an SAP application server. The steps bellow assume
    sudo vi /etc/hosts
    ```
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
-    
+
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nws-nfs</b>
@@ -1584,7 +1587,7 @@ Follow these steps to install an SAP application server. The steps bellow assume
    </code></pre>
 
 1. Configure autofs
- 
+
    <pre><code>
    sudo vi /etc/auto.master
 
@@ -1611,7 +1614,7 @@ Follow these steps to install an SAP application server. The steps bellow assume
    </code></pre>
 
 1. Configure SWAP file
- 
+
    <pre><code>
    sudo vi /etc/waagent.conf
 

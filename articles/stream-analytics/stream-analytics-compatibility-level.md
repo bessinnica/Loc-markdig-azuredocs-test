@@ -44,11 +44,11 @@ The following major changes are introduced in compatibility level 1.1:
 
   * **previous versions:** Azure Stream Analytics used DataContractSerializer, so the message content included XML tags. For example:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
 
   * **current version:** The message content contains the stream directly with no additional tags. For example:
   
-   { “SensorId”:”1”, “Temperature”:64} 
+    { “SensorId”:”1”, “Temperature”:64} 
  
 * **Persisting case-sensitivity for field names**  
 

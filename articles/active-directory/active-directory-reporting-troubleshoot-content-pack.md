@@ -28,11 +28,11 @@ When working with the Power BI Content Pack for Azure Active Directory Preview, 
 - [Refresh failed](active-directory-reporting-troubleshoot-content-pack.md#refresh-failed) 
 - [Failed to update data source credentials](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
 - [Importing of data is taking too long](active-directory-reporting-troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
- 
+ 
 This topic provides you with information about the possible causes and how to fix these errors.
- 
+ 
 ## Refresh failed 
- 
+ 
 **How this error is surfaced**: Email from Power BI or failed status in the refresh history. 
 
 
@@ -41,9 +41,9 @@ This topic provides you with information about the possible causes and how to fi
 | Refresh failure errors can be caused when the credentials of the users connecting to the content pack have been reset but not updated in the connection settings of the of the content pack. | In Power BI, locate the dataset corresponding to the Azure Active Directory Activity logs dashboard (Azure Active Directory Activity logs), choose schedule refresh, and then enter your Azure AD credentials. |
 | A refresh can fail due to data issues in the underlying content pack. | File a support ticket. For more details, see [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
  
- 
+ 
 ## Failed to update data source credentials 
- 
+ 
 **How this error is surfaced**: In Power BI, when you are connecting to the Azure Active Directory Activity logs (preview) content pack. 
 
 | Cause | How to fix |
@@ -52,11 +52,11 @@ This topic provides you with information about the possible causes and how to fi
 | Your tenant is not a Premium tenant or doesn't have at least one user with Premium license File. | File a support ticket. For more details, see [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
  
 
- 
+ 
 
 ## Importing of data is taking too long 
- 
-**How this error is surfaced**: In Power BI, once you have connected your content pack, the data import process starts to prepare your dashboard for Azure Active Directory Activity log. You see the message: “*Importing data...*”  
+ 
+**How this error is surfaced**: In Power BI, once you have connected your content pack, the data import process starts to prepare your dashboard for Azure Active Directory Activity log. You see the message: “*Importing data...*”  
 
 | Cause | How to fix |
 | ---   | ---        |

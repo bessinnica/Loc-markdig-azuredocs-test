@@ -26,7 +26,7 @@
 ## [Error handling](api-management-error-handling-policies.md)
 ## [API import restrictions](api-management-api-import-restrictions.md)
 # How-to guides
-## Define APIs 
+## Define APIs 
 ### [Add an API manually](add-api-manually.md)
 ### [Import an OpenAPI Specification](import-api-from-oas.md)
 ### [Import a SOAP API](import-soap-api.md)

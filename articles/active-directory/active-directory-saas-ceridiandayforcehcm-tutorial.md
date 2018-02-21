@@ -58,19 +58,19 @@ To configure the integration of Ceridian Dayforce HCM into Azure AD, you need to
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Ceridian Dayforce HCM**, select **Ceridian Dayforce HCM** from result panel then click **Add** button to add the application.
 
-	![Ceridian Dayforce HCM in the results list](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_addfromgallery.png)
+    ![Ceridian Dayforce HCM in the results list](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,74 +96,74 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Ceridian Dayforce HCM** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_samlbase.png)
 
 3. On the **Ceridian Dayforce HCM Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
-	
-	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application.
-	
-	| Environment | URL |
-	| :-- | :-- |
-	| For production | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
-	| For test | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
-	
-	b. In the **Identifier** textbox, type a URL using the following pattern:
-	
-	| Environment | URL |
-	| :-- | :-- |
-	| For production | `https://ncpingfederate.dayforcehcm.com/sp` |
-	| For test | `https://fs-test.dayforcehcm.com/sp` |
-	
-	c. In the **Reply URL** textbox, type the URL used by Azure AD to post the response.
-	
-	| Environment | URL |
-	| :-- | :-- |
-	| For production | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
-	| For test | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
-	
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values.
+    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
+    
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application.
+    
+    | Environment | URL |
+    | :-- | :-- |
+    | For production | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
+    | For test | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
+    
+    b. In the **Identifier** textbox, type a URL using the following pattern:
+    
+    | Environment | URL |
+    | :-- | :-- |
+    | For production | `https://ncpingfederate.dayforcehcm.com/sp` |
+    | For test | `https://fs-test.dayforcehcm.com/sp` |
+    
+    c. In the **Reply URL** textbox, type the URL used by Azure AD to post the response.
+    
+    | Environment | URL |
+    | :-- | :-- |
+    | For production | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
+    | For test | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
+    
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
 
 5. Your Ceridian Dayforce HCM application expects the SAML assertions in a specific format. Work with [Ceridian Dayforce HCM support team](https://www.ceridian.com/contact-us/index.html) first to identify the correct user identifier. Microsoft recommends using the **"name"** attribute as user identifier. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.  
 
-	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-	
-	| Attribute Name  | Attribute Value |
-	| --------------- | -------------------- |    
-	| name  | user.extensionattribute2 |	
+    
+    | Attribute Name  | Attribute Value |
+    | --------------- | -------------------- |    
+    | name  | user.extensionattribute2 |    
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_05.png)
+    
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. In the **Value** list, select the user attribute you want to use for your implementation.
-	For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**.
-	
-	d. Click **Ok**.
+    c. In the **Value** list, select the user attribute you want to use for your implementation.
+    For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**.
+    
+    d. Click **Ok**.
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_400.png)
+    
 8. On the **Ceridian Dayforce HCM Configuration** section, click **Configure Ceridian Dayforce HCM** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Ceridian Dayforce HCM Configuration](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_configure.png) 
+    ![Ceridian Dayforce HCM Configuration](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_configure.png) 
 
 9. To configure single sign-on on **Ceridian Dayforce HCM** side, you need to send the downloaded **Metadata XML** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Ceridian Dayforce HCM support team](https://www.ceridian.com/contact-us/index.html).
 
@@ -216,19 +216,19 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Ceridian Dayforce HCM**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
@@ -246,26 +246,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Ceridian Dayforce HCM**.
 
-	![The Ceridian Dayforce HCM link in the Applications list](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
+    ![The Ceridian Dayforce HCM link in the Applications list](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  

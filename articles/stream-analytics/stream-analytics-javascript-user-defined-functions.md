@@ -39,11 +39,11 @@ Although functions like **Date.GetDate()** or **Math.random()** are not blocked 
 ## Add a JavaScript user-defined function in the Azure portal
 To create a simple JavaScript user-defined function under an existing Stream Analytics job, do these steps:
 
-1.	In the Azure portal, find your Stream Analytics job.
+1.  In the Azure portal, find your Stream Analytics job.
 2.  Under **JOB TOPOLOGY**, select your function. An empty list of functions appears.
-3.	To create a new user-defined function, select **Add**.
-4.	On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
-5.	For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
+3.  To create a new user-defined function, select **Add**.
+4.  On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
+5.  For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
     ```
     // Convert Hex value to integer.
@@ -52,13 +52,13 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
     }
     ```
 
-6.	Select **Save**. Your function appears in the list of functions.
-7.	Select the new **hex2Int** function, and check the function definition. All functions have a **UDF** prefix added to the function alias. You need to *include the prefix* when you call the function in your Stream Analytics query. In this case, you call **UDF.hex2Int**.
+6.  Select **Save**. Your function appears in the list of functions.
+7.  Select the new **hex2Int** function, and check the function definition. All functions have a **UDF** prefix added to the function alias. You need to *include the prefix* when you call the function in your Stream Analytics query. In this case, you call **UDF.hex2Int**.
 
 ## Call a JavaScript user-defined function in a query
 
 1. In the query editor, under **JOB TOPOLOGY**, select **Query**.
-2.	Edit your query, and then call the user-defined function, like this:
+2.  Edit your query, and then call the user-defined function, like this:
 
     ```
     SELECT
@@ -70,8 +70,8 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
         InputStream
     ```
 
-3.	To upload the sample data file, right-click the job input.
-4.	To test your query, select **Test**.
+3.  To upload the sample data file, right-click the job input.
+4.  To test your query, select **Test**.
 
 
 ## Supported JavaScript objects

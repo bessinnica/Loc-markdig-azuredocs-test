@@ -112,8 +112,6 @@ Output:
                     }
                   ]
                 }
-
-
 ```
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
@@ -170,14 +168,14 @@ You can change application ports by changing the Load Balancer resource properti
 To open a new port on all VMs in a node type, do the following:
 
 1. Add a new probe to the appropriate load balancer.
-   
+
     If you deployed your cluster by using the portal, the load balancers are named "LB-name of the Resource group-NodeTypename", one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
-   
+
     ![Screenshot that shows adding a probe to a load balancer in the portal.][AddingProbes]
 2. Add a new rule to the load balancer.
-   
+
     Add a new rule to the same load balancer by using the probe that you created in the previous step.
-   
+
     ![Adding a new rule to a load balancer in the portal.][AddingLBRules]
 
 ### Placement properties

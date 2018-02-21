@@ -45,14 +45,14 @@ You can run a regular or planned failover for Hyper-V VMs.
 - Use a regular failover for unexpected outages. When you run this failover, Site Recovery creates a VM in the secondary site, and powers it up. You run the failover against a specific recovery point. Data loss can occur depending on the recovery point you use.
 - A planned failover can be used for maintenance, or during expected outage. This option provides zero data loss. When a planned failover is triggered, the source VMs are shut down. Unsynchronized data is synchronized, and the failover is triggered. 
 - 
-This procedure describes how to run a regular failover.
+  This procedure describes how to run a regular failover.
 
 
 1. In **Settings** > **Replicated items** click the VM > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. You can use one of the following options:
-	- **Latest** (default): This option first processes all the data sent to Site Recovery. It provides the lowest RPO (Recovery Point Objective) because the replica VM created after failover has all the data that was replicated to Site Recovery when the failover was triggered.
-	- **Latest processed**: This option fails over the VM to the latest recovery point processed by Site Recovery. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
-	- **Latest app-consistent**: This option fails over the VM to the latest app-consistent recovery point processed by Site Recovery. 
+    - **Latest** (default): This option first processes all the data sent to Site Recovery. It provides the lowest RPO (Recovery Point Objective) because the replica VM created after failover has all the data that was replicated to Site Recovery when the failover was triggered.
+    - **Latest processed**: This option fails over the VM to the latest recovery point processed by Site Recovery. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
+    - **Latest app-consistent**: This option fails over the VM to the latest app-consistent recovery point processed by Site Recovery. 
 3. The encryption key isn't relevant in this scenario.
 4. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source VMs before triggering the failover. Site Recovery will also try to synchronize on-premises data that hasn't yet been sent to the secondary site, before triggering the failover. Note that failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 5. You should now be able to see the VM in the secondary VMM cloud.

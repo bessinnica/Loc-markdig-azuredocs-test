@@ -58,16 +58,16 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 
 7. When you're returned to the **New output** blade, enter the following information:
 
-    * **Group Workspace**: Select a workspace in your Power BI tenant where you want to create the dataset.
-    * **Dataset Name**:  Enter `sa-dataset`. You can use a different name. If you do, make a note of it for later.
-    * **Table Name**: Enter `fraudulent-calls`. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset.
+   * **Group Workspace**: Select a workspace in your Power BI tenant where you want to create the dataset.
+   * **Dataset Name**:  Enter `sa-dataset`. You can use a different name. If you do, make a note of it for later.
+   * **Table Name**: Enter `fraudulent-calls`. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset.
 
-    ![PBI workspace](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![PBI workspace](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > If Power BI has a dataset and table that have the same names as the ones that you specify in the Stream Analytics job, the existing ones are overwritten.
-    > We recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn't return any results, the dataset and table are not  created.
-    >
+     > [!WARNING]
+     > If Power BI has a dataset and table that have the same names as the ones that you specify in the Stream Analytics job, the existing ones are overwritten.
+     > We recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn't return any results, the dataset and table are not  created.
+     >
 
 8. Click **Create**.
 
@@ -182,20 +182,20 @@ Your Streaming Analytics job starts looking for fraudulent calls in the incoming
 
     ![Fraud counter](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
 
-8. Follow the steps again to add a tile (starting with step 4). This time, do the following:
+10. Follow the steps again to add a tile (starting with step 4). This time, do the following:
 
     * When you get to **Visualization Type**, select **Line chart**. 
     * Add an axis and select **windowend**. 
     * Add a value and select **fraudulentcalls**.
     * For **Time window to display**, select the last 10 minutes.
 
-    ![Create tile for line chart](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Create tile for line chart](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
-9. Click **Next**, add a title and subtitle, and click **Apply**.
+11. Click **Next**, add a title and subtitle, and click **Apply**.
 
-    The Power BI dashboard now gives you two views of data about fraudulent calls as detected in the streaming data.
+     The Power BI dashboard now gives you two views of data about fraudulent calls as detected in the streaming data.
 
-    ![Finished Power BI dashboard showing two tiles for fraudulent calls](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Finished Power BI dashboard showing two tiles for fraudulent calls](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## Learn more about Power BI

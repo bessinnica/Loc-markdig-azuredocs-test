@@ -27,6 +27,7 @@ This tutorial assumes that you have acquired the OpenSSL binaries. You may eithe
 
 <a id="createcerts"></a>
 
+
 ## Create X.509 certificates
 The following steps show an example of how to create the X.509 root certificates locally. 
 
@@ -84,7 +85,7 @@ The following steps show an example of how to create the X.509 root certificates
         {
             throw ("Unable to find certificate with subjectName {0}" -f $subjectName)
         }
-    
+
         write $cert
     }
     function Test-CAPrerequisites()
@@ -113,32 +114,33 @@ The following steps show an example of how to create the X.509 root certificates
 
 <a id="createcertchain"></a>
 
+
 ## Create X.509 certificate chain
 Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" that this sample uses, by running the following PowerShell script. This script also updates your Windows OS certificate store, as well creates certificate files in your working directory. 
     1. The following script creates a PowerShell function to create a self signed certificate, for a given *Subject Name* and signing authority. 
     ```PowerShell
     function New-CASelfsignedCertificate([string]$subjectName, [object]$signingCert, [bool]$isASigner=$true)
     {
-	    # Build up argument list
-	    $selfSignedArgs =@{"-DnsName"=$subjectName; 
-	                       "-CertStoreLocation"="cert:\LocalMachine\My";
+        # Build up argument list
+        $selfSignedArgs =@{"-DnsName"=$subjectName; 
+                           "-CertStoreLocation"="cert:\LocalMachine\My";
                            "-NotAfter"=(get-date).AddDays(30); 
-	                      }
+                          }
 
-	    if ($isASigner -eq $true)
-	    {
-		    $selfSignedArgs += @{"-KeyUsage"="CertSign"; }
+        if ($isASigner -eq $true)
+        {
+            $selfSignedArgs += @{"-KeyUsage"="CertSign"; }
             $selfSignedArgs += @{"-TextExtension"= @(("2.5.29.19={text}ca=TRUE&pathlength=12")); }
-	    }
+        }
         else
         {
             $selfSignedArgs += @{"-TextExtension"= @("2.5.29.37={text}1.3.6.1.5.5.7.3.2,1.3.6.1.5.5.7.3.1", "2.5.29.19={text}ca=FALSE&pathlength=0")  }
         }
 
-	    if ($signingCert -ne $null)
-	    {
-		    $selfSignedArgs += @{"-Signer"=$signingCert }
-	    }
+        if ($signingCert -ne $null)
+        {
+            $selfSignedArgs += @{"-Signer"=$signingCert }
+        }
 
         if ($useEcc -eq $true)
         {
@@ -146,9 +148,9 @@ Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" t
                              "-CurveExport"="CurveName" }
         }
 
-	    # Now use splatting to process this
-	    Write-Host ("Generating certificate {0} which is for prototyping, NOT PRODUCTION.  It will expire in 30 days." -f $subjectName)
-	    write (New-SelfSignedCertificate @selfSignedArgs)
+        # Now use splatting to process this
+        Write-Host ("Generating certificate {0} which is for prototyping, NOT PRODUCTION.  It will expire in 30 days." -f $subjectName)
+        write (New-SelfSignedCertificate @selfSignedArgs)
     }
     ``` 
     2. The following PowerShell function creates intermediate X.509 certificates using the preceding function as well as the OpenSSL binaries. 
@@ -164,7 +166,7 @@ Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" t
         openssl x509 -inform deer -in $certFileName -out $pemFileName
 
         del $certFileName
-   
+
         write $newCert
     }  
     ```
@@ -174,7 +176,7 @@ Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" t
     {
         Write-Host "Beginning to install certificate chain to your LocalMachine\My store"
         $rootCACert =  New-CASelfsignedCertificate $_rootCertSubject $null
-    
+
         Export-Certificate -Cert $rootCACert -FilePath $rootCACerFileName  -Type CERT
         Import-Certificate -CertStoreLocation "cert:\LocalMachine\Root" -FilePath $rootCACerFileName
 
@@ -192,12 +194,13 @@ Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" t
 
 <a id="signverificationcode"></a>
 
+
 ## Proof of possession of your X.509 CA certificate
 
 This script performs the *Proof of Possession* flow for your X.509 certificate. 
 
 In the PowerShell window on your desktop, run the following code:
-   
+
    ```PowerShell
    function New-CAVerificationCert([string]$requestedSubjectName)
    {
@@ -206,7 +209,7 @@ In the PowerShell window on your desktop, run the following code:
        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
        Write-Host "Using Signing Cert:::" 
        Write-Host $rootCACert
-   
+
        $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
 
        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
@@ -214,7 +217,7 @@ In the PowerShell window on your desktop, run the following code:
        {
            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
        }
-   
+
        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
    }
    New-CAVerificationCert "<your verification code>"
@@ -224,6 +227,7 @@ This code creates a certificate with the given subject name, signed by the CA, a
 
 
 <a id="createx509device"></a>
+
 
 ## Create leaf X.509 certificate for your device
 
@@ -239,11 +243,11 @@ In the PowerShell window on your local machine, run the following script to crea
        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
        $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
-   
+
        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
        $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
-   
+
        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
 
        # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
@@ -267,7 +271,7 @@ In the PowerShell window on your local machine, run the following script to crea
            openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
        }
        openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
- 
+
        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
    }
    ```

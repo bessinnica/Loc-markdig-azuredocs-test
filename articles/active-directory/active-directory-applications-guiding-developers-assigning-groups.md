@@ -38,3 +38,4 @@ This article assumes that you have already created groups in the active director
 
 ## Next Steps
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+

@@ -181,11 +181,11 @@ CloudFileDirectory rootDir = share.getRootDirectoryReference();
 Now that you have a reference to the root directory of the share, you can upload a file onto it using the following code.
 
 ```java
-	    // Define the path to a local file.
-	    final String filePath = "C:\\temp\\Readme.txt";
-	
-	    CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
-	    cloudFile.uploadFromFile(filePath);
+        // Define the path to a local file.
+        final String filePath = "C:\\temp\\Readme.txt";
+    
+        CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
+        cloudFile.uploadFromFile(filePath);
 ```
 
 ## Download a file

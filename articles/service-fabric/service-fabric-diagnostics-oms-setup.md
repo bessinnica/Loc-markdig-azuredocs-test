@@ -73,7 +73,7 @@ When deploying a cluster using a Resource Manager template, the template should 
 The main changes made are the following:
 
 1. Add `omsWorkspaceName` and `omsRegion` to your parameters. This means adding the following snippet to the parameters defined in your *template.json* file. Feel free to modify the default values as you see fit. You should also add the two new parameters in your *parameters.json* to define their values for the resource deployment:
-    
+
     ```json
     "omsWorkspacename": {
         "type": "string",
@@ -169,7 +169,7 @@ The main changes made are the following:
         }
     }
     ```
-    
+
     > [!NOTE]
     > If you added the `applicationDiagnosticsStorageAccountName` as a variable, make sure to modify each reference to it to `variables('applicationDiagnosticsStorageAccountName')` instead of `parameters('applicationDiagnosticsStorageAccountName')`.
 
@@ -206,7 +206,6 @@ try {
 
 New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
-
 ```
 
 Once this is completed, if your cluster is a Windows cluster, follow the steps in the section above to hook up OMS Log Analytics to the appropriate storage account.

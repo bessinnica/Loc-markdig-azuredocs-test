@@ -70,11 +70,9 @@ To update the offer details and republish your offer, follow these steps:
 
    > [!NOTE]
    > When you update the SKU details, be aware of these restrictions: 
-   * Do not enter duplicate text for the offer description and the SKU description.
-   * Do not enter duplicate text for the SKU title and the offer long summary. 
-   * Do not enter duplicate text for the SKU title and the offer summary.
-   >
-   >
+   > * Do not enter duplicate text for the offer description and the SKU description.
+   > * Do not enter duplicate text for the SKU title and the offer long summary. 
+   > * Do not enter duplicate text for the SKU title and the offer summary.
 
     ![Details](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
 6. In the **LOGOS** section of the **DETAILS** tab, update the logos. Ensure that the logos follow the [Azure Marketplace guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
@@ -99,11 +97,9 @@ To update the SKU details and republish your offer, follow these steps:
 
    > [!NOTE]
    > When you update the SKU details, be aware of these restrictions: 
-   * Do not enter duplicate text for the offer description and the SKU description. 
-   * Do not enter duplicate text for the SKU title and the offer long summary. 
-   * Do not enter duplicate text for the SKU title and the offer summary.
-   >
-   >
+   > * Do not enter duplicate text for the offer description and the SKU description. 
+   > * Do not enter duplicate text for the SKU title and the offer long summary. 
+   > * Do not enter duplicate text for the SKU title and the offer summary.
 6. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 7. After you've tested your offer in staging, go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
 

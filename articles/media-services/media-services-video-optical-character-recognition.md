@@ -38,6 +38,7 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
 >
 
 ### Attribute descriptions
+
 | Attribute name | Description |
 | --- | --- |
 |AdvancedOutput| If you set AdvancedOutput to true, the JSON output will contain positional data for every single word (in addition to phrases and regions). If you do not want to see these details, set the flag to false. The default value is false. For more information, see [this blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
@@ -175,7 +176,7 @@ The following program shows how to:
 1. Create an asset and upload a media file into the asset.
 2. Create a job with an OCR configuration/preset file.
 3. Download the output JSON files. 
-   
+
 #### Create and configure a Visual Studio project
 
 Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 

@@ -19,7 +19,7 @@ ms.author: parakhj
 ---
 # Azure AD B2C: Requesting access tokens
 
-An access token (denoted as **access\_token** in the responses from Azure AD B2C) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
+An access token (denoted as **access\_token** in the responses from Azure AD B2C) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
 This article discusses how to configure a client application and web API in order to obtain an **access\_token**.
 

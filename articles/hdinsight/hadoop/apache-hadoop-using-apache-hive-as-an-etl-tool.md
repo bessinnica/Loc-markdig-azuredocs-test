@@ -95,4 +95,4 @@ If you need to execute several operations on the data as part of the ETL process
 
 * [ETL at scale](apache-hadoop-etl-at-scale.md)
 * [Operationalize a data pipeline](../hdinsight-operationalize-data-pipeline.md)
-<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->
+  <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

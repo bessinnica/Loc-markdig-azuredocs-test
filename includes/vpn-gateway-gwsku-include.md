@@ -37,3 +37,4 @@ The new gateway SKUs streamline the feature sets offered on the gateways:
 ###  <a name="migrate"></a>Migrating from old SKUs to the new SKUs
 
 [!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]
+

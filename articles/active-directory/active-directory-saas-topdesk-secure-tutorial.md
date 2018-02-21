@@ -58,19 +58,19 @@ To configure the integration of TOPdesk - Secure into Azure AD, you need to add 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **TOPdesk - Secure**, select **TOPdesk - Secure** from result panel then click **Add** button to add the application.
 
-	![TOPdesk - Secure in the results list](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_addfromgallery.png)
+    ![TOPdesk - Secure in the results list](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,54 +96,54 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **TOPdesk - Secure** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
 
 3. On the **TOPdesk - Secure Domain and URLs** section, perform the following steps:
 
-	![TOPdesk - Secure Domain and URLs single sign-on information](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
+    ![TOPdesk - Secure Domain and URLs single sign-on information](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.topdesk.net`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.topdesk.net/tas/secure/login/verify`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.topdesk.net/tas/public/login/saml`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Reply URL is explained later in tutorial. Contact [TOPdesk - Secure Client support team](http://www.topdesk.com/us/support) to get these values. 
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Sign-On URL and Identifier. Reply URL is explained later in tutorial. Contact [TOPdesk - Secure Client support team](http://www.topdesk.com/us/support) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_400.png)
 
 6. On the **TOPdesk - Secure Configuration** section, click **Configure TOPdesk - Secure** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![TOPdesk - Secure Configuration](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
-	
+    ![TOPdesk - Secure Configuration](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
+    
 7. Sign on to your **TOPdesk - Secure** company site as an administrator.
 
 8. In the **TOPdesk** menu, click **Settings**.
 
-	![Settings](./media/active-directory-saas-topdesk-secure-tutorial/ic790598.png "Settings")
+    ![Settings](./media/active-directory-saas-topdesk-secure-tutorial/ic790598.png "Settings")
 
 9. Click **Login Settings**.
 
-	![Login Settings](./media/active-directory-saas-topdesk-secure-tutorial/ic790599.png "Login Settings")
+    ![Login Settings](./media/active-directory-saas-topdesk-secure-tutorial/ic790599.png "Login Settings")
 
 10. Expand the **Login Settings** menu, and then click **General**.
 
-	![General](./media/active-directory-saas-topdesk-secure-tutorial/ic790600.png "General")
+    ![General](./media/active-directory-saas-topdesk-secure-tutorial/ic790600.png "General")
 
 11. In the **Secure** section of the **SAML login** configuration section, perform the following steps:
 
-	![Technical Settings](./media/active-directory-saas-topdesk-secure-tutorial/ic790855.png "Technical Settings")
+    ![Technical Settings](./media/active-directory-saas-topdesk-secure-tutorial/ic790855.png "Technical Settings")
    
     a. Click **Download** to download the public metadata file, and then save it locally on your computer.
    
@@ -259,32 +259,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **TOPdesk - Secure**.
 
-	![The TOPdesk - Secure link in the Applications list](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_app.png)  
+    ![The TOPdesk - Secure link in the Applications list](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the TOPdesk - Secure tile in the Access Panel, you should get automatically signed-on to your TOPdesk - Secure application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

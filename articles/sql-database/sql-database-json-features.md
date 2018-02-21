@@ -88,7 +88,6 @@ from Sales.Customers Customer
         on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
-
 ```
 
 Instead of sending separate queries to get Customer data and then to fetch a list of related Orders, you can get all the necessary data with a single query, as shown in the following sample output:
@@ -173,7 +172,7 @@ OPENJSON is a table-value function that parses JSON text, locates an array of JS
 
 In the example above, we can specify where to locate the JSON array that should be opened (in the $.Orders path), what columns should be returned as result, and where to find the JSON values that will be returned as cells.
 
-We can transform a JSON array in the @orders variable into a set of rows, analyze this result set, or insert rows into a standard table:
+We can transform a JSON array in the @"orders" variable into a set of rows, analyze this result set, or insert rows into a standard table:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))

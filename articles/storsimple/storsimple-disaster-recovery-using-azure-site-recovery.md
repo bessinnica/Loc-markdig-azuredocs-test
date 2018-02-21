@@ -177,9 +177,9 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    * *RecoveryPlanName***-StorageAccountKey**: The access key for the above storage account.
    * *RecoveryPlanName***-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
 
-    For example, if the name of the recovery plan is fileServerpredayRP, then your **Variables**, **Connections** and **Certificates** tab should appear as follows after you add all the assets.
+     For example, if the name of the recovery plan is fileServerpredayRP, then your **Variables**, **Connections** and **Certificates** tab should appear as follows after you add all the assets.
 
-    ![Assets](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
+     ![Assets](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
 7. Upload StorSimple 8000 series Runbook module in your Automation account. Use the below steps to add a module:
 

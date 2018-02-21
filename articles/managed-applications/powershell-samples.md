@@ -18,11 +18,13 @@ ms.author: tomfitz
 
 The following table includes links to scripts for Azure Managed Applications that use the Azure PowerShell.
 
-| | |
-|-|-|
-|**Create managed application**||
-| [Create managed application definition](scripts/managed-application-powershell-sample-create-definition.md) | Creates a managed application definition in the service catalog.  |
-| [Deploy managed application](scripts/managed-application-poweshell-sample-create-application.md) | Deploys a managed application from the service catalog.  |
-| | |
-|**Update managed resource group**||
+
+|                                                                                                                                        |                                                                      |
+|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+|                                              <strong>Create managed application</strong>                                               |                                                                      |
+|              [Create managed application definition](scripts/managed-application-powershell-sample-create-definition.md)               |   Creates a managed application definition in the service catalog.   |
+|                    [Deploy managed application](scripts/managed-application-poweshell-sample-create-application.md)                    |       Deploys a managed application from the service catalog.        |
+|                                                                                                                                        |                                                                      |
+|                                             <strong>Update managed resource group</strong>                                             |                                                                      |
 | [Get resources in managed resource group and resize VMs](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Gets resources from the managed resource group, and resizes the VMs. |
+

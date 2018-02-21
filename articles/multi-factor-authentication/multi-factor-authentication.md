@@ -25,7 +25,7 @@ Two-step verification is a method of authentication that requires more than one 
 * Something you have (a trusted device that is not easily duplicated, like a phone)
 * Something you are (biometrics)
 
-<center>![Username and Password](./media/multi-factor-authentication/pword.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Certificates](./media/multi-factor-authentication/phone.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Smart Phone](./media/multi-factor-authentication/hware.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Smart Card](./media/multi-factor-authentication/smart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Virtual Smart Card](./media/multi-factor-authentication/vsmart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Username and Password](./media/multi-factor-authentication/cert.png)</center>
+<center><img src="./media/multi-factor-authentication/pword.png" alt="Username and Password"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/multi-factor-authentication/phone.png" alt="Certificates"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/multi-factor-authentication/hware.png" alt="Smart Phone"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/multi-factor-authentication/smart.png" alt="Smart Card"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/multi-factor-authentication/vsmart.png" alt="Virtual Smart Card"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/multi-factor-authentication/cert.png" alt="Username and Password"/></center>
 
 Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification methods, including phone call, text message, or mobile app verification.
 

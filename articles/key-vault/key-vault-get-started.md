@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure.
 services: key-vault
@@ -37,8 +37,8 @@ Before you move forward with the article confirm that you have:
 - **Azure PowerShell**, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 - **An application that can be configured to use Key Vault**. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying **Readme** file.
 
->[!NOTE]
-This article assumes a basic understanding of PowerShell and Azure. For more information on PowerShell, see [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
+> [!NOTE]
+> This article assumes a basic understanding of PowerShell and Azure. For more information on PowerShell, see [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
 To get detailed help for any cmdlet that you see in this tutorial, use the **Get-Help** cmdlet.
 
@@ -64,11 +64,11 @@ Start an Azure PowerShell session and sign in to your Azure account with the fol
 Login-AzureRmAccount
 ```
 
->[!NOTE]
- If you are using a specific instance of Azure use the -Environment parameter. For example: 
- ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
- ```
+> [!NOTE]
+>  If you are using a specific instance of Azure use the -Environment parameter. For example: 
+>  ```powershell
+>  Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+>  ```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.
 
@@ -220,23 +220,23 @@ The application must present both these values to Azure Active Directory, to get
 To register the application in Azure Active Directory:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, click **App registrations**. If you don't see app registrations you click on **more services** and find it there.  
->[!NOTE]
-You must select the same directory that contains the Azure subscription with which you created your key vault. 
+2. On the left, click <strong>App registrations</strong>. If you don't see app registrations you click on <strong>more services</strong> and find it there.  
+   >[!NOTE]
+   You must select the same directory that contains the Azure subscription with which you created your key vault. 
 3. Click **New application registration**.
 4. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
 
     ![New application registration](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
+   > [!WARNING]
+   >  Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
 
 5. Click the **Create** button.
 6. When the app registration is completed you can see the list of registered apps. Find the app that you just registered and click on it.
 7. Click on the **Registered app** blade copy the **Application ID**
 8. Click on **All settings**
 9. On the **Settings** blade click on **keys**
-9. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. 
-10. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
+10. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. 
+11. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
 
 ## <a id="authorize"></a>Authorize the application to use the key or secret
 To authorize the application to access the key or secret in the vault, use the

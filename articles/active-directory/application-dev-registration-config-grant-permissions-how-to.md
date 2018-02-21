@@ -41,4 +41,5 @@ Alternatively, you can construct a request to *login.microsoftonline.com* with y
 
 [Consent and Permissioning for AzureAD v2.0 converged Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
+
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

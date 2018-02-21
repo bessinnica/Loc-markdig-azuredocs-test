@@ -7,7 +7,7 @@ services: active-directory
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -116,6 +116,7 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -155,3 +156,4 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
         </div>
     </li>
 </ul>
+

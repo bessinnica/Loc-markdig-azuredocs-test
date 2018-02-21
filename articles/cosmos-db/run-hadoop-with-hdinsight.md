@@ -49,7 +49,7 @@ Don't have time to complete the tutorial and just want to get the full sample Po
     <tr><th>Hadoop Connector Version</th>
         <td>1.2.0</td></tr>
     <tr><th>Script Uri</th>
-        <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
+        <td><a href="https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1" data-raw-source="https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1">https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</a></td></tr>
     <tr><th>Date Modified</th>
         <td>04/26/2016</td></tr>
     <tr><th>Supported HDInsight Versions</th>
@@ -123,7 +123,7 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
              <td>Specify a name for the script action.</td></tr>
          <tr><td>Script URI</td>
              <td>Specify the URI to the script that is invoked to customize the cluster.</br></br>
-             Please enter: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
+             Please enter: </br> <strong><a href="https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1" data-raw-source="https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1">https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</a></strong>.</td></tr>
          <tr><td>Head</td>
              <td>Click the checkbox to run the PowerShell script onto the Head node.</br></br>
              <strong>Check this checkbox</strong>.</td></tr>

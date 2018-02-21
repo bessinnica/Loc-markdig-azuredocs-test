@@ -27,7 +27,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
   *FunctionName(<<argument 1>>,<<argument N>>)*
 * You may nest functions within each other. For example: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * You can pass three different types of arguments into functions:
-  
+
   1. Attributes, which must be enclosed in square square brackets. For example: [attributeName]
   2. String constants, which must be enclosed in double quotes. For example: "United States"
   3. Other Functions. For example: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
@@ -123,16 +123,16 @@ ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue
 Replaces values within a string. It works differently depending on the parameters provided:
 
 * When **oldValue** and **replacementValue** are provided:
-  
+
   * Replaces all occurrences of oldValue in the source  with replacementValue
 * When **oldValue** and **template** are provided:
-  
+
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
 * When **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue** are provided:
-  
+
   * Replaces all values matching oldValueRegexPattern in the source string with replacementValue
 * When **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** are provided:
-  
+
   * If **source** has value, **source** is returned
   * If **source** has no value, uses **oldValueRegexPattern** and **oldValueRegexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
 
@@ -201,7 +201,8 @@ For example, if the domain is "contoso.com", then you could use the following ex
 **Expression:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
-**Sample input / output:** <br>
+<strong>Sample input / output:</strong> <br>
+
 
 * **INPUT** (mail): "john.doe@contoso.com"
 * **OUTPUT**:  "john.doe"
@@ -212,7 +213,8 @@ If you are using a Salesforce Sandbox, you might need to append an additional su
 **Expression:** <br>
 `Append([userPrincipalName], ".test"))`
 
-**Sample input/output:** <br>
+<strong>Sample input/output:</strong> <br>
+
 
 * **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
 * **OUTPUT**:  "John.Doe@contoso.com.test"
@@ -223,7 +225,8 @@ You need to generate a user alias by taking first 3 letters of user's first name
 **Expression:** <br>
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Sample input/output:** <br>
+<strong>Sample input/output:</strong> <br>
+
 
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
@@ -233,7 +236,8 @@ You need to generate a user alias by taking first 3 letters of user's first name
 You want to send dates to a SaaS application in a certain format. <br>
 For example, you want to format dates for ServiceNow.
 
-**Expression:** <br>
+<strong>Expression:</strong> <br>
+
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
@@ -246,7 +250,8 @@ For example, you want to format dates for ServiceNow.
 You need to define the time zone of the user based on the state code stored in Azure AD. <br>
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
-**Expression:** <br>
+<strong>Expression:</strong> <br>
+
 
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 

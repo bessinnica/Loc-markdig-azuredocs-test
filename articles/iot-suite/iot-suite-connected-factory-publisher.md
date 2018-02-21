@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use the Azure IoT Suite connected factory OPC publisher | Microsoft Docs
 description: How to build and deploy the connected factory OPC publisher reference implementation.
 services: ''

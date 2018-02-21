@@ -72,11 +72,11 @@ To define parameters, use the following structure:
         }
       }
 
-| Element name | Required? | Description |
-| --- | --- | --- |
-| type |Yes |Type of parameter value. See the following list for the allowed types. |
-| displayName |Yes |Name of the parameter that is displayed to a user in the lab. | |
-| description |Yes |Description of the parameter that is displayed in the lab. |
+| Element name | Required? |                              Description                               |
+|--------------|-----------|------------------------------------------------------------------------|
+|     type     |    Yes    | Type of parameter value. See the following list for the allowed types. |
+| displayName  |    Yes    |     Name of the parameter that is displayed to a user in the lab.      |
+| description  |    Yes    |       Description of the parameter that is displayed in the lab.       |
 
 Allowed types are:
 

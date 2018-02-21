@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a SQL API app with Python and the Azure portal
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -28,7 +28,8 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * In addition:
@@ -55,7 +56,7 @@ Now let's clone a SQL API app from github, set the connection string, and run it
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
     ```  
-## Review the code
+   ## Review the code
 
 Let's make a quick review of what's happening in the app. Open the DocumentDBGetStarted.py file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
@@ -107,7 +108,7 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBGet
     ```python
     # Query them in SQL
     query = { 'query': 'SELECT * FROM server s' }    
-            
+
     options = {} 
     options['enableCrossPartitionQuery'] = True
     options['maxItemCount'] = 2
@@ -135,7 +136,7 @@ Now go back to the Azure portal to get your connection string information and co
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.MASTERKEY` in `DocumentDBGetStarted.py`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `'MASTERKEY': 'FILLME',`
-    
+
 ## Run the app
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
 

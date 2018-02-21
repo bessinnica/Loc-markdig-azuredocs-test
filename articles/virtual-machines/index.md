@@ -53,7 +53,6 @@ Learn how to create Azure virtual machines. Tutorials, API references, and other
             </div>
         </div>
         </a>
-    </li>    
-</ul>
+    </li><br/></ul>
 
 

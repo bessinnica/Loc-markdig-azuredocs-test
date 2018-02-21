@@ -80,6 +80,7 @@ Follow the steps in the checklist to enable and configure the Azure Active Direc
 | Devices discover your Azure Active Directory device registration service by looking for well-known DNS records. Configure your company DNS so that devices can discover your Azure Active Directory device registration service. |[Prepare your Active Directory support devices](#prepare-your-active-directory-to-support-devices) |
 
 ## Part 3: Enable device writeback in Azure AD
+
 | Task | Reference |
 | --- | --- |
 | Complete part two of "Enabling device writeback in Azure AD Connect." After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |

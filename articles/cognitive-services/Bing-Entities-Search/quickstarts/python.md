@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Bing Entity Search API with Python 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Python.
+
+This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Python.
 
 ## Prerequisites
 
@@ -54,11 +55,11 @@ query = 'italian restaurants near me'
 params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
 
 def get_suggestions ():
-	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-	conn = http.client.HTTPSConnection (host)
-	conn.request ("GET", path + params, None, headers)
-	response = conn.getresponse ()
-	return response.read ()
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    conn = http.client.HTTPSConnection (host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read ()
 
 result = get_suggestions ()
 print (json.dumps(json.loads(result), indent=4))

@@ -83,7 +83,7 @@ for i in `seq 1 2`; do
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \
      --generate-ssh-keys \
-	 --no-wait
+     --no-wait
 done 
 ```
 
@@ -101,7 +101,7 @@ You can add more VMs to the availability set later, but you need to know what VM
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
-	 --output table  
+     --output table  
 ```
 
 ## Next steps

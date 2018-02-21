@@ -17,12 +17,13 @@ To see the user's claims, select the link to browse to the controller view that 
 #### View the claims results
 After you browse to the controller view, you should see a table that contains the basic properties for the user:
 
-|Property |Value |Description |
-|---|---|---|
-|**Name** |User's full name | The user’s first and last name.
-|**Username** |user<span>@domain.com</span> | The username that is used to identify the user.
-|**Subject** |Subject |A string that uniquely identifies the user across the web.|
-|**Tenant ID** |Guid | A **guid** that uniquely represents the user’s Azure AD organization.|
+
+|          Property          |                                                       Value                                                       |                                    Description                                     |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+|   <strong>Name</strong>    |                                                 User's full name                                                  |                          The user’s first and last name.                           |
+| <strong>Username</strong>  | user<span><xref href="domain.com" data-throw-if-not-resolved="False" data-raw-source="@domain.com"></xref></span> |                  The username that is used to identify the user.                   |
+|  <strong>Subject</strong>  |                                                      Subject                                                      |             A string that uniquely identifies the user across the web.             |
+| <strong>Tenant ID</strong> |                                                       Guid                                                        | A <strong>guid</strong> that uniquely represents the user’s Azure AD organization. |
 
 In addition, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an Azure AD ID Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -65,3 +66,4 @@ You can restrict sign-in access to only user accounts that are in an Azure AD or
 You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]
+

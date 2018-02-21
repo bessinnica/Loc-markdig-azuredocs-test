@@ -83,7 +83,7 @@ In addition, you need to enable an Intranet zone policy setting called **Allow u
 
 ### Why do you need to modify users' Intranet zone settings?
 
-By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, "http://contoso/" maps to the Intranet zone, whereas "http://intranet.contoso.com/" maps to the Internet zone (because the URL contains a period). Browsers don't send Kerberos tickets to a cloud endpoint, like the two Azure AD URLs, unless you explicitly add the URL the browser's Intranet zone.
+By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, "<http://contoso/>" maps to the Intranet zone, whereas "<http://intranet.contoso.com/>" maps to the Internet zone (because the URL contains a period). Browsers don't send Kerberos tickets to a cloud endpoint, like the two Azure AD URLs, unless you explicitly add the URL the browser's Intranet zone.
 
 ### Detailed steps
 
@@ -97,13 +97,13 @@ By default, the browser automatically calculates the correct zone, either Intern
 
    The result looks like this:
 
-	Value: https://autologon.microsoftazuread-sso.com
+    Value: https://autologon.microsoftazuread-sso.com
   
-	Data: 1
-		
+    Data: 1
+        
    Value: https://aadg.windows.net.nsatc.net
 
-	Data: 1
+    Data: 1
 
    >[!NOTE]
    > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URLs to the Restricted zone, and fails Seamless SSO all the time.

@@ -132,7 +132,7 @@ Within the ASE blade, there is a **Settings** section that contains several impo
 
 ![Settings blade and Properties][4]
 
-**Settings** > **IP Addresses**: When you create an IP Secure Sockets Layer (SSL) app in your ASE, you need an IP SSL address. In order to obtain one, your ASE needs IP SSL addresses that it owns that can be allocated. When an ASE is created, it has one IP SSL address for this purpose, but you can add more. There is a charge for additional IP SSL addresses, as shown in [App Service pricing][AppServicePricing] (in the section on SSL connections). The additional price is the IP SSL price.
+<strong>Settings</strong> > <strong>IP Addresses</strong>: When you create an IP Secure Sockets Layer (SSL) app in your ASE, you need an IP SSL address. In order to obtain one, your ASE needs IP SSL addresses that it owns that can be allocated. When an ASE is created, it has one IP SSL address for this purpose, but you can add more. There is a charge for additional IP SSL addresses, as shown in [App Service pricing][AppServicePricing] (in the section on SSL connections). The additional price is the IP SSL price.
 
 **Settings** > **Front End Pool** / **Worker Pools**: Each of these resource pool blades offers the ability to see information only on that resource pool, in addition to providing controls to fully scale that resource pool.  
 

@@ -121,9 +121,9 @@ You can replicate and recover VMs between any two regions within the same geogra
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
 Europe | UK West, UK South, North Europe, West Europe
 Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
-Australia	| Australia East, Australia Southeast
-Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
-Germany	| Germany Central, Germany Northeast
+Australia   | Australia East, Australia Southeast
+Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
+Germany | Germany Central, Germany Northeast
 China | China East, China North
 
 >[!NOTE]
@@ -157,11 +157,11 @@ Disks on standard storage accounts | Supported |
 Disks on premium storage accounts | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk to ensure you have the same storage configuration in target region
 Standard Managed disks | Not supported |  
 Premium Managed disks | Not supported |
-Storage spaces | Supported |   	 	 
-Encryption at rest (SSE) | Supported | For cache and target storage accounts, you can select an SSE enabled storage account. 	 
+Storage spaces | Supported |         
+Encryption at rest (SSE) | Supported | For cache and target storage accounts, you can select an SSE enabled storage account.     
 Azure Disk Encryption (ADE) | Not supported |
-Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
-Exclude disk | Not supported|	Temporary disk is excluded by default.
+Hot add/remove disk | Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
+Exclude disk | Not supported|   Temporary disk is excluded by default.
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
@@ -174,6 +174,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction 
 > Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
 
 ## Support for Network configuration
+
 **Configuration** | **Supported/Not supported** | **Remarks**
 --- | --- | ---
 Network interface (NIC) | Upto maximum number of NICs supported by a specific Azure VM size | NICs are created when the VM is created as part of Test failover or Failover operation. The number of NICs on the failover VM depends on the number of NICs the source VM has at the time of enabling replication. If you add/remove NIC after enabling replication, it does not impact NIC count on the failover VM.
@@ -185,13 +186,13 @@ NSG on subnet (Resource Manager and Classic)| Supported | You need to associate 
 NSG on VM (Classic)| Supported | You need to associate the NSG to the NIC using an azure automation script in a recovery plan.
 Reserved IP (Static IP) / Retain source IP | Supported | If the NIC on the source VM has static IP configuration and the target subnet has the same IP available, it is assigned to the failover VM. If the target subnet does not have the same IP available, one of the available IPs in the subnet is reserved for this VM. You can specify a fixed IP of your choice in 'Replicated item > Settings > Compute and Network > Network interfaces'. You can select the NIC and specify the subnet and IP of your choice.
 Dynamic IP| Supported | If the NIC on the source VM has dynamic IP configuration, the NIC on the failover VM is also Dynamic by default. You can specify a fixed IP of your choice in 'Replicated item > Settings > Compute and Network > Network interfaces'. You can select the NIC and specify the subnet and IP of your choice.
-Traffic Manager integration	| Supported | You can pre-configure your traffic manager in such a way that the traffic is routed to the endpoint in source region on a regular basis and to the endpoint in target region in case of failover.
+Traffic Manager integration | Supported | You can pre-configure your traffic manager in such a way that the traffic is routed to the endpoint in source region on a regular basis and to the endpoint in target region in case of failover.
 Azure managed DNS | Supported |
-Custom DNS	| Supported | 	 
-Unauthenticated Proxy | Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
-Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.	 
-Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
-VNET to VNET connection	| Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
+Custom DNS  | Supported |    
+Unauthenticated Proxy | Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)    
+Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.    
+Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)  
+VNET to VNET connection | Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)  
 
 
 ## Next steps

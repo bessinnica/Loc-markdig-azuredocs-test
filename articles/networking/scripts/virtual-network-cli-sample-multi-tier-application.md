@@ -27,7 +27,6 @@ This script sample creates a virtual network with front-end and back-end subnets
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
 ## Sample script
 
 

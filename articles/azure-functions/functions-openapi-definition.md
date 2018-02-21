@@ -40,7 +40,6 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-
 ## Create the function
 
 This tutorial uses an HTTP triggered function that takes two parameters: the estimated time to make a turbine repair (in hours); and the capacity of the turbine (in kilowatts). The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period.
@@ -50,7 +49,7 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
     ![Functions quickstart page in the Azure portal](media/functions-openapi-definition/add-first-function.png)
 
 2. In the search field, type `http` and then choose **C#** for the HTTP trigger template. 
- 
+
     ![Choose the HTTP trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
 3. Type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**.  
@@ -125,7 +124,7 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
     1. In **Selected HTTP methods**, clear every option except **POST**, then click **Save**.
 
         ![Selected HTTP methods](media/functions-openapi-definition/selected-http-methods.png)
-        
+
 1. Click your function app name (like **function-demo-energy**) > **Platform features** > **API definition**.
 
     ![API definition](media/functions-openapi-definition/api-definition.png)

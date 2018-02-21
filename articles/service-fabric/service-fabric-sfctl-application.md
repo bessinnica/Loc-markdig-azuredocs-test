@@ -97,7 +97,7 @@ Deletes an existing Service Fabric application. An application must be created b
 
 ## sfctl application deployed
 Gets the information about an application deployed on a Service Fabric node.
-     
+
 ### Arguments
 
 |Argument|Description|
@@ -197,12 +197,14 @@ Gets load information about a Service Fabric application.
 Returns the load information about the application that was created or in the process of being created in the Service Fabric cluster and whose name matches the one specified as the parameter. The response includes the name, minimum nodes, maximum nodes, the number of nodes the app is occupying currently, and application load metric information about the application.
 
 ### Arguments
+
 |Argument|Description|
 | --- | --- |
 |--application-id [Required]| The identity of the application. This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "~" character. For example, if the application name is "fabric://myapp/app1", the application identity would be "myapp~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --timeout -t               | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
+
 |Argument|Description|
 | --- | --- |
 |--debug                    | Increase logging verbosity to show all debug logs.|
@@ -213,7 +215,7 @@ Returns the load information about the application that was created or in the pr
 
 ## sfctl application manifest
 Gets the manifest describing an application type.
-        
+
 Gets the manifest describing an application type. The response contains the application manifest XML as a string.
 
 ### Arguments
@@ -236,7 +238,7 @@ Gets the manifest describing an application type. The response contains the appl
 
 ## sfctl application provision
 Provisions or registers a Service Fabric application type with the cluster.
-        
+
 Provisions or registers a Service Fabric application type with the cluster. This is required before any new applications can be instantiated.
 
 ### Arguments

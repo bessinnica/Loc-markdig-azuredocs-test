@@ -161,29 +161,29 @@ public static string GetFiscalPeriod(DateTime dt)
     int FiscalMonth=0;
     if (dt.Month < 7)
     {
-	FiscalMonth = dt.Month + 6;
+    FiscalMonth = dt.Month + 6;
     }
     else
     {
-	FiscalMonth = dt.Month - 6;
+    FiscalMonth = dt.Month - 6;
     }
 
     int FiscalQuarter=0;
     if (FiscalMonth >=1 && FiscalMonth<=3)
     {
-	FiscalQuarter = 1;
+    FiscalQuarter = 1;
     }
     if (FiscalMonth >= 4 && FiscalMonth <= 6)
     {
-	FiscalQuarter = 2;
+    FiscalQuarter = 2;
     }
     if (FiscalMonth >= 7 && FiscalMonth <= 9)
     {
-	FiscalQuarter = 3;
+    FiscalQuarter = 3;
     }
     if (FiscalMonth >= 10 && FiscalMonth <= 12)
     {
-	FiscalQuarter = 4;
+    FiscalQuarter = 4;
     }
 
     return "Q" + FiscalQuarter.ToString() + ":P" + FiscalMonth.ToString();
@@ -257,19 +257,19 @@ DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
             guid Guid,
-	    dt DateTime,
+        dt DateTime,
             user String,
             des String
-	FROM @input_file USING Extractors.Tsv();
+    FROM @input_file USING Extractors.Tsv();
 
 DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 
 @rs1 =
     SELECT
         MAX(guid) AS start_id,
-	MIN(dt) AS start_time,
+    MIN(dt) AS start_time,
         MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
         MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
         user,
@@ -368,24 +368,24 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     SELECT 
         EventDateTime,
         UserName,
-	LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,          
+    LAG(EventDateTime, 1) 
+        OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,          
         string.IsNullOrEmpty(LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
+        OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
         USQLApplication21.UserSession.StampUserSession
            (
-           	EventDateTime,
-           	LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
-           	LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
+            EventDateTime,
+            LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
+            LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
            ) AS UserSessionTimestamp
     FROM @records;
 
 @rs2 =
     SELECT 
-    	EventDateTime,
+        EventDateTime,
         UserName,
         LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
+        OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
         string.IsNullOrEmpty( LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,
         USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp) AS UserSessionTimestamp
     FROM @rs1
@@ -441,7 +441,7 @@ If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as show
 ```
 @rs1 =
     SELECT 
-    	MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
+        MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
     FROM @rs0;
 
 OUTPUT @rs1 
@@ -452,7 +452,7 @@ OUTPUT @rs1
 We receive the following error:
 
 ```
-Error	1	E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
 MyNameSpace.Myfunction_Returning_UDT.
 
 Description:
@@ -462,8 +462,8 @@ Outputters.Text only supports built-in types.
 Resolution:
 
 Implement a custom outputter that knows how to serialize this type, or call a serialization method on the type in
-the preceding SELECT.	C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
-USQL-Programmability\Types.usql	52	1	USQL-Programmability
+the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+USQL-Programmability\Types.usql 52  1   USQL-Programmability
 ```
 
 To work with UDT in outputter, we either have to serialize it to string with the ToString() method or create a custom outputter.
@@ -471,7 +471,7 @@ To work with UDT in outputter, we either have to serialize it to string with the
 UDTs currently cannot be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
 
 ```
-Error	1	E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
+Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
 for column myfield
 
 Description:
@@ -482,7 +482,7 @@ Resolution:
 
 Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
 C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
-62	5	USQL-Programmability
+62  5   USQL-Programmability
 ```
 
 To define a UDT, we have to:
@@ -559,18 +559,18 @@ public struct FiscalPeriod
 
     public FiscalPeriod(int quarter, int month):this()
     {
-	this.Quarter = quarter;
-	this.Month = month;
+    this.Quarter = quarter;
+    this.Month = month;
     }
 
     public override bool Equals(object obj)
     {
-	if (ReferenceEquals(null, obj))
-	{
-	    return false;
-	}
+    if (ReferenceEquals(null, obj))
+    {
+        return false;
+    }
 
-	return obj is FiscalPeriod && Equals((FiscalPeriod)obj);
+    return obj is FiscalPeriod && Equals((FiscalPeriod)obj);
     }
 
     public bool Equals(FiscalPeriod other)
@@ -590,10 +590,10 @@ return this.Quarter.CompareTo(other.Quarter) < 0 || this.Month.CompareTo(other.M
 
     public override int GetHashCode()
     {
-	unchecked
-	{
-	    return (this.Quarter.GetHashCode() * 397) ^ this.Month.GetHashCode();
-	}
+    unchecked
+    {
+        return (this.Quarter.GetHashCode() * 397) ^ this.Month.GetHashCode();
+    }
     }
 
     public static FiscalPeriod operator +(FiscalPeriod c1, FiscalPeriod c2)
@@ -603,24 +603,24 @@ return new FiscalPeriod((c1.Quarter + c2.Quarter) > 4 ? (c1.Quarter + c2.Quarter
 
     public static bool operator ==(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return c1.Equals(c2);
+    return c1.Equals(c2);
     }
 
     public static bool operator !=(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return !c1.Equals(c2);
+    return !c1.Equals(c2);
     }
     public static bool operator >(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return c1.GreaterThan(c2);
+    return c1.GreaterThan(c2);
     }
     public static bool operator <(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return c1.LessThan(c2);
+    return c1.LessThan(c2);
     }
     public override string ToString()
     {
-	return (String.Format("Q{0}:P{1}", this.Quarter, this.Month));
+    return (String.Format("Q{0}:P{1}", this.Quarter, this.Month));
     }
 
 }
@@ -629,21 +629,21 @@ public class FiscalPeriodFormatter : IFormatter<FiscalPeriod>
 {
     public void Serialize(FiscalPeriod instance, IColumnWriter writer, ISerializationContext context)
     {
-	using (var binaryWriter = new BinaryWriter(writer.BaseStream))
-	{
-	    binaryWriter.Write(instance.Quarter);
-	    binaryWriter.Write(instance.Month);
-	    binaryWriter.Flush();
-	}
+    using (var binaryWriter = new BinaryWriter(writer.BaseStream))
+    {
+        binaryWriter.Write(instance.Quarter);
+        binaryWriter.Write(instance.Month);
+        binaryWriter.Flush();
+    }
     }
 
     public FiscalPeriod Deserialize(IColumnReader reader, ISerializationContext context)
     {
-	using (var binaryReader = new BinaryReader(reader.BaseStream))
-	{
+    using (var binaryReader = new BinaryReader(reader.BaseStream))
+    {
 var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16());
-	    return result;
-	}
+        return result;
+    }
     }
 }
 ```
@@ -660,29 +660,29 @@ public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
     int FiscalMonth = 0;
     if (dt.Month < 7)
     {
-	FiscalMonth = dt.Month + 6;
+    FiscalMonth = dt.Month + 6;
     }
     else
     {
-	FiscalMonth = dt.Month - 6;
+    FiscalMonth = dt.Month - 6;
     }
 
     int FiscalQuarter = 0;
     if (FiscalMonth >= 1 && FiscalMonth <= 3)
     {
-	FiscalQuarter = 1;
+    FiscalQuarter = 1;
     }
     if (FiscalMonth >= 4 && FiscalMonth <= 6)
     {
-	FiscalQuarter = 2;
+    FiscalQuarter = 2;
     }
     if (FiscalMonth >= 7 && FiscalMonth <= 9)
     {
-	FiscalQuarter = 3;
+    FiscalQuarter = 3;
     }
     if (FiscalMonth >= 10 && FiscalMonth <= 12)
     {
-	FiscalQuarter = 4;
+    FiscalQuarter = 4;
     }
 
     return new FiscalPeriod(FiscalQuarter, FiscalMonth);
@@ -698,16 +698,16 @@ DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.ts
 DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
-	    guid string,
-	    dt DateTime,
-	    user String,
-	    des String
-	FROM @input_file USING Extractors.Tsv();
+    EXTRACT
+        guid string,
+        dt DateTime,
+        user String,
+        des String
+    FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
     SELECT 
-    	guid AS start_id,
+        guid AS start_id,
         dt,
         DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
         USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).Quarter AS fiscalquarter,
@@ -719,22 +719,22 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
 
 @rs2 =
     SELECT 
-    	   start_id,
+           start_id,
            dt,
            DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
 
-	   // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
+       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
     FROM @rs1;
 
 OUTPUT @rs2 
-	TO @output_file 
-	USING Outputters.Text();
+    TO @output_file 
+    USING Outputters.Text();
 ```
 
 Here's an example of a full code-behind section:
@@ -924,16 +924,16 @@ The base class allows you to pass three abstract parameters: two as input parame
 ```
 public class GuidAggregate : IAggregate<string, string, string>
 {
-	string guid_agg;
+    string guid_agg;
 
-	public override void Init()
-	{ … }
+    public override void Init()
+    { … }
 
-	public override void Accumulate(string guid, string user)
-	{ … }
+    public override void Accumulate(string guid, string user)
+    { … }
 
-	public override string Terminate()
-	{ … }
+    public override string Terminate()
+    { … }
 }
 ```
 
@@ -977,25 +977,25 @@ Here is an example of UDAGG:
 ```
 public class GuidAggregate : IAggregate<string, string, string>
 {
-	string guid_agg;
+    string guid_agg;
 
-	public override void Init()
-	{
-	    guid_agg = "";
-	}
+    public override void Init()
+    {
+        guid_agg = "";
+    }
 
-	public override void Accumulate(string guid, string user)
-	{
-	    if (user.ToUpper()== "USER1")
-	    {
-		guid_agg += "{" + guid + "}";
-	    }
-	}
+    public override void Accumulate(string guid, string user)
+    {
+        if (user.ToUpper()== "USER1")
+        {
+        guid_agg += "{" + guid + "}";
+        }
+    }
 
-	public override string Terminate()
-	{
-	    return guid_agg;
-	}
+    public override string Terminate()
+    {
+        return guid_agg;
+    }
 
 }
 ```
@@ -1007,13 +1007,13 @@ DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
             guid string,
-	    dt DateTime,
+        dt DateTime,
             user String,
             des String
-	FROM @input_file 
-	USING Extractors.Tsv();
+    FROM @input_file 
+    USING Extractors.Tsv();
 
 @rs1 =
     SELECT
@@ -1033,27 +1033,27 @@ U-SQL enables you to define custom programmability objects, which are called use
 The following is a list of UDO in U-SQL:
 
 * User-defined extractors
-	* Extract row by row
-	* Used to implement data extraction from custom structured files
+    * Extract row by row
+    * Used to implement data extraction from custom structured files
 
 * User-defined outputters
-	* Output row by row
-	* Used to output custom data types or custom file formats
+    * Output row by row
+    * Used to output custom data types or custom file formats
 
 * User-defined processors
-	* Take one row and produce one row
-	* Used to reduce the number of columns or produce new columns with values that are derived from an existing column set
+    * Take one row and produce one row
+    * Used to reduce the number of columns or produce new columns with values that are derived from an existing column set
 
 * User-defined appliers
-	* Take one row and produce 0 to n rows
-	* Used with OUTER/CROSS APPLY
+    * Take one row and produce 0 to n rows
+    * Used with OUTER/CROSS APPLY
 
 * User-defined combiners
-	* Combines rowsets--user-defined JOINs
+    * Combines rowsets--user-defined JOINs
 
 * User-defined reducers
-	* Take n rows and produce one row
-	* Used to reduce the number of rows
+    * Take n rows and produce one row
+    * Used to reduce the number of rows
 
 UDO is typically called explicitly in U-SQL script as part of the following U-SQL statements:
 
@@ -1088,11 +1088,11 @@ To define a user-defined extractor, or UDE, we need to create an `IExtractor` in
 [SqlUserDefinedExtractor]
 public class SampleExtractor : IExtractor
 {
-	 public SampleExtractor(string row_delimiter, char col_delimiter)
-	 { … }
+     public SampleExtractor(string row_delimiter, char col_delimiter)
+     { … }
 
-	 public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
-	 { … }
+     public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
+     { … }
 }
 ```
 
@@ -1124,9 +1124,9 @@ Then, further split input row into column parts.
 foreach (Stream current in input.Split(my_row_delimiter))
 {
 …
-	string[] parts = line.Split(my_column_delimiter);
-	foreach (string part in parts)
-	{ … }
+    string[] parts = line.Split(my_column_delimiter);
+    foreach (string part in parts)
+    { … }
 }
 ```
 
@@ -1146,56 +1146,56 @@ Following is the extractor example:
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
 public class FullDescriptionExtractor : IExtractor
 {
-	 private Encoding _encoding;
-	 private byte[] _row_delim;
-	 private char _col_delim;
+     private Encoding _encoding;
+     private byte[] _row_delim;
+     private char _col_delim;
 
-	public FullDescriptionExtractor(Encoding encoding, string row_delim = "\r\n", char col_delim = '\t')
-	{
-	     this._encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
-	     this._row_delim = this._encoding.GetBytes(row_delim);
-	     this._col_delim = col_delim;
+    public FullDescriptionExtractor(Encoding encoding, string row_delim = "\r\n", char col_delim = '\t')
+    {
+         this._encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
+         this._row_delim = this._encoding.GetBytes(row_delim);
+         this._col_delim = col_delim;
 
-	}
+    }
 
-	public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
-	{
-	     string line;
-	     //Read the input line by line
-	     foreach (Stream current in input.Split(_encoding.GetBytes("\r\n")))
-	     {
-		using (System.IO.StreamReader streamReader = new StreamReader(current, this._encoding))
-		 {
-		     line = streamReader.ReadToEnd().Trim();
-		     //Split the input by the column delimiter
-		     string[] parts = line.Split(this._col_delim);
-		     int count = 0; // start with first column
-		     foreach (string part in parts)
-		     {
-	if (count == 0)
-			 {  // for column “guid”, re-generated guid
-			     Guid new_guid = Guid.NewGuid();
-			     output.Set<Guid>(count, new_guid);
-			 }
-			 else if (count == 2)
-			 {
-			     // for column “user”, convert to UPPER case
-			     output.Set<string>(count, part.ToUpper());
+    public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
+    {
+         string line;
+         //Read the input line by line
+         foreach (Stream current in input.Split(_encoding.GetBytes("\r\n")))
+         {
+        using (System.IO.StreamReader streamReader = new StreamReader(current, this._encoding))
+         {
+             line = streamReader.ReadToEnd().Trim();
+             //Split the input by the column delimiter
+             string[] parts = line.Split(this._col_delim);
+             int count = 0; // start with first column
+             foreach (string part in parts)
+             {
+    if (count == 0)
+             {  // for column “guid”, re-generated guid
+                 Guid new_guid = Guid.NewGuid();
+                 output.Set<Guid>(count, new_guid);
+             }
+             else if (count == 2)
+             {
+                 // for column “user”, convert to UPPER case
+                 output.Set<string>(count, part.ToUpper());
 
-			 }
-			 else
-			 {
-			     // keep the rest of the columns as-is
-			     output.Set<string>(count, part);
-			 }
-			 count += 1;
-		     }
+             }
+             else
+             {
+                 // keep the rest of the columns as-is
+                 output.Set<string>(count, part);
+             }
+             count += 1;
+             }
 
-		 }
-		 yield return output.AsReadOnly();
-	     }
-	     yield break;
-	 }
+         }
+         yield return output.AsReadOnly();
+         }
+         yield break;
+     }
 }
 ```
 
@@ -1208,12 +1208,12 @@ DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
             guid Guid,
- 	    dt String,
+        dt String,
             user String,
             des String
-	FROM @input_file
+    FROM @input_file
         USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
 OUTPUT @rs0 TO @output_file USING Outputters.Text();
@@ -1240,10 +1240,10 @@ Following is the base `IOutputter` class implementation:
 ```
 public abstract class IOutputter : IUserDefinedOperator
 {
-	protected IOutputter();
+    protected IOutputter();
 
-	public virtual void Close();
-	public abstract void Output(IRow input, IUnstructuredWriter output);
+    public virtual void Close();
+    public abstract void Output(IRow input, IUnstructuredWriter output);
 }
 ```
 
@@ -1360,83 +1360,83 @@ public class HTMLOutputter : IOutputter
     // Parameters definition            
     public HTMLOutputter(bool isHeader = false, Encoding encoding = null)
     {
-	this.isHeaderRow = isHeader;
-	this.encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
+    this.isHeaderRow = isHeader;
+    this.encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
     }
 
     // The Close method is used to write the footer to the file. It's executed only once, after all rows
     public override void Close()
     {
-	//Reference to IO.Stream object - g_writer
-	StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
-	streamWriter.Write("</table>");
-	streamWriter.Flush();
-	streamWriter.Close();
+    //Reference to IO.Stream object - g_writer
+    StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
+    streamWriter.Write("</table>");
+    streamWriter.Flush();
+    streamWriter.Close();
     }
 
     public override void Output(IRow row, IUnstructuredWriter output)
     {
-	System.IO.StreamWriter streamWriter = new StreamWriter(output.BaseStream, this.encoding);
+    System.IO.StreamWriter streamWriter = new StreamWriter(output.BaseStream, this.encoding);
 
-	// Metadata schema initialization to enumerate column names
-	ISchema schema = row.Schema;
+    // Metadata schema initialization to enumerate column names
+    ISchema schema = row.Schema;
 
-	// This is a data-independent header--HTML table definition
-	if (IsTableHeader)
-	{
-	    streamWriter.Write("<table border=1>");
-	    IsTableHeader = false;
-	}
+    // This is a data-independent header--HTML table definition
+    if (IsTableHeader)
+    {
+        streamWriter.Write("<table border=1>");
+        IsTableHeader = false;
+    }
 
-	// HTML table attributes
-	string header_wrapper_on = "<th>";
-	string header_wrapper_off = "</th>";
-	string data_wrapper_on = "<td>";
-	string data_wrapper_off = "</td>";
+    // HTML table attributes
+    string header_wrapper_on = "<th>";
+    string header_wrapper_off = "</th>";
+    string data_wrapper_on = "<td>";
+    string data_wrapper_off = "</td>";
 
-	// Header row output--runs only once
-	if (isHeaderRow)
-	{
-	    streamWriter.Write("<tr>");
-	    for (int i = 0; i < schema.Count(); i++)
-	    {
-		var col = schema[i];
-		streamWriter.Write(header_wrapper_on + col.Name + header_wrapper_off);
-	    }
-	    streamWriter.Write("</tr>");
-	}
+    // Header row output--runs only once
+    if (isHeaderRow)
+    {
+        streamWriter.Write("<tr>");
+        for (int i = 0; i < schema.Count(); i++)
+        {
+        var col = schema[i];
+        streamWriter.Write(header_wrapper_on + col.Name + header_wrapper_off);
+        }
+        streamWriter.Write("</tr>");
+    }
 
-	// Data row output
-	streamWriter.Write("<tr>");                
-	for (int i = 0; i < schema.Count(); i++)
-	{
-	    var col = schema[i];
-	    string val = "";
-	    try
-	    {
-		// Data type enumeration--required to match the distinct list of types from OUTPUT statement
-		switch (col.Type.Name.ToString().ToLower())
-		{
-		    case "string": val = row.Get<string>(col.Name).ToString(); break;
-		    case "guid": val = row.Get<Guid>(col.Name).ToString(); break;
-		    default: break;
-		}
-	    }
-	    // Handling NULL values--keeping them empty
-	    catch (System.NullReferenceException)
-	    {
-	    }
-	    streamWriter.Write(data_wrapper_on + val + data_wrapper_off);
-	}
-	streamWriter.Write("</tr>");
+    // Data row output
+    streamWriter.Write("<tr>");                
+    for (int i = 0; i < schema.Count(); i++)
+    {
+        var col = schema[i];
+        string val = "";
+        try
+        {
+        // Data type enumeration--required to match the distinct list of types from OUTPUT statement
+        switch (col.Type.Name.ToString().ToLower())
+        {
+            case "string": val = row.Get<string>(col.Name).ToString(); break;
+            case "guid": val = row.Get<Guid>(col.Name).ToString(); break;
+            default: break;
+        }
+        }
+        // Handling NULL values--keeping them empty
+        catch (System.NullReferenceException)
+        {
+        }
+        streamWriter.Write(data_wrapper_on + val + data_wrapper_off);
+    }
+    streamWriter.Write("</tr>");
 
-	if (isHeaderRow)
-	{
-	    isHeaderRow = false;
-	}
-	// Reference to the instance of the IO.Stream object for footer generation
-	g_writer = output.BaseStream;
-	streamWriter.Flush();
+    if (isHeaderRow)
+    {
+        isHeaderRow = false;
+    }
+    // Reference to the instance of the IO.Stream object for footer generation
+    g_writer = output.BaseStream;
+    streamWriter.Flush();
     }
 }
 
@@ -1445,7 +1445,7 @@ public static class Factory
 {
     public static HTMLOutputter HTMLOutputter(bool isHeader = false, Encoding encoding = null)
     {
-	return new HTMLOutputter(isHeader, encoding);
+    return new HTMLOutputter(isHeader, encoding);
     }
 }
 ```
@@ -1457,17 +1457,17 @@ DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.html";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
             guid Guid,
-	    dt String,
+        dt String,
             user String,
             des String
          FROM @input_file
          USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
 OUTPUT @rs0 
-	TO @output_file 
-	USING new USQL_Programmability.HTMLOutputter(isHeader: true);
+    TO @output_file 
+    USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
 This is an HTML outputter, which creates an HTML file with table data.
@@ -1513,7 +1513,7 @@ public class MyProcessor: IProcessor
 {
 public override IRow Process(IRow input, IUpdatableRow output)
  {
-		…
+        …
  }
 }
 ```
@@ -1573,12 +1573,12 @@ DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
             guid Guid,
-	    dt String,
+        dt String,
             user String,
             des String
-	FROM @input_file USING Extractors.Tsv();
+    FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
      PROCESS @rs0
@@ -1624,15 +1624,15 @@ To define a user-defined applier, we need to create the `IApplier` interface wit
 [SqlUserDefinedApplier]
 public class ParserApplier : IApplier
 {
-	public ParserApplier()
-	{
-		…
-	}
+    public ParserApplier()
+    {
+        …
+    }
 
-	public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
-	{
-		…
-	}
+    public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
+    {
+        …
+    }
 }
 ```
 
@@ -1699,18 +1699,18 @@ private string parsingPart;
 public ParserApplier(string parsingPart)
 {
     if (parsingPart.ToUpper().Contains("ALL")
-	|| parsingPart.ToUpper().Contains("MAKE")
-	|| parsingPart.ToUpper().Contains("MODEL")
-	|| parsingPart.ToUpper().Contains("YEAR")
-	|| parsingPart.ToUpper().Contains("TYPE")
-	|| parsingPart.ToUpper().Contains("MILLAGE")
-	)
+    || parsingPart.ToUpper().Contains("MAKE")
+    || parsingPart.ToUpper().Contains("MODEL")
+    || parsingPart.ToUpper().Contains("YEAR")
+    || parsingPart.ToUpper().Contains("TYPE")
+    || parsingPart.ToUpper().Contains("MILLAGE")
+    )
     {
-	this.parsingPart = parsingPart;
+    this.parsingPart = parsingPart;
     }
     else
     {
-	throw new ArgumentException("Incorrect parameter. Please use: 'ALL[MAKE|MODEL|TYPE|MILLAGE]'");
+    throw new ArgumentException("Incorrect parameter. Please use: 'ALL[MAKE|MODEL|TYPE|MILLAGE]'");
     }
 }
 
@@ -1723,23 +1723,23 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
     if (properties.Count() == 5)
     {
 
-	string make = properties[0];
-	string model = properties[1];
-	string year = properties[2];
-	string type = properties[3];
-	int millage = -1;
+    string make = properties[0];
+    string model = properties[1];
+    string year = properties[2];
+    string type = properties[3];
+    int millage = -1;
 
-	// Only return millage if it is number, otherwise, -1
-	if (!int.TryParse(properties[4], out millage))
-	{
-	    millage = -1;
-	}
+    // Only return millage if it is number, otherwise, -1
+    if (!int.TryParse(properties[4], out millage))
+    {
+        millage = -1;
+    }
 
-	if (parsingPart.ToUpper().Contains("MAKE") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("make", make);
-	if (parsingPart.ToUpper().Contains("MODEL") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("model", model);
-	if (parsingPart.ToUpper().Contains("YEAR") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("year", year);
-	if (parsingPart.ToUpper().Contains("TYPE") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("type", type);
-	if (parsingPart.ToUpper().Contains("MILLAGE") || parsingPart.ToUpper().Contains("ALL")) output.Set<int>("millage", millage);
+    if (parsingPart.ToUpper().Contains("MAKE") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("make", make);
+    if (parsingPart.ToUpper().Contains("MODEL") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("model", model);
+    if (parsingPart.ToUpper().Contains("YEAR") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("year", year);
+    if (parsingPart.ToUpper().Contains("TYPE") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("type", type);
+    if (parsingPart.ToUpper().Contains("MILLAGE") || parsingPart.ToUpper().Contains("ALL")) output.Set<int>("millage", millage);
     }
     yield return output.AsReadOnly();            
 }
@@ -1753,22 +1753,22 @@ DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
 DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
         stocknumber int,
-	    vin String,
+        vin String,
         properties String
-	FROM @input_file USING Extractors.Tsv();
+    FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
     SELECT
         r.stocknumber,
-	    r.vin,
+        r.vin,
         properties.make,
         properties.model,
         properties.year,
         properties.type,
         properties.millage
-	FROM @rs0 AS r
+    FROM @rs0 AS r
     CROSS APPLY
     new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 
@@ -1778,16 +1778,16 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 In this use case scenario, user-defined applier acts as a comma-delimited value parser for the car fleet properties. The input file rows look like the following:
 
 ```
-103	Z1AB2CD123XY45889	Ford,Explorer,2005,SUV,152345
-303	Y0AB2CD34XY458890	Shevrolet,Cruise,2010,4Dr,32455
-210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
+103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
+303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 
 It is a typical tab-delimited TSV file with a properties column that contains car properties such as make and model. Those properties must be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
 
-	…USQL_Programmability.ParserApplier ("all")
-	…USQL_Programmability.ParserApplier ("make")
-	…USQL_Programmability.ParserApplier ("make&model")
+    …USQL_Programmability.ParserApplier ("all")
+    …USQL_Programmability.ParserApplier ("make")
+    …USQL_Programmability.ParserApplier ("make&model")
 
 The user-defined applier can be called as a new instance of applier object:
 
@@ -1798,7 +1798,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 Or with the invocation of a wrapper factory method:
 
 ```csharp
-	CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+    CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
 ## Use user-defined combiners
@@ -1810,13 +1810,13 @@ To call a combiner in a base U-SQL script, we use the following syntax:
 
 ```
 Combine_Expression :=
-	'COMBINE' Combine_Input
-	'WITH' Combine_Input
-	Join_On_Clause
-	Produce_Clause
-	[Readonly_Clause]
-	[Required_Clause]
-	USING_Clause.
+    'COMBINE' Combine_Input
+    'WITH' Combine_Input
+    Join_On_Clause
+    Produce_Clause
+    [Readonly_Clause]
+    [Required_Clause]
+    USING_Clause.
 ```
 
 For more information, see [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
@@ -1844,7 +1844,7 @@ public class MyCombiner : ICombiner
 {
 
 public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
-	IUpdatableRow output)
+    IUpdatableRow output)
 {
     …
 }
@@ -1859,25 +1859,25 @@ CombinerMode     Mode
 
 CombinerMode enum can take the following values:
 
-* Full  (0)	Every output row potentially depends on all the input rows from left and right
-		with the same key value.
+* Full  (0) Every output row potentially depends on all the input rows from left and right
+        with the same key value.
 
-* Left  (1)	Every output row depends on a single input row from the left (and potentially all rows
-		from the right with the same key value).
+* Left  (1) Every output row depends on a single input row from the left (and potentially all rows
+        from the right with the same key value).
 
 * Right (2)     Every output row depends on a single input row from the right (and potentially all rows
-		from the left with the same key value).
+        from the left with the same key value).
 
-* Inner (3)	Every output row depends on a single input row from left and right with the same value.
+* Inner (3) Every output row depends on a single input row from left and right with the same value.
 
-Example: 	[`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
+Example:    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 
 The main programmability objects are:
 
 ```csharp
-	public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
-		IUpdatableRow output
+    public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
+        IUpdatableRow output
 ```
 
 Input rowsets are passed as **left** and **right** `IRowset` type of interface. Both rowsets must be enumerated for processing. You can only enumerate each interface once, so we have to enumerate and cache it if necessary.
@@ -1935,46 +1935,46 @@ public class CombineSales : ICombiner
 {
 
 public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
-	IUpdatableRow output)
+    IUpdatableRow output)
 {
     var internetSales =
     (from row in left.Rows
-		  select new
-		  {
-		      ProductKey = row.Get<int>("ProductKey"),
-		      OrderDateKey = row.Get<int>("OrderDateKey"),
-		      SalesAmount = row.Get<decimal>("SalesAmount"),
-		      TaxAmt = row.Get<decimal>("TaxAmt")
-		  }).ToList();
+          select new
+          {
+              ProductKey = row.Get<int>("ProductKey"),
+              OrderDateKey = row.Get<int>("OrderDateKey"),
+              SalesAmount = row.Get<decimal>("SalesAmount"),
+              TaxAmt = row.Get<decimal>("TaxAmt")
+          }).ToList();
 
     var resellerSales =
     (from row in right.Rows
      select new
      {
-	 ProductKey = row.Get<int>("ProductKey"),
-	 OrderDateKey = row.Get<int>("OrderDateKey"),
-	 SalesAmount = row.Get<decimal>("SalesAmount"),
-	 TaxAmt = row.Get<decimal>("TaxAmt")
+     ProductKey = row.Get<int>("ProductKey"),
+     OrderDateKey = row.Get<int>("OrderDateKey"),
+     SalesAmount = row.Get<decimal>("SalesAmount"),
+     TaxAmt = row.Get<decimal>("TaxAmt")
      }).ToList();
 
     foreach (var row_i in internetSales)
     {
-	foreach (var row_r in resellerSales)
-	{
+    foreach (var row_r in resellerSales)
+    {
 
-	    if (
-		row_i.OrderDateKey > 0
-		&& row_i.OrderDateKey < row_r.OrderDateKey
-		&& row_i.OrderDateKey == 20010701
-		&& (row_r.SalesAmount + row_r.TaxAmt) > 20000)
-	    {
-		output.Set<int>("OrderDateKey", row_i.OrderDateKey);
-		output.Set<int>("ProductKey", row_i.ProductKey);
-		output.Set<decimal>("Internet_Sales_Amount", row_i.SalesAmount + row_i.TaxAmt);
-		output.Set<decimal>("Reseller_Sales_Amount", row_r.SalesAmount + row_r.TaxAmt);
-	    }
+        if (
+        row_i.OrderDateKey > 0
+        && row_i.OrderDateKey < row_r.OrderDateKey
+        && row_i.OrderDateKey == 20010701
+        && (row_r.SalesAmount + row_r.TaxAmt) > 20000)
+        {
+        output.Set<int>("OrderDateKey", row_i.OrderDateKey);
+        output.Set<int>("ProductKey", row_i.ProductKey);
+        output.Set<decimal>("Internet_Sales_Amount", row_i.SalesAmount + row_i.TaxAmt);
+        output.Set<decimal>("Reseller_Sales_Amount", row_r.SalesAmount + row_r.TaxAmt);
+        }
 
-	}
+    }
     }
     yield return output.AsReadOnly();
 }
@@ -1995,58 +1995,58 @@ DECLARE @output_file2 string = @LocalURI+"output_file2.tsv";
 
 @fact_internet_sales =
 EXTRACT
-	ProductKey int ,
-	OrderDateKey int ,
-	DueDateKey int ,
-	ShipDateKey int ,
-	CustomerKey int ,
-	PromotionKey int ,
-	CurrencyKey int ,
-	SalesTerritoryKey int ,
-	SalesOrderNumber String ,
-	SalesOrderLineNumber  int ,
-	RevisionNumber int ,
-	OrderQuantity int ,
-	UnitPrice decimal ,
-	ExtendedAmount decimal,
-	UnitPriceDiscountPct float ,
-	DiscountAmount float ,
-	ProductStandardCost decimal ,
-	TotalProductCost decimal ,
-	SalesAmount decimal ,
-	TaxAmt decimal ,
-	Freight decimal ,
-	CarrierTrackingNumber String,
-	CustomerPONumber String
+    ProductKey int ,
+    OrderDateKey int ,
+    DueDateKey int ,
+    ShipDateKey int ,
+    CustomerKey int ,
+    PromotionKey int ,
+    CurrencyKey int ,
+    SalesTerritoryKey int ,
+    SalesOrderNumber String ,
+    SalesOrderLineNumber  int ,
+    RevisionNumber int ,
+    OrderQuantity int ,
+    UnitPrice decimal ,
+    ExtendedAmount decimal,
+    UnitPriceDiscountPct float ,
+    DiscountAmount float ,
+    ProductStandardCost decimal ,
+    TotalProductCost decimal ,
+    SalesAmount decimal ,
+    TaxAmt decimal ,
+    Freight decimal ,
+    CarrierTrackingNumber String,
+    CustomerPONumber String
 FROM @input_file_internet_sales
 USING Extractors.Text(delimiter:'|', encoding: Encoding.Unicode);
 
 @fact_reseller_sales =
 EXTRACT
-	ProductKey int ,
-	OrderDateKey int ,
-	DueDateKey int ,
-	ShipDateKey int ,
-	ResellerKey int ,
+    ProductKey int ,
+    OrderDateKey int ,
+    DueDateKey int ,
+    ShipDateKey int ,
+    ResellerKey int ,
     EmployeeKey int ,
-	PromotionKey int ,
-	CurrencyKey int ,
-	SalesTerritoryKey int ,
-	SalesOrderNumber String ,
-	SalesOrderLineNumber  int ,
-	RevisionNumber int ,
-	OrderQuantity int ,
-	UnitPrice decimal ,
-	ExtendedAmount decimal,
-	UnitPriceDiscountPct float ,
-	DiscountAmount float ,
-	ProductStandardCost decimal ,
-	TotalProductCost decimal ,
-	SalesAmount decimal ,
-	TaxAmt decimal ,
-	Freight decimal ,
-	CarrierTrackingNumber String,
-	CustomerPONumber String
+    PromotionKey int ,
+    CurrencyKey int ,
+    SalesTerritoryKey int ,
+    SalesOrderNumber String ,
+    SalesOrderLineNumber  int ,
+    RevisionNumber int ,
+    OrderQuantity int ,
+    UnitPrice decimal ,
+    ExtendedAmount decimal,
+    UnitPriceDiscountPct float ,
+    DiscountAmount float ,
+    ProductStandardCost decimal ,
+    TotalProductCost decimal ,
+    SalesAmount decimal ,
+    TaxAmt decimal ,
+    Freight decimal ,
+    CarrierTrackingNumber String,
+    CustomerPONumber String
 FROM @input_file_reseller_sales
 USING Extractors.Text(delimiter:'|', encoding: Encoding.Unicode);
 
@@ -2108,7 +2108,7 @@ public class EmptyUserReducer : IReducer
 
     public override IEnumerable<IRow> Reduce(IRowset input, IUpdatableRow output)
     {
-	    …
+        …
     }
 
 }
@@ -2127,7 +2127,7 @@ For input rows enumeration, we use the `Row.Get` method.
 ```
 foreach (IRow row in input.Rows)
 {
-	row.Get<string>("mycolumn");
+    row.Get<string>("mycolumn");
 }
 ```
 
@@ -2152,28 +2152,28 @@ public class EmptyUserReducer : IReducer
 
     public override IEnumerable<IRow> Reduce(IRowset input, IUpdatableRow output)
     {
-	string guid;
-	DateTime dt;
-	string user;
-	string des;
+    string guid;
+    DateTime dt;
+    string user;
+    string des;
 
-	foreach (IRow row in input.Rows)
-	{
-	    guid = row.Get<string>("guid");
-	    dt = row.Get<DateTime>("dt");
-	    user = row.Get<string>("user");
-	    des = row.Get<string>("des");
+    foreach (IRow row in input.Rows)
+    {
+        guid = row.Get<string>("guid");
+        dt = row.Get<DateTime>("dt");
+        user = row.Get<string>("user");
+        des = row.Get<string>("des");
 
-	    if (user.Length > 0)
-	    {
-		output.Set<string>("guid", guid);
-		output.Set<DateTime>("dt", dt);
-		output.Set<string>("user", user);
-		output.Set<string>("des", des);
+        if (user.Length > 0)
+        {
+        output.Set<string>("guid", guid);
+        output.Set<DateTime>("dt", dt);
+        output.Set<string>("user", user);
+        output.Set<string>("des", des);
 
-		yield return output.AsReadOnly();
-	    }
-	}
+        yield return output.AsReadOnly();
+        }
+    }
     }
 
 }
@@ -2188,13 +2188,13 @@ DECLARE @input_file string = @"\usql-programmability\input_file_reducer.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
             guid string,
-	    dt DateTime,
+        dt DateTime,
             user String,
             des String
-	FROM @input_file 
-	USING Extractors.Tsv();
+    FROM @input_file 
+    USING Extractors.Tsv();
 
 @rs1 =
     REDUCE @rs0 PRESORT guid
@@ -2212,6 +2212,6 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
     FROM @rs1;
 
 OUTPUT @rs2 
-	TO @output_file 
-	USING Outputters.Text();
+    TO @output_file 
+    USING Outputters.Text();
 ```

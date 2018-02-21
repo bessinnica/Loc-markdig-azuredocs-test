@@ -87,6 +87,7 @@ Infrastructure Backup Controller will back up data on demand. The recommendation
 | 4-12 nodes        | 10 GB                     | 140 GB                          |
 
 ### Network requirements
+
 | Storage location                                                                 | Details                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SMB file share hosted on a storage device within the trusted network environment | Port 445 is required if the Azure Stack instance resides in a firewalled environment. Infrastructure Backup Controller will initiate a connection to the SMB file server over port 445. |
@@ -101,6 +102,7 @@ Infrastructure Backup Controller will back up data on demand. The recommendation
 Consider these limits as you plan, deploy, and operate your Microsoft Azure Stack instances. The following table describes these limits.
 
 ### Infrastructure Backup limits
+
 | Limit identifier                                                 | Limit        | Comments                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Backup type                                                      | Full only    | Infrastructure Backup Controller only supports full backups. Incremental backups are not supported.                                          |

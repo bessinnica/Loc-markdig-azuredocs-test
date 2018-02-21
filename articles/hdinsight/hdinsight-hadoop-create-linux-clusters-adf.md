@@ -256,7 +256,7 @@ You define a data factory in the Resource Manager template as shown in the follo
 ```json
 "resources": [
 {
-	"name": "[parameters('dataFactoryName')]",
+    "name": "[parameters('dataFactoryName')]",
     "apiVersion": "[variables('apiVersion')]",
     "type": "Microsoft.DataFactory/datafactories",
     "location": "westus",
@@ -344,26 +344,25 @@ In the input dataset definition, you specify the names of blob container, folder
         "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]"
     ],
     "apiVersion": "[variables('apiVersion')]",
-	"properties": {
-		"type": "AzureBlob",
-		"linkedServiceName": "[variables('storageLinkedServiceName')]",
-		"typeProperties": {
-			"fileName": "input.log",
-			"folderPath": "adfgetstarted/inputdata",
-			"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ","
-			}
-		},
-		"availability": {
-			"frequency": "Month",
-			"interval": 1
-		},
-		"external": true,
-		"policy": {}
-	}
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "[variables('storageLinkedServiceName')]",
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
 }
-
 ```
 
 Notice the following specific settings in the JSON definition:
@@ -386,22 +385,22 @@ In the output dataset definition, you specify the names of blob container and fo
         "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]"
     ],
     "apiVersion": "[variables('apiVersion')]",
-	"properties": {
-		"type": "AzureBlob",
-		"linkedServiceName": "[variables('storageLinkedServiceName')]",
-		"typeProperties": {
-			"folderPath": "adfgetstarted/partitioneddata",
-			"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ","
-			}
-		},
-		"availability": {
-			"frequency": "Month",
-			"interval": 1,
-			"style": "EndOfInterval"
-		}
-	}
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "[variables('storageLinkedServiceName')]",
+        "typeProperties": {
+            "folderPath": "adfgetstarted/partitioneddata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1,
+            "style": "EndOfInterval"
+        }
+    }
 }
 ```
 
@@ -499,7 +498,7 @@ In case you don't want to delete the storage account when you delete the resourc
 
 * Add the following to the top-level resource group along with the Microsoft.DataFactory/datafactories resource in your Resource Manager template. It creates a storage account:
 
-	```json
+    ```json
     {
         "name": "[parameters('defaultStorageAccountName')]",
         "type": "Microsoft.Storage/storageAccounts",
@@ -513,10 +512,10 @@ In case you don't want to delete the storage account when you delete the resourc
             "accountType": "Standard_LRS"
         }
     },
-	```
+    ```
 * Add a new linked service point to the new storage account:
 
-	```json
+    ```json
     {
         "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
         "type": "linkedservices",
@@ -529,10 +528,10 @@ In case you don't want to delete the storage account when you delete the resourc
             }
         }
     },
-	```
+    ```
 * Configure the HDInsight ondemand linked service with an additional dependsOn and an additionalLinkedServiceNames:
 
-	```json
+    ```json
     {
         "dependsOn": [
             "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
@@ -546,10 +545,10 @@ In case you don't want to delete the storage account when you delete the resourc
         "properties": {
             "type": "HDInsightOnDemand",
             "typeProperties": {
-            	"version": "3.5",
-	            "clusterSize": 1,
-    	        "timeToLive": "00:05:00",
-    	        "osType": "Linux",
+                "version": "3.5",
+                "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
                 "sshUserName": "myuser",                            
                 "sshPassword": "MyPassword!",
                 "linkedServiceName": "[variables('storageLinkedServiceName')]",
@@ -557,9 +556,9 @@ In case you don't want to delete the storage account when you delete the resourc
             }
         }
     },            
-	```
-## Next steps
-In this article, you have learned how to use Azure Data Factory to create on-demand HDInsight cluster to process Hive jobs. To read more:
+    ```
+  ## Next steps
+  In this article, you have learned how to use Azure Data Factory to create on-demand HDInsight cluster to process Hive jobs. To read more:
 
 * [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

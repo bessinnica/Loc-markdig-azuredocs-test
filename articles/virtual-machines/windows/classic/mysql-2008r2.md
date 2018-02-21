@@ -47,7 +47,7 @@ Follow these steps to install, configure, and run the Community version of MySQL
 >
 
 1. After you've connected to the virtual machine using Remote Desktop, click **Internet Explorer** from the start screen.
-2. Select the **Tools** button in the upper-right corner (the cogged wheel icon), and then click **Internet Options**. Click the **Security** tab, click the **Trusted Sites** icon, and then click the **Sites** button. Add http://*.mysql.com to the list of trusted sites. Click **Close**, and then click **OK**.
+2. Select the <strong>Tools</strong> button in the upper-right corner (the cogged wheel icon), and then click <strong>Internet Options</strong>. Click the <strong>Security</strong> tab, click the <strong>Trusted Sites</strong> icon, and then click the <strong>Sites</strong> button. Add http://<em>.mysql.com to the list of trusted sites. Click **Close</em><em>, and then click **OK</em>*.
 3. In the address bar of Internet Explorer, type https://dev.mysql.com/downloads/mysql/.
 4. Use the MySQL site to locate and download the latest version of the MySQL Installer for Windows. When choosing the MySQL Installer, download the version that has the complete file set (for example, the mysql-installer-community-5.7.18.0.msi with a file size of 352.8 MB), and save the installer.
 5. When the installer has finished downloading, click **Run** to launch setup.

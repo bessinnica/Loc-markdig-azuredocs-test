@@ -63,8 +63,8 @@ The following items are optional:
 * A diffused 10-mm LED.
 
 
-> [!NOTE] 
-These items are optional because the code sample support simulated sensor data.
+> [!NOTE]
+> These items are optional because the code sample support simulated sensor data.
 
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
@@ -97,8 +97,8 @@ Prepare the microSD card for installation of the Raspbian image.
 
    ![Enable I2C and SSH on Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
-To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+> [!NOTE]
+> To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
 
 ### Connect the sensor to Pi
 
@@ -139,17 +139,17 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Install the prerequisite packages
 
 Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
-   
+
    **Windows Users**
    1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
    1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
-   
-   
+
+
    **Mac and Ubuntu Users**
-   
+
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
-   > [!NOTE] 
-   The default username is `pi` , and the password is `raspberry`.
+> [!NOTE]
+>    The default username is `pi` , and the password is `raspberry`.
 
 
 ### Configure the sample application
@@ -181,20 +181,20 @@ Use one of the following SSH clients from your host computer to connect to your 
    sudo chmod u+x setup.sh
    sudo ./setup.sh
    ```
-   > [!NOTE] 
-   You can also specify the version you want by running `sudo ./setup.sh [--python-version|-p] [2.7|3.4|3.5]`. If you run script without parameter, the script will automatically detect the version of python installed (Search sequence 2.7->3.4->3.5). Make sure your Python version keeps consistent during building and running. 
-   
-   > [!NOTE] 
-   On building the Python client library (iothub_client.so) on Linux devices that have less than 1GB RAM, you may see build getting stuck at 98% while building iothub_client_python.cpp as shown below `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`. If you run into this issue, check the memory consumption of the device using `free -m command` in another terminal window during that time. If you are running out of memory while compiling iothub_client_python.cpp file, you may have to temporarily increase the swap space to get more available memory to successfully build the Python client-side device SDK library.
-   
-1. Run the sample application by running the following command:
+   > [!NOTE]
+   > You can also specify the version you want by running `sudo ./setup.sh [--python-version|-p] [2.7|3.4|3.5]`. If you run script without parameter, the script will automatically detect the version of python installed (Search sequence 2.7->3.4->3.5). Make sure your Python version keeps consistent during building and running. 
+   > 
+   > [!NOTE]
+   > On building the Python client library (iothub_client.so) on Linux devices that have less than 1GB RAM, you may see build getting stuck at 98% while building iothub_client_python.cpp as shown below `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`. If you run into this issue, check the memory consumption of the device using `free -m command` in another terminal window during that time. If you are running out of memory while compiling iothub_client_python.cpp file, you may have to temporarily increase the swap space to get more available memory to successfully build the Python client-side device SDK library.
+
+2. Run the sample application by running the following command:
 
    ```bash
    python app.py '<your Azure IoT hub device connection string>'
    ```
 
-   > [!NOTE] 
-   Make sure you copy-paste the device connection string into the single quotes. And if you use the python 3, then you can use the command `python3 app.py '<your Azure IoT hub device connection string>'`.
+   > [!NOTE]
+   > Make sure you copy-paste the device connection string into the single quotes. And if you use the python 3, then you can use the command `python3 app.py '<your Azure IoT hub device connection string>'`.
 
 
    You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
@@ -207,3 +207,4 @@ Use one of the following SSH clients from your host computer to connect to your 
 You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi in a command line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

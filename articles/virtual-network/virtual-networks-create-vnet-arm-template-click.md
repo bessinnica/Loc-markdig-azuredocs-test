@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a virtual network | Azure Resource Manager template | Microsoft Docs
 description: Learn how to create a virtual network using an Azure Resource Manager template.
 services: virtual-network
@@ -28,13 +28,13 @@ Azure has two deployment models: Azure Resource Manager and classic. Microsoft r
 This article explains how to create a VNet through the Resource Manager deployment model using an Azure Resource Manager template. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
-- [Template](virtual-networks-create-vnet-arm-template-click.md)
-- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
+> - [Portal](virtual-networks-create-vnet-arm-pportal.md)
+> - [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> - [CLI](virtual-networks-create-vnet-arm-cli.md)
+> - [Template](virtual-networks-create-vnet-arm-template-click.md)
+> - [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+> - [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> - [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
@@ -75,7 +75,7 @@ You can download the existing template for creating a VNet and two subnets from 
 9. Save the file to a a local folder on your computer.
 10. Open the file you just saved and edit the values for the parameters. Use the following values below to deploy the VNet described in the scenario:
 
-	```json
+    ```json
         {
           "location": {
             "value": "Central US"
@@ -99,7 +99,7 @@ You can download the existing template for creating a VNet and two subnets from 
               "value": "192.168.2.0/24"
           }
         }
-	```
+    ```
 
 11. Save the file.
 
@@ -111,13 +111,13 @@ Complete the following steps to deploy the template you downloaded by using Powe
 1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) article.
 2. Run the following command to create a new resource group:
 
-	```powershell
-	New-AzureRmResourceGroup -Name TestRG -Location centralus
-	```
+    ```powershell
+    New-AzureRmResourceGroup -Name TestRG -Location centralus
+    ```
 
-	The command creates a resource group named *TestRG* in the *Central US* azure region. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
+    The command creates a resource group named *TestRG* in the *Central US* azure region. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
 
-	Expected output:
+    Expected output:
 
         ResourceGroupName : TestRG
         Location          : centralus
@@ -131,12 +131,12 @@ Complete the following steps to deploy the template you downloaded by using Powe
 
 3. Run the following command to deploy the new VNet using the template and parameter files you downloaded and modified above:
 
-	```powershell
-	New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
-	-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-	```
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+    -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+    ```
 
-	Expected output:
+    Expected output:
    
         DeploymentName    : TestVNetDeployment
         ResourceGroupName : TestRG
@@ -158,9 +158,9 @@ Complete the following steps to deploy the template you downloaded by using Powe
         Outputs           :
 4. Run the following command to view the properties of the new VNet:
 
-	```powershell
-	Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-	```
+    ```powershell
+    Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+    ```
 
     Expected output:
 
@@ -210,7 +210,7 @@ You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub 
 1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
 2. Scroll down the list of templates, and click **101-vnet-two-subnets**. Check the **README.md** file, as shown below.
 
-	![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+    ![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
 3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
 4. In the **Parameters** blade, enter the values you want to use to create your new VNet, and then click **OK**. The following figure shows the values for the scenario:

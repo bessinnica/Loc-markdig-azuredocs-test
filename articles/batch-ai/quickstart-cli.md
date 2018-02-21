@@ -22,7 +22,7 @@ ms.author: Alexander.Yukhanov
 
 This quickstart details using the Azure command-line interface (CLI) to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
-In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster managed by Batch AI. 
+In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster managed by Batch AI. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -79,24 +79,24 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 
 1. Create a file share named *batchaiquickstart* using the [az storage share create](/cli/azure/storage/share#az_storage_share_create) command.
 
-  ```azurecli
-  az storage share create --account-name mystorageaccount --name batchaiquickstart
-  ```
+   ```azurecli
+   az storage share create --account-name mystorageaccount --name batchaiquickstart
+   ```
 2. Create a directory in the share named *mnistcntksample* using the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
 
-  ```azurecli
-  az storage directory create --share-name batchaiquickstart  --name mnistcntksample
-  ```
+   ```azurecli
+   az storage directory create --share-name batchaiquickstart  --name mnistcntksample
+   ```
 
 3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command:
 
-  ```azurecli
-  az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample
+   ```azurecli
+   az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample
 
-  az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
+   az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
 
-  az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.py --path mnistcntksample
-  ```
+   az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.py --path mnistcntksample
+   ```
 
 
 ## Create GPU cluster
@@ -205,8 +205,8 @@ After the cluster is ready, configure and submit the learning job.
 
 1. Create a JSON template file for job creation named job.json:
 
-  ```JSON
-  {
+   ```JSON
+   {
     "properties": {
         "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
        "inputDirectories": [{
@@ -230,13 +230,13 @@ After the cluster is ready, configure and submit the learning job.
             "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL"
         }
     }
-  }
-  ```
+   }
+   ```
 2. Create a job named *myjob* to run on the cluster with the [az batchai job create](/cli/azure/batchai/job#az_batchai_job_create) command:
 
-  ```azurecli
-  az batchai job create --name myjob --cluster-name mycluster --config job.json
-  ```
+   ```azurecli
+   az batchai job create --name myjob --cluster-name mycluster --config job.json
+   ```
 
 Output is similar to the following:
 
@@ -327,7 +327,6 @@ Output is similar to the following:
 Name        Resource Group    Cluster    Cluster RG      Nodes  State    Exit code
 ----------  ----------------  ---------  --------------- -----  -------  -----------
 myjob       myresourcegroup   mycluster  myresourcegroup 1      running
-
 ```
 
 For more detail, run the [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show) command.
@@ -336,7 +335,7 @@ The `executionState` contains the current execution state of the job:
 
 * `queued`: the job is waiting for the cluster nodes to become available
 * `running`: the job is running
-*	`succeeded` (or `failed`) : the job is completed and `executionInfo` contains details about the result
+*   `succeeded` (or `failed`) : the job is completed and `executionInfo` contains details about the result
 
 
 ## List stdout and stderr output
@@ -382,7 +381,6 @@ Finished Epoch[2 of 40]: [Training] loss = 0.104846 * 60000, metric = 3.00% * 60
 Finished Epoch[3 of 40]: [Training] loss = 0.077043 * 60000, metric = 2.23% * 60000 3.902s (15376.7 samples/s);
 Finished Epoch[4 of 40]: [Training] loss = 0.063050 * 60000, metric = 1.82% * 60000 3.811s (15743.9 samples/s);
 …
-
 ```
 
 ## Delete resources

@@ -28,7 +28,7 @@ Before you enable synchronization of the UserType attribute, you must first deci
 Two common approaches for this are to:
 
 - Designate an unused on-premises Active Directory attribute (for example, extensionAttribute1) to use as the source attribute. 
-- Alternatively, derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises Active Directory UserPrincipalName attribute ends with the domain *@partners.fabrikam123.org*.
+- Alternatively, derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises Active Directory UserPrincipalName attribute ends with the domain <em><xref href="partners.fabrikam123.org" data-throw-if-not-resolved="False" data-raw-source="@partners.fabrikam123.org"></xref></em>.
  
 For detailed attribute requirements, see [Enable synchronization of UserType](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

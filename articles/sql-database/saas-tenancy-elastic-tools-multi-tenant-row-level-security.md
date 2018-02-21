@@ -208,7 +208,6 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
         }
     }
 });
-
 ```
 
 ## 2. Data tier: Create row-level security policy

@@ -62,10 +62,10 @@ In this article, to create a Spark streaming example, perform the following step
 
       ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
 
-	> [!NOTE]
-   	> You should select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
-   	>
-   	>
+    > [!NOTE]
+    > You should select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
+    >
+    >
 
 4. In the Event Hubs namespace list, click the newly-created namespace.      
 
@@ -96,8 +96,8 @@ In this section you use a standalone local Scala application that generates a st
 
 1. Make sure you have the following installed on the computer where you run this application.
 
-	* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-	* Apache Maven. You can download it from [here](https://maven.apache.org/download.cgi). Instructions to install Maven are available [here](https://maven.apache.org/install.html).
+    * Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+    * Apache Maven. You can download it from [here](https://maven.apache.org/download.cgi). Instructions to install Maven are available [here](https://maven.apache.org/install.html).
 
 2. Open a command prompt and navigate to the location you cloned the GitHub repo for the sample Scala application and run the following command to build the application.
 

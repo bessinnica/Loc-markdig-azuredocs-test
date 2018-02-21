@@ -559,7 +559,6 @@ The two key parameters to be concerned with are **nArithmetic** and **nMacroPara
 ```
 <#int nArithmetic=1024;#>
 <#int nMacroParameters=124;/*127 parameters in one macro deﬁnition in C99 in chapter 5.2.4.1 Translation limits*/#>
-
 ```
 
 These values are the default parameters included with the SDK. Each parameter has the following meaning:

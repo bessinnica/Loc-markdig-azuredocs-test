@@ -49,33 +49,33 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 
 ```json
 {
-	"apiVersion": "2015-06-15",
-	"type": "Microsoft.Compute/virtualMachines/extensions",
-	"name": "config-app",
-	"location": "[resourceGroup().location]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
-		"[variables('musicstoresqlName')]"
-	],
-	"tags": {
-		"displayName": "config-app"
-	},
-	"properties": {
-		"publisher": "Microsoft.Compute",
-		"type": "CustomScriptExtension",
-		"typeHandlerVersion": "1.9",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"fileUris": [
-				"script location"
-			]
-		},
-		"protectedSettings": {
-			"commandToExecute": "myExecutionCommand",
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+        "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+        "displayName": "config-app"
+    },
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.9",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "fileUris": [
+                "script location"
+            ]
+        },
+        "protectedSettings": {
+            "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
             "storageAccountKey": "myStorageAccountKey"
-		}
-	}
+        }
+    }
 }
 ```
 
@@ -104,11 +104,11 @@ The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom S
 ](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
-	-VMName myVM `
-	-Location myLocation `
-	-FileUri myURL `
-	-Run 'myScript.ps1' `
-	-Name DemoScriptExtension
+    -VMName myVM `
+    -Location myLocation `
+    -FileUri myURL `
+    -Run 'myScript.ps1' `
+    -Name DemoScriptExtension
 ```
 
 ## Troubleshoot and support
@@ -136,7 +136,7 @@ When executing the `commandToExecute` command, the extension will have set this 
 
 Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
 ```json
-	"commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
 ```
 
 Path information after the first URI segment is retained for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  

@@ -221,23 +221,23 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
 
     ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
-3. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Modify**.
+2. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Modify**.
 
     ![Select modify from context menu](./media/storsimple-8000-manage-volumes-u2/changevoltype2.png)
 
-4. On the **Modify volume** blade, change the volume type by selecting the new type from the **Type** drop-down list.
+3. On the **Modify volume** blade, change the volume type by selecting the new type from the **Type** drop-down list.
    
    * If you are changing the type to **Locally pinned**, StorSimple will check to see if there is sufficient capacity.
    * If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
    * If you are configuring a locally pinned volume as tiered or _vice-versa_, the following message appears.
    
-    ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
-7. Click **Save** to save the changes. When prompted for confirmation, click **Yes** to start the conversion process. 
+4. Click **Save** to save the changes. When prompted for confirmation, click **Yes** to start the conversion process. 
 
     ![Save and confirm](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-8. The Azure portal displays a notification for the job creation that would update the volume. Click on the notification to monitor the status of the volume conversion job.
+5. The Azure portal displays a notification for the job creation that would update the volume. Click on the notification to monitor the status of the volume conversion job.
 
     ![Job for volume conversion](./media/storsimple-8000-manage-volumes-u2/changevoltype5.png)
 

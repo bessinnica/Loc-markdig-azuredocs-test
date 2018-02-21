@@ -12,66 +12,66 @@ The IoT Hub serializer client library uses a model to specify the format of the 
     static char propText[1024];
     ```
 
-1. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device:
+2. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device:
 
-    - Can send temperature, pressure, and humidity as telemetry.
-    - Can send reported properties, to the device twin in IoT Hub. These reported properties include information about the telemetry schema and supported methods.
-    - Can receive and act on desired properties set in the device twin in IoT Hub.
-    - Can respond to the **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease**, and **IncreasePressure** direct methods invoked from the UI. The device sends information about the direct methods it supports using reported properties.
+   - Can send temperature, pressure, and humidity as telemetry.
+   - Can send reported properties, to the device twin in IoT Hub. These reported properties include information about the telemetry schema and supported methods.
+   - Can receive and act on desired properties set in the device twin in IoT Hub.
+   - Can respond to the **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease**, and **IncreasePressure** direct methods invoked from the UI. The device sends information about the direct methods it supports using reported properties.
 
-    ```c
-    // Define the Model
-    BEGIN_NAMESPACE(Contoso);
+     ```c
+     // Define the Model
+     BEGIN_NAMESPACE(Contoso);
 
-    DECLARE_STRUCT(MessageSchema,
-    ascii_char_ptr, Name,
-    ascii_char_ptr, Format,
-    ascii_char_ptr_no_quotes, Fields
-    )
+     DECLARE_STRUCT(MessageSchema,
+     ascii_char_ptr, Name,
+     ascii_char_ptr, Format,
+     ascii_char_ptr_no_quotes, Fields
+     )
 
-    DECLARE_STRUCT(TelemetrySchema,
-    ascii_char_ptr, Interval,
-    ascii_char_ptr, MessageTemplate,
-    MessageSchema, MessageSchema
-    )
+     DECLARE_STRUCT(TelemetrySchema,
+     ascii_char_ptr, Interval,
+     ascii_char_ptr, MessageTemplate,
+     MessageSchema, MessageSchema
+     )
 
-    DECLARE_STRUCT(TelemetryProperties,
-    TelemetrySchema, TemperatureSchema,
-    TelemetrySchema, HumiditySchema,
-    TelemetrySchema, PressureSchema
-    )
+     DECLARE_STRUCT(TelemetryProperties,
+     TelemetrySchema, TemperatureSchema,
+     TelemetrySchema, HumiditySchema,
+     TelemetrySchema, PressureSchema
+     )
 
-    DECLARE_DEVICETWIN_MODEL(Chiller,
-    /* Telemetry (temperature, external temperature and humidity) */
-    WITH_DATA(double, temperature),
-    WITH_DATA(ascii_char_ptr, temperature_unit),
-    WITH_DATA(double, pressure),
-    WITH_DATA(ascii_char_ptr, pressure_unit),
-    WITH_DATA(double, humidity),
-    WITH_DATA(ascii_char_ptr, humidity_unit),
+     DECLARE_DEVICETWIN_MODEL(Chiller,
+     /* Telemetry (temperature, external temperature and humidity) */
+     WITH_DATA(double, temperature),
+     WITH_DATA(ascii_char_ptr, temperature_unit),
+     WITH_DATA(double, pressure),
+     WITH_DATA(ascii_char_ptr, pressure_unit),
+     WITH_DATA(double, humidity),
+     WITH_DATA(ascii_char_ptr, humidity_unit),
 
-    /* Device twin properties */
-    WITH_REPORTED_PROPERTY(ascii_char_ptr, Protocol),
-    WITH_REPORTED_PROPERTY(ascii_char_ptr, SupportedMethods),
-    WITH_REPORTED_PROPERTY(TelemetryProperties, Telemetry),
-    WITH_REPORTED_PROPERTY(ascii_char_ptr, Type),
-    WITH_REPORTED_PROPERTY(ascii_char_ptr, Firmware),
-    WITH_REPORTED_PROPERTY(ascii_char_ptr, FirmwareUpdateStatus),
-    WITH_REPORTED_PROPERTY(ascii_char_ptr, Location),
-    WITH_REPORTED_PROPERTY(double, Latitiude),
-    WITH_REPORTED_PROPERTY(double, Longitude),
+     /* Device twin properties */
+     WITH_REPORTED_PROPERTY(ascii_char_ptr, Protocol),
+     WITH_REPORTED_PROPERTY(ascii_char_ptr, SupportedMethods),
+     WITH_REPORTED_PROPERTY(TelemetryProperties, Telemetry),
+     WITH_REPORTED_PROPERTY(ascii_char_ptr, Type),
+     WITH_REPORTED_PROPERTY(ascii_char_ptr, Firmware),
+     WITH_REPORTED_PROPERTY(ascii_char_ptr, FirmwareUpdateStatus),
+     WITH_REPORTED_PROPERTY(ascii_char_ptr, Location),
+     WITH_REPORTED_PROPERTY(double, Latitiude),
+     WITH_REPORTED_PROPERTY(double, Longitude),
 
-    WITH_DESIRED_PROPERTY(ascii_char_ptr, Interval, onDesiredInterval),
+     WITH_DESIRED_PROPERTY(ascii_char_ptr, Interval, onDesiredInterval),
 
-    /* Direct methods implemented by the device */
-    WITH_METHOD(Reboot),
-    WITH_METHOD(FirmwareUpdate),
-    WITH_METHOD(EmergencyValveRelease),
-    WITH_METHOD(IncreasePressure)
-    );
+     /* Direct methods implemented by the device */
+     WITH_METHOD(Reboot),
+     WITH_METHOD(FirmwareUpdate),
+     WITH_METHOD(EmergencyValveRelease),
+     WITH_METHOD(IncreasePressure)
+     );
 
-    END_NAMESPACE(Contoso);
-    ```
+     END_NAMESPACE(Contoso);
+     ```
 
 ## Implement the behavior of the device
 
@@ -88,7 +88,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following functions that handle the direct methods invoked through the IoT hub. These direct methods are defined in the model:
+2. Add the following functions that handle the direct methods invoked through the IoT hub. These direct methods are defined in the model:
 
     ```c
     /* Handlers for direct methods */
@@ -129,7 +129,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function that adds a property to a device-to-cloud message:
+3. Add the following function that adds a property to a device-to-cloud message:
 
     ```c
     /* Add message property */
@@ -142,7 +142,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function that sends a message with properties to the preconfigured solution:
+4. Add the following function that sends a message with properties to the preconfigured solution:
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -181,7 +181,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:
+5. Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:
 
     ```c
     /* Callback after sending reported properties */
@@ -192,145 +192,145 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function to connect your device to the preconfigured solution in the cloud, and exchange data. This function performs the following steps:
+6. Add the following function to connect your device to the preconfigured solution in the cloud, and exchange data. This function performs the following steps:
 
-    - Initializes the platform.
-    - Registers the Contoso namespace with the serialization library.
-    - Initializes the client with the device connection string.
-    - Create an instance of the **Chiller** model.
-    - Creates and sends reported property values.
-    - Creates a loop to send telemetry every five seconds.
-    - Deinitializes all resources.
+   - Initializes the platform.
+   - Registers the Contoso namespace with the serialization library.
+   - Initializes the client with the device connection string.
+   - Create an instance of the **Chiller** model.
+   - Creates and sends reported property values.
+   - Creates a loop to send telemetry every five seconds.
+   - Deinitializes all resources.
 
-    ```c
-    void remote_monitoring_run(void)
-    {
-      if (platform_init() != 0)
-      {
-        printf("Failed to initialize the platform.\n");
-      }
-      else
-      {
-        if (SERIALIZER_REGISTER_NAMESPACE(Contoso) == NULL)
-        {
-          printf("Unable to SERIALIZER_REGISTER_NAMESPACE\n");
-        }
-        else
-        {
-          IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, MQTT_Protocol);
-          if (iotHubClientHandle == NULL)
-          {
-            printf("Failure in IoTHubClient_CreateFromConnectionString\n");
-          }
-          else
-          {
-            Chiller* chiller = IoTHubDeviceTwin_CreateChiller(iotHubClientHandle);
-            if (chiller == NULL)
-            {
-              printf("Failure in IoTHubDeviceTwin_CreateChiller\n");
-            }
-            else
-            {
-              /* Set values for reported properties */
-              chiller->Protocol = "MQTT";
-              chiller->SupportedMethods = "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure";
-              chiller->Telemetry.TemperatureSchema.Interval = "00:00:05";
-              chiller->Telemetry.TemperatureSchema.MessageTemplate = "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}";
-              chiller->Telemetry.TemperatureSchema.MessageSchema.Name = "chiller-temperature;v1";
-              chiller->Telemetry.TemperatureSchema.MessageSchema.Format = "JSON";
-              chiller->Telemetry.TemperatureSchema.MessageSchema.Fields = "{\"temperature\":\"Double\",\"temperature_unit\":\"Text\"}";
-              chiller->Telemetry.HumiditySchema.Interval = "00:00:05";
-              chiller->Telemetry.HumiditySchema.MessageTemplate = "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}";
-              chiller->Telemetry.HumiditySchema.MessageSchema.Name = "chiller-humidity;v1";
-              chiller->Telemetry.HumiditySchema.MessageSchema.Format = "JSON";
-              chiller->Telemetry.HumiditySchema.MessageSchema.Fields = "{\"humidity\":\"Double\",\"humidity_unit\":\"Text\"}";
-              chiller->Telemetry.PressureSchema.Interval = "00:00:05";
-              chiller->Telemetry.PressureSchema.MessageTemplate = "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}";
-              chiller->Telemetry.PressureSchema.MessageSchema.Name = "chiller-pressure;v1";
-              chiller->Telemetry.PressureSchema.MessageSchema.Format = "JSON";
-              chiller->Telemetry.PressureSchema.MessageSchema.Fields = "{\"pressure\":\"Double\",\"pressure_unit\":\"Text\"}";
-              chiller->Type = "Chiller";
-              chiller->Firmware = "1.0.0";
-              chiller->FirmwareUpdateStatus = "";
-              chiller->Location = "Building 44";
-              chiller->Latitiude = 47.638928;
-              chiller->Longitude = -122.13476;
+     ```c
+     void remote_monitoring_run(void)
+     {
+     if (platform_init() != 0)
+     {
+       printf("Failed to initialize the platform.\n");
+     }
+     else
+     {
+       if (SERIALIZER_REGISTER_NAMESPACE(Contoso) == NULL)
+       {
+         printf("Unable to SERIALIZER_REGISTER_NAMESPACE\n");
+       }
+       else
+       {
+         IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, MQTT_Protocol);
+         if (iotHubClientHandle == NULL)
+         {
+           printf("Failure in IoTHubClient_CreateFromConnectionString\n");
+         }
+         else
+         {
+           Chiller* chiller = IoTHubDeviceTwin_CreateChiller(iotHubClientHandle);
+           if (chiller == NULL)
+           {
+             printf("Failure in IoTHubDeviceTwin_CreateChiller\n");
+           }
+           else
+           {
+             /* Set values for reported properties */
+             chiller->Protocol = "MQTT";
+             chiller->SupportedMethods = "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure";
+             chiller->Telemetry.TemperatureSchema.Interval = "00:00:05";
+             chiller->Telemetry.TemperatureSchema.MessageTemplate = "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}";
+             chiller->Telemetry.TemperatureSchema.MessageSchema.Name = "chiller-temperature;v1";
+             chiller->Telemetry.TemperatureSchema.MessageSchema.Format = "JSON";
+             chiller->Telemetry.TemperatureSchema.MessageSchema.Fields = "{\"temperature\":\"Double\",\"temperature_unit\":\"Text\"}";
+             chiller->Telemetry.HumiditySchema.Interval = "00:00:05";
+             chiller->Telemetry.HumiditySchema.MessageTemplate = "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}";
+             chiller->Telemetry.HumiditySchema.MessageSchema.Name = "chiller-humidity;v1";
+             chiller->Telemetry.HumiditySchema.MessageSchema.Format = "JSON";
+             chiller->Telemetry.HumiditySchema.MessageSchema.Fields = "{\"humidity\":\"Double\",\"humidity_unit\":\"Text\"}";
+             chiller->Telemetry.PressureSchema.Interval = "00:00:05";
+             chiller->Telemetry.PressureSchema.MessageTemplate = "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}";
+             chiller->Telemetry.PressureSchema.MessageSchema.Name = "chiller-pressure;v1";
+             chiller->Telemetry.PressureSchema.MessageSchema.Format = "JSON";
+             chiller->Telemetry.PressureSchema.MessageSchema.Fields = "{\"pressure\":\"Double\",\"pressure_unit\":\"Text\"}";
+             chiller->Type = "Chiller";
+             chiller->Firmware = "1.0.0";
+             chiller->FirmwareUpdateStatus = "";
+             chiller->Location = "Building 44";
+             chiller->Latitiude = 47.638928;
+             chiller->Longitude = -122.13476;
 
-              /* Send reported properties to IoT Hub */
-              if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
-              {
-                printf("Failed sending serialized reported state\n");
-              }
-              else
-              {
-                /* Send telemetry */
-                chiller->temperature = 50;
-                chiller->temperature_unit = "F";
-                chiller->pressure= 55;
-                chiller->pressure_unit = "psig";
-                chiller->humidity = 50;
-                chiller->humidity_unit = "%";
+             /* Send reported properties to IoT Hub */
+             if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
+             {
+               printf("Failed sending serialized reported state\n");
+             }
+             else
+             {
+               /* Send telemetry */
+               chiller->temperature = 50;
+               chiller->temperature_unit = "F";
+               chiller->pressure= 55;
+               chiller->pressure_unit = "psig";
+               chiller->humidity = 50;
+               chiller->humidity_unit = "%";
 
-                while (1)
-                {
-                  unsigned char*buffer;
-                  size_t bufferSize;
+               while (1)
+               {
+                 unsigned char*buffer;
+                 size_t bufferSize;
 
-                  (void)printf("Sending sensor value Temperature = %f %s,\n", chiller->temperature, chiller->temperature_unit);
+                 (void)printf("Sending sensor value Temperature = %f %s,\n", chiller->temperature, chiller->temperature_unit);
 
-                  if (SERIALIZE(&buffer, &bufferSize, chiller->temperature, chiller->temperature_unit) != CODEFIRST_OK)
-                  {
-                    (void)printf("Failed sending sensor value\r\n");
-                  }
-                  else
-                  {
-                    sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.TemperatureSchema.MessageSchema.Name);
-                  }
+                 if (SERIALIZE(&buffer, &bufferSize, chiller->temperature, chiller->temperature_unit) != CODEFIRST_OK)
+                 {
+                   (void)printf("Failed sending sensor value\r\n");
+                 }
+                 else
+                 {
+                   sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.TemperatureSchema.MessageSchema.Name);
+                 }
 
-                  (void)printf("Sending sensor value Humidity = %f %s,\n", chiller->humidity, chiller->humidity_unit);
+                 (void)printf("Sending sensor value Humidity = %f %s,\n", chiller->humidity, chiller->humidity_unit);
 
-                  if (SERIALIZE(&buffer, &bufferSize, chiller->humidity, chiller->humidity_unit) != CODEFIRST_OK)
-                  {
-                    (void)printf("Failed sending sensor value\r\n");
-                  }
-                  else
-                  {
-                    sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.HumiditySchema.MessageSchema.Name);
-                  }
+                 if (SERIALIZE(&buffer, &bufferSize, chiller->humidity, chiller->humidity_unit) != CODEFIRST_OK)
+                 {
+                   (void)printf("Failed sending sensor value\r\n");
+                 }
+                 else
+                 {
+                   sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.HumiditySchema.MessageSchema.Name);
+                 }
 
-                  (void)printf("Sending sensor value Pressure = %f %s,\n", chiller->pressure, chiller->pressure_unit);
+                 (void)printf("Sending sensor value Pressure = %f %s,\n", chiller->pressure, chiller->pressure_unit);
 
-                  if (SERIALIZE(&buffer, &bufferSize, chiller->pressure, chiller->pressure_unit) != CODEFIRST_OK)
-                  {
-                    (void)printf("Failed sending sensor value\r\n");
-                  }
-                  else
-                  {
-                    sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.PressureSchema.MessageSchema.Name);
-                  }
+                 if (SERIALIZE(&buffer, &bufferSize, chiller->pressure, chiller->pressure_unit) != CODEFIRST_OK)
+                 {
+                   (void)printf("Failed sending sensor value\r\n");
+                 }
+                 else
+                 {
+                   sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.PressureSchema.MessageSchema.Name);
+                 }
 
-                  ThreadAPI_Sleep(5000);
-                }
+                 ThreadAPI_Sleep(5000);
+               }
 
-                IoTHubDeviceTwin_DestroyChiller(chiller);
-              }
-            }
-            IoTHubClient_Destroy(iotHubClientHandle);
-          }
-          serializer_deinit();
-        }
-      }
-      platform_deinit();
-    }
-    ```
+               IoTHubDeviceTwin_DestroyChiller(chiller);
+             }
+           }
+           IoTHubClient_Destroy(iotHubClientHandle);
+         }
+         serializer_deinit();
+       }
+     }
+     platform_deinit();
+     }
+     ```
 
-    For reference, here is a sample **Telemetry** message sent to the preconfigured solution:
+     For reference, here is a sample **Telemetry** message sent to the preconfigured solution:
 
-    ```
-    Device: [myCDevice],
-    Data:[{"humidity":50.000000000000000, "humidity_unit":"%"}]
-    Properties:
-    '$$MessageSchema': 'chiller-humidity;v1'
-    '$$ContentType': 'JSON'
-    '$$CreationTimeUtc': '2017-09-12T09:17:13Z'
-    ```
+     ```
+     Device: [myCDevice],
+     Data:[{"humidity":50.000000000000000, "humidity_unit":"%"}]
+     Properties:
+     '$$MessageSchema': 'chiller-humidity;v1'
+     '$$ContentType': 'JSON'
+     '$$CreationTimeUtc': '2017-09-12T09:17:13Z'
+     ```

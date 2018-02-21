@@ -24,8 +24,8 @@ Azure Stack has a public infrastructure network using externally accessible publ
 - What certificates are required to deploy Azure Stack
 - The process of obtaining certificates matching those specifications
 - How to prepare, validate, and use those certificates during deployment
-> [!NOTE]
-> During deployment you must copy certificates to the deployment folder that matches the identity provider you are deploying against (Azure AD or AD FS). If you use a single certificate for all endpoints, you must copy that certificate file into each deployment folder as outlined in the tables below. The folder structure is pre-built in the deployment virtual machine and can be found at: C:\CloudDeployment\Setup\Certificates. 
+  > [!NOTE]
+  > During deployment you must copy certificates to the deployment folder that matches the identity provider you are deploying against (Azure AD or AD FS). If you use a single certificate for all endpoints, you must copy that certificate file into each deployment folder as outlined in the tables below. The folder structure is pre-built in the deployment virtual machine and can be found at: C:\CloudDeployment\Setup\Certificates. 
 
 ## Certificate requirements
 The following list describes the certificate requirements that are needed to deploy Azure Stack: 
@@ -47,16 +47,18 @@ Certificates with the appropriate DNS names for each Azure Stack public infrastr
 
 For your deployment, the [region] and [externalfqdn] values must match the region and external domain names that you chose for your Azure Stack system. As an example, if the region name was *Redmond* and the external domain name was *contoso.com*, the DNS names would have the format *&lt;prefix>.redmond.contoso.com*. The *&lt;prefix>* values are predesignated by Microsoft to describe the endpoint secured by the certificate. In addition, the *&lt;prefix>* values of the external infrastructure endpoints depend on the Azure Stack service that uses the specific endpoint. 
 
-|Deployment folder|Required certificate subject and subject alternative names (SAN)|Scope (per region)|SubDomain namespace|
-|-----|-----|-----|-----|
-|Public Portal|portal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
-|Admin Portal|adminportal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Public|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|One multi-subdomain wildcard certificate with Subject Alternative names for:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|Internal Keyvault|adminvault.*&lt;region>.&lt;fqdn>*|
-|
+
+|       Deployment folder       |                                                                           Required certificate subject and subject alternative names (SAN)                                                                            |   Scope (per region)   |                                                 SubDomain namespace                                                 |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|---------------------------------------------------------------------------------------------------------------------|
+|         Public Portal         |                                                                                         portal.<em>&lt;region>.&lt;fqdn></em>                                                                                         |        Portals         |                                           <em>&lt;region>.&lt;fqdn></em>                                            |
+|         Admin Portal          |                                                                                      adminportal.<em>&lt;region>.&lt;fqdn></em>                                                                                       |        Portals         |                                           <em>&lt;region>.&lt;fqdn></em>                                            |
+| Azure Resource Manager Public |                                                                                       management.<em>&lt;region>.&lt;fqdn></em>                                                                                       | Azure Resource Manager |                                           <em>&lt;region>.&lt;fqdn></em>                                            |
+| Azure Resource Manager Admin  |                                                                                    adminmanagement.<em>&lt;region>.&lt;fqdn></em>                                                                                     | Azure Resource Manager |                                           <em>&lt;region>.&lt;fqdn></em>                                            |
+|        ACS<sup>1</sup>        | One multi-subdomain wildcard certificate with Subject Alternative names for:<br>&#42;.blob.<em>&lt;region>.&lt;fqdn></em><br>&#42;.queue.<em>&lt;region>.&lt;fqdn></em><br>&#42;.table.<em>&lt;region>.&lt;fqdn></em> |        Storage         | blob.<em>&lt;region>.&lt;fqdn></em><br>table.<em>&lt;region>.&lt;fqdn></em><br>queue.<em>&lt;region>.&lt;fqdn></em> |
+|           KeyVault            |                                                                       &#42;.vault.<em>&lt;region>.&lt;fqdn></em><br>(Wildcard SSL Certificate)                                                                        |       Key Vault        |                                        vault.<em>&lt;region>.&lt;fqdn></em>                                         |
+|       KeyVaultInternal        |                                                                     &#42;.adminvault.<em>&lt;region>.&lt;fqdn></em><br>(Wildcard SSL Certificate)                                                                     |   Internal Keyvault    |                                      adminvault.<em>&lt;region>.&lt;fqdn></em>                                      |
+|                               |                                                                                                                                                                                                                       |                        |                                                                                                                     |
+
 <sup>1</sup> The ACS certificate requires three wildcard SANs on a single certificate. Multiple wildcard SANs on a single certificate might not be supported by all Public Certificate Authorities. 
 
 If you deploy Azure Stack using the Azure AD deployment mode, you only need to request the certificates listed in previous table. However, if you deploy Azure Stack using the AD FS deployment mode, you must also request the certificates described in the following table:

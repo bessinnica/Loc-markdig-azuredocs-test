@@ -146,7 +146,7 @@ The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 For domain controllers running Windows Server 2008 or earlier versions, use the script below to create the service connection point.
 
 In a multi-forest configuration, you should use the following script to create the service connection point in each forest where computers exist:
- 
+
     $verifiedDomain = "contoso.com"    # Replace this with any of your verified domain names in Azure AD
     $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"    # Replace this with you tenant ID
     $configNC = "CN=Configuration,DC=corp,DC=contoso,DC=com"    # Replace this with your AD configuration naming context
@@ -190,7 +190,7 @@ If you are already issuing an ImmutableID claim (e.g., alternate login ID) you n
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
 In the following sections, you find information about:
- 
+
 - The values each claim should have
 - How a definition would look like in AD FS
 
@@ -235,7 +235,7 @@ The definition helps you to verify whether the values are present or if you need
         query = ";objectguid;{0}", 
         param = c2.Value
     );
- 
+
 ### Issue objectSID of the computer account on-premises
 
 **`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - This claim must contain the the **objectSid** value of the on-premises computer account. In AD FS, you can add an issuance transform rule that looks like this:
@@ -268,7 +268,7 @@ The definition helps you to verify whether the values are present or if you need
         Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", 
         Value = "User"
     );
-    
+
     @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
     c1:[
         Type == "http://schemas.xmlsoap.org/claims/UPN"
@@ -286,7 +286,7 @@ The definition helps you to verify whether the values are present or if you need
         "http://${domain}/adfs/services/trust/"
         )
     );
-    
+
     @RuleName = "Issue issuerID for domain-joined computers"
     c:[
         Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
@@ -301,7 +301,7 @@ The definition helps you to verify whether the values are present or if you need
 
 In the claim above,
 
-- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD. For example, Value = "http://contoso.com/adfs/services/trust/"
+- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD. For example, Value = "<http://contoso.com/adfs/services/trust/>"
 
 
 
@@ -336,10 +336,10 @@ To get a list of your verified company domains, you can use the [Get-MsolDomain]
 
 The following script helps you with the creation of the issuance transform rules described above.
 
-	$multipleVerifiedDomainNames = $false
+    $multipleVerifiedDomainNames = $false
     $immutableIDAlreadyIssuedforUsers = $false
     $oneOfVerifiedDomainNames = 'example.com'   # Replace example.com with one of your verified domains
-    
+
     $rule1 = '@RuleName = "Issue account type for domain-joined computers"
     c:[
         Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
@@ -395,7 +395,7 @@ The following script helps you with the creation of the issuance transform rules
         Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", 
         Value = "User"
     );
-    
+
     @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
     c1:[
         Type == "http://schemas.xmlsoap.org/claims/UPN"
@@ -413,7 +413,7 @@ The following script helps you with the creation of the issuance transform rules
         "http://${domain}/adfs/services/trust/"
         )
     );
-    
+
     @RuleName = "Issue issuerID for domain-joined computers"
     c:[
         Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
@@ -447,13 +447,13 @@ The following script helps you with the creation of the issuance transform rules
     );'
     }
 
-	$existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
+    $existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
 
-	$updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4 + $rule5
+    $updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4 + $rule5
 
-	$crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
+    $crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
 
-	Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
+    Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
 ### Remarks 
 
@@ -462,8 +462,10 @@ The following script helps you with the creation of the issuance transform rules
 - If you have multiple verified domain names (as shown in the Azure AD portal or via the Get-MsolDomains cmdlet), set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing issuerid claim that might have been created by Azure AD Connect or via other means. Here is an example for this rule:
 
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
-        => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
+~~~
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+    => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
+~~~
 
 - If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$immutableIDAlreadyIssuedforUsers** in the script to **$true**.
 
@@ -472,9 +474,9 @@ The following script helps you with the creation of the issuance transform rules
 If some of your domain-joined devices Windows down-level devices, you need to:
 
 - Set a policy in Azure AD to enable users to register devices.
- 
+
 - Configure your on-premises federation service to issue claims to support **Integrated Windows Authentication (IWA)** for device registration.
- 
+
 - Add the Azure AD device authentication end-point to the local Intranet zones to avoid certificate prompts when authenticating the device.
 
 ### Set policy in Azure AD to enable users to register devices
@@ -482,7 +484,7 @@ If some of your domain-joined devices Windows down-level devices, you need to:
 To register Windows down-level devices, you need to make sure that the setting to allow users to register devices in Azure AD is set. In the Azure portal, you can find this setting under:
 
 `Azure Active Directory > Users and groups > Device settings`
-    
+
 The following policy must be set to **All**: **Users may register their devices with Azure AD**
 
 ![Register devices](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
@@ -516,7 +518,7 @@ In AD FS, you must add an issuance transform rule that passes-through the authen
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
 8. On your federation server, type the PowerShell command below after replacing **\<RPObjectName\>** with the relying party object name for your Azure AD relying party trust object. This object usually is named **Microsoft Office 365 Identity Platform**.
-   
+
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
 ### Add the Azure AD device authentication end-point to the Local Intranet zones
@@ -559,7 +561,7 @@ To control the rollout of Windows current computers, you should deploy the **Reg
 6. Right-click your new Group Policy object, and then select **Edit**.
 7. Go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Device Registration**. 
 8. Right-click **Register domain-joined computers as devices**, and then select **Edit**.
-   
+
    > [!NOTE]
    > This Group Policy template has been renamed from earlier versions of the Group Policy Management console. If you are using an earlier version of the console, go to `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 

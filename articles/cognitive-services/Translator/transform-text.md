@@ -20,7 +20,7 @@ The method is a RESTful service using GET over HTTP. It supports simple XML and 
 
 ## Parameters
 
-| Parameter	| Description |
+| Parameter | Description |
 |:---|:---|
 | Authorization header | **Required** HTTP header used to identify the application. Use key: “Authorization” and value: "Bearer" + " " + access token. For details, go here.|
 | language | **Required** A string representing the language code. This parameter supports only English with **en** as the language name.|
@@ -32,14 +32,14 @@ The method is a RESTful service using GET over HTTP. It supports simple XML and 
 The return value provides the transformed sentence.
 
 > [!div class="tabbedCodeSnippets"]
-```json
-GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
-{
-int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message 
-string sentence;   // transformed text
-}
-```
+> ```json
+> GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
+> {
+> int ec;            // A positive number representing an error condition
+> string em;         // A descriptive error message 
+> string sentence;   // transformed text
+> }
+> ```
 
 ## Example 
 
@@ -66,7 +66,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
             //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx) 
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
-            
+
             try
             {
                 admToken = admAuth.GetAccessToken();
@@ -228,5 +228,4 @@ namespace MicrosoftTranslatorSdk.HttpSamples
         }
     }
 } 
-
 ```

@@ -12,11 +12,11 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Image Search SDK C# quickstart (preview)
+# Image Search SDK C# quickstart (preview)
 
 The Bing Image Search SDK contains the functionality of the REST API for image requests and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Image Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.ImageSearch` package.
 
@@ -25,25 +25,21 @@ Installing the [NuGet Image Search package](https://www.nuget.org/packages/Micro
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-##Image Search client
+## Image Search client
 To create an instance of the `ImageSearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
-
 ```
 Then, instantiate the client:
 ```
 var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-
 ```
 Use the client to search with a query text:
 ```
 // Search for "Yosemite National Park"
 var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
-
 ```
 Parse the image results returned by the previous query:
 
@@ -63,10 +59,9 @@ else
 }
 
 Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.TotalEstimatedMatches}");
-
 ```
 
-##Complete console application
+## Complete console application
 
 The following console application executes the previously defined query "Canadian Rockies" to search for results then print first image insights token, thumbnail url, and image content url:
 
@@ -174,14 +169,13 @@ namespace ImageSrchSDK
         }
     }
 }
-
 ```
 
-##Search options
+## Search options
 
 The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `ImageSrchSDK` class.
 
-###Search using a filter
+### Search using a filter
 
 Search images for "studio ghibli", filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail url, and url of first result.
 
@@ -222,10 +216,9 @@ Search images for "studio ghibli", filtered for animated gifs and wide aspect, t
             }
 
         }
-
 ```
 
-###Trending images
+### Trending images
 
 Search for trending images, and then verify categories and tiles.
 
@@ -276,10 +269,9 @@ Search for trending images, and then verify categories and tiles.
             }
 
         }
-
 ```
 
-###Image details
+### Image details
 
 Search images for "Degas", and then search for image details of the first image.
 ```
@@ -394,9 +386,8 @@ Search images for "Degas", and then search for image details of the first image.
                 Console.WriteLine("\r\nEncountered exception. " + ex.Message);
             }
         }
-
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

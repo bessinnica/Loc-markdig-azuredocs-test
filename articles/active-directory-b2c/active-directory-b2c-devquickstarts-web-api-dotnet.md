@@ -173,7 +173,6 @@ public async Task<ActionResult> Index()
 
         // Handle response ...
 }
-
 ```
 
 ### Create and delete tasks on the web API

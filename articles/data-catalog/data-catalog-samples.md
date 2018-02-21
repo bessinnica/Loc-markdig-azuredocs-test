@@ -35,5 +35,5 @@ Here are the samples we have on GitHub:
 
 * [Bulk import glossary terms](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
-	This sample shows you how to import glossary terms from CSV files to ADC glossary.
+    This sample shows you how to import glossary terms from CSV files to ADC glossary.
 

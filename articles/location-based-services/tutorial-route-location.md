@@ -30,6 +30,7 @@ Before you proceed, make sure to [create your Azure Location Based Services acco
 
 <a id="getcoordinates"></a>
 
+
 ## Get address coordinates
 
 Use the following steps to create a static HTML page embedded with the Location Based Services' Map Control API. 
@@ -143,6 +144,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 7. Save the **MapRoute.html** file on your machine. 
 
 <a id="getroute"></a>
+
 
 ## Query Route Service for directions to point of interest
 

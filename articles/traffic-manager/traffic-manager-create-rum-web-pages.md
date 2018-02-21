@@ -36,7 +36,7 @@ To obtain the RUM Key using Azure portal:
 3. In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
 4. Click **Generate Key** to create a new RUM Key.
  
-  ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figure 1: Real User Measurements Key Generation**
 
@@ -46,7 +46,7 @@ To obtain the RUM Key using Azure portal:
 
     **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
-6.	Click the **Copy** button to copy the JavaScript code. 
+6. Click the **Copy** button to copy the JavaScript code. 
 
 >[!IMPORTANT]
 > Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.
@@ -55,14 +55,14 @@ To obtain the RUM Key using Azure portal:
 
 After you have obtained the RUM key, the next step is to embed this copied JavaScript into an HTML page that your end users visit. Editing HTML can be done in many ways and using different tools and workflows. This example shows how to update an HTML page to add this script. You can use this guidance to adapt it to your HTML source management workflow.
 
-1.	Open the HTML page in a text editor
-2.	Paste the JavaScript code you had copied in the earlier step to the BODY section of the HTML (the copied code is on line 8 & 9, see figure 3).
+1.  Open the HTML page in a text editor
+2.  Paste the JavaScript code you had copied in the earlier step to the BODY section of the HTML (the copied code is on line 8 & 9, see figure 3).
  
     ![Embed Javascript code into web page for Real User Measurements](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Figure 3: Simple HTML with embedded Real User Measurements JavaScript**
 
-3.	Save the HTML file
+3.  Save the HTML file
 4. Next time this page is rendered on a web browser, the JavaScript referenced is downloaded and the script will execute the measurement and reporting operations.
 
 

@@ -33,21 +33,21 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 2. Select the *Data science and analytical applications* workload, then select the **R language support**, **Runtime support for R development**, and **Microsoft R Client** options.
 
 3. You need to have public and private keys for SSH authentication.
-<!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
+   <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. Install [R Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) on your machine. R Server provides the [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) and `RxSpark` functions.
 
 5. Install [PuTTY](http://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
 
 6. You have the option to apply the Data Science Settings to your Visual Studio environment, which provides a new layout for your workspace for the R tools.
-    1. To save your current Visual Studio settings, use the **Tools > Import and Export Settings** command, then select **Export selected environment settings** and specify a file name. To restore those settings, use the same command and select **Import selected environment settings**.
+   1. To save your current Visual Studio settings, use the **Tools > Import and Export Settings** command, then select **Export selected environment settings** and specify a file name. To restore those settings, use the same command and select **Import selected environment settings**.
 
-    2. Go to the **R Tools** menu item, then select **Data Science Settings...**.
+   2. Go to the **R Tools** menu item, then select **Data Science Settings...**.
 
-        ![Data Science Settings...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Data Science Settings...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
-    > Using the approach in step 1, you can also save and restore your personalized data scientist layout, rather than repeating the **Data Science Settings** command.
+      > [!NOTE]
+      > Using the approach in step 1, you can also save and restore your personalized data scientist layout, rather than repeating the **Data Science Settings** command.
 
 ## Execute local R methods
 
@@ -144,4 +144,4 @@ Using a Microsoft R Server/Microsoft R Client from a Windows computer equipped w
 
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
 * [Combining ScaleR and SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) provides an example of airline flight delay predictions.
-<!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->
+  <!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->

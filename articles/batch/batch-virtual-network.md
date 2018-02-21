@@ -36,7 +36,7 @@ An Azure Batch pool has settings to allow compute nodes to communicate with each
     
 ## Create a pool with a VNet in the portal
 
-Once you have created your VNet and assigned a subnet to it, you can create a Batch pool with that VNet. Follow these steps to create a pool from the Azure portal: 
+Once you have created your VNet and assigned a subnet to it, you can create a Batch pool with that VNet. Follow these steps to create a pool from the Azure portal: 
 
 
 
@@ -48,7 +48,7 @@ Once you have created your VNet and assigned a subnet to it, you can create a Ba
 6. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low priority nodes**, as well as any desired optional settings.
 7. In **Virtual Network**, select the virtual network and subnet you wish to use.
   
-  ![Add pool with virtual network](./media/batch-virtual-network/add-vnet-pool.png)
+   ![Add pool with virtual network](./media/batch-virtual-network/add-vnet-pool.png)
 
 ## User-defined routes for forced tunneling
 

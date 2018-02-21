@@ -49,11 +49,11 @@ This section shows how to configure the Elemental Live encoder that sends a sing
 
 1. In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
 
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
 2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTP (MPEG-TS)**. You can leave all other settings as is.
 
-	Make sure the **Start the new channel now** is selected.
+    Make sure the **Start the new channel now** is selected.
 
 3. Click **Create Channel**.
 
@@ -112,9 +112,9 @@ In this tutorial the following output settings are used. The rest of this sectio
    * Interlace Mode: Progressive
    * Bitrate: 5000000 bit/s (This can be adjusted based on network limitations)
 
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
+     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
 
-1. Get the channel's input URL.
+6. Get the channel's input URL.
 
     Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
 
@@ -122,12 +122,12 @@ In this tutorial the following output settings are used. The rest of this sectio
     URL**.  
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
-2. Paste this information in the **Primary Destination** field of the Elemental. All other settings can remain the default.
+7. Paste this information in the **Primary Destination** field of the Elemental. All other settings can remain the default.
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
 
     For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for UDP/TS Streaming.
-3. Click **Create** (if a new event was created) or **Update** (if editing a pre-existing event) and then proceed to start the encoder.
+8. Click **Create** (if a new event was created) or **Update** (if editing a pre-existing event) and then proceed to start the encoder.
 
 > [!IMPORTANT]
 > Before you click **Start** on the Elemental Live web interface, you **must** ensure that the Channel is ready.
@@ -157,7 +157,7 @@ If an error is received, the channel will need to be reset and encoder settings 
 
     >[!NOTE]
     > Program creation takes less time than channel creation.   
-      
+
 5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
 6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu).
 
@@ -171,3 +171,4 @@ Please see the [troubleshooting](media-services-troubleshooting-live-streaming.m
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

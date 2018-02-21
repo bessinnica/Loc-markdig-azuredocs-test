@@ -100,7 +100,6 @@ The following code in the sample shows how to create recognition client classes 
         }
     }
 }
-
 ```
 
 The client library provides pre-implemented recognition client classes for typical scenarios in speech recognition:

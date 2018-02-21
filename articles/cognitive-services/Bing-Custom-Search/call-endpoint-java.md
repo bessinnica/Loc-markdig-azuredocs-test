@@ -19,8 +19,8 @@ This example shows how to request search results from your custom search instanc
 1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
 2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
 
-  >[!NOTE]  
-  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
+   >[!NOTE]  
+   >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
 
 3. Install [Java](https://www.java.com).
 4. Using your Java IDE of choice create a package.
@@ -44,9 +44,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class CustomSrchJava {
-	
-	
-	static String host = "https://api.cognitive.microsoft.com";
+    
+    
+    static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bingcustomsearch/v7.0/search";
     static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
     static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  

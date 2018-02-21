@@ -1,5 +1,5 @@
 ---
-title: Provision Windows devices to remote monitoring in C - Azure | Microsoft Docs
+title: Provision Windows devices to remote monitoring in C - Azure | Microsoft Docs
 description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows.
 services: ''
 suite: iot-suite
@@ -36,31 +36,31 @@ Create a starter project in Visual Studio 2017 and add the IoT Hub device client
 
     ![Create Visual C++ Windows Console Application](media/iot-suite-connecting-devices/visualstudio01.png)
 
-1. In **Solution Explorer**, delete the files `stdafx.h`, `targetver.h`, and `stdafx.cpp`.
+2. In **Solution Explorer**, delete the files `stdafx.h`, `targetver.h`, and `stdafx.cpp`.
 
-1. In **Solution Explorer**, rename the file `RMDevice.cpp` to `RMDevice.c`.
+3. In **Solution Explorer**, rename the file `RMDevice.cpp` to `RMDevice.c`.
 
     ![Solution Explorer showing renamed RMDevice.c file](media/iot-suite-connecting-devices/visualstudio02.png)
 
-1. In **Solution Explorer**, right-click the **RMDevice** project and then click **Manage NuGet packages**. Choose **Browse**, then search for and install the following NuGet packages:
+4. In **Solution Explorer**, right-click the **RMDevice** project and then click **Manage NuGet packages**. Choose **Browse**, then search for and install the following NuGet packages:
 
-    * Microsoft.Azure.IoTHub.Serializer
-    * Microsoft.Azure.IoTHub.IoTHubClient
-    * Microsoft.Azure.IoTHub.MqttTransport
+   * Microsoft.Azure.IoTHub.Serializer
+   * Microsoft.Azure.IoTHub.IoTHubClient
+   * Microsoft.Azure.IoTHub.MqttTransport
 
-    ![NuGet package manager shows installed Microsoft.Azure.IoTHub packages](media/iot-suite-connecting-devices/visualstudio03.png)
+     ![NuGet package manager shows installed Microsoft.Azure.IoTHub packages](media/iot-suite-connecting-devices/visualstudio03.png)
 
-1. In **Solution Explorer**, right-click on the **RMDevice** project and then choose **Properties** to open the project's **Property Pages** dialog box. For details, see [Setting Visual C++ Project Properties](https://docs.microsoft.com/cpp/ide/working-with-project-properties).
+5. In **Solution Explorer**, right-click on the **RMDevice** project and then choose **Properties** to open the project's **Property Pages** dialog box. For details, see [Setting Visual C++ Project Properties](https://docs.microsoft.com/cpp/ide/working-with-project-properties).
 
-1. Choose the **C/C++** folder, then choose the **Precompiled Headers** property page.
+6. Choose the **C/C++** folder, then choose the **Precompiled Headers** property page.
 
-1. Set **Precompiled Header** to **Not Using Precompiled Headers**. Then choose **Apply**.
+7. Set **Precompiled Header** to **Not Using Precompiled Headers**. Then choose **Apply**.
 
     ![Project properties show project not using precompiled headers](media/iot-suite-connecting-devices/visualstudio04.png)
 
-1. Choose the **Linker** folder, then choose the **Input** property page.
+8. Choose the **Linker** folder, then choose the **Input** property page.
 
-1. Add `crypt32.lib` to the **Additional Dependencies** property. To save the project property values, choose **OK** and then **OK** again.
+9. Add `crypt32.lib` to the **Additional Dependencies** property. To save the project property values, choose **OK** and then **OK** again.
 
     ![Project properties show Linker including crypt32.lib](media/iot-suite-connecting-devices/visualstudio05.png)
 
@@ -123,3 +123,4 @@ Add code to invoke the **remote\_monitoring\_run** function, then build and run 
     * Responds to methods invoked from the solution dashboard.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
+

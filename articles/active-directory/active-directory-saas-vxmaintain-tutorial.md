@@ -58,23 +58,23 @@ To add vxMaintain from the gallery, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** button. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Select **Enterprise applications** > **All applications**.
 
-	![The "Enterprise applications" pane][2]
-	
+    ![The "Enterprise applications" pane][2]
+    
 3. To add an application, in the **All applications** dialog box, select **New application**.
 
-	![The "New application" button][3]
+    ![The "New application" button][3]
 
 4. In the search box, type **vxMaintain**.
 
-	![The "Single Sign-on Mode" drop-down list](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_search.png)
+    ![The "Single Sign-on Mode" drop-down list](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
 5. In the results list, select **vxMaintain**, and then select **Add**.
 
-	![The vxMaintain link](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
+    ![The vxMaintain link](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD SSO by using vxMaintain, based on a test user called "Britta Simon."
@@ -91,30 +91,30 @@ In this section, you can both enable Azure AD SSO in the Azure portal and config
 
 1. In the Azure portal, on the **vxMaintain** application integration page, select **Single sign-on**.
 
-	![The "Single sign-on" command][4]
+    ![The "Single sign-on" command][4]
 
 2. To enable SSO, in the **Single Sign-on Mode** drop-down list, select **SAML-based Sign-on**.
  
-	![The "SAML-based Sign-on" command](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
+    ![The "SAML-based Sign-on" command](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
 3. Under **vxMaintain Domain and URLs**, do the following:
 
-	![The vxMaintain Domain and URLs section](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
+    ![The vxMaintain Domain and URLs section](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
     a. In the **Identifier** box, type a URL that has the following syntax: `https://<company name>.verisae.com`
 
-	b. In the **Reply URL** box, type a URL that has the following syntax: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+    b. In the **Reply URL** box, type a URL that has the following syntax: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
-	> [!NOTE] 
-	> The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the values, contact the [vxMaintain support team](http://www.verisae.com/contact-us).
+    > [!NOTE] 
+    > The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the values, contact the [vxMaintain support team](http://www.verisae.com/contact-us).
  
 4. Under **SAML Signing Certificate**, select **Metadata XML**, and then save the metadata file to your computer.
 
-	![The "SAML Signing Certificate" section](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
+    ![The "SAML Signing Certificate" section](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
 5. Select **Save**.
 
-	![The Save button](./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_400.png)
+    ![The Save button](./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_400.png)
 
 6. To configure **vxMaintain** SSO, send the downloaded **Metadata XML** file to the [vxMaintain support team](http://www.verisae.com/contact-us).
 
@@ -131,32 +131,32 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 1. In the **Azure portal**, in the left pane, select the **Azure Active Directory** button.
 
-	![The "Azure Active Directory" button](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_01.png) 
+    ![The "Azure Active Directory" button](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_01.png) 
 
 2. To display a list of users, go to **Users and groups** > **All users**.
-	
-	![The "All users" link](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_02.png)  
+    
+    ![The "All users" link](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_02.png)  
     The **All users** dialog box opens. 
 
 3. To open the **User** dialog box, select **Add**.
  
-	![The Add button](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_03.png) 
+    ![The Add button](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_03.png) 
 
 4. In the **User** dialog box, do the following:
  
-	![The User dialog box](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_04.png) 
+    ![The User dialog box](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** box, type **BrittaSimon**.
 
     b. In the **User name** box, type the email address of test user Britta Simon.
 
-	c. Select the **Show Password** check box, and then note the value that was generated in the **Password** box.
+    c. Select the **Show Password** check box, and then note the value that was generated in the **Password** box.
 
     d. Select **Create**.
  
 ### Create a vxMaintain test user
 
-In this section, you create test user Britta Simon in vxMaintain. To add users in the vxMaintain platform, work with the [vxMaintain support team](http://www.verisae.com/contact-us). Before you use SSO, create and activate the users.
+In this section, you create test user Britta Simon in vxMaintain. To add users in the vxMaintain platform, work with the [vxMaintain support team](http://www.verisae.com/contact-us). Before you use SSO, create and activate the users.
 
 ### Assign the Azure AD test user
 
@@ -166,31 +166,31 @@ In this section, you enable test user Britta Simon to use Azure SSO by granting 
 
 1. In the Azure portal **Applications** view, go to **Directory** view > **Enterprise applications** > **All applications**.
 
-	![The "All applications" link][201] 
+    ![The "All applications" link][201] 
 
 2. In the **Applications** list, select **vxMaintain**.
 
-	![The vxMaintain link](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
+    ![The vxMaintain link](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
 3. In the left pane, select **Users and groups**.
 
-	![The "Users and groups" link][202] 
+    ![The "Users and groups" link][202] 
 
 4. Select **Add** and then, in the **Add Assignment** pane, select **Users and groups**.
 
-	![The "Users and groups" link][203]
+    ![The "Users and groups" link][203]
 
 5. In the **Users and groups** dialog box, in the **Users** list, select **Britta Simon**, and then select the **Select** button.
 
 7. In the **Add Assignment** dialog box, select **Assign**.
-	
+    
 ### Test your Azure AD single sign-on
 
 In this section, you test your Azure AD SSO configuration by using the Access Panel.
 
 Selecting the **vxMaintain** tile in the Access Panel should sign you in to your vxMaintain application automatically.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Next steps
 

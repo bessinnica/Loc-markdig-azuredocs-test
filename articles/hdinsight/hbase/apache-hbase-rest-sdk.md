@@ -160,9 +160,9 @@ var tableName = "mytablename";
 // Assume the table has integer keys and we want data between keys 25 and 35
 var scanSettings = new Scanner()
 {
-	batch = 10,
-	startRow = BitConverter.GetBytes(25),
-	endRow = BitConverter.GetBytes(35)
+    batch = 10,
+    startRow = BitConverter.GetBytes(25),
+    endRow = BitConverter.GetBytes(35)
 };
 RequestOptions scanOptions = RequestOptions.GetDefaultOptions();
 scanOptions.AlternativeEndpoint = "hbaserest0/";
@@ -173,9 +173,9 @@ try
     CellSet next = null;
     while ((next = client.ScannerGetNextAsync(scannerInfo, scanOptions).Result) != null)
     {
-	    foreach (var row in next.rows)
+        foreach (var row in next.rows)
         {
-    	    // ... read the rows
+            // ... read the rows
         }
     }
 }

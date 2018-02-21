@@ -49,6 +49,7 @@ Watch this Microsoft Virtual Academy video for an overview of Reliable services:
 </a>
 </center>
 
+
 ## What makes Reliable Services different?
 Reliable Services in Service Fabric are different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.
 

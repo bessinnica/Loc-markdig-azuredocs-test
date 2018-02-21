@@ -29,16 +29,17 @@ timeout  | Number (default=1000) | Timeout in milliseconds. Only interpretations
 Using the *count* and *offset* parameters, a large number of results may be obtained incrementally over multiple requests.
 
 ## Response (JSON)
+
 JSONPath     | Description
 ---------|---------
-$.query	|*query* parameter from the request.
-$.interpretations	|Array of 0 or more ways to match the input query against the grammar.
-$.interpretations[\*].logprob	|Relative log probability of the interpretation (<= 0).  Higher values are more likely.
-$.interpretations[\*].parse	|XML string that shows how each part of the query was interpreted.
-$.interpretations[\*].rules	|Array of 1 or more rules defined in the grammar invoked during interpretation.
-$.interpretations[\*].rules[\*].name	|Name of the rule.
-$.interpretations[\*].rules[\*].output	|Semantic output of the rule.
-$.interpretations[\*].rules[\*].output.type	|Data type of the semantic output.
+$.query |*query* parameter from the request.
+$.interpretations   |Array of 0 or more ways to match the input query against the grammar.
+$.interpretations[\*].logprob   |Relative log probability of the interpretation (<= 0).  Higher values are more likely.
+$.interpretations[\*].parse |XML string that shows how each part of the query was interpreted.
+$.interpretations[\*].rules |Array of 1 or more rules defined in the grammar invoked during interpretation.
+$.interpretations[\*].rules[\*].name    |Name of the rule.
+$.interpretations[\*].rules[\*].output  |Semantic output of the rule.
+$.interpretations[\*].rules[\*].output.type |Data type of the semantic output.
 $.interpretations[\*].rules[\*].output.value|Value of the semantic output.  
 $.aborted | True if the request timed out.
 
@@ -105,4 +106,4 @@ The response contains the top two ("count=2") most likely interpretations that c
 When the type of semantic output is "query", as in this example, the matching objects can be retrieved by passing *output.value* to the [*evaluate*](evaluateMethod.md) API via the *expr* parameter.
 
 `http://<host>/evaluate?expr=Composite(AA.AuN=='jaime teevan')`
-  
+

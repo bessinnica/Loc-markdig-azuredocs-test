@@ -24,6 +24,7 @@ Get a quick introduction to data science from *Data Science for Beginners* in fi
 This first video is about the kinds of questions that data science can answer. To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 <br>
 
+
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >

@@ -59,7 +59,7 @@ In order to call the API, you will need to know the endpoint location and API ke
 ### Sample Request Body
 The request contains two objects: `Inputs` and `GlobalParameters`.  In the example request below, some parameters are sent explicitly while others are not (scroll down for a full list of parameters for each endpoint).  Parameters that are not sent explicitly in the request will use the default values given below.
 
-	{
+    {
                 "Inputs": {
                         "input1": {
                                 "ColumnNames": ["Time", "Data"],
@@ -70,33 +70,33 @@ The request contains two objects: `Inputs` and `GlobalParameters`.  In the examp
                                 ]
                         }
                 },
-		"GlobalParameters": {
-			"tspikedetector.sensitivity": "3",
-			"zspikedetector.sensitivity": "3",
-			"bileveldetector.sensitivity": "3.25",
-			"detectors.spikesdips": "Both"
-		}
-	}
+        "GlobalParameters": {
+            "tspikedetector.sensitivity": "3",
+            "zspikedetector.sensitivity": "3",
+            "bileveldetector.sensitivity": "3.25",
+            "detectors.spikesdips": "Both"
+        }
+    }
 
 ### Sample Response
 Note that, in order to see the `ColumnNames` field, you must include `details=true` as a URL parameter in your request.  See the tables below for the meaning behind each of these fields.
 
-	{
-		"Results": {
-			"output1": {
-				"type": "table",
-				"value": {
-					"Values": [
-						["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
-						["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
-						["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
-					],
-					"ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
-					"ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
-				}
-			}
-		}
-	}
+    {
+        "Results": {
+            "output1": {
+                "type": "table",
+                "value": {
+                    "Values": [
+                        ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
+                        ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
+                        ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
+                    ],
+                    "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
+                    "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
+                }
+            }
+        }
+    }
 
 
 ## Score API
@@ -107,12 +107,13 @@ The figure below shows an example of anomalies that the Score API can detect. Th
 ### Detectors
 The anomaly detection API supports detectors in 3 broad categories. Details on specific input parameters and outputs for each detector can be found in the following table.
 
-| Detector Category | Detector | Description | Input Parameters | Outputs |
-| --- | --- | --- | --- | --- |
-| Spike Detectors |TSpike Detector |Detect spikes and dips based on far the values are from first and third quartiles |*tspikedetector.sensitivity:* takes integer value in the range 1-10, default: 3; Higher values will catch more extreme values thus making it less sensitive |TSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise |
-| Spike Detectors | ZSpike Detector |Detect spikes and dips based on how far the datapoints are from their mean |*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; Higher values will catch more extreme values making it less sensitive |ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise | |
-| Slow Trend Detector |Slow Trend Detector |Detect slow positive trend as per the set sensitivity |*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) |tscore: floating number representing anomaly score on trend |
-| Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) |rpscore: floating number representing anomaly score on upward and downward level change | |
+
+|   Detector Category    |              Detector               |                                    Description                                    |                                                                           Input Parameters                                                                           |                                         Outputs                                         |
+|------------------------|-------------------------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+|    Spike Detectors     |           TSpike Detector           | Detect spikes and dips based on far the values are from first and third quartiles |  <em>tspikedetector.sensitivity:</em> takes integer value in the range 1-10, default: 3; Higher values will catch more extreme values thus making it less sensitive  |          TSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise          |
+|    Spike Detectors     |           ZSpike Detector           |    Detect spikes and dips based on how far the datapoints are from their mean     |     <em>zspikedetector.sensitivity:</em> take integer value in the range 1-10, default: 3; Higher values will catch more extreme values making it less sensitive     |          ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise          |
+|  Slow Trend Detector   |         Slow Trend Detector         |               Detect slow positive trend as per the set sensitivity               |  <em>trenddetector.sensitivity:</em> threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)  |               tscore: floating number representing anomaly score on trend               |
+| Level Change Detectors | Bidirectional Level Change Detector |      Detect both upward and downward level change as per the set sensitivity      | <em>bileveldetector.sensitivity:</em> threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) | rpscore: floating number representing anomaly score on upward and downward level change |
 
 ### Parameters
 More detailed information on these input parameters is listed in the table below:

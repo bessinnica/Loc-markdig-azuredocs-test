@@ -72,7 +72,6 @@ In general, customers using elastic database tools can expect to get full T-SQL 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-
 <!--Anchors-->
 <!--Image references-->
 

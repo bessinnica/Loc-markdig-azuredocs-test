@@ -22,18 +22,22 @@ The **calchistogram** REST API is used to calculate the distribution of attribut
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
-  
+
+
 ## Request Parameters
 
-Name  |Value | Required?  |Description
------------|----------|--------|----------
-**expr**    |Text string | Yes  |A query expression that specifies the entities over which to calculate histograms.
-**model** |Text string | No |Select the name of the model that you wish to query.  Currently, the value defaults to *latest*.
-**attributes** | Text string | No<br>default: | A comma-delimited list that specifies the attribute values that are included in the response. Attribute names are case-sensitive.
-**count** |Number | No<br>Default: 10 |Number of results to return.
-**offset**  |Number | No<br>Default: 0 |Index of the first result to return.
+|            Name             |    Value    |     Required?     |                                                            Description                                                            |
+|-----------------------------|-------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+|    <strong>expr</strong>    | Text string |        Yes        |                        A query expression that specifies the entities over which to calculate histograms.                         |
+|   <strong>model</strong>    | Text string |        No         |              Select the name of the model that you wish to query.  Currently, the value defaults to <em>latest</em>.              |
+| <strong>attributes</strong> | Text string |  No<br>default:   | A comma-delimited list that specifies the attribute values that are included in the response. Attribute names are case-sensitive. |
+|   <strong>count</strong>    |   Number    | No<br>Default: 10 |                                                   Number of results to return.                                                    |
+|   <strong>offset</strong>   |   Number    | No<br>Default: 0  |                                               Index of the first result to return.                                                |
+
 <br>
+
 ## Response (JSON)
+
 Name | Description
 --------|---------
 **expr**  |The expr parameter from the request.
@@ -49,6 +53,7 @@ Name | Description
 **aborted** | True if the request timed out.
 
  <br>
+
 #### Example:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

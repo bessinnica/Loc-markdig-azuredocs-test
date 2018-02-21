@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
             .builder\
             .appName("PythonWordCount")\
             .getOrCreate()
-    		
+            
         lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
         counts = lines.flatMap(lambda x: x.split(' ')) \
             .map(lambda x: (x, 1)) \
@@ -60,7 +60,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         spark.stop()
     
     if __name__ == "__main__":
-    	main()
+        main()
     ```
 2. Replace *&lt;storageAccountName&gt;* with the name of your Azure storage account. Then, save the file. 
 3. In Azure Blob storage, create a container named **adftutorial** if it does not exist. 
@@ -109,7 +109,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create linked services
 You author two linked services in this section: 
-	
+    
 - An **Azure Storage linked service** that links an Azure storage account to the data factory. This storage is used by the on-demand HDInsight cluster. It also contains the Spark script to be run. 
 - An **on-demand HDInsight linked service**. Azure Data Factory automatically creates an HDInsight cluster and runs the Spark program. It then deletes the HDInsight cluster after the cluster is idle for a preconfigured time. 
 

@@ -48,8 +48,8 @@ This release no longer creates MySQL instances. This means that you need to crea
 ### Required privileges
 The system account must have the following privileges:
 
-1.	Database: Create, drop
-2.	Login: Create, set, drop, grant, revoke
+1.  Database: Create, drop
+2.  Login: Create, set, drop, grant, revoke
 
 ## Deploy the resource provider
 
@@ -58,11 +58,11 @@ The system account must have the following privileges:
 
 2. Sign in to a host that can access the privileged endpoint VM.
 
-    - On Azure SDK installations, sign in to the physical host. 
-    - On multi-node systems, the host must be a system that can access the privileged endpoint.
+   - On Azure SDK installations, sign in to the physical host. 
+   - On multi-node systems, the host must be a system that can access the privileged endpoint.
     
-    >[!NOTE]
-    > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure SDK host meets this criteria.
+     >[!NOTE]
+     > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure SDK host meets this criteria.
     
 
 3. Download the MySQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory.
@@ -70,23 +70,24 @@ The system account must have the following privileges:
     >[!NOTE] 
     > The resource provider build corresponds to the Azure Stack builds. Be sure to download the correct binary for the version of Azure Stack that is running.
 
-    | Azure Stack build | MySQL RP installer |
-    | --- | --- |
-    | 1.0.180102.3 or 1.0.180106.1 (multi-node) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
-    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
-    | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+   |             Azure Stack build             |                        MySQL RP installer                         |
+   |-------------------------------------------|-------------------------------------------------------------------|
+   | 1.0.180102.3 or 1.0.180106.1 (multi-node) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+   |               1.0.171122.1                | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
+   |               1.0.171028.1                | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710)  |
 
-4.  The Azure Stack root certificate is retrieved from the privileged endpoint. For the Azure SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
-    If you need to provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** that meets the following criteria:
+4. The Azure Stack root certificate is retrieved from the privileged endpoint. For the Azure SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
-    - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of mysqladapter.dbadapter.\<region\>.\<external fqdn\>.
+   If you need to provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** that meets the following criteria:
 
-    - This certificate must be trusted. That is, the chain of trust must exist without requiring intermediate certificates.
+   - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of mysqladapter.dbadapter.\<region\>.\<external fqdn\>.
 
-    - Only a single certificate file exists in the DependencyFilesLocalPath.
-    
-    - The file name must not contain any special characters.
+   - This certificate must be trusted. That is, the chain of trust must exist without requiring intermediate certificates.
+
+   - Only a single certificate file exists in the DependencyFilesLocalPath.
+
+   - The file name must not contain any special characters.
 
 
 5. Open a **new** elevated (administrative) PowerShell console. Then change to the directory where you extracted the files. Use a new window to avoid problems that might arise from incorrect PowerShell modules that are already loaded on the system.
@@ -154,7 +155,6 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
-
  ```
 
 
@@ -202,9 +202,9 @@ Depending on the system performance and download speeds, installation might take
 
 2. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**.
 
-	On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s back end.
+    On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s back end.
 
-	![Hosting servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+    ![Hosting servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 3. Provide the connection details of your MySQL Server instance. Be sure to provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. This installation no longer provides a default MySQL instance. The size that's provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server.
 

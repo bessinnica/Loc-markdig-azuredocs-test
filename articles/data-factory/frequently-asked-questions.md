@@ -47,19 +47,19 @@ To support the diverse integration flows and patterns in the modern data warehou
 You now have the freedom to model any flow style that's required for data integration and that can be dispatched on demand or repeatedly on a schedule. A few common flows now enabled that were previously not possible are:   
 
 - Control flows:
-	- Chain activities in a sequence within a pipeline.
-	- Branch activities within a pipeline.
-	- Parameters
-		- Define parameters at the pipeline level, and pass arguments while you invoke the pipeline on demand or from a trigger.
-		- Activities can consume the arguments that are passed to the pipeline.
-	- Custom state passing
-		- Activity outputs including state can be consumed by a subsequent activity in the pipeline.
-	- Looping containers
-		- For-each 
+    - Chain activities in a sequence within a pipeline.
+    - Branch activities within a pipeline.
+    - Parameters
+        - Define parameters at the pipeline level, and pass arguments while you invoke the pipeline on demand or from a trigger.
+        - Activities can consume the arguments that are passed to the pipeline.
+    - Custom state passing
+        - Activity outputs including state can be consumed by a subsequent activity in the pipeline.
+    - Looping containers
+        - For-each 
 - Trigger-based flows:
-	- Pipelines can be triggered on demand or by wall-clock time.
+    - Pipelines can be triggered on demand or by wall-clock time.
 - Delta flows:
-	- Use parameters and define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake. 
+    - Use parameters and define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake. 
 
 For more information, see [Tutorial: Control flows](tutorial-control-flow.md).
 

@@ -82,7 +82,7 @@ If Git deployment fails to your Linux web app, you can choose the following alte
 Yes, disable `perMessageDeflate` in your server side Node.js code. For example, if you are using socket.io, do the following:
 ```
 var io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 

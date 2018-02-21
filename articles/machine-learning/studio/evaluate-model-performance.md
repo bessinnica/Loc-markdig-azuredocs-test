@@ -149,7 +149,7 @@ Connect the ports as shown below in Figure 10.
 
 Set the Label column index of the [Train Model][train-model] module to 5. The dataset has no header row but we know that the class labels are in the fifth column.
 
-Click on the [Import Data][import-data] module and set the *Data source* property to *Web URL via HTTP*, and the *URL* to http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Click on the [Import Data][import-data] module and set the <em>Data source</em> property to <em>Web URL via HTTP</em>, and the <em>URL</em> to http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Set the fraction of instances to be used for training in the [Split Data][split] module (0.7 for example).
 

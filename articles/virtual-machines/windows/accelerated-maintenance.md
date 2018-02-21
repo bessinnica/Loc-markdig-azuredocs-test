@@ -23,6 +23,3 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-accelerated-maintenance](../../../includes/virtual-machines-common-accelerated-maintenance.md)]
 
-
-
- 

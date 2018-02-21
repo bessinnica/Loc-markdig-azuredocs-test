@@ -79,6 +79,7 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
 
 ### File system features
+
 | Feature | Support status | Notes |
 |---------|----------------|-------|
 | Access control lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on server endpoints. Windows ACLs are not (yet) supported by Azure Files if files are accessed directly in the cloud. |
@@ -107,7 +108,7 @@ For volumes that don't have cloud tiering enabled, Azure File Sync supports Wind
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R) starting with [Azure File Sync agent 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
 
 **DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
- 
+
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
 - You are migrating from a DFS-R deployment to an Azure File Sync deployment. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).

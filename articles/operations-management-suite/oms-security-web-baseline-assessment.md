@@ -41,8 +41,8 @@ For this preview the feature can be accessed via the OMS Search option, and the 
 
 3. The left pane shows the number of Web Servers compared to the baseline, the average percentage of rules that passed on all the evaluated servers, and the list of Servers that were assessed.
 4. The right pane lists the unique rules that failed by *Severity*, and *RuleType*. Clicking on any of the right pane rules will show the details of that rule. An example is shown in the below image. The rule that is evaluated is listed under *Rule Setting*. The *AzId* field which is a unique identifier for each rule used by Microsoft for tracking the baseline rules. In addition to that users can see the *Expected Result* (Microsoft’s recommended value), and other details regarding the security impact of the rule.
-	
-	![Query](./media/oms-security-web-baseline/oms-security-web-baseline-fig6.png)
+    
+    ![Query](./media/oms-security-web-baseline/oms-security-web-baseline-fig6.png)
 
 5. You can create your own queries to review the results. 
 

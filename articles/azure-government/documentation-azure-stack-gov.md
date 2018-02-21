@@ -26,6 +26,7 @@ Below are some examples scenarios that describe what capabilities exist today fo
 ### <a href="https://azure.microsoft.com/en-us/overview/azure-stack/use-cases/">Edge and Disconnected Scenarios</a>
 These are completely isolated and secure environments, containing critical/sensitive mission workloads while retaining Azure’s platform capabilities. A demo with additional information can be viewed <a href="https://azure.microsoft.com/en-us/resources/videos/azure-and-azure-stack-working-together-build-2017/">here.</a>
 
+
 ### <a href="https://azure.microsoft.com/en-us/overview/azure-stack/use-cases/">Cloud Apps on-premises</a>
 Build applications that run on the Azure platform and implement consistent engineering and DevOps processes. Transform your secure mission workload and begin moving to the cloud with the comfort of on-premises isolation.
 

@@ -110,11 +110,11 @@ Graph service in Azure Stack uses the following protocols and ports to communica
 
 The following information is required as input for the automation parameters:
 
-|Parameter|Description|Example|
-|---------|---------|---------|
-|CustomAdfsName|Name of the claims provider.<cr>It appears that way on the AD FS landing page.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
+|                  Parameter                  |                                  Description                                   |                                  Example                                   |
+|---------------------------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+|               CustomAdfsName                | Name of the claims provider.<cr>It appears that way on the AD FS landing page. |                                  Contoso                                   |
+| CustomAD<br>FSFederationMetadataEndpointUri |                            Federation metadata link                            | https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 ### Trigger automation to configure claims provider trust in Azure Stack
 
@@ -149,10 +149,10 @@ Use this method if the either of the following conditions are true:
 The following information is required as input for the automation parameters:
 
 
-|Parameter|Description|Example|
-|---------|---------|---------|
-|CustomAdfsName|Name of the claims provider. It appears that way on the AD FS landing page.|Contoso|
-|CustomADFSFederationMetadataFile|Federation metadata file|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|            Parameter             |                                 Description                                 |                                  Example                                   |
+|----------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+|          CustomAdfsName          | Name of the claims provider. It appears that way on the AD FS landing page. |                                  Contoso                                   |
+| CustomADFSFederationMetadataFile |                          Federation metadata file                           | https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 ### Create federation metadata file
 

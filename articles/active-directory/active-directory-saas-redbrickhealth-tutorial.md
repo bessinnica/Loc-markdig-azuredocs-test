@@ -58,19 +58,19 @@ To configure the integration of RedBrick Health into Azure AD, you need to add R
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **RedBrick Health**, select **RedBrick Health** from result panel then click **Add** button to add the application.
 
-	![RedBrick Health in the results list](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_addfromgallery.png)
+    ![RedBrick Health in the results list](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,71 +96,71 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **RedBrick Health** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_samlbase.png)
 
 3. On the **RedBrick Health Domain and URLs** section, perform the following steps:
 
-	![RedBrick Health Domain and URLs single sign-on information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
+    ![RedBrick Health Domain and URLs single sign-on information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
     a. In the **Identifier** textbox, type a URL: `http://www.redbrickhealth.com`
-	
-	b. In the **Reply URL** textbox, type a URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
-	
-	For Production Environment: `https://sso.redbrickhealth.com/sp/ACS.saml2`
+    
+    b. In the **Reply URL** textbox, type a URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
+    
+    For Production Environment: `https://sso.redbrickhealth.com/sp/ACS.saml2`
 
-	c. Click **Show advanced URL settings**.
-	
-	![RedBrick Health Domain and URLs single sign-on information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
+    c. Click **Show advanced URL settings**.
+    
+    ![RedBrick Health Domain and URLs single sign-on information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
 
-	d. In the **Relay State** textbox, type a URL using the following pattern: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
-	
-	> [!NOTE] 
-	> Relay State value is not real. Update this value with the actual Relay State. Contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get this value.
+    d. In the **Relay State** textbox, type a URL using the following pattern: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
+    
+    > [!NOTE] 
+    > Relay State value is not real. Update this value with the actual Relay State. Contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get this value.
 
 4. The RedBrick Health application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. These claims are customer specific and depends on your requirement. Following optional claims are example only which you can configure for your application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
 
-	![Configure Single Sign-On](./media/active-directory-saas-redbrickhealth-tutorial/attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-redbrickhealth-tutorial/attribute.png)
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
-	| Attribute Name | Attribute Value |
-	| ---------------| ----------------|
-	| principal name | ********** |
-	| client id | ********** |
-	| participant id | ********** |
-	
-	> [!NOTE]
-	> These values are for reference purpose only. You need to define the attributes as per your organization's requirement. Please contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get more info about the required claims.
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_attribute_04.png)
-	
-	![Configure Single Sign-On](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
+    | Attribute Name | Attribute Value |
+    | ---------------| ----------------|
+    | principal name | ********** |
+    | client id | ********** |
+    | participant id | ********** |
+    
+    > [!NOTE]
+    > These values are for reference purpose only. You need to define the attributes as per your organization's requirement. Please contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get more info about the required claims.
+    
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_attribute_04.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_attribute_05.png)
+    
+    b. In the **Name** textbox, type the attribute name shown for that row.
+    
+    c. From the **Value** list, type the attribute value shown for that row.
 
-	d. Leave the **Namespace** blank.
-	
-	e. Click **Ok**.
+    d. Leave the **Namespace** blank.
+    
+    e. Click **Ok**.
 
 6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_certificate.png) 
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_general_400.png)
 
 8. On the **RedBrick Health Configuration** section, click **Configure RedBrick Health** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
 
-	![RedBrick Health Configuration](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_configure.png) 
+    ![RedBrick Health Configuration](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_configure.png) 
 
 9. To configure single sign-on on **RedBrick Health** side, you need to send the downloaded **Certificate(Base64)** and **SAML Entity ID** to [RedBrick Health support team](https://home.redbrickhealth.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -201,7 +201,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a RedBrick Health test user
 
-In this section, you create a user called Britta Simon in RedBrick Health. Work with [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to add the users in the RedBrick Health platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in RedBrick Health. Work with [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to add the users in the RedBrick Health platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -213,32 +213,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **RedBrick Health**.
 
-	![The RedBrick Health link in the Applications list](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_app.png)  
+    ![The RedBrick Health link in the Applications list](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the RedBrick Health tile in the Access Panel, you should get automatically signed-on to your RedBrick Health application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

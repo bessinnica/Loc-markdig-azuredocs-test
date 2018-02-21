@@ -59,10 +59,10 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-    * Enter a name for the cluster.
-    * Make sure you select the **Terminate after ___ minutes of activity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
-    * Accept all other default values. 
-    * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+   * Enter a name for the cluster.
+   * Make sure you select the <strong>Terminate after <em>_</em> minutes of activity</strong> checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+   * Accept all other default values. 
+   * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -131,12 +131,12 @@ Perform the following steps to create a notebook in Databricks, configure the no
 
     ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
 
-    * Set **Keys** to **gender**.
-    * Set **Series groupings** to **level**.
-    * Set **Values** to **level**.
-    * Set **Aggregation** to **COUNT**.
+   * Set **Keys** to **gender**.
+   * Set **Series groupings** to **level**.
+   * Set **Values** to **level**.
+   * Set **Aggregation** to **COUNT**.
 
-    Click **Apply**.
+     Click **Apply**.
 
 9. The output shows the visual representation as depicted in the following screenshot:
 

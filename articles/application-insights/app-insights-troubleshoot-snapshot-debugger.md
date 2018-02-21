@@ -97,10 +97,10 @@ In the snapshot collector logs, search for ```UploadSnapshotFinish```.  If this 
 Some of the local variables are missing. If your application is running release code, the compiler will optimize some variables away. For example:
 
 ```csharp
-	const int a = 1; // a will be discarded by compiler and the value 1 will be inline.
-	Random rand = new Random();
-	int b = rand.Next() % 300; // b will be discarded and the value will be directly put to the 'FindNthPrimeNumber' call stack.
-	long primeNumber = FindNthPrimeNumber(b);
+    const int a = 1; // a will be discarded by compiler and the value 1 will be inline.
+    Random rand = new Random();
+    int b = rand.Next() % 300; // b will be discarded and the value will be directly put to the 'FindNthPrimeNumber' call stack.
+    long primeNumber = FindNthPrimeNumber(b);
 ```
 
 If your case is different, it could be a bug. Please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key along with the code snippet.

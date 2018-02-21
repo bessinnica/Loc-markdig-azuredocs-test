@@ -1,4 +1,4 @@
-﻿---
+---
 title: Filter Azure Application Insights telemetry in your Java web app | Microsoft Docs
 description: Reduce telemetry traffic by filtering out the events you don't need to monitor.
 services: application-insights
@@ -80,7 +80,6 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
       </TelemetryProcessors>
     </ApplicationInsights>
-
 ```
 
 
@@ -184,12 +183,12 @@ Filters log traces (logged using [TrackTrace()](app-insights-api-custom-events-m
 ```
 
 * `FromSeverityLevel` valid values are:
- *  OFF             - Filter out ALL traces
- *  TRACE           - No filtering. equals to Trace level
- *  INFO            - Filter out TRACE level
- *  WARN            - Filter out TRACE and INFO
- *  ERROR           - Filter out WARN, INFO, TRACE
- *  CRITICAL        - filter out all but CRITICAL
+  *  OFF             - Filter out ALL traces
+  *  TRACE           - No filtering. equals to Trace level
+  *  INFO            - Filter out TRACE level
+  *  WARN            - Filter out TRACE and INFO
+  *  ERROR           - Filter out WARN, INFO, TRACE
+  *  CRITICAL        - filter out all but CRITICAL
 
 
 ## Custom filters
@@ -212,12 +211,12 @@ In your code, create a class that implements `TelemetryProcessor`:
        /* Initializers for the parameters, named "setParameterName" */
        public void setNotNeeded(String successful)
        {
-	      this.successful = successful;
+          this.successful = successful;
        }
 
        /* This method is called for each item of telemetry to be sent.
           Return false to discard it.
-		  Return true to allow other processors to inspect it. */
+          Return true to allow other processors to inspect it. */
        @Override
        public boolean process(Telemetry telemetry) {
         if (telemetry == null) { return true; }
@@ -229,7 +228,6 @@ In your code, create a class that implements `TelemetryProcessor`:
         return true;
        }
     }
-
 ```
 
 
@@ -249,7 +247,6 @@ In ApplicationInsights.xml:
         </CustomProcessors>
       </TelemetryProcessors>
     </ApplicationInsights>
-
 ```
 
 ## Troubleshooting

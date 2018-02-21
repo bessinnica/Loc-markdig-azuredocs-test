@@ -1,4 +1,3 @@
-
 ---
 title: Support matrix for replication to a secondary site with Azure Site Recovery | Microsoft Docs
 description: Summarizes the supported operating systems and components for Azure Site Recovery

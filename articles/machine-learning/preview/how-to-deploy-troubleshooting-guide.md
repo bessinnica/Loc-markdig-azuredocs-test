@@ -74,12 +74,12 @@ Set the `-l` flag to true when creating a web service to enable request level lo
 ### Add error handling in scoring script
 Use exception handling in your `scoring.py` script's **run** function to return the error message as part of your web service output.
 
-Python example:
+Python example:
 ```
-    try:
-        <code to load model and score>
-   except Exception as e:
-        return(str(e))
+    try:
+        <code to load model and score>
+   except Exception as e:
+        return(str(e))
 ```
 
 ## Other common problems

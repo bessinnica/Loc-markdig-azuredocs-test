@@ -165,49 +165,51 @@ Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repo
 </ul>
 
 ---
- 
+
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">Azure CLI 2.0</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node​.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (Account Mgmt​.)</a></p>
-                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Filesystem Mgmt​.)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node .js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (Account Mgmt .)</a></p>
+                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Filesystem Mgmt .)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/datalakestore">REST API</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/datalakestore">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 

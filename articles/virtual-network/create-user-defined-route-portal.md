@@ -43,7 +43,7 @@ This article provides steps to create a user-defined route through the Resource 
     ![Network interface settings](./media/create-user-defined-route/virtual-network.png)
 
 5. Create a subnet for the network virtual appliance:
- 
+
     - Under **myVnet**, click **Subnets** under **SETTINGS** on the left side.
     - Click **+ Subnet**, as shown in the following picture:
 
@@ -57,25 +57,28 @@ This article provides steps to create a user-defined route through the Resource 
 
 6. Create a network virtual appliance virtual machine:
 
-    - On the left side of the portal, click **+ New**, then click **Compute**, and then click **Windows Server 2016 Datacenter** or **Ubuntu Server 16.04 LTS**.
-    - Enter the following values on the **Basics** blade that appears, then click **OK**.
+   - On the left side of the portal, click **+ New**, then click **Compute**, and then click **Windows Server 2016 Datacenter** or **Ubuntu Server 16.04 LTS**.
+   - Enter the following values on the **Basics** blade that appears, then click **OK**.
 
-        |Setting|Value|
-        |---|---|
-        |Name|myVm-Nva|
-        |User name|azureuser|
-        |Password and Confirm password|A password of your choosing|
-        |Subscription|Select your subscription|
-        |Resource group|Click **Use existing**, then select **myResourceGroup**|
-        |Location|East US|
-    - On the **Choose a size** blade that appears, click **DS1_V2 Standard**, then click **Select**.
-    - On the **Settings** blade that appears, click **Virtual network**. Click **myVnet** in the **Choose virtual network** blade that appears.
-    - On the **Settings** blade, click **Subnet**. Click **DMZ** on the **Choose subnet** blade that appears. 
-    - Leave the defaults for the remaining settings and click **OK**.
-    - Click **Create** on the **Create** blade that appears. Deployment of the virtual machine takes a few minutes.
 
-    > [!NOTE]
-    > In addition to creating the virtual machine, the Azure portal creates a public IP address and assigns it to the virtual machine, by default. If you were deploying the virtual machine in a production environment, you may choose not to assign a public IP address to the virtual machine. Instead, you might access the network virtual appliance from other virtual machines within the virtual network. To learn more about public IP addresses, see [Manage a public IP address](virtual-network-public-ip-address.md).
+     |            Setting            |                                       Value                                       |
+     |-------------------------------|-----------------------------------------------------------------------------------|
+     |             Name              |                                     myVm-Nva                                      |
+     |           User name           |                                     azureuser                                     |
+     | Password and Confirm password |                            A password of your choosing                            |
+     |         Subscription          |                             Select your subscription                              |
+     |        Resource group         | Click <strong>Use existing</strong>, then select <strong>myResourceGroup</strong> |
+     |           Location            |                                      East US                                      |
+
+
+   - On the **Choose a size** blade that appears, click **DS1_V2 Standard**, then click **Select**.
+   - On the **Settings** blade that appears, click **Virtual network**. Click **myVnet** in the **Choose virtual network** blade that appears.
+   - On the **Settings** blade, click **Subnet**. Click **DMZ** on the **Choose subnet** blade that appears. 
+   - Leave the defaults for the remaining settings and click **OK**.
+   - Click **Create** on the **Create** blade that appears. Deployment of the virtual machine takes a few minutes.
+
+     > [!NOTE]
+     > In addition to creating the virtual machine, the Azure portal creates a public IP address and assigns it to the virtual machine, by default. If you were deploying the virtual machine in a production environment, you may choose not to assign a public IP address to the virtual machine. Instead, you might access the network virtual appliance from other virtual machines within the virtual network. To learn more about public IP addresses, see [Manage a public IP address](virtual-network-public-ip-address.md).
 
 7. Assign a static private IP address and enable IP forwarding for the network interface the portal created in the previous step. 
     - On the **Search resources** box at the top of the page, enter *myVm-Nva*.
@@ -85,7 +88,7 @@ This article provides steps to create a user-defined route through the Resource 
     - Click **IP configurations** under **SETTINGS** for the network interface, as shown in the following picture:
 
         ![Network interface settings](./media/create-user-defined-route/network-interface-settings.png)
-        
+
     - Click **Enabled** for the **IP forwarding** setting, then click **Save**. IP forwarding must be enabled for each network interface that receives traffic not addressed to an IP address assigned to it. Enabling IP forwarding disables Azure's source/destination check for the network interface.
     - Click **ipconfig1** in the list of IP configurations.
     - Click **Static** for **Assignment** of the private IP address under **ipconfig1**, as shown in the following picture:
@@ -93,7 +96,7 @@ This article provides steps to create a user-defined route through the Resource 
         ![IP configuration](./media/create-user-defined-route/ip-configuration.png)
     - As shown in the previous picture, enter *10.0.2.4* under **IP address** in the **Private IP address settings**. Assigning a static IP address to the network interface ensures that the address doesn't change for the life of the virtual machine the network interface is attached to. The address entered is not currently assigned to another resource in the DMZ subnet that the network interface is in. 
     - To save the configuration, click **Save** under **ipconfig1**. Don't close the ipconfig1 box until you receive a notification in the portal that the network interface is saved.
- 
+
 8. Create two route tables. Route tables contain zero or more routes:
 
     - On the left side of the portal, click **+New** > **Networking** > **Route table**.
@@ -105,7 +108,7 @@ This article provides steps to create a user-defined route through the Resource 
         |Subscription|Select your subscription|
         |Resource group|Select **Use existing**, then select **myResourceGroup**|
         |Location|East US|
-    
+
     - Complete the previous substeps of step 8 again, but name the route table *myRouteTable-Private*.
 9. Add routes to the *myRouteTable-Public* route table and associate the route table to the *Public* subnet:
 
@@ -157,7 +160,7 @@ This article provides steps to create a user-defined route through the Resource 
     rgName="myResourceGroup"
     location="eastus"
     adminPassword=ChangeToYourPassword
-    
+
     # Create a virtual machine in the Public subnet.
     az vm create \
       --resource-group $rgName \
@@ -198,7 +201,7 @@ This article provides steps to create a user-defined route through the Resource 
     rgName="myResourceGroup"
     location="eastus"
     adminPassword=ChangeToYourPassword
-    
+
     # Create a virtual machine in the Public subnet.
     az vm create \
       --resource-group $rgName \
@@ -274,7 +277,7 @@ This article provides steps to create a user-defined route through the Resource 
       > - An additional route in the route table such as prefix: 0.0.0.0/0, next hop type VirtualAppliance, and next hop IP address 10.0.2.4 (in the previous example script).
       >
     - **Optionally**: To validate the next hop between two virtual machines within Azure, use the next hop capability of Azure Network Watcher. Before using Network Watcher, you must first [create an Azure Network Watcher instance](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for the region you want to use it in. In this tutorial, the US East region is used. Once you've enabled a Network Watcher instance for the region, enter the following command to see the next hop information between the virtual machines in the Public and Private subnets:
-     
+
         ```azurecli-interactive
         az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
         ```

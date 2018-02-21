@@ -58,19 +58,19 @@ To configure the integration of Achieve3000 into Azure AD, you need to add Achie
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Achieve3000**, select **Achieve3000** from result panel then click **Add** button to add the application.
 
-	![Achieve3000 in the results list](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_addfromgallery.png)
+    ![Achieve3000 in the results list](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,53 +96,53 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Achieve3000** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_samlbase.png)
 
 3. On the **Achieve3000 Domain and URLs** section, perform the following steps:
 
-	![Achieve3000 Domain and URLs single sign-on information](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_url.png)
+    ![Achieve3000 Domain and URLs single sign-on information](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following: pattern: `https://saml.achieve3000.com/district/<District Identifier>`
 
     b. In the **Identifier** textbox, type the value: `achieve3000-saml`
 
-	> [!NOTE] 
-	> The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get the value. 
+    > [!NOTE] 
+    > The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get the value. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_certificate.png) 
 
 5. Achieve3000 application expects the unique **studentID** value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case, we have mapped the **user.mail** for the demo purpose. But according to your unique identifier, you should map the correct value for it.   
 
-	![Configure Single Sign-On attb](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_attribute.png)
+    ![Configure Single Sign-On attb](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
-	| studentID 			  | user.mail |
+    
+    | Attribute Name | Attribute Value |
+    | ------------------- | -------------------- |    
+    | studentID               | user.mail |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On Add](./media/active-directory-saas-achieve3000-tutorial/tutorial_officespace_04.png)
+    ![Configure Single Sign-On Add](./media/active-directory-saas-achieve3000-tutorial/tutorial_officespace_04.png)
 
-	![Configure Single Sign-On Addattb](./media/active-directory-saas-achieve3000-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On Addattb](./media/active-directory-saas-achieve3000-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**.
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-achieve3000-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-achieve3000-tutorial/tutorial_general_400.png)
+    
 8. To configure single sign-on on **Achieve3000** side, you need to send the downloaded **Metadata XML** to [Achieve3000 support team](https://www.achieve3000.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
@@ -182,7 +182,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an Achieve3000 test user
 
-In this section, you create a user called Britta Simon in Achieve3000. Work with [Achieve3000 support team](https://www.achieve3000.com/contact-us/) to add the users in the Achieve3000 platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Achieve3000. Work with [Achieve3000 support team](https://www.achieve3000.com/contact-us/) to add the users in the Achieve3000 platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -194,32 +194,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Achieve3000**.
 
-	![The Achieve3000 link in the Applications list](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_app.png)  
+    ![The Achieve3000 link in the Applications list](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Achieve3000 tile in the Access Panel, you should get automatically signed-on to your Achieve3000 application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -32,6 +32,7 @@ This article has two major parts:
 
 <a name="goto_2_conceptual"/>
 
+
 ## Database pattern
 
 This section, plus a few more that follow, discuss the concepts of the multi-tenant sharded database pattern.
@@ -112,6 +113,7 @@ The tenant provisioning scripts in this tutorial support both of the following s
 Tenant data is then initialized and registered in the catalog shard map. In the sample app, databases that contain multiple tenants are given a generic name, such as *tenants1* or *tenants2*. Databases that contain a single tenant are given the tenant's name. The specific naming conventions used in the sample are not a critical part of the pattern, as the use of a catalog allows any name to be assigned to the database.  
 
 <a name="goto_1_tutorial"/>
+
 
 ## Tutorial begins
 
@@ -237,7 +239,7 @@ The full list of tenants and the corresponding database for each is available in
 - The tenant name is stored in the Tenants table.
 - The database name is stored in the Shard Management tables.
 
-1. In SQL Server Management Studio (SSMS), connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login = **developer**, and Password = **P@ssword1**
+1. In SQL Server Management Studio (SSMS), connect to the tenants server at <strong>catalog-mt.\<USER\>.database.windows.net</strong>, with Login = <strong>developer</strong>, and Password = <strong>P<xref href="ssword1" data-throw-if-not-resolved="False" data-raw-source="@ssword1"></xref></strong>
 
     ![SSMS connection dialog](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
@@ -246,7 +248,7 @@ The full list of tenants and the corresponding database for each is available in
 3. Right click on the view *TenantsExtended* and choose **Select Top 1000 Rows**. Note the mapping between tenant name and database for the different tenants.
 
     ![ExtendedTenants view in SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
-      
+
 ## Other provisioning patterns
 
 This section discusses other interesting provisioning patterns.

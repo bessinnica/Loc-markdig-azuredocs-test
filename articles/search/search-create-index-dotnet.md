@@ -51,6 +51,7 @@ For the purposes of creating an index, you can use either your primary or second
 
 <a name="CreateSearchServiceClient"></a>
 
+
 ## Create an instance of the SearchServiceClient class
 To start using the Azure Search .NET SDK, you will need to create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
@@ -75,6 +76,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > 
 
 <a name="DefineIndex"></a>
+
 
 ## Define your Azure Search index
 A single call to the `Indexes.Create` method will create your index. This method takes as a parameter an `Index` object that defines your Azure Search index. You need to create an `Index` object and initialize it as follows:

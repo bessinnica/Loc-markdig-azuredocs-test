@@ -13,6 +13,7 @@ ms.author: luisca
 # Quickstart for Text Analytics API with Python 
 <a name="HOLTop"></a>
 
+
 This walkthrough shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Python.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
@@ -43,6 +44,7 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 ```
 
 <a name="Detect"></a>
+
 
 ## Detect languages
 
@@ -112,6 +114,7 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 <a name="SentimentAnalysis"></a>
 
+
 ## Analyze sentiment
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
@@ -158,6 +161,7 @@ pprint(sentiments)
 The sentiment score for a document is between $0$ and $1$, with a higher score indicating a more positive sentiment.
 
 <a name="KeyPhraseExtraction"></a>
+
 
 ## Extract key phrases
 

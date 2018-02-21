@@ -25,7 +25,7 @@ The following ITSM products/services are supported. Select the product to view d
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
 
 ## Connect System Center Service Manager to IT Service Management Connector in Azure
@@ -48,16 +48,16 @@ Use the following procedure to connect your System Center Service Manager instan
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+2.  Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
 
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
@@ -132,19 +132,19 @@ Use the following procedure to configure the hybrid connection that connects the
 
 6. Type the following values:
 
-    - **EndPoint Name**: Specify a name for the new Hybrid connection.
-    -  **EndPoint Host**: FQDN of the Service Manager management server.
-    - **EndPoint Port**: Type 5724
-    - **Servicebus namespace**: Use an existing servicebus namespace or create a new one.
-    - **Location**: select the location.
-    -  **Name**: Specify a name to the servicebus if you are creating it.
+   - **EndPoint Name**: Specify a name for the new Hybrid connection.
+   - **EndPoint Host**: FQDN of the Service Manager management server.
+   - **EndPoint Port**: Type 5724
+   - **Servicebus namespace**: Use an existing servicebus namespace or create a new one.
+   - **Location**: select the location.
+   - **Name**: Specify a name to the servicebus if you are creating it.
 
-    ![Hybrid connection values](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
-6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
+     ![Hybrid connection values](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+7. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
 
     Once the Hybrid connection is created, it is displayed under the blade.
 
-7. After the hybrid connection is created, select the connection and click **Add selected hybrid connection**.
+8. After the hybrid connection is created, select the connection and click **Add selected hybrid connection**.
 
     ![New hybrid connection](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
 
@@ -166,7 +166,7 @@ Your hybrid connection is successfully connected.
 
 ![successful hybrid connection](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > After the hybrid connection is created, verify and test the connection by visiting the deployed Service Manager Web app. Ensure the connection is successful before you try to connect to ITSMC in Azure.
 
 The following sample image shows the details of a successful connection:
@@ -200,8 +200,8 @@ Use the following procedure to create a ServiceNow connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+2.  Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+    ![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -238,17 +238,17 @@ Learn more: [Create ITSM work items for Log Analytics alerts](log-analytics-itsm
 
 User the following procedure:
 
-1.	Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
-2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
-3.	Click **Installation Checklist**.
+1.  Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
+2.  After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
+3.  Click **Installation Checklist**.
 
     The status is displayed as  **Not complete** if the user role is yet to be created.
 
-4.	In the text boxes, next to **Create integration user**, enter the user name for the user that can connect to ITSMC in Azure.
-5.	Enter the password for this user, and click **OK**.  
+4.  In the text boxes, next to **Create integration user**, enter the user name for the user that can connect to ITSMC in Azure.
+5.  Enter the password for this user, and click **OK**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > You use these credentials to make the ServiceNow connection in Azure.
 
 The newly created user is displayed with the default roles assigned.
@@ -256,19 +256,19 @@ The newly created user is displayed with the default roles assigned.
 **Default roles**:
 - personalize_choices
 - import_transformer
-- 	x_mioms_microsoft.user
-- 	itil
-- 	template_editor
-- 	view_changer
+-   x_mioms_microsoft.user
+-   itil
+-   template_editor
+-   view_changer
 
 Once the user is successfully created, the status of **Check Installation Checklist** moves to Completed, listing the details of the user role created for the app.
 
 > [!NOTE]
-
+> 
 > To allow a user to create **alerts** and **events** in ServiceNow from Azure:
-
+> 
 > - Ensure you have the Event Management module Installed on your ServiceNow instance.
-
+> 
 > - Add the following roles to the integration user:
 >      - evt_mgmt_integration
 >      - evt_mgmt_operator  
@@ -295,15 +295,15 @@ Use the following procedure to create a Provance connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+2.  Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+    ![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
@@ -346,15 +346,15 @@ Use the following procedure to create a Provance connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+2.  Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+    ![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |

@@ -149,26 +149,26 @@ First create a store account.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
-	rg,
-	adla,
-	DataLakeAnalyticsAccount(
-		location=location,
-		default_data_lake_store_account=adls,
-		data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
-	)
+    rg,
+    adla,
+    DataLakeAnalyticsAccount(
+        location=location,
+        default_data_lake_store_account=adls,
+        data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
+    )
 ).wait()
 ```
 Then create an ADLA account that uses that store.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
-	rg,
-	adla,
-	DataLakeAnalyticsAccount(
-		location=location,
-		default_data_lake_store_account=adls,
-		data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
-	)
+    rg,
+    adla,
+    DataLakeAnalyticsAccount(
+        location=location,
+        default_data_lake_store_account=adls,
+        data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
+    )
 ).wait()
 ```
 
@@ -190,13 +190,13 @@ OUTPUT @a
 
 jobId = str(uuid.uuid4())
 jobResult = adlaJobClient.job.create(
-	adla,
-	jobId,
-	JobInformation(
-		name='Sample Job',
-		type='USql',
-		properties=USqlJobProperties(script=script)
-	)
+    adla,
+    jobId,
+    JobInformation(
+        name='Sample Job',
+        type='USql',
+        properties=USqlJobProperties(script=script)
+    )
 )
 ```
 
@@ -205,9 +205,9 @@ jobResult = adlaJobClient.job.create(
 ```python
 jobResult = adlaJobClient.job.get(adla, jobId)
 while(jobResult.state != JobState.ended):
-	print('Job is not yet done, waiting for 3 seconds. Current state: ' + jobResult.state.value)
-	time.sleep(3)
-	jobResult = adlaJobClient.job.get(adla, jobId)
+    print('Job is not yet done, waiting for 3 seconds. Current state: ' + jobResult.state.value)
+    time.sleep(3)
+    jobResult = adlaJobClient.job.get(adla, jobId)
 
 print ('Job finished with result: ' + jobResult.result.value)
 ```
@@ -218,11 +218,11 @@ Depending whether your jobs have pipeline or recurrence metadata attached, you c
 ```python
 pipelines = adlaJobClient.pipeline.list(adla)
 for p in pipelines:
-	print('Pipeline: ' + p.name + ' ' + p.pipelineId)
+    print('Pipeline: ' + p.name + ' ' + p.pipelineId)
 
 recurrences = adlaJobClient.recurrence.list(adla)
 for r in recurrences:
-	print('Recurrence: ' + r.name + ' ' + r.recurrenceId)
+    print('Recurrence: ' + r.name + ' ' + r.recurrenceId)
 ```
 
 ## Manage compute policies
@@ -236,7 +236,7 @@ The following code retrieves a list of compute policies for a Data Lake Analytic
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
 for p in policies:
-	print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
+    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
 ```
 
 ### Create a new compute policy

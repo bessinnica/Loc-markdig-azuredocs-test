@@ -54,7 +54,7 @@ For general details about Azure AD operational, service, and data security, see 
 Authentication Agents are installed and registered with Azure AD when you either:
    - [Enable Pass-through Authentication through Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-2-enable-the-feature)
    - [Add more Authentication Agents to ensure the high availability of sign-in requests](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-4-ensure-high-availability) 
-   
+
 Getting an Authentication Agent working involves three main phases:
 
 1. Authentication Agent installation
@@ -89,13 +89,14 @@ The Authentication Agents use the following steps to register themselves with Az
     - A Certificate Signing Request (CSR or Certificate Request). This request applies for a digital identity certificate, with Azure AD as its certificate authority (CA).
 4. Azure AD validates the access token in the registration request and verifies that the request came from a global administrator.
 5. Azure AD then signs and sends a digital identity certificate back to the Authentication Agent.
-    - The root CA in Azure AD is used to sign the certificate. 
+   - The root CA in Azure AD is used to sign the certificate. 
 
      >[!NOTE]
      > This CA is _not_ in the Windows Trusted Root Certificate Authorities store.
-    - The CA is used only by the Pass-through Authentication feature. The CA is used only to sign CSRs during the Authentication Agent registration.
-    -  None of the other Azure AD services use this CA.
-    - The certificate’s subject (Distinguished Name or DN) is set to your tenant ID. This DN is a GUID that uniquely identifies your tenant. This DN scopes the certificate for use only with your tenant.
+   - The CA is used only by the Pass-through Authentication feature. The CA is used only to sign CSRs during the Authentication Agent registration.
+   - None of the other Azure AD services use this CA.
+   - The certificate’s subject (Distinguished Name or DN) is set to your tenant ID. This DN is a GUID that uniquely identifies your tenant. This DN scopes the certificate for use only with your tenant.
+
 6. Azure AD stores the public key of the Authentication Agent in an Azure SQL database, which only Azure AD has access to.
 7. The certificate (issued in step 5) is stored on the on-premises server in the Windows certificate store (specifically in the [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) location). It is used by both the Authentication Agent and the Updater applications.
 
@@ -166,7 +167,7 @@ To renew an Authentication Agent's trust with Azure AD:
 6. Azure AD stores the new public key of the Authentication Agent in an Azure SQL database that only it has access to. It also invalidates the old public key associated with the Authentication Agent.
 7. The new certificate (issued in step 5) is then stored on the server in the Windows certificate store (specifically in the [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) location).
     - Because the trust renewal procedure happens non-interactively (without the presence of the global administrator), the Authentication Agent no longer has access to update the existing certificate in the CERT_SYSTEM_STORE_LOCAL_MACHINE location. 
-    
+
    > [!NOTE]
    > This procedure does not remove the certificate itself from the CERT_SYSTEM_STORE_LOCAL_MACHINE location.
 8. The new certificate is used for authentication from this point on. Every subsequent renewal of the certificate replaces the certificate in the CERT_SYSTEM_STORE_LOCAL_MACHINE location.
@@ -187,8 +188,8 @@ To auto-update an Authentication Agent:
 3. The Updater verifies that the MSI is signed by Microsoft.
 4. The Updater runs the MSI. This action involves the following steps:
 
- > [!NOTE]
- > The Updater runs with [Local System](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privileges.
+   > [!NOTE]
+   > The Updater runs with [Local System](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privileges.
 
     - Stops the Authentication Agent service
     - Installs the new version of the Authentication Agent on the server

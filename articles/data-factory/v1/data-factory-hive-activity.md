@@ -71,6 +71,7 @@ The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pip
 }
 ```
 ## Syntax details
+
 | Property | Description | Required |
 | --- | --- | --- |
 | name |Name of the activity |Yes |
@@ -129,45 +130,45 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
 2. Create a [linked service](data-factory-azure-blob-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”
 3. Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset “HiveSampleIn” and the output dataset “HiveSampleOut”
 4. Copy the Hive query as a file to Azure Blob Storage configured in step #2. if the storage for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity. Use **scriptPath** to specify the path to hive query file and **scriptLinkedService** to specify the Azure storage that contains the script file. 
-   
+
    > [!NOTE]
    > You can also provide the Hive script inline in the activity definition by using the **script** property. We do not recommend this approach as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
    > 
    > 
 5. Create a pipeline with the HDInsightHive activity. The activity processes/transforms the data.
 
-	```JSON   
-	{	
-		"name": "HiveActivitySamplePipeline",
-	   	"properties": {
-		"activities": [
-			{
-				"name": "HiveActivitySample",
-				"type": "HDInsightHive",
-				"inputs": [
-				{
-					"name": "HiveSampleIn"
-				}
-				],
-	         	"outputs": [
-	           	{
-	            	"name": "HiveSampleOut"
-	           	}
-	         	],
-	         	"linkedServiceName": "HDInsightLinkedService",
-	         	"typeproperties": {
-	           		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-	           		"scriptLinkedService": "StorageLinkedService"
-         		},
-            	"scheduler": {
-					"frequency": "Hour",
-	               	"interval": 1
-	         	}
-	       	}
-			]
-		}
-	}
-	```
+    ```JSON   
+    {   
+        "name": "HiveActivitySamplePipeline",
+        "properties": {
+        "activities": [
+            {
+                "name": "HiveActivitySample",
+                "type": "HDInsightHive",
+                "inputs": [
+                {
+                    "name": "HiveSampleIn"
+                }
+                ],
+                "outputs": [
+                {
+                    "name": "HiveSampleOut"
+                }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "typeproperties": {
+                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                    "scriptLinkedService": "StorageLinkedService"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                }
+            }
+            ]
+        }
+    }
+    ```
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
@@ -178,7 +179,7 @@ To use parameterized Hive script, do the following
 
 * Define the parameters in **defines**.
 
-	```JSON  
+    ```JSON  
     {
         "name": "HiveActivitySamplePipeline",
           "properties": {
@@ -213,10 +214,10 @@ To use parameterized Hive script, do the following
         ]
       }
     }
-	```
+    ```
 * In the Hive Script, refer to the parameter using **${hiveconf:parameterName}**. 
-  
-	```
+
+    ```
     DROP TABLE IF EXISTS HiveSampleIn; 
     CREATE EXTERNAL TABLE HiveSampleIn 
     (
@@ -239,8 +240,8 @@ To use parameterized Hive script, do the following
         ProfileID,
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
-	```
-## See Also
+    ```
+  ## See Also
 * [Pig Activity](data-factory-pig-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)

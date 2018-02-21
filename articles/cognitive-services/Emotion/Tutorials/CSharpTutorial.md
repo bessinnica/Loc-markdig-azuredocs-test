@@ -30,29 +30,29 @@ Before creating the example, you must subscribe to Emotion API which is part of 
 #### Get the client library and example  
 You may download the Emotion API client library via [SDK](https://www.github.com/microsoft/cognitive-emotion-windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
 ## <a name="Step1">Step 1: Open the example</a>
-1.	Start Microsoft Visual Studio 2015 and click **File**, select **Open**, then **Project/Solution**.
-2.	Browse to the folder where you saved the downloaded Emotion API files. Click on **Emotion**, then **Windows**, and then the **Sample-WPF** folder.
-3.	Double-click to open the Visual Studio 2015 Solution (.sln) file named **EmotionAPI-WPF-Samples.sln**. This will open the solution in Visual Studio.
+1.  Start Microsoft Visual Studio 2015 and click **File**, select **Open**, then **Project/Solution**.
+2.  Browse to the folder where you saved the downloaded Emotion API files. Click on **Emotion**, then **Windows**, and then the **Sample-WPF** folder.
+3.  Double-click to open the Visual Studio 2015 Solution (.sln) file named **EmotionAPI-WPF-Samples.sln**. This will open the solution in Visual Studio.
 
 ## <a name="Step2">Step 2: Build the example</a>
 1. In **Solution Explorer**, right click **References** and select **Manage NuGet Packages**.
 
-  ![Open Nuget Package Manager](../Images/EmotionNuget.png)
+   ![Open Nuget Package Manager](../Images/EmotionNuget.png)
 
-2.	The **NuGet Package Manager** window opens. First select **Browse** in the upper left corner, then in the search box type “Newtonsoft.Json”, select the **Newtonsoft.Json** package and click **Install**.  
+2. The **NuGet Package Manager** window opens. First select **Browse** in the upper left corner, then in the search box type “Newtonsoft.Json”, select the **Newtonsoft.Json** package and click **Install**.  
 
-  ![Browse to NuGet Package](../Images/EmotionNugetBrowse.png)  
+   ![Browse to NuGet Package](../Images/EmotionNugetBrowse.png)  
 
-3.	Press Ctrl+Shift+B, or click **Build** on the ribbon menu, then select **Build Solution**.
+3. Press Ctrl+Shift+B, or click **Build** on the ribbon menu, then select **Build Solution**.
 
 ## <a name="Step3">Step 3: Run the example</a>
-1.	After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.
-2.	Locate the Emotion API window with the **text box** reading "**Paste your subscription key here to start**". Paste your subscription key into the text box as shown in below screenshot. You can choose to persist your subscription key on your PC or laptop by clicking the "Save Key" button. When you want to delete the subscription key from the system, click "Delete Key" to remove it from your PC or laptop.
+1. After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.
+2. Locate the Emotion API window with the **text box** reading "**Paste your subscription key here to start**". Paste your subscription key into the text box as shown in below screenshot. You can choose to persist your subscription key on your PC or laptop by clicking the "Save Key" button. When you want to delete the subscription key from the system, click "Delete Key" to remove it from your PC or laptop.
   
-  ![Emotion Functionality Interface](../Images/EmotionKey.png)
+   ![Emotion Functionality Interface](../Images/EmotionKey.png)
 
-3.	Under "**Select Scenario**" click to use either of the two scenarios, “**Detect emotion using a stream**” or “**Detect emotion using a URL**”, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Emotion API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
-4.	There are example images to be used with this example application. You can find these images on [the Face API Github repo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) under the **Data** folder. Please note the use of these images is licensed under Fair Use agreement meaning they are OK to use for testing this example, but not for republishing.
+3. Under "**Select Scenario**" click to use either of the two scenarios, “**Detect emotion using a stream**” or “**Detect emotion using a URL**”, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Emotion API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
+4. There are example images to be used with this example application. You can find these images on [the Face API Github repo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) under the **Data** folder. Please note the use of these images is licensed under Fair Use agreement meaning they are OK to use for testing this example, but not for republishing.
 
 ## <a name="Review">Review and Learn</a>
 Now that you have a running application, let us review how this example app integrates with Microsoft Cognitive Services. This will make it easier to either continue building onto this app or develop your own app using Microsoft Emotion API. 

@@ -55,19 +55,19 @@ To configure the integration of Help Scout into Azure AD, you need to add Help S
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Help Scout**, select **Help Scout** from result panel then click **Add** button to add the application.
 
-	![Help Scout in the results list](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
+    ![Help Scout in the results list](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -93,73 +93,73 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Help Scout** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_samlbase.png)
 
 3. On the **Help Scout Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Help Scout Domain and URLs single sign-on information](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
+    ![Help Scout Domain and URLs single sign-on information](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
     a. **Identifier** is the **"Audience URI (Service Provider Entity ID)"** from Help Scout, starts with `urn:`
 
-	b. **Reply URL** is the **"Post-back URL (Assertion Consumer Service URL)"** from Help Scout, starts with `https://` 
+    b. **Reply URL** is the **"Post-back URL (Assertion Consumer Service URL)"** from Help Scout, starts with `https://` 
 
-	> [!NOTE] 
-	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
+    > [!NOTE] 
+    > The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
 
 4. If you wish to configure the application in **SP** initiated mode, check **Show advanced URL settings** and perform the following step:
 
-	![Help Scout Domain and URLs single sign-on information](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url1.png)
+    ![Help Scout Domain and URLs single sign-on information](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url1.png)
 
     In the **Sign-on URL** textbox, type a URL as: `https://secure.helpscout.net/members/login/`
-	 
+     
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-helpscout-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-helpscout-tutorial/tutorial_general_400.png)
 
 
 7. On the **Help Scout Configuration** section, click **Configure Help Scout** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/config.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/config.png) 
 
 8. In a different web browser window, log in to your Help Scout company site as an administrator.
 
 9. Once you are logged in click on **"Manage"** from the top menu and then select **"Company"** from the dropdown menu.
 
-	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
  
 10. Select **"Authentication"** from the left-hand menu. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
 
 11. This takes you to the SAML settings section and perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
  
-	a. Copy the **Post-back URL (Assertion Consumer Service URL)** value and paste the value in the **Reply URL** box in the Azure portal, under Help Scout **Domain and URLs** section.
-	
-	b. Copy the **Audience URI (Service Provider Entity ID)** value and paste the value in the **Identifier** box in the Azure portal, under Help Scout **Domain and URLs** section.
+    a. Copy the **Post-back URL (Assertion Consumer Service URL)** value and paste the value in the **Reply URL** box in the Azure portal, under Help Scout **Domain and URLs** section.
+    
+    b. Copy the **Audience URI (Service Provider Entity ID)** value and paste the value in the **Identifier** box in the Azure portal, under Help Scout **Domain and URLs** section.
 
 12. Toggle **Enable SAML** on and perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
  
-	a. In **Single Sign-On URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
-	
-	b. Click **Upload Certificate** to upload the **Certificate(Base64)** downloaded from Azure portal.
+    a. In **Single Sign-On URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+    
+    b. Click **Upload Certificate** to upload the **Certificate(Base64)** downloaded from Azure portal.
 
-	c. Enter your organization's email domain(s) e.x.- `contoso.com` in the **Email Domains** textbox. You can separate multiple domains with a comma. Anytime a Help Scout User or Administrator who enters that specific domain on the [Help Scout log-in page](https://secure.helpscout.net/members/login/) will be routed to Identity Provider to authenticate with their credentials.
+    c. Enter your organization's email domain(s) e.x.- `contoso.com` in the **Email Domains** textbox. You can separate multiple domains with a comma. Anytime a Help Scout User or Administrator who enters that specific domain on the [Help Scout log-in page](https://secure.helpscout.net/members/login/) will be routed to Identity Provider to authenticate with their credentials.
 
-	d. Lastly, you can toggle **Force SAML Sign-on** if you want Users to only log in to Help Scout via through this method. If you'd still like to leave the option for them to sign in with their Help Scout credentials, you can leave it toggled off. Even if this is enabled, an Account Owner will always be able to log in to Help Scout with their account password.
+    d. Lastly, you can toggle **Force SAML Sign-on** if you want Users to only log in to Help Scout via through this method. If you'd still like to leave the option for them to sign in with their Help Scout credentials, you can leave it toggled off. Even if this is enabled, an Account Owner will always be able to log in to Help Scout with their account password.
 
-	e. Click **Save**.
+    e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -212,32 +212,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Help Scout**.
 
-	![The Help Scout link in the Applications list](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_app.png)  
+    ![The Help Scout link in the Applications list](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Help Scout tile in the Access Panel, you should get automatically signed-on to your Help Scout application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

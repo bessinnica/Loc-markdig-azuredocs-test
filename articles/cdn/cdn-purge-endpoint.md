@@ -48,9 +48,9 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
    > 
    > 
 4. Select what assets you wish to purge from the edge nodes.  If you wish to clear all assets, click the **Purge all** checkbox.  Otherwise, type the path of each asset you wish to purge in the **Path** textbox. Below formats are supported in the path.
-	1. **Single URL purge**: Purge individual asset by specifying the full URL, with or without the file extension, e.g.,`/pictures/strasbourg.png`; `/pictures/strasbourg`
-	2. **Wildcard purge**: Asterisk (\*) may be used as a wildcard. Purge all folders, sub-folders and files under an endpoint with `/*` in the path or purge all sub-folders and files under a specific folder by specifying the folder followed by `/*`, e.g.,`/pictures/*`.  Note that wildcard purge is not supported by Azure CDN from Akamai currently. 
-	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
+    1. **Single URL purge**: Purge individual asset by specifying the full URL, with or without the file extension, e.g.,`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Wildcard purge**: Asterisk (\*) may be used as a wildcard. Purge all folders, sub-folders and files under an endpoint with `/*` in the path or purge all sub-folders and files under a specific folder by specifying the folder followed by `/*`, e.g.,`/pictures/*`.  Note that wildcard purge is not supported by Azure CDN from Akamai currently. 
+    3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
    
    > [!TIP]
    > Paths must be specified for purge and must be a relative URL that fit the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx). **Purge all** and **Wildcard purge** not supported by **Azure CDN from Akamai** currently.

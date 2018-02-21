@@ -57,23 +57,23 @@ To configure the integration of ServiceChannel into Azure AD, you need to add Se
 
 1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. Click **Add** button on the top of the dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **ServiceChannel**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_000.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_000.png)
 
 5. In the results panel, select **ServiceChannel**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_2.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_2.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with ServiceChannel based on a test user called "Britta Simon".
@@ -98,57 +98,57 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 1. In the Azure Management portal, on the **ServiceChannel** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_01.png)
 
 3. On the **ServiceChannel Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_urls.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
     a. In the **Identifier** textbox, type the value as: `http://adfs.<domain>.com/adfs/service/trust`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer domain>.servicechannel.com/saml/acs`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer domain>.servicechannel.com/saml/acs`
 
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us) to get these values.
+    > [!NOTE] 
+    > Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us) to get these values.
 
 4. Your ServiceChannel application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. **NameIdentifier(User Identifier)** is the only mandatory claim and the default value is **user.userprincipalname** but ServiceChannel expects this to be mapped with **user.mail**. If you are planning to enable Just In Time user provisioning, then you should add the following claims as shown below. **Role** claim needs to be mapped to **user.assignedroles** which contains the role of the user.  
 
-	You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
-  	
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
+    You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
-	> [!NOTE] 
-	> Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure **Role** in Azure AD
+    > [!NOTE] 
+    > Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure **Role** in Azure AD
 
 5. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes.
 
-	| Attribute Name | Attribute Value |
-	| --- | --- |    
-	| Role| user.assignedroles |
+    | Attribute Name | Attribute Value |
+    | --- | --- |    
+    | Role| user.assignedroles |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_04.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**
-	
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_05.png)
+    
+    b. In the **Name** textbox, type the attribute name shown for that row.
+    
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**
+    
 6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_05.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_05.png) 
 
 7. Click **Save**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_general_400.png)
 
 8. On the **ServiceChannel Configuration** section, click **Configure ServiceChannel** to open **Configure sign-on** window. Please note the **SAML Enitity ID** from the **Quick Reference** section.
 
@@ -163,25 +163,25 @@ The objective of this section is to create a test user in the Azure Management p
 
 1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_01.png) 
 
 2. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_02.png) 
 
 3. At the top of the dialog click **Add** to open the **User** dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**. 
 
@@ -199,26 +199,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **ServiceChannel**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_app01.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_app01.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

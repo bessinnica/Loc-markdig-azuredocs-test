@@ -80,12 +80,10 @@ The following table provides an overview of our samples repository and the scena
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/SasTests.java">SAS Tests Sample</a></td>
-</tr> 	
-<tr> 
+</tr><br/><tr> 
 <td>Service Properties</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 			
-<tr> 
+</tr><br/><tr> 
 <td>Snapshot Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
 </tr> 
@@ -190,7 +188,9 @@ The following table provides an overview of our samples repository and the scena
 </tr> 
 </tbody> 
 </table>
+
 <br/>
+
 
 ## Azure Code Samples library
 

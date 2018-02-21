@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * Manage the app in the Azure portal
 
 You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
- 
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -61,6 +61,7 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 Type `\q` to exit the PostgreSQL client. 
 
 <a name="step2"></a>
+
 
 ## Create local Python Flask application
 
@@ -125,7 +126,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create an Azure Database for PostgreSQL server
 

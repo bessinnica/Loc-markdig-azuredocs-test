@@ -40,20 +40,20 @@ You perform the following steps in this tutorial:
 Here are the important steps to create this solution: 
 
 1. **Select the watermark column**.
-	Select one column for each table in the source data store, which can be used to identify the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
+    Select one column for each table in the source data store, which can be used to identify the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
 2. **Prepare a data store to store the watermark value**.   
-	In this tutorial, you store the watermark value in a SQL database.
+    In this tutorial, you store the watermark value in a SQL database.
 
 3. **Create a pipeline with the following activities**: 
-	
-	a. Create a ForEach activity that iterates through a list of source table names that is passed as a parameter to the pipeline. For each source table, it invokes the following activities to perform delta loading for that table.
+
+    a. Create a ForEach activity that iterates through a list of source table names that is passed as a parameter to the pipeline. For each source table, it invokes the following activities to perform delta loading for that table.
 
     b. Create two lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
 
-	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
+    c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
 
-	d. Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
+    d. Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
 
     Here is the high-level solution diagram: 
 
@@ -81,13 +81,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Name varchar(255),
         LastModifytime datetime
     );
-    
+
     create table project_table
     (
         Project varchar(255),
         Creationtime datetime
     );
-        
+
     INSERT INTO customer_table
     (PersonID, Name, LastModifytime)
     VALUES
@@ -96,14 +96,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     (3, 'Alice','9/3/2017 2:36:00 AM'),
     (4, 'Andy','9/4/2017 3:21:00 AM'),
     (5, 'Anny','9/5/2017 8:06:00 AM');
-    
+
     INSERT INTO project_table
     (Project, Creationtime)
     VALUES
     ('project1','1/1/2015 0:00:00 AM'),
     ('project2','2/2/2016 1:23:00 AM'),
     ('project3','3/4/2017 5:16:00 AM');
-    
+
     ```
 
 ### Create destination tables in your Azure SQL database
@@ -112,7 +112,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. In **Server Explorer**, right-click the database and choose **New Query**.
 
 3. Run the following SQL command against your SQL database to create tables named `customer_table` and `project_table`:  
-    
+
     ```sql
     create table customer_table
     (
@@ -120,22 +120,22 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Name varchar(255),
         LastModifytime datetime
     );
-    
+
     create table project_table
     (
         Project varchar(255),
         Creationtime datetime
     );
 
-	```
+    ```
 
 ### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
-    
+
     ```sql
     create table watermarktable
     (
-    
+
         TableName varchar(255),
         WatermarkValue datetime,
     );
@@ -148,7 +148,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     VALUES 
     ('customer_table','1/1/2010 12:00:00 AM'),
     ('project_table','1/1/2010 12:00:00 AM');
-    
+
     ```
 
 ### Create a stored procedure in the Azure SQL database 
@@ -166,7 +166,6 @@ BEGIN
 WHERE [TableName] = @TableName
 
 END
-
 ```
 
 ### Create data types and additional stored procedures in the Azure SQL database
@@ -218,7 +217,6 @@ BEGIN
       INSERT (Project, Creationtime)
       VALUES (source.Project, source.Creationtime);
 END
-
 ```
 
 ### Azure PowerShell
@@ -226,7 +224,7 @@ Install the latest Azure PowerShell modules by following the instructions in [In
 
 ## Create a data factory
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotation marks, and then run the command. An example is `"adfrg"`. 
-   
+
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
@@ -254,7 +252,7 @@ Install the latest Azure PowerShell modules by following the instructions in [In
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
-    
+
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
@@ -271,8 +269,6 @@ Note the following points:
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
-
-
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and SQL database. 
 
@@ -286,23 +282,23 @@ In this step, you link your on-premises SQL Server database to the data factory.
 
     If you use SQL authentication, copy the following JSON definition:
 
-	```json
-	{
-		"properties": {
-			"type": "SqlServer",
-			"typeProperties": {
-				"connectionString": {
-					"type": "SecureString",
-					"value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-				}
-			},
-			"connectVia": {
-				"type": "integrationRuntimeReference",
-				"referenceName": "<integration runtime name>"
-			}
-		},
-		"name": "SqlServerLinkedService"
-	}
+    ```json
+    {
+        "properties": {
+            "type": "SqlServer",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
+                }
+            },
+            "connectVia": {
+                "type": "integrationRuntimeReference",
+                "referenceName": "<integration runtime name>"
+            }
+        },
+        "name": "SqlServerLinkedService"
+    }
    ```    
     If you use Windows authentication, copy the following JSON definition:
 
@@ -357,16 +353,16 @@ In this step, you link your on-premises SQL Server database to the data factory.
 
     ```json
     {
-    	"name": "AzureSQLDatabaseLinkedService",
-    	"properties": {
-    		"type": "AzureSqlDatabase",
-    		"typeProperties": {
-    			"connectionString": {
-    				"value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
-    				"type": "SecureString"
-    			}
-    		}
-    	}
+        "name": "AzureSQLDatabaseLinkedService",
+        "properties": {
+            "type": "AzureSqlDatabase",
+            "typeProperties": {
+                "connectionString": {
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "type": "SecureString"
+                }
+            }
+        }
     }
     ```
 2. In PowerShell, run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service AzureSQLDatabaseLinkedService. 
@@ -394,30 +390,30 @@ In this step, you create datasets to represent the data source, the data destina
     ```json
     {
         "name": "SourceDataset",
-		"properties": {
-			"type": "SqlServerTable",
-			"typeProperties": {
-				"tableName": "dummyName"
-			},
-			"linkedServiceName": {
-				"referenceName": "SqlServerLinkedService",
-				"type": "LinkedServiceReference"
-			}
-		}
+        "properties": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+                "tableName": "dummyName"
+            },
+            "linkedServiceName": {
+                "referenceName": "SqlServerLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }
-   
+
     ```
 
     The table name is a dummy name. The Copy activity in the pipeline uses a SQL query to load the data rather than load the entire table.
 
 2. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset SourceDataset.
-    
+
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : SourceDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -432,36 +428,36 @@ In this step, you create datasets to represent the data source, the data destina
 
     ```json
     {
-    	"name": "SinkDataset",
-    	"properties": {
-    		"type": "AzureSqlTable",
-    		"typeProperties": {
-    			"tableName": {
-    				"value": "@{dataset().SinkTableName}",
-    				"type": "Expression"
-    			}
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureSQLDatabaseLinkedService",
-    			"type": "LinkedServiceReference"
-    		},
-    		"parameters": {
-    			"SinkTableName": {
-    				"type": "String"
-    			}
-    		}
-    	}
+        "name": "SinkDataset",
+        "properties": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+                "tableName": {
+                    "value": "@{dataset().SinkTableName}",
+                    "type": "Expression"
+                }
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureSQLDatabaseLinkedService",
+                "type": "LinkedServiceReference"
+            },
+            "parameters": {
+                "SinkTableName": {
+                    "type": "String"
+                }
+            }
+        }
     }
     ```
 
 2. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset SinkDataset.
-    
+
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : SinkDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -477,27 +473,27 @@ In this step, you create a dataset for storing a high watermark value.
 
     ```json
     {
-    	"name": " WatermarkDataset ",
-    	"properties": {
-    		"type": "AzureSqlTable",
-    		"typeProperties": {
-    			"tableName": "watermarktable"
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureSQLDatabaseLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": " WatermarkDataset ",
+        "properties": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+                "tableName": "watermarktable"
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureSQLDatabaseLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }    
     ```
 2. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset WatermarkDataset.
-    
+
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : WatermarkDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -522,138 +518,138 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
     ```json
     {
-    	"name": "IncrementalCopyPipeline",
-    	"properties": {
-    		"activities": [{
-    
-    			"name": "IterateSQLTables",
-    			"type": "ForEach",
-    			"typeProperties": {
-    				"isSequential": "false",
-    				"items": {
-    					"value": "@pipeline().parameters.tableList",
-    					"type": "Expression"
-    				},
-    
-    				"activities": [
-    					{
-    						"name": "LookupOldWaterMarkActivity",
-    						"type": "Lookup",
-    						"typeProperties": {
-    							"source": {
-    								"type": "SqlSource",
-    								"sqlReaderQuery": "select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'"
-    							},
-    
-    							"dataset": {
-    								"referenceName": "WatermarkDataset",
-    								"type": "DatasetReference"
-    							}
-    						}
-    					},
-    					{
-    						"name": "LookupNewWaterMarkActivity",
-    						"type": "Lookup",
-    						"typeProperties": {
-    							"source": {
-    								"type": "SqlSource",
-    								"sqlReaderQuery": "select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}"
-    							},
-    
-    							"dataset": {
-    								"referenceName": "SourceDataset",
-    								"type": "DatasetReference"
-    							}
-    						}
-    					},
-    
-    					{
-    						"name": "IncrementalCopyActivity",
-    						"type": "Copy",
-    						"typeProperties": {
-    							"source": {
-    								"type": "SqlSource",
-    								"sqlReaderQuery": "select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'"
-    							},
-    							"sink": {
-    								"type": "SqlSink",
-    								"SqlWriterTableType": "@{item().TableType}",
-    								"SqlWriterStoredProcedureName": "@{item().StoredProcedureNameForMergeOperation}"
-    							}
-    						},
-    						"dependsOn": [{
-    								"activity": "LookupNewWaterMarkActivity",
-    								"dependencyConditions": [
-    									"Succeeded"
-    								]
-    							},
-    							{
-    								"activity": "LookupOldWaterMarkActivity",
-    								"dependencyConditions": [
-    									"Succeeded"
-    								]
-    							}
-    						],
-    
-    						"inputs": [{
-    							"referenceName": "SourceDataset",
-    							"type": "DatasetReference"
-    						}],
-    						"outputs": [{
-    							"referenceName": "SinkDataset",
-    							"type": "DatasetReference",
-    							"parameters": {
-    								"SinkTableName": "@{item().TABLE_NAME}"
-    							}
-    						}]
-    					},
-    
-    					{
-    						"name": "StoredProceduretoWriteWatermarkActivity",
-    						"type": "SqlServerStoredProcedure",
-    						"typeProperties": {
-    
-    							"storedProcedureName": "sp_write_watermark",
-    							"storedProcedureParameters": {
-    								"LastModifiedtime": {
-    									"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}",
-    									"type": "datetime"
-    								},
-    								"TableName": {
-    									"value": "@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}",
-    									"type": "String"
-    								}
-    							}
-    						},
-    
-    						"linkedServiceName": {
-    							"referenceName": "AzureSQLDatabaseLinkedService",
-    							"type": "LinkedServiceReference"
-    						},
-    
-    						"dependsOn": [{
-    							"activity": "IncrementalCopyActivity",
-    							"dependencyConditions": [
-    								"Succeeded"
-    							]
-    						}]
-    					}
-    
-    				]
-    
-    			}
-    		}],
-    
-    		"parameters": {
-    			"tableList": {
-    				"type": "Object"
-    			}
-    		}
-    	}
+        "name": "IncrementalCopyPipeline",
+        "properties": {
+            "activities": [{
+
+                "name": "IterateSQLTables",
+                "type": "ForEach",
+                "typeProperties": {
+                    "isSequential": "false",
+                    "items": {
+                        "value": "@pipeline().parameters.tableList",
+                        "type": "Expression"
+                    },
+
+                    "activities": [
+                        {
+                            "name": "LookupOldWaterMarkActivity",
+                            "type": "Lookup",
+                            "typeProperties": {
+                                "source": {
+                                    "type": "SqlSource",
+                                    "sqlReaderQuery": "select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'"
+                                },
+
+                                "dataset": {
+                                    "referenceName": "WatermarkDataset",
+                                    "type": "DatasetReference"
+                                }
+                            }
+                        },
+                        {
+                            "name": "LookupNewWaterMarkActivity",
+                            "type": "Lookup",
+                            "typeProperties": {
+                                "source": {
+                                    "type": "SqlSource",
+                                    "sqlReaderQuery": "select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}"
+                                },
+
+                                "dataset": {
+                                    "referenceName": "SourceDataset",
+                                    "type": "DatasetReference"
+                                }
+                            }
+                        },
+
+                        {
+                            "name": "IncrementalCopyActivity",
+                            "type": "Copy",
+                            "typeProperties": {
+                                "source": {
+                                    "type": "SqlSource",
+                                    "sqlReaderQuery": "select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'"
+                                },
+                                "sink": {
+                                    "type": "SqlSink",
+                                    "SqlWriterTableType": "@{item().TableType}",
+                                    "SqlWriterStoredProcedureName": "@{item().StoredProcedureNameForMergeOperation}"
+                                }
+                            },
+                            "dependsOn": [{
+                                    "activity": "LookupNewWaterMarkActivity",
+                                    "dependencyConditions": [
+                                        "Succeeded"
+                                    ]
+                                },
+                                {
+                                    "activity": "LookupOldWaterMarkActivity",
+                                    "dependencyConditions": [
+                                        "Succeeded"
+                                    ]
+                                }
+                            ],
+
+                            "inputs": [{
+                                "referenceName": "SourceDataset",
+                                "type": "DatasetReference"
+                            }],
+                            "outputs": [{
+                                "referenceName": "SinkDataset",
+                                "type": "DatasetReference",
+                                "parameters": {
+                                    "SinkTableName": "@{item().TABLE_NAME}"
+                                }
+                            }]
+                        },
+
+                        {
+                            "name": "StoredProceduretoWriteWatermarkActivity",
+                            "type": "SqlServerStoredProcedure",
+                            "typeProperties": {
+
+                                "storedProcedureName": "sp_write_watermark",
+                                "storedProcedureParameters": {
+                                    "LastModifiedtime": {
+                                        "value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}",
+                                        "type": "datetime"
+                                    },
+                                    "TableName": {
+                                        "value": "@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}",
+                                        "type": "String"
+                                    }
+                                }
+                            },
+
+                            "linkedServiceName": {
+                                "referenceName": "AzureSQLDatabaseLinkedService",
+                                "type": "LinkedServiceReference"
+                            },
+
+                            "dependsOn": [{
+                                "activity": "IncrementalCopyActivity",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            }]
+                        }
+
+                    ]
+
+                }
+            }],
+
+            "parameters": {
+                "tableList": {
+                    "type": "Object"
+                }
+            }
+        }
     }
     ```
 2. Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet to create the pipeline IncrementalCopyPipeline.
-    
+
    ```powershell
    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
@@ -667,35 +663,35 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     Activities        : {IterateSQLTables}
     Parameters        : {[tableList, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
    ```
- 
+
 ## Run the pipeline
 
 1. Create a parameter file named Parameters.json in the same folder with the following content:
 
     ```json
     {
-    	"tableList": 
+        "tableList": 
         [
             {
-    			"TABLE_NAME": "customer_table",
-    			"WaterMark_Column": "LastModifytime",
-    			"TableType": "DataTypeforCustomerTable",
-    			"StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
-    		},
-    		{
-    			"TABLE_NAME": "project_table",
-    			"WaterMark_Column": "Creationtime",
-    			"TableType": "DataTypeforProjectTable",
-    			"StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
-    		}
-    	]
+                "TABLE_NAME": "customer_table",
+                "WaterMark_Column": "LastModifytime",
+                "TableType": "DataTypeforCustomerTable",
+                "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            },
+            {
+                "TABLE_NAME": "project_table",
+                "WaterMark_Column": "Creationtime",
+                "TableType": "DataTypeforProjectTable",
+                "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            }
+        ]
     }
     ```
 2. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
-	```powershell
+    ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
-	``` 
+    ``` 
 
 ## Monitor the pipeline
 
@@ -733,13 +729,13 @@ select * from customer_table
 **Output**
 ```
 ===========================================
-PersonID	Name	LastModifytime
+PersonID    Name    LastModifytime
 ===========================================
-1	        John	2017-09-01 00:56:00.000
-2	        Mike	2017-09-02 05:23:00.000
-3	        Alice	2017-09-03 02:36:00.000
-4	        Andy	2017-09-04 03:21:00.000
-5	        Anny	2017-09-05 08:06:00.000
+1           John    2017-09-01 00:56:00.000
+2           Mike    2017-09-02 05:23:00.000
+3           Alice   2017-09-03 02:36:00.000
+4           Andy    2017-09-04 03:21:00.000
+5           Anny    2017-09-05 08:06:00.000
 ```
 
 **Query**
@@ -752,11 +748,11 @@ select * from project_table
 
 ```
 ===================================
-Project	    Creationtime
+Project     Creationtime
 ===================================
-project1	2015-01-01 00:00:00.000
-project2	2016-02-02 01:23:00.000
-project3	2017-03-04 05:16:00.000
+project1    2015-01-01 00:00:00.000
+project2    2016-02-02 01:23:00.000
+project3    2017-03-04 05:16:00.000
 ```
 
 **Query**
@@ -769,10 +765,10 @@ select * from watermarktable
 
 ```
 ======================================
-TableName	    WatermarkValue
+TableName       WatermarkValue
 ======================================
-customer_table	2017-09-05 08:06:00.000
-project_table	2017-03-04 05:16:00.000
+customer_table  2017-09-05 08:06:00.000
+project_table   2017-03-04 05:16:00.000
 ```
 
 Notice that the watermark values for both tables were updated. 
@@ -819,13 +815,13 @@ select * from customer_table
 **Output**
 ```
 ===========================================
-PersonID	Name	LastModifytime
+PersonID    Name    LastModifytime
 ===========================================
-1	        John	2017-09-01 00:56:00.000
-2	        Mike	2017-09-02 05:23:00.000
-3	        NewName	2017-09-08 00:00:00.000
-4	        Andy	2017-09-04 03:21:00.000
-5	        Anny	2017-09-05 08:06:00.000
+1           John    2017-09-01 00:56:00.000
+2           Mike    2017-09-02 05:23:00.000
+3           NewName 2017-09-08 00:00:00.000
+4           Andy    2017-09-04 03:21:00.000
+5           Anny    2017-09-05 08:06:00.000
 ```
 
 Notice the new values of **Name** and **LastModifytime** for the **PersonID** for number 3. 
@@ -840,12 +836,12 @@ select * from project_table
 
 ```
 ===================================
-Project	    Creationtime
+Project     Creationtime
 ===================================
-project1	2015-01-01 00:00:00.000
-project2	2016-02-02 01:23:00.000
-project3	2017-03-04 05:16:00.000
-NewProject	2017-10-01 00:00:00.000
+project1    2015-01-01 00:00:00.000
+project2    2016-02-02 01:23:00.000
+project3    2017-03-04 05:16:00.000
+NewProject  2017-10-01 00:00:00.000
 ```
 
 Notice that the **NewProject** entry was added to project_table. 
@@ -860,14 +856,14 @@ select * from watermarktable
 
 ```
 ======================================
-TableName	    WatermarkValue
+TableName       WatermarkValue
 ======================================
-customer_table	2017-09-08 00:00:00.000
-project_table	2017-10-01 00:00:00.000
+customer_table  2017-09-08 00:00:00.000
+project_table   2017-10-01 00:00:00.000
 ```
 
 Notice that the watermark values for both tables were updated.
-     
+
 ## Next steps
 You performed the following steps in this tutorial: 
 

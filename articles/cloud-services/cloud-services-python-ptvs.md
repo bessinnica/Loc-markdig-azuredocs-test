@@ -25,8 +25,8 @@ This article provides an overview of using Python web and worker roles using [Py
 * [Visual Studio 2013, 2015, or 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] or  
-[Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] or  
-[Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
+  [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] or  
+  [Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.5 32-bit][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]

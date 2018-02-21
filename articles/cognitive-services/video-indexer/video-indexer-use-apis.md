@@ -22,28 +22,28 @@ This article shows how the developers can take advantage of the [Video Indexer A
 
 1. Sign in.
 
-	To start developing with Video Indexer, you must first Sign In to the [Video Indexer](https://videobreakdown.portal.azure-api.net) portal. 
-	
-	![Sign up](./media/video-indexer-use-apis/video-indexer-api01.png)
+    To start developing with Video Indexer, you must first Sign In to the [Video Indexer](https://videobreakdown.portal.azure-api.net) portal. 
+    
+    ![Sign up](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-	If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) you must go through two preliminary steps: 
-	
-	1. 	Contact us at visupport@microsoft.com to register your AAD organization’s domain (contoso.onmicrosoft.com).
-	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. To do this, the organization's admin must navigate to https://videobreakdown.portal.azure-api.net/signin-callback?provider=Aad, sign in and give consent.
-	
+    If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) you must go through two preliminary steps: 
+    
+    1.  Contact us at visupport@microsoft.com to register your AAD organization’s domain (contoso.onmicrosoft.com).
+    2.  Your AAD organization’s admin must first sign in to grant the portal permissions to your org. To do this, the organization's admin must navigate to https://videobreakdown.portal.azure-api.net/signin-callback?provider=Aad, sign in and give consent.
+    
 2. Subscribe.
 
-	Select the [Products](https://videobreakdown.portal.azure-api.net/products) tab. Then, select Production and subscribe. 
-	
-	![Sign up](./media/video-indexer-use-apis/video-indexer-api02.png)
-	
-	Once you subscribe, you will be able to see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
+    Select the [Products](https://videobreakdown.portal.azure-api.net/products) tab. Then, select Production and subscribe. 
+    
+    ![Sign up](./media/video-indexer-use-apis/video-indexer-api02.png)
+    
+    Once you subscribe, you will be able to see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
 
-	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 3.  Start developing.
  
-	You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4).
+    You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4).
 
 ## Recommendations
 

@@ -38,26 +38,28 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with three profiles. To understand profiles and rules in autoscale, review [Autoscale Best Practices](insights-autoscale-best-practices.md).  
 
-    | Profiles & Rules | Description |
-    |--- | --- |
-    | **Profile** |**Performance/metric based** |
-    | Rule |Service Bus Queue Message Count > x |
-    | Rule |Service Bus Queue Message Count < y |
-    | Rule |CPU% > n |
-    | Rule |CPU% < p |
-    | **Profile** |**Weekday morning hours (no rules)** |
-    | **Profile** |**Product Launch day (no rules)** |
+
+   |     Profiles & Rules     |                    Description                    |
+   |--------------------------|---------------------------------------------------|
+   | <strong>Profile</strong> |     <strong>Performance/metric based</strong>     |
+   |           Rule           |        Service Bus Queue Message Count > x        |
+   |           Rule           |        Service Bus Queue Message Count < y        |
+   |           Rule           |                     CPU% > n                      |
+   |           Rule           |                     CPU% < p                      |
+   | <strong>Profile</strong> | <strong>Weekday morning hours (no rules)</strong> |
+   | <strong>Profile</strong> |  <strong>Product Launch day (no rules)</strong>   |
+
 
 4. Here is a hypothetical scaling scenario that we use for this walk-through.
 
-    * **Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set.*
-    * **Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold.*
-    * **Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time.*
-    * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.*
-    * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
+   * **Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set.*
+   * **Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold.*
+   * **Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time.*
+   * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.*
+   * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
 
-    Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](insights-autoscale-best-practices.md) article.
-    For a list of common metrics for autoscale, refer [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
+     Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](insights-autoscale-best-practices.md) article.
+     For a list of common metrics for autoscale, refer [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
 
 5. Make sure you are on the **Read/Write** mode in Resource Explorer
 
@@ -229,7 +231,6 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
         ]
       }
     ]
-
    ```
 
    Hit **Put** button in Resource Explorer to update the autoscale setting.

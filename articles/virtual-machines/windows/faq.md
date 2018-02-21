@@ -110,6 +110,7 @@ The following usernames are not allowed:
     </tr>
 </table>
 
+
 ## What are the password requirements when creating a VM?
 Passwords must be 12 - 123 characters in length and meet 3 out of the following 4 complexity requirements:
 
@@ -124,12 +125,12 @@ The following passwords are not allowed:
     <tr>
         <td>abc@123 </td>
         <td>P@$$w0rd </td>
-        <td>P@ssw0rd </td>
-        <td>P@ssword123 </td>
+        <td>P<xref href="ssw0rd" data-throw-if-not-resolved="False" data-raw-source="@ssw0rd"></xref> </td>
+        <td>P<xref href="ssword123" data-throw-if-not-resolved="False" data-raw-source="@ssword123"></xref> </td>
         <td>Pa$$word </td>
     </tr>
     <tr>
-        <td>pass@word1 </td>
+        <td>pass<xref href="word1" data-throw-if-not-resolved="False" data-raw-source="@word1"></xref> </td>
         <td>Password! </td>
         <td>Password1 </td>
         <td>Password22 </td>

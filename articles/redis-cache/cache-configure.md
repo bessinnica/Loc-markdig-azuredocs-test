@@ -40,30 +40,30 @@ You can view and configure the following settings using the **Resource Menu**.
 * [Tags](#tags)
 * [Diagnose and solve problems](#diagnose-and-solve-problems)
 * [Settings](#settings)
-	* [Access keys](#access-keys)
-	* [Advanced settings](#advanced-settings)
-	* [Redis Cache Advisor](#redis-cache-advisor)
-	* [Scale](#scale)
-	* [Redis cluster size](#cluster-size)
-	* [Redis data persistence](#redis-data-persistence)
-	* [Schedule updates](#schedule-updates)
-	* [Geo-replication](#geo-replication)
-	* [Virtual Network](#virtual-network)
-	* [Firewall](#firewall)
-	* [Properties](#properties)
-	* [Locks](#locks)
-	* [Automation script](#automation-script)
+    * [Access keys](#access-keys)
+    * [Advanced settings](#advanced-settings)
+    * [Redis Cache Advisor](#redis-cache-advisor)
+    * [Scale](#scale)
+    * [Redis cluster size](#cluster-size)
+    * [Redis data persistence](#redis-data-persistence)
+    * [Schedule updates](#schedule-updates)
+    * [Geo-replication](#geo-replication)
+    * [Virtual Network](#virtual-network)
+    * [Firewall](#firewall)
+    * [Properties](#properties)
+    * [Locks](#locks)
+    * [Automation script](#automation-script)
 * [Administration](#administration)
-	* [Import data](#importexport)
-	* [Export data](#importexport)
-	* [Reboot](#reboot)
+    * [Import data](#importexport)
+    * [Export data](#importexport)
+    * [Reboot](#reboot)
 * [Monitoring](#monitoring)
-	* [Redis metrics](#redis-metrics)
-	* [Alert rules](#alert-rules)
-	* [Diagnostics](#diagnostics)
+    * [Redis metrics](#redis-metrics)
+    * [Alert rules](#alert-rules)
+    * [Diagnostics](#diagnostics)
 * [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
-	* [Resource health](#resource-health)
-	* [New support request](#new-support-request)
+    * [Resource health](#resource-health)
+    * [New support request](#new-support-request)
 
 
 ## Overview
@@ -126,6 +126,7 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
+
 #### Memory policies
 The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache.
 
@@ -167,6 +168,7 @@ For more information, see [Redis Keyspace Notifications](http://redis.io/topics/
 
 
 <a name="recommendations"></a>
+
 ## Redis Cache Advisor
 The **Redis Cache Advisor** blade displays recommendations for your cache. During normal operations, no recommendations are displayed. 
 
@@ -200,6 +202,7 @@ Click **Scale** to view or change the pricing tier for your cache. For more info
 ![Redis Cache pricing tier](./media/cache-configure/pricing-tier.png)
 
 <a name="cluster-size"></a>
+
 
 ### Redis Cluster Size
 Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running premium cache with clustering enabled.

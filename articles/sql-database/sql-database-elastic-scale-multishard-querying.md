@@ -66,4 +66,3 @@ Multi-shard queries do not verify whether shardlets on the queried database are 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-

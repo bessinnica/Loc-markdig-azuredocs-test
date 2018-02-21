@@ -61,10 +61,10 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
 3. Add the following **appSettings** section to the App.config file:
    
         <appSettings>
-		  <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-		  <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		  <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
-		  <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+          <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+          <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+          <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
+          <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
         </appSettings>
 
     Replace values for **SubscriptionId** and **ActiveDirectoryTenantId** with your Azure subscription and tenant IDs. You can get these values by running the following Azure PowerShell cmdlet:

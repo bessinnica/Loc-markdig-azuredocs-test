@@ -241,33 +241,33 @@ The following table provides a high-level overview of the major schema elements 
 
 ```json
 {
-	"properties": {
-		"name": "MyTrigger",
-		"type": "ScheduleTrigger",
-		"typeProperties": {
-			"recurrence": {
-				"frequency": "Hour",
-				"interval": 1,
-				"startTime": "2017-11-01T09:00:00-08:00",
-				"endTime": "2017-11-02T22:00:00-08:00"
-			}
-		},
-		"pipelines": [{
-				"pipelineReference": {
-					"type": "PipelineReference",
-					"referenceName": "SQLServerToBlobPipeline"
-				},
-				"parameters": {}
-			},
-			{
-				"pipelineReference": {
-					"type": "PipelineReference",
-					"referenceName": "SQLServerToAzureSQLPipeline"
-				},
-				"parameters": {}
-			}
-		]
-	}
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
 }
 ```
 

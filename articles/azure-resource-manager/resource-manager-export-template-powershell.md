@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export Resource Manager template with Azure PowerShell | Microsoft Docs
 description: Use Azure Resource Manager and Azure PowerShell to export a template from a resource group.
 services: azure-resource-manager
@@ -40,7 +40,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 
 ## Save template from deployment history
 
-You can retrieve a template from your deployment history by using the [Save-​Azure​Rm​Resource​Group​Deployment​Template](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) command. The following example saves the template that you previously deploy:
+You can retrieve a template from your deployment history by using the [Save- Azure Rm Resource Group Deployment Template](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) command. The following example saves the template that you previously deploy:
 
 ```powershell
 Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
@@ -58,7 +58,7 @@ Open the file, and notice that it is the exact template you used for deployment.
 
 ## Export resource group as template
 
-Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [Export-​Azure​Rm​Resource​Group](/powershell/module/azurerm.resources/export-azurermresourcegroup) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes.
+Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [Export- Azure Rm Resource Group](/powershell/module/azurerm.resources/export-azurermresourcegroup) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes.
 
 ```powershell
 Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup

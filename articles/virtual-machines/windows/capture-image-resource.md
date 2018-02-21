@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a managed image in Azure | Microsoft Docs
 description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
 services: virtual-machines-windows
@@ -73,53 +73,53 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 1. Create some variables.
 
     ```azurepowershell-interactive
-	$vmName = "myVM"
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$imageName = "myImage"
-	```
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $imageName = "myImage"
+    ```
 2. Make sure the VM has been deallocated.
 
     ```azurepowershell-interactive
-	Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-	```
-	
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```
+    
 3. Set the status of the virtual machine to **Generalized**. 
    
     ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
-	```
-	
+    ```
+    
 4. Get the virtual machine. 
 
     ```azurepowershell-interactive
-	$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
-	```
+    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
+    ```
 
 5. Create the image configuration.
 
     ```azurepowershell-interactive
-	$image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
-	```
+    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
+    ```
 6. Create the image.
 
     ```azurepowershell-interactive
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
-    ```	
-## Create an image from a managed disk using PowerShell
+    ``` 
+   ## Create an image from a managed disk using PowerShell
 
 If you only want to create an image of the OS disk, you can also create an image by specifying the managed disk ID as the OS disk.
 
-	
+    
 1. Create some variables. 
 
     ```azurepowershell-interactive
-	$vmName = "myVM"
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$snapshotName = "mySnapshot"
-	$imageName = "myImage"
-	```
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $snapshotName = "mySnapshot"
+    $imageName = "myImage"
+    ```
 
 2. Get the VM.
 
@@ -130,36 +130,36 @@ If you only want to create an image of the OS disk, you can also create an image
 3. Get the ID of the managed disk.
 
     ```azurepowershell-interactive
-	$diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
-	```
+    $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
+    ```
    
 3. Create the image configuration.
 
     ```azurepowershell-interactive
-	$imageConfig = New-AzureRmImageConfig -Location $location
-	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
-	```
-	
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    ```
+    
 4. Create the image.
 
     ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```	
+    ``` 
 
 
 ## Create an image from a snapshot using Powershell
 
 You can create a managed image from a snapshot of a generalized VM.
 
-	
+    
 1. Create some variables. 
 
     ```azurepowershell-interactive
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$snapshotName = "mySnapshot"
-	$imageName = "myImage"
-	```
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $snapshotName = "mySnapshot"
+    $imageName = "myImage"
+    ```
 
 2. Get the snapshot.
 
@@ -170,50 +170,50 @@ You can create a managed image from a snapshot of a generalized VM.
 3. Create the image configuration.
 
     ```azurepowershell-interactive
-	$imageConfig = New-AzureRmImageConfig -Location $location
-	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
-	```
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    ```
 4. Create the image.
 
     ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```	
+    ``` 
 
 
 ## Create image from a VHD in a storage account
 
-Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the format https://*mystorageaccount*.blob.core.windows.net/*container*/*vhd_filename.vhd*. In this example, the VHD that we are using is in *mystorageaccount* in a container named *vhdcontainer* and the VHD filename is *osdisk.vhd*.
+Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the format https://<em>mystorageaccount</em>.blob.core.windows.net/<em>container</em>/<em>vhd_filename.vhd</em>. In this example, the VHD that we are using is in <em>mystorageaccount</em> in a container named <em>vhdcontainer</em> and the VHD filename is <em>osdisk.vhd</em>.
 
 
 1.  First, set the common parameters:
 
     ```azurepowershell-interactive
-	$vmName = "myVM"
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$imageName = "myImage"
-	$osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $imageName = "myImage"
+    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
     ```
 2. Step\deallocate the VM.
 
     ```azurepowershell-interactive
-	Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-	```
-	
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```
+    
 3. Mark the VM as generalized.
 
     ```azurepowershell-interactive
-	Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized	
-	```
+    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    ```
 4.  Create the image using your generalized OS VHD.
 
     ```azurepowershell-interactive
-	$imageConfig = New-AzureRmImageConfig -Location $location
-	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
-	
+    
 ## Next steps
-- Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).	
+- Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 

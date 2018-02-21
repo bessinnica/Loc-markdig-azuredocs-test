@@ -49,7 +49,7 @@ hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
 #   (remember to stop it later!)
- 
+
 sparkCC        <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort, persistentRun=TRUE)
 
 # create working directories 
@@ -133,7 +133,7 @@ The following code reads each of the hourly raw weather data files, subsets to t
 adjustTime <- function(dataList)
 {
   dataset0 <- as.data.frame(dataList)
-  
+
   dataset1 <- base::merge(dataset0, wbanToAirIDAndTZDF1, by = "WBAN")
 
   if(nrow(dataset1) == 0) {
@@ -150,31 +150,31 @@ adjustTime <- function(dataList)
       AdjustedHour = integer(0),
       AirportID = integer(0)
     )
-    
+
     return(dataset1)
   }
-  
+
   Year <- as.integer(substr(dataset1$Date, 1, 4))
   Month <- as.integer(substr(dataset1$Date, 5, 6))
   Day <- as.integer(substr(dataset1$Date, 7, 8))
-  
+
   Time <- dataset1$Time
   Hour <- ceiling(Time/100)
-  
+
   Timezone <- as.integer(dataset1$TimeZone)
-  
+
   adjustdate = as.POSIXlt(sprintf("%4d-%02d-%02d %02d:00:00", Year, Month, Day, Hour), tz = "UTC") + Timezone * 3600
 
   AdjustedYear = as.POSIXlt(adjustdate)$year + 1900
   AdjustedMonth = as.POSIXlt(adjustdate)$mon + 1
   AdjustedDay   = as.POSIXlt(adjustdate)$mday
   AdjustedHour  = as.POSIXlt(adjustdate)$hour
-  
+
   AirportID = dataset1$AirportID
   Weather = dataset1[,c("Visibility", "DryBulbCelsius", "DewPointCelsius", "RelativeHumidity", "WindSpeed", "Altimeter")]
-  
+
   data.set = data.frame(cbind(AdjustedYear, AdjustedMonth, AdjustedDay, AdjustedHour, AirportID, Weather))
-  
+
   return(data.set)
 }
 
@@ -440,7 +440,6 @@ rxGetInfo(destData, getVarInfo = T)
 # Var 22: DewPointCelsiusDest, Type: numeric, Low/High: (-43.0000, 29.0000)
 
 finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
-
 ```
 
 ## Splitting data for training and test

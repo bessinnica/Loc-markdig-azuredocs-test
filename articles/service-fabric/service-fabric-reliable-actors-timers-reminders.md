@@ -203,7 +203,6 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
         }
         return CompletableFuture.completedFuture(true);
     }
-
 ```
 
 When a reminder is triggered, the Reliable Actors runtime will invoke the  `ReceiveReminderAsync`(C#) or `receiveReminderAsync`(Java) method on the Actor. An actor can register multiple reminders, and the `ReceiveReminderAsync`(C#) or `receiveReminderAsync`(Java) method is invoked when any of those reminders is triggered. The actor can use the reminder name that is passed in to the `ReceiveReminderAsync`(C#) or `receiveReminderAsync`(Java) method to figure out which reminder was triggered.

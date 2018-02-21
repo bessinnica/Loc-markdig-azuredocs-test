@@ -66,9 +66,9 @@ The following examples demonstrate various scenarios for copying data to and fro
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
-	--destination /mnt/myfiles/abc.txt \
-	--source-key <key> 
+    --source https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key> 
 ```
 
 If the folder `/mnt/myfiles` does not exist, AzCopy creates it and downloads `abc.txt ` into the new folder. 
@@ -77,9 +77,9 @@ If the folder `/mnt/myfiles` does not exist, AzCopy creates it and downloads `ab
 
 ```azcopy
 azcopy \
-	--source https://myaccount-secondary.blob.core.windows.net/mynewcontainer/abc.txt \
-	--destination /mnt/myfiles/abc.txt \
-	--source-key <key>
+    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Note that you must have read-access geo-redundant storage enabled.
@@ -88,10 +88,10 @@ Note that you must have read-access geo-redundant storage enabled.
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer \
-	--destination /mnt/myfiles \
-	--source-key <key> \
-	--recursive
+    --source https://myaccount.blob.core.windows.net/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
 ```
 
 Assume the following blobs reside in the specified container:  
@@ -120,11 +120,11 @@ If you do not specify option `--recursive`, no blob will be downloaded.
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer \
-	--destination /mnt/myfiles \
-	--source-key <key> \
-	--include "a" \
-	--recursive
+    --source https://myaccount.blob.core.windows.net/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --include "a" \
+    --recursive
 ```
 
 Assume the following blobs reside in the specified container. All blobs beginning with the prefix `a` are downloaded.
@@ -152,32 +152,32 @@ The prefix applies to the virtual directory, which forms the first part of the b
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer \
-	--destination "/mnt/myfiles" \
-	--source-key <key> \
-	--preserve-last-modified-time
+    --source https://myaccount.blob.core.windows.net/mycontainer \
+    --destination "/mnt/myfiles" \
+    --source-key <key> \
+    --preserve-last-modified-time
 ```
 
 You can also exclude blobs from the download operation based on their last-modified time. For example, if you want to exclude blobs whose last modified time is the same or newer than the destination file, add the `--exclude-newer` option:
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer \
-	--destination /mnt/myfiles \
-	--source-key <key> \
-	--preserve-last-modified-time \
-	--exclude-newer
+    --source https://myaccount.blob.core.windows.net/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --preserve-last-modified-time \
+    --exclude-newer
 ```
 
 Or if you want to exclude blobs whose last modified time is the same or older than the destination file, add the `--exclude-older` option:
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer \
-	--destination /mnt/myfiles \
-	--source-key <key> \
-	--preserve-last-modified-time \
-	--exclude-older
+    --source https://myaccount.blob.core.windows.net/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --preserve-last-modified-time \
+    --exclude-older
 ```
 
 ## Blob: Upload
@@ -185,9 +185,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles/abc.txt \
-	--destination https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
-	--dest-key <key>
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --dest-key <key>
 ```
 
 If the specified destination container does not exist, AzCopy creates it and uploads the file into it.
@@ -196,9 +196,9 @@ If the specified destination container does not exist, AzCopy creates it and upl
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles/abc.txt \
-	--destination https://myaccount.blob.core.windows.net/mycontainer/vd/abc.txt \
-	--dest-key <key>
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/vd/abc.txt \
+    --dest-key <key>
 ```
 
 If the specified virtual directory does not exist, AzCopy uploads the file to include the virtual directory in the blob name (*e.g.*, `vd/abc.txt` in the example above).
@@ -207,10 +207,10 @@ If the specified virtual directory does not exist, AzCopy uploads the file to in
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.blob.core.windows.net/mycontainer \
-	--dest-key <key> \
-	--recursive
+    --source /mnt/myfiles \
+    --destination https://myaccount.blob.core.windows.net/mycontainer \
+    --dest-key <key> \
+    --recursive
 ```
 
 Specifying option `--recursive` uploads the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files are uploaded as well. For instance, assume the following files reside in folder `/mnt/myfiles`:
@@ -245,11 +245,11 @@ abc2.txt
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.blob.core.windows.net/mycontainer \
-	--dest-key <key> \
-	--include "a*" \
-	--recursive
+    --source /mnt/myfiles \
+    --destination https://myaccount.blob.core.windows.net/mycontainer \
+    --dest-key <key> \
+    --include "a*" \
+    --recursive
 ```
 
 Assume the following files reside in folder `/mnt/myfiles`:
@@ -286,22 +286,22 @@ By default, AzCopy sets the content type of a destination blob to `application/o
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.blob.core.windows.net/myContainer/ \
-	--dest-key <key> \
-	--include "ab" \
-	--set-content-type "video/mp4"
+    --source /mnt/myfiles \
+    --destination https://myaccount.blob.core.windows.net/myContainer/ \
+    --dest-key <key> \
+    --include "ab" \
+    --set-content-type "video/mp4"
 ```
 
 If the option `--set-content-type` is specified without a value, then AzCopy sets each blob or file's content type according to its file extension.
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.blob.core.windows.net/myContainer/ \
-	--dest-key <key> \
-	--include "ab" \
-	--set-content-type
+    --source /mnt/myfiles \
+    --destination https://myaccount.blob.core.windows.net/myContainer/ \
+    --dest-key <key> \
+    --include "ab" \
+    --set-content-type
 ```
 
 ## Blob: Copy
@@ -309,10 +309,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
-	--destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
-	--source-key <key> \
-	--dest-key <key>
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
+    --source-key <key> \
+    --dest-key <key>
 ```
 
 When you copy a blob without --sync-copy option, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
@@ -321,10 +321,10 @@ When you copy a blob without --sync-copy option, a [server-side copy](http://blo
 
 ```azcopy
 azcopy \
-	--source https://sourceaccount.blob.core.windows.net/mycontainer1/abc.txt \
-	--destination https://destaccount.blob.core.windows.net/mycontainer2/abc.txt \
-	--source-key <key1> \
-	--dest-key <key2>
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/abc.txt \
+    --source-key <key1> \
+    --dest-key <key2>
 ```
 
 When you copy a blob without --sync-copy option, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
@@ -333,10 +333,10 @@ When you copy a blob without --sync-copy option, a [server-side copy](http://blo
 
 ```azcopy
 azcopy \
-	--source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1/abc.txt \
-	--destination https://myaccount2.blob.core.windows.net/mynewcontainer2/abc.txt \
-	--source-key <key1> \
-	--dest-key <key2>
+    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1/abc.txt \
+    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2/abc.txt \
+    --source-key <key1> \
+    --dest-key <key2>
 ```
 
 Note that you must have read-access geo-redundant storage enabled.
@@ -345,12 +345,12 @@ Note that you must have read-access geo-redundant storage enabled.
 
 ```azcopy
 azcopy \
-	--source https://sourceaccount.blob.core.windows.net/mycontainer1/ \
-	--destination https://destaccount.blob.core.windows.net/mycontainer2/ \
-	--source-key <key1> \
-	--dest-key <key2> \
-	--include "abc.txt" \
-	--include-snapshot
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/ \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --include-snapshot
 ```
 
 After the copy operation, the target container includes the blob and its snapshots. The container includes the following blob and its snapshots:
@@ -368,12 +368,12 @@ The `--sync-copy` option ensures that the copy operation gets consistent speed. 
 
 ```azcopy
 azcopy \
-	--source https://myaccount1.blob.core.windows.net/myContainer/ \
-	--destination https://myaccount2.blob.core.windows.net/myContainer/ \
-	--source-key <key1> \
-	--dest-key <key2> \
-	--include "ab" \
-	--sync-copy
+    --source https://myaccount1.blob.core.windows.net/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "ab" \
+    --sync-copy
 ```
 
 `--sync-copy` might generate additional egress cost compared to asynchronous copy. The recommended approach is to use this option in an Azure VM, that is in the same region as your source storage account to avoid egress cost.
@@ -383,9 +383,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-	--source https://myaccount.file.core.windows.net/myfileshare/myfolder1/abc.txt \
-	--destination /mnt/myfiles/abc.txt \
-	--source-key <key>
+    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 If the specified source is an Azure file share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to download a single file, or specify option `--recursive` to download all files in the share recursively. Attempting to specify both a file pattern and option `--recursive` together results in an error.
@@ -394,10 +394,10 @@ If the specified source is an Azure file share, then you must either specify the
 
 ```azcopy
 azcopy \
-	--source https://myaccount.file.core.windows.net/myfileshare/ \
-	--destination /mnt/myfiles \
-	--source-key <key> \
-	--recursive
+    --source https://myaccount.file.core.windows.net/myfileshare/ \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
 ```
 
 Note that any empty folders are not downloaded.
@@ -407,19 +407,19 @@ Note that any empty folders are not downloaded.
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles/abc.txt \
-	--destination https://myaccount.file.core.windows.net/myfileshare/abc.txt \
-	--dest-key <key>
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.file.core.windows.net/myfileshare/abc.txt \
+    --dest-key <key>
 ```
 
 ### Upload all files
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.file.core.windows.net/myfileshare/ \
-	--dest-key <key> \
-	--recursive
+    --source /mnt/myfiles \
+    --destination https://myaccount.file.core.windows.net/myfileshare/ \
+    --dest-key <key> \
+    --recursive
 ```
 
 Note that any empty folders are not uploaded.
@@ -428,11 +428,11 @@ Note that any empty folders are not uploaded.
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.file.core.windows.net/myfileshare/ \
-	--dest-key <key> \
-	--include "ab*" \
-	--recursive
+    --source /mnt/myfiles \
+    --destination https://myaccount.file.core.windows.net/myfileshare/ \
+    --dest-key <key> \
+    --include "ab*" \
+    --recursive
 ```
 
 ## File: Copy
@@ -440,11 +440,11 @@ azcopy \
 
 ```azcopy
 azcopy \
-	--source https://myaccount1.file.core.windows.net/myfileshare1/ \
-	--destination https://myaccount2.file.core.windows.net/myfileshare2/ \
-	--source-key <key1> \
-	--dest-key <key2> \
-	--recursive
+    --source https://myaccount1.file.core.windows.net/myfileshare1/ \
+    --destination https://myaccount2.file.core.windows.net/myfileshare2/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --recursive
 ```
 When you copy a file across file shares, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
@@ -452,11 +452,11 @@ When you copy a file across file shares, a [server-side copy](http://blogs.msdn.
 
 ```azcopy
 azcopy \ 
-	--source https://myaccount1.file.core.windows.net/myfileshare/ \
-	--destination https://myaccount2.blob.core.windows.net/mycontainer/ \
-	--source-key <key1> \
-	--dest-key <key2> \
-	--recursive
+    --source https://myaccount1.file.core.windows.net/myfileshare/ \
+    --destination https://myaccount2.blob.core.windows.net/mycontainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --recursive
 ```
 When you copy a file from file share to blob, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
@@ -464,11 +464,11 @@ When you copy a file from file share to blob, a [server-side copy](http://blogs.
 
 ```azcopy
 azcopy \
-	--source https://myaccount1.blob.core.windows.net/mycontainer/ \
-	--destination https://myaccount2.file.core.windows.net/myfileshare/ \
-	--source-key <key1> \
-	--dest-key <key2> \
-	--recursive
+    --source https://myaccount1.blob.core.windows.net/mycontainer/ \
+    --destination https://myaccount2.file.core.windows.net/myfileshare/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --recursive
 ```
 When you copy a file from blob to file share, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
@@ -477,12 +477,12 @@ You can specify the `--sync-copy` option to copy data from File Storage to File 
 
 ```azcopy
 azcopy \
-	--source https://myaccount1.file.core.windows.net/myfileshare1/ \
-	--destination https://myaccount2.file.core.windows.net/myfileshare2/ \
-	--source-key <key1> \
-	--dest-key <key2> \
-	--recursive \
-	--sync-copy
+    --source https://myaccount1.file.core.windows.net/myfileshare1/ \
+    --destination https://myaccount2.file.core.windows.net/myfileshare2/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --recursive \
+    --sync-copy
 ```
 
 When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option `--blob-type page` to change the destination blob type. Available types are `page | block | append`.
@@ -532,19 +532,19 @@ AzCopy fails if you split the parameter across two lines, as shown here for the 
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
-	--destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
-	--source-sas <SAS1> \
-	--dest-sas <SAS2>
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
+    --source-sas <SAS1> \
+    --dest-sas <SAS2>
 ```
 
 You can also specify a SAS on the container URI:
 
 ```azcopy
 azcopy \
-	--source https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken \
-	--destination /mnt/myfiles \
-	--recursive
+    --source https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken \
+    --destination /mnt/myfiles \
+    --recursive
 ```
 
 ### Journal file folder
@@ -556,10 +556,10 @@ If you want to use the default location for the journal file:
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.blob.core.windows.net/mycontainer \
-	--dest-key <key> \
-	--resume
+    --source /mnt/myfiles \
+    --destination https://myaccount.blob.core.windows.net/mycontainer \
+    --dest-key <key> \
+    --resume
 ```
 
 If you omit option `--resume`, or specify option `--resume` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `~\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file.
@@ -568,10 +568,10 @@ If you want to specify a custom location for the journal file:
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.blob.core.windows.net/mycontainer \
-	--dest-key key \
-	--resume "/mnt/myjournal"
+    --source /mnt/myfiles \
+    --destination https://myaccount.blob.core.windows.net/mycontainer \
+    --dest-key key \
+    --resume "/mnt/myjournal"
 ```
 
 This example creates the journal file if it does not already exist. If it does exist, then AzCopy resumes the operation based on the journal file.
@@ -586,10 +586,10 @@ Incomplete operation with same command line detected at the journal directory "/
 
 ```azcopy
 azcopy \
-	--source /mnt/myfiles \
-	--destination https://myaccount.blob.core.windows.net/mycontainer \
-	--dest-key <key> \
-	--verbose
+    --source /mnt/myfiles \
+    --destination https://myaccount.blob.core.windows.net/mycontainer \
+    --dest-key <key> \
+    --verbose
 ```
 
 ### Specify the number of concurrent operations to start

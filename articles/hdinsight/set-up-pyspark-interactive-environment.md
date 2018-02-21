@@ -31,18 +31,18 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
  
     ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.	Install Jupyter.
-    ```
-    sudo pip install jupyter
-    ```
+2. Install Jupyter.
+   ```
+   sudo pip install jupyter
+   ```
    You might see the following error message on Linux and macOS:
 
    ![Error 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
    ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+   sudo pip uninstall asyncio
+   sudo pip install trollies
+   ```
 
 3. Install **libkrb5-dev** (for Linux only). You might see the following error message:
 
@@ -52,23 +52,23 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
    sudo apt-get install libkrb5-dev 
    ```
 
-3. Install **sparkmagic**.
+4. Install **sparkmagic**.
    ```
    sudo pip install sparkmagic
    ```
 
-4. Make sure that **ipywidgets** is properly installed by running the following:
+5. Make sure that **ipywidgets** is properly installed by running the following:
    ```
    sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
    ```
    ![Install the wrapper kernels](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5. Install the wrapper kernels. Run **pip show sparkmagic**. The output shows the path for the **sparkmagic** installation. 
+6. Install the wrapper kernels. Run **pip show sparkmagic**. The output shows the path for the **sparkmagic** installation. 
 
     ![sparkmagic location](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
-6. Go to the location, and then run:
+7. Go to the location, and then run:
 
    ```Python2
    sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
@@ -78,7 +78,7 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
    ```
 
    ![jupyter kernelspec install](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Check the installation status.
+8. Check the installation status.
 
     ```
     jupyter-kernelspec list
@@ -89,7 +89,7 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
     - **python2** and **pysparkkernel** correspond to **python 2.x**. 
     - **python3** and **pyspark3kernel** correspond to **python 3.x**. 
 
-8. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
+9. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
 
 ## Next steps
 

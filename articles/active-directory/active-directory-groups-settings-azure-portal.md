@@ -33,7 +33,7 @@ This article explains how to change the settings for a group in Azure Active Dir
 
    ![Opening the all groups blade](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. On the **Users and groups - All groups** blade, select a group.
-5. On the **Group - *groupname*** blade, select **Properties**.
+5. On the <strong>Group - *groupname</strong>* blade, select <strong>Properties</strong>.
 
    ![Opening the Properties blade](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. When you finish changing properties for the group, select **Save**.    

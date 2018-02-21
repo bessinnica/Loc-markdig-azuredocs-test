@@ -147,15 +147,15 @@ The job gets its input from the CSV file that you uploaded earlier to blob stora
 
 3. Fill out the **New input** blade with these values:
 
-    * **Input alias**: Use the name `datainput`.
-    * **Source type**: Select **Data stream**.
-    * **Source**: Select **Blob storage**.
-    * **Import option**: Select **Use blob storage from current subscription**. 
-    * **Storage account**. Select the storage account you created earlier.
-    * **Container**. Select the container you created earlier (`azuresamldemoblob`).
-    * **Event serialization format**. Select **CSV**.
+   * **Input alias**: Use the name `datainput`.
+   * **Source type**: Select **Data stream**.
+   * **Source**: Select **Blob storage**.
+   * **Import option**: Select **Use blob storage from current subscription**. 
+   * **Storage account**. Select the storage account you created earlier.
+   * **Container**. Select the container you created earlier (`azuresamldemoblob`).
+   * **Event serialization format**. Select **CSV**.
 
-    ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+     ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
 4. Click **Create**.
 
@@ -194,12 +194,12 @@ In this section of the tutorial, you define a function in the Stream Analysis jo
 
 4. Enter `sentiment` as the function alias and fill out the rest of the blade using these values:
 
-    * **Function type**: Select **Azure ML**.
-    * **Import option**: Select **Import from a different subscription**. This gives you a chance to enter the URL and key.
-    * **URL**: Paste in the web service URL.
-    * **Key**: Paste in the API key.
+   * **Function type**: Select **Azure ML**.
+   * **Import option**: Select **Import from a different subscription**. This gives you a chance to enter the URL and key.
+   * **URL**: Paste in the web service URL.
+   * **Key**: Paste in the API key.
   
-    ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+     ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
 5. Click **Create**.
 

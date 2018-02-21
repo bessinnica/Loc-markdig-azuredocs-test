@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Microsoft Speech Service | Microsoft Docs
 description: Use Microsoft Speech Service.
 services: cognitive-services

@@ -45,7 +45,7 @@ $url = $request->getUrl();
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-    
+
     // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
 );
@@ -76,8 +76,7 @@ catch (HttpException $ex)
     echo $ex;
 }
 
-?>	
-
+?>  
 ```
 #### Face - Detect Response
 A successful response will be returned in JSON. Following is an example of a successful response: 
@@ -243,7 +242,7 @@ $url = $request->getUrl();
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-    
+
     // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
 );
@@ -272,7 +271,6 @@ catch (HttpException $ex)
 }
 
 ?>
-
 ```
 #### Face - Identify Response
 A successful response will be returned in JSON. Following is an example of a successful response: 

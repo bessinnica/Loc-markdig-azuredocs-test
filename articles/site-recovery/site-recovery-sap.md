@@ -96,20 +96,20 @@ In the diagram below the Azure Site Recovery Azure-to-Azure DR scenario is depic
 ## Doing a test failover
 Follow [this guidance](azure-to-azure-walkthrough-test-failover.md) to do a test failover.
 
-1.	Go to Azure portal and select your Recovery Services vault.
-2.	Click on the recovery plan created for SAP applications(s).
-3.	Click on 'Test Failover'.
-4.	Select recovery point and Azure virtual network to start the test failover process.
-5.	Once the secondary environment is up, you can perform your validations.
-6.	Once the validations are complete, click on ‘Cleanup test failover’ and to clean the failover environment.
+1.  Go to Azure portal and select your Recovery Services vault.
+2.  Click on the recovery plan created for SAP applications(s).
+3.  Click on 'Test Failover'.
+4.  Select recovery point and Azure virtual network to start the test failover process.
+5.  Once the secondary environment is up, you can perform your validations.
+6.  Once the validations are complete, click on ‘Cleanup test failover’ and to clean the failover environment.
 
 ## Doing a failover
 Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 
-1.	Go to Azure portal and select your Recovery Services vault.
-2.	Click on the recovery plan created for SAP application(s).
-3.	Click on 'Failover'.
-4.	Select recovery point to start the failover process.
+1.  Go to Azure portal and select your Recovery Services vault.
+2.  Click on the recovery plan created for SAP application(s).
+3.  Click on 'Failover'.
+4.  Select recovery point to start the failover process.
 
 ## Next steps
 Learn more about building a disaster recovery solution for SAP NetWeaver deployments using Azure Site Recovery in [this whitepaper](http://aka.ms/asr-sap). The whitepaper also discusses recommendations for different SAP architectures, lists supported applications and VM types for SAP on Azure, and describes possible testing plans for your disaster recovery solution.

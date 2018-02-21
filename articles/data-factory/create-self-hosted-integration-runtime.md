@@ -27,17 +27,17 @@ A self-hosted integration runtime is capable of running copy activities between 
 This document introduces how you can create and configure Self-hosted IR.
 
 ## High-level steps to install self-hosted IR
-1.	Create a Self-hosted integration runtime. Here is a PowerShell example:
+1.  Create a Self-hosted integration runtime. Here is a PowerShell example:
 
-	```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
-	```
-2.	Download and install self-hosted integration runtime (on local machine).
-3.	Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ```
+2.  Download and install self-hosted integration runtime (on local machine).
+3.  Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
-	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
-	```
+    ```powershell
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    ```
 
 ## Command flow and data flow
 When you move the data between on-premises and cloud, the activity uses a self-hosted integration runtime to transfer the data from on-premises data source to cloud and vice versa.
@@ -48,9 +48,9 @@ Here is a high-level data flow for the summary of steps for copy with self-hoste
 
 1. Data developer creates a self-hosted integration runtime within an Azure data factory using a PowerShell cmdlet. Currently, the Azure portal does not support this feature.
 2. Data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores. As part of setting up the linked service, data developer uses the ‘Credential Manager’ application (currently, not supported) for setting authentication types and credentials. The Credential manager application dialog communicates with the data store to test connection and the self-hosted integration runtime to save credentials.
-4.	Self-hosted integration runtime node encrypts the credential using Windows Data Protection Application Programming Interface (DPAPI) and saves it locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts it using DPAPI and stores it locally. Credential synchronization is transparent to the data developer and is handled by self-hosted IR.    
-5.	Data Factory service communicates with the self-hosted integration runtime for scheduling & management of jobs via **control channel** that uses a shared Azure service bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). Self-hosted integration runtime kicks off the job after polling the queue.
-6.	Self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob Storage over a secure (HTTPS) channel.
+4.  Self-hosted integration runtime node encrypts the credential using Windows Data Protection Application Programming Interface (DPAPI) and saves it locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts it using DPAPI and stores it locally. Credential synchronization is transparent to the data developer and is handled by self-hosted IR.    
+5.  Data Factory service communicates with the self-hosted integration runtime for scheduling & management of jobs via **control channel** that uses a shared Azure service bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). Self-hosted integration runtime kicks off the job after polling the queue.
+6.  Self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob Storage over a secure (HTTPS) channel.
 
 ## Considerations for using self-hosted IR
 
@@ -90,18 +90,18 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 8. Click **Finish** to complete installation.
 9. Get the Authentication key using Azure PowerShell. PowerShell example for retrieving authentication key:
 
-	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
-	```
+    ```powershell
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    ```
 11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, do the following steps:
-	1. Paste the **authentication key** in the text area.
-	2. Optionally, click **Show authentication key** to see the key text.
-	3. Click **Register**.
+    1. Paste the **authentication key** in the text area.
+    2. Optionally, click **Show authentication key** to see the key text.
+    3. Click **Register**.
 
 
 ## High Availability and Scalability
 A Self-hosted Integration Runtime can be associated to multiple on-premise machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
-1. Higher availability of Self-hosted Integration Runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
+1. Higher availability of Self-hosted Integration Runtime so that it is no longer the single point of failure in your Big Data  solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
 2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
 You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
@@ -117,7 +117,7 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
 - Each integration runtime node must trust this certificate.
-- Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
+- Wild card certificates are supported. If your FQDN name is <strong>node1.domain.contoso.com</strong>, you can use <em>**.domain.contoso.com</em>* as subject name of the certificate.
 - SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificate using CNG keys are not supported. Doesrted DoesDoes not support certificates that use CNG keys.
@@ -178,10 +178,10 @@ The integration runtime Host Service restarts automatically after you save the u
 
 After self-hosted integration runtime has been successfully registered, if you want to view or update proxy settings, use Integration Runtime Configuration Manager.
 
-1.	Launch **Microsoft Integration Runtime Configuration Manager**.
-2.	Switch to the **Settings** tab.
-3.	Click **Change** link in **HTTP Proxy** section to launch the **Set HTTP Proxy** dialog.
-4.	After you click the **Next** button, you see a warning dialog asking for your permission to save the proxy setting and restart the Integration Runtime Host Service.
+1.  Launch **Microsoft Integration Runtime Configuration Manager**.
+2.  Switch to the **Settings** tab.
+3.  Click **Change** link in **HTTP Proxy** section to launch the **Set HTTP Proxy** dialog.
+4.  After you click the **Next** button, you see a warning dialog asking for your permission to save the proxy setting and restart the Integration Runtime Host Service.
 
 You can view and update HTTP proxy by using Configuration Manager tool.
 
@@ -197,26 +197,26 @@ If you select **Use system proxy** setting for the HTTP proxy, self-hosted integ
 1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config to back up the original file.
 2. Launch Notepad.exe running as administrator, and open text file “C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config. You find the default tag for system.net as shown in the following code:
 
-	```xml
-	<system.net>
-		<defaultProxy useDefaultCredentials="true" />
-	</system.net>
-	```
-	You can then add proxy server details as shown in the following example:
+    ```xml
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
+    You can then add proxy server details as shown in the following example:
 
-	```xml
-	<system.net>
+    ```xml
+    <system.net>
         <defaultProxy enabled="true">
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
-	</system.net>
-	```
+    </system.net>
+    ```
 
-	Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. See [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) for syntax.
+    Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. See [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) for syntax.
 
-	```xml
-	<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-	```
+    ```xml
+    <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
 3. Save the configuration file into the original location, then restart the Self-hosted Integration Runtime Host service, which picks up the changes. To restart the service: use services applet from the control panel, or from the **Integration Runtime Configuration Manager** > click the **Stop Service** button, then click the **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited.
 
 > [!IMPORTANT]
@@ -227,13 +227,13 @@ In addition to these points, you also need to make sure Microsoft Azure is in yo
 ### Possible symptoms for firewall and proxy server-related issues
 If you encounter errors similar to the following ones, it is likely due to improper configuration of the firewall or proxy server, which blocks self-hosted integration runtime from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
 
-1.	When you try to register the self-hosted integration runtime, you receive the following error: "Failed to register this Integration Runtime node! Confirm that the Authentication key is valid and the Integration Service Host Service is running on this machine. "
-2.	When you open Integration Runtime Configuration Manager, you see status as “**Disconnected**” or “**Connecting**”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Microsoft Integration Runtime”, you see error messages such as the following error:
+1.  When you try to register the self-hosted integration runtime, you receive the following error: "Failed to register this Integration Runtime node! Confirm that the Authentication key is valid and the Integration Service Host Service is running on this machine. "
+2.  When you open Integration Runtime Configuration Manager, you see status as “**Disconnected**” or “**Connecting**”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Microsoft Integration Runtime”, you see error messages such as the following error:
 
-	```
-	Unable to connect to the remote server
-	A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
-	```
+    ```
+    Unable to connect to the remote server
+    A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
+    ```
 
 ### Enable Remote Access from Intranet  
 In case if you use **PowerShell** or **Credential Manager application**  to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, then you would require the **'Remote Access from Intranet'** option to be enabled. 

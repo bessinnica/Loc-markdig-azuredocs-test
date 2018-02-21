@@ -84,13 +84,13 @@ Creates the specified Service Fabric service from the description.
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug               | Increase logging verbosity to show all debug logs.|
-| --help -h             | Show this help message and exit.|
-| --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
-| --query               | JMESPath query string. For more information           and examples, see http://jmespath.org/.|
-| --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                          Description                                          |
+|-------------|-----------------------------------------------------------------------------------------------|
+|   --debug   |                      Increase logging verbosity to show all debug logs.                       |
+|  --help -h  |                               Show this help message and exit.                                |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.       |
+|   --query   | JMESPath query string. For more information           and examples, see http://jmespath.org/. |
+|  --verbose  |                 Increase logging verbosity. Use --debug for full debug logs.                  |
 
 ## sfctl service delete
 Deletes an existing Service Fabric service.
@@ -111,13 +111,13 @@ Deletes an existing Service Fabric service. A service must be created before it 
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug             | Increase logging verbosity to show all debug logs.|
-| --help -h           | Show this help message and exit.|
-| --output -o         | Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.|
-| --query             | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose           | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |  Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.   |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl service description
 Gets the description of an existing Service Fabric service.
@@ -134,13 +134,13 @@ Gets the description of an existing Service Fabric service. A service must be cr
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug             | Increase logging verbosity to show all debug logs.|
-| --help -h           | Show this help message and exit.|
-| --output -o         | Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.|
-| --query             | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose           | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |  Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.   |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl service health
 Gets the health of the specified Service Fabric service.
@@ -186,13 +186,13 @@ Returns the information about specified service belonging to the specified Servi
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug                 | Increase logging verbosity to show all debug logs.|
-| --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
-| --query                 | JMESPath query string. For more information           and examples, see http://jmespath.org/.|
-| --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                          Description                                          |
+|-------------|-----------------------------------------------------------------------------------------------|
+|   --debug   |                      Increase logging verbosity to show all debug logs.                       |
+|  --help -h  |                               Show this help message and exit.                                |
+| --output -o |     Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.      |
+|   --query   | JMESPath query string. For more information           and examples, see http://jmespath.org/. |
+|  --verbose  |                 Increase logging verbosity. Use --debug for full debug logs.                  |
 
 ## sfctl service list
 Gets the information about all services belonging to the application
@@ -212,13 +212,13 @@ Returns the information about all services belonging to the application specifie
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug                 | Increase logging verbosity to show all debug logs.|
-| --help -h               | Show this help message and exit.|
-| --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
-| --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                      |
+|-------------|--------------------------------------------------------------------------------------|
+|   --debug   |                  Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                           Show this help message and exit.                           |
+| --output -o | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json. |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/.  |
+|  --verbose  |             Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl service manifest
 Gets the manifest describing a service type.
@@ -263,13 +263,13 @@ Indicates to the Service Fabric cluster that it should attempt to recover the sp
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug             | Increase logging verbosity to show all debug logs.|
-| --help -h           | Show this help message and exit.|
-| --output -o         | Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.|
-| --query             | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose           | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |  Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.   |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl service resolve
 Resolve a Service Fabric partition.
@@ -288,13 +288,13 @@ Resolve a Service Fabric service partition, to get the endpoints of the service 
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug             | Increase logging verbosity to show all debug logs.|
-| --help -h           | Show this help message and exit.|
-| --output -o         | Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.|
-| --query             | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose           | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |  Output format.  Allowed values: json, jsonc, table, tsv.  Default:         json.   |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl service update
 Updates the specified service using the given update description.
@@ -322,13 +322,13 @@ Updates the specified service using the given update description.
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug               | Increase logging verbosity to show all debug logs.|
-| --help -h             | Show this help message and exit.|
-| --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
-| --query               | JMESPath query string. For more information           and examples, see http://jmespath.org/.|
-| --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                          Description                                          |
+|-------------|-----------------------------------------------------------------------------------------------|
+|   --debug   |                      Increase logging verbosity to show all debug logs.                       |
+|  --help -h  |                               Show this help message and exit.                                |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.       |
+|   --query   | JMESPath query string. For more information           and examples, see http://jmespath.org/. |
+|  --verbose  |                 Increase logging verbosity. Use --debug for full debug logs.                  |
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

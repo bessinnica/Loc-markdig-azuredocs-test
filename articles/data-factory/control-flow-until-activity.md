@@ -47,7 +47,6 @@ The Until activity provides the same functionality that a do-until looping struc
     },
     "name": "MyUntilActivity"
 }
-
 ```
 
 ## Type properties
@@ -113,7 +112,6 @@ In this example, the pipeline has two activities: **Until** and **Wait**. The Wa
         ]
     }
 }
-
 ```
 
 ## Example 2 
@@ -188,7 +186,6 @@ The pipeline in this sample copies data from an input folder to an output folder
         }        
     }
 }
-
 ```
 
 

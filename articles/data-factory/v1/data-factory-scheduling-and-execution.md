@@ -150,10 +150,10 @@ In the following pipeline definition, the **scheduler** property is used to spec
                         "name": "AzureBlobOutput"
                     }
                 ],
-				"scheduler": {
-					"frequency": "Hour",
-					"interval": 1
-				}
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                }
             }
         ],
         "start": "2017-04-01T08:00:00Z",
@@ -218,10 +218,10 @@ The following dataset is a monthly dataset and is produced on 3rd of every month
 
 ```json
 "availability": {
-	"frequency": "Month",
-	"interval": 1,
-	"offset": "3.08:00:00",	
-	"style": "StartOfInterval"
+    "frequency": "Month",
+    "interval": 1,
+    "offset": "3.08:00:00", 
+    "style": "StartOfInterval"
 }
 ```
 

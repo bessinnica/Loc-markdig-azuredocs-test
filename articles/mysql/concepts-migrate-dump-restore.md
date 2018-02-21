@@ -39,14 +39,14 @@ You may use MySQL utilities such as mysqldump and mysqlpump to dump and load dat
 
 ## Performance considerations
 To optimize performance, take notice of these considerations when dumping large databases:
--	Use the `exclude-triggers` option in mysqldump when dumping databases. Exclude triggers from dump files to avoid the trigger commands firing during the data restore. 
--	Use the `single-transaction` option to set the transaction isolation mode to REPEATABLE READ and sends a START TRANSACTION SQL statement to the server before dumping data. Dumping many tables within a single transaction causes some extra storage to be consumed during restore. The `single-transaction` option and the `lock-tables` option are mutually exclusive because LOCK TABLES causes any pending transactions to be committed implicitly.To dump large tables, combine the `single-transaction` option with the `quick` option. 
--	Use the `extended-insert` multiple-row syntax that includes several VALUE lists. This results in a smaller dump file and speeds up inserts when the file is reloaded.
+-   Use the `exclude-triggers` option in mysqldump when dumping databases. Exclude triggers from dump files to avoid the trigger commands firing during the data restore. 
+-   Use the `single-transaction` option to set the transaction isolation mode to REPEATABLE READ and sends a START TRANSACTION SQL statement to the server before dumping data. Dumping many tables within a single transaction causes some extra storage to be consumed during restore. The `single-transaction` option and the `lock-tables` option are mutually exclusive because LOCK TABLES causes any pending transactions to be committed implicitly.To dump large tables, combine the `single-transaction` option with the `quick` option. 
+-   Use the `extended-insert` multiple-row syntax that includes several VALUE lists. This results in a smaller dump file and speeds up inserts when the file is reloaded.
 -  Use the `order-by-primary` option in mysqldump when dumping databases, so that the data is scripted in primary key order.
--	Use the `disable-keys` option in mysqldump when dumping data, to disable foreign key constraints before load. Disabling foreign key checks provides performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
--	Use partitioned tables when appropriate.
--	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources using the metrics available in the Azure portal. 
--	Use the `defer-table-indexes` option in mysqlpump when dumping databases, so that index creation happens after tables data is loaded.
+-   Use the `disable-keys` option in mysqldump when dumping data, to disable foreign key constraints before load. Disabling foreign key checks provides performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
+-   Use partitioned tables when appropriate.
+-   Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources using the metrics available in the Azure portal. 
+-   Use the `defer-table-indexes` option in mysqlpump when dumping databases, so that index creation happens after tables data is loaded.
 
 ## Create a backup file from the command-line using mysqldump
 To back up an existing MySQL database on the local on-premises server or in a virtual machine, run the following command: 

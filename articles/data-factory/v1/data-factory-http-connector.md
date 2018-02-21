@@ -114,8 +114,8 @@ This linked service links your data factory to an on-premises HTTP web server. I
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-		    "certThumbprint": "thumbprint of certificate",
-		    "gatewayName": "gateway name"
+            "certThumbprint": "thumbprint of certificate",
+            "gatewayName": "gateway name"
 
         }
     }
@@ -135,8 +135,8 @@ This linked service links your data factory to an on-premises HTTP web server. I
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-		    "embeddedCertData": "base64 encoded cert data",
-		    "password": "password of cert"
+            "embeddedCertData": "base64 encoded cert data",
+            "password": "password of cert"
         }
     }
 }
@@ -161,14 +161,14 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ```JSON
 {
-	"name": "HttpSourceDataInput",
+    "name": "HttpSourceDataInput",
     "properties": {
-		"type": "Http",
+        "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-			"relativeUrl": "XXX/test.xml",
-	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-		},
+            "relativeUrl": "XXX/test.xml",
+            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -188,7 +188,7 @@ The **typeProperties** section is different for each type of dataset and provide
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "/XXX/test.xml",
-		   "requestMethod": "Post",
+           "requestMethod": "Post",
             "requestBody": "body for POST HTTP request"
         },
         "external": true,
@@ -265,14 +265,14 @@ Setting **external** to **true** informs the Data Factory service that the datas
 
 ```JSON
 {
-	"name": "HttpSourceDataInput",
+    "name": "HttpSourceDataInput",
     "properties": {
-		"type": "Http",
+        "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
-	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-		},
+            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -280,7 +280,6 @@ Setting **external** to **true** informs the Data Factory service that the datas
         }
     }
 }
-
 ```
 
 ### Azure Blob output dataset

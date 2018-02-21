@@ -21,6 +21,7 @@ ms.author: cherylmc
 You can create a connection between your on-premises network and the Microsoft cloud in three different ways, [CloudExchange Co-location](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), and [Any-to-any (IPVPN) Connection](#IPVPN). Connectivity providers can offer one or more connectivity models. You can work with your connectivity provider to pick the model that works best for you.
 <br><br>
 
+
 ![ExpressRoute connectivity model diagram](./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png)
 
 ## <a name="CloudExchange"></a>Co-located at a cloud exchange

@@ -74,7 +74,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
     }
 -->
 </style>
- 
+
 </head>
 
 <body onload='init()' scroll=no leftmargin=0 topmargin=0 rightmargin=0 style='border: 0px'>
@@ -101,19 +101,19 @@ xmlns="http://www.w3.org/TR/REC-html40">
   </tr> 
 </table> 
 
-  
+
 <script language='javascript'> 
 
 function init() { 
   var sName, sDescription; 
   var i, j; 
-  
+
   try { 
     sName = unescape(location.href) 
-  
+
     i = sName.lastIndexOf(".") 
     if (i>=0) { sName = sName.substring(1, i); } 
-  
+
     i = sName.lastIndexOf("/") 
     if (i>=0) { sName = sName.substring(i+1, sName.length); } 
 
@@ -121,7 +121,7 @@ function init() {
     document.getElementById("tdName").innerText = sName; 
 
     sDescription = document.getElementById("docprops").innerHTML; 
-  
+
     i = sDescription.indexOf("escription>") 
     if (i>=0) { j = sDescription.indexOf("escription>", i + 11); } 
 
@@ -144,9 +144,8 @@ function init() {
 </script> 
 
 </body> 
- 
-</html>
 
+</html>
 ```
 
 

@@ -105,33 +105,33 @@ Once the routing tables are created they are bound to their subnets. For the Fro
 For this example, the following commands are used to build the route table, add a user defined route, and then bind the route table to a subnet (Note; any items below beginning with a dollar sign (e.g.: $BESubnet) are user defined variables from the script in the reference section of this document):
 
 1. First the base routing table must be created. This snippet shows the creation of the table for the Backend subnet. In the script, a corresponding table is also created for the Frontend subnet.
-   
+
      New-AzureRouteTable -Name $BERouteTableName `
-   
+
          -Location $DeploymentLocation `
          -Label "Route table for $BESubnet subnet"
 2. Once the route table is created, specific user defined routes can be added. In this snipped, all traffic (0.0.0.0/0) will be routed through the virtual appliance (a variable, $VMIP[0], is used to pass in the IP address assigned when the virtual appliance was created earlier in the script). In the script, a corresponding rule is also created in the Frontend table.
-   
+
      Get-AzureRouteTable $BERouteTableName | `
-   
+
          Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
          -NextHopType VirtualAppliance `
          -NextHopIpAddress $VMIP[0]
 3. The above route entry will override the default "0.0.0.0/0" route, but the default 10.0.0.0/16 rule still existing which would allow traffic within the VNet to route directly to the destination and not to the Network Virtual Appliance. To correct this behavior the follow rule must be added.
-   
+
         Get-AzureRouteTable $BERouteTableName | `
             Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
 4. At this point there is a choice to be made. With the above two routes all traffic will route to the firewall for assessment, even traffic within a single subnet. This may be desired, however to allow traffic within a subnet to route locally without involvement from the firewall a third, very specific rule can be added. This route states that any address destine for the local subnet can just route there directly (NextHopType = VNETLocal).
-   
+
         Get-AzureRouteTable $BERouteTableName | `
             Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
             -NextHopType VNETLocal
 5. Finally, with the routing table created and populated with a user defined routes, the table must now be bound to a subnet. In the script, the front end route table is also bound to the Frontend subnet. Here is the binding script for the back end subnet.
-   
+
      Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-   
+
         -SubnetName $BESubnet `
         -RouteTableName $BERouteTableName
 
@@ -148,9 +148,9 @@ As an example, if traffic from AppVM01 makes a request to the DNS01 server, UDR 
 Setting up IP Forwarding is a single command and can be done at VM creation time. For the flow of this example the code snippet is towards the end of the script and grouped with the UDR commands:
 
 1. Call the VM instance that is your virtual appliance, the firewall in this case, and enable IP Forwarding (Note; any item in red beginning with a dollar sign (e.g.: $VMName[0]) is a user defined variable from the script in the reference section of this document. The zero in brackets, [0], represents the first VM in the array of VMs, for the example script to work without modification, the first VM (VM 0) must be the firewall):
-   
+
      Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-   
+
         Set-AzureIPForwarding -Enable
 
 ## Network Security Groups (NSG)
@@ -213,6 +213,7 @@ For this example, we need 7 types of rules, these rule types are described as fo
 > 
 
 <br />
+
 
 > [!IMPORTANT]
 > Once all of the above rules are created, it’s important to review the priority of each rule to ensure traffic will be allowed or denied as desired. For this example, the rules are in priority order. It's easy to be locked out of the firewall due to mis-ordered rules. At a minimum, ensure the management for the firewall itself is always the absolute highest priority rule.
@@ -286,7 +287,7 @@ Once your rules are created and/or modified, they must be pushed to the firewall
 The specifics of each rule required to complete this example are described as follows:
 
 * **Firewall Management Rule**: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance, in this example a Barracuda NextGen Firewall. The management ports are 801, 807 and optionally 22. The external and internal ports are the same (i.e. no port translation). This rule, SETUP-MGMT-ACCESS, is a default rule and enabled by default (in Barracuda NextGen Firewall version 6.1).
-  
+
     ![Firewall Management Rule][10]
 
 > [!TIP]
@@ -296,16 +297,16 @@ The specifics of each rule required to complete this example are described as fo
 
 * **RDP Rules**:  These Destination NAT rules will allow management of the individual servers via RDP.
   There are four critical fields needed to create this rule:
-  
+
   1. Source – to allow RDP from anywhere, the reference “Any” is used in the Source field.
   2. Service – use the appropriate Service Object created earlier, in this case “AppVM01 RDP”, the external ports redirect to the servers local IP address and to port 3386 (the default RDP port). This specific rule is for RDP access to AppVM01.
   3. Destination – should be the *local port on the firewall*, “DCHP 1 Local IP” or eth0 if using static IPs. The ordinal number (eth0, eth1, etc) may be different if your network appliance has multiple local interfaces. This is the port the firewall is sending out from (may be the same as the receiving port), the actual routed destination is in the Target List field.
   4. Redirection – this section tells the virtual appliance where to ultimately redirect this traffic. The simplest redirection is to place the IP and Port (optional) in the Target List field. If no port is used the destination port on the inbound request will be used (ie no translation), if a port is designated the port will also be NAT’d along with the IP address.
-     
+
      ![Firewall RDP Rule][11]
-     
+
      A total of four RDP rules will need to be created: 
-     
+
      | Rule Name | Server | Service | Target List |
      | --- | --- | --- | --- |
      | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
@@ -319,25 +320,25 @@ The specifics of each rule required to complete this example are described as fo
 > 
 
 * **Application Traffic Rules**: There are two Application Traffic Rules, the first for the front end web traffic, and the second for the back end traffic (eg web server to data tier). These rules will depend on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
-  
+
     First discussed is the front end rule for web traffic:
-  
+
     ![Firewall Web Rule][12]
-  
+
     This Destination NAT rule allows the actual application traffic to reach the application server. While the other rules allow for security, management, etc., Application Rules are what allow external users or services to access the application(s). For this example, there is a single web server on port 80, thus the single firewall application rule will redirect inbound traffic to the external IP, to the web servers internal IP address.
-  
+
     **Note**: that there is no port assigned in the Target List field, thus the inbound port 80 (or 443 for the Service selected) will be used in the redirection of the web server. If the web server is listening on a different port, for example port 8080, the Target List field could be updated to 10.0.1.4:8080 to allow for the Port redirection as well.
-  
+
     The next Application Traffic Rule is the back end rule to allow the Web Server to talk to the AppVM01 server (but not AppVM02) via Any service:
-  
+
     ![Firewall AppVM01 Rule][13]
-  
+
     This Pass rule allows any IIS server on the Frontend subnet to reach the AppVM01 (IP Address 10.0.2.5) on Any port, using any Protocol to access data needed by the web application.
-  
+
     In this screen shot an "\<explicit-dest\>" is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the administrator of the firewall as to which method will be used. To add 10.0.2.5 as an Explict Desitnation, double-click on the first blank row under \<explicit-dest\> and enter the address in the window that pops up.
-  
+
     With this Pass Rule, no NAT is needed since this is internal traffic, so the Connection Method can be set to "No SNAT".
-  
+
     **Note**: The Source network in this rule is any resource on the FrontEnd subnet, if there will only be one, or a known specific number of web servers, a Network Object resource could be created to be more specific to those exact IP addresses instead of the entire Frontend subnet.
 
 > [!TIP]
@@ -347,26 +348,27 @@ The specifics of each rule required to complete this example are described as fo
 
 <br />
 
+
 > [!TIP]
 > Although this rule shows an explicit-dest reference being used, a consistent approach should be used throughout the firewall configuration. It is recommended that the named Network Object be used throughout for easier readability and supportability. The explicit-dest is used here only to show an alternative reference method and is not generally recommended (especially for complex configurations).
 > 
 > 
 
 * **Outbound to Internet Rule**: This Pass rule will allow traffic from any Source network to pass to the selected Destination networks. This rule is a default rule usually already on the Barracuda NextGen firewall, but is in a disabled state. Right-clicking on this rule can access the Activate Rule command. The rule shown here has been modified to add the two local subnets that were created as references in the prerequisite section of this document to the Source attribute of this rule.
-  
+
     ![Firewall Outbound Rule][14]
 * **DNS Rule**: This Pass rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the FrontEnd to the BackEnd is blocked, this rule specifically allows DNS.
-  
+
     ![Firewall DNS Rule][15]
-  
+
     **Note**: In this screen shot the Connection Method is included. Because this rule is for internal IP to internal IP address traffic, no NATing is required, this the Connection Method is set to “No SNAT” for this Pass rule.
 * **Subnet to Subnet Rule**: This Pass rule is a default rule that has been activated and modified to allow any server on the back end subnet to connect to any server on the front end subnet. This rule is all internal traffic so the Connection Method can be set to No SNAT.
-  
+
     ![Firewall Intra-VNet Rule][16]
-  
+
     **Note**: The Bi-directional checkbox is not checked (nor is it checked in most rules), this is significant for this rule in that it makes this rule “one directional”, a connection can be initiated from the back end subnet to the front end network, but not the reverse. If that checkbox was checked, this rule would enable bi-directional traffic, which from our logical diagram is not desired.
 * **Deny All Traffic Rule**: This should always be the final rule (in terms of priority), and as such if a traffic flows fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated, no modifications are generally needed. 
-  
+
     ![Firewall Deny Rule][17]
 
 > [!IMPORTANT]

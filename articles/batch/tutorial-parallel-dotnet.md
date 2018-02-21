@@ -260,7 +260,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     // Create a cloud task (with the task ID and command line) 
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
-   
+
 
     // Task output file
     List<OutputFile> outputFileList = new List<OutputFile>();
@@ -296,7 +296,6 @@ catch (TimeoutException)
 }
 batchClient.JobOperations.TerminateJob(jobId, successMessage);
 ...
-
 ```
 
 ## Clean up resources

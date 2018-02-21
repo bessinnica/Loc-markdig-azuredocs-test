@@ -30,15 +30,18 @@ This article provides generic instructions for using a custom domain name with a
 
 <a name="understanding-records"></a>
 
+
 ## Understanding DNS records
 [!INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 <a name="bkmk_configsharedmode"></a>
 
+
 ## Configure your web apps for standard mode
 [!INCLUDE [modes](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
+
 
 ## Add a DNS record for your custom domain
 > [!NOTE]
@@ -51,15 +54,14 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 While the specifics of each domain provider vary, you map *from* your custom domain name (such as **contoso.com**) *to* the Traffic Manager domain name (**contoso.trafficmanager.net**) that is integrated with your web app.
-   
+
 > [!NOTE]
-> If a record is already in use and you need to preemptively bind your apps to it, you can create an additional CNAME record. For example, to preemptively bind **www.contoso.com** to your web app, create a CNAME record from **awverify.www** to **contoso.trafficmanager.net**. You can then add "www.contoso.com" to your Web App without changing the "www" CNAME record. For more information, see [Create DNS records for a web app in a custom domain][CREATEDNS].
-> 
-> 
+> If a record is already in use and you need to preemptively bind your apps to it, you can create an additional CNAME record. For example, to preemptively bind <strong>www.contoso.com</strong> to your web app, create a CNAME record from <strong>awverify.www</strong> to <strong>contoso.trafficmanager.net</strong>. You can then add "www.contoso.com" to your Web App without changing the "www" CNAME record. For more information, see [Create DNS records for a web app in a custom domain][CREATEDNS].
 
 Once you have finished adding or modifying DNS records at your domain provider, save the changes.
 
 <a name="enabledomain"></a>
+
 
 ## Enable Traffic Manager
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]

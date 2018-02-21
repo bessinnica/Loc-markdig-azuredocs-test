@@ -48,7 +48,7 @@ There are two ways to control auto-acceleration to a federated IdP:
 - Use a domain hint on authentication requests for an application. 
 - Configure a Home Realm Discovery policy to enable auto-acceleration.
 
-## Domain hints	
+## Domain hints 
 Domain hints are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.  
 
 For example, the application "largeapp.com" might enable their customers to access the application at a custom URL "contoso.largeapp.com." The app might also include a domain hint to contoso.com in the authentication request. 
@@ -134,14 +134,14 @@ We'll use Azure AD PowerShell cmdlets to walk through a few scenarios, including
 ### Prerequisites
 In the following examples, you create, update, link, and delete policies on application service principals in Azure AD.
 
-1.	To begin, download the latest Azure AD PowerShell cmdlet preview. 
+1.  To begin, download the latest Azure AD PowerShell cmdlet preview. 
 
-2.	After you have downloaded the Azure AD PowerShell cmdlets, run the Connect command to sign in to Azure AD with your admin account:
+2.  After you have downloaded the Azure AD PowerShell cmdlets, run the Connect command to sign in to Azure AD with your admin account:
 
     ``` powershell
     Connect-AzureAD -Confirm
     ```
-3.	Run the following command to see all the policies in your organization:
+3.  Run the following command to see all the policies in your organization:
 
     ``` powershell
     Get-AzureADPolicy

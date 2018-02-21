@@ -38,33 +38,33 @@ You also need a [Linux machine](https://docs.microsoft.com/azure/log-analytics/l
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
-	![Select security center](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
+    ![Select security center](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
 
 3. Under the Security Center main menu, select **Security Solutions**.
 4. In the Security Solutions page, under **Add data sources (3)**, click **Add** under **Common Event Format**.
 
-	![Add data source](./media/quick-security-solutions/quick-security-solutions-fig2.png)
+    ![Add data source](./media/quick-security-solutions/quick-security-solutions-fig2.png)
 
 5. In the Common Event Format Logs page, expand the second step, **Configure Syslog forwarding to send the required logs to the agent on UDP port 25226**, and follow the instructions below in your Linux computer:
 
-	![Configure syslog](./media/quick-security-solutions/quick-security-solutions-fig3.png)
+    ![Configure syslog](./media/quick-security-solutions/quick-security-solutions-fig3.png)
 
 6. Expand the third step, **Place the agent configuration file on the agent computer**, and follow the instructions below in your Linux computer:
 
-	![Agent configuration](./media/quick-security-solutions/quick-security-solutions-fig4.png)
+    ![Agent configuration](./media/quick-security-solutions/quick-security-solutions-fig4.png)
 
 7. Expand the fourth step, **Restart the syslog daemon and the agent**, and follow the instructions below in your Linux computer:
 
-	![Restart the syslog](./media/quick-security-solutions/quick-security-solutions-fig5.png)
+    ![Restart the syslog](./media/quick-security-solutions/quick-security-solutions-fig5.png)
 
 
 ## Validate the connection
 
 Before you proceed to the steps below, you will need to wait until the syslog starts reporting to Security Center. This can take some time, and it will vary according to the size of the environment.
 
-1.	In the left pane, of the Security Center dashboard, click **Search**.
-2.	Select the workspace that the Syslog (Linux Machine) is connected to.
-3.	Type *CommonSecurityLog* and click the **Search** button.
+1.  In the left pane, of the Security Center dashboard, click **Search**.
+2.  Select the workspace that the Syslog (Linux Machine) is connected to.
+3.  Type *CommonSecurityLog* and click the **Search** button.
 
 The following example shows the result of these steps:
 ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)

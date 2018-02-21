@@ -38,7 +38,7 @@ Below we give an example of the template JSON file you need to generate for non-
 For non-Compute resources, you will need to do two things:
 
 1. Add parameters to the parameters blob for the storage account name, event hub authorization rule ID, and/or OMS Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
-   
+
     ```json
     "settingName": {
       "type": "string",
@@ -72,7 +72,7 @@ For non-Compute resources, you will need to do two things:
     }
     ```
 2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
-   
+
     ```json
     "resources": [
       {
@@ -245,7 +245,6 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
     }
   ]
 }
-
 ```
 
 ## Compute resource template

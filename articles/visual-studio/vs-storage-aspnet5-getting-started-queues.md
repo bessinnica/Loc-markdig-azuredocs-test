@@ -171,3 +171,4 @@ messageQueue.Delete();
 ## Next steps
 
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
+

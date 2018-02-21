@@ -444,7 +444,7 @@ If you query for a range of employee entities, you can specify a range sorted in
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * To find all the employees in the Sales department with an email address starting with the letter 'a' use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
-  
+
   Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### Issues and considerations
@@ -511,7 +511,7 @@ Consider the following points when deciding how to implement this pattern:
 * The value used for the **RowKey** must be unique for each entity. Consider using compound key values.  
 * Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
-  
+
   ![][11]
 * It is typically better to store duplicate data and ensure that you can retrieve all the data you need with a single query than to use one query to locate an entity using the secondary index and another to lookup the required data in the primary index.  
 
@@ -879,6 +879,7 @@ The following patterns and guidance may also be relevant when implementing this 
 * [Wide entities pattern](#wide-entities-pattern)
 
 <a name="prepend-append-anti-pattern"></a>
+
 
 ### Prepend/append anti-pattern
 Increase scalability when you have a high volume of inserts by spreading the inserts across multiple partitions.  

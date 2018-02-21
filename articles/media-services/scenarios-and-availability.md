@@ -94,7 +94,7 @@ For information about availability in datacenters, see the [Availability](#avail
 2. Encode to a single MP4 file.
 3. Publish the asset by creating an OnDemand or SAS locator.
 
-	If using SAS locator, the content is downloaded from the Azure blob storage. In this case, you do not need to have streaming endpoints in started state.
+    If using SAS locator, the content is downloaded from the Azure blob storage. In this case, you do not need to have streaming endpoints in started state.
 4. Progressively download content.
 
 ## <a id="live_scenarios"></a>Delivering live-streaming events 
@@ -146,15 +146,15 @@ AMS customers can scale streaming endpoints, media processing, and storage in th
 
 * A Media Services account is associated with a Reserved Unit Type, which determines the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **S1**, **S2**, or **S3**. For example, the same encoding job runs faster when you use the **S2** reserved unit type compare to the **S1** type.
 
-	In addition to specifying the reserved unit type, you can specify to provision your account with **Reserved Units** (RUs). The number of provisioned RUs determines the number of media tasks that can be processed concurrently in a given account.
+    In addition to specifying the reserved unit type, you can specify to provision your account with **Reserved Units** (RUs). The number of provisioned RUs determines the number of media tasks that can be processed concurrently in a given account.
 
-	>[!NOTE]
-	>RUs work for parallelizing all media processing, including indexing jobs using Azure Media Indexer. However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
+    >[!NOTE]
+    >RUs work for parallelizing all media processing, including indexing jobs using Azure Media Indexer. However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
 
     For more information see, [Scale media processing](media-services-portal-scale-media-processing.md).
 * You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. For more information, see [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Availability of Media Services features across datacenters
+## <a id="availability"></a> Availability of Media Services features across datacenters
 
 This section provides details about availability of Media Services features across datacenters.
 

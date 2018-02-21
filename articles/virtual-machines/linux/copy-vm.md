@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: cynthn
 
 ---                    
-			   
+               
 # Create a copy of a Linux VM by using Azure CLI 2.0 and Managed Disks
 
 
@@ -47,7 +47,7 @@ The following example deallocates the VM named **myVM** in the resource group
 ```azurecli
 az vm deallocate \
     --resource-group myResourceGroup \
-	--name myVM
+    --name myVM
 ```
 
 ## Step 2: Copy the source VM
@@ -63,37 +63,37 @@ overview](../windows/managed-disks-overview.md).
 1.  List each VM and the name of its OS disk with [az vm
     list](/cli/azure/vm#az_vm_list). The following example lists all VMs in the
     resource group named **myResourceGroup**:
-	
-	```azurecli
-	az vm list -g myResourceGroup \
-	     --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' \
-		 --output table
-	```
+    
+    ```azurecli
+    az vm list -g myResourceGroup \
+         --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' \
+         --output table
+    ```
 
     The output is similar to the following example:
 
-	```azurecli
-	Name    DiskName
-	------  --------
-	myVM    myDisk
-	```
+    ```azurecli
+    Name    DiskName
+    ------  --------
+    myVM    myDisk
+    ```
 
 1.  Copy the disk by creating a new managed disk using [az disk
     create](/cli/azure/disk#az_disk_create). The following example creates a disk named
     **myCopiedDisk** from the managed disk named **myDisk**:
 
-	```azurecli
-	az disk create --resource-group myResourceGroup \
-	     --name myCopiedDisk --source myDisk
-	``` 
+    ```azurecli
+    az disk create --resource-group myResourceGroup \
+         --name myCopiedDisk --source myDisk
+    ``` 
 
 1.  Verify the managed disks now in your resource group by using [az disk
     list](/cli/azure/disk#az_disk_list). The following example lists the managed disks
     in the resource group named **myResourceGroup**:
 
-	```azurecli
-	az disk list --resource-group myResourceGroup --output table
-	```
+    ```azurecli
+    az disk list --resource-group myResourceGroup --output table
+    ```
 
 
 ## Step 3: Set up a virtual network
@@ -113,35 +113,35 @@ to [Step 4: Create a VM](#step-4-create-a-vm).
     create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a
     virtual network named **myVnet** and a subnet named **mySubnet**:
 
-	```azurecli
-	az network vnet create --resource-group myResourceGroup \
-	    --location eastus --name myVnet \
-		--address-prefix 192.168.0.0/16 \
-		--subnet-name mySubnet \
-		--subnet-prefix 192.168.1.0/24
-	```
+    ```azurecli
+    az network vnet create --resource-group myResourceGroup \
+        --location eastus --name myVnet \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name mySubnet \
+        --subnet-prefix 192.168.1.0/24
+    ```
 
 1.  Create a public IP by using [az network public-ip
     create](/cli/azure/network/public-ip#az_network_public_ip_create). The following example creates
     a public IP named **myPublicIP** with the DNS name of **mypublicdns**. (The DNS
     name must be unique, so provide a unique name.)
 
-	```azurecli
-	az network public-ip create --resource-group myResourceGroup \
-	    --location eastus --name myPublicIP --dns-name mypublicdns \
-		--allocation-method static --idle-timeout 4
-	```
+    ```azurecli
+    az network public-ip create --resource-group myResourceGroup \
+        --location eastus --name myPublicIP --dns-name mypublicdns \
+        --allocation-method static --idle-timeout 4
+    ```
 
 1.  Create the NIC using [az network nic create](/cli/azure/network/nic#az_network_nic_create).
     The following example creates a NIC named **myNic** that's attached to the
     **mySubnet** subnet:
 
-	```azurecli
-	az network nic create --resource-group myResourceGroup \
-	    --location eastus --name myNic \
-		--vnet-name myVnet --subnet mySubnet \
-		--public-ip-address myPublicIP
-	```
+    ```azurecli
+    az network nic create --resource-group myResourceGroup \
+        --location eastus --name myNic \
+        --vnet-name myVnet --subnet mySubnet \
+        --public-ip-address myPublicIP
+    ```
 
 ## Step 4: Create a VM
 
@@ -153,7 +153,7 @@ follows:
 ```azurecli
 az vm create --resource-group myResourceGroup \
     --name myCopiedVM --nics myNic \
-	--size Standard_DS1_v2 --os-type Linux \
+    --size Standard_DS1_v2 --os-type Linux \
     --attach-os-disk myCopiedDisk
 ```
 

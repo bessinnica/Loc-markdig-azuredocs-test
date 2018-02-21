@@ -21,9 +21,9 @@ ms.reviewer: carlrab
 Since the inception of the Azure SQL Database PaaS offering, Microsoft has made the promise to our customers that High Availability (HA) is built in to the service and the customers are not be required to operate, add special logic to, or make decisions around HA. Microsoft offers customers an SLA and maintain full control over the HA system configuration and operation. The HA SLA applies to a SQL database in a region and does not provide protection in cases of a total region failure that are due to factors outside our reasonable control (for example, natural disaster, war, acts of terrorism, riots, government action, or a network or device failure external to our data centers, including at customer site or between customer site and our data center).
 
 To simplify the problem space of HA, Microsoft uses the following assumptions:
-1.	Hardware and software failures are inevitable
-2.	Operational staff make mistakes that lead to failures
-3.	Planned servicing operations cause outages 
+1.  Hardware and software failures are inevitable
+2.  Operational staff make mistakes that lead to failures
+3.  Planned servicing operations cause outages 
 
 While such individual events are infrequent, at cloud scale, they every week if not every day. 
 

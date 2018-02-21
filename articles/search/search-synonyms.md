@@ -33,9 +33,9 @@ Synonym maps and indexes are maintained independently. Once you define a synonym
 
 Incorporating synonyms into your search application is a two-step process:
 
-1.	Add a synonym map to your search service through the APIs below.  
+1.  Add a synonym map to your search service through the APIs below.  
 
-2.	Configure a searchable field to use the synonym map in the index definition.
+2.  Configure a searchable field to use the synonym map in the index definition.
 
 ### SynonymMaps Resource APIs
 
@@ -47,27 +47,27 @@ In this preview, synonym maps must be in the Apache Solr format which is explain
 
 You can create a new synonym map using HTTP POST, as in the following example:
 
-	POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
-	api-key: [admin key]
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    api-key: [admin key]
 
-	{  
-	   "name":"mysynonymmap",
-	   "format":"solr",
-	   "synonyms": "
-	      USA, United States, United States of America\n
-	      Washington, Wash., WA => WA\n"
-	}
+    {  
+       "name":"mysynonymmap",
+       "format":"solr",
+       "synonyms": "
+          USA, United States, United States of America\n
+          Washington, Wash., WA => WA\n"
+    }
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created.
 
-	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
-	api-key: [admin key]
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    api-key: [admin key]
 
     {  
        "format":"solr",
        "synonyms": "
-	      USA, United States, United States of America\n
-	      Washington, Wash., WA => WA\n"
+          USA, United States, United States of America\n
+          Washington, Wash., WA => WA\n"
     }
 
 ##### Apache Solr synonym format
@@ -86,54 +86,54 @@ Washington, Wash., WA => WA
 
 #### List synonym maps under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
-	api-key: [admin key]
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    api-key: [admin key]
 
 #### Get a synonym map under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
-	api-key: [admin key]
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    api-key: [admin key]
 
 #### Delete a synonyms map under your service.
 
-	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
-	api-key: [admin key]
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    api-key: [admin key]
 
 ### Configure a searchable field to use the synonym map in the index definition.
 
 A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Synonym maps are service level resources and can be referenced by any field of an index under the service.
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
-	api-key: [admin key]
+    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    api-key: [admin key]
 
-	{
-	   "name":"myindex",
-	   "fields":[
-	      {
-	         "name":"id",
-	         "type":"Edm.String",
-	         "key":true
-	      },
-	      {
-	         "name":"name",
-	         "type":"Edm.String",
-	         "searchable":true,
-	         "analyzer":"en.lucene",
-	         "synonymMaps":[
-	            "mysynonymmap"
-	         ]
-	      },
-	      {
-	         "name":"name_jp",
-	         "type":"Edm.String",
-	         "searchable":true,
-	         "analyzer":"ja.microsoft",
-	         "synonymMaps":[
-	            "japanesesynonymmap"
-	         ]
-	      }
-	   ]
-	}
+    {
+       "name":"myindex",
+       "fields":[
+          {
+             "name":"id",
+             "type":"Edm.String",
+             "key":true
+          },
+          {
+             "name":"name",
+             "type":"Edm.String",
+             "searchable":true,
+             "analyzer":"en.lucene",
+             "synonymMaps":[
+                "mysynonymmap"
+             ]
+          },
+          {
+             "name":"name_jp",
+             "type":"Edm.String",
+             "searchable":true,
+             "analyzer":"ja.microsoft",
+             "synonymMaps":[
+                "japanesesynonymmap"
+             ]
+          }
+       ]
+    }
 
 **synonymMaps** can be specified for searchable fields of the type 'Edm.String' or 'Collection(Edm.String)'.
 

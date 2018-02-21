@@ -25,6 +25,7 @@ For information on restoring an app from backup, see [Restore an app in Azure](w
 
 <a name="whatsbackedup"></a>
 
+
 ## What gets backed up
 App Service can back up the following information to an Azure storage account and container that you have configured your app to use. 
 
@@ -37,13 +38,14 @@ The following database solutions are supported with backup feature:
    - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
    - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
- 
+
 
 > [!NOTE]
 >  Each backup is a complete offline copy of your app, not an incremental update.
 >  
 
 <a name="requirements"></a>
+
 
 ## Requirements and restrictions
 * The Backup and Restore feature requires the App Service plan to be in the **Standard** tier or **Premium** tier. For more information 
@@ -56,11 +58,12 @@ The following database solutions are supported with backup feature:
 
 <a name="manualbackup"></a>
 
+
 ## Create a manual backup
 1. In the [Azure portal](https://portal.azure.com), navigate to your app's page, select **Backups**. The **Backups** page is displayed.
-   
+
     ![Backups page][ChooseBackupsPage]
-   
+
    > [!NOTE]
    > If you see the following message, click it to upgrade your App Service plan before you can proceed with backups.
    > For more information, see [Scale up an app in Azure](web-sites-scale.md).  
@@ -71,39 +74,41 @@ The following database solutions are supported with backup feature:
 2. In the **Backup** page, Click **Configure**
 ![Click Configure](./media/web-sites-backup/ClickConfigure1.png)
 3. In the **Backup Configuration** page, click **Storage: Not configured** to configure a storage account.
-   
+
     ![Choose storage account][ChooseStorageAccount]
 4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective pages. When you're done, click **Select**.
-   
+
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
-   
+
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
-   
+
    > [!NOTE]
    > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app.
    > 
    > 
 6. In the **Backup Configuration** page, click **Save**.    
 7. In the  **Backups** page, click **Backup**.
-   
+
     ![BackUpNow button][BackUpNow]
-   
+
     You see a progress message during the backup process.
 
 Once the storage account and container is configured, you can initiate a manual backup at any time.  
 
 <a name="automatedbackups"></a>
 
+
 ## Configure automated backups
 1. In the **Backup Configuration** page, set **Scheduled backup** to **On**. 
-   
+
     ![Choose storage account](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Backup schedule options will show up, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and click **OK**.
-   
+
     ![Enable automated backups][SetAutomatedBackupOn]
 
 <a name="partialbackups"></a>
+
 
 ## Configure Partial Backups
 Sometimes you don't want to back up everything on your app. Here are a few examples:
@@ -145,6 +150,7 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 
 <a name="aboutbackups"></a>
 
+
 ## How backups are stored
 After you have made one or more backups for your app, the backups are visible on the **Containers** page of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
@@ -165,6 +171,7 @@ For samples, see:
 - [Azure PowerShell samples](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
+
 
 ## Next Steps
 For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). 

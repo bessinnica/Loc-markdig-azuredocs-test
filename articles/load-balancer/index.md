@@ -5,7 +5,7 @@ services: load-balancer
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,7 +14,7 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-#Load Balancer Documentation
+# Load Balancer Documentation
 
 Learn how to configure Load Balancer to deliver high availability and network performance to your applications. Documentation shows you how to load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 
@@ -96,6 +96,7 @@ Learn how to configure Load Balancer to deliver high availability and network pe
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -104,7 +105,7 @@ Learn how to configure Load Balancer to deliver high availability and network pe
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">Azure CLI 2​.0</a></p>
+                        <p><a href="/cli/azure/network/lb">Azure CLI 2 .0</a></p>
                     </div>
                 </div>
             </div>
@@ -118,7 +119,7 @@ Learn how to configure Load Balancer to deliver high availability and network pe
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node​.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node .js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
                    </div>
@@ -139,5 +140,6 @@ Learn how to configure Load Balancer to deliver high availability and network pe
         </div>
     </li>
 </ul>
+
 
 

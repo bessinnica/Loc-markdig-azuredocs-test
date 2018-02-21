@@ -18,7 +18,7 @@ ms.author: skwan
 
 # Use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a Managed Service Identity (MSI) for a Windows virtual machine (VM) to access an Azure Data Lake Store. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
 
@@ -96,7 +96,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 1. In the portal, navigate to **Virtual Machines**, go to your Windows VM, and in the **Overview** click **Connect**.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is "https://datalake.azure.net/".  Data Lake does an exact match on the resource identifier and the trailing slash is important.
+4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is "<https://datalake.azure.net/>".  Data Lake does an exact match on the resource identifier and the trailing slash is important.
 
    ```powershell
    $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}

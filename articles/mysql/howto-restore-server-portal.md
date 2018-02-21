@@ -31,7 +31,7 @@ The following steps restore the sample server to a specific point in time:
 
 2. Locate your Azure Database for MySQL server. In the left pane, select **All resources**, and then select your server from the list.
 
-3.	On the top of the server overview blade, click **Restore** on the toolbar. The Restore blade opens.
+3.  On the top of the server overview blade, click **Restore** on the toolbar. The Restore blade opens.
 ![click restore button](./media/howto-restore-server-portal/click-restore-button.png)
 
 4. Fill out the Restore form with the required information:

@@ -38,7 +38,7 @@ The easiest way to get started with Redactor is to use the open source AMSE tool
 1. Download the AMSE tool from [here](https://github.com/Azure/Azure-Media-Services-Explorer).
 1. Log in to your Media Services account using your service key.
 
-	To obtain the account name and key information, go to the [Azure portal](https://portal.azure.com/) and select your AMS account. Then, select Settings > Keys. The Manage keys windows shows the account name and the primary and secondary keys is displayed. Copy values of the account name and the primary key.
+    To obtain the account name and key information, go to the [Azure portal](https://portal.azure.com/) and select your AMS account. Then, select Settings > Keys. The Manage keys windows shows the account name and the primary and secondary keys is displayed. Copy values of the account name and the primary key.
 
 ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
@@ -56,26 +56,26 @@ The output will include an annotations json file with face location data, as wel
 
 ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###Second pass – redact mode
+### Second pass – redact mode
 
 1. Upload your original video asset to the output from the first pass and set as a primary asset. 
 
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
 2. (Optional) Upload a 'Dance_idlist.txt' file which includes a newline delimited list of the IDs you wish to redact. 
 
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (Optional) Make any edits to the annotations.json file such as increasing the bounding box boundaries. 
 4. Right click the output asset from the first pass, select the Redactor, and run with the **Redact** mode. 
 
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. Download or share the final redacted output asset. 
 
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##Azure Media Redactor Visualizer open source tool
+## Azure Media Redactor Visualizer open source tool
 
 An open source [visualizer tool](https://github.com/Microsoft/azure-media-redactor-visualizer) is designed to help developers just starting with the annotations format with parsing and using the output.
 
@@ -85,14 +85,14 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 
 ### Set up the tool
 
-1.	Download and build the entire solution. 
+1.  Download and build the entire solution. 
 
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.	Download FFMPEG from [here](https://ffmpeg.org/download.html). This project was originally developed with version be1d324 (2016-10-04) with static linking. 
-3.	Copy ffmpeg.exe and ffprobe.exe to the same output folder as AzureMediaRedactor.exe. 
+2.  Download FFMPEG from [here](https://ffmpeg.org/download.html). This project was originally developed with version be1d324 (2016-10-04) with static linking. 
+3.  Copy ffmpeg.exe and ffprobe.exe to the same output folder as AzureMediaRedactor.exe. 
 
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. Run AzureMediaRedactor.exe. 
 
@@ -102,19 +102,19 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 2. Download both the original video file and the output of the Redaction - Analyze job. 
 3. Run the visualizer application and choose the files above. 
 
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
 4. Preview your file. Select which faces you'd like to blur via the sidebar on the right. 
-	
-	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
+    
+    ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.	The bottom text field will update with the face IDs. Create a file called "idlist.txt" with these IDs as a newline delimited list. 
+5.  The bottom text field will update with the face IDs. Create a file called "idlist.txt" with these IDs as a newline delimited list. 
 
-	>[!NOTE]
-	> The idlist.txt should be saved in ANSI. You can use notepad to save in ANSI.
-	
-6.	Upload this file to the output asset from step 1. Upload the original video to this asset as well and set as primary asset. 
-7.	Run Redaction job on this asset with "Redact" mode to get the final redacted video. 
+    >[!NOTE]
+    > The idlist.txt should be saved in ANSI. You can use notepad to save in ANSI.
+    
+6.  Upload this file to the output asset from step 1. Upload the original video to this asset as well and set as primary asset. 
+7.  Run Redaction job on this asset with "Redact" mode to get the final redacted video. 
 
 ## Next steps 
 

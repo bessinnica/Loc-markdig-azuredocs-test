@@ -103,27 +103,24 @@ It's important to carefully plan how you will instrument your code. The right in
 2. Add a **using** directive for Microsoft.Extensions.Logging to your service file.
 3. Define a private variable within your service class.
 
-  ```csharp
-  private ILogger _logger = null;
-
-  ```
+   ```csharp
+   private ILogger _logger = null;
+   ```
 4. In the constructor of your service class, add this code:
 
-  ```csharp
-  _logger = new LoggerFactory().CreateLogger<Stateless>();
-
-  ```
+   ```csharp
+   _logger = new LoggerFactory().CreateLogger<Stateless>();
+   ```
 5. Start instrumenting your code in your methods. Here are a few samples:
 
-  ```csharp
-  _logger.LogDebug("Debug-level event from Microsoft.Logging");
-  _logger.LogInformation("Informational-level event from Microsoft.Logging");
+   ```csharp
+   _logger.LogDebug("Debug-level event from Microsoft.Logging");
+   _logger.LogInformation("Informational-level event from Microsoft.Logging");
 
-  // In this variant, we're adding structured properties RequestName and Duration, which have values MyRequest and the duration of the request.
-  // Later in the article, we discuss why this step is useful.
-  _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
-
-  ```
+   // In this variant, we're adding structured properties RequestName and Duration, which have values MyRequest and the duration of the request.
+   // Later in the article, we discuss why this step is useful.
+   _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
+   ```
 
 ## Using other logging providers
 
@@ -132,22 +129,22 @@ Some third-party providers use the approach described in the preceding section, 
 1. Add the Serilog, Serilog.Extensions.Logging, and Serilog.Sinks.Observable NuGet packages to the project. For the next example, also add Serilog.Sinks.Literate. A better approach is shown later in this article.
 2. In Serilog, create a LoggerConfiguration and the logger instance.
 
-  ```csharp
-  Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
-  ```
+   ```csharp
+   Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
+   ```
 
 3. Add a Serilog.ILogger argument to the service constructor, and pass the newly created logger.
 
-  ```csharp
-  ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
-  ```
+   ```csharp
+   ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
+   ```
 
 4. In the service constructor, add the following code, which creates the property enrichers for the **ServiceTypeName**, **ServiceName**, **PartitionId**, and **InstanceId** properties of the service. It also adds a property enricher to the ASP.NET Core logging factory, so you can use Microsoft.Extensions.Logging.ILogger in your code.
 
-  ```csharp
-  public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
+   ```csharp
+   public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
       : base(context)
-  {
+   {
       PropertyEnricher[] properties = new PropertyEnricher[]
       {
           new PropertyEnricher("ServiceTypeName", context.ServiceTypeName),
@@ -159,13 +156,13 @@ Some third-party providers use the approach described in the preceding section, 
       serilog.ForContext(properties);
 
       _logger = new LoggerFactory().AddSerilog(serilog.ForContext(properties)).CreateLogger<Stateless>();
-  }
-  ```
+   }
+   ```
 
 5. Instrument the code the same as if you were using ASP.NET Core without Serilog.
 
-  >[!NOTE]
-  >We recommend that you don't use the static Log.Logger with the preceding example. Service Fabric can host multiple instances of the same service type within a single process. If you use the static Log.Logger, the last writer of the property enrichers will show values for all instances that are running. This is one reason why the _logger variable is a private member variable of the service class. Also, you must make the _logger available to common code, which might be used across services.
+   >[!NOTE]
+   >We recommend that you don't use the static Log.Logger with the preceding example. Service Fabric can host multiple instances of the same service type within a single process. If you use the static Log.Logger, the last writer of the property enrichers will show values for all instances that are running. This is one reason why the _logger variable is a private member variable of the service class. Also, you must make the _logger available to common code, which might be used across services.
 
 ## Choosing a logging provider
 

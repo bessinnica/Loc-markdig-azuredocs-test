@@ -88,11 +88,11 @@ When programmatically logging in, you need the ID for your application. If the a
 
 3. From the top of the App registrations blade, click **Endpoints**.
 
-	![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth token endpoint")
+    ![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth token endpoint")
 
 4. From the list of endpoints, copy the OAuth 2.0 token endpoint.
 
-	![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token endpoint")   
+    ![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token endpoint")   
 
 ## Next steps
 In this article, you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java, Python, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD native application to first authenticate with Data Lake Store and then perform other operations on the store.

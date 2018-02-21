@@ -18,7 +18,7 @@ ms.author: daveba
 
 # FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 ## Frequently Asked Questions (FAQs)
 

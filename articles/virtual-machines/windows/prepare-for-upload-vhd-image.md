@@ -415,12 +415,12 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2 -Type DWord
     Set-Service -Name WerSvc -StartupType Manual
     ```
-*  After the VM is created in Azure, we recommend that you put the pagefile on the ”Temporal drive” volume to improve performance. You can set up this as follows:
+* After the VM is created in Azure, we recommend that you put the pagefile on the ”Temporal drive” volume to improve performance. You can set up this as follows:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile"
-    ```
-If there’s any data disk that is attached to the VM, the Temporal drive volume's drive letter is typically "D." This designation could be different, depending on the number of available drives and the settings that you  make.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile"
+   ```
+  If there’s any data disk that is attached to the VM, the Temporal drive volume's drive letter is typically "D." This designation could be different, depending on the number of available drives and the settings that you  make.
 
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)

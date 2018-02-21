@@ -23,7 +23,6 @@ This article contains an overview of the backup monitor and management tasks ava
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-
 ## Open a Recovery Services vault
 
 The Recovery Services vault dashboard shows you the details or attributes of a Recovery Services vault.
@@ -69,6 +68,7 @@ From the top of the Dashboard:
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
 ## Alerts for backups using Azure backup agent:
+
 | Alert Level | Alerts sent |
 | --- | --- |
 | Critical |Backup failure, recovery failure |
@@ -234,7 +234,7 @@ The Azure Backup agent provides a Throttling tab which allows you to control how
 To enable throttling:
 
 1. In the **Backup agent**, click **Change Properties**.
-2. On the **Throttling tab, select **Enable internet bandwidth usage throttling for backup operations**.
+2. On the <strong>Throttling tab, select **Enable internet bandwidth usage throttling for backup operations</strong>.
 
     ![Network throttling](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 

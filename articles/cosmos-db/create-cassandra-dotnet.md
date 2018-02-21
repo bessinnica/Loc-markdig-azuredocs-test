@@ -35,10 +35,10 @@ In addition:
 * Install [Git](https://www.git-scm.com/) to clone the example.
 
 <a id="create-account"></a>
+
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
-
 
 ## Clone the sample application
 
@@ -86,7 +86,7 @@ This step is optional. If you're interested in learning how the database resourc
 * Insert user entities by using the IMapper object with a new session that connects to the uprofile keyspace.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Query to get all user's information.
@@ -98,7 +98,7 @@ This step is optional. If you're interested in learning how the database resourc
    }
     ```
     
- * Query to get a single user's information.
+  * Query to get a single user's information.
 
     ```csharp
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);

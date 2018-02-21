@@ -191,7 +191,7 @@ Although the application in this sample supports a single user, MSAL supports sc
 
 Once the user authenticates, the browser redirects the user back to the application. Follow the steps below to register this callback:
 
-1.	Open `AppDelegate.swift` and import MSAL:
+1.  Open `AppDelegate.swift` and import MSAL:
 
 ```swift
 import MSAL

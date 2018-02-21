@@ -110,38 +110,38 @@ You need an Azure service principal to deploy to Azure. The following steps guid
 
 1. If you already have a service principal (and know its subscription ID, tenant, appId, and password), you can skip this step. If you need to create a security principal, refer to the article [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). While creating the principal, make note of the values for the subscription ID, tenant, appId, and password.
 
-1. Select **Credentials**.
+2. Select **Credentials**.
 
     ![Manage credentials option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials.png)
 
-1. Under **Credentials**, select **System**.
+3. Under **Credentials**, select **System**.
 
     ![Manage system credentials option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-system.png)
 
-1. Select **Global credentials (unrestricted)**.
+4. Select **Global credentials (unrestricted)**.
 
     ![Manage global system credentials option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-global.png)
 
-1. Select **Adding some credentials**.
+5. Select **Adding some credentials**.
 
     ![Add credentials in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-adding-credentials.png)
 
-1. In the **Kind** dropdown list, select **Microsoft Azure Service Principal** to cause the page to display fields specific to adding a service principal. Then, supply the requested values as follows:
+6. In the **Kind** dropdown list, select **Microsoft Azure Service Principal** to cause the page to display fields specific to adding a service principal. Then, supply the requested values as follows:
 
-    - **Scope** - Select the option for **Global (Jenkins, nodes, items, all child items, etc.)**.
-    - **Subscription ID** - Use the Azure subscription ID you specified when running `az account set`.
-    - **Client ID** - Use the `appId` value returned from `az ad sp create-for-rbac`.
-    - **Client Secret** - Use the `password` value returned from `az ad sp create-for-rbac`.
-    - **Tenant ID** - Use the `tenant` value returned from `az ad sp create-for-rbac`.
-    - **Azure Environment** - Select `Azure`.
-    - **ID** - Enter `myTestSp`. This value is used again later in this tutorial.
-    - **Description** - (Optional) Enter a description value for this principal.
+   - **Scope** - Select the option for **Global (Jenkins, nodes, items, all child items, etc.)**.
+   - **Subscription ID** - Use the Azure subscription ID you specified when running `az account set`.
+   - **Client ID** - Use the `appId` value returned from `az ad sp create-for-rbac`.
+   - **Client Secret** - Use the `password` value returned from `az ad sp create-for-rbac`.
+   - **Tenant ID** - Use the `tenant` value returned from `az ad sp create-for-rbac`.
+   - **Azure Environment** - Select `Azure`.
+   - **ID** - Enter `myTestSp`. This value is used again later in this tutorial.
+   - **Description** - (Optional) Enter a description value for this principal.
 
-    ![Specify new service principal properties in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
+     ![Specify new service principal properties in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
 
-1. Once you have entered the information defining the principal, you can optionally select **Verify Service Principal** to ensure that everything is working correctly. If your service principal is correctly defined, you see a message stating, "Successfully verified the Microsoft Azure Service Principal." below the **Description** field.
+7. Once you have entered the information defining the principal, you can optionally select **Verify Service Principal** to ensure that everything is working correctly. If your service principal is correctly defined, you see a message stating, "Successfully verified the Microsoft Azure Service Principal." below the **Description** field.
 
-1. When you are finished, select **OK** to add the principal to Jenkins. The Jenkins dashboard displays the newly added principal on the **Global Credentials** page.
+8. When you are finished, select **OK** to add the principal to Jenkins. The Jenkins dashboard displays the newly added principal on the **Global Credentials** page.
 
 ## Create an Azure resource group for your Azure Container Instances
 
@@ -208,39 +208,39 @@ Once the Azure Container Agents plugin is installed, this section guides you thr
 
     ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
-1. Select **Configure System**.
+2. Select **Configure System**.
 
     ![Manage Jenkins plugins option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
 
-1. Locate the **Cloud** section at the bottom of the page, and from the **Add a new cloud** dropdown list, select **Azure Container Instance**.
+3. Locate the **Cloud** section at the bottom of the page, and from the **Add a new cloud** dropdown list, select **Azure Container Instance**.
 
     ![Add a new cloud provider from the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-cloud-provider.png)
 
-1. In the **Azure Container Instance** section, specify the following values:
+4. In the **Azure Container Instance** section, specify the following values:
 
-    - **Cloud name** - (Optional as this value defaults to an auto-generated name.) Specify a name for this instance. 
-    - **Azure Credential** - Select the dropdown arrow, and then select the `myTestSp` entry that identifies the Azure service principal you created earlier.
-    - **Resource Group** - Select the dropdown arrow, and then select the `JenkinsAciResourceGroup` entry that identifies the Azure Container Instance resource group you created earlier.
+   - **Cloud name** - (Optional as this value defaults to an auto-generated name.) Specify a name for this instance. 
+   - **Azure Credential** - Select the dropdown arrow, and then select the `myTestSp` entry that identifies the Azure service principal you created earlier.
+   - **Resource Group** - Select the dropdown arrow, and then select the `JenkinsAciResourceGroup` entry that identifies the Azure Container Instance resource group you created earlier.
 
-    ![Defining the Azure Container Instance properties](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-properties.png)
+     ![Defining the Azure Container Instance properties](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-properties.png)
 
-1. Select the **Add Container Template** dropdown arrow, and then select **Aci Container Template**.
+5. Select the **Add Container Template** dropdown arrow, and then select **Aci Container Template**.
 
-1. In the **Aci container Template** section, specify the following values:
+6. In the **Aci container Template** section, specify the following values:
 
-    - **Name** - Enter `ACI-container`.
-    - **Labels** - Enter `ACI-container`.
-    - **Docker Image** - Enter `cloudbees/jnlp-slave-with-java-build-tools`
+   - **Name** - Enter `ACI-container`.
+   - **Labels** - Enter `ACI-container`.
+   - **Docker Image** - Enter `cloudbees/jnlp-slave-with-java-build-tools`
 
-    ![Defining the Azure Container Instance image properties](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
+     ![Defining the Azure Container Instance image properties](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
-1. Select **Advanced**.
+7. Select **Advanced**.
 
-1. Select the **Retention Strategy** dropdown arrow, and select **Container Idle Retention Strategy**. By selecting this option, Jenkins keeps the agent up until no new job is executed on the agent and the specified idle time has elapsed.
+8. Select the **Retention Strategy** dropdown arrow, and select **Container Idle Retention Strategy**. By selecting this option, Jenkins keeps the agent up until no new job is executed on the agent and the specified idle time has elapsed.
 
     ![Defining the Azure Container Instance retention strategy](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-retention-strategy.png)
 
-1. Select **Save**.
+9. Select **Save**.
 
 ## Create the Spring PetClinic Application job in Jenkins
 
@@ -250,31 +250,31 @@ The following steps guide you through creating a Jenkins job - as a freestyle pr
 
     ![New item menu option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-item.png)
 
-1. Enter `myPetClinicProject` for the item name, and select **Freestyle project**.
+2. Enter `myPetClinicProject` for the item name, and select **Freestyle project**.
 
     ![New freestyle project in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project.png)
 
-1. Select **OK**.
+3. Select **OK**.
 
-1. Select the **General** tab, and specify the following values:
+4. Select the **General** tab, and specify the following values:
 
-    - **Restrict where project can be run** - Select this option.
-    - **Label Expression** - Enter `ACI-container`. When you exit the field, a message displays confirming that the label is served by the cloud configuration created in the previous step.
+   - **Restrict where project can be run** - Select this option.
+   - **Label Expression** - Enter `ACI-container`. When you exit the field, a message displays confirming that the label is served by the cloud configuration created in the previous step.
 
-    ![General settings for a new freestyle project in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project-general.png)
+     ![General settings for a new freestyle project in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project-general.png)
 
-1. Select the **Source Code Management** tab, and specify the following values:
+5. Select the **Source Code Management** tab, and specify the following values:
 
     - **Source Code Management** - Select **Git**.
     - **Repository URL** - Enter the following URL for the Spring PetClinic Sample Application GitHub repo: `https://github.com/spring-projects/spring-petclinic.git`.
 
-1. Select the **Build** tab, and perform the following tasks:
+6. Select the **Build** tab, and perform the following tasks:
 
     - Select the **Add build step** dropdown arrow, and select **Invoke top-level Maven targets**.
 
     - For **Goals**, enter `package`.
 
-1. Select **Save** to save the new project definition.
+7. Select **Save** to save the new project definition.
 
 ## Build the Spring PetClinic Application job in Jenkins
 

@@ -314,10 +314,11 @@ You use property aliases to access specific properties for a resource type. Alia
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | Description |
-| ----- | ----------- |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Set the total shared DTU for the database elastic pool. |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Set the edition of the elastic pool. |
+
+|        Alias         |                Description                 |
+|----------------------|--------------------------------------------|
+| servers/elasticpools |   Microsoft.Sql/servers/elasticPools/dtu   |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition |
 
 **Microsoft.Storage/storageAccounts**
 

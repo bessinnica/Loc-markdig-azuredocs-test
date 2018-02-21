@@ -69,14 +69,14 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 
 > [!IMPORTANT]
 > Before entering maintenance mode, verify that both device controllers are healthy by accessing the **Device settings > Hardware health** for your device in the Azure portal. If one or both the controllers are not healthy, contact Microsoft Support for the next steps. For more information, go to [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
- 
+
 
 #### To enter maintenance mode
 
 1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is: `Password1`.
 3. At the command prompt, type 
-   
+
     `Enter-HcsMaintenanceMode`
 4. You will see a warning message telling you that maintenance mode will disrupt all I/O requests and sever the connection to the Azure portal, and you will be prompted for confirmation. Type **Y** to enter maintenance mode.
 5. Both controllers will restart. When the restart is complete, the serial console banner will indicate that the device is in maintenance mode. A sample output is shown below.
@@ -112,14 +112,13 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
     [3] Connect with limited access
     [4] Change language
     Please enter your choice>
-
 ```
 
 #### To exit maintenance mode
 
 1. Log on to the device serial console. Verify from the banner message that your device is in maintenance mode.
 2. At the command prompt, type:
-   
+
     `Exit-HcsMaintenanceMode`
 3. A warning message and a confirmation message will appear. Type **Y** to exit maintenance mode.
 4. Both controllers will restart. When the restart is complete, the serial console banner indicates that the device is in normal mode. A sample output is shown below.

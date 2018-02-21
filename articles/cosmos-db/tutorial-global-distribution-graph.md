@@ -31,7 +31,6 @@ This article covers the following tasks:
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-
 ## Connecting to a preferred region using the Graph API using the .NET SDK
 
 The Graph API is exposed as an extension library on top of the SQL API.

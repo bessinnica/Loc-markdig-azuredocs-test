@@ -19,9 +19,9 @@ This tutorial adds LUIS request and response information to [Application Insight
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Add Application Insights library to a web app bot
-* Capture and send LUIS query results to Application Insights
-* Query Application Insights for top intent, score, and utterance
+> * Add Application Insights library to a web app bot
+> * Capture and send LUIS query results to Application Insights
+> * Query Application Insights for top intent, score, and utterance
 
 ## Prerequisites
 

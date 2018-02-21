@@ -22,7 +22,7 @@ To step through this how-to guide, you need:
 ## Configure logging for Azure Database for PostgreSQL
 You can configure the server to access query logs and error logs. Error logs can contain auto-vacuum, connection, and checkpoints information.
 1. Turn on logging
-2. Update log\_statement and log\_min\_duration\_statement to enable query logging
+2. Update log\_statement and log\_min\_duration\_statement to enable query logging
 3. Update retention period
 
 For more information, see [customizing server configuration parameters](howto-configure-server-parameters-using-cli.md).

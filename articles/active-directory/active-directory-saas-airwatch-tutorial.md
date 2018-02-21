@@ -58,23 +58,23 @@ To configure the integration of AirWatch into Azure AD, you need to add AirWatch
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **AirWatch**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_search.png)
 
 5. In the results panel, select **AirWatch**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with AirWatch based on a test user called "Britta Simon."
@@ -99,57 +99,59 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **AirWatch** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_samlbase.png)
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_samlbase.png)
 
 3. On the **AirWatch Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
     b. In the **Identifier** textbox, type the value as `AirWatch`
 
-	> [!NOTE] 
-	> This value is not the real. Update this value with the actual Sign-on URL. Contact [AirWatch Client support team](http://www.air-watch.com/company/contact-us/) to get this value. 
- 
+    > [!NOTE] 
+    > This value is not the real. Update this value with the actual Sign-on URL. Contact [AirWatch Client support team](http://www.air-watch.com/company/contact-us/) to get this value. 
+
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_certificate.png) 
 
 5. On the **AirWatch Configuration** section, click **Configure AirWatch** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_configure.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_general_400.png)
-<CS>
+    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_general_400.png)
+   <CS>
+
+
 7. In a different web browser window, log in to your AirWatch company site as an administrator.
 
 8. In the left navigation pane, click **Accounts**, and then click **Administrators**.
-   
+
    ![Administrators](./media/active-directory-saas-airwatch-tutorial/ic791920.png "Administrators")
 
 9. Expand the **Settings** menu, and then click **Directory Services**.
-   
+
    ![Settings](./media/active-directory-saas-airwatch-tutorial/ic791921.png "Settings")
 
 10. Click the **User** tab, in the **Base DN** textbox, type your domain name, and then click **Save**.
-   
-   ![User](./media/active-directory-saas-airwatch-tutorial/ic791922.png "User")
+
+    ![User](./media/active-directory-saas-airwatch-tutorial/ic791922.png "User")
 
 11. Click the **Server** tab.
-   
-   ![Server](./media/active-directory-saas-airwatch-tutorial/ic791923.png "Server")
+
+    ![Server](./media/active-directory-saas-airwatch-tutorial/ic791923.png "Server")
 
 12. Perform the following steps:
-    
-	![Upload](./media/active-directory-saas-airwatch-tutorial/ic791924.png "Upload")   
-    
+
+    ![Upload](./media/active-directory-saas-airwatch-tutorial/ic791924.png "Upload")   
+
     a. As **Directory Type**, select **None**.
 
     b. Select **Use SAML For Authentication**.
@@ -157,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     c. To upload the downloaded certificate, click **Upload**.
 
 13. In the **Request** section, perform the following steps:
-    
+
     ![Request](./media/active-directory-saas-airwatch-tutorial/ic791925.png "Request")  
 
     a. As **Request Binding Type**, select **POST**.
@@ -169,11 +171,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     d. Click **Save**.
 
 14. Click the **User** tab again.
-    
+
     ![User](./media/active-directory-saas-airwatch-tutorial/ic791926.png "User")
 
 15. In the **Attribute** section, perform the following steps:
-    
+
     ![Attribute](./media/active-directory-saas-airwatch-tutorial/ic791927.png "Attribute")
 
     a. In the **Object Identifier** textbox, type **http://schemas.microsoft.com/identity/claims/objectidentifier**.
@@ -201,28 +203,28 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_02.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_03.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_04.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-airwatch-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of Britta Simon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating a AirWatch test user
 
 To enable Azure AD users to log in to AirWatch, they must be provisioned in to AirWatch.
@@ -233,10 +235,10 @@ To enable Azure AD users to log in to AirWatch, they must be provisioned in to A
 
 1. Log in to your **AirWatch** company site as administrator.
 2. In the navigation pane on the left side, click **Accounts**, and then click **Users**.
-   
+
    ![Users](./media/active-directory-saas-airwatch-tutorial/ic791929.png "Users")
 3. In the **Users** menu, click **List View**, and then click **Add \> Add User**.
-   
+
    ![Add User](./media/active-directory-saas-airwatch-tutorial/ic791930.png "Add User")
 4. On the **Add / Edit User** dialog, perform the following steps:
 
@@ -258,26 +260,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **AirWatch**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

@@ -31,6 +31,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 ## Analyze an image with Computer Vision API using Python 
 <a name="AnalyzeImage"> </a>
 
+
 With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * A detailed list of tags related to the image content.
 * A description of image content in a complete sentence.
@@ -60,6 +61,7 @@ The image analysis URL looks like the following (see REST API docs [here](https:
 <code>
 https://[location].api.cognitive.microsoft.com/vision/v1.0/<b>analyze</b>[?visualFeatures][&details][&language]
 </code>
+
 
 
 ```python
@@ -244,6 +246,7 @@ _ = plt.axis("off")
 
 ## Get a thumbnail with Computer Vision API
 <a name="GetThumbnail"> </a>
+
 
 Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
 

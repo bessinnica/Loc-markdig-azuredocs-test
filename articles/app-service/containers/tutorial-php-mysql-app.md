@@ -77,6 +77,7 @@ quit
 
 <a name="step2"></a>
 
+
 ## Create a PHP app locally
 In this step, you get a Laravel sample application, configure its database connection, and run it locally. 
 
@@ -150,7 +151,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL (Preview)
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create a MySQL server
 
@@ -227,6 +228,7 @@ quit
 In this step, you connect the PHP application to the MySQL database you created in Azure Database for MySQL (Preview).
 
 <a name="devconfig"></a>
+
 
 ### Configure the database connection
 
@@ -329,7 +331,7 @@ The Laravel application starts in the _/public_ directory. The default PHP Docke
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)]
 
 ### Configure database settings
 
@@ -580,6 +582,7 @@ The left menu provides pages for configuring your app.
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 
 ## Next steps
 

@@ -20,7 +20,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Use a Windows VM Managed Service Identity (MSI) to access Azure SQL
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 This tutorial shows you how to use a Managed Service Identity (MSI) for a Windows virtual machine (VM) to access an Azure SQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
 
@@ -43,12 +43,12 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
 
-1.	Click the **New** button found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
+1.  Click the **New** button found on the upper left-hand corner of the Azure portal.
+2.  Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
+3.  Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
 4.  Choose the proper **Subscription** for the virtual machine in the dropdown.
-5.	To select a new **Resource Group** in which to create your virtual machine, choose **Create New**. When complete, click **OK**.
-6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults, and click **OK**.
+5.  To select a new **Resource Group** in which to create your virtual machine, choose **Create New**. When complete, click **OK**.
+6.  Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults, and click **OK**.
 
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
@@ -56,10 +56,10 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
 A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
 
-1.	Select the **Virtual Machine** that you want to enable MSI on.  
-2.	On the left navigation bar click **Configuration**. 
-3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
-4.	Ensure you click **Save** to save the configuration.  
+1.  Select the **Virtual Machine** that you want to enable MSI on.  
+2.  On the left navigation bar click **Configuration**. 
+3.  You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
+4.  Ensure you click **Save** to save the configuration.  
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
@@ -137,12 +137,12 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 Now that you have created the group and added the VM MSI to the membership, you can [configure Azure AD authentication for the SQL server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
 
-1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
-2.	Click the SQL server to be enabled for Azure AD authentication.
-3.	In the **Settings** section of the blade, click **Active Directory admin**.
-4.	In the command bar, click **Set admin**.
-5.	Select an Azure AD user account to be made an administrator of the server, and click **Select.**
-6.	In the command bar, click **Save.**
+1.  In the Azure portal, select **SQL servers** from the left-hand navigation.
+2.  Click the SQL server to be enabled for Azure AD authentication.
+3.  In the **Settings** section of the blade, click **Active Directory admin**.
+4.  In the command bar, click **Set admin**.
+5.  Select an Azure AD user account to be made an administrator of the server, and click **Select.**
+6.  In the command bar, click **Save.**
 
 ### Create a contained user in the database that represents the Azure AD group
 
@@ -181,7 +181,7 @@ Code running in the VM can now get a token from MSI and use the token to authent
 
 Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  You use the **access token** method of creating a connection to SQL.  This is part of Azure SQL's integration with Azure AD, and is different from supplying credentials on the connection string.
 
-Here's a .Net code example of opening a connection to SQL using an access token.  This code must run on the VM to be able to access the VM MSI endpoint.  **.Net Framework 4.6** or higher is required to use the access token method.  Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly.  Note the resource ID for Azure SQL is "https://database.windows.net/".
+Here's a .Net code example of opening a connection to SQL using an access token.  This code must run on the VM to be able to access the VM MSI endpoint.  <strong>.Net Framework 4.6</strong> or higher is required to use the access token method.  Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly.  Note the resource ID for Azure SQL is "<https://database.windows.net/>".
 
 ```csharp
 using System.Net;
@@ -227,10 +227,10 @@ if (accessToken != null) {
 
 Alternatively, a quick way to test the end to end setup without having to write and deploy an app on the VM is using PowerShell.
 
-1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
-2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4.	Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
+1.  In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
+2.  Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
+3.  Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
+4.  Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
 
     ```powershell
        $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}

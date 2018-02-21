@@ -1,4 +1,3 @@
-
 ---
 title: Convert a Linux virtual machine in Azure from unmanaged disks to managed disks - Azure Managed Disks  | Microsoft Docs
 description: How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI 2.0 in the Resource Manager deployment model
@@ -29,7 +28,6 @@ This article shows you how to convert VMs by using the Azure CLI. If you need to
 * Review [the FAQ about migration to Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
-
 
 ## Convert single-instance VMs
 This section covers how to convert single-instance Azure VMs from unmanaged disks to managed disks. (If your VMs are in an availability set, see the next section.) You can use this process to convert the VMs from premium (SSD) unmanaged disks to premium managed disks, or from standard (HDD) unmanaged disks to standard managed disks.

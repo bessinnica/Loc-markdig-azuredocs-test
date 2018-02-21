@@ -121,7 +121,7 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
 4. In the search bar, enter the query strings below and click **Search**.
 
-  ![Search query example][7]
+   ![Search query example][7]
 
 **`search=seattle`**
 

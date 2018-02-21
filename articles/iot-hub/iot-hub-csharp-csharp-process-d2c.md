@@ -195,16 +195,16 @@ In this section, you create a Storage account, connect it to your IoT hub, and c
 
 3. In the **Endpoints** blade, select the **CriticalQueue** endpoint, and click **Delete**. Click **Yes**, and then click **Add**. Name the endpoint **StorageContainer** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom. 
 
- > [!NOTE]
+   > [!NOTE]
    > If you are not limited to one **Endpoint**, you do not need to delete the **CriticalQueue**.
 
 4. Click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageContainer** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
 
     Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
 
-1. Make sure your previous applications are still running. 
+5. Make sure your previous applications are still running. 
 
-1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
+6. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
 
 ## Next steps
 In this tutorial, you learned how to reliably dispatch device-to-cloud messages by using the message routing functionality of IoT Hub.

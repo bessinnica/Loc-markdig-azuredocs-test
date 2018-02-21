@@ -31,6 +31,7 @@ integration solution.
 
 <a name="flow"></a>
 
+
 ## Flow vs. Logic Apps
 We can discuss Microsoft Flow and Azure Logic Apps together because they are both *configuration-first* integration services. They make it easy to build processes and workflows and integrate with various SaaS and enterprise applications. 
 
@@ -53,6 +54,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Security |Office 365 Security and Compliance audit logs, Data Loss Prevention (DLP), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
 <a name="function"></a>
+
 
 ## Functions vs. WebJobs
 We can discuss Azure Functions and Azure App Service WebJobs together because they are both *code-first* integration services and designed for developers. They enable you to run a script or a piece of code in response to various events, such as [new Storage Blobs](functions-bindings-storage.md) or [a WebHook request](functions-bindings-http-webhook.md). Here are their similarities: 
@@ -102,6 +104,7 @@ app for which you want to run code snippets, and you want to manage them togethe
 * You want to call your code snippets from a Logic app. 
 
 <a name="together"></a>
+
 
 ## Flow, Logic Apps, and Functions together
 As previously mentioned, which service is best suited to you depends on your situation. 

@@ -55,8 +55,8 @@ Before you create the VM, create a network interface by using the steps in [Crea
 4. Select **Networking**, under **SETTINGS**.
 5. Select **Attach network interface**. From the list of network interfaces that aren't currently attached to another VM, select the one you'd like to attach. 
 
-    >[!NOTE]
-    The network interface you select cannot have accelerated networking enabled, cannot have an IPv6 address assigned to it, and must exist in the same virtual network as the one that contains the network interface currently attached to the VM. 
+   > [!NOTE]
+   >  The network interface you select cannot have accelerated networking enabled, cannot have an IPv6 address assigned to it, and must exist in the same virtual network as the one that contains the network interface currently attached to the VM. 
 
     If you don't have an existing network interface, you must first create one. To do so, select **Create network interface**. To learn more about how to create a network interface, see [Create a network interface](virtual-network-network-interface.md#create-a-network-interface). To learn more about additional constraints when adding network interfaces to virtual machines, see [Constraints](#constraints).
 
@@ -93,8 +93,8 @@ You can view the network interfaces currently attached to a VM to learn about ea
 4. Select **Networking**, under **SETTINGS**.
 5. Select **Detach network interface**. From the list of network interfaces currently attached to the virtual machine, select the network interface you'd like to detach. 
 
-    >[!NOTE]
-    If only one network interface is listed, you cannot detach it, because a virtual machine must always have at least one network interface attached to it.
+   > [!NOTE]
+   >  If only one network interface is listed, you cannot detach it, because a virtual machine must always have at least one network interface attached to it.
 6. Select **OK**.
 
 ### Commands

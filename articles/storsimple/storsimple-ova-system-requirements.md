@@ -34,6 +34,7 @@ The StorSimple system requirements information published in this article applies
 The software requirements include the information on the supported web browsers, SMB versions, virtualization platforms and the minimum virtual device requirements.
 
 ### Supported virtualization platforms
+
 | **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 and later |
@@ -43,6 +44,7 @@ The software requirements include the information on the supported web browsers,
 > Do not install VMware tools on your StorSimple Virtual Array; this will result in an unsupported configuration.
 
 ### Virtual device requirements
+
 | **Component** | **Requirement** |
 | --- | --- |
 | Minimum number of virtual processors (cores) |4 |
@@ -56,6 +58,7 @@ The software requirements include the information on the supported web browsers,
 <sup>2</sup> - Network requirements may vary depending on the daily data change rate. For example, if a device needs to back up 10 GB or more changes during a day, then the daily backup over a 5 Mbps connection could take up to 4.25 hours (if the data could not be compressed or deduplicated).
 
 ### Supported web browsers
+
 | **Component** | **Version** | **Additional requirements/notes** |
 | --- | --- | --- |
 | Microsoft Edge |Latest version | |

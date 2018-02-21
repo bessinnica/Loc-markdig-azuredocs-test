@@ -30,6 +30,7 @@ Before you proceed, make sure to [create your Azure Location Based Services acco
 
 <a id="queryroutes"></a>
 
+
 ## Configure your Route Service query
 
 Use the following steps to create a static HTML page embedded with the Location Based Services' Map Control API. 
@@ -62,7 +63,7 @@ Use the following steps to create a static HTML page embedded with the Location 
             }
         </style>
     </head>
-    
+
     <body>
         <div id="map"></div>
         <script>
@@ -73,7 +74,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     </html>
     ```
     Note that the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Location Based Services library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
-3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
+3. Add the following JavaScript code to the <em>script</em> block of the HTML file. Replace the placeholder <em><insert-key></em> with your Location Based Services account's primary key.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
@@ -163,6 +164,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 <a id="multipleroutes"></a>
 
+
 ## Render routes prioritized by mode of travel
 
 This section shows how to use the Azure Location Based Services' Route Service API to find multiple routes from a given start point to a destination, based on your mode of transport. The Route Service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
@@ -205,7 +207,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
     xhttpTruck.send();
     ```
     This code snippet creates an [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned, and adds it the map's `truckRouteLayerName` layer. 
-    
+
     This code snippet also sends the query to the Route Service, to get the route for specified start and end point, for your account key. The following optional parameters are used to indicate the route for a heavy truck:
         - The parameter `travelMode=truck` specifies the mode of travel as *truck*. Other modes of travel supported are *taxi*, *bus*, *van*, *motorcycle*, and the default *car*.  
         - The parameters `vehicleWidth`, `vehicleHeight`, and `vehicleLength` specify the dimensions of the vehicle in meters, and are considered only if the mode of travel is *truck*.  
@@ -244,7 +246,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
     xhttpCar.send();
     ```
     This code snippet creates another [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned, and adds it the map's `carRouteLayerName` layer. 
-    
+
     This code snippet also sends the query to the Route Service, to get the route for the specified start and end point, for your account key. Since no other parameters are used, the route for the default mode of travel *car* is returned. 
 
 3. Save the **MapTruckRoute.html** file locally, then open it in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 

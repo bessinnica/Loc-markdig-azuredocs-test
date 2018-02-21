@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export to Power BI from Azure Application Insights | Microsoft Docs
 description: Analytics queries can be displayed in Power BI.
 services: application-insights
@@ -31,13 +31,13 @@ This method creates a complete dashboard of telemetry for you. The initial datas
 ### Get the adapter
 1. Sign in to [Power BI](https://app.powerbi.com/).
 2. Open **Get Data**, **Services**, and then **Application Insights**.
-   
+
     ![Screenshots of Get from Application Insights data source](./media/app-insights-export-power-bi/power-bi-adapter.png)
 3. Provide the details of your Application Insights resource.
-   
+
     ![Screenshot of Get from Application Insights data source](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
 4. Wait a minute or two for the data to be imported.
-   
+
     ![Screenshot of Power BI adapter](./media/app-insights-export-power-bi/010.png)
 
 You can edit the dashboard, combining the Application Insights charts with those of other sources, and with Analytics queries. You can get more charts in the visualization gallery, and each chart has parameters you can set.
@@ -56,7 +56,7 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 1. [Open Analytics and write your query](app-insights-analytics-tour.md).
 2. Test and refine the query until you're happy with the results. Make sure that the query runs correctly in Analytics before you export it.
 3. On the **Export** menu, choose **Power BI (M)**. Save the text file.
-   
+
     ![Screenshot of Analytics, with Export menu highlighted](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
 4. In Power BI Desktop, select **Get Data** > **Blank Query**. Then, in the query editor, under **View**, select **Advanced Editor**.
 
@@ -65,15 +65,15 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
 1. To allow Power BI to access Azure, you might have to provide credentials. Use **Organizational account** to sign in with your Microsoft account.
-   
+
     ![Screenshot of Power BI Query Settings dialog box](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     If you need to verify the credentials, use the **Data Source Settings** menu command in the query editor. Be sure to specify the credentials you use for Azure, which might be different from your credentials for Power BI.
 2. Choose a visualization for your query, and select the fields for x-axis, y-axis, and segmenting dimension.
-   
+
     ![Screenshot of Power BI Desktop vizualization options](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
 3. Publish your report to your Power BI cloud workspace. From there, you can embed a synchronized version into other web pages.
-   
+
     ![Screenshot of Power BI Desktop, with Publish button highlighted](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
 
@@ -82,7 +82,7 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 2. Select **Power BI**. 
 
    ![Screenshot of Power BI button](./media/app-insights-export-power-bi/button.png)
-   
+
 3. In Power BI Desktop, select **Get Data** > **Blank Query**. Then, in the query editor, under **View**, select **Advanced Editor**.
 
    ![Screenshot of Power BI Desktop, with Blank Query button highlighted](./media/app-insights-export-power-bi/blankquery.png)
@@ -109,7 +109,7 @@ This can happen if your refresh token has not been updated. Try these steps to e
 1. Sign into the Azure portal, and make sure you can access the resource.
 2. Try to refresh the credentials for the dashboard.
 
- If you do have access and refreshing the credentials does not work, please open a support ticket.
+   If you do have access and refreshing the credentials does not work, please open a support ticket.
 
 ### Bad Gateway (502)
 This is usually caused by an Analytics query that returns too much data. Try using a smaller time range for the query. 
@@ -118,10 +118,11 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
 
 1. Create an [API key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Update the Power BI M script that you exported from Analytics by replacing the Azure Resource Manager URL with the Application Insights API.
-   * Replace **https://management.azure.com/subscriptions/...**
-   * with, **https://api.applicationinsights.io/beta/apps/...**
+   * Replace <strong><https://management.azure.com/subscriptions/>...</strong>
+   * with, <strong><https://api.applicationinsights.io/beta/apps/>...</strong>
+
 3. Finally, update the credentials to basic, and use your API key.
-  
+
 
 **Existing script**
  ```

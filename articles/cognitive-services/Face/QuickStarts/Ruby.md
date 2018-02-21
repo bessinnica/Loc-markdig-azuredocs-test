@@ -234,7 +234,6 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 
 puts response.body
- 
 ```
 
 #### Face - Identify Response

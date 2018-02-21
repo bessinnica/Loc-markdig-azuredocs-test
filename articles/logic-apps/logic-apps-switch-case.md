@@ -92,26 +92,26 @@ let's look at the code definition behind the switch statement.
 
 ```json
 "Switch": {
-	"type": "Switch",
-	"expression": "@body('Send_approval_email')?['SelectedOption']",
-	"cases": {
-		"Case 1" : {
-			"case" : "Approved",
-			"actions" : {}
-		},
-		"Case 2" : {
-			"case" : "Rejected",
-			"actions" : {}
-		}
-	},
-	"default": {
-		"actions": {}
-	},
-	"runAfter": {
-		"Send_approval_email": [
-			"Succeeded"
-		]
-	}
+    "type": "Switch",
+    "expression": "@body('Send_approval_email')?['SelectedOption']",
+    "cases": {
+        "Case 1" : {
+            "case" : "Approved",
+            "actions" : {}
+        },
+        "Case 2" : {
+            "case" : "Rejected",
+            "actions" : {}
+        }
+    },
+    "default": {
+        "actions": {}
+    },
+    "runAfter": {
+        "Send_approval_email": [
+            "Succeeded"
+        ]
+    }
 }
 ```
 

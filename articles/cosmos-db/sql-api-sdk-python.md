@@ -36,18 +36,20 @@ ms.custom: H1Hack27Feb2017
 
 <table>
 
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td><strong>Download SDK</strong></td><td><a href="https://pypi.python.org/pypi/pydocumentdb" data-raw-source="[PyPI](https://pypi.python.org/pypi/pydocumentdb)">PyPI</a></td></tr>
 
-<tr><td>**API documentation**</td><td>[Python API reference documentation](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td><strong>API documentation</strong></td><td><a href="http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html" data-raw-source="[Python API reference documentation](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)">Python API reference documentation</a></td></tr>
 
-<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td><strong>SDK installation instructions</strong></td><td><a href="http://azure.github.io/azure-documentdb-python/" data-raw-source="[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)">Python SDK installation instructions</a></td></tr>
 
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td><strong>Contribute to SDK</strong></td><td><a href="https://github.com/Azure/azure-documentdb-python" data-raw-source="[GitHub](https://github.com/Azure/azure-documentdb-python)">GitHub</a></td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Python SDK](sql-api-python-application.md)</td></tr>
+<tr><td><strong>Get started</strong></td><td><a href="sql-api-python-application.md" data-raw-source="[Get started with the Python SDK](sql-api-python-application.md)">Get started with the Python SDK</a></td></tr>
 
-<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)</td></tr>
+<tr><td><strong>Current supported platform</strong></td><td><a href="https://www.python.org/downloads/" data-raw-source="[Python 2.7](https://www.python.org/downloads/)">Python 2.7</a> and <a href="https://www.python.org/downloads/" data-raw-source="[Python 3.5](https://www.python.org/downloads/)">Python 3.5</a></td></tr>
+
 </table></br>
+
 
 ## Release notes
 ### <a name="2.3.1"/>2.3.1
@@ -133,6 +135,7 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 > 
 
 <br/>
+
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

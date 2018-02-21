@@ -31,7 +31,7 @@ Text analysis can mean different things, but in Cognitive Services, APIs provide
  ## Typical workflow
 
  The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
- 
+
 1. [Sign up](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for an 
 [access key](how-tos/text-analytics-how-to-access-key.md). The key must be passed on each request.
 
@@ -48,11 +48,13 @@ Data is not stored in your account. Operations performed by Text Analytics API a
 
 <a name="supported-languages"></a>
 
+
 ## Supported languages
 
 We moved this section to a separate article for better discoverability. Refer to [Supported languages in Text Analytics API](text-analytics-supported-languages.md) for this content.
 
 <a name="data-limits"></a>
+
 
 ## Data limits
 

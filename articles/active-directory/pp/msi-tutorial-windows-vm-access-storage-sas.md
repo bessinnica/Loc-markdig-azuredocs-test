@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Use a Windows VM Managed Service Identity to access Azure Storage via a SAS credential
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use the MSI to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
@@ -45,12 +45,12 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Windows VM. You can also enable MSI on an existing VM.
 
-1.	Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
+1.  Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
+2.  Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
+3.  Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
 4.  Choose the proper **Subscription** for the virtual machine in the dropdown.
-5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
+5.  To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
+6.  Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
 
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
@@ -107,7 +107,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## Get an access token using the VM's identity and use it to call Azure Resource Manager 
+## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
 For the remainder of the tutorial, we will work from the VM we created earlier.
 

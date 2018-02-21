@@ -113,7 +113,7 @@ The 'trip_data' CSV contains trip details, such as number of passengers, pickup 
 
 The 'trip_fare' CSV contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
 
-	   medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
+       medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
@@ -146,7 +146,7 @@ To execute U-SQL, Open Visual Studio, click **File --> New --> Project**, choose
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Data Ingestion: Read in data from public blob
-The location of the data in the Azure blob is referenced as **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in following scripts for container_name@blob_storage_account_name in the wasb address. Since the file names are in same format, it is possible to use **trip\_data_{\*\}.csv** to read in all 12 trip files. 
+The location of the data in the Azure blob is referenced as <strong>wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name</strong> and can be extracted using <strong>Extractors.Csv()</strong>. Substitute your own container name and storage account name in following scripts for container<em>name<xref href="blob_storage_account_name" data-throw-if-not-resolved="False" data-raw-source="@blob_storage_account_name"></xref> in the wasb address. Since the file names are in same format, it is possible to use **trip\_data</em>{\*\}.csv** to read in all 12 trip files. 
 
     ///Read in Trip data
     @trip0 =

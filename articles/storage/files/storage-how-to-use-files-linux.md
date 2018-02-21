@@ -63,9 +63,9 @@ ms.author: renash
     
     SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support this feature:
 
-    - Ubuntu Server 16.04+
-    - openSUSE 42.3+
-    - SUSE Linux Enterprise Server 12 SP3+
+  - Ubuntu Server 16.04+
+  - openSUSE 42.3+
+  - SUSE Linux Enterprise Server 12 SP3+
     
     If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
 

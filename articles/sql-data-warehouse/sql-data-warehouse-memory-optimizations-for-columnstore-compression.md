@@ -62,7 +62,7 @@ JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_i
 JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
 JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
                                                                             AND rg.[pdw_node_id]   = nt.[pdw_node_id]
-									    AND rg.[distribution_id]    = nt.[distribution_id]						                  	
+                                        AND rg.[distribution_id]    = nt.[distribution_id]                                          
 )
 select *
 from cte;

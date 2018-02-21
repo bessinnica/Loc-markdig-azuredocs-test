@@ -43,6 +43,7 @@ Template functions and their parameters are case-insensitive. For example, Resou
 <a id="take" />
 <a id="union" />
 
+
 ## Array and object functions
 Resource Manager provides several functions for working with arrays and objects.
 
@@ -70,6 +71,7 @@ Resource Manager provides several functions for working with arrays and objects.
 <a id="greater" />
 <a id="greaterorequals" />
 
+
 ## Comparison functions
 Resource Manager provides several functions for making comparisons in your templates.
 
@@ -82,6 +84,7 @@ Resource Manager provides several functions for making comparisons in your templ
 <a id="deployment" />
 <a id="parameters" />
 <a id="variables" />
+
 
 ## Deployment value functions
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
@@ -100,6 +103,7 @@ Resource Manager provides the following functions for getting values from sectio
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
+
 
 ## Logical functions
 Resource Manager provides the following functions for working with logical conditions:
@@ -131,6 +135,7 @@ Resource Manager provides the following functions for working with integers:
 <a id="resourcegroup" />
 <a id="resourceid" />
 <a id="subscription" />
+
 
 ## Resource functions
 Resource Manager provides the following functions for getting resource values:
@@ -171,6 +176,7 @@ Resource Manager provides the following functions for getting resource values:
 <a id="uri" />
 <a id="uricomponent" />
 <a id="uricomponenttostring" />
+
 
 ## String functions
 Resource Manager provides the following functions for working with strings:

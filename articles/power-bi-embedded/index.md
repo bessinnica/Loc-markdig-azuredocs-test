@@ -5,7 +5,7 @@ services: power-bi-embedded
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -95,6 +95,7 @@ Learn how to add data visualizations and interactive reports to applications wit
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -136,3 +137,4 @@ Learn how to add data visualizations and interactive reports to applications wit
         </div>
     </li>
 </ul>
+

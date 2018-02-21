@@ -1,7 +1,7 @@
 1. Run the Unified Setup installation file.
 2. In **Before You Begin**, select **Install the configuration server and process server**.
 
-	![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
+    ![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
 3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 
@@ -35,6 +35,6 @@
 
 11. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need this when you enable replication, so copy it and keep it in a secure location.
 
-	![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+    ![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.

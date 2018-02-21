@@ -64,7 +64,6 @@ The properties are described later in this article. The items property is the co
       ]
    }
 }
-
 ```
 
 ## Type properties
@@ -149,7 +148,6 @@ In the ForEach activity, provide an array to be iterated over for the property *
         }
     }
 }
-
 ```
 
 ### Blob dataset definition
@@ -176,7 +174,6 @@ In the ForEach activity, provide an array to be iterated over for the property *
       }
    }
 }
-
 ```
 
 ### Run parameter values
@@ -186,7 +183,6 @@ In the ForEach activity, provide an array to be iterated over for the property *
     "mySourceDatasetFolderPath": "input/",
     "mySinkDatasetFolderPath": [ "outputs/file1", "outputs/file2" ]
 }
-
 ```
 
 ## Iterate over multiple activities
@@ -232,7 +228,6 @@ It's possible to iterate over multiple activities (for example: copy and web act
     }
   }
 }
-
 ```
 ### Example
 **Scenario:** Iterate over an InnerPipeline within a ForEach activity with Execute Pipeline activity. The inner pipeline copies with schema definitions parameterized.
@@ -294,7 +289,6 @@ It's possible to iterate over multiple activities (for example: copy and web act
     }
   }
 }
-
 ```
 
 #### Inner pipeline definition
@@ -366,7 +360,6 @@ It's possible to iterate over multiple activities (for example: copy and web act
     }
   }
 }
-
 ```
 
 #### Source dataset definition
@@ -400,7 +393,6 @@ It's possible to iterate over multiple activities (for example: copy and web act
     }
   }
 }
-
 ```
 
 #### Sink dataset definition
@@ -434,7 +426,6 @@ It's possible to iterate over multiple activities (for example: copy and web act
     }
   }
 }
-
 ```
 
 #### Master pipeline parameters
@@ -466,9 +457,8 @@ It's possible to iterate over multiple activities (for example: copy and web act
             ]
         }
     ]
-    
-}
 
+}
 ```
 ## Aggregating metric output
 Expression for gathering the output of all the iterations of a ForEach is `@activity('NameofInnerActivity')`. For example, if a ForEach Activity iterated over a "MyCopyActivity," the syntax would be: `@activity('MyCopyActivity')`. The output is an array, with each item giving details about a specific iteration.
@@ -568,7 +558,6 @@ Expression for gathering the output of all the iterations of a ForEach is `@acti
         "duration": "00:00:18.8476816"    
     }
 ]
-
 ```
 ## Next steps
 See other control flow activities supported by Data Factory: 

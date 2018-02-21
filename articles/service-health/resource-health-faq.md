@@ -47,9 +47,9 @@ You can submit a support request from the Resource Health blade. You do not need
 
 ## Does Resource Health differentiate between unavailability cased by platform problems versus something I did?
 Yes, when a resource is unavailable, Resource Health identifies the root cause within one of these categories: 
--	User initiated action
--	Planned event 
--	Unplanned event
+-   User initiated action
+-   Planned event 
+-   Unplanned event
 
 In the portal, user initiated actions are shown using a blue notification icon, while planned and unplanned events are shown using a red warning icon. More details are provided in the [Resource Health overview](Resource-health-overview.md).  
 

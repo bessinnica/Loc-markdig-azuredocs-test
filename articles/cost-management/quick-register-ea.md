@@ -31,9 +31,9 @@ You use your Azure Enterprise Agreement to register with Azure Cost Management b
 4. On the Cloudyn portal trial registration page, type your company name and then select **Azure Enterprise Enrollment Administrator**.  
     ![trial registration](./media/quick-register-ea/trial-reg.png)
 5. Enter your Enterprise Portal enrollment API key. If you don't have your key handy, click the [Enterprise Portal](https://ea.azure.com) link and do the following steps:
-  1. Sign in to the Azure Enterprise website and click **Reports**, click **API Access Key** and then copy your primary key.  
+   1. Sign in to the Azure Enterprise website and click **Reports**, click **API Access Key** and then copy your primary key.  
     ![EA API key](./media/quick-register-ea/ea-key.png)
-  3. Go back to the registration page and paste in your API key.
+   3. Go back to the registration page and paste in your API key.
 6. Agree to the Terms of Use then validate your key. Click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
     ![key validation](./media/quick-register-ea/ea-key-validated.png)
 7. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.

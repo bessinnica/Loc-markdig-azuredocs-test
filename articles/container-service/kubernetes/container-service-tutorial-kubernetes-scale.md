@@ -133,7 +133,6 @@ The command output shows the number of agent nodes in the value of `agentPoolPro
     }
   ],
 ...
-
 ```
 
 ## Next steps

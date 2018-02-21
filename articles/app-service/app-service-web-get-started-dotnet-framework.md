@@ -32,8 +32,8 @@ Watch the video to see this quickstart in action and then follow the steps yours
 To complete this tutorial:
 
 * Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
-    - **ASP.NET and web development**
-    - **Azure development**
+  - **ASP.NET and web development**
+  - **Azure development**
 
     ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 

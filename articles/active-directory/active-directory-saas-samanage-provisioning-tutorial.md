@@ -43,9 +43,9 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 ### Important tips for assigning users to Samanage
 
-*	It is recommended that a single Azure AD user is assigned to Samanage to test the provisioning configuration. Additional users and/or groups may be assigned later.
+*   It is recommended that a single Azure AD user is assigned to Samanage to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Samanage, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. The **Default Access** role does not work for provisioning, and these users are skipped.
+*   When assigning a user to Samanage, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. The **Default Access** role does not work for provisioning, and these users are skipped.
 
 > [!NOTE]
 > As an added feature, the provisioning service reads any custom roles defined in Samanage, and imports them into Azure AD where they can be selected in the Select Role dialog. These roles will be visible in the Azure portal after the provisioning service is enabled and one synchronization cycle has completed.
@@ -69,7 +69,7 @@ This section guides you through connecting your Azure AD to Samanage's user acco
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
 
 5. Under the **Admin Credentials** section, input the **Admin Username&Admin Password** of your Samanage's account. 
 

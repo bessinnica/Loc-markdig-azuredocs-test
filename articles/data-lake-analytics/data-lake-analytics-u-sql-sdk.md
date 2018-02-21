@@ -35,12 +35,12 @@ The Data Lake U-SQL SDK requires the following dependencies:
 - [Microsoft .NET Framework 4.6 or newer](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer (which is called CppSDK in this article). There are two ways to get CppSDK:
 
-    - Install [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you have this installed with Visual Studio, the U-SQL local compiler will find it automatically.
+  - Install [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you have this installed with Visual Studio, the U-SQL local compiler will find it automatically.
 
     ![Data Lake Tools for Visual Studio local-run Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Install [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). You can find the prepackaged Visual C++ and Windows SDK files at
-	C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In this case, the U-SQL local compiler cannot find the dependencies automatically. You need to specify the CppSDK path for it. You can either copy the files to another location or use it as is.
+  - Install [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). You can find the prepackaged Visual C++ and Windows SDK files at
+    C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In this case, the U-SQL local compiler cannot find the dependencies automatically. You need to specify the CppSDK path for it. You can either copy the files to another location or use it as is.
 
 ## Understand basic concepts
 
@@ -193,21 +193,21 @@ Here are some usage examples.
 
 Compile a U-SQL script:
 
-	LocalRunHelper compile -Script d:\test\test1.usql
+    LocalRunHelper compile -Script d:\test\test1.usql
 
 Compile a U-SQL script and set the data-root folder. Note that this will overwrite the set environment variable.
 
-	LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
+    LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
 
 Compile a U-SQL script and set a working directory, reference assembly, and database:
 
-	LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
+    LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
 
 #### Execute compiled results
 
 The **execute** command is used to execute compiled results.   
 
-	LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
+    LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
 
 The following are optional arguments for **execute**:
 
@@ -220,7 +220,7 @@ The following are optional arguments for **execute**:
 
 Here's a usage example:
 
-	LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
+    LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
 
 
 ## Use the SDK with programming interfaces

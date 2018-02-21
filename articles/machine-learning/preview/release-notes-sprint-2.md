@@ -73,7 +73,7 @@ You can now create and access a remotedocker or cluster type compute target usin
     ```azure-cli
     $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
     ```
-[!NOTE] -k (or --use-azureml-ssh-key) option in the command specifies to generate and use SSH-key.
+  [!NOTE] -k (or --use-azureml-ssh-key) option in the command specifies to generate and use SSH-key.
 
 - Azure ML Workbench will generate a public key and output that in your console. Log into the compute target using the same username and append ~/.ssh/authorized_keys file with this public key.
 

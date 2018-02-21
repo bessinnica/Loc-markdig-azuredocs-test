@@ -15,7 +15,8 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Bing Entity Search API with Java 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Java.
+
+This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Java.
 
 ## Prerequisites
 
@@ -64,52 +65,52 @@ public class EntitySearch {
 // **********************************************
 
 // Replace the subscriptionKey string value with your valid subscription key.
-	static String subscriptionKey = "ENTER KEY HERE";
+    static String subscriptionKey = "ENTER KEY HERE";
 
-	static String host = "https://api.cognitive.microsoft.com";
-	static String path = "/bing/v7.0/entities";
+    static String host = "https://api.cognitive.microsoft.com";
+    static String path = "/bing/v7.0/entities";
 
-	static String mkt = "en-US";
-	static String query = "italian restaurant near me";
+    static String mkt = "en-US";
+    static String query = "italian restaurant near me";
 
-	public static String search () throws Exception {
+    public static String search () throws Exception {
         String encoded_query = URLEncoder.encode (query, "UTF-8");
         String params = "?mkt=" + mkt + "&q=" + encoded_query;
-		URL url = new URL (host + path + params);
+        URL url = new URL (host + path + params);
 
-		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-		connection.setRequestMethod("GET");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-		connection.setDoOutput(true);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+        connection.setDoOutput(true);
 
-		StringBuilder response = new StringBuilder ();
-		BufferedReader in = new BufferedReader(
-		new InputStreamReader(connection.getInputStream()));
-		String line;
-		while ((line = in.readLine()) != null) {
-			response.append(line);
-		}
-		in.close();
+        StringBuilder response = new StringBuilder ();
+        BufferedReader in = new BufferedReader(
+        new InputStreamReader(connection.getInputStream()));
+        String line;
+        while ((line = in.readLine()) != null) {
+            response.append(line);
+        }
+        in.close();
 
-		return response.toString();
+        return response.toString();
     }
 
-	public static String prettify (String json_text) {
-		JsonParser parser = new JsonParser();
-		JsonObject json = parser.parse(json_text).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(json);
-	}
+    public static String prettify (String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
 
-	public static void main(String[] args) {
-		try {
-			String response = search ();
-			System.out.println (prettify (response));
-		}
-		catch (Exception e) {
-			System.out.println (e);
-		}
-	}
+    public static void main(String[] args) {
+        try {
+            String response = search ();
+            System.out.println (prettify (response));
+        }
+        catch (Exception e) {
+            System.out.println (e);
+        }
+    }
 }
 ```
 

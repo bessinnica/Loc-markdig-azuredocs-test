@@ -56,8 +56,9 @@ From the Azure portal, after you sign-in as admin, select “Subscriptions” an
 ![subscription blade in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png)
 By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more details on the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](/billing/billing-add-change-azure-subscription-administrator.md).
 
-In this example, the user "alflanigan@outlook.com" is the **Owner** of the "Free Trial" subscription in the AAD tenant "Default tenant Azure". Since this user is the creator of the Azure subscription with the initial Microsoft Account “Outlook” (Microsoft Account = Outlook, Live etc.) the default domain name for all other users added in this tenant will be **"@alflaniganuoutlook.onmicrosoft.com"**. By design, the syntax of the new domain is formed by putting together the username and domain name of the user who created the tenant and adding the extension **".onmicrosoft.com"**.
-Furthermore, users can sign in with a custom domain name in the tenant after adding and verifying it for the new tenant. For more information on how to verify a custom domain name in an Azure Active Directory tenant, see [Add a custom domain name to your directory](/active-directory/active-directory-add-domain).
+In this example, the user "alflanigan@outlook.com" is the <strong>Owner</strong> of the "Free Trial" subscription in the AAD tenant "Default tenant Azure". Since this user is the creator of the Azure subscription with the initial Microsoft Account “Outlook” (Microsoft Account = Outlook, Live etc.) the default domain name for all other users added in this tenant will be <strong>"<xref href="alflaniganuoutlook.onmicrosoft.com" data-throw-if-not-resolved="False" data-raw-source="@alflaniganuoutlook.onmicrosoft.com"></xref>"</strong>. By design, the syntax of the new domain is formed by putting together the username and domain name of the user who created the tenant and adding the extension <strong>".onmicrosoft.com"</strong>.
+Furthermore, users can sign in with a custom domain name in the tenant after adding and verifying it for the new tenant. For more information on how to verify a custom domain name in an Azure Active Directory tenant, see 
+[Add a custom domain name to your directory](/active-directory/active-directory-add-domain).
 
 In this example, the "Default tenant Azure" directory contains only users with the domain name "@alflanigan.onmicrosoft.com".
 
@@ -199,7 +200,6 @@ Login-AzureRMAccount
 Get-AzureRMRoleDefinition -Name "Reader"
 
 Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-
 ```
 
 
@@ -223,7 +223,6 @@ In the **Action** section are listed all the permitted operations for this role.
 To be able to see all the resource providers available and registered in your subscription, you can use PowerShell.
 ```
 Get-AzureRMResourceProvider
-
 ```
 Additionally, you can check for the all the available PowerShell cmdlets to manage the resource providers.
     ![PowerShell screenshot for resource provider management](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
@@ -235,7 +234,6 @@ After creating and customizing the RBAC role, it needs to be imported back the e
 
 ```
 New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
-
 ```
 
 In this example, the custom name for this RBAC role is "Reader support tickets access level" allowing the user to view everything in the subscription and also to open support requests.
@@ -296,7 +294,6 @@ For this example, I have chosen the built-in role of **Backup Reader**.
 ```
 
 azure role show "backup reader" --json
-
 ```
 
 
@@ -310,7 +307,6 @@ Editing the role in Visual Studio after copying the proprieties in a JSON templa
 ```
 
 azure role create --inputfile <path>
-
 ```
 
 

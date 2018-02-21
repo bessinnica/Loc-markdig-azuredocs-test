@@ -25,13 +25,14 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 <a id="setupdevbox"></a>
 
+
 ## Prepare the development environment 
 
 1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
 
 2. Set up environment variables for your Java installation. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is usually found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine. 
 
-  You may check if Java is successfully set up on your machine by running the following command on your command window:
+   You may check if Java is successfully set up on your machine by running the following command on your command window:
 
     ```cmd\sh
     java -version
@@ -50,12 +51,13 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 <a id="javasample"></a>
 
+
 ## Download and modify the Java sample code
 
 This section shows how to add the provisioning details of your X.509 device to the sample code. 
 
 1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the Java Service SDK:
-    
+
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
@@ -112,7 +114,7 @@ This section shows how to add the provisioning details of your X.509 device to t
                 ```
 
         9. Close the command window, or enter **n** when prompted for *Verification Code*. 
- 
+
     3. Optionally, you may configure your provisioning service through the sample code:
         - To add this configuration to the sample, follow these steps:
             1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](https://portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
@@ -138,9 +140,10 @@ This section shows how to add the provisioning details of your X.509 device to t
         ```
 
     5. Save the file _ServiceEnrollmentGroupSample.java_. 
- 
+
 
 <a id="runjavasample"></a>
+
 
 ## Build and run sample group enrollment
 

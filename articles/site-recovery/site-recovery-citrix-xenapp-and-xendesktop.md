@@ -120,11 +120,11 @@ Note the following:
 
 The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
 
-*	If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
-*	If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
+*   If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
+*   If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
 * For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.
-*	If the virtual machine has multiple network adapters they will all connect to the same network.
-*	If the virtual machine has multiple network adapters, then the first one shown in the list becomes the Default network adapter in the Azure virtual machine.
+*   If the virtual machine has multiple network adapters they will all connect to the same network.
+*   If the virtual machine has multiple network adapters, then the first one shown in the list becomes the Default network adapter in the Azure virtual machine.
 
 
 ## Creating a recovery plan
@@ -163,7 +163,7 @@ The customized recovery plan looks like the below:
 2. Failover Group2: SQL Server VMs
 3. Failover Group3: VDA Master Image VM
 
-   >[!NOTE] 	
+   >[!NOTE]     
    >Steps 4, 6 and 7 containing manual or script actions are applicable to only an on-premises XenApp >environment with MCS/PVS catalogs.
 
 4. Group 3 Manual or script action: Shutdown master VDA VM
@@ -174,16 +174,16 @@ state. Shutdown the VM from Azure Portal.
 5. Failover Group4: Delivery Controller and StoreFront server VMs
 6. Group3 manual or script action 1:
 
-	***Add Azure RM host connection***
+    ***Add Azure RM host connection***
 
-   	Create Azure ARM host connection in Delivery Controller machine to provision new MCS
+    Create Azure ARM host connection in Delivery Controller machine to provision new MCS
    catalogs in Azure. Follow the steps as explained in this [article](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
 7. Group3 manual or script action 2:
 
     ***Re-create MCS Catalogs in Azure***
 
-	The existing MCS or PVS clones on the primary site will not be replicated to Azure. You need to recreate these clones using the replicated master VDA and Azure ARM provisioning from Delivery controller.Follow the steps as explained in this [article](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) to create MCS catalogs in Azure.
+    The existing MCS or PVS clones on the primary site will not be replicated to Azure. You need to recreate these clones using the replicated master VDA and Azure ARM provisioning from Delivery controller.Follow the steps as explained in this [article](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) to create MCS catalogs in Azure.
 
 ![Recovery plan for XenApp Components](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 

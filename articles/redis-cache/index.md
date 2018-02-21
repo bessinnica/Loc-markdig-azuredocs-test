@@ -5,7 +5,7 @@ services: redis-cache
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-#Redis Cache Documentation
+# Redis Cache Documentation
 
 Learn how to use Azure Redis Cache, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Redis Cache from any application on Azure.
 
@@ -52,8 +52,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
             </div>
         </div>
         </a>
-    </li>   
-   <li>
+    </li><br/>   <li>
         <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">
             <div class="cardPadding">
@@ -148,6 +147,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -156,7 +156,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="/cli/azure/redis">Azure CLI 2​.0 (Preview)</a></p>
+                        <p><a href="/cli/azure/redis">Azure CLI 2 .0 (Preview)</a></p>
                     </div>
                 </div>
             </div>
@@ -190,5 +190,6 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
         </div>
     </li>
 </ul>
+
 
 

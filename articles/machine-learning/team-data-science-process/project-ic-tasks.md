@@ -74,11 +74,11 @@ On your local machine, create a directory ***C:\GitRepos*** (for Windows) or ***
 Run the one of the following commands (as appropriate for your OS) to clone your **GroupUtilities**, **TeamUtilities**, and **Project** repositories to directories on your local machine: 
 
 **Windows**
-	
-	git clone <the URL of the GroupUtilities repository>
-	git clone <the URL of the TeamUtilities repository>
-	git clone <the URL of the Project repository>
-	
+    
+    git clone <the URL of the GroupUtilities repository>
+    git clone <the URL of the TeamUtilities repository>
+    git clone <the URL of the Project repository>
+    
 ![2](./media/project-ic-tasks/project-ic-2-clone-three-repo-to-ic.png)
 
 Confirm that you see the three folders under your project directory.
@@ -86,10 +86,10 @@ Confirm that you see the three folders under your project directory.
 ![3](./media/project-ic-tasks/project-ic-3-three-repo-cloned-to-ic.png)
 
 **Linux**
-	
-	git clone <the SSH URL of the GroupUtilities repository>
-	git clone <the SSH URL of the TeamUtilities repository>
-	git clone <the SSH URL of the Project repository>
+    
+    git clone <the SSH URL of the GroupUtilities repository>
+    git clone <the SSH URL of the TeamUtilities repository>
+    git clone <the SSH URL of the Project repository>
 
 ![4](./media/project-ic-tasks/project-ic-4-clone-three-repo-to_ic-linux.png)
 

@@ -159,14 +159,14 @@ Here's the purpose of this stored procedure:
 - This stored procedure depends on existing offered concurrency limit and if that changes then this stored procedure would not work correctly.  
 - This stored procedure depends on existing resource class offerings and if that changes then this stored procedure would not work correctly.  
 
->  [!NOTE]  
+> [!NOTE]
 >  If you are not getting output after executing stored procedure with parameters provided, then there could be two cases. <br />1. Either DW Parameter contains an invalid SLO value <br />2. Or, there is no matching resource class for the CCI operation on the table. <br />For example, at DW100, the highest memory grant available is 400 MB, and if table schema is wide enough to cross the requirement of 400 MB.
       
 ### Usage example:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
 1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
-2. @SCHEMA_NAME: Provide a schema name of the table
+2. @"SCHEMA_NAME": Provide a schema name of the table
 3. @TABLE_NAME: Provide a table name of the interest
 
 Examples executing this stored proc:  

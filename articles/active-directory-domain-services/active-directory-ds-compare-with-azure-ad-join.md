@@ -49,6 +49,7 @@ On a domain-joined machine, user authentication happens using NTLM or Kerberos a
 
 
 ## Summary - key differences
+
 | **Aspect** | **Azure AD Join** | **Azure AD Domain Services** |
 |:---| --- | --- |
 | Device controlled by | Azure AD | Azure AD Domain Services managed domain |

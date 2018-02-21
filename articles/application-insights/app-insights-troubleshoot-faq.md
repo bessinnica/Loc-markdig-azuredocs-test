@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights
@@ -186,6 +186,7 @@ Use a single resource for all the components or roles in a single business syste
 * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
+
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
 | Availability charts |[Web tests](app-insights-monitor-web-app-availability.md) |Know your web app is up |

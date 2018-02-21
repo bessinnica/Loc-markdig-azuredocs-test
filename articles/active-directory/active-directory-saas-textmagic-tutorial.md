@@ -58,19 +58,19 @@ To configure the integration of TextMagic into Azure AD, you need to add TextMag
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **TextMagic**, select **TextMagic** from result panel then click **Add** button to add the application.
 
-	![TextMagic in the results list](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_addfromgallery.png)
+    ![TextMagic in the results list](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,55 +96,55 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **TextMagic** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_samlbase.png)
 
 3. On the **TextMagic Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![TextMagic Domain and URLs single sign-on information](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_url.png)
+    ![TextMagic Domain and URLs single sign-on information](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_url.png)
 
     In the **Identifier** textbox, type a URL: `https://my.textmagic.com/saml/metadata`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![TextMagic Domain and URLs single sign-on information](./media/active-directory-saas-textmagic-tutorial/url1.png)
+    ![TextMagic Domain and URLs single sign-on information](./media/active-directory-saas-textmagic-tutorial/url1.png)
 
     In the **Sign-on URL** textbox, type a URL: `https://my.textmagic.com/login/sso`
 
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-textmagic-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-textmagic-tutorial/tutorial_general_400.png)
+    
 7. On the **TextMagic Configuration** section, click **Configure TextMagic** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![TextMagic Configuration](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_configure.png) 
+    ![TextMagic Configuration](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_configure.png) 
 
 8. In a different web browser window, log in to your TextMagic company site as an administrator.
 
 9. Select **Account settings** under the username.
 
-	![TextMagic Configuration](./media/active-directory-saas-textmagic-tutorial/config1.png) 
+    ![TextMagic Configuration](./media/active-directory-saas-textmagic-tutorial/config1.png) 
 10. Click on the TAB  **“Single Sign-On (SSO)”** and fill in the following fields:  
-	
-	![TextMagic Configuration](./media/active-directory-saas-textmagic-tutorial/config2.png)
+    
+    ![TextMagic Configuration](./media/active-directory-saas-textmagic-tutorial/config2.png)
 
-	a. In **Identity provider Entity ID:** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
+    a. In **Identity provider Entity ID:** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
 
-	b. In **Identity provider SSO URL:** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+    b. In **Identity provider SSO URL:** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
 
-	c. In **Identity provider SLO URL:** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+    c. In **Identity provider SLO URL:** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
 
-	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
+    d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
 
-	e. Click **Save**.
+    e. Click **Save**.
 
 
 > [!TIP]
@@ -197,32 +197,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **TextMagic**.
 
-	![The TextMagic link in the Applications list](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_app.png)  
+    ![The TextMagic link in the Applications list](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the TextMagic tile in the Access Panel, you should get automatically signed-on to your TextMagic application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

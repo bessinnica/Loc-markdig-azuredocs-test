@@ -31,6 +31,7 @@ To perform the tasks listed in this article, you need:
 
 <br>
 
+
 ## Administrative tasks you can perform on a managed domain
 Members of the 'AAD DC Administrators' group are granted privileges on the managed domain that enable them to perform tasks such as:
 
@@ -111,6 +112,7 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
     ![ADAC - domain joined computers](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
 
 <br>
+
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)

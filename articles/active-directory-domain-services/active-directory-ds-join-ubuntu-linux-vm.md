@@ -117,13 +117,12 @@ Now that the required packages are installed on the Linux virtual machine, the n
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Troubleshooting:**
    > If *realm discover* is unable to find your managed domain:
-     * Ensure that the domain is reachable from the virtual machine (try ping).
-     * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-     * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-   >
+   >   * Ensure that the domain is reachable from the virtual machine (try ping).
+   >   * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+   >   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
 
 2. Initialize Kerberos. In your SSH terminal, type the following command: 
 
@@ -171,7 +170,7 @@ To enable automatic creation of the home directory after logging in users, type 
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Add the following line in this file below the line 'session optional pam_sss.so' and save it:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

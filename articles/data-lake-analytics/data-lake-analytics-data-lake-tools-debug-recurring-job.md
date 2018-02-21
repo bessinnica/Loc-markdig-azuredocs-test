@@ -53,8 +53,8 @@ In Pipeline Browser, all pipelines for the Data Lake Analytics account are liste
 
 A summary and a statistics report are shown at top of Related Job View. There, you can find the potential root cause of the problem. 
 
-1.	In the report, the X-axis shows the job submission time. Use it to find the abnormal job.
-2.	Use the process in the following diagram to check statistics and get insights about the problem and the possible solutions.
+1.  In the report, the X-axis shows the job submission time. Use it to find the abnormal job.
+2.  Use the process in the following diagram to check statistics and get insights about the problem and the possible solutions.
 
 ![Process diagram for checking statistics](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 

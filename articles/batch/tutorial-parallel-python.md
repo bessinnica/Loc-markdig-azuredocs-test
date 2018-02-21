@@ -41,7 +41,7 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
+[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 ## Download and run the sample
 

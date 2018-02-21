@@ -367,7 +367,7 @@ Get-ClusterAccess
 
 ## Create a virtual host name for the clustered SAP ASCS/SCS instance
 
-Create an SAP ASCS/SCS cluster network name (for example, **pr1-ascs [10.0.6.7]**), as described in [Create a virtual host name for the clustered SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
+Create an SAP ASCS/SCS cluster network name (for example, <strong>pr1-ascs [10.0.6.7]</strong>), as described in [Create a virtual host name for the clustered SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 ## Update the default and SAP ASCS/SCS instance profile
 

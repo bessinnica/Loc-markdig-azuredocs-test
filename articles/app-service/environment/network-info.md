@@ -28,7 +28,7 @@ There are now two versions of App Service Environment: ASEv1 and ASEv2. For info
 
 All calls from an ASE that go to the internet leave the VNet through a VIP assigned for the ASE. The public IP of this VIP is then the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there. You don't need to configure the ASE or your app any further.
 
-![External ASE][1] 
+![External ASE][1] 
 
 If you have an External ASE, the public VIP is also the endpoint that your ASE apps resolve to for:
 
@@ -100,6 +100,7 @@ If the VNet is configured with a customer DNS on the other side of a VPN, the DN
 
 <a name="portaldep"></a>
 
+
 ## Portal dependencies ##
 
 In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Features that use the SCM site include:
@@ -159,9 +160,9 @@ The first two inbound requirements for the ASE to function are shown at the top 
 
 ![Inbound security rules][4]
 
-A default rule enables the IPs in the VNet to talk to the ASE subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the ASE. To see the default rules, select **Default rules** next to the **Add** icon. If you put a deny everything else rule after the NSG rules shown, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the VNet, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
+A default rule enables the IPs in the VNet to talk to the ASE subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the ASE. To see the default rules, select <strong>Default rules</strong> next to the <strong>Add</strong> icon. If you put a deny everything else rule after the NSG rules shown, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the VNet, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of <strong>Any</strong> and a port range of <strong>\</strong>*. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
 
-If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
+If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
 
 All the items shown in the following outbound rules are needed, except for the last item. They enable network access to the ASE dependencies that were noted earlier in this article. If you block any of them, your ASE stops working. The last item in the list enables your ASE to communicate with other resources in your VNet.
 

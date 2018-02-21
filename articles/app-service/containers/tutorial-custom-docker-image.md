@@ -69,12 +69,12 @@ ENV SSH_PASSWD "root:Docker!"
 RUN apt-get update \
         && apt-get install -y --no-install-recommends dialog \
         && apt-get update \
-	&& apt-get install -y --no-install-recommends openssh-server \
-	&& echo "$SSH_PASSWD" | chpasswd 
+    && apt-get install -y --no-install-recommends openssh-server \
+    && echo "$SSH_PASSWD" | chpasswd 
 
 COPY sshd_config /etc/ssh/
 COPY init.sh /usr/local/bin/
-	
+    
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
@@ -189,15 +189,15 @@ You can host native Linux applications in the cloud by using Azure Web Apps. To 
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create a Linux App Service plan
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### Create a web app
 
-In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _<appname>_ with a unique app name, and _\<docker-ID>_ with your Docker ID.
+In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace <em><appname></em> with a unique app name, and <em>\<docker-ID></em> with your Docker ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -258,7 +258,7 @@ In your local Git repository, open app/templates/app/index.html. Locate the firs
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">         
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>		 
+        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>       
       </div>            
     </div>
   </nav> 
@@ -303,10 +303,10 @@ SSH enables secure communication between a container and a client. In order for 
 
 * Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) by using a shell script in the /bin directory.
  
-	```bash
-	#!/bin/bash
-	service ssh start
-	```
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
      
 ### Open SSH connection to container
 

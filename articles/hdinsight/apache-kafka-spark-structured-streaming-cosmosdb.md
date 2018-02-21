@@ -43,30 +43,31 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
-    
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
     </a>
+
 
     The Azure Resource Manager template is located in the GitHub repository for this project ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
 
     This template creates the following resources:
 
-    * A Kafka on HDInsight 3.6 cluster.
+   * A Kafka on HDInsight 3.6 cluster.
 
-    * A Spark on HDInsight 3.6 cluster.
+   * A Spark on HDInsight 3.6 cluster.
 
-    * An Azure Virtual Network, which contains the HDInsight clusters.
+   * An Azure Virtual Network, which contains the HDInsight clusters.
 
-    * An Azure Cosmos DB SQL API database.
+   * An Azure Cosmos DB SQL API database.
 
-    > [!IMPORTANT]
-    > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+     > [!IMPORTANT]
+     > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Custom deployment** section:
-   
+
     ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
-   
+
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you.

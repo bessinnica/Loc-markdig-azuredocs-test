@@ -38,6 +38,7 @@ To complete this tutorial, you must have the following resources:
 * An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account using the Azure portal](create-sql-api-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
 <a id="#turn-on"></a>
+
 ## Turn on logging in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), in your Azure Cosmos DB account, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
@@ -172,14 +173,14 @@ The output for the command should resemble the following:
         RetentionPolicy
         Enabled : False
         Days    : 0
-    
+
     Logs
         Category        : DataPlaneRequests
         Enabled         : True
         RetentionPolicy
         Enabled : False
         Days    : 0
-    
+
     WorkspaceId                 :
     Id                          : /subscriptions/<subscription-ID>/resourcegroups/ContosoResourceGroup/providers`
     /microsoft.documentdb/databaseaccounts/contosocosmosdb/providers/microsoft.insights/diagnosticSettings/service
@@ -294,11 +295,11 @@ The blobs that are returned in each of these queries are stored as text, formatt
     [
         {
            "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
-		   "resourceId": "contosocosmosdb",
-		   "category": "DataPlaneRequests",
-		   "operationName": "Query",
-		   "resourceType": "Database",
-		   "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
+           "resourceId": "contosocosmosdb",
+           "category": "DataPlaneRequests",
+           "operationName": "Query",
+           "resourceType": "Database",
+           "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
            "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
            "resourceType": "Database","statusCode": "200","documentResourceId": "",`
            "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
@@ -321,6 +322,7 @@ Storage account is configured in the portal when **Log DataPlaneRequests** is se
 
 
 <a id="#view-in-loganalytics"></a>
+
 ## View logs in Log Analytics
 
 If you selected the **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection is forwarded to Log Analytics within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
@@ -342,6 +344,7 @@ Now that you have enabled data collection, run the following log search example,
 ![Sample take 10 log search](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
+
 ### Queries
 
 Here are some additional queries you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md). 

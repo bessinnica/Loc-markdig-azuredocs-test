@@ -49,43 +49,43 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
 
   3. Start Azure PowerShell as an administrator and run the following commands on one head node:
 
-    ```powershell
+     ```powershell
         cd $env:CCP_HOME\bin
 
         Login-AzureRmAccount
-    ```
+     ```
         
-    If your account is in more than one Azure Active Directory tenant or Azure subscription, you can run the following command to select the correct tenant and subscription:
+     If your account is in more than one Azure Active Directory tenant or Azure subscription, you can run the following command to select the correct tenant and subscription:
   
-    ```powershell
+     ```powershell
         Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
-    ```     
+     ```     
        
-    Run the following command to view the currently selected tenant and subscription:
+     Run the following command to view the currently selected tenant and subscription:
     
-    ```powershell
+     ```powershell
         Get-AzureRMContext
-    ```
+     ```
 
   4. Run the following script
 
-    ```powershell
+     ```powershell
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
-    ```
+     ```
 
-    where
+     where
 
-    **DisplayName** - Azure Active Application display name. If the application does not exist, it is created in Azure Active Directory.
+     **DisplayName** - Azure Active Application display name. If the application does not exist, it is created in Azure Active Directory.
 
-    **HomePage** - The home page of the application. You can configure a dummy URL, as in the preceding example.
+     **HomePage** - The home page of the application. You can configure a dummy URL, as in the preceding example.
 
-    **IdentifierUri** - Identifier of the application. You can configure a dummy URL, as in the preceding example.
+     **IdentifierUri** - Identifier of the application. You can configure a dummy URL, as in the preceding example.
 
-    **CertificateThumbprint** - Thumbprint of the certificate you installed on the head node in Step 1.
+     **CertificateThumbprint** - Thumbprint of the certificate you installed on the head node in Step 1.
 
-    **TenantId** - Tenant ID of your Azure Active Directory. You can get the Tenant ID from the Azure Active Directory portal **Properties** page.
+     **TenantId** - Tenant ID of your Azure Active Directory. You can get the Tenant ID from the Azure Active Directory portal **Properties** page.
 
-    For more details about **ConfigARMAutoGrowShrinkCert.ps1**, run `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
+     For more details about **ConfigARMAutoGrowShrinkCert.ps1**, run `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
 
 * **For a cluster with a head node in Azure (classic deployment model)** - If you use the HPC Pack IaaS deployment script to create the cluster in the classic deployment model, enable the **AutoGrowShrink** cluster property by setting the AutoGrowShrink option in the cluster configuration file. For details, see the documentation accompanying the [script download](https://www.microsoft.com/download/details.aspx?id=44949).

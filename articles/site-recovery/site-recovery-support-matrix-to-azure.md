@@ -44,10 +44,10 @@ This article summarizes supported configurations and components for Azure Site R
 **VMware VM/physical server** | vCenter 6.5, 6.0 or 5.5
 **Hyper-V (with Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 and System Center Virtual Machine Manager 2012 R2
 
-  >[!Note]
-  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
-  > Configurations that include upgrade of an existing SCVMM 2012 R2 to 2016 is currently not supported.
-### Host servers
+> [!Note]
+> A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
+> Configurations that include upgrade of an existing SCVMM 2012 R2 to 2016 is currently not supported.
+> ### Host servers
 
 **Deployment** | **Support**
 --- | ---
@@ -98,8 +98,11 @@ The following file systems and storage configuration software are supported on L
 * Multipath software: Device Mapper
 
 Paravirtualized storage devices (devices exported by paravirtualized drivers) are not supported.<br/>
-Multi-queue block IO devices are not supported.<br/>
-Physical servers with the HP CCISS storage controller aren't supported.<br/>
+Multi-queue block IO devices are not supported.
+<br/>
+Physical servers with the HP CCISS storage controller aren't supported.
+<br/>
+
 
 >[!Note]
 > On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc; and /boot should be on a disk partition and not be an LVM volume<br/><br/>

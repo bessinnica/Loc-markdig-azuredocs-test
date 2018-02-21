@@ -67,7 +67,8 @@ Now you are set up to create a new Python project. Navigate to **File** -> **New
 ## 2. Using a Jupyter Notebook to explore and model your data with Python or R
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
 
-To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, use instructions provided in the ***How to create a strong password on the Jupyter notebook server*** section of the 
+To launch the Jupyter Notebook click on the start menu icon / desktop icon titled <strong>Jupyter Notebook</strong>. On the DSVM you can also browse to "<https://localhost:9999/>" to access the Jupiter Notebook. If it prompts you for a password, use instructions provided in the <strong><em>How to create a strong password on the Jupyter notebook server</em></strong> section of the 
+
 [Provision the Microsoft Data Science Virtual Machine](provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
 
 Once you have opened the notebook, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
@@ -453,7 +454,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 ![Create Azure Blob storage account](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Customize Azure HDInsight Hadoop Clusters from [Azure portal](../team-data-science-process/customize-hadoop-cluster.md)
-  
+
   * You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
 ![Link to storage account created with HDInsight cluster](./media/vm-do-ten-things/Create_HDI_v4.PNG)
@@ -487,82 +488,84 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
         warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 
-        #Create the connection to Hive using ODBC
-        SERVER_NAME='xxx.azurehdinsight.net'
-        DATABASE_NAME='nyctaxidb'
-        USERID='xxx'
-        PASSWORD='xxxx'
-        DB_DRIVER='Microsoft Hive ODBC Driver'
-        driver = 'DRIVER={' + DB_DRIVER + '}'
-        server = 'Host=' + SERVER_NAME + ';Port=443'
-        database = 'Schema=' + DATABASE_NAME
-        hiveserv = 'HiveServerType=2'
-        auth = 'AuthMech=6'
-        uid = 'UID=' + USERID
-        pwd = 'PWD=' + PASSWORD
-        CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
-        connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-        cursor=connection.cursor()
+~~~
+    #Create the connection to Hive using ODBC
+    SERVER_NAME='xxx.azurehdinsight.net'
+    DATABASE_NAME='nyctaxidb'
+    USERID='xxx'
+    PASSWORD='xxxx'
+    DB_DRIVER='Microsoft Hive ODBC Driver'
+    driver = 'DRIVER={' + DB_DRIVER + '}'
+    server = 'Host=' + SERVER_NAME + ';Port=443'
+    database = 'Schema=' + DATABASE_NAME
+    hiveserv = 'HiveServerType=2'
+    auth = 'AuthMech=6'
+    uid = 'UID=' + USERID
+    pwd = 'PWD=' + PASSWORD
+    CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
+    connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
+    cursor=connection.cursor()
 
 
-        #Create Hive database and tables
-        queryString = "create database if not exists nyctaxidb;"
+    #Create Hive database and tables
+    queryString = "create database if not exists nyctaxidb;"
+    cursor.execute(queryString)
+
+    queryString = """
+                    create external table if not exists nyctaxidb.trip
+                    (
+                        medallion string,
+                        hack_license string,
+                        vendor_id string,
+                        rate_code string,
+                        store_and_fwd_flag string,
+                        pickup_datetime string,
+                        dropoff_datetime string,
+                        passenger_count int,
+                        trip_time_in_secs double,
+                        trip_distance double,
+                        pickup_longitude double,
+                        pickup_latitude double,
+                        dropoff_longitude double,
+                        dropoff_latitude double)  
+                    PARTITIONED BY (month int)
+                    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
+                    STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
+                """
+    cursor.execute(queryString)
+
+    queryString = """
+                    create external table if not exists nyctaxidb.fare
+                    (
+                        medallion string,
+                        hack_license string,
+                        vendor_id string,
+                        pickup_datetime string,
+                        payment_type string,
+                        fare_amount double,
+                        surcharge double,
+                        mta_tax double,
+                        tip_amount double,
+                        tolls_amount double,
+                        total_amount double)
+                    PARTITIONED BY (month int)
+                    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
+                    STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
+                """
+    cursor.execute(queryString)
+
+
+    #Upload data from blob storage to HDI cluster
+    for i in range(1,13):
+        queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
         cursor.execute(queryString)
-
-        queryString = """
-                        create external table if not exists nyctaxidb.trip
-                        (
-                            medallion string,
-                            hack_license string,
-                            vendor_id string,
-                            rate_code string,
-                            store_and_fwd_flag string,
-                            pickup_datetime string,
-                            dropoff_datetime string,
-                            passenger_count int,
-                            trip_time_in_secs double,
-                            trip_distance double,
-                            pickup_longitude double,
-                            pickup_latitude double,
-                            dropoff_longitude double,
-                            dropoff_latitude double)  
-                        PARTITIONED BY (month int)
-                        ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                        STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
-                    """
+        queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
         cursor.execute(queryString)
-
-        queryString = """
-                        create external table if not exists nyctaxidb.fare
-                        (
-                            medallion string,
-                            hack_license string,
-                            vendor_id string,
-                            pickup_datetime string,
-                            payment_type string,
-                            fare_amount double,
-                            surcharge double,
-                            mta_tax double,
-                            tip_amount double,
-                            tolls_amount double,
-                            total_amount double)
-                        PARTITIONED BY (month int)
-                        ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                        STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
-                    """
-        cursor.execute(queryString)
-
-
-        #Upload data from blob storage to HDI cluster
-        for i in range(1,13):
-            queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
-            cursor.execute(queryString)
-            queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
-            cursor.execute(queryString)
+~~~
 
 
 * Alternately,  you can follow this [walkthrough](../team-data-science-process/hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
-  
+
   * AzCopy: download zipped CSV's from public blob to your local folder
   * AzCopy: upload unzipped CSV's from local folder to HDI cluster
   * Log into the head node of Hadoop cluster and prepare for exploratory data analysis
@@ -808,8 +811,8 @@ You need to do the following per-requisites steps to access Azure Cosmos DB from
 2. Create an Azure Cosmos DB account and a database from [Azure portal](https://portal.azure.com)
 3. Download "Azure Cosmos DB Migration Tool" from [here](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice
 4. Import JSON data (volcano data) stored on a [public blob](https://cahandson.blob.core.windows.net/samples/volcano.json) into Cosmos DB with following command parameters to the migration tool (dtui.exe from the directory where you installed the Cosmos DB Migration Tool). Enter the source and target location with these parameters:
-   
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
+
+    /s:JsonFile /s.Files:<https://cahandson.blob.core.windows.net/samples/volcano.json> /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
 Once you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample* which contains python code to access Azure Cosmos DB and do some basic querying. You can learn more about Cosmos DB by visiting the service [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 

@@ -17,19 +17,19 @@ ms.author: juliako;
 When you call the **Get Breakdowns** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights including (transcript, OCRs, people). The details include keywords (topics), faces, blocks. Each block includes time ranges, transcript lines, OCR lines, sentiments, faces, and block thumbnails.
 
 You can use the **Get Breakdowns** API to get the full breakdown of a video as a JSON content.  
- 
-	GET https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/63c6d532ff HTTP/1.1
-	Host: videobreakdown.azure-api.net
-	Ocp-Apim-Subscription-Key: ••••••••••••••••••••••••••••••••
-	
+
+    GET https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/63c6d532ff HTTP/1.1
+    Host: videobreakdown.azure-api.net
+    Ocp-Apim-Subscription-Key: ••••••••••••••••••••••••••••••••
+
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video in the Video Indexer portal. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
 This topic examines the JSON content returned by the  **Get Breakdowns** API.
- 
+
 >[!NOTE]
-> Make sure to review the [concepts](video-indexer-concepts.md) topic.	
+> Make sure to review the [concepts](video-indexer-concepts.md) topic.  
 
 ## Root elements
 
@@ -53,36 +53,38 @@ social|Contains one **social** element that describes number of likes and views 
 
 This section shows the summary of the insights.
 
-Attribute | Description
----|---
-name|The name of the video. For example, "Azure Monitor".
-shortId|The id of the video. For example, "63c6d532ff".
-privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.
-duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.
-thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
-faces|May contain one or more [faces](#faces)
-topics|May contain one or more [topics](#topics)
-sentiments|May contain one or more [sentiments](#sentiments)
-audioEffects| May contain one or more [audioEffects](#audioEffects)
+
+|  Attribute   |                                                                                                                                                                                                                                                                                   Description                                                                                                                                                                                                                                                                                   |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     name     |                                                                                                                                                                                                                                                              The name of the video. For example, "Azure Monitor".                                                                                                                                                                                                                                                               |
+|   shortId    |                                                                                                                                                                                                                                                                 The id of the video. For example, "63c6d532ff".                                                                                                                                                                                                                                                                 |
+| privacyMode  |                                                                                                                                     Your breakdown can have one of the following modes: <strong>Private</strong>, <strong>Public</strong>. <strong>Public</strong> - the video is visible to everyone in your account and anyone that has a link to the video. <strong>Private</strong> - the video is visible to everyone in your account.                                                                                                                                     |
+|   duration   |                                                                                                                                                                                                                                           Contains one duration that describes the time an insight occurred. Duration is in seconds.                                                                                                                                                                                                                                            |
+| thumbnailUrl | The video's thumbnail full URL. For example, "<https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO>...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]'). |
+|    faces     |                                                                                                                                                                                                                                                                     May contain one or more [faces](#faces)                                                                                                                                                                                                                                                                     |
+|    topics    |                                                                                                                                                                                                                                                                    May contain one or more [topics](#topics)                                                                                                                                                                                                                                                                    |
+|  sentiments  |                                                                                                                                                                                                                                                                May contain one or more [sentiments](#sentiments)                                                                                                                                                                                                                                                                |
+| audioEffects |                                                                                                                                                                                                                                                              May contain one or more [audioEffects](#audioEffects)                                                                                                                                                                                                                                                              |
 
 ## breakdowns
 
 This section shows the details of the insights.
 
-Attribute | Description
----|---
-id|The breakdown id. For example, "63c6d532ff".
-state|The processing state of the given breakdown id. Could be one of the following: Uploaded, Processing, Processed, Failed.
-processingProgress|The progress. For example, "10%".
-externalId| You can set externalId during upload. For example, "4f9c3500-eca7-4ab3-987e-a745017af698". You can later search for your videos by this external id.
-externalUrl|You can set externalUrl during upload. 
-metadata|You can set metadata during upload. 
-insights|May contain one or more [insights](#insights)
-thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
-publishedUrl|The published URL. For example, "https://BreakdownMedia.azureedge.net:443/d5e5232d-48e2-4fbc-9893-0ea6335da563/Azure%20Monitor%20%20Azure%20Friday.ism/manifest".
-viewToken|The bearer token
-sourceLanguage|The source language. The following are supported: Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish.
-language|The language of the transcript.
+
+|     Attribute      |                                                                                                                                                                                                                                                                                   Description                                                                                                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         id         |                                                                                                                                                                                                                                                                  The breakdown id. For example, "63c6d532ff".                                                                                                                                                                                                                                                                   |
+|       state        |                                                                                                                                                                                                                             The processing state of the given breakdown id. Could be one of the following: Uploaded, Processing, Processed, Failed.                                                                                                                                                                                                                             |
+| processingProgress |                                                                                                                                                                                                                                                                        The progress. For example, "10%".                                                                                                                                                                                                                                                                        |
+|     externalId     |                                                                                                                                                                                                              You can set externalId during upload. For example, "4f9c3500-eca7-4ab3-987e-a745017af698". You can later search for your videos by this external id.                                                                                                                                                                                                               |
+|    externalUrl     |                                                                                                                                                                                                                                                                     You can set externalUrl during upload.                                                                                                                                                                                                                                                                      |
+|      metadata      |                                                                                                                                                                                                                                                                       You can set metadata during upload.                                                                                                                                                                                                                                                                       |
+|      insights      |                                                                                                                                                                                                                                                                  May contain one or more [insights](#insights)                                                                                                                                                                                                                                                                  |
+|    thumbnailUrl    | The video's thumbnail full URL. For example, "<https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO>...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]'). |
+|    publishedUrl    |                                                                                                                                                                                                       The published URL. For example, "<https://BreakdownMedia.azureedge.net:443/d5e5232d-48e2-4fbc-9893-0ea6335da563/Azure%20Monitor%20%20Azure%20Friday.ism/manifest>".                                                                                                                                                                                                       |
+|     viewToken      |                                                                                                                                                                                                                                                                                The bearer token                                                                                                                                                                                                                                                                                 |
+|   sourceLanguage   |                                                                                                                                                                                                                      The source language. The following are supported: Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish.                                                                                                                                                                                                                       |
+|      language      |                                                                                                                                                                                                                                                                         The language of the transcript.                                                                                                                                                                                                                                                                         |
 
 ## insights
 
@@ -101,17 +103,18 @@ audioEffectsCategories|May contain one or more [audioEffectsCategories](#audioEf
 
 **faces** that appear under **summarizedInsights**, show a summary of each face found in the video.
 
-Attribute | Description 
----|---
-id|The id of a person. For example, 11775.
-shortId|The short id. Because a playlist may be derived from several breakdowns, this id is needed to find out which of these breakdowns is the origin of each face.  
-name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added. 
-description|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is **null**.
-title|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is **null**.
-thumbnailFullUrl|The face's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
-appearances|May contain one or more [appearances](#appearances)
-seenDuration|For how long the face was seen (in seconds).
-seenDurationRatio|Presence relative to the video duration (0-1).
+
+|     Attribute     |                                                                                                                                                                                                                                                                                  Description                                                                                                                                                                                                                                                                                   |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        id         |                                                                                                                                                                                                                                                                    The id of a person. For example, 11775.                                                                                                                                                                                                                                                                     |
+|      shortId      |                                                                                                                                                                                                          The short id. Because a playlist may be derived from several breakdowns, this id is needed to find out which of these breakdowns is the origin of each face.                                                                                                                                                                                                          |
+|       name        |                                                                                                                                                                                                                   If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added.                                                                                                                                                                                                                    |
+|    description    |                                                                                                                                                                                                                   If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is <strong>null</strong>.                                                                                                                                                                                                                   |
+|       title       |                                                                                                                                                                                                                      If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is <strong>null</strong>.                                                                                                                                                                                                                      |
+| thumbnailFullUrl  | The face's thumbnail full URL. For example, "<https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO>...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]'). |
+|    appearances    |                                                                                                                                                                                                                                                              May contain one or more [appearances](#appearances)                                                                                                                                                                                                                                                               |
+|   seenDuration    |                                                                                                                                                                                                                                                                  For how long the face was seen (in seconds).                                                                                                                                                                                                                                                                  |
+| seenDurationRatio |                                                                                                                                                                                                                                                                 Presence relative to the video duration (0-1).                                                                                                                                                                                                                                                                 |
 
 ### breakdown insights
 
@@ -155,11 +158,11 @@ rank|
 
 ## sentiments
 
-Attribute | Description
----|---
-sentimentKey| Currently, the following sentiments are supported: Positive, Neutral, Negative. 
-appearances|May contain one or more [appearances](#appearances)|.
-seenDurationRatio|Presence relative to the video duration (0-1).
+|     Attribute     |                                   Description                                   |
+|-------------------|---------------------------------------------------------------------------------|
+|   sentimentKey    | Currently, the following sentiments are supported: Positive, Neutral, Negative. |
+|    appearances    |               May contain one or more [appearances](#appearances)               |
+| seenDurationRatio |                 Presence relative to the video duration (0-1).                  |
 
 ## audioEffects
 
@@ -268,11 +271,11 @@ shots|May contain one or more [shots](#shots).
 
 ## shots
 
-Attribute | Description 
----|---
-id||The shot id.
-timeRange|Contains one **timeRange**.
-keyFrame|The time of the key frame.
+| Attribute |               Description                |
+|-----------|------------------------------------------|
+|    id     |                                          |
+| timeRange | Contains one <strong>timeRange</strong>. |
+| keyFrame  |        The time of the key frame.        |
 
 ## audioEffectInstances
 

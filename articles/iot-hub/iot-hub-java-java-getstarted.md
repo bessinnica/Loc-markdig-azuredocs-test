@@ -78,7 +78,7 @@ In this section, you create a Java console app that creates a device identity in
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
     import com.microsoft.azure.sdk.iot.service.Device;
     import com.microsoft.azure.sdk.iot.service.RegistryManager;
-   
+
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -89,7 +89,8 @@ In this section, you create a Java console app that creates a device identity in
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
     ```
-[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 
 8. Modify the signature of the **main** method to include the exceptions as follows:
 
@@ -330,7 +331,7 @@ In this section, you create a Java console app that simulates a device that send
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
-   
+
     This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the MQTT, AMQP, or HTTPS protocol to communicate with IoT Hub.
 
 8. Add the following nested **TelemetryDataPoint** class inside the **App** class to specify the telemetry data your device sends to your IoT hub:
@@ -340,7 +341,7 @@ In this section, you create a Java console app that simulates a device that send
       public String deviceId;
       public double temperature;
       public double humidity;
-   
+
       public String serialize() {
         Gson gson = new Gson();
         return gson.toJson(this);
@@ -348,12 +349,12 @@ In this section, you create a Java console app that simulates a device that send
     }
     ```
 9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the device app. This method also notifies the main thread in the app when the message has been processed:
-   
+
     ```java
     private static class EventCallback implements IotHubEventCallback {
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
-   
+
         if (context != null) {
           synchronized (context) {
             context.notify();
@@ -372,7 +373,7 @@ In this section, you create a Java console app that simulates a device that send
           double minTemperature = 20;
           double minHumidity = 60;
           Random rand = new Random();
-    
+
           while (true) {
             double currentTemperature = minTemperature + rand.nextDouble() * 15;
             double currentHumidity = minHumidity + rand.nextDouble() * 20;
@@ -380,17 +381,17 @@ In this section, you create a Java console app that simulates a device that send
             telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.temperature = currentTemperature;
             telemetryDataPoint.humidity = currentHumidity;
-    
+
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
             msg.setProperty("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
             msg.setMessageId(java.util.UUID.randomUUID().toString()); 
             System.out.println("Sending: " + msgStr);
-    
+
             Object lockobj = new Object();
             EventCallback callback = new EventCallback();
             client.sendEventAsync(msg, callback, lockobj);
-    
+
             synchronized (lockobj) {
               lockobj.wait();
             }
@@ -411,12 +412,12 @@ In this section, you create a Java console app that simulates a device that send
     public static void main( String[] args ) throws IOException, URISyntaxException {
       client = new DeviceClient(connString, protocol);
       client.open();
-    
+
       MessageSender sender = new MessageSender();
-    
+
       ExecutorService executor = Executors.newFixedThreadPool(1);
       executor.execute(sender);
-    
+
       System.out.println("Press ENTER to exit.");
       System.in.read();
       executor.shutdownNow();

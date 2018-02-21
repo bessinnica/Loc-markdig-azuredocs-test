@@ -23,3 +23,4 @@ ms.author: xujing;genli
 This article describes some of the most common error codes and messages you may encounter when you create or manage Windows virtual machines (VMs) in Azure.
 
 [!INCLUDE [virtual-machines-common-error-messages](../../../includes/virtual-machines-common-error-messages.md)]
+

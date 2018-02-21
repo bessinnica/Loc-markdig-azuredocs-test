@@ -62,23 +62,23 @@ To configure the integration of GitHub into Azure AD, you need to add GitHub fro
 
 1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. Click **Add** button on the top of the dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **GitHub.com**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
 
 5. In the results panel, select **GitHub**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/tutorial_github_search_result02.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/tutorial_github_search_result02.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -104,76 +104,76 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 1. In the Azure Management portal, on the **GitHub** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
 
 3. On the **GitHub Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
     a. In the **Sign-on URL** textbox, type the value as: `https://github.com/orgs/<entity-id>/sso`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://github.com/orgs/<entity-id>`
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://github.com/orgs/<entity-id>`
 
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sing-on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Go to GitHub Admin section to retrieve these values. 
+    > [!NOTE] 
+    > Please note that these are not the real values. You have to update these values with the actual Sing-on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Go to GitHub Admin section to retrieve these values. 
 
 4. On the **User Attributes** section, select **User Identifier** as user.mail.
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
- 	
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
+    
 5. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
- 	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
 6. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
 
 7. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
 
 8. On the pop-up **Rollover certificate** window, click **OK**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_400.png)
 
 9. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_05.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_05.png) 
 
 10. On the **GitHub Configuration** section, click **Configure GitHub** to open **Configure sign-on** window.
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_06.png) 
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_07.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_07.png)
 
 11. In a different web browser window, log into your GitHub organization site as an administrator.
 
 12. Navigate to **Settings** and click **Security**
 
-	![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_03.png)
+    ![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_03.png)
 
 13. Check the **Enable SAML authentication** box, revealing the Single Sign-on configuration fields. Then, use the single sign-on URL value to update the Single sign-on URL on Azure AD configuration.
 
-	![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_13.png)
+    ![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_13.png)
 
 14. Configure the following fields:
 
-	a. **Sign on URL**: Enter **SAML Single sign-on Service URL** from the **Configure GitHub** section on Azure AD
+    a. **Sign on URL**: Enter **SAML Single sign-on Service URL** from the **Configure GitHub** section on Azure AD
 
-  	b. **Issuer**: Enter **SAML Entity ID** from the **Configure GitHub** section on Azure AD
+    b. **Issuer**: Enter **SAML Entity ID** from the **Configure GitHub** section on Azure AD
 
-   	c. **Public Certificate**: Open the downloaded certificate from Azure AD in a notepad and copy the content including "BEGIN CERTIFICATE" and "END CERTIFICATE"
+    c. **Public Certificate**: Open the downloaded certificate from Azure AD in a notepad and copy the content including "BEGIN CERTIFICATE" and "END CERTIFICATE"
 
-	![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
+    ![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
 15. Click on **Test SAML configuration** to confirm that no validation failures or errors during SSO.
 
-	![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_06.png)
+    ![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_06.png)
 
 16. Click **Save**
 
@@ -186,25 +186,25 @@ The objective of this section is to create a test user in the Azure Management p
 
 1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_01.png) 
 
 2. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_02.png) 
 
 3. At the top of the dialog click **Add** to open the **User** dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-github-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**. 
 
@@ -224,19 +224,19 @@ In the case of GitHub, provisioning is a manual task.
 
 3. Click **Invite member**.
 
-	![Invite Users](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_09.png "Invite Users")
+    ![Invite Users](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_09.png "Invite Users")
 
 4. On the **Invite member** dialog page, perform the following steps:
 
-	a. In the **Email** textbox, type the email address of Britta Simon account.
+    a. In the **Email** textbox, type the email address of Britta Simon account.
 
-	![Invite People](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_10.png "Invite People")
-	
+    ![Invite People](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_10.png "Invite People")
+    
     b. Click **Send Invitation**.
 
-	![Invite People](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_11.png "Invite People")
+    ![Invite People](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_11.png "Invite People")
 
-	> [!NOTE]
+    > [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
 
 
@@ -250,26 +250,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **GitHub.com**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 
 
 ### Testing single sign-on

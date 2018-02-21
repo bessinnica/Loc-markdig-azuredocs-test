@@ -102,9 +102,9 @@ After you select the restore point, choose a VM restore configuration. To config
    * **Restore disks**
 
 The portal provides a **Quick Create** option for a restored VM. To customize the VM configuration or the names of the resources created as part of creating a new VM choice, use PowerShell or the portal to restore backed-up disks. Use PowerShell commands to attach them to your choice of VM configuration. Or you can use the template that comes with restored disks to customize the restored VM. For information on how to restore a VM that has multiple NICs or is under a load balancer, see [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations). If your Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restore disks and use PowerShell/Template as specified in this article to create the VM. Make sure that you specify the **License Type** as "Windows_Server" while you create the VM to avail HUB benefits on the restored VM. 
- 
+
 ## Create a new VM from a restore point
-1. If you're not already there, [select a restore point](#restore-a vm-with-special-network-configurations) before you begin to create a new VM from a restore point. After you select a restore point, on the **Restore configuration** blade, enter or select values for each of the following fields:
+1. If you're not already there, [select a restore point](#restore-a vm-with-special-network-configurations) before you begin to create a new VM from a restore point. After you select a restore point, on the <strong>Restore configuration</strong> blade, enter or select values for each of the following fields:
 
     a. **Restore Type**. Create a virtual machine.
 
@@ -120,14 +120,12 @@ The portal provides a **Quick Create** option for a restored VM. To customize th
 
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-    > [!NOTE]
-    > * If you restore a Resource Manager-deployed VM, you must identify a virtual network. A virtual network is optional for a classic VM.
-
-    > * If you restore VMs with managed disks, make sure that the storage account selected isn't enabled for Azure Storage Service Encryption in its lifetime.
-
-    > * Based on the storage type of the storage account selected (premium or standard), all disks restored will be either premium or standard disks. We currently don't support a mixed mode of disks when restoring.
-    >
-    >
+   > [!NOTE]
+   > * If you restore a Resource Manager-deployed VM, you must identify a virtual network. A virtual network is optional for a classic VM.
+   > 
+   > * If you restore VMs with managed disks, make sure that the storage account selected isn't enabled for Azure Storage Service Encryption in its lifetime.
+   > 
+   > * Based on the storage type of the storage account selected (premium or standard), all disks restored will be either premium or standard disks. We currently don't support a mixed mode of disks when restoring.
 
 2. On the **Restore configuration** blade, select **OK** to finalize the restore configuration. On the **Restore** blade, select **Restore** to trigger the restore operation.
 
@@ -167,7 +165,7 @@ To view the operation while it's processing, or to view it when it's finished, o
     The **Backup jobs** blade opens and displays the list of jobs.
 
     ![List of VMs in a vault](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
-    
+
 ## Use templates to customize a restored VM
 After the [restore disks operation is finished](#Track-the-restore-operation), use the template that was generated as part of the restore operation to create a new VM with a configuration different from the backup configuration. You also can use it to customize names of resources that were created during the process of creating a new VM from a restore point. 
 
@@ -183,11 +181,11 @@ To get the template that was generated as part of the restore disks option:
 2. On the **Restore Job Details** screen, select **Deploy Template** to initiate template deployment. 
 
      ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
-   
+
 3. On the **Deploy template** blade for custom deployment, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy. 
 
    ![Load template deployment](./media/backup-azure-arm-restore-vms/loading-template.png)
-   
+
 4. After you enter the required values, accept the **Terms and Conditions** and select **Purchase**.
 
    ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template.png)

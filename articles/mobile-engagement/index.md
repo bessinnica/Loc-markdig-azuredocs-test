@@ -5,7 +5,7 @@ services: mobile-engagement
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: mobile-engagement
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -186,6 +186,7 @@ Learn how to increase the usage, retention, and monetization of mobile apps with
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -200,6 +201,7 @@ Learn how to increase the usage, retention, and monetization of mobile apps with
         </div>
     </li>
 </ul>
+
 
 ---
 

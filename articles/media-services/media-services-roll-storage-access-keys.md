@@ -53,13 +53,13 @@ Media Services depends on a storage key provided to it. Specifically, the locato
 
 The following example demonstrates how to get the storage account and sync it with the AMS account.
 
-	$regionName = "West US"
-	$resourceGroupName = "SkyMedia-USWest-App"
-	$mediaAccountName = "sky"
-	$storageAccountName = "skystorage"
-	$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+    $regionName = "West US"
+    $resourceGroupName = "SkyMedia-USWest-App"
+    $mediaAccountName = "sky"
+    $storageAccountName = "skystorage"
+    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-	Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## Steps to add storage accounts to your AMS account

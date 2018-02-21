@@ -137,7 +137,6 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 ## Clean up resources

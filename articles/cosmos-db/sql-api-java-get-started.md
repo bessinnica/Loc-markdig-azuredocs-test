@@ -56,6 +56,7 @@ Make sure you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
+
 * [Git](https://git-scm.com/downloads).
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
@@ -178,7 +179,7 @@ Deleting the created database removes the database and all children resources (c
 
 ## <a id="Run"></a>Step 11: Run your Java console application all together!
 To run the application from the console, navigate to the project folder and compile using Maven:
-    
+
     mvn package
 
 Running `mvn package` downloads the latest Azure Cosmos DB library from Maven and produces `GetStarted-0.0.1-SNAPSHOT.jar`. Then run the app by running:

@@ -51,13 +51,13 @@ This section shows how to integrate Azure AD using the OpenID Connect protocol f
 ### Step 2:  Configure your app to use your Azure AD tenant
 #### Azure Government Variations
 The only variation when setting up Azure AD Authorization on the Azure Government cloud is in the Azure AD Instance:
- - "https://login.microsoftonline.us"
+- "<https://login.microsoftonline.us>"
 
 #### Configure the InventoryApp project
 1. Open your application in Visual Studio 2017.
 2. Open the `appsettings.json` file.
 3. Add an `Authentication` section and fill out the properties with your Azure AD tenant information.
-	
+    
     ```cs
     //ClientId: Azure AD->  App registrations -> Application ID
     //Domain: <tenantname>.onmicrosoft.com
@@ -100,9 +100,9 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 
     In the same file, add this one line of code to the `Configure` method:
 
-	```cs
-	app.UseAuthentication();
-	```
+    ```cs
+    app.UseAuthentication();
+    ```
 9. Navigate to your **Home** controller or whichever controller file is your home page, **where you want your users to log in**. Add the `[Authorize]` tag before the class definition.
 
 ## Next steps

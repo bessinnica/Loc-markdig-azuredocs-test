@@ -133,18 +133,18 @@ Use the following code to insert a new product into the SalesLT.Product table us
            , [ProductNumber]
            , [Color]
            , [ProductCategoryID]
-		   , [StandardCost]
-		   , [ListPrice]
-		   , [SellStartDate]
-		   )
+           , [StandardCost]
+           , [ListPrice]
+           , [SellStartDate]
+           )
      VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'
            ,1
-		   ,100
-		   ,100
-		   ,GETDATE() );
+           ,100
+           ,100
+           ,GETDATE() );
    ```
 
 2. Press **CTRL+SHIFT+E** to insert a new row in the Product table.
@@ -153,7 +153,7 @@ Use the following code to insert a new product into the SalesLT.Product table us
 
 Use the following code to update the new product that you previously added using the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement.
 
-1.  In the **Editor** window, delete the previous query and enter the following query:
+1. In the **Editor** window, delete the previous query and enter the following query:
 
    ```sql
    UPDATE [SalesLT].[Product]

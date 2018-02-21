@@ -58,19 +58,19 @@ To configure the integration of SmartRecruiters into Azure AD, you need to add S
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **SmartRecruiters**, select **SmartRecruiters** from result panel then click **Add** button to add the application.
 
-	![SmartRecruiters in the results list](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_addfromgallery.png)
+    ![SmartRecruiters in the results list](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,40 +96,40 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **SmartRecruiters** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_samlbase.png)
 
 3. On the **SmartRecruiters Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![SmartRecruiters Domain and URLs single sign-on information](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_url.png)
+    ![SmartRecruiters Domain and URLs single sign-on information](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![SmartRecruiters Domain and URLs single sign-on information](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_url1.png)
+    ![SmartRecruiters Domain and URLs single sign-on information](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SmartRecruiters Client support team](https://www.smartrecruiters.com/about-us/contact-us/) to get these values. 
+     
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SmartRecruiters Client support team](https://www.smartrecruiters.com/about-us/contact-us/) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_general_400.png)
+    
 7. On the **SmartRecruiters Configuration** section, click **Configure SmartRecruiters** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_configure.png) 
+    ![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_configure.png) 
 
 8. In a different web browser window, log in to your SmartRecruiters company site as an administrator.
 
@@ -139,19 +139,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 10. In the **Configuration** section, click **Web SSO**.
 
-	![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure1.png)
+    ![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure1.png)
 
 11. Toggle **Enable Web SSO**.
 
-	![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure2.png)
+    ![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure2.png)
 
 12. In **Identity Provider Configuration**, perform the following steps:
 
-	![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure4.png)
+    ![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure4.png)
 
-	a. In **Identity Provider URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+    a. In **Identity Provider URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-	b. Open **certificate(Base64)** which you have downloaded from Azure portal and paste the value into **Identity Provider certificate** textbox.
+    b. Open **certificate(Base64)** which you have downloaded from Azure portal and paste the value into **Identity Provider certificate** textbox.
 
 13. Click **Save Web SSO configuration**.
 
@@ -192,7 +192,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a SmartRecruiters test user
 
-In this section, you create a user called Britta Simon in SmartRecruiters. Work with [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/) to add the users in the SmartRecruiters platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in SmartRecruiters. Work with [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/) to add the users in the SmartRecruiters platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -204,32 +204,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **SmartRecruiters**.
 
-	![The SmartRecruiters link in the Applications list](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_app.png)  
+    ![The SmartRecruiters link in the Applications list](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the SmartRecruiters tile in the Access Panel, you should get automatically signed-on to your SmartRecruiters application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -452,7 +452,9 @@ ms.author: jomolesk
 
 **Responsibilities:** `Customer Only`
 
-|||
-|---|---|
-| **Customer** | The customer is responsible for documenting the details of each internal connection between the classes/resources defined in CA-09.a. |
-| **Provider (Microsoft Azure)** | Not Applicable |
+
+|                                             |                                                                                                                                       |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|          <strong>Customer</strong>          | The customer is responsible for documenting the details of each internal connection between the classes/resources defined in CA-09.a. |
+| <strong>Provider (Microsoft Azure)</strong> |                                                            Not Applicable                                                             |
+

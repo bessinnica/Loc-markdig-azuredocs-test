@@ -73,26 +73,26 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 Before a process can send data to an event hub, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1.	In the event namespace blade, click **Event Hubs** and then click the name of your new event hub.
+1.  In the event namespace blade, click **Event Hubs** and then click the name of your new event hub.
 
-2.	In the event hub blade, click **Shared access policies** and then click **+&nbsp;Add**.
+2.  In the event hub blade, click **Shared access policies** and then click **+&nbsp;Add**.
 
     >[!NOTE]
     >Make sure you're working with the event hub, not the event hub namespace.
 
-3.	Add a policy named `socialtwitter-access` and for **Claim**, select **Manage**.
+3.  Add a policy named `socialtwitter-access` and for **Claim**, select **Manage**.
 
     ![Blade for creating a new event hub access policy](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.	Click **Create**.
+4.  Click **Create**.
 
-5.	After the policy has been deployed, click it in the list of shared access policies.
+5.  After the policy has been deployed, click it in the list of shared access policies.
 
-6.	Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
+6.  Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
     
     ![Copying the primary connection string key from the access policy](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
  
-7.	Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
+7.  Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
     The connection string looks like this:
 
@@ -121,10 +121,10 @@ If you do not already have a Twitter application that you can use for this tutor
 
 2. Create a new application. 
 
-    * For the website URL, specify a valid URL. It does not have to be a live site. (You can't specify just `localhost`.)
-    * Leave the callback field blank. The client application you use for this tutorial doesn't require callbacks.
+   * For the website URL, specify a valid URL. It does not have to be a live site. (You can't specify just `localhost`.)
+   * Leave the callback field blank. The client application you use for this tutorial doesn't require callbacks.
 
-    ![Creating an application in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Creating an application in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. Optionally, change the application's permissions to read-only.
 
@@ -169,19 +169,19 @@ The following procedure documents both approaches.
 
 3. To set the values persistently, use a text editor to open the TwitterWpfClient.exe.config file. Then in the `<appSettings>` element, do this:
 
-    * Set `oauth_consumer_key` to the Twitter Consumer Key (API Key). 
-    * Set `oauth_consumer_secret` to the Twitter Consumer Secret (API Secret).
-    * Set `oauth_token` to the Twitter Access Token.
-    * Set `oauth_token_secret` to the Twitter Access Token Secret.
+   * Set `oauth_consumer_key` to the Twitter Consumer Key (API Key). 
+   * Set `oauth_consumer_secret` to the Twitter Consumer Secret (API Secret).
+   * Set `oauth_token` to the Twitter Access Token.
+   * Set `oauth_token_secret` to the Twitter Access Token Secret.
 
-    Later in the `<appSettings>` element, make these changes:
+     Later in the `<appSettings>` element, make these changes:
 
-    * Set `EventHubName` to the event hub name (that is, to the value of the entity path).
-    * Set `EventHubNameConnectionString` to the connection string. Make sure that you use the connection string that you removed the `EntityPath` key-value pair from.
+   * Set `EventHubName` to the event hub name (that is, to the value of the entity path).
+   * Set `EventHubNameConnectionString` to the connection string. Make sure that you use the connection string that you removed the `EntityPath` key-value pair from.
 
-    The `<appSettings>` section looks like the following example. (For clarity and security, we wrapped some lines and removed some characters.)
+     The `<appSettings>` section looks like the following example. (For clarity and security, we wrapped some lines and removed some characters.)
 
-    ![TwitterWpfClient application configuration file in a text editor, showing the Twitter keys and secrets, and the event hub connection string information](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![TwitterWpfClient application configuration file in a text editor, showing the Twitter keys and secrets, and the event hub connection string information](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. If you didn't already start the application, run TwitterWpfClient.exe now. 
 
@@ -216,15 +216,15 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
 
 2. In the **Inputs** blade, click **+&nbsp;Add** and then fill out the blade with these values:
 
-    * **Input alias**: Use the name `TwitterStream`. If you use a different name, make a note of it because you need it later.
-    * **Source type**: Select **Data stream**.
-    * **Source**: Select **Event hub**.
-    * **Import option**: Select **Use event hub from current subscription**. 
-    * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-socialtwitter-eh-ns`).
-    * **Event hub**: Select the event hub that you created earlier (`socialtwitter-eh`).
-    * **Event hub policy name**: Select the access policy that you created earlier (`socialtwitter-access`).
+   * **Input alias**: Use the name `TwitterStream`. If you use a different name, make a note of it because you need it later.
+   * **Source type**: Select **Data stream**.
+   * **Source**: Select **Event hub**.
+   * **Import option**: Select **Use event hub from current subscription**. 
+   * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-socialtwitter-eh-ns`).
+   * **Event hub**: Select the event hub that you created earlier (`socialtwitter-eh`).
+   * **Event hub policy name**: Select the access policy that you created earlier (`socialtwitter-access`).
 
-    ![Create new input for Streaming Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Create new input for Streaming Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Click **Create**.
 
@@ -299,23 +299,23 @@ In this tutorial, you write the aggregated tweet events from the job query to Az
 
 2. In the **Outputs** blade, click **+&nbsp;Add** and then fill out the blade with these values:
 
-    * **Output alias**: Use the name `TwitterStream-Output`. 
-    * **Sink**: Select **Blob storage**.
-    * **Import options**: Select **Use blob storage from current subscription**.
-    * **Storage account**. Select **Create a new storage account.**
-    * **Storage account** (second box). Enter `YOURNAMEsa`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
-    * **Container**. Enter `socialtwitter`.
-    The storage account name and container name are used together to provide a URI for the blob storage, like this: 
+   * **Output alias**: Use the name `TwitterStream-Output`. 
+   * **Sink**: Select **Blob storage**.
+   * **Import options**: Select **Use blob storage from current subscription**.
+   * **Storage account**. Select **Create a new storage account.**
+   * **Storage account** (second box). Enter `YOURNAMEsa`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
+   * **Container**. Enter `socialtwitter`.
+     The storage account name and container name are used together to provide a URI for the blob storage, like this: 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    !["New output" blade for Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     !["New output" blade for Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. Click **Create**. 
+3. Click **Create**. 
 
     Azure creates the storage account and generates a key automatically. 
 
-5. Close the **Outputs** blade. 
+4. Close the **Outputs** blade. 
 
 
 ## Start the job

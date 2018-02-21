@@ -47,7 +47,7 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
 4. In **Shutdown Options**, select **Shutdown**.
 5. Click **OK**.
-   
+
     ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. When Sysprep completes, it shuts down the virtual machine. 
 
@@ -58,38 +58,38 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 
 ## Log in to Azure PowerShell
 1. Open Azure PowerShell and sign in to your Azure account.
-   
+
     ```powershell
     Login-AzureRmAccount
     ```
-   
+
     A pop-up window opens for you to enter your Azure account credentials.
 2. Get the subscription IDs for your available subscriptions.
-   
+
     ```powershell
     Get-AzureRmSubscription
     ```
 3. Set the correct subscription using the subscription ID.
-   
+
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
 ## Deallocate the VM and set the state to generalized
 1. Deallocate the VM resources.
-   
+
     ```powershell
     Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
-   
+
     The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 2. Set the status of the virtual machine to **Generalized**. 
-   
+
     ```powershell
     Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
     ```
 3. Check the status of the VM. The **OSState/generalized** section for the VM should have the **DisplayStatus** set to **VM generalized**.  
-   
+
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -Status
     $vm.Statuses
@@ -98,15 +98,15 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 ## Create the image
 
 Create an unmanaged virtual machine image in the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` parameter saves a copy of the JSON template for the source VM to your local computer. The `-DestinationContainerName` parameter is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
-   
+
 ```powershell
 Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -DestinationContainerName <destinationContainerName> -VHDNamePrefix <templateNamePrefix> `
     -Path <C:\local\Filepath\Filename.json>
 ```
-   
+
 You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
-   
+
 You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
 
 ## Create a VM from the image
@@ -115,7 +115,7 @@ Now you can create one or more VMs from the unmanaged image.
 
 ### Set the URI of the VHD
 
-The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
+The URI for the VHD to use is in the format: https://<strong>mystorageaccount</strong>.blob.core.windows.net/<strong>mycontainer</strong>/<strong>MyVhdName</strong>.vhd. In this example the VHD named <strong>myVHD</strong> is in the storage account <strong>mystorageaccount</strong> in the container <strong>mycontainer</strong>.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -126,14 +126,14 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
 1. Create the subnet. The following sample creates a subnet named **mySubnet** in the resource group **myResourceGroup** with the address prefix of **10.0.0.0/24**.  
-   
+
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Create the virtual network. The following sample creates a virtual network named **myVnet** in the **West US** location with the address prefix of **10.0.0.0/16**.  
-   
+
     ```powershell
     $location = "West US"
     $vnetName = "myVnet"
@@ -145,14 +145,14 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
 1. Create a public IP address. This example creates a public IP address named **myPip**. 
-   
+
     ```powershell
     $ipName = "myPip"
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. Create the NIC. This example creates a NIC named **myNic**. 
-   
+
     ```powershell
     $nicName = "myNic"
     $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
@@ -188,6 +188,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 The following PowerShell completes the virtual machine configurations and uses unmanaged image as the source for the new installation.
 
 </br>
+
 
 ```powershell
     # Enter a new user name and password to use as the local administrator account 

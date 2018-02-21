@@ -80,31 +80,33 @@ and the actions and triggers that your soap connector provides
 ### 2a. Specify the WSDL file or URL for your connector
 
 1. In your connector's menu, if not already selected, 
-choose **Logic Apps Connector**. In the toolbar, choose **Edit**.
+   choose **Logic Apps Connector**. In the toolbar, choose **Edit**.
 
    ![Edit custom connector](./media/logic-apps-soap-connector-create-register/edit-soap-connector.png)
 
 2. Choose **General** so that you can provide the details 
-in these tables for creating, securing, and defining the 
-actions and triggers for your SOAP connector.
+   in these tables for creating, securing, and defining the 
+   actions and triggers for your SOAP connector.
 
    1. For **Custom connectors**, select **SOAP** for your **API Endpoint** 
-   so you can provide the WSDL file that describes your API.
+      so you can provide the WSDL file that describes your API.
 
       ![Provide the WSDL file for your API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
-      | Option | Format |Description | 
-      | ------ | ------ | ----------- | 
-      | **Upload WSDL from file** | *WSDL-file* | Browse to the location for your WSDL file, and select that file. | 
-      | **Upload WSDL from URL** | http://*path-to-wsdl-file* | Provide the URL for your service's WSDL file. | 
-      | **SOAP to REST** |   | Transform APIs in SOAP service into REST APIs. | 
-      |||| 
+
+      |                 Option                 |              Format               |                           Description                            |
+      |----------------------------------------|-----------------------------------|------------------------------------------------------------------|
+      | <strong>Upload WSDL from file</strong> |        <em>WSDL-file</em>         | Browse to the location for your WSDL file, and select that file. |
+      | <strong>Upload WSDL from URL</strong>  | http://<em>path-to-wsdl-file</em> |          Provide the URL for your service's WSDL file.           |
+      |     <strong>SOAP to REST</strong>      |                                   |          Transform APIs in SOAP service into REST APIs.          |
+      |                                        |                                   |                                                                  |
+
 
    2. For **General information**, upload an icon for your connector. 
-   Typically, the **Description**, **Host**, and **Base URL** fields 
-   are automatically populated from your WSDL file. 
-   But if they're not, add this information as described in the table, 
-   and choose **Continue**. 
+      Typically, the **Description**, **Host**, and **Base URL** fields 
+      are automatically populated from your WSDL file. 
+      But if they're not, add this information as described in the table, 
+      and choose **Continue**. 
 
       ![Connector details](./media/logic-apps-soap-connector-create-register/add-general-details.png)
 
@@ -124,14 +126,14 @@ that your connector uses. Authentication makes sure that your users'
 identities flow appropriately between your service and any clients.
 
    By default, your connector's **Authentication type** is set to **No authentication**.
-   
+
    ![Authentication type](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
    To change the authentication type, choose **Edit**. You can select **Basic authentication**. To use parameter labels other than default values, update them under **Parameter label**.
 
    ![Basic authentication](./media/logic-apps-soap-connector-create-register/security.png)
 
-   
+
 2. To save your connector after entering the security information, 
 at the top of the page, choose **Update connector**, 
 then choose **Continue**. 
@@ -175,7 +177,7 @@ you want to share your connectors with other users.
 > [!IMPORTANT]
 > If you share a connector, others might start to depend on that connector. 
 > ***Deleting your connector deletes all connections to that connector.***
- 
+
 To share your connector with external users outside these boundaries, 
 for example, with all Logic Apps users, 
 [submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).

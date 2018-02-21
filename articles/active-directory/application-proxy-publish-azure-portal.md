@@ -38,11 +38,11 @@ Follow these steps to publish your apps with Application Proxy. If you haven't a
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory** > **Enterprise applications** > **New application**.
 
-  ![Add an enterprise application](./media/application-proxy-publish-azure-portal/add-app.png)
+   ![Add an enterprise application](./media/application-proxy-publish-azure-portal/add-app.png)
 
 3. Select **All**, then select **On-premises application**.  
 
-  ![Add your own application](./media/application-proxy-publish-azure-portal/add-your-own.png)
+   ![Add your own application](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
 4. Provide the following information about your application:
 
@@ -77,11 +77,11 @@ To test that your app was published correctly, add a test user account. Verify t
 
 1. Back on the Quick start blade, select **Assign a user for testing**.
 
-  ![Assign a user for testing](./media/application-proxy-publish-azure-portal/assign-user.png)
+   ![Assign a user for testing](./media/application-proxy-publish-azure-portal/assign-user.png)
 
 2. On the Users and groups blade, select **Add**.
 
-  ![Add a user or group](./media/application-proxy-publish-azure-portal/add-user.png)
+   ![Add a user or group](./media/application-proxy-publish-azure-portal/add-user.png)
 
 3. On the Add assignment blade, select **Users and groups** then choose the account you want to add. 
 4. Select **Assign**.

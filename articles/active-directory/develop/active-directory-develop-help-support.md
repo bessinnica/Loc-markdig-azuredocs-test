@@ -41,8 +41,10 @@ For faster results, scope your search to Stack Overflow, our documentation, and 
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
 ```
-Where *{Your Search Terms}* is your search keywords.
+Where <em>{Your Search Terms}</em> is your search keywords.
+
 <br/>
+
 
 ## Use our development support tools
 
@@ -54,6 +56,7 @@ Where *{Your Search Terms}* is your search keywords.
 
 <br/>
 
+
 [![Stack Overflow](media/active-directory-develop-help-support/stackoverflow-logo.png)](https://www.stackoverflow.com)
 ## Post a question to Stack Overflow
 
@@ -61,22 +64,26 @@ Stack Overflow is the preferred channel for development-related questions - wher
 
 If you cannot find an answer to your problem via search, submit a new question to Stack Overflow: use one of the following tags when making questions to help the community identify, then answer your question on a timely manner:
 
-|Component/Area  |Tags  |
-|---------|---------|
-|ADAL library |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
-|MSAL library     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
-|OWIN middleware  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
-|Any other area related to authentication or authorization topics |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
+
+|                                              Component/Area                                              |                                             Tags                                             |
+|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+|                                               ADAL library                                               |                   [[adal]](http://stackoverflow.com/questions/tagged/adal)                   |
+|                                               MSAL library                                               |                   [[msal]](http://stackoverflow.com/questions/tagged/msal)                   |
+|                                             OWIN middleware                                              | [[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) |           [[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)           |
+|                 [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)                  |           [[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)           |
+|                      [Microsoft Graph API](https://developer.microsoft.com/graph/)                       |        [[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)        |
+|                     Any other area related to authentication or authorization topics                     | [[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory) |
+
 <br/>
+
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to make questions, and tips on adding source code - following these guidelines may help increase the chances for community members to assess and respond to your question quickly:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
 <br/>
+
 
 
 [![Stack Overflow](media/active-directory-develop-help-support/github-logo.png)](https://www.github.com)
@@ -87,6 +94,7 @@ If you cannot find an answer to your problem via search, submit a new question t
 - [ADAL, MSAL, and Owin middleware](active-directory-authentication-libraries.md) libraries and GitHub repositories
 
 <br/>
+
 
 ## Open a support request
 

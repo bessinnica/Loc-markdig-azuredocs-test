@@ -1,4 +1,4 @@
- 
+
 
 
 
@@ -10,6 +10,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 > 
 
 <br>
+
 
 | SKU Family | ACU \ vCPU | vCPU:Core |
 | --- | --- |---|

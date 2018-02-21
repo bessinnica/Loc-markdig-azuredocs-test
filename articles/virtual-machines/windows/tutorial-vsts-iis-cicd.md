@@ -166,15 +166,15 @@ To publish your builds, you create a release definition in Team Services. This d
 
 8. Choose **Add** next to **IIS Web App Deploy(Preview)**, then select **Close**.
 9. Select the **Run on deployment group** parent task.
-    1. For **Deployment Group**, select the deployment group you created earlier, such as *myIIS*.
-    2. In the **Machine tags** box, select **Add** and choose the *web* tag.
+   1. For **Deployment Group**, select the deployment group you created earlier, such as *myIIS*.
+   2. In the **Machine tags** box, select **Add** and choose the *web* tag.
     
-    ![Release definition deployment group task for IIS](media/tutorial-vsts-iis-cicd/release_definition_iis.png)
+      ![Release definition deployment group task for IIS](media/tutorial-vsts-iis-cicd/release_definition_iis.png)
  
-11. Select the **Deploy: IIS Web App Deploy** task to configure your IIS instance settings as follows:
+10. Select the **Deploy: IIS Web App Deploy** task to configure your IIS instance settings as follows:
     1. For **Website Name**, enter *Default Web Site*.
     2. Leave all the other default settings.
-12. Choose **Save**, then select **OK** twice.
+11. Choose **Save**, then select **OK** twice.
 
 
 ## Create a release and publish

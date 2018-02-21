@@ -30,8 +30,6 @@ You can get started by creating a logic app now, see [Create a logic app](../log
 When you add this connector to your logic apps, you must sign-in to your Office 365 Video account and allow logic apps to connect to your account.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
-> 
-> 
 
 After you create the connection, you enter the Office 365 video properties, like the tenant name or channel ID. 
 

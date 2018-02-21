@@ -26,7 +26,7 @@ In this tutorial, you learn about the provision and catalog SaaS patterns, and h
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Provision a single new tenant, including stepping through how this is implemented
 > * Provision a batch of additional tenants
 
@@ -161,7 +161,7 @@ Other provisioning patterns not included in this tutorial include:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Provision a single new tenant
 > * Provision a batch of additional tenants
 > * Step into the details of provisioning tenants, and registering them into the catalog

@@ -113,7 +113,7 @@ is equivalent to:
 
 If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
 ```
-	user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
 ```
 Note the use of the "[" and "]" at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one of the values in the list.
 
@@ -121,11 +121,12 @@ Note the use of the "[" and "]" at the beginning and end of the list of values. 
 ## Query error remediation
 The following table lists common errors and how to correct them
 
-| Query Parse Error | Error Usage | Corrected Usage |
-| --- | --- | --- |
-| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
-| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
-| Error: Query compilation error. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "@domain.ext$")|
+
+|               Query Parse Error                |                                                          Error Usage                                                          |                                                                                                                                                     Corrected Usage                                                                                                                                                     |
+|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        Error: Attribute not supported.         |                                              (user.invalidProperty -eq "Value")                                               |                                                                                              (user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties).                                                                                               |
+| Error: Operator is not supported on attribute. |                                             (user.accountEnabled -contains true)                                              |                                                     (user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type.                                                      |
+|        Error: Query compilation error.         | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") | 1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@"domain.ext""), alternatively: (user.userPrincipalName -match "@domain.ext$") |
 
 ## Supported properties
 The following are all the user properties that you can use in your advanced rule:
@@ -155,34 +156,34 @@ Allowed operators
 * -in
 * -notIn
 
-| Properties | Allowed values | Usage |
-| --- | --- | --- |
-| city |Any string value or *null* |(user.city -eq "value") |
-| country |Any string value or *null* |(user.country -eq "value") |
-| companyName | Any string value or *null* | (user.companyName -eq "value") |
-| department |Any string value or *null* |(user.department -eq "value") |
-| displayName |Any string value |(user.displayName -eq "value") |
-| employeeId |Any string value |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
-| facsimileTelephoneNumber |Any string value or *null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Any string value or *null* |(user.givenName -eq "value") |
-| jobTitle |Any string value or *null* |(user.jobTitle -eq "value") |
-| mail |Any string value or *null* (SMTP address of the user) |(user.mail -eq "value") |
-| mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
-| mobile |Any string value or *null* |(user.mobile -eq "value") |
-| objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Any string value or *null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Any string value or *null* |(user.postalCode -eq "value") |
-| preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Any string value or *null* |(user.sipProxyAddress -eq "value") |
-| state |Any string value or *null* |(user.state -eq "value") |
-| streetAddress |Any string value or *null* |(user.streetAddress -eq "value") |
-| surname |Any string value or *null* |(user.surname -eq "value") |
-| telephoneNumber |Any string value or *null* |(user.telephoneNumber -eq "value") |
-| usageLocation |Two lettered country code |(user.usageLocation -eq "US") |
-| userPrincipalName |Any string value |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest *null* |(user.userType -eq "Member") |
+|          Properties          |                                            Allowed values                                             |                                            Usage                                            |
+|------------------------------|-------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+|             city             |                                   Any string value or <em>null</em>                                   |                                   (user.city -eq "value")                                   |
+|           country            |                                   Any string value or <em>null</em>                                   |                                 (user.country -eq "value")                                  |
+|         companyName          |                                   Any string value or <em>null</em>                                   |                               (user.companyName -eq "value")                                |
+|          department          |                                   Any string value or <em>null</em>                                   |                                (user.department -eq "value")                                |
+|         displayName          |                                           Any string value                                            |                               (user.displayName -eq "value")                                |
+|          employeeId          |                                           Any string value                                            |            (user.employeeId -eq "value")<br>(user.employeeId -ne <em>null</em>)             |
+|   facsimileTelephoneNumber   |                                   Any string value or <em>null</em>                                   |                         (user.facsimileTelephoneNumber -eq "value")                         |
+|          givenName           |                                   Any string value or <em>null</em>                                   |                                (user.givenName -eq "value")                                 |
+|           jobTitle           |                                   Any string value or <em>null</em>                                   |                                 (user.jobTitle -eq "value")                                 |
+|             mail             |                     Any string value or <em>null</em> (SMTP address of the user)                      |                                   (user.mail -eq "value")                                   |
+|         mailNickName         |                               Any string value (mail alias of the user)                               |                               (user.mailNickName -eq "value")                               |
+|            mobile            |                                   Any string value or <em>null</em>                                   |                                  (user.mobile -eq "value")                                  |
+|           objectId           |                                        GUID of the user object                                        |                  (user.objectId -eq "1111111-1111-1111-1111-111111111111")                  |
+| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud.  | (user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+|       passwordPolicies       | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |                     (user.passwordPolicies -eq "DisableStrongPassword")                     |
+|  physicalDeliveryOfficeName  |                                   Any string value or <em>null</em>                                   |                        (user.physicalDeliveryOfficeName -eq "value")                        |
+|          postalCode          |                                   Any string value or <em>null</em>                                   |                                (user.postalCode -eq "value")                                |
+|      preferredLanguage       |                                            ISO 639-1 code                                             |                            (user.preferredLanguage -eq "en-US")                             |
+|       sipProxyAddress        |                                   Any string value or <em>null</em>                                   |                             (user.sipProxyAddress -eq "value")                              |
+|            state             |                                   Any string value or <em>null</em>                                   |                                  (user.state -eq "value")                                   |
+|        streetAddress         |                                   Any string value or <em>null</em>                                   |                              (user.streetAddress -eq "value")                               |
+|           surname            |                                   Any string value or <em>null</em>                                   |                                 (user.surname -eq "value")                                  |
+|       telephoneNumber        |                                   Any string value or <em>null</em>                                   |                             (user.telephoneNumber -eq "value")                              |
+|        usageLocation         |                                       Two lettered country code                                       |                                (user.usageLocation -eq "US")                                |
+|      userPrincipalName       |                                           Any string value                                            |                         (user.userPrincipalName -eq "alias@domain")                         |
+|           userType           |                                      member guest <em>null</em>                                       |                                (user.userType -eq "Member")                                 |
 
 ### Properties of type string collection
 Allowed operators
@@ -190,10 +191,10 @@ Allowed operators
 * -contains
 * -notContains
 
-| Properties | Allowed values | Usage |
-| --- | --- | --- |
-| otherMails |Any string value |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+|   Properties   |            Allowed values             |                        Usage                         |
+|----------------|---------------------------------------|------------------------------------------------------|
+|   otherMails   |           Any string value            |      (user.otherMails -contains "alias@domain")      |
+| proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## Multi-value properties
 Allowed operators
@@ -260,9 +261,9 @@ You can create a group containing all direct reports of a manager. When the mana
     *Direct Reports for "{obectID_of_manager}"*
 
     An example of a valid rule:
-```
+   ```
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
-```
+   ```
     where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
 3. After saving the rule, all users with the specified Manager ID value will be added to the group.
 

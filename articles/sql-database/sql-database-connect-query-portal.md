@@ -98,18 +98,18 @@ Use the following code to insert a new product into the SalesLT.Product table us
            , [ProductNumber]
            , [Color]
            , [ProductCategoryID]
-		   , [StandardCost]
-		   , [ListPrice]
-		   , [SellStartDate]
-		   )
+           , [StandardCost]
+           , [ListPrice]
+           , [SellStartDate]
+           )
      VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'
            ,1
-		   ,100
-		   ,100
-		   ,GETDATE() );
+           ,100
+           ,100
+           ,GETDATE() );
    ```
 
 2. On the toolbar, click **Run**  to insert a new row in the Product table.

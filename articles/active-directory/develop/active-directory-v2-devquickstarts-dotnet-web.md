@@ -47,8 +47,8 @@ Here, we'll configure the OWIN middleware to use the OpenID Connect authenticati
 
 1. To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
 
-  * The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
-  * The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
+   * The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
+   * The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
 
 2. Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
 

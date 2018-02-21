@@ -59,19 +59,19 @@ To configure the integration of Litmos into Azure AD, you need to add Litmos fro
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Litmos**, select **Litmos** from result panel then click **Add** button to add the application.
 
-	![Litmos in the results list](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_addfromgallery.png)
+    ![Litmos in the results list](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -97,52 +97,52 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Litmos** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_samlbase.png)
 
 3. On the **Litmos Domain and URLs** section, perform the following steps:
 
-	![Litmos Domain and URLs single sign-on information](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_url.png)
+    ![Litmos Domain and URLs single sign-on information](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.litmos.com/account/Login`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.litmos.com/integration/samllogin`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.litmos.com/integration/samllogin`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL, which are explained later in tutorial or contact [Litmos support team](https://www.litmos.com/contact-us/) to get these values.
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier and Reply URL, which are explained later in tutorial or contact [Litmos support team](https://www.litmos.com/contact-us/) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_certificate.png)
+    ![The Certificate download link](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_certificate.png)
 
 5. As part of the configuration, you need to customize the **SAML Token Attributes** for your Litmos application.
 
-	![Attribute Section](./media/active-directory-saas-litmos-tutorial/tutorial_attribute.png)
-      	   
-	| Attribute Name   | Attribute Value |   
+    ![Attribute Section](./media/active-directory-saas-litmos-tutorial/tutorial_attribute.png)
+           
+    | Attribute Name   | Attribute Value |   
     | ---------------  | ----------------|
-	| FirstName |user.givenname |
-	| LastName  |user.surname |
-	| Email |user.mail |
+    | FirstName |user.givenname |
+    | LastName  |user.surname |
+    | Email |user.mail |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Add attribute](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_04.png)
+    ![Add attribute](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_04.png)
 
-	![Add attribute Dailog](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_05.png)
+    ![Add attribute Dailog](./media/active-directory-saas-litmos-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.	 
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**.     
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-litmos-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-litmos-tutorial/tutorial_general_400.png)
 
 7. In a different browser window, sign-on to your Litmos company site as administrator.
 
@@ -166,11 +166,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
      ![Litmos Application][25] 
      
-	 a. Click **Enable SAML**.
+     a. Click **Enable SAML**.
     
-	 b. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **SAML X.509 Certificate** textbox.
-	 
-	 c. Click **Save Changes**.
+     b. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **SAML X.509 Certificate** textbox.
+     
+     c. Click **Save Changes**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -227,7 +227,7 @@ The Litmos application supports Just-in-Time provisioning. This means, a user ac
 4. On the **Integrations** tab, scroll down to **3rd Party Integrations**, and then click **SAML 2.0** tab.
    
     ![SAML 2.0][24] 
-	
+    
 5. Select **Autogenerate Users**
    
     ![Autogenerate Users][27] 
@@ -242,26 +242,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Litmos**.
 
-	![The Litmos link in the Applications list](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_app.png)  
+    ![The Litmos link in the Applications list](./media/active-directory-saas-litmos-tutorial/tutorial_litmos_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  

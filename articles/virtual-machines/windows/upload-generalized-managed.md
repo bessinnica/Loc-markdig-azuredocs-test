@@ -52,7 +52,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
 4. In **Shutdown Options**, select **Shutdown**.
 5. Click **OK**.
-   
+
     ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. When Sysprep completes, it shuts down the virtual machine. Do not restart the VM.
 
@@ -62,17 +62,17 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
-   
+
     ```powershell
     Login-AzureRmAccount
     ```
 2. Get the subscription IDs for your available subscriptions.
-   
+
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Set the correct subscription using the subscription ID. Replace *<subscriptionID>* with the ID of the correct subscription.
-   
+3. Set the correct subscription using the subscription ID. Replace <em><subscriptionID></em> with the ID of the correct subscription.
+
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
@@ -93,7 +93,7 @@ If you want to use an existing storage account, proceed to the [Upload the VM im
 If you need to create a storage account, follow these steps:
 
 1. You need the name of the resource group where the storage account should be created. To find out all the resource groups that are in your subscription, type:
-   
+
     ```powershell
     Get-AzureRmResourceGroup
     ```
@@ -105,14 +105,14 @@ If you need to create a storage account, follow these steps:
     ```
 
 2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
-   
+
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "East US"`
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
-   
+
     Valid values for -SkuName are:
-   
+
    * **Standard_LRS** - Locally redundant storage. 
    * **Standard_ZRS** - Zone redundant storage.
    * **Standard_GRS** - Geo redundant storage. 
@@ -150,16 +150,16 @@ Depending on your network connection and the size of your VHD file, this command
 Save the **Destination URI** path to use later if you are going to create a managed disk or a new VM using the uploaded VHD.
 
 ### Other options for uploading a VHD
- 
- 
+
+
 You can also upload a VHD to your storage account using one of the following:
 
 - [AzCopy](http://aka.ms/downloadazcopy)
 - [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
 - [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
--	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
-	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
+-   We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
+    Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
 
 ## Create a managed image from the uploaded VHD 
@@ -170,32 +170,32 @@ Create a managed image using your generalized OS VHD. Replace the values with yo
 1.  First, set the common parameters:
 
     ```powershell
-	$vmName = "myVM"
-	$computerName = "myComputer"
-	$vmSize = "Standard_DS1_v2"
-	$location = "East US" 
-	$imageName = "yourImageName"
+    $vmName = "myVM"
+    $computerName = "myComputer"
+    $vmSize = "Standard_DS1_v2"
+    $location = "East US" 
+    $imageName = "yourImageName"
     ```
 
 4.  Create the image using your generalized OS VHD.
 
     ```powershell
-	$imageConfig = New-AzureRmImageConfig -Location $location
-	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
-	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
+    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
 ## Create a virtual network
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
 1. Create the subnet. This example creates a subnet named *mySubnet* with the address prefix of *10.0.0.0/24*.  
-   
+
     ```powershell
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Create the virtual network. This example creates a virtual network named *myVnet* with the address prefix of *10.0.0.0/16*.  
-   
+
     ```powershell
     $vnetName = "myVnet"
     $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
@@ -207,14 +207,14 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
 1. Create a public IP address. This example creates a public IP address named *myPip*. 
-   
+
     ```powershell
     $ipName = "myPip"
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. Create the NIC. This example creates a NIC named **myNic**. 
-   
+
     ```powershell
     $nicName = "myNic"
     $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
@@ -246,7 +246,6 @@ Create a variable for the completed virtual network.
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
-
 ```
 
 ## Get the credentials for the VM

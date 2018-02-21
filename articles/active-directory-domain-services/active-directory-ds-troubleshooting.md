@@ -108,6 +108,7 @@ if ($sp -ne $null)
 ```
 <br>
 
+
 ### Microsoft Graph disabled
 **Error message:**
 

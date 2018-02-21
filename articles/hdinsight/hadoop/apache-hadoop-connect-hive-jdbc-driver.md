@@ -64,49 +64,49 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
 1. Copy the Hive JDBC drivers from your HDInsight cluster.
 
-    * For **Linux-based HDInsight** cluster version 3.5 or 3.6, use the following steps to download the required jar files.
+   * For **Linux-based HDInsight** cluster version 3.5 or 3.6, use the following steps to download the required jar files.
 
-        1. Create a directory that contains the files. For example, `mkdir hivedriver`.
+       1. Create a directory that contains the files. For example, `mkdir hivedriver`.
 
-        2. From a command line, use the following commands to copy the files from the HDInsight cluster:
+       2. From a command line, use the following commands to copy the files from the HDInsight cluster:
 
-            ```bash
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-            ```
+           ```bash
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
+           scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+           ```
 
-            Replace `USERNAME` with the SSH user account name for the cluster. Replace `CLUSTERNAME` with the HDInsight cluster name.
+           Replace `USERNAME` with the SSH user account name for the cluster. Replace `CLUSTERNAME` with the HDInsight cluster name.
 
-    * For **Windows-based HDInsight**, use the following steps to download the jar files.
+   * For **Windows-based HDInsight**, use the following steps to download the jar files.
 
-        1. From the Azure portal, select your HDInsight cluster, and then select the **Remote Desktop** icon.
+     1. From the Azure portal, select your HDInsight cluster, and then select the **Remote Desktop** icon.
 
-            ![Remote Desktop icon](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopicon.png)
+         ![Remote Desktop icon](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. On the Remote Desktop section, use the **Connect** button to connect to the cluster. If the Remote Desktop is not enabled, use the form to provide a user name and password, then select **Enable** to enable Remote Desktop for the cluster.
+     2. On the Remote Desktop section, use the **Connect** button to connect to the cluster. If the Remote Desktop is not enabled, use the form to provide a user name and password, then select **Enable** to enable Remote Desktop for the cluster.
 
-            ![Remote desktop section](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopblade.png)
+         ![Remote desktop section](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopblade.png)
 
-            After selecting **Connect**, a .RDP file is downloaded. Use this file to launch the Remote Desktop client. When prompted, use the user name and password you entered for Remote Desktop access.
+         After selecting **Connect**, a .RDP file is downloaded. Use this file to launch the Remote Desktop client. When prompted, use the user name and password you entered for Remote Desktop access.
 
-        3. Once connected, copy the following files from the Remote Desktop session to your local machine. Put them in a local directory named `hivedriver`.
+     3. Once connected, copy the following files from the Remote Desktop session to your local machine. Put them in a local directory named `hivedriver`.
 
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
+        * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+        * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
+        * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
-            > [!NOTE]
-            > The version numbers included in the paths and file names may be different for your cluster.
+          > [!NOTE]
+          > The version numbers included in the paths and file names may be different for your cluster.
 
-        4. Disconnect the Remote Desktop session once you have finished copying the files.
+     4. Disconnect the Remote Desktop session once you have finished copying the files.
 
 2. Start the SQuirreL SQL application. From the left of the window, select **Drivers**.
 
@@ -145,7 +145,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * **Password**: The password for the cluster login account.
 
- ![add alias dialog](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
+   ![add alias dialog](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     Use the **Test** button to verify that the connection works. When **Connect to: Hive on HDInsight** dialog appears, select **Connect** to perform the test. If the test succeeds, you see a **Connection successful** dialog. If an error occurs, see [Troubleshooting](#troubleshooting).
 

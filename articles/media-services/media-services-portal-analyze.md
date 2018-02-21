@@ -34,10 +34,10 @@ This topic discusses how to process your media with Media Analytics media proces
    .
     ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. Select the asset that you would like to analyze and press the **Analyze** button.
-   
+
     ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
 4. In the **Process media asset with  Media Analytics** window, select the processor. 
-   
+
     The rest of the article explains why and how to use each processor. 
 5. Press **Create** to the start a job.
 
@@ -88,15 +88,15 @@ A friendly name that lets you identify the output content.
 The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
 
 * **Face detection**
-  
+
     Face detection finds and tracks human faces within a video. Multiple faces can be detected and subsequently be tracked as they move around, with the time and location metadata returned in a JSON file. During tracking, it will attempt to give a consistent ID to the same face while the person is moving around on screen, even if they are obstructed or briefly leave the frame.
-  
+
   > [!NOTE]
   > This services does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
   > 
   > 
 * **Emotion detection**
-  
+
     Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. 
 
 ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
@@ -150,3 +150,4 @@ View Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

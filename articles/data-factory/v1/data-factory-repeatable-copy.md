@@ -22,7 +22,7 @@ robots: noindex
 
 ## Repeatable read from relational sources
 When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run.  
- 
+
 > [!NOTE]
 > The following samples are for Azure SQL but are applicable to any data store that supports rectangular datasets. You may have to adjust the **type** of source and the **query** property (for example: query instead of sqlReaderQuery) for the data store.   
 
@@ -30,8 +30,8 @@ Usually, when reading from relational stores, you want to read only the data cor
 
 ```json
 "source": {
-	"type": "SqlSource",
-	"sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
+    "type": "SqlSource",
+    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
 This query reads data that falls in the slice duration range (WindowStart -> WindowEnd) from the table MyTable. Rerun of this slice would also always ensure that the same data is read. 
@@ -41,8 +41,8 @@ In other cases, you may wish to read the entire table and may define the sqlRead
 ```json
 "source": 
 {            
-	"type": "SqlSource",
-	"sqlReaderQuery": "select * from MyTable"
+    "type": "SqlSource",
+    "sqlReaderQuery": "select * from MyTable"
 },
 ```
 
@@ -112,31 +112,33 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
 1. Define a column of type **binary (32)** in the destination SQL Table. There should be no constraints on this column. Let's name this column as AdfSliceIdentifier for this example.
 
 
-	Source table:
+~~~
+Source table:
 
-	```sql
-	CREATE TABLE [dbo].[Student](
-       [Id] [varchar](32) NOT NULL,
-       [Name] [nvarchar](256) NOT NULL
-	)
-	```
+```sql
+CREATE TABLE [dbo].[Student](
+   [Id] [varchar](32) NOT NULL,
+   [Name] [nvarchar](256) NOT NULL
+)
+```
 
-	Destination table: 
+Destination table: 
 
-	```sql
-	CREATE TABLE [dbo].[Student](
-       [Id] [varchar](32) NOT NULL,
-       [Name] [nvarchar](256) NOT NULL,
-       [AdfSliceIdentifier] [binary](32) NULL
-	)
-	```
+```sql
+CREATE TABLE [dbo].[Student](
+   [Id] [varchar](32) NOT NULL,
+   [Name] [nvarchar](256) NOT NULL,
+   [AdfSliceIdentifier] [binary](32) NULL
+)
+```
+~~~
 
 2. Use it in the copy activity as follows:
-   
+
     ```json
     "sink":  
     { 
-   
+
         "type": "SqlSink", 
         "sliceIdentifierColumnName": "AdfSliceIdentifier"
     }

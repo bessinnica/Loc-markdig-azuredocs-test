@@ -161,7 +161,6 @@ public async Task<string> SendGraphGetRequest(string api, string query)
     AuthenticationResult result = authContext.AcquireToken("https://graph.windows.net", credential);
 
     ...
-
 ```
 
 You can get an access token for the Graph API by calling the ADAL `AuthenticationContext.AcquireToken(...)` method. ADAL then returns an `access_token` that represents the application's identity.

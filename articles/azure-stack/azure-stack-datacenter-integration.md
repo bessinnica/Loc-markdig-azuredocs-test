@@ -111,11 +111,11 @@ For hybrid connectivity, it’s important to consider what kind of deployment yo
 - **Single-tenant Azure Stack**. An Azure Stack deployment that looks, at least from a networking perspective, as if it’s one tenant. There can be many tenant subscriptions, but like any intranet service, all traffic travels over the same networks. Network traffic from one subscription travels over the same network connection as another subscription and doesn’t need to be isolated via an encrypted tunnel.
 
 - **Multi-tenant Azure Stack**. An Azure Stack deployment where each tenant subscription’s traffic that's bound for networks that are external to Azure Stack must be isolated from other tenants’ network traffic.
- 
+
 - **Intranet deployment**. An Azure Stack deployment that sits on a corporate intranet, typically on private IP address space and behind one or more firewalls. The public IP addresses are not truly public, as they can’t be routed directly over the public internet.
 
 - **Internet deployment**. An Azure Stack deployment that’s connected to the public internet and uses internet-routable public IP addresses for the public VIP range. The deployment can still sit behind a firewall, but the public VIP range is directly reachable from the public internet and Azure.
- 
+
 The following table summarizes the hybrid connectivity scenarios, with the pros, cons, and use cases.
 
 | Scenario | Connectivity Method | Pros | Cons | Good For |
@@ -145,13 +145,14 @@ Included with the Azure Stack solution, the hardware lifecycle host is a compute
 
 The following table summarizes the list of currently available options.
 
-| Area | External Monitoring Solution |
-| -- | -- |
-| Azure Stack software | [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST-based API calls | 
-| Physical servers (BMCs via IPMI) | OEM hardware - Operations Manager vendor management pack<br>OEM hardware vendor-provided solution<br>Hardware vendor Nagios plug-ins | OEM partner-supported monitoring solution (included) | 
-| Network devices (SNMP) | Operations Manager network device discovery<br>OEM hardware vendor-provided solution<br>Nagios switch plug-in |
-| Tenant subscription health monitoring | [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
-|  |  | 
+
+|                 Area                  |                                                                                                                             External Monitoring Solution                                                                                                                              |
+|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         Azure Stack software          | [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST-based API calls |
+|   Physical servers (BMCs via IPMI)    |                                                                         OEM hardware - Operations Manager vendor management pack<br>OEM hardware vendor-provided solution<br>Hardware vendor Nagios plug-ins                                                                          |
+|        Network devices (SNMP)         |                                                                                     Operations Manager network device discovery<br>OEM hardware vendor-provided solution<br>Nagios switch plug-in                                                                                     |
+| Tenant subscription health monitoring |                                                                                      [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013)                                                                                      |
+|                                       |                                                                                                                                                                                                                                                                                       |
 
 Note the following requirements:
 - The solution you use must be agentless. You can't install third-party agents inside Azure Stack components. 
@@ -169,7 +170,7 @@ You can [back up Azure Stack](azure-stack-backup-back-up-azure-stack.md) infrast
 - You should use this same share for the backup of network switches and the hardware lifecycle host. Your OEM hardware vendor will help provide guidance for backup and restore of these components as these are external to Azure Stack. You're responsible for running the backup workflows based on the OEM vendor’s recommendation.
 
 If catastrophic data loss occurs, you can use the infrastructure backup to reseed deployment data such as deployment inputs and identifiers, service accounts, CA root certificate, federated resources (in disconnected deployments), plans, offers, subscriptions, quotas, RBAC policy and role assignments, and Key Vault secrets.
- 
+
 ### Protect tenant applications on IaaS virtual machines
 
 Azure Stack does not back up tenant applications and data. You must plan for backup and disaster recovery protection to a target external to Azure Stack. Tenant protection is a tenant-driven activity. For IaaS virtual machines, tenants can use in-guest technologies to protect file folders, application data, and system state. However, as an enterprise or service provider, you may want to offer a backup and recovery solution in the same datacenter or externally in a cloud.

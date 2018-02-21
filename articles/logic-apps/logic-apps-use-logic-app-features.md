@@ -119,10 +119,10 @@ you can directly edit the code that defines a logic app.
 
     ![Code view](media/logic-apps-use-logic-app-features/codeview.png)
 
-	In the text editor, you can copy and paste any number 
-	of actions within the same logic app or between logic apps. 
-	You can also easily add or remove entire sections from the definition, 
-	and you can also share definitions with others.
+    In the text editor, you can copy and paste any number 
+    of actions within the same logic app or between logic apps. 
+    You can also easily add or remove entire sections from the definition, 
+    and you can also share definitions with others.
 
 2. To save your edits, choose **Save**.
 
@@ -144,23 +144,23 @@ so that you can use parameters for the query term.
 1. In code view, find the `parameters : {}` object, 
 and add a `currentFeedUrl` object:
 
-		"currentFeedUrl" : {
-			"type" : "string",
-			"defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-		}
+        "currentFeedUrl" : {
+            "type" : "string",
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+        }
 
 2. Go to the `When_a_feed-item_is_published` action, 
 find the `queries` section, and replace the query value with 
 : `"feedUrl": "#@{parameters('currentFeedUrl')}"` 
 
-	To join two or more strings, you can also use the `concat` function. 
-	For example, `"@concat('#',parameters('currentFeedUrl'))"` 
-	works the same as the above.
+    To join two or more strings, you can also use the `concat` function. 
+    For example, `"@concat('#',parameters('currentFeedUrl'))"` 
+    works the same as the above.
 
-3.	When you're done, choose **Save**. 
+3.  When you're done, choose **Save**. 
 
-	Now you can change the website's RSS feed by 
-	passing a different URL through the `currentFeedURL` object.
+    Now you can change the website's RSS feed by 
+    passing a different URL through the `currentFeedURL` object.
 
 Learn more about [how to author logic app definitions](../logic-apps/logic-apps-author-definitions.md).
 

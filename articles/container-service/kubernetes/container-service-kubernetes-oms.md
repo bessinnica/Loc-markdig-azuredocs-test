@@ -57,7 +57,7 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 Microsoft Operations Management (OMS) is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
-and cloud infrastructure. Container Solution is a solution in OMS Log
+and cloud infrastructure. Container Solution is a solution in OMS Log
 Analytics, which helps you view the container inventory, performance,
 and logs in a single location. You can audit, troubleshoot containers by
 viewing the logs in centralized location, and find noisy consuming
@@ -97,38 +97,38 @@ $ kubectl create -f oms-daemonset.yaml
 ### Installing the OMS agent using a Kubernetes Secret
 To protect your OMS workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
 
- - Copy the script, secret template file and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory. 
-	  - secret generating script - secret-gen.sh
-	  - secret template - secret-template.yaml
-   - DaemonSet YAML file - omsagent-ds-secrets.yaml
- - Run the script. The script will ask for the OMS Workspace ID and Primary Key. Please insert that and the script will create a secret yaml file so you can run it.   
-   ```
-   #> sudo bash ./secret-gen.sh 
-   ```
+- Copy the script, secret template file and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory. 
+  - secret generating script - secret-gen.sh
+  - secret template - secret-template.yaml
+    - DaemonSet YAML file - omsagent-ds-secrets.yaml
+- Run the script. The script will ask for the OMS Workspace ID and Primary Key. Please insert that and the script will create a secret yaml file so you can run it.   
+  ```
+  #> sudo bash ./secret-gen.sh 
+  ```
 
-   - Create the secrets pod by running the following: 
+  - Create the secrets pod by running the following: 
   ``` kubectl create -f omsagentsecret.yaml ```
  
-   - To check, run the following: 
+  - To check, run the following: 
 
-   ``` 
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ``` 
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes 
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes 
+  ```
  
   - Create your omsagent daemon-set by running ``` kubectl create -f omsagent-ds-secrets.yaml ```
 

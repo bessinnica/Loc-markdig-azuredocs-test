@@ -75,7 +75,7 @@ Where:
 * A new cloud service is created in the Azure region specified by the location. Specify a location in which the VM size you choose is available.
 * For SUSE priority support (which incurs additional charges), the SLES 12 SP1 image name currently can be one of these two options: 
 
- `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824`
+  `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824`
 
   `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824`
 
@@ -154,7 +154,6 @@ From your client computer, run the following Azure CLI commands to capture the i
 azure vm shutdown <vm-name>
 
 azure vm capture -t <vm-name> <image-name>
-
 ```
 
 After you run these commands, the VM image is captured for your use and the VM is deleted. Now you have your custom image ready to deploy a cluster.
@@ -367,7 +366,6 @@ On a working cluster with two nodes, you should see output like the following. O
       4194304           10      1082.94      3693.63
 
 # All processes entering MPI_Finalize
-
 ```
 
 

@@ -23,6 +23,7 @@ Commands for managing Service Fabric clusters and entities. This version is comp
     with Service Fabric 6.0 runtime. Commands follow the noun-verb pattern, see the following subgroups for more information.
 
 ## Subgroups
+
 |Subgroup|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md)| Create, delete, and manage applications and application types.|

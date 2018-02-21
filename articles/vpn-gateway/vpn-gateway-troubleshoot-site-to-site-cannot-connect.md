@@ -69,8 +69,8 @@ For the classic deployment model:
 
 ### Step 3. Verify the VPN peer IPs
 
--	The IP definition in the **Local Network Gateway** object in Azure should match the on-premises device IP.
--	The Azure gateway IP definition that is set on the on-premises device should match the Azure gateway IP.
+-   The IP definition in the **Local Network Gateway** object in Azure should match the on-premises device IP.
+-   The Azure gateway IP definition that is set on the on-premises device should match the Azure gateway IP.
 
 ### Step 4. Check UDR and NSGs on the gateway subnet
 
@@ -84,8 +84,8 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 6. Verify that the subnets match exactly (Azure policy-based gateways)
 
--	Verify that the virtual network address space(s) match exactly between the Azure virtual network and on-premises definitions.
--	Verify that the subnets match exactly between the **Local Network Gateway** and on-premises definitions for the on-premises network.
+-   Verify that the virtual network address space(s) match exactly between the Azure virtual network and on-premises definitions.
+-   Verify that the subnets match exactly between the **Local Network Gateway** and on-premises definitions for the on-premises network.
 
 ### Step 7. Verify the Azure gateway health probe
 
@@ -103,5 +103,5 @@ The perfect forward secrecy feature can cause disconnection problems. If the VPN
 
 ## Next steps
 
--	[Configure a site-to-site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
--	[Configure an IPsec/IKE policy for site-to-site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+-   [Configure a site-to-site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configure an IPsec/IKE policy for site-to-site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)

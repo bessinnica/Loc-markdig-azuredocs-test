@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Monitor PowerShell quick start samples. | Microsoft Docs
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
 author: rboucher
@@ -362,14 +362,12 @@ Enable diagnostic setting for Log Analytics (OMS)
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true
-
 ```
 
 Note that the WorkspaceId property takes the *resource ID* of the workspace. You can obtain the resource ID of your Log Analytics workspace using the following command:
 
 ```PowerShell
 (Get-AzureRmOperationalInsightsWorkspace).ResourceId
-
 ```
 
 These commands can be combined to send data to multiple destinations.

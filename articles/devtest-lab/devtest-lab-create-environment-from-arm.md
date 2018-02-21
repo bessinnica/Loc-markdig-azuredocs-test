@@ -44,10 +44,10 @@ There are a couple of rules to follow to organize your Azure Resource Manager te
 
 - The master template file must be named `azuredeploy.json`. 
 
-	![Key Azure Resource Manager template files](./media/devtest-lab-create-environment-from-arm/master-template.png)
+    ![Key Azure Resource Manager template files](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - If you want to use parameter values defined in a parameter file, the parameter file must be named `azuredeploy.parameters.json`.
-- You can use the parameters `_artifactsLocation` and `_artifactsLocationSasToken` to construct the parametersLink URI value, allowing DevTest Labs to automatically manage nested templates. See [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) for more information.
+- You can use the parameters `_artifactsLocation` and `_artifactsLocationSasToken` to construct the parametersLink URI value, allowing DevTest Labs to automatically manage nested templates. See [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) for more information.
 - Metadata can be defined to specify the template display name and description. This metadata must be in a file named `metadata.json`. The following example metadata file illustrates how to specify the display name and description: 
 
 ```json
@@ -67,21 +67,21 @@ The following steps guide you through adding a repository to your lab using the 
 1. From the list of labs, select the desired lab.   
 1. On the lab's **Overview** pane, select **Configuration and Policies**.
 
-	![Configuration and policies](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
+    ![Configuration and policies](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
 
 1. From the **Configuration and Policies** settings list, select **Repositories**. The **Repositories** pane lists the repositories that have been added to the lab. A repository named `Public Repo` is automatically generated for all labs, and connects to the [DevTest Labs GitHub repo](https://github.com/Azure/azure-devtestlab) that contains several VM artifacts for your use.
 
-	![Public repo](./media/devtest-lab-create-environment-from-arm/public-repo.png)
+    ![Public repo](./media/devtest-lab-create-environment-from-arm/public-repo.png)
 
 1. Select **Add+** to add your Azure Resource Manager template repository.
 1. When the second **Repositories** pane opens, enter the necessary information as follows:
-	- **Name** - Enter the repository name that is used in the lab.
-	- **Git clone URL** - Enter the GIT HTTPS clone URL from GitHub or Visual Studio Team Services.  
-	- **Branch** - Enter the branch name to access your Azure Resource Manager template definitions. 
-	- **Personal access token** - The personal access token is used to securely access your repository. To get your token from Visual Studio Team Services, select **&lt;YourName> > My profile > Security > Public access token**. To get your token from GitHub, select your avatar followed by selecting **Settings > Public access token**. 
-	- **Folder paths** - Using one of the two input fields, enter the folder path that starts with a forward slash - / - and is relative to your Git clone URI to either your artifact definitions (first input field) or your Azure Resource Manager template definitions.   
-	
-		![Public repo](./media/devtest-lab-create-environment-from-arm/repo-values.png)
+    - **Name** - Enter the repository name that is used in the lab.
+    - **Git clone URL** - Enter the GIT HTTPS clone URL from GitHub or Visual Studio Team Services.  
+    - **Branch** - Enter the branch name to access your Azure Resource Manager template definitions. 
+    - **Personal access token** - The personal access token is used to securely access your repository. To get your token from Visual Studio Team Services, select **&lt;YourName> > My profile > Security > Public access token**. To get your token from GitHub, select your avatar followed by selecting **Settings > Public access token**. 
+    - **Folder paths** - Using one of the two input fields, enter the folder path that starts with a forward slash - / - and is relative to your Git clone URI to either your artifact definitions (first input field) or your Azure Resource Manager template definitions.   
+    
+        ![Public repo](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
 
 1. Once all the required fields are entered and pass the validation, select **Save**.
@@ -98,32 +98,32 @@ Once an Azure Resource Manager template repository has been configured in the la
 1. On the lab's pane, select **Add+**.
 1. The **Choose a base** pane displays the base images you can use with the Azure Resource Manager templates listed first. Select the desired Azure Resource Manager template.
 
-	![Choose a base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
+    ![Choose a base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
 1. On the **Add** pane, enter the **Environment name** value. The environment name is what is displayed to your users in the lab. The remaining input fields are defined in the Azure Resource Manager template. If default values are defined in the template or the `azuredeploy.parameter.json` file is present, default values are displayed in those input fields. For parameters of type *secure string*, you can use the secrets stored in the lab’s [personal secret store](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
 
-	![Add pane](./media/devtest-lab-create-environment-from-arm/add.png)
+    ![Add pane](./media/devtest-lab-create-environment-from-arm/add.png)
 
-	> [!NOTE]
-	> There are several parameter values that - even if specified - are displayed as empty values. Therefore, if users assign those values to parameters in an Azure Resource Manager template, DevTest Labs does not display the values. Instead, blank input fields are shown where lab users must enter a value when creating the environment.
-	> 
-	> - GEN-UNIQUE
-	> - GEN-UNIQUE-[N]
-	> - GEN-SSH-PUB-KEY
-	> - GEN-PASSWORD 
+    > [!NOTE]
+    > There are several parameter values that - even if specified - are displayed as empty values. Therefore, if users assign those values to parameters in an Azure Resource Manager template, DevTest Labs does not display the values. Instead, blank input fields are shown where lab users must enter a value when creating the environment.
+    > 
+    > - GEN-UNIQUE
+    > - GEN-UNIQUE-[N]
+    > - GEN-SSH-PUB-KEY
+    > - GEN-PASSWORD 
  
 1. Select **Add** to create the environment. The environment starts provisioning immediately with the status displaying in the **My virtual machines** list. A new resource group is automatically created by the lab to provision all the resources defined in the Azure Resource Manager template.
 1. Once the environment is created, select the environment in the **My virtual machines** list to open the resource group pane and browse all of the resources provisioned in the environment.
-	
-	![My virtual machines list](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
+    
+    ![My virtual machines list](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
    
    You can also expand the environment to view just the list of VMs that are provisioned in the environment.
-	
-	![My virtual machines list](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
+    
+    ![My virtual machines list](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
 1. Click any of the environments to view the available actions - such as applying artifacts, attaching data disks, changing auto-shutdown time, and more.
 
-	![Environment actions](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
+    ![Environment actions](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
 ## Deploy a Resource Manager template to create a VM
 After you have saved a Resource Manager template and customized it for your needs, you can use it to automate VM creation. 
@@ -165,7 +165,7 @@ Follow these steps to give your lab users Contributor access rights. Then, when 
 1. Select **Lab settings**.
 1. In the Lab Settings pane, select **Contributor** to grant write permissions to lab users.
 
-	![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
+    ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
 
 1. Select **Save**.
 

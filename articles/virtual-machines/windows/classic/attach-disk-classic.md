@@ -69,7 +69,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 3. Select **Disks**.
 4. The **Disks** section lists the disks. Most often, a virtual machine has disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk, and disk 2 is the data disk newly attached to the virtual machine. The data disk lists the Partition as **Unknown**.
 
- Right-click the disk and select **Initialize**.
+   Right-click the disk and select **Initialize**.
 
 5. You're notified that all data will be erased when the disk is initialized. Click **Yes** to acknowledge the warning and initialize the disk. Once complete, the partition will be listed as **GPT**. Right-click the disk again and select **New Volume**.
 

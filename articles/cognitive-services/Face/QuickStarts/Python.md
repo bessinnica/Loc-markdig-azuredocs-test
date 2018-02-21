@@ -136,8 +136,7 @@ except Exception as e:
     print('Error:')
     print(e)
 
-####################################	
-
+####################################    
 ```
 #### Face Detect response
 
@@ -271,9 +270,9 @@ try:
     conn.request("POST", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
     response = conn.getresponse()
 
-	# 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-	# If you get 'Conflict', change the value of personGroupId above and try again.
-	# If you get 'Access Denied', verify the validity of the subscription key above and try again.
+    # 'OK' indicates success. 'Conflict' means a group with this ID already exists.
+    # If you get 'Conflict', change the value of personGroupId above and try again.
+    # If you get 'Access Denied', verify the validity of the subscription key above and try again.
     print(response.reason)
 
     conn.close()
@@ -308,9 +307,9 @@ try:
     conn.request("PUT", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
     response = conn.getresponse()
 
-	# 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-	# If you get 'Conflict', change the value of personGroupId above and try again.
-	# If you get 'Access Denied', verify the validity of the subscription key above and try again.
+    # 'OK' indicates success. 'Conflict' means a group with this ID already exists.
+    # If you get 'Conflict', change the value of personGroupId above and try again.
+    # If you get 'Access Denied', verify the validity of the subscription key above and try again.
     print(response.reason)
 
     conn.close()

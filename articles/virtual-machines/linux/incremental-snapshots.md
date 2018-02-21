@@ -1,4 +1,3 @@
-
 ---
 title: Use incremental snapshots for backup and recovery of unmanaged Azure Linux VM disks | Microsoft Docs
 description: Create a custom solution for backup and recovery of your Azure Linux virtual machine disks using incremental snapshots.
@@ -19,3 +18,4 @@ ms.author: aungoo
 
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]
+

@@ -26,7 +26,7 @@ Managing and tuning the performance of relational databases is a challenging tas
 * The ability to drill down into the details of a query, view its text and history of resource utilization. 
 * Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
 
-​
+
 
 ## Prerequisites
 * Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. If Query Store is not running, the portal prompts you to turn it on.
@@ -46,7 +46,7 @@ Query Performance Insight is easy to use:
 * Select an individual query to view its details.
 * Open [SQL Azure Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
 * Use sliders or zoom icons to change observed interval.
-  
+
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
@@ -58,54 +58,56 @@ Query Performance Insight is easy to use:
 In the [portal](http://portal.azure.com) do the following:
 
 1. Browse to a SQL database and click **All settings** > **Support + Troubleshooting** > **Query performance insight**. 
-   
+
     ![Query Performance Insight][1]
-   
+
     The top queries view opens and the top CPU consuming queries are listed.
 2. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents one day).
-   
+
     ![top queries][2]
-   
+
     The bottom grid represents aggregated information for the visible queries.
-   
+
    * Query ID - unique identifier of query inside database.
    * CPU per query during observable interval (depends on aggregation function).
    * Duration per query (depends on aggregation function).
    * Total number of executions for a particular query.
-     
+
      Select or clear individual queries to include or exclude them from the chart using checkboxes.
 3. If your data becomes stale, click the **Refresh** button.
 4. You can use sliders and zoom buttons to change observation interval and investigate spikes:
     ![settings](./media/sql-database-query-performance/zoom.png)
 5. Optionally, if you want a different view, you can select **Custom** tab and set:
-   
+
    * Metric (CPU, duration, execution count)
    * Time interval (Last 24 hours, Past week, Past month). 
    * Number of queries.
    * Aggregation function.
-     
+
      ![settings](./media/sql-database-query-performance/custom-tab.png)
 
 ## Viewing individual query details
 To view query details:
 
 1. Click any query in the list of top queries.
-   
+
     ![details](./media/sql-database-query-performance/details.png)
 2. The details view opens and the queries CPU consumption/Duration/Execution count is broken down over time.
 3. Click around the chart for details.
-   
+
    * Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
    * Second chart shows total duration by the selected query.
    * Bottom chart shows total number of executions by the selected query.
-     
+
      ![query details][3]
 4. Optionally, use sliders, zoom buttons or click **Settings** to customize how query data is displayed, or to pick a different time period.
 
 ## Review top queries per duration
 In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
 
+
 Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
+
 
 To identify long running queries:
 
@@ -113,11 +115,11 @@ To identify long running queries:
 2. Change metrics to be **duration**
 3. Select number of queries and observation interval
 4. Select aggregation function
-   
+
    * **Sum** adds up all query execution time during whole observation interval.
    * **Max** finds queries which execution time was maximum at whole observation interval.
    * **Avg** finds average execution time of all query executions and show you the top out of these averages. 
-     
+
      ![query duration][4]
 
 ## Review top queries per execution count
@@ -132,11 +134,12 @@ To identify frequently executed queries (“chatty”) queries:
 1. Open **Custom** tab in Query Performance Insight for selected database
 2. Change metrics to be **execution count**
 3. Select number of queries and observation interval
-   
+
     ![query execution count][5]
 
 ## Understanding performance tuning annotations
 While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>
+
 
 These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
 

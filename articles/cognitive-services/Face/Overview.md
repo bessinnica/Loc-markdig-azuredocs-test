@@ -30,7 +30,7 @@ Face recognition is widely used in many scenarios including security, natural us
 
 ### Face Verification
 
-Face API verification performs an authentication against two detected faces or authentication from one detected face to one person object. Refer to [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) for more details.
+Face API verification performs an authentication against two detected faces or authentication from one detected face to one person object. Refer to [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) for more details.
 
 ### Finding Similar Face
 
@@ -40,7 +40,7 @@ And query face is
 
 ![Overview - Face Find Similar](./Images/FaceFindSimilar.QueryFace.jpg)
 
-To find 4 similar faces, `matchPerson` mode returns (a) and (b), which belong to the same person with query face. `matchFace` mode returns (a), (b), (c) and (d), exactly 4 candidates even if low similarity. Refer to [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) for more details.
+To find 4 similar faces, `matchPerson` mode returns (a) and (b), which belong to the same person with query face. `matchFace` mode returns (a), (b), (c) and (d), exactly 4 candidates even if low similarity. Refer to [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) for more details.
 
 ### Face Grouping
 
@@ -77,9 +77,9 @@ The following tutorials demonstrate the Face API basic functionalities and subsc
 ## Sample Apps
 Take a look at these sample applications which make use of Face API.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes)
- - Universal Windows Platform (UWP) sample app that shows usage of speech, Cortana, ink, and camera through a family note sharing scenario.
+  - Universal Windows Platform (UWP) sample app that shows usage of speech, Cortana, ink, and camera through a family note sharing scenario.
 - [Video Frame Analysis Sample](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
- - Universal Windows Platform (UWP) sample app that shows analyzing live video streams in near real-time using the Face, Computer Vision, and Emotion APIs.
+  - Universal Windows Platform (UWP) sample app that shows analyzing live video streams in near real-time using the Face, Computer Vision, and Emotion APIs.
 
 ## Related Topics
 - [Face API Version 1.0 Release Notes](ReleaseNotes.md)

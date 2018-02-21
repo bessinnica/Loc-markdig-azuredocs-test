@@ -39,37 +39,37 @@ After you build this project, you will have an XSLT document.
 
 1. In the Azure portal, select **Browse**.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
 
 2. In the filter search box, enter **integration**, 
 then select **Integration Accounts** from the results list.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
 
 3. Select the integration account where you want to add the map.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Select the **Maps** tile.
 
-	![](./media/logic-apps-enterprise-integration-maps/map-1.png)
+    ![](./media/logic-apps-enterprise-integration-maps/map-1.png)
 
 5. After the Maps blade opens, choose **Add**.
 
-	![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
+    ![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
 
 6. Enter a **Name** for your map. To upload the map file, 
 choose the folder icon on the right side of the **Map** text box. 
 After the upload process completes, choose **OK**.
 
-	![](./media/logic-apps-enterprise-integration-maps/map-3.png)
+    ![](./media/logic-apps-enterprise-integration-maps/map-3.png)
 
 7. After Azure adds the map to your integration account, 
 you get an onscreen message that shows whether your map file 
 was added or not. After you get this message, 
 choose the **Maps** tile so you can view the newly added map.
 
-	![](./media/logic-apps-enterprise-integration-maps/map-4.png)
+    ![](./media/logic-apps-enterprise-integration-maps/map-4.png)
 
 ## How do I edit a map?
 
@@ -85,12 +85,12 @@ follow these steps.
 
 3. On the **Maps** blade, choose **Update**.
 
-	![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
+    ![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
 
 4. In the file picker, select the map file that you want to upload, 
 then select **Open**.
 
-	![](./media/logic-apps-enterprise-integration-maps/edit-2.png)
+    ![](./media/logic-apps-enterprise-integration-maps/edit-2.png)
 
 ## How to delete a map?
 
@@ -100,11 +100,11 @@ then select **Open**.
 
 3. Choose **Delete**.
 
-	![](./media/logic-apps-enterprise-integration-maps/delete.png)
+    ![](./media/logic-apps-enterprise-integration-maps/delete.png)
 
 4. Confirm that you want to delete the map.
 
-	![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)
+    ![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)
 
 ## Next Steps
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

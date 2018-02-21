@@ -19,6 +19,7 @@ ms.author: rodsan
 ---
 
 # Security Frame: Auditing and Logging | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identify sensitive entities in your solution and implement change auditing](#sensitive-entities)</li></ul> |
@@ -98,14 +99,14 @@ ms.author: rodsan
 
 ## <a id="inbuilt-defenses"></a>Ensure that the system has inbuilt defenses against misuse
 
-| Title                   | Details      |
-| ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Generic |
-| **Attributes**              | N/A  |
-| **References**              | N/A  |
-| **Steps**                   | <p>Controls should be in place which throw security exception in case of application misuse. E.g., If input validation is in place and an attacker attempts to inject malicious code that does not match the regex, a security exception can be thrown which can be an indicative of system misuse</p><p>For example, it is recommended to have security exceptions logged and actions taken for the following issues:</p><ul><li>Input validation</li><li>CSRF violations</li><li>Brute force (upper limit for number of requests per user per resource)</li><li>File upload violations</li><ul>|
+|                  Title                   |                                                                                                                                                                                                                                                                                              Details                                                                                                                                                                                                                                                                                              |
+|------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        <strong>Component</strong>        |                                                                                                                                                                                                                                                                                          Web Application                                                                                                                                                                                                                                                                                          |
+|        <strong>SDL Phase</strong>        |                                                                                                                                                                                                                                                                                               Build                                                                                                                                                                                                                                                                                               |
+| <strong>Applicable Technologies</strong> |                                                                                                                                                                                                                                                                                              Generic                                                                                                                                                                                                                                                                                              |
+|       <strong>Attributes</strong>        |                                                                                                                                                                                                                                                                                                N/A                                                                                                                                                                                                                                                                                                |
+|       <strong>References</strong>        |                                                                                                                                                                                                                                                                                                N/A                                                                                                                                                                                                                                                                                                |
+|          <strong>Steps</strong>          | <p>Controls should be in place which throw security exception in case of application misuse. E.g., If input validation is in place and an attacker attempts to inject malicious code that does not match the regex, a security exception can be thrown which can be an indicative of system misuse</p><p>For example, it is recommended to have security exceptions logged and actions taken for the following issues:</p><ul><li>Input validation</li><li>CSRF violations</li><li>Brute force (upper limit for number of requests per user per resource)</li><li>File upload violations</li><ul> |
 
 ## <a id="diagnostics-logging"></a>Enable diagnostics logging for web apps in Azure App Service
 
@@ -231,11 +232,12 @@ Configure WCF to notify the program whenever it is unable to write to an audit l
 
 ## <a id="logging-cloud-gateway"></a>Ensure that appropriate auditing and logging is enforced on Cloud Gateway
 
-| Title                   | Details      |
-| ----------------------- | ------------ |
-| **Component**               | IoT Cloud Gateway | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Generic |
-| **Attributes**              | N/A  |
-| **References**              | [Introduction to IoT Hub operations monitoring](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **Steps** | <p>Design for collecting and storing audit data gathered through IoT Hub Operations Monitoring. Enable the following monitoring categories:</p><ul><li>Device identity operations</li><li>Device-to-cloud communications</li><li>Cloud-to-device communications</li><li>Connections</li><li>File uploads</li></ul>|
+|                  Title                   |                                                                                                                                                      Details                                                                                                                                                       |
+|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        <strong>Component</strong>        |                                                                                                                                                 IoT Cloud Gateway                                                                                                                                                  |
+|        <strong>SDL Phase</strong>        |                                                                                                                                                       Build                                                                                                                                                        |
+| <strong>Applicable Technologies</strong> |                                                                                                                                                      Generic                                                                                                                                                       |
+|       <strong>Attributes</strong>        |                                                                                                                                                        N/A                                                                                                                                                         |
+|       <strong>References</strong>        |                                                                                         [Introduction to IoT Hub operations monitoring](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/)                                                                                         |
+|          <strong>Steps</strong>          | <p>Design for collecting and storing audit data gathered through IoT Hub Operations Monitoring. Enable the following monitoring categories:</p><ul><li>Device identity operations</li><li>Device-to-cloud communications</li><li>Cloud-to-device communications</li><li>Connections</li><li>File uploads</li></ul> |
+

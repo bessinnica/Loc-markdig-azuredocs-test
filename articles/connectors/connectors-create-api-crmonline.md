@@ -36,48 +36,48 @@ This topic shows you how to create a logic app that creates a task in Dynamics 3
 
 ## Create a task when a new lead is created in Dynamics 365
 
-1.	[Sign in to Azure](https://portal.azure.com).
+1. [Sign in to Azure](https://portal.azure.com).
 
-2.	In the Azure search box, type `Logic apps`, and press ENTER.
+2. In the Azure search box, type `Logic apps`, and press ENTER.
 
-      ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
+     ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.	Under **Logic apps**, click **Add**.
+3. Under **Logic apps**, click **Add**.
 
-      ![LogicApp add](./media/connectors-create-api-crmonline/add-logic-app.png)
+     ![LogicApp add](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.	To create the logic app, complete the **Name**, **Subscription**, **Resource Group**, and **Location** fields, 
-and then click **Create**.
+4. To create the logic app, complete the **Name**, **Subscription**, **Resource Group**, and **Location** fields, 
+   and then click **Create**.
 
-5.	Select the new logic app. When you receive the **Deployment Succeeded** notification, click **Refresh**.
+5. Select the new logic app. When you receive the **Deployment Succeeded** notification, click **Refresh**.
 
-6.	Under **Development Tools**, click **Logic App Designer**. 
-In the template list, click **Blank Logic App**.
+6. Under **Development Tools**, click **Logic App Designer**. 
+   In the template list, click **Blank Logic App**.
 
-7.	In the search box, type `Dynamics 365`. From the Dynamics 365 triggers list, 
-select **Dynamics 365 – When a record is created**.
+7. In the search box, type `Dynamics 365`. From the Dynamics 365 triggers list, 
+   select **Dynamics 365 – When a record is created**.
 
-8.	If you are prompted to sign in to Dynamics 365, do so now.
+8. If you are prompted to sign in to Dynamics 365, do so now.
 
-9.	In the trigger details, enter the following information:
+9. In the trigger details, enter the following information:
 
-  * **Organization Name**. Select the Dynamics 365 instance that you want the logic app to listen to.
+   * **Organization Name**. Select the Dynamics 365 instance that you want the logic app to listen to.
 
-  * **Entity Name**. Select the entity that you want to listen to. This event acts as a trigger to start the logic app. 
-  In this walkthrough, **Leads** is selected.
+   * **Entity Name**. Select the entity that you want to listen to. This event acts as a trigger to start the logic app. 
+   In this walkthrough, **Leads** is selected.
 
-  * **How often do you want to check for items?** These values set how often the logic app checks for updates related to the trigger. The default setting is to check for updates every three minutes.
+   * **How often do you want to check for items?** These values set how often the logic app checks for updates related to the trigger. The default setting is to check for updates every three minutes.
 
-    * **Frequency**. Select seconds, minutes, hours, or days.
+   * **Frequency**. Select seconds, minutes, hours, or days.
 
-    * **Interval**. Enter the number of seconds, minutes, hours, or days that you want to pass before the next check.
+   * **Interval**. Enter the number of seconds, minutes, hours, or days that you want to pass before the next check.
 
-      ![Logic App Trigger details](./media/connectors-create-api-crmonline/trigger-details.png)
+     ![Logic App Trigger details](./media/connectors-create-api-crmonline/trigger-details.png)
 
 10. Click **New step**, and then click **Add an action**.
 
 11. In the search box, type `Dynamics 365`. 
-From the actions list, select **Dynamics 365 – Create a new record**.
+    From the actions list, select **Dynamics 365 – Create a new record**.
 
 12. Enter the following information:
 
@@ -88,7 +88,7 @@ From the actions list, select **Dynamics 365 – Create a new record**.
     In this walkthrough, **Tasks** is selected.
 
 13. Click in the **Subject** box that appears. From the dynamic content list that appears, 
-you can select either of these fields:
+    you can select either of these fields:
 
     * **Last Name**. Selecting this field inserts the last name for the lead into the Subject field for the task, when the task record is created.
     * **Topic**. Selecting this field inserts the Topic field for the lead into the Subject field for the task, when the task record is created. 

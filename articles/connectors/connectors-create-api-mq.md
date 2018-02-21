@@ -24,11 +24,11 @@ Microsoft Connector for MQ sends and retrieves messages stored in an MQ Server o
 
 The MQ connector includes the following actions. There are no triggers.
 
--	Browse a single message without deleting the message from the IBM MQ Server
--	Browse a batch of messages without deleting the messages from the IBM MQ Server
--	Receive a single message and delete the message from the IBM MQ Server
--	Receive a batch of messages and delete the messages from the IBM MQ Server
--	Send a single message to the IBM MQ Server 
+-   Browse a single message without deleting the message from the IBM MQ Server
+-   Browse a batch of messages without deleting the messages from the IBM MQ Server
+-   Receive a single message and delete the message from the IBM MQ Server
+-   Receive a batch of messages and delete the messages from the IBM MQ Server
+-   Send a single message to the IBM MQ Server 
 
 ## Prerequisites
 

@@ -66,7 +66,7 @@ What's important in these layers:
  3. The **serving layer** is discussed in the next section.
  4. The **speed layer** utilizes HDInsight (Apache Spark) to read the Azure Cosmos DB change feed. This enables you to persist your data as well as to query and process it concurrently.
  5. All queries can be answered by merging results from batch views and real-time views or pinging them individually.
- 
+
 ### Code Example: Spark structured streaming to an Azure Cosmos DB change feed
 To run a quick prototype of the Azure Cosmos DB change feed as part of the **speed layer**, can test it out using Twitter data as part of the [Stream Processing Changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) example. To jump-start your Twitter output, see the code sample in [Stream feed from Twitter to Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed). With the preceding example, you're loading Twitter data into Azure Cosmos DB and you can then set up your HDInsight (Apache Spark) cluster to connect to the change feed. For more information on how to set up this configuration, see [Apache Spark to Azure Cosmos DB Connector Setup](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup).  
 
@@ -173,18 +173,17 @@ Now that you have your query, let's save it back to a collection by using the Sp
 
 ```
 val writeConfigMap = Map(
-	"Endpoint" -> "[Endpoint URL]",
-	"Masterkey" -> "[Master Key]",
-	"Database" -> "[Database]",
-	"Collection" -> "[New Collection]", 
-	"preferredRegions" -> "[Preferred Regions]",
-	"SamplingRatio" -> "1.0",
-	"schema_samplesize" -> "200000"
+    "Endpoint" -> "[Endpoint URL]",
+    "Masterkey" -> "[Master Key]",
+    "Database" -> "[Database]",
+    "Collection" -> "[New Collection]", 
+    "preferredRegions" -> "[Preferred Regions]",
+    "SamplingRatio" -> "1.0",
+    "schema_samplesize" -> "200000"
 )
 
 // Configuration to write
 val writeConfig = Config(writeConfigMap)
-
 ```
 
 After specifying the `SaveMode` (indicating whether to `Overwrite` or `Append` documents), create a `tweets_bytags` DataFrame similar to the Spark SQL query in the previous example.  With the `tweets_bytags` DataFrame created, you can save it using the `write` method using the previously specified `writeConfig`.
@@ -201,7 +200,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
 This last statement now has saved your Spark DataFrame into a new Azure Cosmos DB collection; from a lambda architecture perspective, this is your **batch view** within the **serving layer**.
- 
+
 #### Resources
 
 For complete code samples, see [azure-cosmosdb-spark/lambda/samples](vhttps://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda) including:
@@ -245,7 +244,6 @@ val sinkConfigMap = configMap.-("collection").+(("collection", sinkCollectionNam
 // Start the stream writer to new collection
 val streamingQueryWriter = streamData.writeStream.format(classOf[CosmosDBSinkProvider].getName).outputMode("append").options(sinkConfigMap).option("checkpointLocation", "streamingcheckpointlocation")
 var streamingQuery = streamingQueryWriter.start()
-
 ```
 
 ## Lambda architecture: Rearchitected
@@ -266,15 +264,15 @@ With this design, you only need two managed services, Azure Cosmos DB and HDInsi
 
 ### Resources
 
- * **New data**: The [stream feed from Twitter to CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), which is the mechanism to push new data into Azure Cosmos DB.
- * **Batch layer:** The batch layer is composed of the *master dataset* (an immutable, append-only set of raw data) and the ability to pre-compute batch views of the data that are pushed into the **serving layer**.
-    * The **Lambda Architecture Rearchitected - Batch Layer** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) queries the *master dataset* set of batch views.
- * **Serving layer:** The **serving layer** is composed of pre-computed data resulting in batch views (for example aggregations, specific slicers, etc.) for fast queries.
-    * The **Lambda Architecture Rearchitected - Batch to Serving Layer** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) pushes the batch data to the serving layer; that is, Spark queries a batch collection of tweets, processes it, and stores it into another collection (a computed batch).
-* **Speed layer:** The **speed layer** is composed of Spark utilizing the Azure Cosmos DB change feed to read and act on immediately. The data can also be saved to *computed RT* so that other systems can query the processed real-time data as opposed to running a real-time query themselves.
-    * The [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala script executes a streaming query from the Azure Cosmos DB change feed to compute an interval count from the spark-shell.
-    * The [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala script executes a streaming query from the Azure Cosmos DB change feed to compute an interval count of tags from the spark-shell.
-  
+* **New data**: The [stream feed from Twitter to CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), which is the mechanism to push new data into Azure Cosmos DB.
+* **Batch layer:** The batch layer is composed of the *master dataset* (an immutable, append-only set of raw data) and the ability to pre-compute batch views of the data that are pushed into the **serving layer**.
+   * The **Lambda Architecture Rearchitected - Batch Layer** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) queries the *master dataset* set of batch views.
+* **Serving layer:** The **serving layer** is composed of pre-computed data resulting in batch views (for example aggregations, specific slicers, etc.) for fast queries.
+  * The **Lambda Architecture Rearchitected - Batch to Serving Layer** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) pushes the batch data to the serving layer; that is, Spark queries a batch collection of tweets, processes it, and stores it into another collection (a computed batch).
+    * **Speed layer:** The **speed layer** is composed of Spark utilizing the Azure Cosmos DB change feed to read and act on immediately. The data can also be saved to *computed RT* so that other systems can query the processed real-time data as opposed to running a real-time query themselves.
+  * The [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala script executes a streaming query from the Azure Cosmos DB change feed to compute an interval count from the spark-shell.
+  * The [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala script executes a streaming query from the Azure Cosmos DB change feed to compute an interval count of tags from the spark-shell.
+
 ## Next steps
 If you haven't already, download the Spark to Azure Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub repository and explore the additional resources in the repo:
 * [Lambda architecture](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)

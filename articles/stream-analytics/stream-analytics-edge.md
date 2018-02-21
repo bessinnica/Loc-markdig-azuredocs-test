@@ -22,7 +22,7 @@ ms.author: jeanb
 
 > [!IMPORTANT]
 > This functionality is in preview. We do not recommend use in production.
- 
+
 Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Designed for low latency, resiliency, efficient use of bandwidth and compliance, enterprises can now deploy control logic close to the industrial operations, and complement Big Data analytics done in the cloud.  
 Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, deploym and manage ASA jobs using IoT Hub.
 This feature is in preview, if you have any question or feedback you can use [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) to contact the product team. 
@@ -31,7 +31,7 @@ This feature is in preview, if you have any question or feedback you can use [th
 ![High-level diagram](media/stream-analytics-edge/ASAedge_highlevel.png)
 
 * **Low-latency command and control**: For example, manufacturing safety systems must respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real-time, and issue commands when you detect anomalies to stop a machine or trigger alerts.
-*	**Limited connectivity to the cloud**: Mission critical systems, such as remote mining equipment, connected vessels or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With ASA, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
+*   **Limited connectivity to the cloud**: Mission critical systems, such as remote mining equipment, connected vessels or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With ASA, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
 * **Limited bandwidth**: The volume of data produced by jet engines or connected cars can be so large that data must be filtered or pre-processed before sending it to the cloud. Using ASA, you can filter or aggregate the data that need to be sent to the cloud.
 * **Compliance**: Regulatory compliance may require some data to be locally anonymized or aggregated before being sent to the cloud.
 
@@ -39,8 +39,8 @@ This feature is in preview, if you have any question or feedback you can use [th
 ### What is an "edge" job?
 
 ASA Edge jobs run as modules within [Azure IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). They are composed of two parts:
-1.	A cloud part that is responsible for job definition: users define inputs, output, query and other settings (out of order events, etc.) in the cloud.
-2.	The ASA on IoT Edge module that runs locally. It contains the ASA Complex Event Processing engine and receives the job definition from the cloud. 
+1.  A cloud part that is responsible for job definition: users define inputs, output, query and other settings (out of order events, etc.) in the cloud.
+2.  The ASA on IoT Edge module that runs locally. It contains the ASA Complex Event Processing engine and receives the job definition from the cloud. 
 
 ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
@@ -49,12 +49,14 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 
 ### Installation instructions
 The high-level steps are described in the following table. More details are given in the following sections.
-|      |Step   | Place     | Notes   |
-| ---   | ---   | ---       |  ---      |
-| 1   | **Create an ASA edge job**   | Azure portal      |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
-| 2   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
-| 3   | **Set up your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
+
+|   |                                Step                                 |    Place     |                                                                                       Notes                                                                                       |
+|---|---------------------------------------------------------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 |               <strong>Create an ASA edge job</strong>               | Azure portal | Create a new job, select <strong>Edge</strong> as <strong>hosting environment</strong>. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices. |
+| 2 |             <strong>Create a storage container</strong>             | Azure portal |            Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.            |
+| 3 | <strong>Set up your IoT Edge environment on your device(s)</strong> |  Device(s)   |             Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).              |
+| 4 |       <strong>Deploy ASA on your IoT Edge device(s)</strong>        | Azure portal |                                                     ASA job definition is exported to the storage container created earlier.                                                      |
+
 You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
 
 
@@ -133,7 +135,6 @@ Names of the inputs and outputs created in the ASA job can be used as endpoints 
     "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")" 
 }
 }   
-
 ```
 This example  shows the routes for the scenario described in the following picture. It contains an edge job called "**ASA**", with an input named "**temperature**" and an output named "**alert**".
 ![Example of routing](media/stream-analytics-edge/RoutingExample.png)

@@ -47,7 +47,7 @@ This update includes the following improvements and fixes for Azure Stack.
 - Updates in the Azure Stack Graph logging and error handling
 - Ability to turn hosts on and off
 - Users can now activate Windows VMs automatically
-- Added privileged endpoint PowerShell cmdlet to retrieve BitLocker recovery keys for retention purposes
+- Added privileged endpoint PowerShell cmdlet to retrieve BitLocker recovery keys for retention purposes
 - Support for updating the offline images when updating infrastructure
 - Enable Infrastructure backup with the Enable Backup Service
 
@@ -59,28 +59,28 @@ This update includes the following improvements and fixes for Azure Stack.
 
 #### Windows Server 2016 new features and fixes
 
-- [November 14, 2017—KB4048953 (OS Build 14393.1884) ](https://support.microsoft.com/help/4048953)
+- [November 14, 2017—KB4048953 (OS Build 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### Known issues with the update process
 
 This section contains known issues that you may encounter during the 1711 update installation.
 
 
-1. **Symptom:** Azure Stack operators may see the following error during the update process: *"name:Install Update.", "description": "Install Update on Hosts and Infra VMs.", "errorMessage": "Type 'LiveUpdate' of Role 'VirtualMachines' raised an exception:\n\nThere is not enough space on the disk.\n\nat <ScriptBlock>, <No file>: line22", "status": "Error", "startTimeUtc": "2017-11-10T16:46:59.123Z", "endTimeUtc": "2017-11-10T19:20:29.669Z", "steps": [ ]"*
-	2. **Cause:** This issue is caused by a lack of free disk space on one or more virtual machines that are part of the Azure Stack infrastructure
-	3. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
-<br><br>
+1. **Symptom:** Azure Stack operators may see the following error during the update process: *"name:Install Update.", "description": "Install Update on Hosts and Infra VMs.", "errorMessage": "Type 'LiveUpdate' of Role 'VirtualMachines' raised an exception:\n\nThere is not enough space on the disk.\n\nat <ScriptBlock>, <No file>: line22", "status": "Error", "startTimeUtc": "2017-11-10T16:46:59.123Z", "endTimeUtc": "2017-11-10T19:20:29.669Z", "steps": [ ]"*
+    2. **Cause:** This issue is caused by a lack of free disk space on one or more virtual machines that are part of the Azure Stack infrastructure
+    3. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+   <br><br>
 2. **Symptom:** Azure Stack operators may see the following error during the update process:*Exception calling "ExtractToFile" with "3" argument(s):"The process cannot access the file '<\\<machineName>-ERCS01\C$\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Diagnostics\Microsoft.AzureStack.Common.Tools.Diagnostics.AzureStackDiagnostics.dll>'*
-	1. **Cause:** This issue is caused when resuming an update from the portal that was previously resumed using a Privileged End Point (PEP).
-	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
-<br><br>
-3. **Symptom:**Azure Stack operators may see the following error during the update process:*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
-	1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
-	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
-<br><br>
-4. **Symptom:**Azure Stack operators may see the following error during the update process:*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
-	1. **Cause:** This issue is caused by a failed or incomplete background download of Windows Defender definition updates.
-	2. **Resolution:** Please attempt to resume the update after up to 8 hours have passed since the first update try.
+    1. **Cause:** This issue is caused when resuming an update from the portal that was previously resumed using a Privileged End Point (PEP).
+    2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+   <br><br>
+3. <strong>Symptom:</strong>Azure Stack operators may see the following error during the update process:<em>"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".</em>
+    1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
+    2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+   <br><br>
+4. <strong>Symptom:</strong>Azure Stack operators may see the following error during the update process:<em>"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"</em>
+    1. **Cause:** This issue is caused by a failed or incomplete background download of Windows Defender definition updates.
+    2. **Resolution:** Please attempt to resume the update after up to 8 hours have passed since the first update try.
 
 ### Known issues (post-installation)
 
@@ -97,8 +97,8 @@ This section contains post-installation known issues with build **20171201.3**.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
    - If you have multiple user subscriptions, the resource group drop-down list may be empty.
 
-		> [!NOTE]
-		> To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
+        > [!NOTE]
+        > To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
@@ -157,7 +157,7 @@ You can download the Azure Stack 1711 update package from [here](https://aka.ms/
 
 Microsoft has provided a way to monitor and resume updates using the Privileged End Point (PEP) installed with Update 1711.
 
-- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 
 ## See also
 

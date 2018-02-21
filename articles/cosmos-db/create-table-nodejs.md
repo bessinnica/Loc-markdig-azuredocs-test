@@ -27,6 +27,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 In addition:
@@ -56,7 +57,7 @@ You can now add data to your new table using Data Explorer.
 2. Now add data to the PartitionKey value box and RowKey value boxes, and click **Add Entity**.
 
    ![Set the Partition Key and Row Key for a new entity](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
-  
+
     You can now add more entities to your table, edit your entities, or query your data in Data Explorer. Data Explorer is also where you can scale your throughput and add stored procedures, user defined functions, and triggers to your table.
 
 ## Clone the sample application

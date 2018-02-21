@@ -31,7 +31,7 @@ This topic shows you how to use CLI 2.0 to create an Azure Active Directory (Azu
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Launch the Cloud Shell from the upper navigation pane of the portal.
 
-	![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
+    ![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
 
 For more information, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
 

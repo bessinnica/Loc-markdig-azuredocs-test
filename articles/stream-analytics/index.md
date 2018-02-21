@@ -132,44 +132,46 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/streamanalytics">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="/rest/api/streamanalytics">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 
 

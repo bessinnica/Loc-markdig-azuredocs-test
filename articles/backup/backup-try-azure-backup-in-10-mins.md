@@ -34,6 +34,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
 
     ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
+
     If there are recovery services vaults in the subscription, the vaults are listed.
 3. On the **Recovery Services vaults** menu, click **Add**.
 
@@ -53,7 +54,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
     Or
     * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
 
-  For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 
@@ -62,6 +63,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
     It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, click **Refresh**.
 
     ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
+
 
     Once you see your vault in the list of Recovery Services vaults, you are ready to set the storage redundancy.
 
@@ -163,6 +165,7 @@ The agent is now installed and your machine is registered to the vault. You're r
 ## Network and Connectivity Requirements
 
 If your machine/proxy has limited internet access, ensure that firewall settings on the mcahine/proxy are configured to allow the following URLs: <br>
+
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protect personal data with Azure Security Center | Microsoft Docs
 description: protect personal data using Azure security center
 services: security

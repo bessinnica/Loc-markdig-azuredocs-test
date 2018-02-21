@@ -157,7 +157,7 @@ The raw data is partitioned by using a Hive Azure HDInsight activity in Partitio
 **PartitionConnectedCarEvents Hive script**
 
 The Hive script partitioncarevents.hql is used for partitioning. It's located in the \demo\src\connectedcar\scripts folder of the downloaded zip file. 
-	
+    
     SET hive.exec.dynamic.partition=true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
     set hive.cli.print.header=true;

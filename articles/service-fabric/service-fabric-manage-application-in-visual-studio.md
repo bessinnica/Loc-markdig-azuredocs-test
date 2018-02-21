@@ -35,7 +35,7 @@ In Visual Studio, pressing **F5** deploys your application and attach the debugg
 Visual Studio provide a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.
 
 #### To set the Application Debug Mode property
-1. On the Service Fabric application project's (*.sfproj) shortcut menu, choose **Properties** (or press the **F4** key).
+1. On the Service Fabric application project's (<em>.sfproj) shortcut menu, choose **Properties</em>* (or press the <strong>F4</strong> key).
 2. In the **Properties** window, set the **Application Debug Mode** property.
 
 ![Set Application Debug Mode Property][debugmodeproperty]

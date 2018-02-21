@@ -42,7 +42,7 @@ How to set CDN caching rules:
 
    ![CDN Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. Create a global caching rule as follows:
+3. Create a global caching rule as follows:
    1. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings**.
    2. Set **Caching behavior** to **Set if missing**.
        
@@ -50,15 +50,15 @@ How to set CDN caching rules:
 
        The global caching rule affects all requests to the endpoint. This rule honors the origin cache-directive headers, if they exist (`Cache-Control` or `Expires`); otherwise, if they are not specified, it sets the cache to 10 days. 
 
-     ![Global caching rules](./media/cdn-caching-rules/cdn-global-caching-rules.png)
+      ![Global caching rules](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Create a custom caching rule as follows:
-    1. Under **Custom caching rules**, set **Match condition** to **Path** and **Match value** to `/images/*.jpg`.
-    2. Set **Caching behavior** to **Override** and enter 30 in the **Days** field.
+   1. Under **Custom caching rules**, set **Match condition** to **Path** and **Match value** to `/images/*.jpg`.
+   2. Set **Caching behavior** to **Override** and enter 30 in the **Days** field.
        
-       This custom caching rule sets a cache duration of 30 days on any `.jpg` image files in the `/images` folder of your endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server.
+      This custom caching rule sets a cache duration of 30 days on any `.jpg` image files in the `/images` folder of your endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server.
 
-    ![Custom caching rules](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
+      ![Custom caching rules](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Files that are cached before a rule change maintain their origin cache duration setting. To reset their cache durations, you must [purge the file](cdn-purge-endpoint.md). For **Azure CDN from Verizon** endpoints, it can take up to 90 minutes for caching rules to take effect.

@@ -69,7 +69,7 @@ To start the streaming endpoint, do the following:
 2. In the Settings window, click Streaming endpoints.
 3. Click the default streaming endpoint.
 
-	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+    The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
 4. Click the Start icon.
 5. Click the Save button to save your changes.
@@ -92,9 +92,9 @@ The **Main** function calls methods that will be defined further in this section
 > [!NOTE]
 > You will be getting compilation errors until you add definitions for all the functions that are defined later in this article.
 
-	class Program
-	{
-	    // Read values from the App.config file.
+    class Program
+    {
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -104,10 +104,10 @@ The **Main** function calls methods that will be defined further in this section
         private static readonly string _AMSClientSecret =
             ConfigurationManager.AppSettings["AMSClientSecret"];
 
-	    private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-	    static void Main(string[] args)
-	    {
+        static void Main(string[] args)
+        {
         try
         {
             AzureAdTokenCredentials tokenCredentials = 
@@ -141,8 +141,8 @@ The **Main** function calls methods that will be defined further in this section
         {
             Console.ReadLine();
         }
-	    }
-	
+        }
+
 
 ## Create a new asset and upload a video file
 
@@ -237,11 +237,11 @@ After you create the locators, you can build the URLs that would be used to stre
 
 #### A streaming URL for MPEG DASH has the following format:
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest**(format=mpd-time-csf)**
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest<strong>(format=mpd-time-csf)</strong>
 
 #### A streaming URL for HLS has the following format:
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest**(format=m3u8-aapl)**
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest<strong>(format=m3u8-aapl)</strong>
 
 #### A streaming URL for Smooth Streaming has the following format:
 
@@ -379,8 +379,6 @@ The following code sample contains the code that you created in this tutorial: [
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
 
 <!-- Anchors. -->
 

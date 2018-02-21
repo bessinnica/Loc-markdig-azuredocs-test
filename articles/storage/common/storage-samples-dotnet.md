@@ -80,12 +80,10 @@ The following table provides an overview of our samples repository and the scena
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a></td>
-</tr> 	
-<tr> 
+</tr><br/><tr> 
 <td>Service Properties</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a></td>
-</tr> 			
-<tr> 
+</tr><br/><tr> 
 <td>Snapshot Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Backup Azure Virtual Machine Disks with Incremental Snapshots</a></td>
 </tr> 
@@ -190,7 +188,9 @@ The following table provides an overview of our samples repository and the scena
 </tr> 
 </tbody> 
 </table>
+
 <br/>
+
 
 ## Azure Code Samples library
 

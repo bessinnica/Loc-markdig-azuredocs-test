@@ -44,8 +44,8 @@ Follow these steps to create a new policy assignment:
 2. View all policy definitions, and find the *Audit Virtual Machines without Managed Disks* policy definition:
 
     ```azurecli
-az policy definition list
-```
+   az policy definition list
+   ```
 
     Azure Policy comes with already built in policy definitions you can use. You will see built-in policy definitions such as:
 
@@ -55,18 +55,18 @@ az policy definition list
 
 3. Next, provide the following information and run the following command to assign the policy definition:
 
-    - Display **Name** for the policy assignment. In this case, let’s use *Audit Virtual Machines without Managed Disks*.
-    - **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*
-    - A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
+   - Display **Name** for the policy assignment. In this case, let’s use *Audit Virtual Machines without Managed Disks*.
+   - **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*
+   - A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
 
-    Use the subscription (or resource group) you have previously registered. In this example, we are using the **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** subscription ID and the **FabrikamOMS** resource group name. Be sure to change these to the ID of the subscription and the name of resource group you are working with.
+     Use the subscription (or resource group) you have previously registered. In this example, we are using the **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** subscription ID and the **FabrikamOMS** resource group name. Be sure to change these to the ID of the subscription and the name of resource group you are working with.
 
-    The command should resemble:
+     The command should resemble:
 
-    ```azurecli
-az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
-bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
-```
+     ```azurecli
+     az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
+     bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+     ```
 
 A policy assignment is a policy that has been assigned to take place within a specific scope. This scope could also range from a management group to a resource group.
 

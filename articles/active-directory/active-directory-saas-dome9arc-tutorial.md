@@ -58,19 +58,19 @@ To configure the integration of Dome9 Arc into Azure AD, you need to add Dome9 A
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Dome9 Arc**, select **Dome9 Arc** from result panel then click **Add** button to add the application.
 
-	![Dome9 Arc in the results list](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
+    ![Dome9 Arc in the results list](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,89 +96,89 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Dome9 Arc** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
 
 3. On the **Dome9 Arc Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Dome9 Arc Domain and URLs single sign-on information](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url.png)
+    ![Dome9 Arc Domain and URLs single sign-on information](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url.png)
 
     a. In the **Identifier** textbox, type the URL: `https://secure.dome9.com/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
-	> [!NOTE]
-	> You will select your company name value in the dome9 admin portal, which is explained later in the tutorial.
+    > [!NOTE]
+    > You will select your company name value in the dome9 admin portal, which is explained later in the tutorial.
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Dome9 Arc Domain and URLs single sign-on information](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url1.png)
+    ![Dome9 Arc Domain and URLs single sign-on information](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Dome9 Arc Client support team](https://dome9.com/about/contact-us/) to get these values. 
+     
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Dome9 Arc Client support team](https://dome9.com/about/contact-us/) to get these values. 
 
 5. The Dome9 Arc Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 
-	![Configure Single Sign-On attb](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_attribute.png)
+    ![Configure Single Sign-On attb](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-	
-	| Attribute Name  | Attribute Value | 
-	| --------------- | --------------- | 
-	| memberof | user.assignedroles | 
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    
+    | Attribute Name  | Attribute Value | 
+    | --------------- | --------------- | 
+    | memberof | user.assignedroles | 
+    
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On add attb](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9_04.png)
+    ![Configure Single Sign-On add attb](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9_04.png)
 
-	![Configure Single Sign-On edit attb](./media/active-directory-saas-dome9arc-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On edit attb](./media/active-directory-saas-dome9arc-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**.
 
 7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
 
 8. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-dome9arc-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-dome9arc-tutorial/tutorial_general_400.png)
+    
 9. On the **Dome9 Arc Configuration** section, click **Configure Dome9 Arc** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_configure.png) 
+    ![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_configure.png) 
 
 10. In a different web browser window, log into your Dome9 Arc company site as an administrator.
 
 11. Click on the **Profile Settings** on the right top corner and then click **Account Settings**. 
 
-	![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/configure1.png)
+    ![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/configure1.png)
 
 12. Navigate to **SSO** and then click **ENABLE**.
 
-	![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/configure2.png)
+    ![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/configure2.png)
 
 13. In the SSO Configuration section, perform the following steps:
 
-	![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/configure3.png)
+    ![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/configure3.png)
 
-	a. Enter company name in the **Account ID** textbox. This value is to be used in the reply url mentioned in the Azure portal URL section.
+    a. Enter company name in the **Account ID** textbox. This value is to be used in the reply url mentioned in the Azure portal URL section.
 
-	b. In the **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied form the Azure portal.
+    b. In the **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied form the Azure portal.
 
-	c. In the **Idp endpoint url** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied form the Azure portal.
+    c. In the **Idp endpoint url** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied form the Azure portal.
 
-	d. Open your downloaded Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 certificate** textbox.
+    d. Open your downloaded Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 certificate** textbox.
 
-	e. Click **Save**.
+    e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -228,25 +228,25 @@ To enable Azure AD users to log in to Dome9 Arc, they must be provisioned into a
 
 2. Click on the **Users & Roles** and then click **Users**.
 
-	![Add Employee](./media/active-directory-saas-dome9arc-tutorial/user1.png)
+    ![Add Employee](./media/active-directory-saas-dome9arc-tutorial/user1.png)
 
 3. Click **ADD USER**.
 
-	![Add Employee](./media/active-directory-saas-dome9arc-tutorial/user2.png)
+    ![Add Employee](./media/active-directory-saas-dome9arc-tutorial/user2.png)
 
 4. In the **Create User** section, perform the following steps:
-	
-	![Add Employee](./media/active-directory-saas-dome9arc-tutorial/user3.png)
+    
+    ![Add Employee](./media/active-directory-saas-dome9arc-tutorial/user3.png)
 
-	a. In the **Email** textbox, type the email of user like Brittasimon@contoso.com.
+    a. In the **Email** textbox, type the email of user like Brittasimon@contoso.com.
 
-	b. In the **First Name** textbox, type first name of the user like Britta.
+    b. In the **First Name** textbox, type first name of the user like Britta.
 
-	c. In the **Last Name** textbox, type last name of the user like Simon.
+    c. In the **Last Name** textbox, type last name of the user like Simon.
 
-	d. Make **SSO User** as **On**.
+    d. Make **SSO User** as **On**.
 
-	e. Click **CREATE**.
+    e. Click **CREATE**.
 
 ### Assign the Azure AD test user
 
@@ -258,32 +258,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Dome9 Arc**.
 
-	![The Dome9 Arc link in the Applications list](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_app.png)  
+    ![The Dome9 Arc link in the Applications list](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Dome9 Arc tile in the Access Panel, you should get automatically signed-on to your Dome9 Arc application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

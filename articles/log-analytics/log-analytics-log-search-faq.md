@@ -58,13 +58,13 @@ The metrics view gave a graphical representation of performance data from a log 
 ### Question: Where did minify go after I upgraded?
 Minify is a feature that gives a summarized view of your search results.  After you upgrade, the Minify option no longer appears in the Log Search portal.  You can get similar functionality with the new search language using [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) or [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
 
-	Event
-	| where TimeGenerated > ago(10h)
-	| reduce by RenderedDescription
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
 
-	Event
-	| where TimeGenerated > ago(10h)
-	| evaluate autocluster_v2()
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
 
 
 

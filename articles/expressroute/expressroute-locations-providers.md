@@ -63,6 +63,7 @@ The following table shows connectivity locations and the service providers for e
 
 
 ### Production Azure
+
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
@@ -103,6 +104,7 @@ The following table shows connectivity locations and the service providers for e
 ### National cloud environments
 
 ### US Government cloud
+
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -113,6 +115,7 @@ The following table shows connectivity locations and the service providers for e
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### China
+
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Beijing** |China Telecom |
@@ -121,6 +124,7 @@ The following table shows connectivity locations and the service providers for e
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### Germany
+
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Berlin** |Colt+, e-shelter, Megaport+, T-Systems |
@@ -144,6 +148,7 @@ If your connectivity provider is not listed in previous sections, you can still 
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 ## <a name="c1partners"></a>Connectivity Through Additional Service Providers
+
 | **Location** | **Exchange** | **Connectivity Providers** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, MainOne, Nianet, Telia |
@@ -168,13 +173,15 @@ If your connectivity provider is not listed in previous sections, you can still 
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
 
-| **Continent** | **System integrators** |
-| --- | --- |
-| **Asia** |Avanade Inc., OneAs1a |
-| **Australia** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |
-| **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
-| **North America** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
-| **South America** |Avanade Inc. |
+
+|   <strong>Continent</strong>   |                                        <strong>System integrators</strong>                                        |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------|
+|     <strong>Asia</strong>      |                                               Avanade Inc., OneAs1a                                               |
+|   <strong>Australia</strong>   |                                  Ensyst, IT Consultancy, MOQdigital, Vigilant.IT                                  |
+|    <strong>Europe</strong>     | Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
+| <strong>North America</strong> |                   Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio                   |
+| <strong>South America</strong> |                                                   Avanade Inc.                                                    |
+
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).

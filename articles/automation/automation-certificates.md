@@ -28,13 +28,14 @@ Certificates can be stored securely in Azure Automation so they can be accessed 
 ## AzureRM PowerShell cmdlets
 For AzureRM, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [AzureRM.Automation module](/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
 
-|Cmdlets|Description|
-|:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself from Get-AutomationCertificate activity.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Creates a new certificate into Azure Automation.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Removes a certificate from Azure Automation.|Creates a new certificate into Azure Automation.
-|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
-|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Uploads a service certificate for the specified cloud service.|
+
+| Cmdlets                                                                                                                                                         | Description                                                                                                                                                               |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)       | Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself from Get-AutomationCertificate activity. |
+| [New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)       | Creates a new certificate into Azure Automation.                                                                                                                          |
+| [Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1) | Removes a certificate from Azure Automation.                                                                                                                              |
+| [Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)       | Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.                                             |
+| [Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)                                                                                  | Uploads a service certificate for the specified cloud service.                                                                                                            |
 
 ## Activities
 The activities in the following table are used to access certificates in a runbook and DSC configurations.
@@ -77,12 +78,12 @@ When you create a new certificate, you upload a .cer or .pfx file to Azure Autom
 
 The following example demonstrates how to create a new Automation certificate and mark it exportable. This imports an existing .pfx file.
 
-	$certName = 'MyCertificate'
-	$certPath = '.\MyCert.pfx'
-	$certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
+    $certName = 'MyCertificate'
+    $certPath = '.\MyCert.pfx'
+    $certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
     $ResourceGroup = "ResourceGroup01"
-	
-	New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
+
+    New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
 
 ## Using a certificate
 
@@ -92,11 +93,11 @@ You must use the **Get-AutomationCertificate** activity to use a certificate. Yo
 
 The following sample code shows how to add a certificate to a cloud service in a runbook. In this sample, the password is retrieved from an encrypted automation variable.
 
-	$serviceName = 'MyCloudService'
-	$cert = Get-AutomationCertificate -Name 'MyCertificate'
-	$certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+    $serviceName = 'MyCloudService'
+    $cert = Get-AutomationCertificate -Name 'MyCertificate'
+    $certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyCertPassword'
-	Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
+    Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### Graphical runbook sample
 
@@ -111,11 +112,11 @@ The following image shows an example of using a certificate in a graphical runbo
 ### Python2 sample
 The following sample shows how to access certificates in Python2 runbooks.
 
-	# get a reference to the Azure Automation certificate
-	cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-	
-	# returns the binary cert content  
-	print cert 
+    # get a reference to the Azure Automation certificate
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+
+    # returns the binary cert content  
+    print cert 
 
 ## Next steps
 

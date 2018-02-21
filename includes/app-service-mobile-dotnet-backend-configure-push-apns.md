@@ -7,7 +7,7 @@
           using Microsoft.Azure.Mobile.Server.Config;
           using Microsoft.Azure.NotificationHubs;
 
-    3. Replace the `PostTodoItem` method with the following code:  
+     3. Replace the `PostTodoItem` method with the following code:  
 
             public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
             {
@@ -47,7 +47,7 @@
                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
             }
 
-    4. Republish the server project.
+     4. Republish the server project.
 
 * **Node.js backend** : 
   
@@ -91,4 +91,4 @@
 
             module.exports = table;
 
-    2. When editing the file on your local computer, republish the server project.
+     2. When editing the file on your local computer, republish the server project.

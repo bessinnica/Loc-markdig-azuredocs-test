@@ -78,10 +78,11 @@ The default domain certificate is placed on the Front End role. User application
 
 The certificate must be in .pfx format and should be a two-subject wildcard certificate. This allows one certificate to cover both the default domain and the SCM endpoint for source control operations.
 
-| Format | Example |
-| --- | --- |
-| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+
+|                        Format                         |                    Example                    |
+|-------------------------------------------------------|-----------------------------------------------|
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> |   \*.appservice.redmond.azurestack.external   |
+|  \*.scm.appservice.<region>.<DomainName>.<extension>  | \*.appservice.scm.redmond.azurestack.external |
 
 #### API certificate
 
@@ -153,22 +154,22 @@ For Azure Stack Development Kit deployments only, you can use the [example Azure
 When you use the Azure Resource Manager template, the users are already created.
 
 1. Run the following commands to create the FileShareOwner and FileShareUser accounts. Replace `<password>` with your own values.
-``` DOS
-net user FileShareOwner <password> /add /expires:never /passwordchg:no
-net user FileShareUser <password> /add /expires:never /passwordchg:no
-```
+   ``` DOS
+   net user FileShareOwner <password> /add /expires:never /passwordchg:no
+   net user FileShareUser <password> /add /expires:never /passwordchg:no
+   ```
 2. Set the passwords for the accounts to never expire by running the following WMIC commands:
-``` DOS
-WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-```
+   ``` DOS
+   WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+   WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+   ```
 3. Create the local groups FileShareUsers and FileShareOwners, and add the accounts in the first step to them:
-``` DOS
-net localgroup FileShareUsers /add
-net localgroup FileShareUsers FileShareUser /add
-net localgroup FileShareOwners /add
-net localgroup FileShareOwners FileShareOwner /add
-```
+   ``` DOS
+   net localgroup FileShareUsers /add
+   net localgroup FileShareUsers FileShareUser /add
+   net localgroup FileShareOwners /add
+   net localgroup FileShareOwners FileShareOwner /add
+   ```
 
 ### Provision the content share
 
@@ -299,9 +300,9 @@ Follow these steps:
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
 2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
-4.	Run the **Create-ADFSIdentityApp.ps1** script.
-5.	In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.
-6.	Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
+4.  Run the **Create-ADFSIdentityApp.ps1** script.
+5.  In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.
+6.  Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 
 | Create-ADFSIdentityApp.ps1  parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |

@@ -55,6 +55,7 @@ $ git push origin master
 ## Roaming
 <a name="roaming"></a>
 
+
 ### Open Machine Learning Workbench on a second computer
 After the Team Services Git repo is linked with your project, you can access the iris project from any computer that has Machine Learning Workbench installed. 
 
@@ -79,7 +80,7 @@ In a future release, we plan to enhance functionality so that you can select a d
 
 ### Work on the downloaded project 
 The newly downloaded project reflects the project state at the last run in the project. A snapshot of the project state is automatically committed to the run history branch in the Team Services Git repo every time you submit a run. The snapshot that is associated with the latest run is used to instantiate the project on the second computer. 
- 
+
 
 ## Collaboration
 You can collaborate with team members on projects that are linked to a Team Services Git repo. You can assign permissions to users for the Machine Learning Experimentation account, workspace, and project. Currently, you can perform Azure Resource Manager commands by using Azure CLI. You can also use the [Azure portal](https://portal.azure.com). For more information, see [Use the Azure portal to add users](#portal).    
@@ -114,11 +115,13 @@ By sharing a remote Git repo for the project, Alice and Bob can also collaborate
 ### Use the Azure portal to add users
 <a name="portal"></a>
 
+
 Machine Learning Experimentation accounts, workspaces, and projects are Azure Resource Manager resources. To assign roles, you can use the **Access Control** link in the [Azure portal](https://portal.azure.com). 
 
 Find the resource that you want to add users to by using the **All Resources** view. Select the **Access control (IAM)** link, and then select **Add users**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
+
 
 ## Sample collaboration workflow
 To illustrate the collaboration workflow, let's walk through an example. Contoso employees Alice and Bob want to collaborate on a data science project by using Machine Learning Workbench. Their identities belong to the same Contoso Azure Active Directory (Azure AD) tenant. Here are the steps Alice and Bob take:
@@ -130,7 +133,7 @@ To illustrate the collaboration workflow, let's walk through an example. Contoso
 3. Alice starts to work on the project. She creates some scripts and executes a few runs. For each run, a snapshot of the entire project folder is automatically pushed as a commit to a run history branch of the Team Services Git repo that Machine Learning Workbench creates.
 
 4. Alice is happy with the work in progress. She wants to commit her changes in the local master branch and then push them to the Team Services Git repo master branch. With the project open, in Machine Learning Workbench, she opens the Command Prompt window, and then enters these commands:
-    
+
     ```sh
     # Verify that the Git remote is pointing to the Team Services Git repo.
     $ git remote -v
@@ -181,7 +184,7 @@ To illustrate the collaboration workflow, let's walk through an example. Contoso
     ```sh
     # Verify that the current branch is "bob," and that it has unstaged changes.
     $ git status
-    
+
     # Stage all changes.
     $ git add -A
 

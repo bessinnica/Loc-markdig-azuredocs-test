@@ -33,12 +33,14 @@ To use Azure PowerShell with Azure Government, you need to connect to Azure Gove
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
 
-| Connection type | Command |
-| --- | --- |
-| [Azure](/powershell/module/azurerm.profile/add-azurermaccount) commands |`Login-AzureRmAccount -EnvironmentName AzureUSGovernment` |
-| [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
-| [Azure (Classic deployment model)](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
+
+|                                                   Connection type                                                    |                          Command                          |
+|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+|                       [Azure](/powershell/module/azurerm.profile/add-azurermaccount) commands                        | `Login-AzureRmAccount -EnvironmentName AzureUSGovernment` |
+|           [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands           | `Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
+|     [Azure (Classic deployment model)](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) commands      |     `Add-AzureAccount -Environment AzureUSGovernment`     |
+| [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |   `Connect-MsolService -AzureEnvironment UsGovernment`    |
+
 You may also use the `Environment` switch when connecting to a storage account using `New-AzureStorageContext` and specify `AzureUSGovernment`.
 
 If you are curious about the available environments across Azure, you can run:

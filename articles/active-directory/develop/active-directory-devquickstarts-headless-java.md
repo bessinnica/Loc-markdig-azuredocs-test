@@ -46,8 +46,8 @@ To enable your app to authenticate users, you'll first need to register a new ap
 3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
 5. Follow the prompts and create a new **Web Application and/or WebAPI**.
-  * The **name** of the application will describe your application to end-users
-  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
+   * The **name** of the application will describe your application to end-users
+   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
 6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application tab.
 7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`.
 
@@ -172,8 +172,6 @@ Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol. 
     </build>
 
 </project>
-
-
 ```
 
 
@@ -240,8 +238,6 @@ public class PublicClient {
         return result;
     }
 }
-
-
 ```
 
 
@@ -256,8 +252,6 @@ You should now have a `adal4jsample.war` file in your `/targets` directory. You 
 
 > [!NOTE]
 > It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your ``adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
-> 
-> 
 
 ## Next Steps
 Congratulations! You now have a working Java application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.

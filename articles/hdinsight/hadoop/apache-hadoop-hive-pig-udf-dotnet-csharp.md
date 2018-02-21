@@ -173,15 +173,15 @@ For more information on the version of the .NET framework and Mono included with
 
     * If this entry cannot be expanded, you are using __Azure Data Lake Store__ as the default storage for the cluster. To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.
 
-6. To upload the .exe files, use one of the following methods:
+5. To upload the .exe files, use one of the following methods:
 
-    * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **HiveCSharp** project. Finally, select the **HiveCSharp.exe** file and click **Ok**.
+   * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **HiveCSharp** project. Finally, select the **HiveCSharp.exe** file and click **Ok**.
 
-        ![upload icon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![upload icon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * If using __Azure Data Lake Store__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
+   * If using __Azure Data Lake Store__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
 
-    Once the __HiveCSharp.exe__ upload has finished, repeat the upload process for the __PigUDF.exe__ file.
+     Once the __HiveCSharp.exe__ upload has finished, repeat the upload process for the __PigUDF.exe__ file.
 
 ## Run a Hive query
 

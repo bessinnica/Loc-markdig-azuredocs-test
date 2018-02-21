@@ -33,7 +33,6 @@ To create Logic apps with Trello, first create a **connection**, and enter the d
 After you create the connection, you can use it to execute the actions and listen for the triggers.
 
 > [!INCLUDE [Steps to create a connection to Trello](../../includes/connectors-create-api-trello.md)]
-> 
 
 ## Connector-specific details
 

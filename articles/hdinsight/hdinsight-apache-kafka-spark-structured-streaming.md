@@ -41,24 +41,25 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
-    
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
-    
+
+
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
 
     This template creates the following resources:
 
-    * A Kafka on HDInsight 3.6 cluster.
-    * A Spark on HDInsight 3.6 cluster.
-    * An Azure Virtual Network, which contains the HDInsight clusters.
+   * A Kafka on HDInsight 3.6 cluster.
+   * A Spark on HDInsight 3.6 cluster.
+   * An Azure Virtual Network, which contains the HDInsight clusters.
 
-    > [!IMPORTANT]
-    > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+     > [!IMPORTANT]
+     > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Custom deployment** section:
-   
+
     ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
-   
+
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you.

@@ -20,7 +20,6 @@ ms.author: v-masebo
 # Send cloud-to-device messages with IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-
 ## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
@@ -58,7 +57,7 @@ In this section, you create a Python console app to simulate the device and rece
 1. Using a text editor, create a **SimulatedDevice.py** file.
 
 1. Add the following `import` statements and variables at the start of the **SimulatedDevice.py** file:
-   
+
     ```python
     import time
     import sys
@@ -73,7 +72,7 @@ In this section, you create a Python console app to simulate the device and rece
     ```
 
 1. Add the following code to **SimulatedDevice.py** file. Replace the "{deviceConnectionString}" placeholder value with the device connection string for the device you created in the [Get started with IoT Hub] tutorial:
-   
+
     ```python
     # choose AMQP or AMQP_WS as transport protocol
     PROTOCOL = IoTHubTransportProvider.AMQP
@@ -81,7 +80,7 @@ In this section, you create a Python console app to simulate the device and rece
     ```
 
 1. Add the following function to print received messages to the console:
-   
+
     ```python
     def receive_message_callback(message, counter):
         global RECEIVE_CALLBACKS
@@ -117,7 +116,7 @@ In this section, you create a Python console app to simulate the device and rece
     ```
 
 1. Add the following code to initialize the client and wait to recieve the cloud-to-device message:
-   
+
     ```python
     def iothub_client_init():
         client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
@@ -150,7 +149,7 @@ In this section, you create a Python console app to simulate the device and rece
     ```
 
 1. Add the following main function:
-   
+
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Python sample..." )
@@ -169,7 +168,7 @@ In this section, you create a Python console app that sends cloud-to-device mess
 1. Using a text editor, create a **SendCloudToDeviceMessage.py** file.
 
 1. Add the following `import` statements and variables at the start of the **SendCloudToDeviceMessage.py** file:
-   
+
     ```python
     import random
     import sys
@@ -184,14 +183,14 @@ In this section, you create a Python console app that sends cloud-to-device mess
     ```
 
 1. Add the following code to **SendCloudToDeviceMessage.py** file. Replace the "{IoTHubConnectionString}" placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the "{deviceId}" placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
-   
+
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
     ```
 
 1. Add the following function to print operation results to the console:
-   
+
     ```python
     function printResultFor(op) {
       return function printResult(err, res) {
@@ -202,7 +201,7 @@ In this section, you create a Python console app that sends cloud-to-device mess
     ```
 
 1. Add the following function to print feedback messages to the console:
-   
+
     ```python
     def open_complete_callback(context):
         print ( 'open_complete_callback called with context: {0}'.format(context) )
@@ -214,7 +213,7 @@ In this section, you create a Python console app that sends cloud-to-device mess
     ```
 
 1. Add the following code to send a message to your device and handle the feedback message when the device acknowledges the cloud-to-device message:
-   
+
     ```python
     def iothub_messaging_sample_run():
         try:
@@ -255,7 +254,7 @@ In this section, you create a Python console app that sends cloud-to-device mess
     ```
 
 1. Add the following main function:
-   
+
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Service Client Messaging Python sample..." )
@@ -278,11 +277,11 @@ You are now ready to run the applications.
     ```
 
 1. At the command prompt, run the following command to listen for cloud-to-device messages:
-   
+
     ```shell
     python SimulatedDevice.py 
     ```
-   
+
     ![Run the simulated device app][img-simulated-device]
 
 1. Open a new command prompt and install the **Azure IoT Hub Service SDK for Python**.
@@ -292,13 +291,13 @@ You are now ready to run the applications.
     ```
 
 1. At a command prompt, run the following command to send a cloud-to-device message and wait for the message feedback:
-   
+
     ```shell
     python SendCloudToDeviceMessage.py 
     ```
-   
+
     ![Run the app to send the cloud-to-device command][img-send-command]
-   
+
 1. Note the message recieved by the device.
 
     ![Message received][img-message-recieved]

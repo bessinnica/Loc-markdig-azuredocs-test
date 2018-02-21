@@ -53,8 +53,8 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
 12. In the **Backup** blade for your VM, you will see the number of recovery points that are complete.
 
-	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
-	
+    ![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
+    
 The first backup takes about 20 minutes. Proceed to the next part of this tutorial after your backup is finished.
 
 ## Recover a file
@@ -65,13 +65,13 @@ In this example, we show how to recover the image file that is used in the defau
 
 1. Open a browser and connect to the IP address of the VM to show the default IIS page.
 
-	![Default IIS web page](./media/tutorial-backup-vms/iis-working.png)
+    ![Default IIS web page](./media/tutorial-backup-vms/iis-working.png)
 
 2. Connect to the VM.
 3. On the VM, open **File Explorer** and navigate to \inetpub\wwwroot and delete the file **iisstart.png**.
 4. On your local computer, refresh the browser to see that the image on the default IIS page is gone.
 
-	![Default IIS web page](./media/tutorial-backup-vms/iis-broken.png)
+    ![Default IIS web page](./media/tutorial-backup-vms/iis-broken.png)
 
 5. On your local computer, open a new tab and go the the [Azure portal](https://portal.azure.com).
 6. In the menu on the left, select **Virtual machines** and select the VM from the list.

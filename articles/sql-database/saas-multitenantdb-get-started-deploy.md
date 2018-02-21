@@ -64,9 +64,9 @@ Choose your names now, and write them down.
 #### Steps
 
 1. Click the following blue **Deploy to Azure** button.
-    - It opens the Azure portal with the Wingtip Tickets SaaS deployment template.
+   - It opens the Azure portal with the Wingtip Tickets SaaS deployment template.
 
-    [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 2. Enter the required parameter values for the deployment.
 
@@ -123,9 +123,9 @@ Each venue gets a personalized web app to list their events and sell tickets. Ea
 A central **Events Hub** webpage provides a list of links to the tenants in your particular deployment. Use the following steps to experience the **Events Hub** webpage and an individual web app:
 
 1. Open the **Events Hub** in your web browser:
-    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Replace &lt;USER&gt; with your deployment's user value.)*
+   - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; <em>(Replace &lt;USER&gt; with your deployment's user value.)</em>
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Click **Fabrikam Jazz Club** in the **Events Hub**.
 
@@ -135,7 +135,7 @@ A central **Events Hub** webpage provides a list of links to the tenants in your
 
 To control the distribution of incoming requests, the Wingtip app uses [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). The events page for each tenant includes the tenant name in its URL. Each URL also includes your specific User value. Each URL obeys the shown format by using the following steps:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/<em>fabrikamjazzclub</em>
 
 1. The events app parses the tenant name from the URL. The tenant name is *fabrikamjazzclub* in the preceding example URL.
 2. The app then hashes the tenant name to create a key to access a catalog using [shard map management](sql-database-elastic-scale-shard-map-management.md).

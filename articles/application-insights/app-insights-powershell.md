@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating resource, alert, and availability tests in PowerShell using an Azure Resource Manager template.
 services: application-insights
@@ -151,18 +151,18 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 
 ## Create Application Insights resources
 1. In PowerShell, sign in to Azure:
-   
+
     `Login-AzureRmAccount`
 2. Run a command like this:
-   
+
     ```PS
-   
+
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
     ``` 
-   
+
    * `-ResourceGroupName` is the group where you want to create the new resources.
    * `-TemplateFile` must occur before the custom parameters.
    * `-appName` The name of the resource to create.
@@ -180,6 +180,7 @@ After creating an application resource, you'll want the instrumentation key:
 
 
 <a id="price"></a>
+
 ## Set the price plan
 
 You can set the [price plan](app-insights-pricing.md).
@@ -388,24 +389,24 @@ To discover the codes for other test locations, or to automate the creation of m
 To automate the creation of any other resource of any kind, create an example manually, and then copy and parameterize its code from [Azure Resource Manager](https://resources.azure.com/). 
 
 1. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, to your application resource. 
-   
+
     ![Navigation in Azure Resource Explorer](./media/app-insights-powershell/01.png)
-   
+
     *Components* are the basic Application Insights resources for displaying applications. There are separate resources for the associated alert rules and availability web tests.
 2. Copy the JSON of the component into the appropriate place in `template1.json`.
 3. Delete these properties:
-   
+
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
 4. Open the webtests and alertrules sections and copy the JSON for individual items into your template. (Don't copy from the webtests or alertrules nodes: go into the items under them.)
-   
+
     Each web test has an associated alert rule, so you have to copy both of them.
-   
+
     You can also include alerts on metrics. [Metric names](app-insights-powershell-alerts.md#metric-names).
 5. Insert this line in each resource:
-   
+
     `"apiVersion": "2015-05-01",`
 
 ### Parameterize the template
@@ -430,10 +431,10 @@ Here are examples of the substitutions you'll want to make. There are several oc
 Azure should set up the resources in strict order. To make sure one setup completes before the next begins, add dependency lines:
 
 * In the availability test resource:
-  
+
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
 * In the alert resource for an availability test:
-  
+
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
 

@@ -43,11 +43,12 @@ The following two sections introduce the Azure Blob storage service, including t
 ## Azure Blob Storage Service Components
 The following Azure components are used when backing up to the Azure Blob storage service.
 
-| Component | Description |
-| --- | --- |
-| **Storage Account** |The storage account is the starting point for all storage services. To access an Azure Blob Storage service, first create an Azure Storage account. For more information about Azure Blob storage service, see [How to use the Azure Blob Storage Service](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
-| **Container** |A container provides a grouping of a set of blobs, and can store an unlimited number of Blobs. To write a SQL Server backup to an Azure Blob service, you must have at least the root container created. |
-| **Blob** |A file of any type and size. Blobs are addressable using the following URL format: **https://[storage account].blob.core.windows.net/[container]/[blob]**. For more information about page Blobs, see [Understanding Block and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
+
+|            Component             |                                                                                                                                                           Description                                                                                                                                                           |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <strong>Storage Account</strong> | The storage account is the starting point for all storage services. To access an Azure Blob Storage service, first create an Azure Storage account. For more information about Azure Blob storage service, see [How to use the Azure Blob Storage Service](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
+|    <strong>Container</strong>    |                                                            A container provides a grouping of a set of blobs, and can store an unlimited number of Blobs. To write a SQL Server backup to an Azure Blob service, you must have at least the root container created.                                                             |
+|      <strong>Blob</strong>       |         A file of any type and size. Blobs are addressable using the following URL format: <strong>https://[storage account].blob.core.windows.net/[container]/[blob]</strong>. For more information about page Blobs, see [Understanding Block and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx)          |
 
 ## SQL Server Components
 The following SQL Server components are used when backing up to the Azure Blob storage service.
@@ -65,7 +66,7 @@ The following SQL Server components are used when backing up to the Azure Blob s
 ## Next steps
 1. Create an Azure account if you don't already have one. If you are evaluating Azure, consider the [free trial](https://azure.microsoft.com/free/).
 2. Then go through one of the following tutorials that walk you through creating a storage account and performing a restore.
-   
+
    * **SQL Server 2014**: [Tutorial: SQL Server 2014 Backup and Restore to Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
    * **SQL Server 2016**: [Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Review additional documentation starting with [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx).

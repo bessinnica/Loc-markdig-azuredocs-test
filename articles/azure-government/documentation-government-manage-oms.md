@@ -40,6 +40,7 @@ The first step in integrating your cloud assets with Log Analytics is installing
 ![Figure 1: Windows servers connected to Operations Management Suite](./media/documentation-government-oms-figure1.png)
 <p align="center">Figure 1: Windows servers connected to Log Analytics</p>
 
+
 You can connect Azure VMs to Log Analytics directly through the Azure portal. For instructions, see [New ways to enable Log Analytics on your Azure VMs](https://blogs.technet.microsoft.com/momteam/2016/02/10/new-ways-to-enable-log-analytics-oms-on-your-azure-vms/).
 
 You can also connect them programmatically or configure the Log Analytics virtual machine extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents).
@@ -50,11 +51,13 @@ Log Analytics can also connect to your storage account and/or existing System Ce
 ![Figure 2: Connecting Azure Storage and Operations Manager to Log Analytics](./media/documentation-government-oms-figure2.png)
 <p align="center">Figure 2: Connecting Azure Storage and Operations Manager to Log Analytics</p>
 
+
 Log Analytics also supports collecting logging information from other monitoring services like Chef or Puppet. Furthermore, for Azure deployments, we have VMs with Log Analytics-enabled Azure Resource Manager templates so you can deploy compute and onboard to your Log Analytics workspace at the same time.
 
 ![Figure 3: Azure Resource Manager templates for Azure VMs with Log Analytics VM extension](./media/documentation-government-oms-figure3a.png)
 ![Figure 3: Azure Resource Manager templates for Azure VMs with Log Analytics VM extension](./media/documentation-government-oms-figure3b.png)
 <p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with Log Analytics VM extension</p>
+
 
 Information about setting up Log Analytics with your existing Operations Manager implementation on-premises can be found in [Connect Operations Manager to Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents).
 
@@ -81,6 +84,7 @@ For example, you can see that the following threat was caught and automatically 
 ![Figure 4: Operations Management Suite antimalware assessment solution](./media/documentation-government-oms-figure4.png)
 <p align="center">Figure 4: Operations Management Suite antimalware assessment solution</p>
 
+
 More information about antimalware assessment can be found in the article [Malware assessment solution in Log Analytics](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/).
 
 ### Identity and access
@@ -90,6 +94,7 @@ Log Analytics organizes all sign-in attempts in your fleet and buckets them depe
 
 ![Figure 5: 97.3% sign-ins failed in the last 24 hours](./media/documentation-government-oms-figure5.png)
 <p align="center">Figure 5: 97.3% sign-ins failed in the last 24 hours</p>
+
 
 ### Threat intelligence
 Log Analytics also provides protection against malicious insider scenarios, when there’s a security compromise inside your organization and a malicious user is trying to exfiltrate data.
@@ -104,6 +109,7 @@ You can also set up alerts to Operations Management Suite solutions like threat 
 
 ![Figure 6: Operations Management Suite alerts and automation](./media/documentation-government-oms-figure6.png)
 <p align="center">Figure 6: Operations Management Suite alerts and automation</p>
+
 
 This is just one example of an out-of-box Operations Management Suite solution that can be applied to your fleet, whether it’s running on Azure, another cloud service provider, or on-premises.
 

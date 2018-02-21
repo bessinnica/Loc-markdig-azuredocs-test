@@ -74,7 +74,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server. 
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
 3. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
-    
+
     ```sql
     create table data_source_table
     (
@@ -99,12 +99,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     > [!NOTE]
     > - Replace &lt;your database name&gt; with the name of your Azure SQL database that has the data_source_table. 
     > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
- 
+
     ```sql
     ALTER DATABASE <your database name>
     SET CHANGE_TRACKING = ON  
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
-  
+
     ALTER TABLE data_source_table
     ENABLE CHANGE_TRACKING  
     WITH (TRACK_COLUMNS_UPDATED = ON)
@@ -124,7 +124,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     INSERT INTO table_store_ChangeTracking_version
     VALUES ('data_source_table', @ChangeTracking_version)
     ```
-    
+
     > [!NOTE]
     > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
 6. Run the following query to create a stored procedure in your Azure SQL database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step. 
@@ -132,13 +132,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
     AS
-    
+
     BEGIN
-    
+
         UPDATE table_store_ChangeTracking_version
         SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
-    
+
     END    
     ```
 
@@ -149,21 +149,21 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
-   
+
    ![New->DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**. 
-      
+
      ![New data factory page](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
- 
+
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
-  
+
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
-     
+
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
-         
+
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 4. Select **V2 (Preview)** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
@@ -171,9 +171,9 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 7. Click **Create**.      
 8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-	![deploying data factory tile](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
+    ![deploying data factory tile](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
-   
+
    ![Data factory home page](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image: 
@@ -197,7 +197,7 @@ In this step, you link your Azure Storage Account to the data factory.
     1. Enter **AzureStorageLinkedService** for **Name**. 
     2. Select your Azure Storage account for **Storage account name**. 
     3. Click **Save**. 
-    
+
    ![Azure Storage Account settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
 
 
@@ -215,7 +215,7 @@ In this step, you link your Azure SQL database to the data factory.
     6. Enter password for the user for the **Password** field. 
     7. Click **Test connection** to test the connection.
     8. Click **Save** to save the linked service. 
-    
+
        ![Azure SQL Database linked service settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
 
 ## Create datasets
@@ -234,7 +234,7 @@ In this step, you create a dataset to represent the source data.
 
    ![Source dataset name](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
 4. Switch to the **Connection** tab, and do the following steps: 
-    
+
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**. 
     2. Select **[dbo].[data_source_table]** for **Table**. 
 
@@ -254,11 +254,11 @@ In this step, you create a dataset to represent the data that is copied from the
    ![Sink dataset - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
 4. Switch to the **Connection** tab in the Properties window, and do the following steps:
 
-    1. Select **AzureStorageLinkedService** for **Linked service**.
-    2. Enter **adftutorial/incchgtracking** for **folder** part of the **filePath**.
-    3. Enter **@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
+   1. Select **AzureStorageLinkedService** for **Linked service**.
+   2. Enter **adftutorial/incchgtracking** for **folder** part of the **filePath**.
+   3. Enter <strong><xref href="CONCAT(" data-throw-if-not-resolved="False" data-raw-source="@CONCAT("></xref>'Incremental-', pipeline().RunId, '.txt')</strong> for <strong>file</strong> part of the <strong>filePath</strong>.  
 
-       ![Sink dataset - connection](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
+      ![Sink dataset - connection](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
 ### Create a dataset to represent change tracking data 
 In this step, you create a dataset for storing the change tracking version.  You created the table table_store_ChangeTracking_version as part of the prerequisites.
@@ -267,7 +267,7 @@ In this step, you create a dataset for storing the change tracking version.  You
 2. Select **Azure SQL Database**, and click **Finish**. 
 3. You see a new tab for configuring the dataset. You also see the dataset in the treeview. In the **Properties** window, change the name of the dataset to **ChangeTrackingDataset**.
 4. Switch to the **Connection** tab, and do the following steps: 
-    
+
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**. 
     2. Select **[dbo].[table_store_ChangeTracking_version]** for **Table**. 
 
@@ -345,7 +345,6 @@ VALUES
 
 UPDATE data_source_table
 SET [Age] = '10', [name]='update' where [PersonID] = 1
-
 ``` 
 
 ## Create a pipeline for the delta copy
@@ -368,29 +367,29 @@ In this step, you create a pipeline with the following activities, and run it pe
     ![Lookup Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Switch to the **Settings** in the **Properties** window, and do the following steps:
 
-    1. Select **SourceDataset** for the **Source Dataset** field.
-    2. Select **Query** for **Use Query**. 
-    3. Enter the following SQL query for **Query**. 
+   1. Select **SourceDataset** for the **Source Dataset** field.
+   2. Select **Query** for **Use Query**. 
+   3. Enter the following SQL query for **Query**. 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store. 
 
     ![Copy Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. Switch to the **Source** tab in the **Properties** window, and do the following steps:
 
-    1. Select **SourceDataset** for **Source Dataset**. 
-    2. Select **Query** for **Use Query**. 
-    3. Enter the following SQL query for **Query**. 
+   1. Select **SourceDataset** for **Source Dataset**. 
+   2. Select **Query** for **Use Query**. 
+   3. Enter the following SQL query for **Query**. 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
-    
-    ![Copy Activity - source settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
+
+      ![Copy Activity - source settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field. 
 
     ![Copy Activity - sink settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -412,7 +411,7 @@ In this step, you create a pipeline with the following activities, and run it pe
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
-    
+
         ![Stored Procedure Activity - Parameters](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Connect the Copy activity to the Stored Procedure Activity**. Drag-and-drop the **green** button attached to the Copy activity to the Stored Procedure activity. 
 
@@ -420,9 +419,9 @@ In this step, you create a pipeline with the following activities, and run it pe
 15. Click **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window by clicking **>>**. 
 
     ![Validate button](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish** button. Wait until you see the **Publishing succeeded** message. 
+16. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish** button. Wait until you see the **Publishing succeeded** message. 
 
-        ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### Run the incremental copy pipeline
 Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**. 
@@ -455,11 +454,11 @@ The first three columns are changed data from data_source_table. The last two co
 ==================================================================
 PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ==================================================================
-1        update  10		2			          U
-6        new     50		1			          I
+1        update  10     2                     U
+6        new     50     1                     I
 ```
 
-    
+
 ## Next steps
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 

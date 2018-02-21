@@ -58,19 +58,19 @@ To configure the integration of InTime into Azure AD, you need to add InTime fro
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **InTime**, select **InTime** from result panel then click **Add** button to add the application.
 
-	![InTime in the results list](./media/active-directory-saas-intime-tutorial/tutorial_intime_addfromgallery.png)
+    ![InTime in the results list](./media/active-directory-saas-intime-tutorial/tutorial_intime_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,23 +96,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **InTime** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-intime-tutorial/tutorial_intime_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-intime-tutorial/tutorial_intime_samlbase.png)
 
 3. On the **InTime Domain and URLs** section, perform the following steps:
 
-	![InTime Domain and URLs single sign-on information](./media/active-directory-saas-intime-tutorial/tutorial_intime_url.png)
+    ![InTime Domain and URLs single sign-on information](./media/active-directory-saas-intime-tutorial/tutorial_intime_url.png)
 
     a. In the **Sign-on URL** textbox, type the URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-	b. In the **Identifier** textbox, type the URL: `https://auth.intimesoft.com/auth/realms/master`
+    b. In the **Identifier** textbox, type the URL: `https://auth.intimesoft.com/auth/realms/master`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-intime-tutorial/tutorial_intime_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-intime-tutorial/tutorial_intime_certificate.png) 
 
 5. Your InTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but InTime expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration 
 
@@ -120,11 +120,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-intime-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-intime-tutorial/tutorial_general_400.png)
 
 7. On the **InTime Configuration** section, click **Configure InTime** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![InTime Configuration](./media/active-directory-saas-intime-tutorial/tutorial_intime_configure.png) 
+    ![InTime Configuration](./media/active-directory-saas-intime-tutorial/tutorial_intime_configure.png) 
 
 8. To configure single sign-on on **InTime** side, you need to send the downloaded **Metadata XML**, **Sign-Out URL, and SAML Single Sign-On Service URL** to [InTime support team](mailto:hdollard@intimesoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -178,31 +178,31 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **InTime**.
 
-	![The InTime link in the Applications list](./media/active-directory-saas-intime-tutorial/tutorial_intime_app.png)  
+    ![The InTime link in the Applications list](./media/active-directory-saas-intime-tutorial/tutorial_intime_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the InTime tile in the Access Panel, you should get the login page of your InTime application. Click the **Login** button, then a series of IdPs will be displayed on a list of buttons. click **IDP name** given by [InTime support team](mailto:hdollard@intimesoft.com) to login into your InTime application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+When you click the InTime tile in the Access Panel, you should get the login page of your InTime application. Click the **Login** button, then a series of IdPs will be displayed on a list of buttons. click **IDP name** given by [InTime support team](mailto:hdollard@intimesoft.com) to login into your InTime application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

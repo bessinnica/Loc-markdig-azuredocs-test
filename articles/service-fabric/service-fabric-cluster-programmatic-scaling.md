@@ -50,8 +50,8 @@ A service principal can be created with the following steps:
 
 1. Log in to the Azure CLI (`az login`) as a user with access to the virtual machine scale set
 2. Create the service principal with `az ad sp create-for-rbac`
-	1. Make note of the appId (called 'client ID' elsewhere), name, password, and tenant for later use.
-	2. You will also need your subscription ID, which can be viewed with `az account list`
+    1. Make note of the appId (called 'client ID' elsewhere), name, password, and tenant for later use.
+    2. You will also need your subscription ID, which can be viewed with `az account list`
 
 The fluent compute library can log in using these credentials as follows (note that core fluent Azure types like `IAzure` are in the [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) package):
 
@@ -96,16 +96,16 @@ Preparing the node for shutdown involves finding the node to be removed (the mos
 ```csharp
 using (var client = new FabricClient())
 {
-	var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
-	    .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
-	    .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
+    var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
+        .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
+        .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
         .OrderByDescending(n =>
         {
             var instanceIdIndex = n.NodeName.LastIndexOf("_");
             var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
             return int.Parse(instanceIdString);
         })
-	    .FirstOrDefault();
+        .FirstOrDefault();
 ```
 
 Once the node to be removed is found, it can be deactivated and removed using the same `FabricClient` instance and the `IAzure` instance from earlier.

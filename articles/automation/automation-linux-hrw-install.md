@@ -37,20 +37,20 @@ To install and configure a Hybrid Runbook Worker on your Linux computer, you fol
 
 Before you proceed, you will need to note the Log Analytics workspace your Automation account is linked to and also the primary key for your Automation account.  You can find both from the portal by selecting your Automation account, and selecting **Workspace** for the Workspace ID, and selecting **Keys** for the primary key.  
 
-1.	Enable the “Automation Hybrid Worker” solution in OMS. This can be done by either:
+1. Enable the “Automation Hybrid Worker” solution in OMS. This can be done by either:
 
    1. From the Solutions Gallery in the [OMS portal](https://mms.microsoft.com) enable the **Automation Hybrid Worker** solution
    2. Run the following cmdlet:
 
-        ```powershell
-         $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
-        ```
+       ```powershell
+        $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
+       ```
 
-2.	Run the following command, changing the values for parameters *-w*, *-k*, *-g*, and *-e*. For the *-g* parameter replace the value with the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook Worker should join. If the name does not exist already in your Automation account, a new Hybrid Runbook Worker group will be made with that name.
+2. Run the following command, changing the values for parameters *-w*, *-k*, *-g*, and *-e*. For the *-g* parameter replace the value with the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook Worker should join. If the name does not exist already in your Automation account, a new Hybrid Runbook Worker group will be made with that name.
     
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
-    ```
+   ```
+   sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+   ```
 3. After the command is complete, the Hybrid Worker Groups blade in the Azure portal will show the new group and number of members or if an existing group, the number of members is incremented.  You can select the group from the list on the **Hybrid Worker Groups** blade and select the **Hybrid Workers** tile.  On the **Hybrid Workers** blade, you see each member of the group listed.  
 
 

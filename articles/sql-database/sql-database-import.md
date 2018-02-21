@@ -38,7 +38,7 @@ To monitor the progress of the import operation, open the page for the logical s
 ### Monitor the progress of an import operation
 
 To monitor the progress of the import operation, open the page for the logical server into which the database is being imported imported. Scroll down to **Operations** and then click **Import/Export** history.
-   
+
    ![import](./media/sql-database-import/import-history.png)
    ![import status](./media/sql-database-import/import-status.png)
 
@@ -82,7 +82,6 @@ Use the [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurer
     -ServiceObjectiveName "P6" `
     -AdministratorLogin "ServerAdmin" `
     -AdministratorLoginPassword $(ConvertTo-SecureString -String "ASecureP@assw0rd" -AsPlainText -Force)
-
  ```
 
 To check the status of the import request, use the [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the import is complete.
@@ -101,7 +100,7 @@ $importStatus
 ```
 
 > [!TIP]
-For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
+> For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## Next steps
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).

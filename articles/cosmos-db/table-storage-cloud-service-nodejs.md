@@ -84,8 +84,9 @@ and add them to the web.config settings:
 
 5. Insert the following block under **Environment** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:
 
-  <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
-  <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
+   <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
+   <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
+
 
    ![The web.cloud.config file contents](./media/table-storage-cloud-service-nodejs/node37.png)
 
@@ -94,30 +95,30 @@ and add them to the web.config settings:
 ### Install additional modules
 1. Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
 
-  ```powershell
-  PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
-  ```
+   ```powershell
+   PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
+   ```
 
-  The output of this command should appear similar to the following:
+   The output of this command should appear similar to the following:
 
-  ```
-  node-uuid@1.4.1 node_modules\node-uuid
+   ```
+   node-uuid@1.4.1 node_modules\node-uuid
 
-  nconf@0.6.9 node_modules\nconf
-  ├── ini@1.1.0
-  ├── async@0.2.9
-  └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
+   nconf@0.6.9 node_modules\nconf
+   ├── ini@1.1.0
+   ├── async@0.2.9
+   └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
 
-  azure-storage@0.1.0 node_modules\azure-storage
-  ├── extend@1.2.1
-  ├── xmlbuilder@0.4.3
-  ├── mime@1.2.11
-  ├── underscore@1.4.4
-  ├── validator@3.1.0
-  ├── node-uuid@1.4.1
-  ├── xml2js@0.2.7 (sax@0.5.2)
-  └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
-  ```
+   azure-storage@0.1.0 node_modules\azure-storage
+   ├── extend@1.2.1
+   ├── xmlbuilder@0.4.3
+   ├── mime@1.2.11
+   ├── underscore@1.4.4
+   ├── validator@3.1.0
+   ├── node-uuid@1.4.1
+   ├── xml2js@0.2.7 (sax@0.5.2)
+   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+   ```
 
 ## Using the Table service in a node application
 In this section, the basic application created by the **express** command is extended by adding a **task.js** file containing the model for your tasks. Modify the existing **app.js** file and create a new **tasklist.js** file that uses the model.

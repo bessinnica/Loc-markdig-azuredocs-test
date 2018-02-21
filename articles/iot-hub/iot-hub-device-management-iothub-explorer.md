@@ -142,3 +142,4 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 You've learned how to use iothub-explorer with various management options.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

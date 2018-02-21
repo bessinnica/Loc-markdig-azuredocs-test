@@ -371,7 +371,6 @@ This is what you can expect to see if you follow the earlier instructions to fet
         "hidden-title": "Created via API"
     }
 }
-
 ```
 
 ### Template representation of our example dashboard
@@ -644,6 +643,4 @@ This example deploys a dashboard by itself, but the template language lets you d
         }
     ]
 }
-
-
 ```

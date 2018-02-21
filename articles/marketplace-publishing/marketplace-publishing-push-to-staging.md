@@ -26,7 +26,7 @@ In this step of the publishing process, you will need to provide certain marketi
 1. Go to the publishing portal, [https://publish.windowsazure.com](https://publish.windowsazure.com).
 2. On the left menu, click the **Marketing** tab.
 3. In the main panel, click the **English (US)** button.
-   
+
    > [!IMPORTANT]
    > All fields must have entries, including the images, for you to be able to push to staging.
    > 
@@ -35,7 +35,7 @@ In this step of the publishing process, you will need to provide certain marketi
 ### Details and plans
 1. Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
 2. Enter plan title (maximum 50 characters), plan summary (maximum 100 characters), plan description (maximum 2000 characters) under the **Plans** tab.
-   
+
    > [!NOTE]
    > You can use the following HTML tags to format the summary, long summary and description of the offer and plans. The allowed HTML tags are h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], strong, em, b, i.
    > 
@@ -46,7 +46,7 @@ In this step of the publishing process, you will need to provide certain marketi
 6. Do not enter identical plan titles for an offer with multiple plans.
 7. Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
 8. Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
-   
+
    ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
 **Azure Marketplace Logo Guidelines**
@@ -76,7 +76,7 @@ All the logos uploaded in the Publishing Portal should follow the below guidelin
 * The Hero logo is optional. The publisher can choose not to upload a Hero logo. **However once uploaded the hero icon cannot be deleted from the Publishing portal. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons else the offer will not be approved to production.**
 * The Publisher Display Name, plan title and the offer long summary are displayed in white font color. Hence you should avoid keeping any light color in the background of the Hero Icon. Black, white and transparent background is not allowed for Hero icons.
 * The publisher display name, plan title, the offer long summary and the create button are embedded programmatically inside the Hero logo once the offer goes listed. So you should not enter any text while you are designing the Hero logo. Just leave empty space on the right because the text (i.e. publisher display name, plan title, the offer long summary) will be included programmatically by us over there. The empty space for the text should be 415x100 on the right (and it is offset by 370px from the left).
-  
+
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### Links
@@ -120,6 +120,7 @@ For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplac
 
 ## Step 2: Set your prices
 ### Pricing models
+
 | Pricing model | Description |
 | --- | --- |
 | Base |Flat monthly rate paid at time of purchase; e.g., $10/month. |
@@ -144,7 +145,7 @@ For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplac
 Presently for virtual machines, we have the following **3 types of billing models:**
 
 * **Hourly:** Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes. In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase (see the screenshot below). **Publisher receives 80% of the software cost charged by them.** Hence please make the calculation accordingly before setting prices for your SKUs.
-  
+
     ![drawing](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 * **Free Trial:** This is another flavor of the Hourly model. Here the customer doesn’t get charged for software cost for the first 30 days(Free) after deploying the VM. After 30days they get charged on a per-hour basis based on the rates set by the publishers in the hourly model.
 * **Bring-Your-Own-License (BYOL):** The publishers manage the licensing of the software running on the VM.
@@ -181,22 +182,22 @@ Please follow the steps given below to setup Hourly pricing model for a SKU:
 5. If you want to enable Free trial for the first 30days of SKU deployment, then select the option “One Month” for the question “Is a free trial available?” Otherwise, select the option “No Trial”. Now follow the steps given below.
 6. From the left hand side menu, click the **PRICING** tab.
 7. Select your base region.
-   
+
    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
 8. Set the prices for all cores. **You must provide price for all the cores of a SKU even if your SKU does not support it.**
-   
+
     ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
 9. Set the prices for the other regions manually or you can use the AUTOPRICE wizard to set the prices of other regions based on the base region. To use the AUTOPRICE wizard click on the button **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES.** **Note:** The button’s label may be different depending on the region which you have selected. Since we have selected United States while creating this document, so the button is labeled as “Auto price other markets based on prices in United States” in the screenshot below.
-   
+
    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 10. The auto price wizard will open. The first page displays the selection for base market. Make your section and move to the next page by clicking on the “->” button.
-    
+
     ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
 11. Option for selecting the cores and plans will be displayed on the page 2. Select the desired plans and click “->” button. Click the **Toggle All** button to select all the **Service plans** and **Meters** or you can manually check the checkboxes. **You must provide price for all the cores of a SKU even if your SKU does not support it.** Hence ensure that all the core sizes are selected.
-    
+
     ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 12. Page 3 displays the markets/regions. Click the **Toggle All** button to select all regions or manually check the boxes for region. Click on the “->” button to move to the next page. **Note:** Microsoft Tax Remitted Countries are denoted by a house like symbol. For more details please refer to the section “Sell-to” countries of the SKU of this page.
-    
+
     ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 13. Page 4 displays the exchange rates. Click on the finish button to complete the steps.
 
@@ -207,11 +208,11 @@ Please follow the steps given below to setup BYOL pricing model for a SKU:
 2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
 3. From the left hand side menu, click the **SKUS** tab.
 4. Ensure that the SKU is marked as “Bring your own license SKU”. If not, then click on the EDIT button to revert the billing model. A window will open. Check the checkbox ‘Billing and licensing is done externally from Azure (aka Bring Your Own License)’ and save the changes.
-   
+
    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
 5. From the left hand side menu, click the **PRICING** tab.
 6. Select your base region and make the SKU available in the region by checking the checkbox against the SKU under the section EXTERNALLY-LICENSED (BYOL) SKU AVAILABILITY (see the screenshot below).
-   
+
    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
 7. Make the SKU available in the other regions manually or you can use the AUTOPRICE wizard for this purpose. Refer to the points #9 to #13 (which explains the use of the AUTOPRICE wizard) in the section **“2.1.1 How to setup Hourly pricing model for a SKU”** of this page.
 

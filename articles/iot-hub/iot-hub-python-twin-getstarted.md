@@ -81,7 +81,7 @@ In this section, you create a Python console app that adds location metadata to 
     def iothub_service_sample_run():
         try:
             iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
-		
+        
             iothub_registry_statistics = iothub_registry_manager.get_statistics()
             print ( "Total device count                       : {0}".format(iothub_registry_statistics.totalDeviceCount) )
             print ( "Enabled device count                     : {0}".format(iothub_registry_statistics.enabledDeviceCount) )
@@ -96,16 +96,16 @@ In this section, you create a Python console app that adds location metadata to 
             for device in range(0, number_of_devices):
                 if dev_list[device].deviceId == DEVICE_ID:
                     twin_info = iothub_twin_method.update_twin(dev_list[device].deviceId, UPDATE_JSON)
-		
-            print ( "Devices in Redmond: " )		
+        
+            print ( "Devices in Redmond: " )        
             for device in range(0, number_of_devices):
                 twin_info = iothub_twin_method.get_twin(dev_list[device].deviceId)
          
                 if twin_info.find(UPDATE_JSON_SEARCH) > -1:
                     print ( dev_list[device].deviceId )
-		
+        
             print ( "" )
-		
+        
             print ( "Devices in Redmond using cellular network: " )
             for device in range(0, number_of_devices):
                 twin_info = iothub_twin_method.get_twin(dev_list[device].deviceId)
@@ -217,7 +217,7 @@ In this section, you create a Python console app that connects to your hub as yo
                 while status_counter <= TIMER_COUNT:
                     status = client.get_send_status()
                     time.sleep(10)
-                    status_counter += 1	
+                    status_counter += 1 
         except IoTHubError as iothub_error:
             print ( "Unexpected error %s from IoTHub" % iothub_error )
             return

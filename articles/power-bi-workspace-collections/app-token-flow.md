@@ -40,20 +40,21 @@ App tokens are a JWT (JSON Web Token) that is signed by one of your keys.
 
 Your app token can contain the following claims:
 
-| Claim | Description |
-| --- | --- |
-| **ver** |The version of the app token. 0.2.0 is the current version. |
-| **aud** |The intended recipient of the token. For Power BI Workspace Collections use: “https://analysis.windows.net/powerbi/api.” |
-| **iss** |A string indicating the application that issued the token. |
-| **type** |The type of app token that is being created. Current the only supported type is **embed**. |
-| **wcn** |Workspace collection name the token is being issued for. |
-| **wid** |Workspace ID the token is being issued for. |
-| **rid** |Report ID the token is being issued for. |
-| **username** (optional) |Used with RLS, username is a string that can help identify the user when applying RLS rules. |
-| **roles** (optional) |A string containing the roles to select when applying Row Level Security rules. If passing more than one role, they should be passed as a sting array. |
-| **scp** (optional) |A string containing the permissions scopes. If passing more than one role, they should be passed as a sting array. |
-| **exp** (optional) |Indicates the time in which the token expires. The value should be passed in as Unix timestamps. |
-| **nbf** (optional) |Indicates the time in which the token starts being valid. The value should be passed in as Unix timestamps. |
+
+|                Claim                 |                                                                      Description                                                                       |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         <strong>ver</strong>         |                                              The version of the app token. 0.2.0 is the current version.                                               |
+|         <strong>aud</strong>         |               The intended recipient of the token. For Power BI Workspace Collections use: “<https://analysis.windows.net/powerbi/api.”>               |
+|         <strong>iss</strong>         |                                               A string indicating the application that issued the token.                                               |
+|        <strong>type</strong>         |                        The type of app token that is being created. Current the only supported type is <strong>embed</strong>.                         |
+|         <strong>wcn</strong>         |                                                Workspace collection name the token is being issued for.                                                |
+|         <strong>wid</strong>         |                                                      Workspace ID the token is being issued for.                                                       |
+|         <strong>rid</strong>         |                                                        Report ID the token is being issued for.                                                        |
+| <strong>username</strong> (optional) |                              Used with RLS, username is a string that can help identify the user when applying RLS rules.                              |
+|  <strong>roles</strong> (optional)   | A string containing the roles to select when applying Row Level Security rules. If passing more than one role, they should be passed as a sting array. |
+|   <strong>scp</strong> (optional)    |                   A string containing the permissions scopes. If passing more than one role, they should be passed as a sting array.                   |
+|   <strong>exp</strong> (optional)    |                            Indicates the time in which the token expires. The value should be passed in as Unix timestamps.                            |
+|   <strong>nbf</strong> (optional)    |                      Indicates the time in which the token starts being valid. The value should be passed in as Unix timestamps.                       |
 
 A sample app token looks like:
 
@@ -83,7 +84,6 @@ Body
   "exp": 1360047056,
   "nbf": 1360043456
 }
-
 ```
 
 There are methods available within the SDKs that make creation of app tokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methods.
@@ -139,7 +139,6 @@ Body
   "exp": 1360047056,
   "nbf": 1360043456
 }
-
 ```
 
 ### Operations and scopes
@@ -154,22 +153,22 @@ Body
 
 ## Here's how the flow works
 1. Copy the API keys to your application. You can get the keys in **Azure portal**.
-   
+
     ![Where to find the API keys in the Azure portal](media/get-started-sample/azure-portal.png)
 1. Token asserts a claim and has an expiration time.
-   
+
     ![App token flow - token asserts claim](media/get-started-sample/token-2.png)
 1. Token gets signed with an API access keys.
-   
+
     ![App token flow - token gets signed](media/get-started-sample/token-3.png)
 1. User requests to view a report.
-   
+
     ![App token flow - user requests to view a report](media/get-started-sample/token-4.png)
 1. Token is validated with an API access keys.
-   
+
    ![App token flow - token is validated](media/get-started-sample/token-5.png)
 1. Power BI Workspace Collections sends a report to user.
-   
+
    ![App token flow - service send report to user](media/get-started-sample/token-6.png)
 
 After **Power BI Workspace Collections** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like:

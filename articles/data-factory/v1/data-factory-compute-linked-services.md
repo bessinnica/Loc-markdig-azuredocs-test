@@ -118,6 +118,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. Dat
 > 
 
 ### Properties
+
 | Property                     | Description                              | Required |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Set the type property to **HDInsightOnDemand**. | Yes      |
@@ -213,7 +214,7 @@ If you want to create D4-size head nodes and worker nodes, specify **Standard_D4
 If you set an incorrect value for these properties, you might see the following message:
 
   Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. 
-  
+
 If you see this message, ensure that you are using the cmdlet and API names from the table in [Virtual machine sizes](../../virtual-machines/linux/sizes.md).  
 
 > [!NOTE]
@@ -254,6 +255,7 @@ You can create an HDInsight linked service to register your own HDInsight cluste
 ```
 
 ### Properties
+
 | Property          | Description                              | Required |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Set the type property to **HDInsight**. | Yes      |
@@ -302,6 +304,7 @@ Another option is to provide the **batchUri** endpoint. For example:
 ```
 
 ### Properties
+
 | Property          | Description                              | Required |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Set the type property to **AzureBatch**. | Yes      |
@@ -329,6 +332,7 @@ You can create a Machine Learning linked service to register a Machine Learning 
 ```
 
 ### Properties
+
 | Property   | Description                              | Required |
 | ---------- | ---------------------------------------- | -------- |
 | Type       | Set the type property to **AzureML**. | Yes      |

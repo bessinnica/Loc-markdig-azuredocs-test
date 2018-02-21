@@ -76,6 +76,7 @@ The messaging service provides dependable information delivery as a brokered or 
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -115,7 +116,7 @@ The messaging service provides dependable information delivery as a brokered or 
             </div>
         </div>
     </li>
-	 <li>
+     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -131,3 +132,4 @@ The messaging service provides dependable information delivery as a brokered or 
         </div>
     </li>
 </ul>
+

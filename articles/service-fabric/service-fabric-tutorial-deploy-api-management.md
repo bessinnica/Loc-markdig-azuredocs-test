@@ -81,7 +81,7 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
  3. Select the stateless ASP.NET Core service template and name the project **"WebApiService"**.
  4. Select the Web API ASP.NET Core 2.0 project template.
  5. Once the project is created, open `PackageRoot\ServiceManifest.xml` and remove the `Port` attribute from the endpoint resource configuration:
- 
+
     ```xml
     <Resources>
       <Endpoints>
@@ -91,7 +91,7 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
     ```
 
     Removing the port allows Service Fabric to specify a port dynamically from the application port range, opened through the Network Security Group in the cluster Resource Manager template, allowing traffic to flow to it from API Management.
- 
+
  6. Press F5 in Visual Studio to verify the web API is available locally. 
 
     Open Service Fabric Explorer and drill down to a specific instance of the ASP.NET Core service to see the base address the service is listening on. Add `/api/values` to the base address and open it in a browser, which invokes the Get method on the ValuesController in the Web API template. It returns the default response that is provided by the template, a JSON array that contains two strings:
@@ -143,7 +143,7 @@ For this tutorial deploy a basic web server, which echoes messages back to the u
 
 ## Download and understand the Resource Manager templates
 Download and save the following Resource Manager templates and parameters file:
- 
+
 - [network-apim.json][network-arm]
 - [network-apim.parameters.json][network-parameters-arm]
 - [apim.json][apim-arm]
@@ -176,7 +176,7 @@ Enter a descriptive **displayName** and **description** for the product. For thi
 
 - **displayName** can be any name for your API. For this tutorial, use "Service Fabric App".
 - **name** provides a unique and descriptive name for the API, such as "service-fabric-app". It is displayed in the developer and publisher portals. 
-- **serviceUrl** references the HTTP service implementing the API. API management forwards requests to this address. For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, for example "http://servicefabric". 
+- <strong>serviceUrl</strong> references the HTTP service implementing the API. API management forwards requests to this address. For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, for example "<http://servicefabric>". 
 - **path** is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher. 
 - **protocols** determine which protocols can be used to access the API. For this tutorial, list **http** and **https**.
 - **path** is a suffix for the API. For this tutorial, use "myapp".
@@ -201,7 +201,7 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
  - Resolution retry conditions that allow you to specify the conditions for re-resolving a service location and resending a request.
 
 **policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.  *backend-id* references a backend resource, in this case the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template. *backend-id* can also reference another backend resource created using the API Management APIs. For this tutorial, set *backend-id* to the value of the *service_fabric_backend_name* parameter.
-    
+
 ```xml
 <policies>
   <inbound>
@@ -225,18 +225,19 @@ For a full set of Service Fabric back-end policy attributes, refer to the [API M
 ## Set parameters and deploy API Management
 Fill in the following empty parameters in the *apim.parameters.json* for your deployment. 
 
-|Parameter|Value|
-|---|---|
-|apimInstanceName|sf-apim|
-|apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
-|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
-|certificatePassword|q6D7nN%6ck@6| 
-|serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
-|serviceFabricCertificate|&lt;base-64 encoded string&gt;|
-|url_path|/api/values|
-|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
-|inbound_policy|&lt;XML string&gt;|
+
+|             Parameter              |                            Value                            |
+|------------------------------------|-------------------------------------------------------------|
+|          apimInstanceName          |                           sf-apim                           |
+|         apimPublisherEmail         |                    myemail@contosos.com                     |
+|              apimSku               |                          Developer                          |
+|    serviceFabricCertificateName    |            sfclustertutorialgroup320171031144217            |
+|        certificatePassword         |                        q6D7nN%6ck@6                         |
+| serviceFabricCertificateThumbprint |          C4C1E541AD512B8065280292A8BA6079C3F26F10           |
+|      serviceFabricCertificate      |               &lt;base-64 encoded string&gt;                |
+|              url_path              |                         /api/values                         |
+|   clusterHttpManagementEndpoint    | https://mysfcluster.southcentralus.cloudapp.azure.com:19080 |
+|           inbound_policy           |                     &lt;XML string&gt;                      |
 
 *certificatePassword* and *serviceFabricCertificateThumbprint* must match the cluster certificate used to set up the cluster.  
 
@@ -308,9 +309,11 @@ You can now try sending a request to your back-end service in Service Fabric thr
 
     Date: Sat, 27 Jan 2018 01:04:44 GMT
 
-    
-    ["value1", "value2"]
-    ```
+
+~~~
+["value1", "value2"]
+```
+~~~
 
 ## Clean up resources
 

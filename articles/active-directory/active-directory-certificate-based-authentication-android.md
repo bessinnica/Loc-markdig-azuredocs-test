@@ -35,6 +35,7 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 
 
 ## Microsoft mobile applications support
+
 | Apps | Support |
 | --- | --- |
 | Azure Information Protection app |![Check][1] |

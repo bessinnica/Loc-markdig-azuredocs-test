@@ -40,6 +40,7 @@ To find your assigned region you may:
 * Run `env` and locate the variable `ACC_LOCATION`
 
 Cloud Shell machine exist in the following regions:
+
 |Area|Region|
 |---|---|
 |Americas|East US, South Central US, West US|

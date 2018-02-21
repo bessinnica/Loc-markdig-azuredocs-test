@@ -52,7 +52,7 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
 1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the following image:
 
-	![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+    ![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
    
 2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** > **Add** to open the **Add connection** blade, and then configure the values.
 
@@ -74,10 +74,10 @@ You can share an ExpressRoute circuit across multiple subscriptions. The figure 
 - Each of the departments within the organization can use their own subscription for deploying their services, but they can share a single ExpressRoute circuit to connect back to your on-premises network.
 - A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit and authorizations associated to the circuit, including subscriptions linked to other Azure Active Directory tenants and Enterprise Agreement enrollments. 
 
-	> [!NOTE]
-	> Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
-	> 
-	>
+    > [!NOTE]
+    > Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
+    > 
+    >
 
 ### Administration - circuit owners and circuit users
 
@@ -93,11 +93,11 @@ The circuit owner creates an authorization. This results in the creation of an a
 
 1. In the ExpressRoute blade, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
 
-	![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+    ![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
 2. Once the configuration is saved, copy the **Resource ID** and the **Authorization Key**.
 
-	![Authorization key](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+    ![Authorization key](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
 **To delete a connection authorization**
 
@@ -109,26 +109,26 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
 **To redeem a connection authorization**
 
-1.	Click the **+New** button.
+1.  Click the **+New** button.
 
-	![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+    ![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2.	Search for **"Connection"** in the Marketplace, select it, and click **Create**.
+2.  Search for **"Connection"** in the Marketplace, select it, and click **Create**.
 
-	![Search for connection](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+    ![Search for connection](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3.	Make sure the **Connection type** is set to "ExpressRoute".
+3.  Make sure the **Connection type** is set to "ExpressRoute".
 
 
-4.	Fill in the details, then click **OK** in the Basics blade.
+4.  Fill in the details, then click **OK** in the Basics blade.
 
-	![Basics blade](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+    ![Basics blade](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 
-5.	In the **Settings** blade, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
+5.  In the **Settings** blade, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
 
-6.	Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**.
+6.  Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**.
 
-	![Settings blade](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+    ![Settings blade](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 
 7. Review the information in the **Summary** blade and click **OK**.
 

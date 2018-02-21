@@ -70,13 +70,13 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
-## Open the sample application in Visual Studio
+   ## Open the sample application in Visual Studio
 
-1. In Visual Studio, from the **File** menu, choose **Open**, then choose **Project/Solution**. 
+3. In Visual Studio, from the **File** menu, choose **Open**, then choose **Project/Solution**. 
 
    ![Open the solution](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
-2. Navigate to the folder where you cloned the sample application, and open the TableStorage.sln file.
+4. Navigate to the folder where you cloned the sample application, and open the TableStorage.sln file.
 
    ![Open the cloned application](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 

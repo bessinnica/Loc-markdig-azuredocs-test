@@ -176,8 +176,8 @@ Follow these best practices for ExpressRoute configuration:
 
 - You can create virtual networks with the same IP ranges in both regions and then create ExpressRoute circuits in both regions. In the case of a failover event, disconnect the circuit from the source virtual network, and connect the circuit in the target virtual network.
 
- >[!IMPORTANT]
- > If the primary region is completely down, the disconnect operation can fail. That will prevent the target virtual network from getting ExpressRoute connectivity.
+  >[!IMPORTANT]
+  > If the primary region is completely down, the disconnect operation can fail. That will prevent the target virtual network from getting ExpressRoute connectivity.
 
 ## Next steps
 Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).

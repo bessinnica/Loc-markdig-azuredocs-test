@@ -40,16 +40,16 @@ In this tutorial, you perform the following steps:
 
 1. Create a **data factory**. A data factory can contain one or more data pipelines that move and transform data. 
 
-	In this tutorial, you create one pipeline in the data factory. 
+    In this tutorial, you create one pipeline in the data factory. 
 2. Create a **pipeline**. A pipeline can have one or more activities (Examples: Copy Activity, HDInsight Hive Activity). This sample uses the HDInsight Hive activity that runs a Hive script on a HDInsight Hadoop cluster. The script first creates a table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
 
-	In this tutorial, the pipeline uses the Hive Activity to transform data by running a Hive query on an Azure HDInsight Hadoop cluster. 
+    In this tutorial, the pipeline uses the Hive Activity to transform data by running a Hive query on an Azure HDInsight Hadoop cluster. 
 3. Create **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as HDInsight Hadoop cluster processes/transforms data.
 
-	In this tutorial, you create two linked services: **Azure Storage** and **Azure HDInsight**. The Azure Storage linked service links an Azure Storage Account that holds the input/output data to the data factory. Azure HDInsight linked service links an Azure HDInsight cluster that is used to transform data to the data factory. 
+    In this tutorial, you create two linked services: **Azure Storage** and **Azure HDInsight**. The Azure Storage linked service links an Azure Storage Account that holds the input/output data to the data factory. Azure HDInsight linked service links an Azure HDInsight cluster that is used to transform data to the data factory. 
 3. Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
 
-	In this tutorial, the input and output datasets specify locations of input and output data in the Azure Blob Storage. The Azure Storage linked service specifies what Azure Storage Account is used. An input dataset specifies where the input files are located and an output dataset specifies where the output files are placed. 
+    In this tutorial, the input and output datasets specify locations of input and output data in the Azure Blob Storage. The Azure Storage linked service specifies what Azure Storage Account is used. An input dataset specifies where the input files are located and an output dataset specifies where the output files are placed. 
 
 
 See [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of Azure Data Factory.

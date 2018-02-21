@@ -58,19 +58,19 @@ To configure the integration of Versal into Azure AD, you need to add Versal fro
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **Versal**, select **Versal** from result panel then click **Add** button to add the application.
 
-	![Versal in the results list](./media/active-directory-saas-versal-tutorial/tutorial_versal_addfromgallery.png)
+    ![Versal in the results list](./media/active-directory-saas-versal-tutorial/tutorial_versal_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,35 +96,35 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Versal** application integration page, click **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-versal-tutorial/tutorial_versal_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-versal-tutorial/tutorial_versal_samlbase.png)
 
 3. On the **Versal Domain and URLs** section, perform the following steps:
 
-	![Versal Domain and URLs single sign-on information](./media/active-directory-saas-versal-tutorial/tutorial_versal_url.png)
+    ![Versal Domain and URLs single sign-on information](./media/active-directory-saas-versal-tutorial/tutorial_versal_url.png)
 
     a. In the **Identifier** textbox, type the value: `VERSAL`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://versal.com/sso/saml/orgs/<organization_id>`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://versal.com/sso/saml/orgs/<organization_id>`
 
-	> [!NOTE] 
-	> Reply URL value is not real. Update this value with the actual Reply URL. Contact [Versal support team](https://support.versal.com/hc/) to get this value.
-	
+    > [!NOTE] 
+    > Reply URL value is not real. Update this value with the actual Reply URL. Contact [Versal support team](https://support.versal.com/hc/) to get this value.
+    
 4. Your application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but **Versal** expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
     
-	![User Identifier dropdown menu](./media/active-directory-saas-versal-tutorial/tutorial_versal_attribute.png)
+    ![User Identifier dropdown menu](./media/active-directory-saas-versal-tutorial/tutorial_versal_attribute.png)
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-versal-tutorial/tutorial_versal_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-versal-tutorial/tutorial_versal_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-versal-tutorial/tutorial_general_400.png)
-	
+    ![Configure Single Sign-On Save button](./media/active-directory-saas-versal-tutorial/tutorial_general_400.png)
+    
 7. To configure single sign-on on **Versal** side, you need to send the downloaded **Metadata XML**  and **SAML Signing Certificate** to [Versal support team](https://support.versal.com/hc/). They will configure your Versal organization to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
@@ -177,26 +177,26 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Versal**.
 
-	![The Versal link in the Applications list](./media/active-directory-saas-versal-tutorial/tutorial_versal_app.png)  
+    ![The Versal link in the Applications list](./media/active-directory-saas-versal-tutorial/tutorial_versal_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using a Versal course embedded within your website.

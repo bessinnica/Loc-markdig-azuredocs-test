@@ -34,11 +34,11 @@ We provide summary documentation [here](https://github.com/Azure/MachineLearning
 The primary purpose of this sample is to show how to instantiate and execute a machine learning project using the [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) structure and templates in Azure Machine Learning. For this purpose, we use the well-known [1994 US Census data from the UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/adult). The modeling task is to predict US annual income classes from US Census information (for example, age, race, education level, country of origin, etc.)
 
 ### Scope
- * Data exploration, training, and deployment of a machine learning model which address the prediction problem described in the Use Case Overview. 
- * Execution of the project in Azure Machine Learning using the Team Data Science Process (TDSP) template from Azure Machine Learning for this project. For project execution and reporting, we're going to use the TDSP lifecycle.
- * Operationalization of the solution directly from Azure Machine Learning in Azure Container Services.
+* Data exploration, training, and deployment of a machine learning model which address the prediction problem described in the Use Case Overview. 
+* Execution of the project in Azure Machine Learning using the Team Data Science Process (TDSP) template from Azure Machine Learning for this project. For project execution and reporting, we're going to use the TDSP lifecycle.
+* Operationalization of the solution directly from Azure Machine Learning in Azure Container Services.
 
- The project highlights several features of Azure Machine Learning, such TDSP structure instantiation and use, execution of code in Jupyter notebooks as well as Python files, and easy operationalization in Azure Container Services using Docker and Kubernetes.
+  The project highlights several features of Azure Machine Learning, such TDSP structure instantiation and use, execution of code in Jupyter notebooks as well as Python files, and easy operationalization in Azure Container Services using Docker and Kubernetes.
 
 
 ## Team Data Science Process (TDSP) lifecycle
@@ -71,11 +71,11 @@ If you would like to save and version your project and its contents, you need to
 ### Create a new workbench project
 
 Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Classify US incomes - TDSP project" and select the template
-5.	Click **Create**
+1.  Open Azure Machine Learning Workbench
+2.  On the **Projects** page, click the **+** sign and select **New Project**
+3.  In the **Create New Project** pane, fill in the information for your new project
+4.  In the **Search Project Templates** search box, type "Classify US incomes - TDSP project" and select the template
+5.  Click **Create**
 
 If you provide an empty Git repository location during creating the project (in the appropriate box), then that repository will be populated with the project structure and contents after creation of the project.
 
@@ -105,6 +105,7 @@ Project is created based on instructions provided [here](https://aka.ms/how-to-u
 
 
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
+
 
 ### Execution
 In this example, we execute code in **local compute environment**. Refer to Azure Machine Learning documents for further details on [execution options](experimentation-service-configuration.md).

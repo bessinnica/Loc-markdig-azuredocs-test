@@ -1,4 +1,4 @@
-﻿---
+---
   title: Manage personal data in Microsoft Azure | Microsoft Docs
   description: guidance on how to correct, update, delete, and export personal data in Azure Active Directory and Azure SQL Database
   services: security

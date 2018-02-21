@@ -35,7 +35,6 @@ To use the Yammer connector, you first create a **connection** then provide the 
 | Token |Yes |Provide Yammer Credentials |
 
 > [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
-> 
 
 ## Connector-specific details
 

@@ -22,5 +22,5 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+## [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

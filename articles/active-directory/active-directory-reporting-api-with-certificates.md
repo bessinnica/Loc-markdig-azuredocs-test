@@ -22,10 +22,10 @@ This article discusses how to use the Azure AD Reporting API with certificate cr
 
 ## Use the Azure AD Reporting API 
 Azure AD Reporting API requires that you complete the following steps:
- *	Install prerequisites
- *	Set the certificate in your app
- *	Get an access token
- *	Use the access token to call the Graph API
+ *  Install prerequisites
+ *  Set the certificate in your app
+ *  Get an access token
+ *  Use the access token to call the Graph API
 
 For information about source code, see [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
@@ -34,7 +34,7 @@ You will need to have Azure AD PowerShell V2 and AzureADUtils module installed.
 
 1. Download and install Azure AD Powershell V2, following the instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).
 2. Download the Azure AD Utils module from [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1). 
-  This module provides several utility cmdlets including:
+   This module provides several utility cmdlets including:
    * The latest version of ADAL using Nuget
    * Access tokens from user, application keys, and certificates using ADAL
    * Graph API handling paged results
@@ -52,11 +52,11 @@ The session should look similar to this screen:
 ### Set the certificate in your app
 1. If you already have an app, get its Object ID from the Azure Portal. 
 
-  ![Azure portal](./media/active-directory-report-api-with-certificates/azure-portal.png)
+   ![Azure portal](./media/active-directory-report-api-with-certificates/azure-portal.png)
 
 2. Open a PowerShell session and connect to Azure AD using the Connect-AzureAD cmdlet.
 
-  ![Azure portal](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
+   ![Azure portal](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
 
 3. Use the New-AzureADApplicationCertificateCredential cmdlet from AzureADUtils to add a certificate credential to it. 
 
@@ -66,7 +66,7 @@ The session should look similar to this screen:
 
 
   ![Azure portal](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
-  
+
 ### Get an access token
 
 To get an access token, use the Get-AzureADGraphAPIAccessTokenFromCert cmdlet from AzureADUtils. 
@@ -87,6 +87,7 @@ You are now ready to export to a CSV and save to a SIEM system. You can also wra
 
 ## Next steps
 [The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
+
 
 
 

@@ -69,7 +69,7 @@ You can create these Service Bus queues by using a client application included i
 1. From the location where you downloaded the sample, open **Tutorial Sending Invoices Using BizTalk Services EDI Bridges.sln**.
 2. Press **F5** to build and start the **Tutorial Client** application.
 3. In the screen, enter the Service Bus ACS namespace, issuer name, and issuer key.
-   
+
    ![][2]  
 4. A message box prompts that three queues will be created in your Service Bus namespace. Click **OK**.
 5. Leave the Tutorial Client running. Open the , click **Service Bus** > ***your Service Bus namespace*** > **Queues**, and verify that the three queues are created.  
@@ -91,36 +91,36 @@ Trading partner agreements are created between business profiles of trading part
 
 1. In the BizTalk Services Portal, click **Agreements** > **Add**.
 2. In the new agreement’s **General Settings** page, specify the values as shown in the image below, and then click **Continue**.
-   
+
    ![][3]  
-   
+
    After you click **Continue**, two tabs, **Receive Settings** and **Send Settings** become available.
 3. Create the send agreement between Contoso and Northwind. This agreement governs how Contoso sends the EDIFACT invoice to Northwind.
-   
+
    1. Click **Send Settings**.
    2. Retain the default values on the **Inbound URL**, **Transform**, and **Batching** tabs.
    3. On the **Protocol** tab, under the **Schemas** section, upload the **EFACT_D93A_INVOIC.xsd** schema. This schema is available with the sample package.
-      
+
       ![][4]  
    4. On the **Transport** tab, specify the details for the Service Bus queues. For the send-side agreement, we use the **northwindreceive** queue to send the EDIFACT invoice to Northwind, and the **suspended** queue to route any messages that fail during processing and are suspended. You created these queues in **Step 1: Create the Service Bus queues** (in this topic).
-      
+
       ![][5]  
-      
+
       Under **Transport Settings > Transport type** and **Message Suspension Settings > Transport type**, select Azure Service Bus and provide the values as shown in the image.
 4. Create the receive agreement between Contoso and Northwind. This agreement governs how Contoso receives the acknowledgement from Northwind.
-   
+
    1. Click **Receive Settings**.
    2. Retain the default values on the **Transport** and **Transform** tabs.
    3. On the **Protocol** tab, under the **Schemas** section, upload the **EFACT_4.1_CONTRL.xsd** schema. This schema is available with the sample package.
    4. On the **Route** tab, create a filter to ensure that only acknowledgements from Northwind are routed to Contoso. Under **Route Settings**, click **Add** to create the routing filter.
-      
+
       ![][6]  
-      
+
       1. Provide values for **Rule Name**, **Route rule**, and **Route destination** as shown in the image.
       2. Click **Save**.
    5. On the **Route** tab again, specify where suspended acknowledgements (acknowledgements that fail during processing) are routed to. Set the transport type to Azure Service Bus, route destination type to **Queue**, authentication type to **Shared Access Signature** (SAS), provide the SAS connection string for the Service Bus namespace, and then enter the queue name as **suspended**.
 5. Finally, click **Deploy** to deploy the agreement. Note the endpoints where the send and receive agreements get deployed.
-   
+
    * On the **Send Settings** tab, under **Inbound URL**, note the endpoint. To send a message from Contoso to Northwind using the EDI send bridge, you must send a message to this endpoint.
    * On the **Receive Settings** tab, under **Transport**, note the endpoint. To send a message from Northwind to Contoso using the EDI receive bridge, you must send a message to this endpoint.  
 
@@ -137,23 +137,23 @@ The BizTalk Services project, **InvoiceProcessingBridge**, that transforms the m
 ### Create the BizTalk Services project
 1. In the Visual Studio solution, expand the InvoiceProcessingBridge project, and then open the **MessageFlowItinerary.bcs** file.
 2. Click anywhere on the canvas and set the **BizTalk Service URL** in the property box to specify your BizTalk Services subscription name. For example, `https://contosowabs.biztalk.windows.net`.
-   
+
    ![][7]  
 3. From the toolbox, drag an **Xml One-Way Bridge** to the canvas. Set the **Entity Name** and **Relative Address** properties of the bridge to **ProcessInvoiceBridge**. Double-click **ProcessInvoiceBridge** to open the bridge configuration surface.
 4. Within the **Message Types** box, click the plus (**+**) button to specify the schema of the incoming message. Because the incoming message for the EAI bridge is always the in-house invoice, set this to **INHOUSEINVOICE**.
-   
+
    ![][8]  
 5. Click the **Xml Transform** shape, and in the property box, for the **Maps** property, click the ellipsis (**...**) button. In the **Maps Selection** dialog box, select the **INHOUSEINVOICE_to_D93AINVOIC** transform file, and then click **OK**.
-   
+
    ![][9]  
 6. Go back to **MessageFlowItinerary.bcs**, and from the toolbox, drag a **Two-Way External Service Endpoint** to the right of the **ProcessInvoiceBridge**. Set its **Entity Name** property to **EDIBridge**.
 7. In the Solution Explorer, expand the **MessageFlowItinerary.bcs** and double-click the **EDIBridge.config** file. Replace the content of the **EDIBridge.config** with the following.
-   
+
    > [!NOTE]
    > Why do I need to edit the .config file? The external service endpoint that we added to the bridge designer canvas represents the EDI bridges that we deployed earlier. EDI bridges are two-way bridges, with a send and receive side. However, the EAI bridge that we added to the bridge designer is a one-way bridge. So, to handle the different message exchange patterns of the two bridges, we use a custom bridge behavior by including its configuration in the .config file. Additionally, the custom behavior also handles the authentication to the EDI send bridge endpoint.This custom behavior is available as a separate sample at [BizTalk Services Bridge chaining sample - EAI to EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). This solution reuses the sample.  
    > 
    > 
-   
+
    ```
    <?xml version="1.0" encoding="utf-8"?>
    <configuration>
@@ -197,16 +197,15 @@ The BizTalk Services project, **InvoiceProcessingBridge**, that transforms the m
        </client>
      </system.serviceModel>
    </configuration>
-   
    ```
 8. Update the EDIBridge.config file to include configuration details
-   
-   * Under *<behaviors>*, provide the ACS namespace and key associated with the BizTalk Services subscription.
-   * Under *<client>*, provide the endpoint where the EDI send agreement is deployed.
-   
+
+   * Under <em><behaviors></em>, provide the ACS namespace and key associated with the BizTalk Services subscription.
+   * Under <em><client></em>, provide the endpoint where the EDI send agreement is deployed.
+
    Save changes and close the configuration file.
 9. From the Toolbox, click the **Connector** and join the **ProcessInvoiceBridge** and **EDIBridge** components. Select the connector, and in Properties box, set **Filter Condition** to **Match All**. This ensures that all messages processed by the EAI bridge are routed to the EDI bridge.
-   
+
    ![][10]  
 10. Save changes to the solution.  
 
@@ -214,9 +213,9 @@ The BizTalk Services project, **InvoiceProcessingBridge**, that transforms the m
 1. On the computer where you created the BizTalk Services project, download and install the SSL certificate for your BizTalk Services subscription. From , under BizTalk Services, click **Dashboard**, and then click **Download SSL Certificate**. Double-click the certificate and follow the prompt to complete the installation. Make sure you install the certificate under **Trusted Root Certification Authorities** certificate store.
 2. In Visual Studio Solution Explorer, right-click the **InvoiceProcessingBridge** project, and then click **Deploy**.
 3. Provide the values as shown in the image, and then click **Deploy**. You can get the ACS credentials for BizTalk Services by clicking **Connection Information** from the BizTalk Services dashboard.
-   
+
    ![][11]  
-   
+
    From the output pane, copy the endpoint where the EAI bridge is deployed, for example, `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`. You will need this endpoint URL later.  
 
 ## Step 4: Test the solution
@@ -225,21 +224,21 @@ In this topic, we look at how to test the solution by using the **Tutorial Clien
 1. In Visual Studio, press F5 to start the **Tutorial Client**.
 2. The screen must have the values prepopulated from the step where we created the Service Bus queues. Click **Next**.
 3. In the next window, provide ACS credentials for BizTalk Services subscription, and the endpoints where EAI and EDI (receive) bridges are deployed.
-   
+
    You had copied the EAI bridge endpoint in the previous step. For EDI receive bridge endpoint, in the BizTalk Services Portal, go to the agreement > Receive Settings > Transport > Endpoint.
-   
+
    ![][12]  
 4. In the next window, under Contoso, click the **Send In-house Invoice** button. In the File open dialog box, open the INHOUSEINVOICE.txt file. Examine the content of the file and then click **OK** to send the invoice.
-   
+
    ![][13]  
 5. In a few seconds the invoice is received at Northwind. Click the **View Message** link to see the invoice received by Northwind. Notice how the invoice received by Northwind is in standard EDIFACT schema while the one sent by Contoso was an in-house schema.
-   
+
    ![][14]  
 6. Select the invoice and then click **Send Acknowledgement**. In the dialog box that pops up, notice that the interchange ID is same in the received invoice and the acknowledgement being sent. Click OK in the **Send Acknowledgement** dialog box.
-   
+
    ![][15]  
 7. In a few seconds, the acknowledgement is successfully received at Contoso.
-   
+
    ![][16]  
 
 ## Step 5 (optional): Send EDIFACT invoice in batches
@@ -250,10 +249,10 @@ The most important aspect when working with batches is the actual release of the
 1. In the BizTalk Services Portal, click the agreement you created earlier. Click Send Settings > Batching > Add Batch.
 2. For batch name, enter **InvoiceBatch**, provide a description, and then click **Next**.
 3. Specify a batch criteria, that defines which messages must be batched. In this solution, we batch all messages. So, select the Use advanced definitions option, and enter **1 = 1**. This is a condition which will always be true, and hence all messages will be batched. Click **Next**.
-   
+
    ![][17]  
 4. Specify a batch release criteria. From the drop-box, select **MessageCountBased**, and for **Count**, specify **3**. This means that a batch of three messages will be sent to Northwind. Click **Next**.
-   
+
    ![][18]  
 5. Review the summary and then click **Save**. Click **Deploy** to redeploy the agreement.
 6. Go back to the **Tutorial Client**, click **Send In-house Invoice**, and follow the prompts to send the invoice. You will notice that no invoice is received at Northwind because the batch size is not met. Repeat this step two more times, so that you have three invoice messages sent to Northwind. This satisfies the batch release criteria of 3 messages and you should now see an invoice at Northwind.

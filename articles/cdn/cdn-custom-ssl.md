@@ -76,11 +76,11 @@ hostmaster@&lt;your-domain-name.com&gt;
 postmaster@&lt;your-domain-name.com&gt;  
 
 You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
-    
+
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
 When you click on the approval link, you are directed to the following online approval form: 
-	
+
 ![Domain validation form](./media/cdn-custom-ssl/domain-validation-form.png)
 
 Follow the instructions on the form; you have two verification options:
@@ -123,6 +123,7 @@ If an error occurs before the request is submitted, the following error message 
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+
 ## Disabling HTTPS
 
 After you have enabled HTTPS on a custom domain, you can later disable it. To disable HTTPS, follow these steps:
@@ -164,7 +165,7 @@ The following table shows the operation progress that occurs when you disable HT
     Microsoft uses a Subject Alternative Names (SAN) certificate provided by DigiCert. A SAN certificate can secure multiple fully qualified domain names with one certificate.
 
 2. *Can I use my dedicated certificate?*
-    
+
     Not currently, but it's on the roadmap.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
@@ -172,12 +173,12 @@ The following table shows the operation progress that occurs when you disable HT
     Contact Microsoft support if you don't receive an email within 24 hours.
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
-	
-	A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
+
+    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
 
 5. *Can I use a custom domain HTTPS with Azure CDN from Akamai?*
 
-	Currently, this feature is only available with Azure CDN from Verizon. Microsoft is working on supporting this feature with Azure CDN from Akamai in the coming months.
+    Currently, this feature is only available with Azure CDN from Verizon. Microsoft is working on supporting this feature with Azure CDN from Akamai in the coming months.
 
 6. *Do I need a Certificate Authority Authorization record with my DNS provider?*
    No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.

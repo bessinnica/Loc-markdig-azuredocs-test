@@ -47,11 +47,11 @@ The prerequisites to run this example are as follows:
 ## Create a new workbench project
 
 Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Q & A Matching" and select the template
-5.	Click **Create**
+1.  Open Azure Machine Learning Workbench
+2.  On the **Projects** page, click the **+** sign and select **New Project**
+3.  In the **Create New Project** pane, fill in the information for your new project
+4.  In the **Search Project Templates** search box, type "Q & A Matching" and select the template
+5.  Click **Create**
 
 ## Data description
 

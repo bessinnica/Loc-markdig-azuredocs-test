@@ -42,7 +42,7 @@ $Scope = "/subscriptions/your subscription id/resourceGroups/userresourcegroup/p
 
 $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 {
-	# Sleep here for a few seconds to allow the service principal application to become active (usually, it will take only a couple of seconds)
+    # Sleep here for a few seconds to allow the service principal application to become active (usually, it will take only a couple of seconds)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue

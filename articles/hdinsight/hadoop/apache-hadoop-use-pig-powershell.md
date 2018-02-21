@@ -57,13 +57,13 @@ The following steps demonstrate how to use these cmdlets to run a job on your HD
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
-1. Open a new Windows PowerShell command prompt. Change directories to the location of the **pigjob.ps1** file, then use the following command to run the script:
+2. Open a new Windows PowerShell command prompt. Change directories to the location of the **pigjob.ps1** file, then use the following command to run the script:
 
         .\pigjob.ps1
 
     You are prompted to log in to your Azure subscription. Then, you are asked for the HTTPs/Admin account name and password for the HDInsight cluster.
 
-2. When the job completes, it should return information similar to the following text:
+3. When the job completes, it should return information similar to the following text:
 
         Start the Pig job ...
         Wait for the Pig job to complete ...

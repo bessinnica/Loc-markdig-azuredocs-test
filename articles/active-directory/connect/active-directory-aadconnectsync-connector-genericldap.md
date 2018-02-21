@@ -227,8 +227,8 @@ It is also possible to select which containers and OUs the Connector should impo
 
 When performing a search this is done across all containers in the partition. In cases where there are large numbers of containers this behavior leads to performance degradation.
 
->[!NOTE]
-Starting in the March 2017 update to the Generic LDAP connector searches can be limited in scope to only the selected containers. This can be done by selecting the checkbox 'Search only in selected containers' as shown in the image below.
+> [!NOTE]
+> Starting in the March 2017 update to the Generic LDAP connector searches can be limited in scope to only the selected containers. This can be done by selecting the checkbox 'Search only in selected containers' as shown in the image below.
 
 ![Search only selected containers](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
 

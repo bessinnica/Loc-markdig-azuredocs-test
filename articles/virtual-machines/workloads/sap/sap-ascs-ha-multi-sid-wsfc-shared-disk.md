@@ -203,7 +203,6 @@ ms.custom: H1Hack27Feb2017
 # SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure
 
 > ![Windows][Logo_Windows] Windows
->
 
 In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer. 
 
@@ -369,7 +368,6 @@ foreach ($Port in $Ports) {
 $ILB | Set-AzureRmLoadBalancer
 
 Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
-
 ```
 After the script has run, the results are displayed in the Azure portal, as shown in the following screenshot:
 
@@ -401,18 +399,18 @@ For a description of the complete process of installing a second SAP SID2 system
 The high-level procedure is as follows:
 
 1. [Install SAP with a high-availability ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
- In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 1.
+   In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 1.
 
 2. [Modify the SAP profile of the ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
 
 3. [Configure a probe port][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
- In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes.
+   In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes.
 
 4. Install the database instance.  
- To install the second cluster, follow the steps in the SAP installation guide.
+   To install the second cluster, follow the steps in the SAP installation guide.
 
 5. Install the second cluster node.  
- In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2. To install the second cluster, follow the steps in the SAP installation guide.
+   In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2. To install the second cluster, follow the steps in the SAP installation guide.
 
 6. Open Windows Firewall ports for the SAP ASCS/SCS instance and probe port.  
     On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS. These SAP ASCS/SCS instance ports are listed in the chapter [SAP ASCS / SCS Ports][sap-net-weaver-ports-ascs-scs-ports].

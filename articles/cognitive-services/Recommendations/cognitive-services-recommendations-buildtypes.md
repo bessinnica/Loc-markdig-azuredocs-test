@@ -20,12 +20,14 @@ ms.author: luisca
 # Build types and model quality
 <a name="TypeofBuilds"></a>
 
+
 ## Supported build types
 The Recommendations API currently supports two build types: *recommendation* and *FBT*. Each is built using different algorithms, and each has different strengths. This document describes each of these builds and techniques for comparing the quality of the models generated.
 
 If you have not done so already, we recommend that you complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
+
 
 ### Recommendation build type
 The recommendation build type uses matrix factorization to provide recommendations. It generates [latent feature](https://en.wikipedia.org/wiki/Latent_variable) vectors based on your transactions to describe each item, and then uses those latent vectors to compare items that are similar.
@@ -65,6 +67,7 @@ One classic example of where you might want to apply user recommendations is at 
 You might also want to apply a recommendations build type when the user is about to check out. At that point, you have the list of items the user is about to purchase, and you can provide recommendations based on the current market basket.
 
 #### Recommendations build parameters
+
 | Name | Description | Type, <br>  valid values, <br> (default value) |
 | --- | --- | --- |
 | *NumberOfModelIterations* |The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the more accurate the model, but the compute time takes longer. |Integer, <br>     10 to 50 <br>(40) |
@@ -84,6 +87,7 @@ You might also want to apply a recommendations build type when the user is about
 
 <a name="FBTBuild"></a>
 
+
 ### FBT build type
 The frequently bought together (FBT) build does an analysis that counts the number of times two or three different products co-occur together. It then sorts the sets based on a similarity function (**co-occurrences**, **Jaccard**, **lift**).
 
@@ -96,6 +100,7 @@ Currently, two items are assumed to be purchased in the same session if they occ
 FBT builds do not support cold items, because by definition they expect two items to be purchased in the same transaction. While FBT builds can return sets of items (triplets), they do not support personalized recommendations because they accept a single seed item as the input.
 
 #### FBT build parameters
+
 | Name | Description | Type,  <br> valid values, <br> (default value) |
 | --- | --- | --- |
 | *FbtSupportThreshold* |How conservative the model is. Number of co-occurrences of items to be considered for modeling. |Integer, <br> 3-50 <br> (6) |
@@ -105,6 +110,7 @@ FBT builds do not support cold items, because by definition they expect two item
 
 <a name="SelectBuild"></a>
 
+
 ## Build evaluation and selection
 This guidance might help you determine whether you should use a recommendations build or an FBT build, but it does not provide a definitive answer in cases where you could use either of them. Also, even if you know that you want to use an FBT build type, you might still want to choose **Jaccard** or **lift** as the similarity function.
 
@@ -113,6 +119,7 @@ The best way to select between two different builds is to test them in the real 
 In some cases, you may want to evaluate the model offline before you put it in production. While offline evaluation is not a replacement for online evaluation, it can serve as a metric.
 
 <a name="OfflineEvaluation"></a>
+
 
 ## Offline evaluation
 The goal of an offline evaluation is to predict precision (the number of users that will purchase one of the recommended items) and the diversity of recommendations (the number of items that are recommended).
@@ -127,6 +134,7 @@ As part of the precision and diversity metrics evaluation, the system finds a sa
 > 
 
 <a name="Precision"></a>
+
 
 ### Precision-at-k
 The following table represents the output of the precision-at-k offline evaluation.
@@ -159,6 +167,7 @@ User not considered = users in test – users considered
 
 <a name="Diversity"></a>
 
+
 ### Diversity
 Diversity metrics measure the type of items recommended. The following table represents the output of the diversity offline evaluation.
 
@@ -180,6 +189,7 @@ The unique items recommended metric shows the number of distinct items that were
 The total items recommended metric shows the number of items recommended. Some may be duplicates.
 
 <a name="ImplementingEvaluation"></a>
+
 
 ### Offline evaluation metrics
 The precision and diversity offline metrics may be useful when you select which build to use. At build time, as part of the respective FBT or recommendation build parameters:

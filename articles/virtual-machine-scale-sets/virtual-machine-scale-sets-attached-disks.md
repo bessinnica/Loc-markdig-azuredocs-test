@@ -117,7 +117,7 @@ Then select _PUT_ to apply the changes to your scale set. This example would wor
 * Create a managed image with the OS disk plus data disk (with the required data) and create a new scale set with the image. This way every new VM created has a data disk that that is provided in the definition of the scale set. Since this definition refers to an image with a data disk that has customized data, every virtual machine on the scale set has these changes.
 
 > The way to create a custom image can be found here: [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource/) 
-
+> 
 > The user needs to capture the instance 0 VM that has the required data, and then use that vhd for the image definition.
 
 ## Removing a data disk from a scale set

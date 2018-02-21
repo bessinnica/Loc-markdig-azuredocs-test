@@ -1,4 +1,4 @@
-﻿---
+---
 title: Debug applications with Azure Application Insights in Visual Studio | Microsoft Docs
 description: Web app performance analysis and diagnostics during debugging and in production.
 services: application-insights
@@ -90,12 +90,13 @@ This is desirable if you have already published a previous version of your app. 
 It's also useful if you have some [custom telemetry](app-insights-api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
 
 * *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
-  
+
   * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
   * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
 
 ## Next steps
+
 |  |  |
 | --- | --- |
 | **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio/64.png) |

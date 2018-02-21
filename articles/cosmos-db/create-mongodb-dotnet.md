@@ -28,10 +28,12 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
+
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
@@ -105,7 +107,7 @@ Now go back to the Azure portal to get your connection string information and co
 5. Finally copy your **password** value from the portal and make it the value of the **password** in your **Dal.cs** file. 
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-    
+
 ## Run the web app
 
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 

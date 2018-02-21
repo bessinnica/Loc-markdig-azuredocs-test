@@ -1,6 +1,7 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
 
+
 ## C# program example
 
 The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program performs the following actions:
@@ -44,6 +45,7 @@ This C# program is logically one .cs file. But here the program is physically di
 >
 
 <a name="cs_1_connect"/>
+
 ### C# block 1: Connect by using ADO.NET
 
 - [Next](#cs_2_createtables)
@@ -100,6 +102,7 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
+
 ### C# block 2: T-SQL to create tables
 
 - [Previous](#cs_1_connect) &nbsp; / &nbsp; [Next](#cs_3_insert)
@@ -142,6 +145,7 @@ Next is an ERD that displays the relationship between the two tables. The values
 
 
 <a name="cs_3_insert"/>
+
 ### C# block 3: T-SQL to insert data
 
 - [Previous](#cs_2_createtables) &nbsp; / &nbsp; [Next](#cs_4_updatejoin)
@@ -174,6 +178,7 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
+
 ### C# block 4: T-SQL to update-join
 
 - [Previous](#cs_3_insert) &nbsp; / &nbsp; [Next](#cs_5_deletejoin)
@@ -202,6 +207,7 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
+
 ### C# block 5: T-SQL to delete-join
 
 - [Previous](#cs_4_updatejoin) &nbsp; / &nbsp; [Next](#cs_6_selectrows)
@@ -234,6 +240,7 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
+
 ### C# block 6: T-SQL to select rows
 
 - [Previous](#cs_5_deletejoin) &nbsp; / &nbsp; [Next](#cs_6b_datareader)
@@ -262,6 +269,7 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
+
 ### C# block 6b: ExecuteReader
 
 - [Previous](#cs_6_selectrows) &nbsp; / &nbsp; [Next](#cs_7_executenonquery)
@@ -298,6 +306,7 @@ This method is designed to run the T-SQL SELECT statement that is built by the *
 
 
 <a name="cs_7_executenonquery"/>
+
 ### C# block 7: ExecuteNonQuery
 
 - [Previous](#cs_6b_datareader) &nbsp; / &nbsp; [Next](#cs_8_output)
@@ -336,6 +345,7 @@ This method is called for operations that modify the data content of tables with
 
 
 <a name="cs_8_output"/>
+
 ### C# block 8: Actual test output to the console
 
 - [Previous](#cs_7_executenonquery)

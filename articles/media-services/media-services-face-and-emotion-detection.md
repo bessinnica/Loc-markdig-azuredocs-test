@@ -22,15 +22,15 @@ ms.author: milanga;juliako;
 The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
 
 * **Face detection**
-  
+
     Face detection finds and tracks human faces within a video. Multiple faces can be detected and subsequently be tracked as they move around, with the time and location metadata returned in a JSON file. During tracking, it attempts to give a consistent ID to the same face while the person is moving around on screen, even if they are obstructed or briefly leave the frame.
-  
+
   > [!NOTE]
   > This service does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
   > 
   > 
 * **Emotion detection**
-  
+
     Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. 
 
 The **Azure Media Face Detector** MP is currently in Preview.
@@ -69,6 +69,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
     }
 
 #### Attribute descriptions
+
 | Attribute name | Description |
 | --- | --- |
 | Mode |Fast - fast processing speed, but less accurate (default).|
@@ -141,6 +142,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 
 
 #### Attribute descriptions
+
 | Attribute name | Description |
 | --- | --- |
 | Mode |Faces: Only face detection.<br/>PerFaceEmotion: Return emotion independently for each face detection.<br/>AggregateEmotion: Return average emotion values for all faces in frame. |
@@ -321,7 +323,7 @@ The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a face detection task based on a configuration file that contains the following json preset: 
-   
+
         {
             "version": "1.0"
         }

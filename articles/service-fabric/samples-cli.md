@@ -25,12 +25,13 @@ The following table includes links to [Service Fabric CLI](service-fabric-cli.md
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-| | |
-|-|-|
-| **Create cluster** ||
-| [Create a secure Linux cluster (Azure)](./scripts/cli-create-cluster.md)| Creates an Azure Service Fabric cluster. |
-| **Manage applications** ||
-| [List applications](./scripts/sfctl-list-applications.md)| List applications provisioned to a cluster.|
-| [Deploy an application](./scripts/cli-deploy-application.md)| Deploy an application to a cluster.|
-| [Remove an application](./scripts/cli-remove-application.md)| Remove an application from a cluster.|
-| [Upgrade an application](./scripts/sfctl-upgrade-application.md)| Upgrade an already deployed application.|
+|                                                                          |                                             |
+|--------------------------------------------------------------------------|---------------------------------------------|
+|                     <strong>Create cluster</strong>                      |                                             |
+| [Create a secure Linux cluster (Azure)](./scripts/cli-create-cluster.md) |  Creates an Azure Service Fabric cluster.   |
+|                   <strong>Manage applications</strong>                   |                                             |
+|        [List applications](./scripts/sfctl-list-applications.md)         | List applications provisioned to a cluster. |
+|       [Deploy an application](./scripts/cli-deploy-application.md)       |     Deploy an application to a cluster.     |
+|       [Remove an application](./scripts/cli-remove-application.md)       |    Remove an application from a cluster.    |
+|     [Upgrade an application](./scripts/sfctl-upgrade-application.md)     |  Upgrade an already deployed application.   |
+

@@ -252,7 +252,7 @@ In this example, you change the filtering so that only users that have both thei
 4. Depending on the version of Connect you use, either find the rule named **Out to AAD – User Join** or **Out to AAD - User Join SOAInAD**, and click **Edit**.
 5. In the pop-up, answer **Yes** to create a copy of the rule.
 6. On the **Description** page, change **Precedence** to an unused value, such as 50.
-7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**.
+7. Click <strong>Scoping filter</strong> on the left-hand navigation, and then click <strong>Add clause</strong>. In <strong>Attribute</strong>, select <strong>mail</strong>. In <strong>Operator</strong>, select <strong>ENDSWITH</strong>. In <strong>Value</strong>, type <strong><xref href="contoso.com" data-throw-if-not-resolved="False" data-raw-source="@contoso.com"></xref></strong>, and then click <strong>Add clause</strong>. In <strong>Attribute</strong>, select <strong>userPrincipalName</strong>. In <strong>Operator</strong>, select <strong>ENDSWITH</strong>. In <strong>Value</strong>, type <strong><xref href="contoso.com" data-throw-if-not-resolved="False" data-raw-source="@contoso.com"></xref></strong>.
 8. Click **Save**.
 9. To complete the configuration, you need to run a **Full sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 

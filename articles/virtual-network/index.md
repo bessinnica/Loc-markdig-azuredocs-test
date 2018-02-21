@@ -113,46 +113,48 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (Classic)</a></p>
-                        <p><a href="/cli/azure/network">Azure CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (Classic)</a></p>
+                        <p><a href="/cli/azure/network">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/java/api/">Java</a></p>
-                     </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/java/api/">Java</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (Classic)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (Classic)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
+
 
 

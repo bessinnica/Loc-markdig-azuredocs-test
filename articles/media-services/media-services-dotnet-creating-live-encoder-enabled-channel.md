@@ -43,16 +43,16 @@ The following steps describe tasks involved in creating common live streaming ap
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-	This step could also be performed after you create your Channel.
+    This step could also be performed after you create your Channel.
 
 2. Create and start a Channel.
 3. Retrieve the Channel ingest URL.
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
 
 4. Retrieve the Channel preview URL.
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+    Use this URL to verify that your channel is properly receiving the live stream.
 
 5. Create an asset.
 6. If you want for the asset to be dynamically encrypted during playback, do the following:
@@ -62,8 +62,8 @@ The following steps describe tasks involved in creating common live streaming ap
 10. Create a program and specify to use the asset that you created.
 11. Publish the asset associated with the program by creating an OnDemand locator.
 
-	>[!NOTE]
-	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
+    >[!NOTE]
+    >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 12. Start the program when you are ready to start streaming and archiving.
 13. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
@@ -500,5 +500,4 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

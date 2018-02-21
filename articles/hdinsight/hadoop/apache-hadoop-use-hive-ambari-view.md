@@ -71,7 +71,7 @@ To run a Hive query, use the following steps from the Hive view.
    * `DROP TABLE`: Deletes the table and the data file, in case the table already exists.
 
    * `CREATE EXTERNAL TABLE`: Creates a new "external" table in Hive.
-   External tables store only the table definition in Hive. The data is left in the original location.
+     External tables store only the table definition in Hive. The data is left in the original location.
 
    * `ROW FORMAT`: Shows how the data is formatted. In this case, the fields in each log are separated by a space.
 
@@ -82,8 +82,8 @@ To run a Hive query, use the following steps from the Hive view.
      > [!NOTE]
      > Use external tables when you expect the underlying data to be updated by an external source, such as an automated data upload process or another MapReduce operation. Dropping an external table does *not* delete the data, only the table definition.
 
-    > [!IMPORTANT]
-    > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
+     > [!IMPORTANT]
+     > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
 
 2. To start the query, use the **Execute** button below the worksheet. The button turns orange and the text changes to **Stop**.
 
@@ -106,7 +106,7 @@ To run a Hive query, use the following steps from the Hive view.
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
 
-  These statements perform the following actions:
+   These statements perform the following actions:
 
    * **CREATE TABLE IF NOT EXISTS**: Creates a table if one does not already exist. Because the **EXTERNAL** keyword is not used, an internal table is created. An internal table is stored in the Hive data warehouse and is managed completely by Hive. Unlike with external tables, dropping an internal table deletes the underlying data as well.
 

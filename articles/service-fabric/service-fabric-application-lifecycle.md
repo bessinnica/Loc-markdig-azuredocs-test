@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application lifecycle in Service Fabric | Microsoft Docs
 description: Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications.
 services: service-fabric
@@ -26,6 +26,7 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
 
 ## Service model roles
 The service model roles are:

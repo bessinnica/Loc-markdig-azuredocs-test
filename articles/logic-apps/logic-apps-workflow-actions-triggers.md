@@ -1,4 +1,4 @@
-﻿---
+---
 title: Workflow triggers and actions - Azure Logic Apps | Microsoft Docs
 description: Learn more about the kinds of triggers and actions that you can use for creating and automating workflows and processes with Azure Logic Apps
 services: logic-apps
@@ -23,7 +23,7 @@ All logic apps start with a trigger followed by actions.
 This article describes the kinds of triggers and actions 
 that you can use for creating system integrations and 
 automating business workflows or processes by building logic apps. 
-  
+
 ## Triggers overview 
 
 All logic apps start with a trigger, 
@@ -33,9 +33,9 @@ Here are the two ways that you can start  initiate a run of your workflow:
 * A polling trigger  
 * A push trigger, which calls the 
 [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows)  
-  
+
 All triggers contain these top-level elements:  
-  
+
 ```json
 "trigger-name": {
     "type": "trigger-type",
@@ -67,7 +67,7 @@ different *inputs* that defines its behavior.
 
 For information about other details, see 
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
-  
+
 ## Recurrence trigger  
 
 This trigger runs based on the recurrence and schedule that you specify 
@@ -121,16 +121,17 @@ Here's the definition for this trigger:
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| frequency | Yes | String | The unit of time for how often the trigger fires. Use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
-| interval | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
-| timeZone | No | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
-| startTime | No | String | Specify the start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
-| weekDays | No | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
-| hours | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
-| minutes | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
-|||||| 
+
+| Element name | Required |           Type           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|--------------|----------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  frequency   |   Yes    |          String          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  The unit of time for how often the trigger fires. Use only one of these values: "second", "minute", "hour", "day", "week", or "month"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|   interval   |   Yes    |         Integer          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|   timeZone   |    No    |          String          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|  startTime   |    No    |          String          | Specify the start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p><strong>Note:</strong> This start time must follow the <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" data-raw-source="[ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)">ISO 8601 date time specification</a> in <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time" data-raw-source="[UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)">UTC date time format</a>, but without a <a href="https://en.wikipedia.org/wiki/UTC_offset" data-raw-source="[UTC offset](https://en.wikipedia.org/wiki/UTC_offset)">UTC offset</a>. If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent <a href="https://en.wikipedia.org/wiki/Nautical_time" data-raw-source="[nautical time](https://en.wikipedia.org/wiki/Nautical_time)">nautical time</a>. <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see <a href="../connectors/connectors-native-recurrence.md" data-raw-source="[Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md)">Create and schedule regularly running tasks</a>. |
+|   weekDays   |    No    |  String or string array  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|    hours     |    No    | Integer or integer array |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|   minutes    |    No    | Integer or integer array |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|              |          |                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 For example, this recurrence trigger specifies that your logic app runs weekly 
 every Monday at 10:30 AM, 12:30 PM, and 2:30 PM Pacific Standard Time, 
@@ -173,7 +174,7 @@ see [Create and schedule regularly running tasks](../connectors/connectors-nativ
 This trigger serves as an endpoint that you can use for 
 calling your logic app through an HTTP request. 
 A request trigger looks like this example:  
-  
+
 ```json
 "myRequestTrigger": {
     "type": "Request",
@@ -192,7 +193,7 @@ A request trigger looks like this example:
 ```
 
 This trigger has an optional property called *schema*:
-  
+
 | Element name | Required | Type | Description |
 | ------------ | -------- | ---- | ----------- |
 | schema | No | Object | A JSON schema that validates the incoming request. Useful for helping subsequent workflow steps know which properties to reference. | 
@@ -218,10 +219,10 @@ required for constructing an HTTP call:
 | retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
 | authentication | No | Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). <p>Beyond Scheduler, there is one more supported property: `authority`. By default, this value is `https://login.windows.net` when not specified, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
 ||||| 
- 
+
 To work well with your logic app, the HTTP trigger requires the HTTP API 
 to conform with a specific pattern. The trigger recognizes these properties:  
-  
+
 | Response | Required | Description | 
 | -------- | -------- | ----------- |  
 | Status code | Yes | The status code 200 ("OK") causes a run. Any other status code doesn't cause a run. | 
@@ -230,7 +231,7 @@ to conform with a specific pattern. The trigger recognizes these properties:
 |||| 
 
 Here are some example behaviors for different types of requests:
-  
+
 | Response code | Retry after | Behavior | 
 | ------------- | ----------- | -------- | 
 | 200 | {none} | Run the workflow, then check again for more data after the defined recurrence. | 
@@ -241,7 +242,7 @@ Here are some example behaviors for different types of requests:
 |||| 
 
 Here are the HTTP trigger outputs: 
-  
+
 | Element name | Type | Description |
 | ------------ | ---- | ----------- |
 | headers | Object | The headers of the HTTP response | 
@@ -252,7 +253,7 @@ Here are the HTTP trigger outputs:
 
 The API connection trigger is similar to the HTTP trigger in its basic functionality. 
 However, the parameters for identifying the action are different. Here is an example:  
-  
+
 ```json
 "myDailyReportTrigger": {
     "type": "ApiConnection",
@@ -285,7 +286,7 @@ However, the parameters for identifying the action are different. Here is an exa
 ||||| 
 
 For the `host` object, here are the properties:  
-  
+
 | Element name | Required | Description | 
 | ------------ | -------- | ----------- | 
 | api runtimeUrl | Yes | The endpoint for the managed API | 
@@ -293,7 +294,7 @@ For the `host` object, here are the properties:
 |||| 
 
 Here are the outputs for an API Connection trigger:
-  
+
 | Element name | Type | Description |
 | ------------ | ---- | ----------- |
 | headers | Object | The headers of the HTTP response | 
@@ -342,7 +343,7 @@ Here's an example of what an HTTPWebhook trigger might look like:
 Many of these sections are optional, and the HTTPWebhook trigger 
 behavior depends on the sections that you provide or omit. 
 Here are the properties for the HTTPWebhook trigger:
-  
+
 | Element name | Required | Description | 
 | ------------ | -------- | ----------- |  
 | subscribe | No | Specifies the outgoing request to call when the trigger is created and performs the initial registration. | 
@@ -357,22 +358,22 @@ Here is more information about the `subscribe` and `unsubscribe` actions:
 This outgoing call starts with the same parameters as standard HTTP actions. 
 This call happens when the workflow changes in any way, 
 for example, when the credentials are rolled, or the trigger's input parameters change. 
-  
+
   To support this call, the `@listCallbackUrl()` function returns a unique URL 
   for this specific trigger in the workflow. This URL represents the unique 
   identifier for the endpoints that use the service's REST API.
-  
+
 * `unsubscribe` is automatically called when an operation renders this trigger invalid, 
 including these operations:
 
   * Deleting or disabling the trigger. 
   * Deleting or disabling the workflow. 
   * Deleting or disabling the subscription. 
-  
+
   The parameters for this function are the same as the HTTP trigger.
 
 Here are the outputs from the HTTPWebhook trigger and are the contents of the incoming request:
-  
+
 | Element name | Type | Description |
 | ------------ | ---- | ----------- |
 | headers | Object | The headers of the HTTP response | 
@@ -403,7 +404,7 @@ For example:
 In this case, the report only triggers while the workflow's `sendReports` parameter is set to true. 
 Finally, conditions can reference the status code of the trigger. For example, 
 you can start a workflow only when your website returns a status code 500, for example:
-  
+
 ``` json
 "conditions": [ 
     {  
@@ -411,22 +412,22 @@ you can start a workflow only when your website returns a status code 500, for e
     }  
 ]  
 ```  
-  
+
 > [!NOTE]  
 > When any expression references a trigger's status code in any way, 
 > the default behavior, which is triggered only on 200 "OK", is replaced. 
 > For example, if you want to trigger on both status code 200 and status code 201, 
 > you have to include: `@or(equals(triggers().code, 200),equals(triggers().code,201))` as your condition.
-  
+
 ## Start multiple runs for a request
 
 To kick off multiple runs for a single request, `splitOn` is useful, for example, 
 when you want to poll an endpoint that can have multiple new items between polling intervals.
-  
+
 With `splitOn`, you specify the property inside the response payload that contains the array of items, 
 each of which you want to use to start a run of the trigger. For example, 
 imagine you have an API that returns this response:  
-  
+
 ```json
 {
     "status": "Succeeded",
@@ -442,7 +443,7 @@ imagine you have an API that returns this response:
     ]
 }
 ```
-  
+
 Your logic app only needs the `rows` content, 
 so you can construct your trigger like this example:  
 
@@ -486,7 +487,7 @@ and `mySecondRow` for the second run. The trigger outputs look like this example
     }
 }
 ```
-  
+
 ## Single run instance
 
 You can configure recurrence triggers so that they fire only when all active runs have completed. 
@@ -544,7 +545,7 @@ Collection actions can contain many other actions within themselves.
 HTTP actions call a specified endpoint and check the 
 response to determine whether the workflow should run. 
 For example:
-  
+
 ```json
 "myLatestNewsAction": {
     "type": "Http",
@@ -573,7 +574,7 @@ required for constructing an HTTP call:
 This example HTTP action retries fetching the latest news two times 
 if there are intermittent failures for a total of three executions and 
 a 30-second delay between each attempt:
-  
+
 ```json
 "myLatestNewsAction": {
     "type": "Http",
@@ -602,12 +603,12 @@ By default, all HTTP-based actions support the standard asynchronous operation p
 So if the remote server indicates that the request is accepted for processing 
 with a "202 ACCEPTED" response, the Logic Apps engine keeps polling the URL specified 
 in the response's location header until reaching a terminal state, which is a non-202 response.
-  
+
 To disable the asynchronous behavior previously described, 
 set `operationOptions` to `DisableAsyncPattern` in the action inputs. 
 In this case, the action's output is based on the initial 202 response from the server. 
 For example:
-  
+
 ```json
 "invokeLongRunningOperationAction": {
     "type": "Http",
@@ -619,6 +620,7 @@ For example:
 }
 ```
 <a name="asynchronous-limits"></a>
+
 
 #### Asynchronous limits
 
@@ -637,7 +639,7 @@ You can specify limits as shown here:
     }
 }
 ```
-  
+
 ## APIConnection action
 
 The APIConnection action references a Microsoft-managed connector. 
@@ -658,7 +660,7 @@ Here is an example APIConnection action:
         },
         "method": "POST",
         "body": {
-            "Subject": "New tweet from @{triggerBody()['TweetedBy']}",
+            "Subject": "New tweet from @{triggerBody()['TweetedBy']}",
             "Body": "@{triggerBody()['TweetText']}",
             "To": "me@example.com"
         },
@@ -731,7 +733,7 @@ action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
 
 This action contains the entire response payload from an HTTP request 
 and includes a `statusCode`, `body`, and `headers`:
-  
+
 ```json
 "myResponseAction": {
     "type": "response",
@@ -751,15 +753,15 @@ and includes a `statusCode`, `body`, and `headers`:
 ```
 
 The response action has special restrictions that don't apply to other actions, specifically:  
-  
+
 * You can't have response actions in parallel branches within a logic 
 app definition because the incoming request requires a deterministic response.
-  
+
 * If the workflow reaches a response action after the 
 incoming request already received a response, 
 the response action is considered failed or in conflict. 
 As a result, the logic app run is marked `Failed`.
-  
+
 * A workflow with response actions can't use the `splitOn` command 
 in the trigger definition because the call creates multiple runs. 
 As a result, check for this case when the workflow operation is PUT, 
@@ -784,7 +786,7 @@ for example:
             "x-ms-date": "@utcnow()"
         },
         "method": "POST",
-    	"body": {
+        "body": {
             "contentFieldOne": "value100",
             "anotherField": 10.001
         }
@@ -792,6 +794,7 @@ for example:
     "runAfter": {}
 }
 ```
+
 | Element name | Required | Type | Description | 
 | ------------ | -------- | ---- | ----------- |  
 | function id | Yes | String | The resource ID for the Azure function that you want to call. | 
@@ -817,7 +820,7 @@ which causes the logic app to retrieve and cache the trigger URL again.
 
 This action suspends workflow execution for the specified interval. 
 This example causes the workflow to wait 15 minutes:
-  
+
 ```json
 "waitForFifteenMinutesAction": {
     "type": "Wait",
@@ -829,10 +832,10 @@ This example causes the workflow to wait 15 minutes:
     }
 }
 ```
-  
+
 Alternatively, to wait until a specific moment in time, 
 you can use this example:
-  
+
 ```json
 "waitUntilOctoberAction": {
     "type": "Wait",
@@ -843,11 +846,11 @@ you can use this example:
     }
 }
 ```
-  
+
 > [!NOTE]  
 > The wait duration can be either specified 
 > with the `until` object or `interval` object, but not both.
-  
+
 | Element name | Required | Type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | until | No | Object | The wait duration based on a point in time | 
@@ -1085,7 +1088,7 @@ You can have actions in a collection `runAfter` only with other actions in the s
 
 This action lets you evaluate a condition and execute a branch 
 based on whether the expression evaluates to `true`. 
-  
+
 ```json
 "myCondition": {
     "type": "If",
@@ -1131,7 +1134,7 @@ Actions in either the `actions` or `else` objects evaluate to:
 * `Skipped` when the respective branch doesn't run
 
 Here are examples that show how conditions can use expressions in an action:
-  
+
 | JSON value | Result | 
 | ---------- | -------| 
 | `"expression": "@parameters('hasSpecialAction')"` | Any value that evaluates to true causes this condition to pass. Supports only Boolean expressions. To convert other types to Boolean, use these functions: `empty` and `equals` | 

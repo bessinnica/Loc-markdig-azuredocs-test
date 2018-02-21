@@ -32,7 +32,7 @@ One of the benefits of using Azure Machine Learning Studio for creating machine 
 
 In the experiment we're developing in this walkthrough, we'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 
-There are various models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the [Two-Class Support Vector Machine][two-class-support-vector-machine] (SVM) and the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] modules.    
+There are various models we could choose from. To see the models available, expand the <strong>Machine Learning</strong> node in the module palette, and then expand <strong>Initialize Model</strong> and the nodes beneath it. For the purposes of this experiment, we'll select the [Two-Class Support Vector Machine][two-class-support-vector-machine] (SVM) and the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] modules.    
 
 > [!TIP]
 > To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).

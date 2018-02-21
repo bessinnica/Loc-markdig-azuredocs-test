@@ -44,7 +44,7 @@ The following environment variables may be set when you install Java and the JDK
 
 * `JAVA_HOME` - should point to the directory where the JDK is installed.
 * `PATH` - should contain the following paths:
-  
+
     * `JAVA_HOME` (or the equivalent path).
     * `JAVA_HOME\bin` (or the equivalent path).
     * The directory where Maven is installed.
@@ -61,36 +61,37 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 While you can create an Azure virtual network, Kafka, and Storm clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Storm clusters to your Azure subscription.
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
-   
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
+
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**. It creates the following resources:
-    
+
     * Azure resource group
     * Azure Virtual Network
     * Azure Storage account
     * Kafka on HDInsight version 3.6 (three worker nodes)
     * Storm on HDInsight version 3.6 (three worker nodes)
 
-  > [!WARNING]
-  > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+   > [!WARNING]
+   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
 2. Use the following guidance to populate the entries on the **Custom deployment** section:
-   
+
     ![HDInsight custom deployment](./media/hdinsight-apache-storm-with-kafka/parameters.png)
 
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
-   
+
     * **Location**: Select a location geographically close to you.
 
     * **Base Cluster Name**: This value is used as the base name for the Storm and Kafka clusters. For example, entering **hdi** creates a Storm cluster named **storm-hdi** and a Kafka cluster named **kafka-hdi**.
-   
+
     * **Cluster Login User Name**: The admin user name for the Storm and Kafka clusters.
-   
+
     * **Cluster Login Password**: The admin user password for the Storm and Kafka clusters.
-    
+
     * **SSH User Name**: The SSH user to create for the Storm and Kafka clusters.
-    
+
     * **SSH Password**: The password for the SSH user for the Storm and Kafka clusters.
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
@@ -115,7 +116,7 @@ This project contains two topologies:
 * **KafkaReader**: Defined by the **reader.yaml** file, this topology reads data from Kafka using the KafkaSpout provided with Apache Storm, then logs the data to stdout.
 
     This topology uses the Storm HdfsBolt to write data to default storage for the Storm cluster.
-### Flux
+  ### Flux
 
 The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
 
@@ -135,17 +136,17 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
 2. From the **hdinsight-storm-java-kafka** directory, use the following command to compile the project and create a package for deployment:
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     The package process creates a file named `KafkaTopology-1.0-SNAPSHOT.jar` in the `target` directory.
 
 3. Use the following commands to copy the package to your Storm on HDInsight cluster. Replace **USERNAME** with the SSH user name for the cluster. Replace **BASENAME** with the base name you used when creating the cluster.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     When prompted, enter the password you used when creating the clusters.
 
@@ -223,12 +224,12 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
 1. Use the following to connect to the Storm cluster using SSH. Replace **USERNAME** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
 
-  ```bash
-  ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
-  ```
+   ```bash
+   ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
+   ```
 
     When prompted, enter the password you used when creating the clusters.
-   
+
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. From the SSH connection, use the following command to create the Kafka topic used by the topology:
@@ -239,7 +240,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
     Replace `$KAFKAZKHOSTS` with the Zookeeper host information you retrieved in the previous section.
 
-2. From the SSH connection to the Storm cluster, use the following command to start the writer topology:
+3. From the SSH connection to the Storm cluster, use the following command to start the writer topology:
 
     ```bash
     storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml --filter dev.properties
@@ -255,11 +256,11 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
     * `--filter`: Populate entries in the `writer.yaml` topology using values in the `dev.properties` file. For example, the value of the `kafka.topic` entry in the file is used to replace the `${kafka.topic}` entry in the topology definition.
 
-5. Once the topology has started, use the following command to verify that it is writing data to the Kafka topic:
+4. Once the topology has started, use the following command to verify that it is writing data to the Kafka topic:
 
-  ```bash
-  /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtopic
-  ```
+   ```bash
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtopic
+   ```
 
     Replace `$KAFKAZKHOSTS` with the Zookeeper host information you retrieved in the previous section.
 
@@ -286,9 +287,9 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
 1. From the SSH session to the Storm cluster, use the following command to start the reader topology:
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. Once the topology starts, open the Storm UI. This web UI is located at `https://storm-BASENAME.azurehdinsight.net/stormui`. Replace __BASENAME__ with the base name used when the cluster was created. 
 

@@ -24,8 +24,8 @@ Learn how to set up an Azure HDInsight cluster with standalone Active Directory 
 
 Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTTP users account, and an SSH user account.  The multi-user authentication can be achieved using:
 
--	A standalone Active Directory running on Azure IaaS.
--	Azure Active Directory.
+-   A standalone Active Directory running on Azure IaaS.
+-   Azure Active Directory.
 
 Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. This article cover two approaches for this configuration:
 
@@ -46,34 +46,37 @@ Using a standalone Active Directory running on Azure IaaS is covered in this art
 In this section, you open an Azure resource management template from the Azure portal. The template is used to create a standalone Active Directory, and an HDInsight cluster. Currently you can create domain-joined Hadoop cluster, Spark cluster, and Interactive Query cluster.
 
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
-   
+
     To create a Spark cluster:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fspark%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
 
     To create an Interactive Query cluster:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Finteractivequery%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
+
     To create a Hadoop cluster:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fhadoop%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
+
 2. Enter the values, select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. Hover your mouse cursor over the explanation sign next to the fields to see the descriptions. Most of the values have been populated. You can use either the default values, or your own values.
 
-    - **Resource group**: Enter an Azure resource group name.
-    - **Location**: Choose a location that is close to you.
-    - **New Storage Account Name**: Enter an Azure Storage account name. This new storage account is used by the PDC, the BDC, and the HDInsight cluster as the default storage account.
-    - **Admin Username**: Enter the domain administrator username.
-    - **Admin Password**: Enter the domain administrator password.
-    - **Domain Name**: The default name is *contoso.com*.  If you change the domain name, you must also update the **Secure LDAP Certificate** field and the **Organizational Unit DN** field.
-    - **DNS Prefix**: Enter the DNS prefix for the public IP address used by the Load Balancer.
-    - **Cluster Name**: Enter the HDInsight cluster name.
-    - **Cluster Type**: Don't change this value. If you want to change the cluster type, use the specific template in the last step.
-    - **Secure Ldap Certificate Password**: Use the default value unless you change the Secure LDAP certificate field.
-    Some of the values are hard-coded in the template, for example, the worker node instance count is two.  To change the hard-coded values, click **Edit template**.
+   - **Resource group**: Enter an Azure resource group name.
+   - **Location**: Choose a location that is close to you.
+   - **New Storage Account Name**: Enter an Azure Storage account name. This new storage account is used by the PDC, the BDC, and the HDInsight cluster as the default storage account.
+   - **Admin Username**: Enter the domain administrator username.
+   - **Admin Password**: Enter the domain administrator password.
+   - **Domain Name**: The default name is *contoso.com*.  If you change the domain name, you must also update the **Secure LDAP Certificate** field and the **Organizational Unit DN** field.
+   - **DNS Prefix**: Enter the DNS prefix for the public IP address used by the Load Balancer.
+   - **Cluster Name**: Enter the HDInsight cluster name.
+   - **Cluster Type**: Don't change this value. If you want to change the cluster type, use the specific template in the last step.
+   - **Secure Ldap Certificate Password**: Use the default value unless you change the Secure LDAP certificate field.
+     Some of the values are hard-coded in the template, for example, the worker node instance count is two.  To change the hard-coded values, click **Edit template**.
 
-    ![HDInsight domain-joined cluster edit template](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+     ![HDInsight domain-joined cluster edit template](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
 
 After the template is completed successfully, there are 23 resources created in the resource group.
 
@@ -197,7 +200,7 @@ In this section, you use the Azure portal to add an HDInsight cluster into the v
     - Domain settings:
 
         ![HDInsight domain joined advanced settings domain](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
-        
+
         - Domain name: Enter the domain name you used in [Create an Active Directory](#create-an-active-directory).
         - Domain user name: Enter the AD administrator user name you used in [Create an Active Directory](#create-an-active-directory).
         - Organization Unit: See the screenshot for an example.

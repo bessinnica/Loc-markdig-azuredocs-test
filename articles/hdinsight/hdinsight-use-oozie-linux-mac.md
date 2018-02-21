@@ -118,7 +118,7 @@ Use the following steps to create a Hive query language (HiveQL) script that def
     nano useooziewf.hql
     ```
 
-3. After the GNU nano editor opens, use the following query as the contents of the file:
+2. After the GNU nano editor opens, use the following query as the contents of the file:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -129,15 +129,15 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
     There are two variables used in the script:
 
-    * `${hiveTableName}`: Contains the name of the table to be created.
+   * `${hiveTableName}`: Contains the name of the table to be created.
 
-    * `${hiveDataFolder}`: Contains the location to store the data files for the table.
+   * `${hiveDataFolder}`: Contains the location to store the data files for the table.
 
-    The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
+     The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
 
-4. To exit the editor, select Ctrl+X. When prompted, select `Y` to save the file, enter `useooziewf.hql` as the file name, and then select **Enter**.
+3. To exit the editor, select Ctrl+X. When prompted, select `Y` to save the file, enter `useooziewf.hql` as the file name, and then select **Enter**.
 
-5. Use the following commands to copy `useooziewf.hql` to `wasb:///tutorials/useoozie/useooziewf.hql`:
+4. Use the following commands to copy `useooziewf.hql` to `wasb:///tutorials/useoozie/useooziewf.hql`:
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql

@@ -80,7 +80,7 @@ Open the [Azure portal](https://portal.azure.com/) and sign in with your Azure a
 
 ### Launch Buy domains
 In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 In the **Custom domains** page, click **Buy Domain**.
@@ -95,7 +95,7 @@ In the **Custom domains** page, click **Buy Domain**.
 ### Configure the domain purchase
 
 In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains are shown just below the text box. Select one or more domains you want to buy.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -104,7 +104,7 @@ In the **App Service Domain** page, in the **Search for domain** box, type the d
 >
 
 Click the **Contact Information** and fill out the domain's contact information form. When finished, click **OK** to return to the App Service Domain page.
-   
+
 It is important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to purchase domains. 
 
 Next, select the desired options for your domain. See the following table for explanations:
@@ -139,7 +139,7 @@ You also see the selected hostnames in the **Custom domains** page, in the **Cus
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www.kontoso.net_.
+To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to <em>kontoso.net</em> and <em>www.kontoso.net</em>.
 
 ## Assign hostnames to web app
 
@@ -211,6 +211,7 @@ From the left navigation of the domain, select **Domain renewal**. To stop renew
 To manually renew your domain, select **Renew domain**. However, this button is not active until 90 days before the domain's expiration.
 
 <a name="custom"></a>
+
 
 ## Manage custom DNS records
 

@@ -42,31 +42,32 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 <a id="#create-the-simulated-device-app"></a>
+
 ## Create the simulated device app
 In this section, you create a .NET console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
 
 1. In Visual Studio, create a new Visual C# Windows Classic Desktop project by using the **Console Application** project template. Name the project **SimulateDeviceConfiguration**.
-   
+
     ![New Visual C# Windows Classic device app][img-createdeviceapp]
 
 1. In Solution Explorer, right-click the **SimulateDeviceConfiguration** project, and then click **Manage NuGet Packages...**.
 1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
-   
+
     ![NuGet Package Manager window Client app][img-clientnuget]
 1. Add the following `using` statements at the top of the **Program.cs** file:
-   
+
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using Newtonsoft.Json;
 
 1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
-   
+
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
         static TwinCollection reportedProperties = new TwinCollection();
 
 1. Add the following method to the **Program** class:
- 
+
         public static void InitClient()
         {
             try
@@ -90,7 +91,7 @@ In this section, you create a .NET console app that connects to your hub as **my
             {
                 Console.WriteLine("Report initial telemetry config:");
                 TwinCollection telemetryConfig = new TwinCollection();
-                
+
                 telemetryConfig["configId"] = "0";
                 telemetryConfig["sendFrequency"] = "24h";
                 reportedProperties["telemetryConfig"] = telemetryConfig;
@@ -223,23 +224,23 @@ In this section, you create a .NET console app that connects to your hub as **my
 In this section, you will create a .NET console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
-   
+
     ![New Visual C# Windows Classic Desktop project][img-createapp]
-1. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage NuGet Packages...**.
-1. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
-   
+2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage NuGet Packages...**.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
+
     ![NuGet Package Manager window][img-servicenuget]
-1. Add the following `using` statements at the top of the **Program.cs** file:
-   
+4. Add the following `using` statements at the top of the **Program.cs** file:
+
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
-   
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
+
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-1. Add the following method to the **Program** class:
-   
+6. Add the following method to the **Program** class:
+
         static private async Task SetDesiredConfigurationAndQuery()
         {
             var twin = await registryManager.GetTwinAsync("myDeviceId");
@@ -253,10 +254,10 @@ In this section, you will create a .NET console app that updates the *desired pr
                         }
                     }
                 };
-   
+
             await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
             Console.WriteLine("Updated desired configuration");
-   
+
             while (true)
             {
                 var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
@@ -271,25 +272,25 @@ In this section, you will create a .NET console app that updates the *desired pr
                 Thread.Sleep(10000);
             }
         }
-   
+
     The **Registry** object exposes all the methods required to interact with device twins from the service. This code initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and then updates its desired properties with a new telemetry configuration object.
     After that, it queries the device twins stored in the IoT hub every 10 seconds, and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
-   
+
    > [!IMPORTANT]
    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events, use [twin notifications][lnk-twin-notifications].
    > 
    > 
-1. Finally, add the following lines to the **Main** method:
-   
+7. Finally, add the following lines to the **Main** method:
+
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         SetDesiredConfigurationAndQuery();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
-1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
-1. With **SimulateDeviceConfiguration** device app running, run the service app from Visual Studio using **F5**. You should see the reported configuration change from **Pending** to **Success** with the new active send frequency of five minutes instead of 24 hours.
+8. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
+9. With **SimulateDeviceConfiguration** device app running, run the service app from Visual Studio using **F5**. You should see the reported configuration change from **Pending** to **Success** with the new active send frequency of five minutes instead of 24 hours.
 
- ![Device configured successfully][img-deviceconfigured]
-   
+   ![Device configured successfully][img-deviceconfigured]
+
    > [!IMPORTANT]
    > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **Registry** class.
    > 

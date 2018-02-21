@@ -47,8 +47,7 @@ The credential is used by the elastic query to connect to your remote databases.
     [;]
 
 > [!NOTE]
-> Ensure that the `<username>` does not include any **"@servername"** suffix. 
->
+> Ensure that the `<username>` does not include any <strong>"<xref href="servername" data-throw-if-not-resolved="False" data-raw-source="@servername"></xref>"</strong> suffix. 
 
 ## Create external data sources
 Syntax:

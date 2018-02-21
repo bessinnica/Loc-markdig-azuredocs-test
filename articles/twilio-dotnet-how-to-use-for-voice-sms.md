@@ -78,6 +78,7 @@ For information on creating an initial Azure project, see [Creating an Azure pro
 Twilio provides a set of .NET helper libraries that wrap various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.
 
 Twilio provides five libraries for .NET developers:
+
 Library|Description
 ---|---
 Twilio.API|The core Twilio library that wraps the Twilio REST API in a friendly .NET library. This library is available for .NET, Silverlight, and Windows Phone 7.
@@ -149,15 +150,15 @@ The following screenshot shows how to send an SMS message using the **MessageRes
     try
     {
         // Send an SMS message.
-    	var message = MessageResource.Create(
-    	    to: new PhoneNumber("+12069419717"),
-    	    from: new PhoneNumber("+14155992671"),
-    	    body: "This is my SMS message.");
+        var message = MessageResource.Create(
+            to: new PhoneNumber("+12069419717"),
+            from: new PhoneNumber("+14155992671"),
+            body: "This is my SMS message.");
     }
     catch (TwilioException ex)
     {
-    	// An exception occurred making the REST call
-    	Console.WriteLine(ex.Message);
+        // An exception occurred making the REST call
+        Console.WriteLine(ex.Message);
     }
 
 ## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own website
@@ -186,7 +187,7 @@ The following ASP.NET Handler crafts a TwiML response that says **Hello World** 
             {
                 const string twiMLResponse =
                     "<Response><Say>Hello World.</Say></Response>";
-                
+
                 context.Response.Clear();
                 context.Response.ContentType = "text/xml";
                 context.Response.ContentEncoding = Encoding.UTF8;
@@ -203,7 +204,7 @@ The following ASP.NET Handler crafts a TwiML response that says **Hello World** 
             }
         }
     }
-    
+
 As you can see from the example above, the TwiML response is simply an XML document. The Twilio.TwiML library contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **VoiceResponse** class.
 
     using System.Web;

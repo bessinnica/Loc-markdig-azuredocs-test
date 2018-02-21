@@ -67,7 +67,7 @@ Setting up the source environment involves two main activities:
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
-	![Set up source](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
+    ![Set up source](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 #### Run Azure Site Recovery Unified Setup
@@ -91,10 +91,8 @@ Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSph
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
-
 ## Common issues
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
 
 ## Next steps
 [Set up your target environment](./site-recovery-prepare-target-vmware-to-azure.md) in Azure.

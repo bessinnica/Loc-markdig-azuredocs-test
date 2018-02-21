@@ -85,6 +85,7 @@ Use the following target options when defining Azure Cosmos DB Table API as the 
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
+
 ### Sample command: Source is Azure Table storage
 
 Here is a command-line sample showing how to import from Azure Table storage to Table API:
@@ -93,6 +94,7 @@ Here is a command-line sample showing how to import from Azure Table storage to 
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
+
 ### Sample command: Source is Azure Cosmos DB Table API (preview)
 
 Here is a command-line sample to import from Table API preview to Table API GA:

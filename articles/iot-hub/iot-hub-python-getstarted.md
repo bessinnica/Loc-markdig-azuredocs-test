@@ -67,15 +67,16 @@ This section lists the steps to create a Python console app, that creates a devi
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceStatus, IoTHubError
     ```
-2. Add the following code, replacing the placeholder for `[IoTHub Connection String]` with the connection string for the IoT hub you created in the previous section. You can use any name as the `DEVICE_ID`.
-   
+4. Add the following code, replacing the placeholder for `[IoTHub Connection String]` with the connection string for the IoT hub you created in the previous section. You can use any name as the `DEVICE_ID`.
+
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-3. Add the following function to print some of the device information.
+
+5. Add the following function to print some of the device information.
 
     ```python
     def print_device_info(title, iothub_device):
@@ -91,7 +92,7 @@ This section lists the steps to create a Python console app, that creates a devi
         print ( "iothubDevice.authMethod                  = {0}".format(iothub_device.authMethod) )
         print ( "" )
     ```
-3. Add the following function to create the device identification using the Registry Manager. 
+6. Add the following function to create the device identification using the Registry Manager. 
 
     ```python
     def iothub_createdevice():
@@ -107,7 +108,7 @@ This section lists the steps to create a Python console app, that creates a devi
         except KeyboardInterrupt:
             print ( "iothub_createdevice stopped" )
     ```
-4. Finally, add the main function as follows and save the file.
+7. Finally, add the main function as follows and save the file.
 
     ```python
     if __name__ == '__main__':
@@ -120,12 +121,12 @@ This section lists the steps to create a Python console app, that creates a devi
 
         iothub_createdevice()
     ```
-5. On the command prompt, run the **CreateDeviceIdentity.py** as follows:
+8. On the command prompt, run the **CreateDeviceIdentity.py** as follows:
 
     ```python
     python CreateDeviceIdentity.py
     ```
-6. You should see the simulated device getting created. Note down the **deviceId** and the **primaryKey** of this device. You need these values later when you create an application that connects to IoT Hub as a device.
+9. You should see the simulated device getting created. Note down the **deviceId** and the **primaryKey** of this device. You need these values later when you create an application that connects to IoT Hub as a device.
 
     ![Create device success][1]
 
@@ -271,7 +272,7 @@ To receive telemetry messages from your device, you need to use an [Event Hubs][
 3. Open a new command prompt and navigate to the directory containing the **SimulatedDevice.py** file.
 
 4. Run the **SimulatedDevice.py** file, which periodically sends telemetry data to your IoT hub. 
-   
+
     ```
     python SimulatedDevice.py
     ```

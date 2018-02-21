@@ -47,6 +47,7 @@ On both POC1 and POC2, prepare an offer so that a user can subscribe to the offe
 The following table summarizes the network configuration for both Azure Stack Development Kit environments. Use the procedure that appears after the table to add the External BGPNAT address that is specific for your network.
 
 **Network configuration table**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |Virtual network name     |VNET-01|VNET-02 |
@@ -111,7 +112,7 @@ you sign in.
 2. On the **Settings** blade, select **Subnets**.
 3. To add a gateway subnet to
    the virtual network, select **Gateway Subnet**.
-   
+
     ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
 4. By default, the subnet name is set to **GatewaySubnet**.
@@ -365,7 +366,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 2. In the left navigation bar, select **Compute**.
 3. In the list of VMs, find **VM01** that you created previously, and then select it.
 4. On the blade for the virtual machine, click **Connect**, and then open the VM01.rdp file.
-   
+
      ![Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 5. Sign in with the account that you configured when you created the virtual machine.
 6. Open an elevated **Windows PowerShell** window.
@@ -405,7 +406,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
    the tunnel. To do this, you ping the DIP that you recorded from VM01.
    In the example environment, this is **10.0.10.4**, but be sure to ping the address you
    noted in your lab. You should see a result that looks like the following:
-   
+
     ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. A reply from the remote virtual machine indicates a successful test! You can
    close the virtual machine window. To test your connection, you can try other kinds of
@@ -422,5 +423,5 @@ went through the VPN connection.
 2. Go to **All resources**, and then select the **POC2-POC1** connection. **Connections** appears.
 4. On the **Connection** blade, the statistics for **Data in** and
    **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
-   
+
     ![Data in and out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

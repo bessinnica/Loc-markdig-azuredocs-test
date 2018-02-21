@@ -1,5 +1,5 @@
 ---
-title: Secure a web API - ASP.NET - Azure Active Directory B2C | Microsoft Docs
+title: Secure a web API - ASP.NET - Azure Active Directory B2C | Microsoft Docs
 description: How to build a .NET Web API by using Azure Active Directory B2C, secured using OAuth 2.0 access tokens for authentication.
 services: active-directory-b2c
 documentationcenter: .net

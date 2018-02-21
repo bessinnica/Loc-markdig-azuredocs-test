@@ -48,12 +48,12 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
 3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer`** field parameters. 
 
-3. Adding an analyzer to a field definition incurs a write operation on the index. If you add an **analyzer** to an existing index, note the following steps:
- 
- | Scenario | Impact | Steps |
- |----------|--------|-------|
- | Add a new field | minimal | If the field doesn't exist yet in the schema, there is no field revision to make because the field does not yet have a physical presence in your index. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
- | Add an analyzer to an existing indexed field. | rebuild | The inverted index for that field must be recreated from the ground up and the content for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
+4. Adding an analyzer to a field definition incurs a write operation on the index. If you add an **analyzer** to an existing index, note the following steps:
+
+   | Scenario | Impact | Steps |
+   |----------|--------|-------|
+   | Add a new field | minimal | If the field doesn't exist yet in the schema, there is no field revision to make because the field does not yet have a physical presence in your index. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
+   | Add an analyzer to an existing indexed field. | rebuild | The inverted index for that field must be recreated from the ground up and the content for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
 
 ## Tips and best practices
 
@@ -82,6 +82,7 @@ The [Search Analyzer Demo](http://alice.unearth.ai/) is a third-party demo app s
 The examples below show analyzer definitions for a few key scenarios.
 
 <a name="Example1"></a>
+
 ### Example 1: Custom options
 
 This example illustrates an analyzer definition with custom options. Custom options for char filters, tokenizers, and token filters are specified separately as named constructs, and then referenced in the analyzer definition. Predefined elements are used as-is and simply referenced by name.
@@ -149,6 +150,7 @@ Walking through this example:
 ~~~~
 
 <a name="Example2"></a>
+
 ### Example 2: Override the default analyzer
 
 The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you are not setting custom options, you only need to specify it by name in the field definition.
@@ -181,6 +183,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 ~~~~
 
 <a name="Example3"></a>
+
 ### Example 3: Different analyzers for indexing and search operations
 
 The APIs include additional index attributes for specifying different analyzers for indexing and search. The `searchAnalyzer` and `indexAnalyzer` attributes must be specified as a pair, replacing the single `analyzer` attribute.
@@ -208,6 +211,7 @@ The APIs include additional index attributes for specifying different analyzers 
 ~~~~
 
 <a name="Example4"></a>
+
 ### Example 4: Language analyzer
 
 Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer cannot have different analyzers for indexing and search.
@@ -258,7 +262,7 @@ Fields containing strings in different languages can use a language analyzer, wh
  [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
  [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
- 
+
  [Handle search results](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 
 <!--Image references-->

@@ -33,6 +33,7 @@ Testability actions are classified into two major buckets:
 For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults. Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow. This tests  the recovery path once the service replica is restored by Service Fabric. This will help test data consistency and whether the service state is maintained correctly after failures. The other set of failures (the graceful failures) test that the service correctly reacts to replicas being moved around by Service Fabric. This tests handling of cancellation in the RunAsync method. The service needs to check for the cancellation token being set, correctly save its state, and exit the RunAsync method.
 
 ## Testability actions list
+
 | Action | Description | Managed API | PowerShell cmdlet | Graceful/ungraceful faults |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Removes all the test state from the cluster in case of a bad shutdown of the test driver. |CleanTestStateAsync |Remove-ServiceFabricTestState |Not applicable |

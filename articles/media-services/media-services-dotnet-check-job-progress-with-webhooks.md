@@ -23,13 +23,13 @@ When you run jobs, you often require a way to track job progress. You can monito
 This article shows how to
 
 *  Define an Azure Function that is customized to respond to webhooks. 
-	
-	In this case, the webhook is triggered by Media Services when your encoding job changes status. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
-	
-	>[!NOTE]
-	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
-	>
-	
+
+    In this case, the webhook is triggered by Media Services when your encoding job changes status. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
+
+    >[!NOTE]
+    >Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
+    >
+
 * Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. You will find an example that adds a webhook to your encoding task at the end of the article.  
 
 You can find definitions of various Media Services .NET Azure Functions (including the one shown in this article) [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
@@ -53,10 +53,11 @@ When developing Media Services functions, it is handy to add environment variabl
 
 The [application settings](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) section defines parameters that are used in the webhook defined in this article. Also add the following parameters to the app settings. 
 
-|Name|Definition|Example| 
-|---|---|---|
-|SigningKey |A signing key.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | A webhook endpoint address. Once your webhook function is created, you can copy the URL from the **Get function URL** link. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+
+|      Name       |                                                                Definition                                                                |                                                                  Example                                                                  |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|   SigningKey    |                                                              A signing key.                                                              |                                                   j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt                                                    |
+| WebHookEndpoint | A webhook endpoint address. Once your webhook function is created, you can copy the URL from the <strong>Get function URL</strong> link. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==. |
 
 ## Create a function
 
@@ -114,7 +115,7 @@ The project.json file contains dependencies.
    }
 }
 ```
-	
+
 #### run.csx
 
 The code in this section shows an implementation of an Azure Function that is a webhook. In this sample, the function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes.
@@ -346,24 +347,24 @@ Save and run your function.
 
 Once the webhook is triggered, the example above produces the following output, your values will vary.
 
-	C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
-	Request Body = {
-	  "MessageVersion": "1.1",
-	  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
-	  "EventType": 4,
-	  "TimeStamp": "2017-02-16T03:59:53.3041122Z",
-	  "Properties": {
-	    "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
-	    "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
-	    "NewState": "Finished",
-	    "OldState": "Processing",
-	    "AccountName": "mediapkeewmg5c3peq",
-	    "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
-	    "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
-	  }
-	}
-	
-	URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+    C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
+    Request Body = {
+      "MessageVersion": "1.1",
+      "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
+      "EventType": 4,
+      "TimeStamp": "2017-02-16T03:59:53.3041122Z",
+      "Properties": {
+        "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
+        "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
+        "NewState": "Finished",
+        "OldState": "Processing",
+        "AccountName": "mediapkeewmg5c3peq",
+        "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
+        "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
+      }
+    }
+
+    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 ## Add a webhook to your encoding task
 
@@ -372,136 +373,136 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 1. Create a new C# Console Application in Visual Studio. Enter the Name, Location, and Solution name, and then click OK.
 2. Use [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
 3. Update App.config file with appropriate values: 
-	
-	* Azure Media Services connection information, 
-	* webhook URL that expects to get the notifications, 
-	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
 
-			<appSettings>
-			  <add key="AMSAADTenantDomain" value="domain" />
-			  <add key="AMSRESTAPIEndpoint" value="endpoint" />
+    * Azure Media Services connection information, 
+    * webhook URL that expects to get the notifications, 
+    * the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
 
-			  <add key="AMSClientId" value="clinet id" />
-			  <add key="AMSClientSecret" value="client secret" />
+            <appSettings>
+              <add key="AMSAADTenantDomain" value="domain" />
+              <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-			  <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-			  <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-			</appSettings>
+              <add key="AMSClientId" value="clinet id" />
+              <add key="AMSClientSecret" value="client secret" />
+
+              <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+              <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+            </appSettings>
 
 4. Update your Program.cs file with the following code:
 
-		using System;
-		using System.Configuration;
-		using System.Linq;
-		using Microsoft.WindowsAzure.MediaServices.Client;
+        using System;
+        using System.Configuration;
+        using System.Linq;
+        using Microsoft.WindowsAzure.MediaServices.Client;
 
-		namespace NotificationWebHook
-		{
-		    class Program
-		    {
-			// Read values from the App.config file.
-			private static readonly string _AMSAADTenantDomain =
-			    ConfigurationManager.AppSettings["AMSAADTenantDomain"];
-			private static readonly string _AMSRESTAPIEndpoint =
-			    ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        namespace NotificationWebHook
+        {
+            class Program
+            {
+            // Read values from the App.config file.
+            private static readonly string _AMSAADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _AMSRESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
 
-			private static readonly string _AMSClientId =
-			    ConfigurationManager.AppSettings["AMSClientId"];
-			private static readonly string _AMSClientSecret =
-			    ConfigurationManager.AppSettings["AMSClientSecret"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
-			private static readonly string _webHookEndpoint =
-			    ConfigurationManager.AppSettings["WebhookURL"];
-			private static readonly string _signingKey =
-			     ConfigurationManager.AppSettings["WebhookSigningKey"];
+            private static readonly string _webHookEndpoint =
+                ConfigurationManager.AppSettings["WebhookURL"];
+            private static readonly string _signingKey =
+                 ConfigurationManager.AppSettings["WebhookSigningKey"];
 
-			// Field for service context.
-			private static CloudMediaContext _context = null;
+            // Field for service context.
+            private static CloudMediaContext _context = null;
 
-			static void Main(string[] args)
-			{
-			    AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain,
-				    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-					AzureEnvironments.AzureCloudEnvironment);
+            static void Main(string[] args)
+            {
+                AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
 
-			    AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+                AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-			    _context = new CloudMediaContext(new Uri(_AMSRESTAPIEndpoint), tokenProvider);
+                _context = new CloudMediaContext(new Uri(_AMSRESTAPIEndpoint), tokenProvider);
 
-			    byte[] keyBytes = Convert.FromBase64String(_signingKey);
+                byte[] keyBytes = Convert.FromBase64String(_signingKey);
 
-			    IAsset newAsset = _context.Assets.FirstOrDefault();
+                IAsset newAsset = _context.Assets.FirstOrDefault();
 
-			    // Check for existing Notification Endpoint with the name "FunctionWebHook"
+                // Check for existing Notification Endpoint with the name "FunctionWebHook"
 
-			    var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
-			    INotificationEndPoint endpoint = null;
+                var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
+                INotificationEndPoint endpoint = null;
 
-			    if (existingEndpoint != null)
-			    {
-				Console.WriteLine("webhook endpoint already exists");
-				endpoint = (INotificationEndPoint)existingEndpoint;
-			    }
-			    else
-			    {
-				endpoint = _context.NotificationEndPoints.Create("FunctionWebHook",
-				    NotificationEndPointType.WebHook, _webHookEndpoint, keyBytes);
-				Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
-			    }
+                if (existingEndpoint != null)
+                {
+                Console.WriteLine("webhook endpoint already exists");
+                endpoint = (INotificationEndPoint)existingEndpoint;
+                }
+                else
+                {
+                endpoint = _context.NotificationEndPoints.Create("FunctionWebHook",
+                    NotificationEndPointType.WebHook, _webHookEndpoint, keyBytes);
+                Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
+                }
 
-			    // Declare a new encoding job with the Standard encoder
-			    IJob job = _context.Jobs.Create("MES Job");
+                // Declare a new encoding job with the Standard encoder
+                IJob job = _context.Jobs.Create("MES Job");
 
-			    // Get a media processor reference, and pass to it the name of the 
-			    // processor to use for the specific task.
-			    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+                // Get a media processor reference, and pass to it the name of the 
+                // processor to use for the specific task.
+                IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-			    ITask task = job.Tasks.AddNew("My encoding task",
-			    processor,
-			    "Adaptive Streaming",
-			    TaskOptions.None);
+                ITask task = job.Tasks.AddNew("My encoding task",
+                processor,
+                "Adaptive Streaming",
+                TaskOptions.None);
 
-			    // Specify the input asset to be encoded.
-			    task.InputAssets.Add(newAsset);
+                // Specify the input asset to be encoded.
+                task.InputAssets.Add(newAsset);
 
-			    // Add an output asset to contain the results of the job. 
-			    // This output is specified as AssetCreationOptions.None, which 
-			    // means the output asset is not encrypted. 
-			    task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
+                // Add an output asset to contain the results of the job. 
+                // This output is specified as AssetCreationOptions.None, which 
+                // means the output asset is not encrypted. 
+                task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
-			    // Add the WebHook notification to this Task and request all notification state changes.
-			    // Note that you can also add a job level notification
-			    // which would be more useful for a job with chained tasks.  
-			    if (endpoint != null)
-			    {
-				task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
-				Console.WriteLine("Created Notification Subscription for endpoint: {0}", _webHookEndpoint);
-			    }
-			    else
-			    {
-				Console.WriteLine("No Notification Endpoint is being used");
-			    }
+                // Add the WebHook notification to this Task and request all notification state changes.
+                // Note that you can also add a job level notification
+                // which would be more useful for a job with chained tasks.  
+                if (endpoint != null)
+                {
+                task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
+                Console.WriteLine("Created Notification Subscription for endpoint: {0}", _webHookEndpoint);
+                }
+                else
+                {
+                Console.WriteLine("No Notification Endpoint is being used");
+                }
 
-			    job.Submit();
+                job.Submit();
 
-			    Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
-			    Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
+                Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
+                Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
 
-			    Console.WriteLine("Job Submitted");
+                Console.WriteLine("Job Submitted");
 
-			}
-			private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-			{
-			    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-			    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+            }
+            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+            {
+                var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+                ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-			    if (processor == null)
-				throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-			    return processor;
-			}
-		    }
-		}
+                return processor;
+            }
+            }
+        }
 
 ## Next steps
 
@@ -509,3 +510,4 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

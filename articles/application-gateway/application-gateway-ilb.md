@@ -100,9 +100,9 @@ Note the following:
 * The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the HTTPListener's *FrontendIP* element to refer to the FrontendIPConfiguration.
   
   **Configuration XML sample**
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
         <FrontendIPConfiguration>
             <Name>fip1</Name> 
@@ -150,8 +150,8 @@ Note the following:
             <BackendAddressPool>BackendPool1</BackendAddressPool>
         </HttpLoadBalancingRule>
     </HttpLoadBalancingRules>
-</ApplicationGatewayConfiguration>
-```
+  </ApplicationGatewayConfiguration>
+  ```
 
 
 ## Set the gateway configuration

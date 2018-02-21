@@ -59,28 +59,28 @@ In this section, you modify the device app you created in the [Get started with 
     
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
-    	var data, message;
-    	if (Math.random() > 0.7) {
-    		if (Math.random() > 0.5) {
+        var data, message;
+        if (Math.random() > 0.7) {
+            if (Math.random() > 0.5) {
                 data = "This is a critical message.";
                 message = new Message(data);
                 message.properties.add("level", "critical");
-	        } else {
-	            data = "This is a storage message.";
-	            message = new Message(data);
+            } else {
+                data = "This is a storage message.";
+                message = new Message(data);
                 message.properties.add("level", "storage");
             }
             console.log("Sending message: " + message.getData());
-    	}
-    	else {
-            	var temperature = 20 + (Math.random() * 15);
-            	var humidity = 60 + (Math.random() * 20);            
-            	data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            	message = new Message(data);
-            	message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            	console.log("Sending message: " + message.getData());
+        }
+        else {
+                var temperature = 20 + (Math.random() * 15);
+                var humidity = 60 + (Math.random() * 20);            
+                data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
+                message = new Message(data);
+                message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
+                console.log("Sending message: " + message.getData());
             }
-    	client.sendEvent(message, printResultFor('send'));
+        client.sendEvent(message, printResultFor('send'));
         }, 1000);
       }
     };
@@ -162,9 +162,9 @@ In this section, you create a Node.js console app that reads critical messages f
     setInterval(function() {serviceBusService.receiveQueueMessage(queueName, function(error, receivedMessage) {
         if(!error){
             // Message received and deleted
-    	    console.log(receivedMessage);
+            console.log(receivedMessage);
         } else { console.log(error); }
-    	});
+        });
     }, 3000);
     ```
 
@@ -211,16 +211,16 @@ In this section, you create a Storage account, connect it to your IoT hub, and c
 
 3. In the **Endpoints** blade, select the **CriticalQueue** endpoint, and click **Delete**. Click **Yes**, and then click **Add**. Name the endpoint **StorageContainer** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom. 
 
- > [!NOTE]
+   > [!NOTE]
    > If you are not limited to one **Endpoint**, you do not need to delete the **CriticalQueue**.
 
 4. Click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageContainer** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
 
     Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
 
-1. Make sure your previous application **SimulatedDevice.js** is still running. 
+5. Make sure your previous application **SimulatedDevice.js** is still running. 
 
-1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
+6. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
 
 ## Next steps
 

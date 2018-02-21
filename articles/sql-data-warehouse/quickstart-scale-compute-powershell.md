@@ -84,7 +84,7 @@ Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserve
 
 Which will result in something like this:
 
-```powershell	
+```powershell   
 ResourceGroupName             : myResourceGroup
 ServerName                    : mynewserver-20171113
 DatabaseName                  : mySampleDataWarehouse

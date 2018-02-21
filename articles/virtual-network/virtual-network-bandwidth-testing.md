@@ -27,11 +27,11 @@ and the other as RECEIVER.
 
 #### Deploying VMs for testing
 For the purposes of this test, the two VMs should be in either the same Cloud Service or the same Availability Set so that we can use their internal IPs and exclude the Load Balancers from the test. It is possible to test with the VIP but this kind of testing is outside the scope of this document.
- 
+ 
 Make a note of the RECEIVER's IP address. Let's call that IP "a.b.c.r"
 
 Make a note of the number of cores on the VM. Let's call this "\#num\_cores"
- 
+ 
 Run the NTTTCP test for 300 seconds (or 5 minutes) on the sender VM and receiver VM.
 
 Tip: When setting up this test for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
@@ -62,14 +62,14 @@ Consider putting NTTTCP in separate folder, like c:\\tools
 
 #### Allow NTTTCP through the Windows firewall
 On the RECEIVER, create an Allow rule on the Windows Firewall to allow the
-NTTTCP traffic to arrive. It's easiest to allow the entire NTTTCP program by
+NTTTCP traffic to arrive. It's easiest to allow the entire NTTTCP program by
 name rather than to allow specific TCP ports inbound.
 
 Allow ntttcp through the Windows Firewall like this:
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-For example, if you copied ntttcp.exe to the "c:\\tools" folder, this would be the command: 
+For example, if you copied ntttcp.exe to the "c:\\tools" folder, this would be the command: 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -86,7 +86,7 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 Start NTTTCP on the SENDER (**run from CMD**, not from PowerShell):
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 Wait for the results.
 
@@ -95,23 +95,23 @@ Wait for the results.
 
 Use nttcp-for-linux. It is available from <https://github.com/Microsoft/ntttcp-for-linux>
 
-On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare ntttcp-for-linux on your VMs:
+On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare ntttcp-for-linux on your VMs:
 
 CentOS - Install Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu - Install Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-Make and Install on both:
+Make and Install on both:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 As in the Windows example, we assume the Linux RECEIVER's IP is 10.0.0.4
@@ -127,7 +127,7 @@ And on the SENDER, run:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 Test length defaults to 60 seconds if no time parameter is given
 
 ## Testing between VMs running Windows and LINUX:
@@ -171,5 +171,5 @@ You need to add following section into your ServiceDefinition.csdef
 
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
+* Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md)
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

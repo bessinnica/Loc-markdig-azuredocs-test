@@ -172,3 +172,4 @@ The logic app is in working order when you save it.
 You have successfully created a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -56,23 +56,23 @@ To configure the integration of ADP Federated SSO into Azure AD, you need to add
 
 **To add ADP Federated SSO from the gallery, perform the following steps:**
 
-1.	Log on to your Microsoft Azure identity provider environment as an administrator.
+1.  Log on to your Microsoft Azure identity provider environment as an administrator.
 
 2. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 3. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 4. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 5. In the search box, type **ADP Federated SSO**, select **ADP Federated SSO** from result panel then click **Add** button to add the application.
 
-	![ADP Federated SSO in the results list](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
+    ![ADP Federated SSO in the results list](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -98,60 +98,60 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **ADP Federated SSO** application integration page, click on **Properties tab** and perform the following steps: 
 
-	![Single sign-on properties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
+    ![Single sign-on properties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
 
-	a. Set the **Enabled for users to sign-in** field value to **Yes**.
+    a. Set the **Enabled for users to sign-in** field value to **Yes**.
 
-	b. Copy the **User access URL** and you have to paste it in **Configure Sign-on URL section**, which is explained later in the tutorial.
+    b. Copy the **User access URL** and you have to paste it in **Configure Sign-on URL section**, which is explained later in the tutorial.
 
-	c. Set the **User assignment required** field value to **Yes**.
+    c. Set the **User assignment required** field value to **Yes**.
 
-	d. Set the **Visible to users** field value to **No**.
+    d. Set the **Visible to users** field value to **No**.
 
 2. Click **Single sign-on** on **ADP Federated SSO** application integration page.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-3. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+3. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
+    ![Single sign-on dialog box](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
 
 4. On the **ADP Federated SSO Domain and URLs** section, perform the following steps:
 
-	![ADP Federated SSO Domain and URLs single sign-on information](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
+    ![ADP Federated SSO Domain and URLs single sign-on information](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
 
-	In the **Identifier** textbox, type a URL: `https://fed.adp.com/` 
-	
+    In the **Identifier** textbox, type a URL: `https://fed.adp.com/` 
+    
 5. The ADP Federated SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The claim name will always be **"PersonImmutableID"** and the value of which we have mapped to **employeeid**. 
 
-	Here the user mapping from Azure AD to ADP Federated SSO will be done on the **employeeid** but you can map this to a different value based on your application settings. So please work with [ADP support team](https://www.adp.com/contact-us/overview.aspx) first to use the correct identifier of a user and map that value with the **"PersonImmutableID"** claim.
+    Here the user mapping from Azure AD to ADP Federated SSO will be done on the **employeeid** but you can map this to a different value based on your application settings. So please work with [ADP support team](https://www.adp.com/contact-us/overview.aspx) first to use the correct identifier of a user and map that value with the **"PersonImmutableID"** claim.
 
     ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
-	| PersonImmutableID | user.employeeid |
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+    
+    | Attribute Name | Attribute Value |
+    | ------------------- | -------------------- |    
+    | PersonImmutableID | user.employeeid |
+    
+    a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
+    c. From the **Value** list, type the attribute value shown for that row.
+    
+    d. Click **Ok**.
 
-	> [!NOTE] 
-	> Before you can configure the SAML assertion, you need to contact your [ADP  support team](https://www.adp.com/contact-us/overview.aspx) and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application. 
+    > [!NOTE] 
+    > Before you can configure the SAML assertion, you need to contact your [ADP  support team](https://www.adp.com/contact-us/overview.aspx) and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application. 
 
 7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
+    ![The Certificate download link](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
 
 8. To configure single sign-on on **ADP Federated SSO** side, you need to upload the downloaded **Metadata XML** on the [ADP Federated SSO website](https://adpfedsso.adp.com/public/login/index.fcc).
 
@@ -166,72 +166,72 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
-	
+    ![The Enterprise applications blade][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button][3]
 
 4. In the search box, type **ADP Federated SSO**, select **ADP Federated SSO** from result panel then click **Add** button to add the application.
 
-	![ADP Federated SSO in the results list](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
+    ![ADP Federated SSO in the results list](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
 
 5. In the Azure portal, on your **ADP Federated SSO** application integration page, click on **Properties tab** and perform the following steps:  
 
-	![Single sign-on linkedproperties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
+    ![Single sign-on linkedproperties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
 
-	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
+    a.  Set the **Enabled for users to sign-in** field value to **Yes**.
 
-	b.	Set the **User assignment required** field value to **Yes**.
+    b.  Set the **User assignment required** field value to **Yes**.
 
-	c.	Set the **Visible to users** field value to **Yes**.
+    c.  Set the **Visible to users** field value to **Yes**.
 
 6. Click **Single sign-on** on **ADP Federated SSO** application integration page.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link][4]
 
-7. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on** to link your application to **ADP Federated SSO**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
+7. On the **Single sign-on** dialog, select **Mode** as **Linked Sign-on** to link your application to **ADP Federated SSO**.
+   <!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-	![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Navigate to the **Configure Sign-on URL** section, perform the following steps:
 
-	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
+    ![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
                                                               
-	a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP Federated SSO app).
+    a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP Federated SSO app).
                                                              
-	b. Following are the 5 apps that support different **Relay State URLs**. You have to append the appropriate **Relay State URL** value for particular application manually to the **User access URL**.
-	
-	* **ADP Workforce Now**
-		
-	 	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?WFN`
+    b. Following are the 5 apps that support different **Relay State URLs**. You have to append the appropriate **Relay State URL** value for particular application manually to the **User access URL**.
+    
+    * **ADP Workforce Now**
+        
+        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-	* **ADP Workforce Now Enhanced Time**
-		
-	 	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?EETDC2`
-	
-	* **ADP Vantage HCM**
-		
-	 	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+    * **ADP Workforce Now Enhanced Time**
+        
+        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+    
+    * **ADP Vantage HCM**
+        
+        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-	* **ADP Enterprise HR**
+    * **ADP Enterprise HR**
 
-	 	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
-	* **MyADP**
+    * **MyADP**
 
-	 	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 9. **Save** your changes.
 
 10. Upon receipt of confirmation from your ADP representative, begin test with one or two users.
 
-	a. Assign few users to the ADP service App to test federated access.
+    a. Assign few users to the ADP service App to test federated access.
 
     b. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
  
@@ -287,32 +287,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **ADP Federated SSO**.
 
-	![The ADP Federated SSO link in the Applications list](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
+    ![The ADP Federated SSO link in the Applications list](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the ADP Federated SSO tile in the Access Panel, you should get automatically signed-on to your ADP Federated SSO application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -33,9 +33,10 @@ Sync-VSTSGit | Import runbooks or configurations from VSTS under Git source cont
 
 ### Variables
 
-Variable | Description|
------------|------------|
-VSToken | Secure variable asset you create that contains the VSTS personal access token. You can learn how to create a VSTS personal access token on the [VSTS authentication page](/vsts/accounts/use-personal-access-tokens-to-authenticate).
+| Variable |                                                                                                              Description                                                                                                              |
+|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| VSToken  | Secure variable asset you create that contains the VSTS personal access token. You can learn how to create a VSTS personal access token on the [VSTS authentication page](/vsts/accounts/use-personal-access-tokens-to-authenticate). |
+
 ## Installing and configuring this scenario
 
 Create a [personal access token](/vsts/accounts/use-personal-access-tokens-to-authenticate) in VSTS that you use to sync the runbooks or configurations into your automation account.
@@ -46,7 +47,7 @@ Create a [secure variable](automation-variables.md) in your automation account t
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Import the runbook that syncs your runbooks or configurations into the automation account. You can use the [VSTS sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) or the [VSTS with Git sample runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) from the PowerShellGallery.com depending on if you use VSTS source control or VSTS with Git and deploy to your automation account.
+Import the runbook that syncs your runbooks or configurations into the automation account. You can use the [VSTS sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) or the [VSTS with Git sample runbook](https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) from the PowerShellGallery.com depending on if you use VSTS source control or VSTS with Git and deploy to your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
@@ -63,7 +64,7 @@ Parameter | Description|
 WebhookData | This contains the checkin information sent from the VSTS service hook. You should leave this parameter blank.| 
 ResourceGroup | This is the name of the resource group that the automation account is in.|
 AutomationAccountName | The name of the automation account that syncs with VSTS.|
-VSFolder | The name of the folder in VSTS where the runbooks and configurations exist.|
+VSFolder | The name of the folder in VSTS where the runbooks and configurations exist.|
 VSAccount | The name of the Visual Studio Team Services account.| 
 VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.| 
 
@@ -72,16 +73,17 @@ VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds
 
 If you are using VSTS with GIT (Sync-VSTSGit.ps1) it will take the following parameters.
 
-Parameter | Description|
---------|------------|
-WebhookData | This will contain the checkin information sent from the VSTS service hook. You should leave this parameter blank.| ResourceGroup | This the name of the resource group that the automation account is in.|
-AutomationAccountName | The name of the automation account that syncs with VSTS.|
-VSAccount | The name of the Visual Studio Team Services account.|
-VSProject | The name of the project in VSTS where the runbooks and configurations exist.|
-GitRepo | The name of the Git repository.|
-GitBranch | The name of the branch in VSTS Git repository.|
-Folder | The name of the folder in VSTS Git branch.|
-VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.|
+
+|         Parameter         |                                                    Description                                                    |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------|
+|        WebhookData        | This will contain the checkin information sent from the VSTS service hook. You should leave this parameter blank. |
+|   AutomationAccountName   |                             The name of the automation account that syncs with VSTS.                              |
+|         VSAccount         |                               The name of the Visual Studio Team Services account.                                |
+|         VSProject         |                   The name of the project in VSTS where the runbooks and configurations exist.                    |
+|          GitRepo          |                                          The name of the Git repository.                                          |
+|         GitBranch         |                                  The name of the branch in VSTS Git repository.                                   |
+|          Folder           |                                    The name of the folder in VSTS Git branch.                                     |
+| VSAccessTokenVariableName |               The name of the secure variable (VSToken) that holds the VSTS personal access token.                |
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 

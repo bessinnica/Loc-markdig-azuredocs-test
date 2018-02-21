@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Privileged Identity Management Approval workflows | Microsoft Docs
 description: Learn about approval workflows in Privileged Identity Management (PIM)
 services: active-directory
@@ -50,7 +50,7 @@ The private preview supports the following scenarios:
 
 -   [approve or reject requests for role elevation (single and/or bulk)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
--   [provide justification for my approval/rejection](#provide-justification-for-my-approval/rejection) 
+-   [provide justification for my approval/rejection](#provide-justification-for-my-approval/rejection) 
 
 **As an Eligible Role User you can:**
 
@@ -96,10 +96,10 @@ Once enabled, the blade will expand to show the following details:
 
 ![](media/azure-ad-pim-approval-workflow/image013.png)
 
->[!NOTE]
-If you DO NOT specify any approvers, the PRA(s) become the default
-approver(s). PRA(s) would be required to approve ALL activation requests for
-this role.
+> [!NOTE]
+> If you DO NOT specify any approvers, the PRA(s) become the default
+> approver(s). PRA(s) would be required to approve ALL activation requests for
+> this role.
 
 ### Specify approver users and/or groups to approve requests
 
@@ -129,8 +129,8 @@ To view request and approval history for all privileged roles, select Audit Hist
 
 ![](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-You can sort the data by Action, and look for “Activation Approved”
+> [!NOTE]
+> You can sort the data by Action, and look for “Activation Approved”
 
 ### View pending approvals (requests)
 

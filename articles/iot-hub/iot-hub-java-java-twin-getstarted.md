@@ -207,9 +207,9 @@ In this section, you create a Java console app that sets a reported property val
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. At your command prompt, navigate to the `simulated-device` folder.
+2. At your command prompt, navigate to the `simulated-device` folder.
 
-1. Using a text editor, open the `pom.xml` file in the `simulated-device` folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub:
+3. Using a text editor, open the `pom.xml` file in the `simulated-device` folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub:
 
     ```xml
     <dependency>
@@ -222,7 +222,7 @@ In this section, you create a Java console app that sets a reported property val
     > [!NOTE]
     > You can check for the latest version of **iot-device-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+4. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
     ```xml
     <build>
@@ -240,11 +240,11 @@ In this section, you create a Java console app that sets a reported property val
     </build>
     ```
 
-1. Save and close the `pom.xml` file.
+5. Save and close the `pom.xml` file.
 
-1. Using a text editor, open the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
+6. Using a text editor, open the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
 
-1. Add the following **import** statements to the file:
+7. Add the following **import** statements to the file:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -255,7 +255,7 @@ In this section, you create a Java console app that sets a reported property val
     import java.util.Scanner;
     ```
 
-1. Add the following class-level variables to the **App** class. Replacing `{youriothubname}` with your IoT hub name, and `{yourdevicekey}` with the device key value you generated in the *Create a device identity* section:
+8. Add the following class-level variables to the **App** class. Replacing `{youriothubname}` with your IoT hub name, and `{yourdevicekey}` with the device key value you generated in the *Create a device identity* section:
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -265,60 +265,60 @@ In this section, you create a Java console app that sets a reported property val
 
     This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. 
 
-1. Add the following code to the **main** method to:
-    * Create a device client to communicate with IoT Hub.
-    * Create a **Device** object to store the device twin properties.
+9. Add the following code to the **main** method to:
+   * Create a device client to communicate with IoT Hub.
+   * Create a **Device** object to store the device twin properties.
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+     ```java
+     DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
-      // Print details when a property value changes
-      @Override
-      public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
-        System.out.println(propertyKey + " changed to " + propertyValue);
-      }
-    };
-    ```
+     // Create a Device object to store the device twin properties
+     Device dataCollector = new Device() {
+     // Print details when a property value changes
+     @Override
+     public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
+       System.out.println(propertyKey + " changed to " + propertyValue);
+     }
+     };
+     ```
 
-1. Add the following code to the **main** method to create a **connectivityType** reported property and send it to IoT Hub:
+10. Add the following code to the **main** method to create a **connectivityType** reported property and send it to IoT Hub:
 
-    ```java
-    try {
-      // Open the DeviceClient and start the device twin services.
-      client.open();
-      client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
+     ```java
+     try {
+       // Open the DeviceClient and start the device twin services.
+       client.open();
+       client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
 
-      // Create a reported property and send it to your IoT hub.
-      dataCollector.setReportedProp(new Property("connectivityType", "cellular"));
-      client.sendReportedProperties(dataCollector.getReportedProp());
-    }
-    catch (Exception e) {
-      System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
-      dataCollector.clean();
-      client.close();
-      System.out.println("Shutting down...");
-    }
-    ```
+       // Create a reported property and send it to your IoT hub.
+       dataCollector.setReportedProp(new Property("connectivityType", "cellular"));
+       client.sendReportedProperties(dataCollector.getReportedProp());
+     }
+     catch (Exception e) {
+       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+       dataCollector.clean();
+       client.close();
+       System.out.println("Shutting down...");
+     }
+     ```
 
-1. Add the following code to the end of the **main** method. Waiting for the **Enter** key allows time for IoT Hub to report the status of the device twin operations:
+11. Add the following code to the end of the **main** method. Waiting for the **Enter** key allows time for IoT Hub to report the status of the device twin operations:
 
-    ```java
-    System.out.println("Press any key to exit...");
+     ```java
+     System.out.println("Press any key to exit...");
 
-    Scanner scanner = new Scanner(System.in);
-    scanner.nextLine();
+     Scanner scanner = new Scanner(System.in);
+     scanner.nextLine();
 
-    dataCollector.clean();
-    client.close();
-    ```
+     dataCollector.clean();
+     client.close();
+     ```
 
-1. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
+12. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
 
-1. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the `simulated-device` folder and run the following command:
+13. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the `simulated-device` folder and run the following command:
 
-    `mvn clean package -DskipTests`
+     `mvn clean package -DskipTests`
 
 ## Run the apps
 

@@ -15,6 +15,7 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Translator Text API with Python 
 <a name="HOLTop"></a>
 
+
 This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/Python).
 
 ## Prerequisites
@@ -24,6 +25,7 @@ You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Text API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Translate"></a>
+
 
 ## Translate text
 
@@ -56,11 +58,11 @@ params = '?to=' + target + '&text=' + urllib.parse.quote (text)
 
 def get_suggestions ():
 
-	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-	conn = http.client.HTTPSConnection(host)
-	conn.request ("GET", path + params, None, headers)
-	response = conn.getresponse ()
-	return response.read ()
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    conn = http.client.HTTPSConnection(host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read ()
 
 result = get_suggestions ()
 print (result.decode("utf-8"))

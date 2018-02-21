@@ -31,10 +31,10 @@ Enrollment for speaker verification is text-dependent, which means speakers need
 In enrollment, the speaker's voice is recorded saying a specific phrase, then a number of features are extracted and the chosen phrase is recognized. Together, both extracted features and the chosen phrase form a unique voice signature.
 
 ### Verification
-###
+## #
 In verification, an input voice and phrase are compared against the enrollment's voice signature and phrase –in order to verify whether or not they are from the same person, and if they are saying the correct phrase.
 
-For more details about speaker verification, please refer to the API [Speaker - Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+For more details about speaker verification, please refer to the API [Speaker - Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## Speaker Identification
 
@@ -53,4 +53,4 @@ Enrollment for speaker identification is text-independent, which means that ther
 The audio of the unknown speaker, together with the prospective group of speakers, is provided during recognition. The input voice is compared against all speakers in order to determine whose voice it is, and if there is a match found, the identity of the speaker is returned.
 
 
-For more details about speaker identification, please refer to the API [Speaker - Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+For more details about speaker identification, please refer to the API [Speaker - Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

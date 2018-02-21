@@ -110,6 +110,7 @@ The overview page for your server opens, showing you the fully qualified server 
 2. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for your current IP address.
 
 ## Manage firewall rules using Transact-SQL
+
 | Catalog View or Stored Procedure | Level | Description |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Displays the current server-level firewall rules |
@@ -121,25 +122,26 @@ The overview page for your server opens, showing you the fully qualified server 
 
 
 The following examples review the existing rules, enable a range of IP addresses on the server Contoso, and deletes a firewall rule:
-   
+
 ```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
 ```
-  
+
 Next, add a firewall rule.
-   
+
 ```sql
 EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
 To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule:
-   
+
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
 ## Manage firewall rules using Azure PowerShell
+
 | Cmdlet | Level | Description |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Returns the current server-level firewall rules |
@@ -161,6 +163,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 >
 
 ## Manage firewall rules using Azure CLI
+
 | Cmdlet | Level | Description |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Server|Creates a server firewall rule|
@@ -173,7 +176,7 @@ The following example sets a server-level firewall rule using the Azure CLI:
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP]
@@ -181,6 +184,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 >
 
 ## Manage firewall rules using REST API
+
 | API | Level | Description |
 | --- | --- | --- |
 | [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |Server |Displays the current server-level firewall rules |
@@ -190,7 +194,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ## Server-level firewall rule versus a database-level firewall rule
 Q. Should users of one database be fully isolated from another database?   
   If yes, grant access using database-level firewall rules. This avoids using server-level firewall rules, which permit access through the firewall to all databases, reducing the depth of your defenses.   
- 
+
 Q. Do users at the IP address’s need access to all databases?   
   Use server-level firewall rules to reduce the number of times you must configure firewall rules.   
 
@@ -214,7 +218,7 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure SQL Database firewall configuration to take effect.
 * **The login is not authorized or an incorrect password was used:** If a login does not have permissions on the Azure SQL Database server or the password used is incorrect, the connection to the Azure SQL Database server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must provide the necessary security credentials. For more information about preparing logins, see Managing Databases, Logins, and Users in Azure SQL Database.
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you could try one of the following solutions:
-  
+
   * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure SQL Database server, and then add the IP address range as a firewall rule.
   * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 

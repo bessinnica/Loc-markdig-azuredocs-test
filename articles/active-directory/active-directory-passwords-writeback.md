@@ -48,14 +48,14 @@ When a federated or password hash synchronized user comes to reset or change the
 6. After the message reaches the service bus, the password-reset endpoint automatically wakes up and sees that it has a reset request pending.
 7. The service then looks for the user by using the cloud anchor attribute. For this lookup to succeed:
 
-    * The user object must exist in the Active Directory connector space.
-    * The user object must be linked to the corresponding metaverse (MV) object.
-    * The user object must be linked to the corresponding Azure Active Directory connector object.
-    * The link from the Active Directory connector object to the MV must have the synchronization rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link. <br> <br>
-    When the call comes in from the cloud, the synchronization engine uses the **cloudAnchor** attribute to look up the Azure Active Directory connector space object. It then follows the link back to the MV object, and then follows the link back to the Active Directory object. Because there can be multiple Active Directory objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
+   * The user object must exist in the Active Directory connector space.
+   * The user object must be linked to the corresponding metaverse (MV) object.
+   * The user object must be linked to the corresponding Azure Active Directory connector object.
+   * The link from the Active Directory connector object to the MV must have the synchronization rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link. <br> <br>
+     When the call comes in from the cloud, the synchronization engine uses the **cloudAnchor** attribute to look up the Azure Active Directory connector space object. It then follows the link back to the MV object, and then follows the link back to the Active Directory object. Because there can be multiple Active Directory objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
 
-    > [!Note]
-    > As a result of this logic, for password writeback to work Azure AD Connect must be able to communicate with the primary domain controller (PDC) emulator. If you need to enable this manually, you can connect Azure AD Connect to the PDC emulator. Right-click the **properties** of the Active Directory synchronization connector, then select **configure directory partitions**. From there, look for the **domain controller connection settings** section and select the box titled **only use preferred domain controllers**. Even if the preferred domain controller is not a PDC emulator, Azure AD Connect attempts to connect to the PDC for password writeback.
+     > [!Note]
+     > As a result of this logic, for password writeback to work Azure AD Connect must be able to communicate with the primary domain controller (PDC) emulator. If you need to enable this manually, you can connect Azure AD Connect to the PDC emulator. Right-click the **properties** of the Active Directory synchronization connector, then select **configure directory partitions**. From there, look for the **domain controller connection settings** section and select the box titled **only use preferred domain controllers**. Even if the preferred domain controller is not a PDC emulator, Azure AD Connect attempts to connect to the PDC for password writeback.
 
 8. After the user account is found, we attempt to reset the password directly in the appropriate Active Directory forest.
 9. If the password set operation is successful, we tell the user their password has been changed.

@@ -327,9 +327,8 @@ The next sections discuss how to achieve high availability for all three critica
 ### High-availability architecture for SAP application servers
 
 > This section applies to:
->
+> 
 > ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
->
 
 You usually don't need a specific high-availability solution for the SAP application server and dialog instances. You achieve high availability by redundancy, and you configure multiple dialog instances in various instances of Azure virtual machines. You should have at least two SAP application instances installed in two instances of Azure virtual machines.
 
@@ -352,7 +351,7 @@ The number of update and fault domains that can be used by an Azure availability
 If you deploy a few SAP application server instances in their dedicated VMs, assuming that we have five update domains, the following picture emerges. The actual maximum number of update and fault domains within an availability set might change in the future:
 
 ![Figure 2: High availability of SAP application servers in an Azure availability set][planning-guide-figure-3000]
-_**Figure 2:** High availability of SAP application servers in an Azure availability set_
+<em><strong>Figure 2:</strong> High availability of SAP application servers in an Azure availability set</em>
 
 For more information, see [Manage the availability of Windows virtual machines in Azure][azure-virtual-machines-manage-availability].
 
@@ -367,27 +366,26 @@ For more information, see the [Azure availability sets][planning-guide-3.2.3] se
 ### High-availability architecture for an SAP ASCS/SCS instance on Windows
 
 > ![Windows][Logo_Windows] Windows
->
 
 You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution has two variants:
 
-* **Cluster the SAP ASCS/SCS instance by using clustered shared disks**: For more information about this architecture, see [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk][sap-high-availability-guide-wsfc-shared-disk].   
+* <strong>Cluster the SAP ASCS/SCS instance by using clustered shared disks</strong>: For more information about this architecture, see [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk][sap-high-availability-guide-wsfc-shared-disk].   
 
-* **Cluster the SAP ASCS/SCS instance by using file share**: For more information about this architecture, see [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-file-share].
+* <strong>Cluster the SAP ASCS/SCS instance by using file share</strong>: For more information about this architecture, see [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-file-share].
 
 ### High-availability architecture for an SAP ASCS/SCS instance on Linux
 
 > ![Linux][Logo_Linux] Linux
->
-For more information about clustering the SAP ASCS/SCS instance by using the SLES cluster framework, see [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sap-suse-ascs-ha].
+> 
+> For more information about clustering the SAP ASCS/SCS instance by using the SLES cluster framework, see [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sap-suse-ascs-ha].
 
 ### SAP NetWeaver multi-SID configuration for a clustered SAP ASCS/SCS instance
 
 > ![Windows][Logo_Windows] Windows
->
+> 
 > Currently, multi-SID is supported only with WSFC. Multi-SID is supported using file share and shared disk.
->
-For more information about multi-SID high-availability architecture, see:
+> 
+> For more information about multi-SID high-availability architecture, see:
 
 * [SAP ASCS/SCS instance multi-SID high availability for Windows Server Failover Clustering and file share][sap-ascs-ha-multi-sid-wsfc-file-share]
 

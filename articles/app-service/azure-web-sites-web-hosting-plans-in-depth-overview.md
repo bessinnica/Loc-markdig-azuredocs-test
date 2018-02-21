@@ -42,6 +42,7 @@ Each tier also provides a specific subset of App Service features. These feature
 
 <a name="new-pricing-tier-premiumv2"></a>
 
+
 > [!NOTE]
 > The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
 >
@@ -49,7 +50,7 @@ Each tier also provides a specific subset of App Service features. These feature
 >
 > - Small (one CPU core, 3.5 GiB of memory) 
 > - Medium (two CPU cores, 7 GiB of memory) 
-> - Large (four CPU cores, 14 GiB of memory)  
+> - Large (four CPU cores, 14 GiB of memory)  
 >
 > For **PremiumV2** pricing information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 >
@@ -66,6 +67,7 @@ In this way, the App Service plan is the scale unit of the App Service apps. If 
 For information on scaling out an app, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="cost"></a>
+
 
 ## How much does my App Service plan cost?
 

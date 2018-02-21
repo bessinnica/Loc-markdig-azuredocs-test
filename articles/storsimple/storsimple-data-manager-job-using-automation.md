@@ -30,10 +30,10 @@ This article details how to create an Azure Automation runbook and then use it t
 
 Before you begin, ensure that you have:
 
-*	Azure PowerShell installed on the client computer. [Download Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
-*	A correctly configured job definition in a StorSimple Data Manager service within a resource group.
-*	Download  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) file from the GitHub repository. 
-*	Download [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) script from the GitHub repository.
+*   Azure PowerShell installed on the client computer. [Download Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+*   A correctly configured job definition in a StorSimple Data Manager service within a resource group.
+*   Download  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) file from the GitHub repository. 
+*   Download [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) script from the GitHub repository.
 
 ## Step-by-step procedure
 
@@ -49,26 +49,26 @@ Before you begin, ensure that you have:
 
 3. In the **Add Automation**:
 
-    1. Supply the **Name** of your automation account.
-    2. Select the **Subscription** linked to your StorSimple Data Manager service.
-    3. Create a new resource group or select from an existing resource group.
-    4. Select a **Location**.
-    5. Leave the default **Create Run As account** option selected.
-    6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
+   1. Supply the **Name** of your automation account.
+   2. Select the **Subscription** linked to your StorSimple Data Manager service.
+   3. Create a new resource group or select from an existing resource group.
+   4. Select a **Location**.
+   5. Leave the default **Create Run As account** option selected.
+   6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
 
-    ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    After the automation account is successfully created, you are notified.
+      After the automation account is successfully created, you are notified.
     
-    ![Notification for deployment of automation account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notification for deployment of automation account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    For more information, go to [Create a Run As account](../automation/automation-create-runas-account.md).
+      For more information, go to [Create a Run As account](../automation/automation-create-runas-account.md).
 
-3. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
+4. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
 
     ![Import module 1](./media/storsimple-data-manager-job-using-automation/import-module-1.png)
 
-4. Browse to the location of `DataTransformationApp.zip` file from your local computer, and select and open the module. Click **OK** to import the module.
+5. Browse to the location of `DataTransformationApp.zip` file from your local computer, and select and open the module. Click **OK** to import the module.
 
     ![Import module 2](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
 
@@ -76,7 +76,7 @@ Before you begin, ensure that you have:
 
    ![Import module 4](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
 
-5. You receive a notification that the module is being deployed and another notification when the process is complete.  The status in **Modules** changes to **Available**.
+6. You receive a notification that the module is being deployed and another notification when the process is complete.  The status in **Modules** changes to **Available**.
 
     ![Import module 5](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
 

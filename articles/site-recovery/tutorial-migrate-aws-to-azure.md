@@ -87,9 +87,9 @@ on the local machine:
 
   - In the registry, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**,
     add the DWORD entry **LocalAccountTokenFilterPolicy** and set the value to 1.
-	
+
 You also need a separate EC2 instance that you can use as the Site Recovery configuration server. This instance must be running Windows Server 2012 R2. 
-	
+
 
 ## Prepare the infrastructure 
 
@@ -98,7 +98,7 @@ On the portal page for your vault, select **Site Recovery** from the **Getting S
 ### 1 Protection goal
 
 Select the following values on the **Protection Goal** page:
-   
+
 |    |  | 
 |---------|-----------|
 | Where are your machines located? | **On-premises**|
@@ -121,18 +121,18 @@ On the **Prepare source** page, click **+ Configuration Server**.
 
 5. On the VM, right-click installer you downloaded for the **Microsoft Azure Site Recovery Unified Setup** and select **Run as administrator**. 
 
-	1. In **Before You Begin**, select **Install the configuration server and process server** and then click **Next**.
-	2. In **Third-Party Software License**, select **I accept the third-party license agreement.** and then click **Next**.
-	3. In **Registration**, click browse and navigate to where you put the vault registration key file and then click **Next**.
-	4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server.** and then click **Next**.
-	5. In the **Prerequisites Check** page, it runs checks for several items. When it is complete, click **Next**. 
-	6. In **MySQL Configuration**, provide the required passwords and then click **Next**.
-	7. In **Environment Details**, select **No**, you don't need to protect VMware machines and then click **Next**.
-	8. In **Install Location**, click **Next** to accept the default.
-	9. In **Network Selection**, click **Next** to accept the default.
-	10. In **Summary** click **Install**.
-	11. **Installation Progress** shows you information about where you are in the installation process. When it is complete, click **Finish**. You get a pop-up about needing a possible reboot, click **OK**. You also get a pop-up about the Configuration Server Connection Passphrase,  copy the passphrase to your clipboard and save it somewhere safe.
-    
+    1. In **Before You Begin**, select **Install the configuration server and process server** and then click **Next**.
+    2. In **Third-Party Software License**, select **I accept the third-party license agreement.** and then click **Next**.
+    3. In **Registration**, click browse and navigate to where you put the vault registration key file and then click **Next**.
+    4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server.** and then click **Next**.
+    5. In the **Prerequisites Check** page, it runs checks for several items. When it is complete, click **Next**. 
+    6. In **MySQL Configuration**, provide the required passwords and then click **Next**.
+    7. In **Environment Details**, select **No**, you don't need to protect VMware machines and then click **Next**.
+    8. In **Install Location**, click **Next** to accept the default.
+    9. In **Network Selection**, click **Next** to accept the default.
+    10. In **Summary** click **Install**.
+    11. **Installation Progress** shows you information about where you are in the installation process. When it is complete, click **Finish**. You get a pop-up about needing a possible reboot, click **OK**. You also get a pop-up about the Configuration Server Connection Passphrase,  copy the passphrase to your clipboard and save it somewhere safe.
+
 6. On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. Make sure the management accounts have administrator permissions on the EC2 instances that you want to migrate. 
 
 When you are done setting up the configuration server, go back to the portal and select the server you just created for **Configuration Server** and click *OK** to move on to step 3 Target Prepare.
@@ -167,47 +167,51 @@ When you are all done with all 5 sections of **Prepare infrastructure**, click *
 Enable replication for each VM you want to migrate. When replication is enabled, Site Recovery installs the Mobility service automatically. 
 
 1. Open the [Azure portal](htts://portal.azure.com).
-1. On the page for your vault, under **Getting Started**, click **Site Recovery**.
-2. Under **For on-premises machines and Azure VMs**, click **Step 1:Replicate application**. Complete the wizard pages with the following information and click **OK** on each page when finished:
-	- 1 Source Configure:
-	  
-    |  |  |
-    |-----|-----|
-    | Source: | **On Premises**|
-	| Source location:| The name of your configuration server EC2 instance.|
-	|Machine type: | **Physical machines**|
-	| Process server: | Select the configuration server from the drop-down list.|
-	
-	- 2 Target Configure
-		
-    |  |  |
-    |-----|-----|
-    | Target: | Leave the default.|
-	| Subscription: | Select the subscription you have been using.|
-	| Post-failover resource group:| Use the resource group you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
-	| Post-failover deployment model: | Choose **Resource Manager**|
-	| Storage account: | Choose the storage account you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
-	| Azure network: | Choose **Configure now for selected machines**|
-	| Post-failover Azure network: | Choose the network you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
-	| Subnet: | Select the **default** from the drop-down.|
-	
-	- 3 Physical Machines Select
-		
-		Click **+ Physical machine** and then enter the **Name**, the **IP Address** and **OS Type** of the EC2 instance that you want to migrate and then click **OK**.
-		
-	- 4 Properties Configure Properties
-		
-		Select the account that you created on the configuration server from the drop-down and click **OK**.
-		
-	- 5 Replication Settings Configure replication settings
-	
-		Make sure the replication policy selected in the drop-down is **myReplicationPolicy** and then click **OK**.
-		
-3. When the wizard is complete, click **Enable replication**.
-		
+2. On the page for your vault, under **Getting Started**, click **Site Recovery**.
+3. Under **For on-premises machines and Azure VMs**, click **Step 1:Replicate application**. Complete the wizard pages with the following information and click **OK** on each page when finished:
+   - 1 Source Configure:
 
-You can track progress of the **Enable Protection** job in **Monitoring and reports** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.		
-		
+
+     |                  |                                                          |
+     |------------------|----------------------------------------------------------|
+     |     Source:      |               <strong>On Premises</strong>               |
+     | Source location: |   The name of your configuration server EC2 instance.    |
+     |  Machine type:   |            <strong>Physical machines</strong>            |
+     | Process server:  | Select the configuration server from the drop-down list. |
+
+
+   - 2 Target Configure
+
+
+     |                                 |                                                                                                            |
+     |---------------------------------|------------------------------------------------------------------------------------------------------------|
+     |             Target:             |                                             Leave the default.                                             |
+     |          Subscription:          |                                Select the subscription you have been using.                                |
+     |  Post-failover resource group:  |   Use the resource group you created in the [Prepare Azure resources](#prepare-azure-resources) section.   |
+     | Post-failover deployment model: |                                  Choose <strong>Resource Manager</strong>                                  |
+     |        Storage account:         | Choose the storage account you created in the [Prepare Azure resources](#prepare-azure-resources) section. |
+     |         Azure network:          |                        Choose <strong>Configure now for selected machines</strong>                         |
+     |  Post-failover Azure network:   |     Choose the network you created in the [Prepare Azure resources](#prepare-azure-resources) section.     |
+     |             Subnet:             |                          Select the <strong>default</strong> from the drop-down.                           |
+
+
+   - 3 Physical Machines Select
+
+       Click **+ Physical machine** and then enter the **Name**, the **IP Address** and **OS Type** of the EC2 instance that you want to migrate and then click **OK**.
+
+   - 4 Properties Configure Properties
+
+       Select the account that you created on the configuration server from the drop-down and click **OK**.
+
+   - 5 Replication Settings Configure replication settings
+
+       Make sure the replication policy selected in the drop-down is **myReplicationPolicy** and then click **OK**.
+
+4. When the wizard is complete, click **Enable replication**.
+
+
+You can track progress of the **Enable Protection** job in **Monitoring and reports** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.        
+
 When you enable replication for a VM, it can take 15 minutes or longer for changes to take effect and appear in the portal.
 
 ## Run a test failover
@@ -262,7 +266,7 @@ Run an actual failover for the EC2 instances to migrate them to Azure VMs.
 > **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  
 
 
-    
+
 
 ## Next steps
 

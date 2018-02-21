@@ -239,14 +239,14 @@ However, if you are interested in implementation details, you can find the sourc
 6. Source is **Event hub**.
 7. **Service bus namespace** should be the TollData one in the drop down.
 8. **Event hub name** should be set to **entry**.
-9. **Event hub policy name*is **RootManageSharedAccessKey**  (the default value).
+9. <strong>Event hub policy name*is **RootManageSharedAccessKey</strong>  (the default value).
 10. Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.
    
     Your settings will look like:
    
     ![Event hub settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)
 
-10. Click **Create** at the bottom of the page to finish the wizard.
+11. Click **Create** at the bottom of the page to finish the wizard.
     
     Now that you've created the entry stream, you will follow the same steps to create the exit stream. Be sure to enter values as on the following screenshot.
     
@@ -257,12 +257,12 @@ However, if you are interested in implementation details, you can find the sourc
     ![Defined input streams in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.png)
     
     Next, you will add reference data input for the blob file that contains car registration data.
-11. Click **ADD**, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of **Data Stream** and the **Input Alias** is **Registration**.
+12. Click **ADD**, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of **Data Stream** and the **Input Alias** is **Registration**.
 
-12. storage account that starts with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be **lowercase**.
+13. storage account that starts with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be **lowercase**.
     
     ![Blog storage settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
-13. Click **Create** to finish the wizard.
+14. Click **Create** to finish the wizard.
 
 Now all inputs are defined.
 

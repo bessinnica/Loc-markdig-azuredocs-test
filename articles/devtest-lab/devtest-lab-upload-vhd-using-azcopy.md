@@ -56,9 +56,9 @@ The following steps walk you through uploading a VHD file to Azure DevTest Labs 
 1. The **Upload an image using PowerShell** blade displays a call to the **Add-AzureVhd** cmdlet. 
 The first parameter (*Destination*) contains the URI for a blob container (*uploads*) in the following format:
 
-	```
-	https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...
-	``` 
+    ```
+    https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...
+    ``` 
 
 1. Make note of the full URI as it is used in later steps.
 
@@ -68,15 +68,15 @@ The first parameter (*Destination*) contains the URI for a blob container (*uplo
 
 1. Open a command window and navigate to the AzCopy installation directory. Optionally, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to the following directory:
 
-	```command-line
-	%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
-	```
+    ```command-line
+    %ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
+    ```
 
 1. Using the storage account key and blob container URI, run the following command at the command prompt. The *vhdFileName* value needs to be in quotes. The process of uploading a VHD file can be lengthy depending on the size of the VHD file and your connection speed.   
 
-	```command-line
-	AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
-	```
+    ```command-line
+    AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
+    ```
 
 ## Next steps
 

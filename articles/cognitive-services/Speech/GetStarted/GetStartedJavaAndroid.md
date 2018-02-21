@@ -103,7 +103,6 @@ void initializeRecoClient()
             }
         }
     }
-
 ```
 
 The client library provides pre-implemented recognition client classes for typical scenarios in speech recognition:

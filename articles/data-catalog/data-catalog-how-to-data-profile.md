@@ -50,6 +50,7 @@ Including data profiles when registering data assets helps users answer question
 
 <a name="howto"/>
 
+
 ## How to include a data profile when registering a data source
 It's easy to include a profile of your data source. When you register a data source, in the **Objects to be registered** panel of the data source registration tool, choose **Include Data Profile**.
 

@@ -53,6 +53,7 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
+
 ## Create the cluster
 
 After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
@@ -292,24 +293,24 @@ You are now ready to configure an Availability Group using the following steps:
 
     ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\\<First SQL Server\>\Backup\**. Click **Next**.
+7. In the <strong>Select Initial Data Synchronization</strong> page, select <strong>Full</strong> and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, <strong>\\\\\<First SQL Server\>\Backup\</strong>. Click <strong>Next</strong>.
 
    >[!NOTE]
    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the Availability Group, choose **Join only**. If you want to take the backup after configuring the Availability Group, choose **Skip initial data synchronization**.
 
     ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
 
-9. In the **Validation** page, click **Next**. This page should look similar to the following image:
+8. In the **Validation** page, click **Next**. This page should look similar to the following image:
 
     ![New AG Wizard, Validation](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/72-validation.png)
 
-	>[!NOTE]
-	>There is a warning for the listener configuration because you have not configured an Availability Group listener. You can ignore this warning because on Azure virtual machines you create the listener after creating the Azure load balancer.
+    >[!NOTE]
+    >There is a warning for the listener configuration because you have not configured an Availability Group listener. You can ignore this warning because on Azure virtual machines you create the listener after creating the Azure load balancer.
 
-10. In the **Summary** page, click **Finish**, then wait while the wizard configures the new Availability Group. In the **Progress** page, you can click **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the Availability Group is successfully created.
+9. In the **Summary** page, click **Finish**, then wait while the wizard configures the new Availability Group. In the **Progress** page, you can click **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the Availability Group is successfully created.
 
-     ![New AG Wizard, Results](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
-11. Click **Close** to exit the wizard.
+    ![New AG Wizard, Results](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
+10. Click **Close** to exit the wizard.
 
 ### Check the Availability Group
 
@@ -334,6 +335,7 @@ You are now ready to configure an Availability Group using the following steps:
 At this point, you have an Availability Group with replicas on two instances of SQL Server. You can move the Availability Group between instances. You cannot connect to the Availability Group yet because you do not have a listener. In Azure virtual machines, the listener requires a load balancer. The next step is to create the load balancer in Azure.
 
 <a name="configure-internal-load-balancer"></a>
+
 
 ## Create an Azure load balancer
 
@@ -411,7 +413,8 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
 1. Click the load balancer, click **Load balancing rules**, and click **+Add**.
 
-1. Set the load balancing rules as follows.
+2. Set the load balancing rules as follows.
+
    | Setting | Description | Example
    | --- | --- |---
    | **Name** | Text | SQLAlwaysOnEndPointListener |
@@ -427,7 +430,7 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
    > [!WARNING]
    > Direct server return is set during creation. It cannot be changed.
 
-1. Click **OK** to set the load balancing rules.
+3. Click **OK** to set the load balancing rules.
 
 ## <a name="configure-listener"></a> Configure the listener
 

@@ -251,6 +251,7 @@ Following is a list of other software that are used with StorSimple to build sol
 Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.
 
 ### Key terms and definitions
+
 | Term (Acronym or abbreviation) | Description |
 | --- | --- |
 | access control record (ACR) |A record associated with a volume on your Microsoft Azure StorSimple device that determines which hosts can connect to it. The determination is based on the iSCSI Qualified Name (IQN) of the hosts (contained in the ACR) that are connecting to your StorSimple device. |

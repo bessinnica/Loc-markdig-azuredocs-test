@@ -23,8 +23,8 @@ Time Series Insights environments have two independent types of access policies:
 Both policies grant Azure Active Directory principals (users and apps) various permissions on a particular environment. The principals (users and apps) must belong to the active directory (known as the Azure tenant) associated with the subscription containing the environment.
 
 Management access policies grant permissions related to the configuration of the environment, such as
-*	Creation and deletion of the environment, event sources, reference data sets, and
-*	Management of the data access policies.
+*   Creation and deletion of the environment, event sources, reference data sets, and
+*   Management of the data access policies.
 
 Data access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment.
 

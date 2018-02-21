@@ -62,11 +62,11 @@ SQL Database Threat Detection integrates its alerts with [Azure Security Center]
    
 1. Clicking on the SQL security tile launches the Azure Security Center alerts page and provides an overview of active SQL threats detected on the database. 
 
-  ![Navigation pane][7]
+   ![Navigation pane][7]
 
 2. Clicking on a specific alert provides additional details and actions for investigating this threat and remediating future threats.
 
-  ![Navigation pane][8]
+   ![Navigation pane][8]
 
 
 ## Next steps

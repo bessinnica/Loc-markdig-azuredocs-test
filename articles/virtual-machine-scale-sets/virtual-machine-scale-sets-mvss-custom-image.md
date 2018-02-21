@@ -72,7 +72,6 @@ Next, add a resource of type `Microsoft.Compute/images`, which is the managed di
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
        "location": "[resourceGroup().location]",
-
 ```
 
 In the scale set resource, add a `dependsOn` clause referring to the custom image to make sure the image gets created before the scale set tries to deploy from that image:
@@ -87,7 +86,6 @@ In the scale set resource, add a `dependsOn` clause referring to the custom imag
        ],
        "sku": {
          "name": "Standard_A1",
-
 ```
 
 ### Changing scale set properties to use the managed disk image
@@ -114,3 +112,4 @@ In this example, use the `resourceId` function to get the resource ID of the ima
 ## Next Steps
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
+

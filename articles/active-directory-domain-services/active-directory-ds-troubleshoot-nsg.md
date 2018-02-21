@@ -55,48 +55,48 @@ This resolution requires installing and running [Azure AD Powershell](https://do
 
 1. Connect to your Azure AD directory.
 
-  ```PowerShell
-  # Connect to your Azure AD directory.
-  Connect-AzureAD
-  ```
+   ```PowerShell
+   # Connect to your Azure AD directory.
+   Connect-AzureAD
+   ```
 2. Log in to your Azure subscription.
 
-  ```PowerShell
-  # Log in to your Azure subscription.
-  Login-AzureRmAccount
-  ```
+   ```PowerShell
+   # Log in to your Azure subscription.
+   Login-AzureRmAccount
+   ```
 
 3. Create an NSG with three rules. The following script defines three rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those rules. You are welcome to add additional rules as you see fit using the same format.
 
-  ```PowerShell
-  # Create the rules needed
-  $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
-  -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
-  -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 443
-  $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Manage domain through port 3389" `
-  -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
-  -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389
-  $rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
-  -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
-  -SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 5986
-  # Create the NSG with the 3 rules above
-  $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
-  -Name "AADDS-NSG" -SecurityRules $rule1,$rule2,$rule3
-  ```
+   ```PowerShell
+   # Create the rules needed
+   $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
+   -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+   -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+   -DestinationPortRange 443
+   $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Manage domain through port 3389" `
+   -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
+   -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+   -DestinationPortRange 3389
+   $rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
+   -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
+   -SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
+   -DestinationPortRange 5986
+   # Create the NSG with the 3 rules above
+   $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
+   -Name "AADDS-NSG" -SecurityRules $rule1,$rule2,$rule3
+   ```
 
 4. Lastly, the script associates the NSG with the vnet and subnet of choice.
 
-  ```PowerShell
-  # Find vnet and subnet
-  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
-  # Set the nsg to the subnet and save the changes
-  $subnet.NetworkSecurityGroup = $nsg
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```PowerShell
+   # Find vnet and subnet
+   $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
+   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
+   # Set the nsg to the subnet and save the changes
+   $subnet.NetworkSecurityGroup = $nsg
+   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+   ```
 
 ### Full script
 

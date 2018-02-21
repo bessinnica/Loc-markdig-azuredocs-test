@@ -181,6 +181,7 @@ Copy the value of `primaryMasterKey`. You need this information in the next step
 
 <a name="devconfig"></a>
 
+
 ### Configure the connection string in your Node.js application
 
 In your local MEAN.js repository, in the _config/env/_ folder, create a file named _local-production.js_. _.gitignore_ is configured to keep this file out of the repository.
@@ -246,9 +247,10 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 <a name="create"></a>
 
+
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
 ### Configure an environment variable
 
@@ -294,7 +296,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ```
 
 You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it:
@@ -463,6 +465,7 @@ By default, the portal shows your web app's **Overview** page. This page gives y
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 
 ## Next steps
 

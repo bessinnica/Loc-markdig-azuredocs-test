@@ -58,7 +58,7 @@ Tip 4: Are gremlins your jam? #cosmosdb loves Gremlin too! View, query and edit 
 
 ## Tip 5: Try Azure Cosmos DB free
 
-Tip 5: Want to try Azure #CosmosDB for free? No signup or credit card required, just go to [https://aka.ms/d81vxr](https://aka.ms/d81vxr) and start coding!  
+Tip 5: Want to try Azure #CosmosDB for free? No signup or credit card required, just go to [https://aka.ms/d81vxr](https://aka.ms/d81vxr) and start coding!  
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
@@ -74,7 +74,7 @@ Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmos
 
 ## Tip 8: Build a Node.js app by using SQL API
 
-Tip 8: Build a @nodejs app by using SQL API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+Tip 8: Build a @nodejs app by using SQL API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
 
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
@@ -82,7 +82,7 @@ Tip 8: Build a @nodejs app by using SQL API and Azure #CosmosDB. Learn more on d
 
 ## Tip 9: Query using MongoDB in Node.js
 
-Tip 9: Query Azure #CosmosDB using the MongoDB API in Node.js. Learn more on docs page [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+Tip 9: Query Azure #CosmosDB using the MongoDB API in Node.js. Learn more on docs page [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
 
 ![Query with MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
@@ -106,7 +106,7 @@ Article: [Create a MongoDB app with React and Azure Cosmos DB](https://docs.micr
 
 ## Tip 12: Go serverless
 
-Tip 12: Go serverless with Azure #CosmosDB and @AzureFunctions! Full docs at [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
+Tip 12: Go serverless with Azure #CosmosDB and @"AzureFunctions"! Full docs at [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
 
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
@@ -130,7 +130,7 @@ Article: [Common Azure Cosmos DB use cases](https://aka.ms/Ihpf00)
 
 ## Tip 15: VS Code integration
 
-Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install extension from [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install extension from [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
 
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
@@ -139,7 +139,7 @@ Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install e
 
 ## Tip 16: Functions and Twilio demo
 
-Tip 16: Awesome demo! Integrate Azure #cosmosDB, functions and @twilio to send an SMS on any DB change. See docs at [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+Tip 16: Awesome demo! Integrate Azure #cosmosDB, functions and @twilio to send an SMS on any DB change. See docs at [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -150,13 +150,13 @@ Tip 16: Awesome demo! Integrate Azure #cosmosDB, functions and @twilio to send a
 
 Tip 17: Optimize cost by using Mongoose discriminators to store multiple entities in a single #CosmosDB collection [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
-Blog:  [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection by Anthony Chu](https://aka.ms/M488jm)
+Blog:  [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection by Anthony Chu](https://aka.ms/M488jm)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## Tip 18: Request units
 
-Tip 18: Learn what Request Units (RU) are and how to configure them in Azure #CosmosDB. More on docs at [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+Tip 18: Learn what Request Units (RU) are and how to configure them in Azure #CosmosDB. More on docs at [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
 
 Article: [Request Units in Azure Cosmos DB](https://aka.ms/Kt2nbn)
 
@@ -164,7 +164,7 @@ Article: [Request Units in Azure Cosmos DB](https://aka.ms/Kt2nbn)
 
 ## Tip 19: Partition! Partition! Partition! 
 
-Tip 19: Partition! Partition! Partition! The why and how in Azure #CosmosDB. Docs at [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+Tip 19: Partition! Partition! Partition! The why and how in Azure #CosmosDB. Docs at [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
 
 > [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
 

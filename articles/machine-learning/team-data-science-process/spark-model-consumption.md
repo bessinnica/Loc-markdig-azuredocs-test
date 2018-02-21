@@ -371,7 +371,7 @@ The code in this section shows how to load a Linear Regression Model from Azure 
     # RECORD START TIME
     timestart = datetime.datetime.now()
 
-    #LOAD LIBRARIES​
+    #LOAD LIBRARIES 
     from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 
     # LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
@@ -384,7 +384,7 @@ The code in this section shows how to load a Linear Regression Model from Azure 
     dirfilename = scoredResultDir + linearregressionfilename;
     predictions.saveAsTextFile(dirfilename)
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL​
+    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL 
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 

@@ -53,7 +53,6 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
         return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
     }
 }
-
 ```
 
 ```Java
@@ -70,7 +69,6 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
          return this.stateManager().getStateAsync("Mailbox");
     }
 }
-
 ```
 
 In this example, the `VoicemailBox` object is serialized when:
@@ -128,7 +126,7 @@ public class VoicemailBox
 public class VoicemailBox implements Serializable
 {
     static final long serialVersionUID = 42L;
-    
+
     public VoicemailBox()
     {
         this.messageList = new ArrayList<Voicemail>();

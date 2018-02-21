@@ -1,10 +1,10 @@
-﻿# Prepay for Virtual Machines with Reserved VM Instances
+# Prepay for Virtual Machines with Reserved VM Instances
 
 Prepay for virtual machines and save money with Reserved Virtual Machine Instances. For more information, see [Reserved Virtual Machine Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 You can buy Reserved Virtual Machine Instances in the [Azure portal](https://portal.azure.com). To buy a Reserved Virtual Machine Instance:
--	You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
--	For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
+-   You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
+-   For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
 
 ## Buy a Reserved Virtual Machine Instance
 1. Log in to the [Azure portal](https://portal.azure.com).

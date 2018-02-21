@@ -78,12 +78,12 @@ This privilege is expressed in the following values:
 You get to choose durability level for each of your node-types.You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster.**You must maintain a minimum count of 5 nodes for any node-type that has a durability of Gold or silver**. 
 
 **Advantages of using Silver or Gold durability levels**
- 
+ 
 1. Reduces the number of required steps in a scale-in operation (that is, node deactivation and Remove-ServiceFabricNodeState is called automatically)
 2. Reduces the risk of data loss due to a customer-initiated in-place VM SKU change operation or Azure infrastructure operations.
-	 
+     
 **Disadvantages of using Silver or Gold durability levels**
- 
+ 
 1. Deployments to your Virtual Machine Scale Set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
 2. Increases the number of [replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (for example, primary swaps) due to automated node deactivations during Azure infrastructure operations.
 
@@ -100,14 +100,14 @@ Use Silver or Gold durability for all node types that host stateful services you
 
 1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.
 2. Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
-	- **For non-primary nodetypes:** It is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
-	- **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
+    - **For non-primary nodetypes:** It is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
+    - **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
 
 
 > [!WARNING]
 > Changing the VM SKU Size for VM Scale Sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 > 
-	
+    
 3. Maintain a minimum count of five nodes for any Virtual Machine Scale Set that has durability level of Gold or Silver enabled
 4. Do not delete random VM instances, always use Virtual Machine Scale Set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
 6. If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. Scaling down more than one instance at a time is not safe.

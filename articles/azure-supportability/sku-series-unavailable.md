@@ -62,7 +62,7 @@ We first recommend that you consider an alternative region or SKU that meets you
 ![Basics blade](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
 
--	On the Problem page, select the Problem type as “Other General Questions”.
+-   On the Problem page, select the Problem type as “Other General Questions”.
 - In the Details section:
   - Please indicate if you’re looking to deploy virtual machines or purchase Reserved Virtual Machine Instances
   - Please specify the region, SKU, and the number of virtual machine instances that you're planning to deploy or purchase
@@ -70,7 +70,7 @@ We first recommend that you consider an alternative region or SKU that meets you
 
 ![Problem](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
--	Enter your contact details and click "Create".
+-   Enter your contact details and click "Create".
 
 ![Contact Information](./media/SKU-series-unavailable/ContactInformation.png)
 

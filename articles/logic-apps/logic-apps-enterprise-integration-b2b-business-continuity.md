@@ -209,7 +209,7 @@ select the duplicate check settings in your EDIFACT agreement's Receive Settings
    The trigger should be connected to a primary region integration account. 
 
 3. Enter a connection name, select your *primary region integration account* 
-from the list, and choose **Create**.    
+   from the list, and choose **Create**.    
 
    ![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
@@ -217,28 +217,28 @@ from the list, and choose **Create**.
 
    ![DateTime and Frequency](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-6. Select **New step** > **Add an action**.    
+5. Select **New step** > **Add an action**.    
 
    ![New step, Add an action](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-7. Search on **EDIFACT**, and select **EDIFACT - Add or update control numbers**.   
+6. Search on **EDIFACT**, and select **EDIFACT - Add or update control numbers**.   
 
    ![Add or update control numbers](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
-8. To connect an action to a secondary region integration account, 
-select **Change connection** > **Add new connection** for a 
-list of the available integration accounts. Enter a connection name, 
-select your *secondary region integration account* from the list, 
-and choose **Create**.
+7. To connect an action to a secondary region integration account, 
+   select **Change connection** > **Add new connection** for a 
+   list of the available integration accounts. Enter a connection name, 
+   select your *secondary region integration account* from the list, 
+   and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-9. Switch to raw inputs by clicking on the icon in upper right corner.
+8. Switch to raw inputs by clicking on the icon in upper right corner.
 
    ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
-10. Select Body from the dynamic content picker, 
-and save the logic app.   
+9. Select Body from the dynamic content picker, 
+   and save the logic app.   
 
    ![Dynamic content fields](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 

@@ -113,7 +113,7 @@ This can be done with the following command that creates a plan named "testPlan"
 az appservice plan create --resource-group myResourceGroup --name testPlan
 ```
 
-In the following command substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
+In the following command substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -158,16 +158,16 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 After the deployment source been set, the Azure CLI shows information similar to the following example (null values removed for readability):
 ```json
 {
-  "branch": "master",
-  "deploymentRollbackEnabled": false,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/...",
-  "isManualIntegration": true,
-  "isMercurial": false,
-  "location": "USGov Virginia",
-  "name": "quickstart",
-  "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.Web/sites/sourcecontrols"
+  "branch": "master",
+  "deploymentRollbackEnabled": false,
+  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/...",
+  "isManualIntegration": true,
+  "isMercurial": false,
+  "location": "USGov Virginia",
+  "name": "quickstart",
+  "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
+  "resourceGroup": "myResourceGroup",
+  "type": "Microsoft.Web/sites/sourcecontrols"
 }
 ```
 ### Test the function
@@ -179,14 +179,14 @@ Execute the following cURL command, replacing the `<app_name>` placeholder with 
 ```bash
 curl http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 ```
- 
-![Function response shown in a browser](./media/documentation-government-function2.png)  
+ 
+![Function response shown in a browser](./media/documentation-government-function2.png)  
 
 If you don't have cURL available in your command line, enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function app, and append the query string `&name=<yourname>` to the URL and execute the request. 
 
-    http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
+    http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 
-![Function response shown in a browser.](./media/documentation-government-function3.png)  
+![Function response shown in a browser.](./media/documentation-government-function3.png)  
 
 ## Create function - Visual Studio 
 
@@ -199,7 +199,7 @@ Once that is confirmed, the steps to create a function using Visual Studio to Az
 Once your function has been deployed from the previous step above, we can test the function. 
 The URL that calls your HTTP triggered function looks like this:
 
-        http://<functionappname>.azurewebsites.us/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.us/api/<functionname>?name=<yourname> 
 
 Paste this new URL for the HTTP request into your browser's address bar. The following image shows the response in the browser to the remote GET request returned by the function: 
 
@@ -211,10 +211,10 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
 ### Prerequisites
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio         2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** >          **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
 * Function app running in Visual Studio
@@ -257,12 +257,12 @@ Go down to the "Add" button and click on "New Item" as shown below.
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
     
 7. We must now set the connection string to your Azure Storage Account in our app settings, done through CLI. 
-	>[!NOTE] 
-	> Make sure CLI is connected to Azure Government by following the "Launch Azure CLI 2.0" section above. 
-	>
-	>
+    >[!NOTE] 
+    > Make sure CLI is connected to Azure Government by following the "Launch Azure CLI 2.0" section above. 
+    >
+    >
 
-	In the command below, replace the "resourceGroupName" and "FunctionAppname" tags with your app information and paste the connection string from Step 6 above in place of the "connectionString" tag. Then run the command using Azure CLI.
+    In the command below, replace the "resourceGroupName" and "FunctionAppname" tags with your app information and paste the connection string from Step 6 above in place of the "connectionString" tag. Then run the command using Azure CLI.
 
 ```azurecli-interactive
 az functionapp config appsettings set --resource-group <resourceGroupName> --name <FunctionAppname> --settings AzureWebJobsmyconnection= "<connectionString>"
@@ -279,10 +279,10 @@ This tutorial will walk through how to update an existing function by adding out
 
 * Make sure Visual Studio has been installed:
 
-   -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
     >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio         2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** >          **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
 
@@ -294,24 +294,24 @@ This tutorial will walk through how to update an existing function by adding out
 In order to connect the function to your output Queue, you must create an output binding. 
 1. Open your function in Visual Studio
 2.  For a C# function, update your function definition as follows to add the output Queue storage binding parameter (replace the <QueueName> placeholder with the name of your output Queue). Skip this step for a JavaScript function.
-	
-	```csharp
-	public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,TraceWriter log,[Queue("<QueueName>", Connection = "myconnection")] ICollector<string> <QueueName>)
-	{
-	…
-	}
-	        
-	```
+    
+    ```csharp
+    public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,TraceWriter log,[Queue("<QueueName>", Connection = "myconnection")] ICollector<string> <QueueName>)
+    {
+    …
+    }
+            
+    ```
 3. Add the following code to the function just before the method returns in order to write to the output Queue. Use the appropriate snippet for the language of your function.
 
     ```javascript
-	context.bindings.<QueueName> = "Name passed to the function: " + (req.query.name || req.body.name);
-	```
-	
-	```cs
-	<QueueName>.Add("Name passed to the function: " + name);     
-	```
-	
+    context.bindings.<QueueName> = "Name passed to the function: " + (req.query.name || req.body.name);
+    ```
+    
+    ```cs
+    <QueueName>.Add("Name passed to the function: " + name);     
+    ```
+    
 ### Test your function
 
 1. Run your function on Visual Studio.

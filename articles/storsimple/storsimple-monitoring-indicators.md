@@ -82,6 +82,7 @@ LED legend:
 The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM. You can use the following tables to determine the status of the PCM.  
 
 ### PCM indicator LEDs for power supply and fan
+
 | Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |
 | --- | --- | --- | --- | --- |
 | No AC power (to enclosure) |OFF |OFF |OFF |OFF |
@@ -94,6 +95,7 @@ The status of the PCM is indicated on the LED panel. The device PCM LED panel ha
 | PCM firmware download |OFF |Flashing |Flashing |Flashing |
 
 ### PCM indicator LEDs for the backup battery
+
 | Status | Battery good (green) | Battery fault (amber) |
 | --- | --- | --- |
 | Battery not present |OFF |OFF |
@@ -132,6 +134,7 @@ The following illustration helps you identify the LEDs on the primary controller
 Use the following table to determine whether the controller module is operating correctly.  
 
 ### Controller indicator LEDs
+
 | LED | Description |
 | --- | --- |
 | ID LED (blue) |Indicates that the module is being identified. If the blue LED is blinking on a running controller, then the controller is the active controller and the other one is the standby controller. For more information, see [Identify the active controller on your device](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
@@ -154,6 +157,7 @@ Each of the 6 Gb/s SAS EBOD controllers has LEDs that indicate its status as sho
 Use the following table to determine whether the EBOD controller module is operating normally.  
 
 ### EBOD controller module indicator LEDs
+
 | Status | I/O module OK (green) | I/O module fault (amber) | Host port activity (green) |
 | --- | --- | --- | --- |
 | Controller module OK |ON |OFF |- |
@@ -173,6 +177,7 @@ For the disk drives, the drive status is indicated by a green LED and a red-ambe
 Use the following table to determine the state of each disk drive, which in turn affects the overall front panel LED status.  
 
 ### Disk drive indicator LEDs for the EBOD enclosure
+
 | Status | Activity OK LED (green) | Fault LED (red-amber) | Associated ops panel LED |
 | --- | --- | --- | --- |
 | No drive installed |OFF |OFF |None |
@@ -196,6 +201,7 @@ A StorSimple device contains audible alarms associated with both the primary enc
 The following table describes the various alarm states.  
 
 ### Alarm states
+
 | Alarm state | Action | Action with mute button pressed |
 | --- | --- | --- |
 | S0 |Normal mode: silent |Beep twice |
@@ -215,6 +221,7 @@ You can mute the audible alarm by pressing the mute button on the ops panel. Aut
 The following table describes the various alarm conditions.
 
 ### Alarm conditions
+
 | Status | Severity | Alarm | Ops panel LED |
 | --- | --- | --- | --- |
 | PCM alert – loss of DC power from a single PCM |Fault – no loss of redundancy |S1 |Module fault |

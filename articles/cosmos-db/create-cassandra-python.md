@@ -64,13 +64,13 @@ This step is optional. If you're interested in learning how the database resourc
 * User name and password is set using the connection string page in the Azure portal. You replace the path\to\cert with the path to your X509 certificate.
 
    ```python
-	ssl_opts = {
-		    'ca_certs': 'path\to\cert',
-		    'ssl_version': ssl.PROTOCOL_TLSv1_2
-		    }
+    ssl_opts = {
+            'ca_certs': 'path\to\cert',
+            'ssl_version': ssl.PROTOCOL_TLSv1_2
+            }
     auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
     cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
-	session = cluster.connect()
+    session = cluster.connect()
    
    ```
 

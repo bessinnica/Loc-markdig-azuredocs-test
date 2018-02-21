@@ -185,6 +185,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -204,3 +205,4 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </div>
     </li>
 </ul>
+

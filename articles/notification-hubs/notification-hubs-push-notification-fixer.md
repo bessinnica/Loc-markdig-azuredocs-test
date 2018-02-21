@@ -62,13 +62,13 @@ Here are some common misconfigurations to check for:
 
 * **FCM configuration** 
    
-    1. Ensure that the *server key* that you obtained from Firebase matches the server key that you registered in the Azure portal.
+  1. Ensure that the *server key* that you obtained from Firebase matches the server key that you registered in the Azure portal.
    
-    ![Firebase server key][3]
+     ![Firebase server key][3]
    
-    2. Ensure that you have configured **Project ID** on the client. You can obtain the value for **Project ID** from the Firebase dashboard.
+  2. Ensure that you have configured **Project ID** on the client. You can obtain the value for **Project ID** from the Firebase dashboard.
    
-    ![Firebase Project ID][1]
+     ![Firebase Project ID][1]
 
 ## Application issues
 * **Tags and tag expressions**
@@ -235,15 +235,15 @@ This message indicates that either invalid credentials are configured in Notific
 
     For more information about programmatic access, see these articles: 
 
-    * [Programmatic telemetry access]  
-    * [Telemetry access via APIs sample] 
+  * [Programmatic telemetry access]  
+  * [Telemetry access via APIs sample] 
 
     > [!NOTE]
     > Several telemetry-related features, like exporting and importing registrations and telemetry access via APIs, are available only on the Standard service tier. If you attempt to use these features from the Free or Basic service tier, you receive an exception message if you use the SDK, and an HTTP 403 (Forbidden) error if you use the features directly from the REST APIs. 
     >
     >To use telemetry-related features, first ensure in the Azure portal that you are using the Standard service tier.  
-> 
-> 
+    > 
+    > 
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png

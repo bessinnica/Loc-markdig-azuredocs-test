@@ -29,7 +29,7 @@ This feature gives you fine-grained control, on a [per-policy basis](active-dire
 For built-in policies, you can use this feature in your Azure AD B2C directory as follows:
 
 1. Follow these steps to [navigate to the B2C features menu](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
-2. Click **Sign-up or sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-up or sign-in policies***.
+2. Click <strong>Sign-up or sign-in policies</strong>. <em>Note: You can use this feature on any policy type, not just on **Sign-up or sign-in policies</em>**.
 3. Open a policy by clicking it. For example, click on **B2C_1_SiUpIn**.
 4. Click **Edit** at the top of the menu.
 5. Click **Token, session & single sign-on config**.

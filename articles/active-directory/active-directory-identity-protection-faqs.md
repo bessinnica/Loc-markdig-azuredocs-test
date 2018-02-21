@@ -41,6 +41,6 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## How can I sort users in "Users flagged for risk"?
 
-**A:** Download the users flagged for risk report by clicking on the **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
+**A:** Download the users flagged for risk report by clicking on the **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
 
 ---

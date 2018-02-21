@@ -14,11 +14,11 @@ ms.author: v-gedod
 ---
 # Bing Search SDK preview
 The Bing Entity Search API samples include scenarios that:
-1.	Search for entity such as Tom Cruise and get rich information.
-2.	Handle disambiguation of terms for queries with possibly multiple intents.
-3.	Search for a local entity such as a restaurant and get rich information around it.
-4.	Search for local businesses such as restaurants and get rich information.
-5.	Trigger a bad request and error handling.
+1.  Search for entity such as Tom Cruise and get rich information.
+2.  Handle disambiguation of terms for queries with possibly multiple intents.
+3.  Search for a local entity such as a restaurant and get rich information around it.
+4.  Search for local businesses such as restaurants and get rich information.
+5.  Trigger a bad request and error handling.
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 

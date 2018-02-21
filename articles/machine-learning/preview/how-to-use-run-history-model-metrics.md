@@ -21,7 +21,7 @@ This article describes how to make effective use of these features to increase t
 ## Prerequisites
 To step through this how-to guide, you need to:
 * [Create and Install Azure Machine Learning](quickstart-installation.md)
-- [Create a Project](quickstart-installation.md)
+* [Create a Project](quickstart-installation.md)
 
 
 ## Azure ML Logging API Overview
@@ -224,7 +224,6 @@ $ az ml history list -o table
   0.660377               2.5       0:00:04.915401  IrisDemo_1504832148526  iris_sklearn.py  2017-09-08T00:55:52.937083+00:00  Completed
   0.641509               5         0:00:04.730627  IrisDemo_1504832127172  iris_sklearn.py  2017-09-08T00:55:29.612382+00:00  Completed
   0.641509              10         0:00:06.059082  IrisDemo_1504832109906  iris_sklearn.py  2017-09-08T00:55:14.739806+00:00  Completed
-
 ```
 The **Command Line Interface** is an alternative pathway to access the power of Azure Machine Learning Workbench.
 

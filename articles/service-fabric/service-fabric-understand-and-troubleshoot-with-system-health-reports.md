@@ -171,7 +171,7 @@ AggregatedHealthState : Ok
 PartitionHealthStates : 
                         PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
                         AggregatedHealthState : Ok
-                        
+
 HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
@@ -247,7 +247,7 @@ PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 ReplicaHealthStates   : None
 HealthEvents          : 
                         SourceId              : System.FM
@@ -265,11 +265,11 @@ HealthEvents          :
                           N/S Ready _Node_1 131444422293118720
                           N/P Ready _Node_0 131444422293118721
                           (Showing 5 out of 5 replicas. Total available replicas: 5)
-                        
+
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 7/14/2017 4:55:44 PM, LastOk = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : System.PLB
                         Property              : ServiceReplicaUnplacedHealth_Secondary_af2e3e44-a8f8-45ac-9f31-4093eb897600
                         HealthState           : Warning
@@ -282,25 +282,25 @@ HealthEvents          :
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
-                        
+
                         Constraint Elimination Sequence:
                         Existing Secondary Replicas eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
                         Existing Primary Replica eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
-                        
+
                         Nodes Eliminated By Constraints:
-                        
+
                         Existing Secondary Replicas -- Nodes with Partition's Existing Secondary Replicas/Instances:
                         --
                         FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: None/None
                         FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: None/None
-                        
+
                         Existing Primary Replica -- Nodes with Partition's Existing Primary Replica or Secondary Replicas:
                         --
                         FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: None/None
-                        
-                        
+
+
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 7/14/2017 4:56:14 PM, LastOk = 1/1/0001 12:00:00 AM
@@ -326,7 +326,7 @@ AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                                               
+
 HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
@@ -341,7 +341,7 @@ HealthEvents          :
                           S/P Ready Node2 131482789688598467
                           S/S Ready Node3 131482789688598468
                           (Showing 3 out of 3 replicas. Total available replicas: 3)                        
-                        
+
                         For more information see: http://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -422,7 +422,7 @@ AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='ReplicaOpenStatus', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : ReplicaOpenStatus
@@ -473,7 +473,7 @@ AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='ReplicaCloseStatus', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : ReplicaCloseStatus
@@ -484,7 +484,7 @@ HealthEvents          :
                         TTL                   : Infinite
                         Description           : Replica had multiple failures during close on _Node_1. The application 
                         host has crashed.
-                        
+
                         For more information see: http://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -518,7 +518,7 @@ AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', 
                         ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : Reconfiguration
@@ -528,7 +528,7 @@ HealthEvents          :
                         ReceivedAt            : 8/28/2017 2:13:57 AM
                         TTL                   : Infinite
                         Description           : Reconfiguration is stuck. Waiting for response from the local replica
-                        
+
                         For more information see: http://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -546,7 +546,7 @@ ReplicaId             : 131483956274977415
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 HealthEvents          : 
                         SourceId              : System.RA
                         Property              : Reconfiguration
@@ -556,11 +556,11 @@ HealthEvents          :
                         ReceivedAt            : 8/28/2017 12:14:07 PM
                         TTL                   : Infinite
                         Description           : Reconfiguration is stuck. Waiting for response from 2 replicas
-                        
+
                         Pending Replicas: 
                         P/I Down 40 131483956244554282
                         S/S Down 20 131483956274972403
-                        
+
                         For more information see: http://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -603,7 +603,7 @@ ReplicaId             : 131483966141404693
 AggregatedHealthState : Warning
 UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 HealthEvents          :                         
                         SourceId              : System.RAP
                         Property              : IStatefulServiceReplica.ChangeRole(S)Duration
@@ -616,7 +616,6 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 12:24:56 PM, LastOk = 1/1/0001 12:00:00 AM
-                        
 ```
 
 The property and text indicate which API got stuck. The next steps to take for different stuck APIs is different. Any API on the *IStatefulServiceReplica* or *IStatelessServiceInstance* is usually a bug in the service code. The following section describes how these translate to the [Reliable Services model](service-fabric-reliable-services-lifecycle.md):
@@ -740,7 +739,7 @@ DeployedServicePackageHealthStates :
                                      ServicePackageActivationId : 
                                      NodeName              : _Node_1
                                      AggregatedHealthState : Ok
-                                     
+
 HealthEvents                       : 
                                      SourceId              : System.Hosting
                                      Property              : Activation
@@ -759,7 +758,7 @@ HealthEvents                       :
 System.Hosting reports an error if the application package download fails.
 
 * **SourceId**: System.Hosting
-* **Property**: **Download:***RolloutVersion*.
+* <strong>Property</strong>: <strong>Download:</strong><em>RolloutVersion</em>.
 * **Next steps**: Investigate why the download failed on the node.
 
 ## DeployedServicePackage system health reports
@@ -776,7 +775,7 @@ System.Hosting reports as OK if the service package activation on the node is su
 System.Hosting reports as OK for each code package if the activation is successful. If the activation fails, it reports a warning as configured. If **CodePackage** fails to activate or terminates with an error greater than the configured **CodePackageHealthErrorThreshold**, hosting reports an error. If a service package contains multiple code packages, an activation report is generated for each one.
 
 * **SourceId**: System.Hosting
-* **Property**: Uses the prefix **CodePackageActivation** and contains the name of the code package and the entry point as **CodePackageActivation:***CodePackageName*:*SetupEntryPoint/EntryPoint*. For example, **CodePackageActivation:Code:SetupEntryPoint**.
+* <strong>Property</strong>: Uses the prefix <strong>CodePackageActivation</strong> and contains the name of the code package and the entry point as <strong>CodePackageActivation:</strong><em>CodePackageName</em>:<em>SetupEntryPoint/EntryPoint</em>. For example, <strong>CodePackageActivation:Code:SetupEntryPoint</strong>.
 
 ### Service type registration
 System.Hosting reports as OK if the service type has been registered successfully. It reports an error if the registration wasn't done in time, as configured by using **ServiceTypeRegistrationTimeout**. If the runtime is closed, the service type is unregistered from the node and hosting reports a warning.
@@ -807,7 +806,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : CodePackageActivation:Code:EntryPoint
                              HealthState           : Ok
@@ -819,7 +818,7 @@ HealthEvents               :
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
-                             
+
                              SourceId              : System.Hosting
                              Property              : ServiceTypeRegistration:WordCountServiceType
                              HealthState           : Ok
@@ -837,7 +836,7 @@ HealthEvents               :
 System.Hosting reports an error if the service package download fails.
 
 * **SourceId**: System.Hosting
-* **Property**: **Download:***RolloutVersion*.
+* <strong>Property</strong>: <strong>Download:</strong><em>RolloutVersion</em>.
 * **Next steps**: Investigate why the download failed on the node.
 
 ### Upgrade validation

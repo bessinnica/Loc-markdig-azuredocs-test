@@ -21,15 +21,15 @@ Video Indexer supports embedding two types of widgets into your application: **C
 1. Sign in to your [Video Indexer](https://vi.microsoft.com) account. 
 2. Click the "embed" button that appears below the video.
 
-	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
+    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
-	After clicking the button, an embed modal will appear on the screen where you can choose what widget you want to embed in your application.
-	Selecting a widget (**Player** or **Cognitive Insights**), generates the embedded code for you to paste in your application.
- 
+    After clicking the button, an embed modal will appear on the screen where you can choose what widget you want to embed in your application.
+    Selecting a widget (**Player** or **Cognitive Insights**), generates the embedded code for you to paste in your application.
+
 3. Choose the type of widget you want (**Cognitive Insights** or **Player**).
 4. Copy the embed code, and add to your application. 
 
-	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 ## Embedding private (or Org) content
 
@@ -38,7 +38,7 @@ You can get embed codes from embed popups (as shown in the previous section) for
 If you want to embed a **Private** video, you have to pass an access token in the **iframe**'s **src** attribute:
 
      https://www.videobreakdown.com/embed/[insights | player]/<VideoId>/?accessToken=<accessToken>
-    
+
 Use the **GetInsightsWidgetUrl** API to get a URL for a Cognitive Insights widget. The URL includes the access token. Specify this URL as the **iframe**'s **src** value.
 
 If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to call **Get Insights Widget Url**  or **Get Insight Widget By External Id** and add **&allowEdit=true**. 
@@ -64,13 +64,13 @@ If you choose to implement your own player code and do the integration with **Co
 
 This section shows how to achieve interaction between two Video Indexer widgets so when a user clicks the insight control on your application, the player jumps to the relevant moment.
 
-	<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> 
+    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> 
 
 1. Copy the **Player** widget embed code.
 2. Copy the **Cognitive Insights** embed code.
 3. Add the https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js file to handle the communication between the two widgets.
 
-	<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
+    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
 
 Now when a user clicks the insight control on your application, the player jumps to the relevant moment.
 
@@ -79,54 +79,54 @@ For more information, see [this demo](https://videobreakdown.portal.azure-api.ne
 ### Embed the Cognitive Insights widget and use Azure Media Player to play the content
 
 This section shows how to achieve interaction between a **Cognitive Insights** widget and an Azure Media Player instance using the [AMP plugin](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
- 
+
 1. Add a Video Indexer plugin for the AMP player.
 
-		<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>
+        <script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>
 
 
 2. Instantiate Azure Media Player with the Video Indexer plugin.
 
-		// Init Source
-		function initSource() {
-		    var tracks = [{
-			kind: 'captions',
-			// Here is how to load vtt from VI, you can replace it with your vtt url.
-			src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
-			srclang: 'en',
-			label: 'English'
-		    }];
+        // Init Source
+        function initSource() {
+            var tracks = [{
+            kind: 'captions',
+            // Here is how to load vtt from VI, you can replace it with your vtt url.
+            src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
+            srclang: 'en',
+            label: 'English'
+            }];
 
-		    myPlayer.src([
-			{
-			    "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
-			    "type": "application/vnd.ms-sstr+xml"
-			}
-		    ], tracks);
-		}
+            myPlayer.src([
+            {
+                "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
+                "type": "application/vnd.ms-sstr+xml"
+            }
+            ], tracks);
+        }
 
-		// Init your AMP instance
-		var myPlayer = amp('vid1', { /* Options */
-		    "nativeControlsForTouch": false,
-		    autoplay: true,
-		    controls: true,
-		    width: "640",
-		    height: "400",
-		    poster: "",
-		    plugins: {
-			videobreakedown: {}
-		    }
-		}, function () {
-		    // Activate the plugin
-		    this.videobreakdown({
-			videoId: "c4c1ad4c9a",
-			syncTranscript: true,
-			syncLanguage: true
-		    });
+        // Init your AMP instance
+        var myPlayer = amp('vid1', { /* Options */
+            "nativeControlsForTouch": false,
+            autoplay: true,
+            controls: true,
+            width: "640",
+            height: "400",
+            poster: "",
+            plugins: {
+            videobreakedown: {}
+            }
+        }, function () {
+            // Activate the plugin
+            this.videobreakdown({
+            videoId: "c4c1ad4c9a",
+            syncTranscript: true,
+            syncLanguage: true
+            });
 
-		    // Set the source dynamically
-		    initSource.call(this);
-		});
+            // Set the source dynamically
+            initSource.call(this);
+        });
 
 3. Copy the **Cognitive Insights** embed code.
 
@@ -140,44 +140,44 @@ If you use your own player, you have to take care of manipulating your player yo
 
 1. Insert your video player.
 
-	For example, a standard HTML5 player
+    For example, a standard HTML5 player
 
-		<video id="vid1" width="640" height="360" controls autoplay preload>
-		   <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
-		   Your browser does not support the video tag.
-		</video>    
+        <video id="vid1" width="640" height="360" controls autoplay preload>
+           <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
+           Your browser does not support the video tag.
+        </video>    
 
 2. Embed the Cognitive Insights widget.
 3. Implement communication for your player by listening to the "message" event. For example:
 
-		<script>
-	
-		    (function(){
-		    // Reference your player instance
-		    var playerInstance = document.getElementById('vid1');
-		
-		    function jumpTo(evt) {
-		      var origin = evt.origin || evt.originalEvent.origin;
-		
-		      // Validate that event comes from the videobreakdown domain.
-		      if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
-		        
-		        // Here you need to call your player "jumpTo" implementation
-		        playerInstance.currentTime = evt.data.time;
-		       
-		        // Confirm arrival to us
-		        if ('postMessage' in window) {
-		          evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
-		        }
-		      }
-		    }
-		
-		    // Listen to message event
-		    window.addEventListener("message", jumpTo, false);
-		  
-			}())    
-		
-		</script>
+        <script>
+
+            (function(){
+            // Reference your player instance
+            var playerInstance = document.getElementById('vid1');
+
+            function jumpTo(evt) {
+              var origin = evt.origin || evt.originalEvent.origin;
+
+              // Validate that event comes from the videobreakdown domain.
+              if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+
+                // Here you need to call your player "jumpTo" implementation
+                playerInstance.currentTime = evt.data.time;
+
+                // Confirm arrival to us
+                if ('postMessage' in window) {
+                  evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
+                }
+              }
+            }
+
+            // Listen to message event
+            window.addEventListener("message", jumpTo, false);
+
+            }())    
+
+        </script>
 
 
 For more information, see [this demo](https://videobreakdown.portal.azure-api.net/demo-your-player).
@@ -191,7 +191,8 @@ If you embed Video Indexer insights with your own AMP player, you can use the **
 ### Cognitive insights widget
 You can choose the types of insights you want by specifying them as a value to the following URL parameter added to the the embed code you get (from API or from the web application):
 
-**&widgets=**<list of wanted widgets>
+<strong>&widgets=</strong><list of wanted widgets>
+
 
 The possible values are: people, keywords, sentiments, transcript, search.
 

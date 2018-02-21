@@ -66,9 +66,9 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
 1. Navigate to the virtual machine listing on [Azure portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
 3. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
-   
+
    1. **Basics**
-      
+
       1. **Name**: Name of your data science server you are creating.
       2. **VM Disk Type**: Choose between SSD or HDD. For GPU (NC-Series), choose **HDD** as the disk type. 
       3. **User Name**: Admin account login id.
@@ -78,7 +78,7 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
       7. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access.
    2. **Size**: Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”.
    3. **Settings**:
-      
+
       1. **Use Managed Disks**: Choose Managed if you want Azure to manage the disks for the VM.  Otherwise you need to specify a new or exitsting storage account. 
       2. **Other parameters**: Usually you just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
    4. **Summary**: Verify that all information you entered is correct and click **Create**. **NOTE**: The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
@@ -171,6 +171,7 @@ To help you build dashboards and great visualizations, the **Power BI Desktop** 
 The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the Microsoft Data Science Virtual Machine desktop.  
 
 ## Important directories on the VM
+
 | Item | Directory |
 | --- | --- |
 | Jupyter notebook server configurations |C:\ProgramData\jupyter |

@@ -24,11 +24,11 @@ You can use the Capacity and Performance solution in Log Analytics to help you u
 
 The solution:
 
--	Shows hosts with highest and lowest CPU and memory utilization
--	Shows VMs with highest and lowest CPU and memory utilization
--	Shows VMs with highest and lowest IOPS and throughput utilization
--	Shows which VMs are running on which hosts
--	Shows the top disks with high throughput, IOPS, and latency in cluster shared volumes
+-   Shows hosts with highest and lowest CPU and memory utilization
+-   Shows VMs with highest and lowest CPU and memory utilization
+-   Shows VMs with highest and lowest IOPS and throughput utilization
+-   Shows which VMs are running on which hosts
+-   Shows the top disks with high throughput, IOPS, and latency in cluster shared volumes
 - Allows you to customize and filter based on groups
 
 > [!NOTE]
@@ -42,7 +42,7 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Support | Description |
 |---|---|---|
 | [Windows agents](log-analytics-windows-agent.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
-| [Linux agents](log-analytics-linux-agents.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
+| [Linux agents](log-analytics-linux-agents.md) | No    | The solution does not collect capacity and performance data information from direct Linux agents.|
 | [SCOM management group](log-analytics-om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
 | [Azure storage account](log-analytics-azure-storage.md) | No | Azure storage does not include capacity and performance data.|
 
@@ -90,7 +90,7 @@ Click on the Capacity and Performance tile to open the Capacity and Performance 
     - **Host Memory Utilization** Shows a graphical trend of the memory utilization of host computers and a list of hosts, based on the selected time period. Hover over the line chart to view details for a specific point in time. Click the chart to view more details in log search. Click any host name to open log search and view memory counter details for hosted VMs.
 - **Virtual Machines**
     - **VM CPU Utilization** Shows a graphical trend of the CPU utilization of virtual machines and a list of virtual machines, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated CPU counter details for the VM.
-    - **VM Memory Utilization**	Shows a graphical trend of the memory utilization of virtual machines and a list of virtual machines, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated memory counter details for the VM.
+    - **VM Memory Utilization** Shows a graphical trend of the memory utilization of virtual machines and a list of virtual machines, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated memory counter details for the VM.
     - **VM Total Disk IOPS** Shows a graphical trend of the total disk IOPS for virtual machines and a list of virtual machines with the IOPS for each, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated disk IOPS counter details for the VM.
     - **VM Total Disk Throughput** Shows a graphical trend of the total disk throughput for virtual machines and a list of virtual machines with the total disk throughput for each, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated total disk throughput counter details for the VM.
 - **Clustered Shared Volumes**
@@ -126,18 +126,18 @@ The following table provides sample log searches for capacity and performance da
 | Breakdown of Total Throughput across all CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 | Breakdown of Total Latency across all CSVs | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
->[!NOTE]
+> [!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
-
+> 
 > | Query | Description |
-|:--- |:--- |
-| All host memory configurations | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
-| All VM memory configurations | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
-| Breakdown of Total Disk IOPS across all VMs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Reads/s" or CounterName == "VHD Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
-| Breakdown of Total Disk Throughput across all VMs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Read MB/s" or CounterName == "VHD Write MB/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
-| Breakdown of Total IOPS across all CSVs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
-| Breakdown of Total Throughput across all CSVs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
-| Breakdown of Total Latency across all CSVs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Read Latency" or CounterName == "CSV Write Latency") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+> |:--- |:--- |
+> | All host memory configurations | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
+> | All VM memory configurations | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
+> | Breakdown of Total Disk IOPS across all VMs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Reads/s" or CounterName == "VHD Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+> | Breakdown of Total Disk Throughput across all VMs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Read MB/s" or CounterName == "VHD Write MB/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+> | Breakdown of Total IOPS across all CSVs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+> | Breakdown of Total Throughput across all CSVs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+> | Breakdown of Total Latency across all CSVs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Read Latency" or CounterName == "CSV Write Latency") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
 
 
 ## Next steps

@@ -71,51 +71,51 @@ using namespace std;
 
 int main()
 {
-	sql::Driver *driver;
-	sql::Connection *con;
-	sql::Statement *stmt;
-	sql::PreparedStatement *pstmt;
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::Statement *stmt;
+    sql::PreparedStatement *pstmt;
 
-	try
-	{
-		driver = get_driver_instance();
-		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
-	}
-	catch (sql::SQLException e)
-	{
-		cout << "Could not connect to database. Error message: " << e.what() << endl;
-		system("pause");
-		exit(1);
-	}
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }
 
-	stmt = con>createStatement();
-	stmt>execute("DROP TABLE IF EXISTS inventory");
-	cout << "Finished dropping table (if existed)" << endl;
-	stmt>execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
-	cout << "Finished creating table" << endl;
-	delete stmt;
+    stmt = con>createStatement();
+    stmt>execute("DROP TABLE IF EXISTS inventory");
+    cout << "Finished dropping table (if existed)" << endl;
+    stmt>execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+    cout << "Finished creating table" << endl;
+    delete stmt;
 
-	pstmt = con>prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
-	pstmt>setString(1, "banana");
-	pstmt>setInt(2, 150);
-	pstmt>execute();
-	cout << "One row inserted." << endl;
+    pstmt = con>prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
+    pstmt>setString(1, "banana");
+    pstmt>setInt(2, 150);
+    pstmt>execute();
+    cout << "One row inserted." << endl;
 
-	pstmt>setString(1, "orange");
-	pstmt>setInt(2, 154);
-	pstmt>execute();
-	cout << "One row inserted." << endl;
+    pstmt>setString(1, "orange");
+    pstmt>setInt(2, 154);
+    pstmt>execute();
+    cout << "One row inserted." << endl;
 
-	pstmt>setString(1, "apple");
-	pstmt>setInt(2, 100);
-	pstmt>execute();
-	cout << "One row inserted." << endl;
-	
-	delete pstmt;	
-	delete con;
-	system("pause");
-	return 0;
+    pstmt>setString(1, "apple");
+    pstmt>setInt(2, 100);
+    pstmt>execute();
+    cout << "One row inserted." << endl;
+    
+    delete pstmt;   
+    delete con;
+    system("pause");
+    return 0;
 
 ```
 
@@ -139,36 +139,36 @@ using namespace std;
 
 int main()
 {
-	sql::Driver *driver;
-	sql::Connection *con;
-	sql::PreparedStatement *pstmt;
-	sql::ResultSet *result;
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::PreparedStatement *pstmt;
+    sql::ResultSet *result;
 
-	try
-	{
-		driver = get_driver_instance();
-		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
-	}
-	catch (sql::SQLException e)
-	{
-		cout << "Could not connect to database. Error message: " << e.what() << endl;
-		system("pause");
-		exit(1);
-	}	
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }   
 
-//	select	
-	pstmt = con>prepareStatement("SELECT * FROM inventory;");
-	result = pstmt>executeQuery();	
-	
-	while (result>next())
-		printf("Reading from table=(%d, %s, %d)\n", result>getInt(1), result>getString(2).c_str(), result>getInt(3));	
-	
-	delete result;
-	delete pstmt;	
-	delete con;
-	system("pause");
-	return 0;
+//  select  
+    pstmt = con>prepareStatement("SELECT * FROM inventory;");
+    result = pstmt>executeQuery();  
+    
+    while (result>next())
+        printf("Reading from table=(%d, %s, %d)\n", result>getInt(1), result>getString(2).c_str(), result>getInt(3));   
+    
+    delete result;
+    delete pstmt;   
+    delete con;
+    system("pause");
+    return 0;
 }
 ```
 
@@ -190,34 +190,34 @@ using namespace std;
 
 int main()
 {
-	sql::Driver *driver;
-	sql::Connection *con;
-	sql::PreparedStatement *pstmt;
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::PreparedStatement *pstmt;
 
-	try
-	{
-		driver = get_driver_instance();
-		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
-	}
-	catch (sql::SQLException e)
-	{
-		cout << "Could not connect to database. Error message: " << e.what() << endl;
-		system("pause");
-		exit(1);
-	}	
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }   
 
-	//update
-	pstmt = con>prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?");
-	pstmt>setInt(1, 200);
-	pstmt>setString(2, "banana");
-	pstmt>executeQuery();
-	printf("Row updated\n");
-	
-	delete con;
-	delete pstmt;
-	system("pause");
-	return 0;
+    //update
+    pstmt = con>prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?");
+    pstmt>setInt(1, 200);
+    pstmt>setString(2, "banana");
+    pstmt>executeQuery();
+    printf("Row updated\n");
+    
+    delete con;
+    delete pstmt;
+    system("pause");
+    return 0;
 }
 ```
 
@@ -241,35 +241,35 @@ using namespace std;
 
 int main()
 {
-	sql::Driver *driver;
-	sql::Connection *con;
-	sql::PreparedStatement *pstmt;
-	sql::ResultSet *result;
+    sql::Driver *driver;
+    sql::Connection *con;
+    sql::PreparedStatement *pstmt;
+    sql::ResultSet *result;
 
-	try
-	{
-		driver = get_driver_instance();
-		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
-	}
-	catch (sql::SQLException e)
-	{
-		cout << "Could not connect to database. Error message: " << e.what() << endl;
-		system("pause");
-		exit(1);
-	}
-		
-	//delete
-	pstmt = con>prepareStatement("DELETE FROM inventory WHERE name = ?");
-	pstmt>setString(1, "orange");
-	result = pstmt>executeQuery();
-	printf("Row deleted\n");	
-	
-	delete pstmt;
-	delete con;
-	delete result;
-	system("pause");
-	return 0;
+    try
+    {
+        driver = get_driver_instance();
+        //for demonstration only. never save password in the code!
+        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+    }
+    catch (sql::SQLException e)
+    {
+        cout << "Could not connect to database. Error message: " << e.what() << endl;
+        system("pause");
+        exit(1);
+    }
+        
+    //delete
+    pstmt = con>prepareStatement("DELETE FROM inventory WHERE name = ?");
+    pstmt>setString(1, "orange");
+    result = pstmt>executeQuery();
+    printf("Row deleted\n");    
+    
+    delete pstmt;
+    delete con;
+    delete result;
+    system("pause");
+    return 0;
 }
 ```
 

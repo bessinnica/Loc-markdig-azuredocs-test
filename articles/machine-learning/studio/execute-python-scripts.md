@@ -48,7 +48,6 @@ Azure Machine Learning Studio supports embedding Python scripts into various par
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-
 ## Design principles of Python scripts in Machine Learning
 
 The primary interface to Python in Azure Machine Learning Studio is via the [Execute Python Script][execute-python-script] module shown in Figure 1.

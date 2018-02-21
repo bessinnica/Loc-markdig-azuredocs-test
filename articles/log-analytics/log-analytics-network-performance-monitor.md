@@ -197,9 +197,9 @@ In contrast, ICMP does not operate using port. In most enterprise scenarios, ICM
 If you chose to use ICMP during deployment, you can switch to TCP at any time by editing the default monitoring rule.
 
 ##### To edit the default monitoring rule
-1.	Navigate to **Network Performance** > **Monitor** > **Configure** > **Monitor** and then click **Default rule**.
-2.	Scroll to the **Protocol** section and select the protocol that you want to use.
-3.	Click **Save** to apply the setting.
+1.  Navigate to **Network Performance** > **Monitor** > **Configure** > **Monitor** and then click **Default rule**.
+2.  Scroll to the **Protocol** section and select the protocol that you want to use.
+3.  Click **Save** to apply the setting.
 
 Even if the default rule is using a specific protocol, you can create new rules with a different protocol. You can even create a mix of rules where some of the rules use ICMP and another uses TCP.
 

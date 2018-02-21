@@ -32,6 +32,7 @@ To upgrade your logic apps from the August 1, 2015 preview schema to the June 1,
 
 <a name="scopes"></a>
 
+
 ## Scopes
 
 This schema includes scopes, which let you group actions together, 
@@ -60,6 +61,7 @@ or review this basic scope example:
 ```
 
 <a name="conditions-loops"></a>
+
 
 ## Conditions and loops changes
 
@@ -95,6 +97,7 @@ or review this basic example for a condition action:
 
 <a name="run-after"></a>
 
+
 ## 'runAfter' property
 
 The `runAfter` property replaces `dependsOn`, 
@@ -129,13 +132,13 @@ saving as a new logic app, and if you want, possibly overwriting the previous lo
 1. In the Azure portal, open your logic app.
 
 2. Go to **Overview**. On the logic app toolbar, choose **Update Schema**.
-   
+
     ![Choose Update Schema][1]
-   
-	The upgraded definition is returned, 
-	which you can copy and paste into a resource definition if necessary. 
-	However, we **strongly recommend** you choose **Save As** 
-	to make sure that all connection references are valid in the upgraded logic app.
+
+    The upgraded definition is returned, 
+    which you can copy and paste into a resource definition if necessary. 
+    However, we **strongly recommend** you choose **Save As** 
+    to make sure that all connection references are valid in the upgraded logic app.
 
 3. In the upgrade blade toolbar, choose **Save As**.
 
@@ -143,7 +146,7 @@ saving as a new logic app, and if you want, possibly overwriting the previous lo
 To deploy your upgraded logic app, choose **Create**.
 
 5. Confirm that your upgraded logic app works as expected.
-   
+
    > [!NOTE]
    > If you are using a manual or request trigger, 
    > the callback URL changes in your new logic app. 

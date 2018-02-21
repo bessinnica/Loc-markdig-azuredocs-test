@@ -88,8 +88,8 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 
     ![Create Gateway page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
-	> [!NOTE]
-	> In this walkthrough, you create the logical gateway with only one node (on-premises Windows machine). You can scale out a data management gateway by associating multiple on-premises machines with the gateway. You can scale up by increasing number of data movement jobs that can run concurrently on a node. This feature is also available for a logical gateway with a single node. See [Scaling data management gateway in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) article for details.  
+    > [!NOTE]
+    > In this walkthrough, you create the logical gateway with only one node (on-premises Windows machine). You can scale out a data management gateway by associating multiple on-premises machines with the gateway. You can scale up by increasing number of data movement jobs that can run concurrently on a node. This feature is also available for a logical gateway with a single node. See [Scaling data management gateway in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) article for details.  
 4. In the **Configure** page, click **Install directly on this computer**. This action downloads the installation package for the gateway, installs, configures, and registers the gateway on the computer.  
 
    > [!NOTE]
@@ -190,7 +190,7 @@ In this step, you create input and output datasets that represent input and outp
 ### Prepare On-premises SQL Server for the tutorial
 1. In the database you specified for the on-premises SQL Server linked service (**SqlServerLinkedService**), use the following SQL script to create the **emp** table in the database.
 
-	```SQL   
+    ```SQL   
     CREATE TABLE dbo.emp
     (
         ID int IDENTITY(1,1) NOT NULL,
@@ -199,43 +199,43 @@ In this step, you create input and output datasets that represent input and outp
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
     GO
-	```
+    ```
 2. Insert some sample into the table:
 
-	```SQL
+    ```SQL
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
-	```
+    ```
 
 ### Create input dataset
 
 1. In the **Data Factory Editor**, click **... More**, click **New dataset** on the command bar, and click **SQL Server table**.
 2. Replace the JSON in the right pane with the following text:
 
-	```JSON   
-	{        
-		"name": "EmpOnPremSQLTable",
-		"properties": {
-			"type": "SqlServerTable",
-			"linkedServiceName": "SqlServerLinkedService",
-			"typeProperties": {
-				"tableName": "emp"
-			},
-			"external": true,
-			"availability": {
-				"frequency": "Hour",
-				"interval": 1
-			},
-			"policy": {
-				"externalData": {
-					"retryInterval": "00:01:00",
-					"retryTimeout": "00:10:00",
-					"maximumRetry": 3
-				}
-			}
-		}
-	}     
-	```   	
+    ```JSON   
+    {        
+        "name": "EmpOnPremSQLTable",
+        "properties": {
+            "type": "SqlServerTable",
+            "linkedServiceName": "SqlServerLinkedService",
+            "typeProperties": {
+                "tableName": "emp"
+            },
+            "external": true,
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }     
+    ```     
    Note the following points:
 
    * **type** is set to **SqlServerTable**.
@@ -251,26 +251,26 @@ In this step, you create input and output datasets that represent input and outp
 1. In the **Data Factory Editor**, click **New dataset** on the command bar, and click **Azure Blob storage**.
 2. Replace the JSON in the right pane with the following text:
 
-	```JSON   
-	{
-		"name": "OutputBlobTable",
-		"properties": {
-			"type": "AzureBlob",
-			"linkedServiceName": "AzureStorageLinkedService",
-			"typeProperties": {
-				"folderPath": "adftutorial/outfromonpremdf",
-				"format": {
-					"type": "TextFormat",
-					"columnDelimiter": ","
-				}
-			},
-			"availability": {
-				"frequency": "Hour",
-				"interval": 1
-			}
-		}
+    ```JSON   
+    {
+        "name": "OutputBlobTable",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+                "folderPath": "adftutorial/outfromonpremdf",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
      }
-	```   
+    ```   
    Note the following points:
 
    * **type** is set to **AzureBlob**.
@@ -282,20 +282,20 @@ In this step, you create input and output datasets that represent input and outp
 
    To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the partitionedBy property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv.
 
-	```JSON
-	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-	"fileName": "{Hour}.csv",
-	"partitionedBy":
-	[
+    ```JSON
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy":
+    [
 
-	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-	],
-	```
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+    ],
+    ```
 
-	See [Move data to/from Azure Blob Storage](data-factory-azure-blob-connector.md) for details about JSON properties.
+    See [Move data to/from Azure Blob Storage](data-factory-azure-blob-connector.md) for details about JSON properties.
 3. Click **Deploy** on the command bar to deploy the dataset. Confirm that you see both the datasets in the tree view.  
 
 ## Create pipeline
@@ -304,7 +304,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 1. In Data Factory Editor, click **... More**, and click **New pipeline**.
 2. Replace the JSON in the right pane with the following text:    
 
-	```JSON   
+    ```JSON   
      {
          "name": "ADFTutorialPipelineOnPrem",
          "properties": {
@@ -347,7 +347,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
          "isPaused": false
        }
      }
-	```   
+    ```   
    > [!IMPORTANT]
    > Replace the value of the **start** property with the current day and **end** value with the next day.
    >
@@ -357,7 +357,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
    * In the activities section, there is only activity whose **type** is set to **Copy**.
    * **Input** for the activity is set to **EmpOnPremSQLTable** and **output** for the activity is set to **OutputBlobTable**.
-   * In the **typeProperties** section, **SqlSource** is specified as the **source type** and **BlobSink **is specified as the **sink type**.
+   * In the <strong>typeProperties</strong> section, <strong>SqlSource</strong> is specified as the <strong>source type</strong> and <strong>BlobSink **is specified as the **sink type</strong>.
    * SQL query `select * from emp` is specified for the **sqlReaderQuery** property of **SqlSource**.
 
    Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial.

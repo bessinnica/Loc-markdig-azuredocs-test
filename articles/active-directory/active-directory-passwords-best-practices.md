@@ -35,13 +35,13 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 10. Use the reporting capability. Over time, you can review the users registration and usage with the [reporting capability that Azure AD provides](active-directory-passwords-reporting.md).
 11. Enable password reset. When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**. 
 
-   > [!NOTE]
-   > Changing this option from a selected group to everyone does not invalidate existing authentication data that a user has registered as part of a test group. Users who are configured and have valid authentication data registered continue to function.
+    > [!NOTE]
+    > Changing this option from a selected group to everyone does not invalidate existing authentication data that a user has registered as part of a test group. Users who are configured and have valid authentication data registered continue to function.
 
 12. [Enable Windows 10 users to reset their password at the login screen](active-directory-passwords-login.md).
 
-   > [!IMPORTANT]
-   > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
+    > [!IMPORTANT]
+    > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
 
 ## Email-based rollout
 

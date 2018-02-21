@@ -199,8 +199,8 @@ In general, full synchronization cycle is required since we have added new attri
    3. In the pop-up dialog, select **Full Import** and click **OK**.
    4. Wait for operation to complete.
 
-    > [!NOTE]
-    > You can skip Full Import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema).
+      > [!NOTE]
+      > You can skip Full Import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema).
 
 2. Run **Full import** step on the **Azure AD Connector**:
 

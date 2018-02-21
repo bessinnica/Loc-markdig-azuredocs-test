@@ -40,7 +40,7 @@ Follow these steps to create a new Device Provisioning Service instance.
 2. In the Search box, type **device provisioning**. 
 3. Click **IoT Hub Device Provisioning Service**.
 4. Fill out the **IoT Hub Device Provisioning Service** form with the following information:
-	
+    
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Name** | Any unique name | -- | 
@@ -72,10 +72,10 @@ The next step is to link the Device Provisioning Service and IoT hub so that the
 
 ## Set the allocation policy on the Device Provisioning Service
 
-The allocation policy is a IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
+The allocation policy is a IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
 
 1. **Lowest latency**: Devices are provisioned to an IoT hub based on the hub with the lowest latency to the device.
-2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
+2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
 3. **Static configuration via the enrollment list**: Specification of the desired IoT hub in the enrollment list takes priority over the Device Provisioning Service-level allocation policy.
 
 To set the allocation policy, in the Device Provisioning Service page click **Manage allocation policy**. Make sure the allocation policy is set to **Evenly weighted distribution** (the default). If you make any changes, click **Save** when you are done.

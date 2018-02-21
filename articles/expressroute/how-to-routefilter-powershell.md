@@ -69,17 +69,17 @@ To be able to successfully connect to services through Microsoft peering, you mu
 
 Before you begin configuration, make sure you meet the following criteria:
 
- - Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
   > [!NOTE]
   > Download the latest version from the PowerShell Gallery, rather than using the Installer. The Installer currently does not support the required cmdlets.
   > 
 
- - Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+- Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
- - You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state.
+- You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state.
 
- - You must have an active Microsoft peering. Follow instructions at [Create and modifying peering configuration](expressroute-circuit-peerings.md)
+- You must have an active Microsoft peering. Follow instructions at [Create and modifying peering configuration](expressroute-circuit-peerings.md)
 
 ### Log in to your Azure account
 
@@ -164,15 +164,15 @@ To get the properties of a route filter, use the following steps:
 
 1. Run the following command to get the route filter resource:
 
-  ```powershell
-  $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  ```
+   ```powershell
+   $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   ```
 2. Get the route filter rules for the route-filter resource by running the following command:
 
-  ```powershell
-  $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  $rule = $routefilter.Rules[0]
-  ```
+   ```powershell
+   $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   $rule = $routefilter.Rules[0]
+   ```
 
 ### <a name="updateproperties"></a>To update the properties of a route filter
 

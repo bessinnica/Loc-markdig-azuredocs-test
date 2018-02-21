@@ -47,7 +47,6 @@ do
         echo $id
     fi
 done
-
 ```
 ## Find and delete unattached unmanaged disks 
 
@@ -57,7 +56,7 @@ We highly recommend you to first run the script by setting the *deleteUnattached
 
 
  ```azurecli
-   
+
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the details of the unattached VHDs
 deleteUnattachedVHDs=1
@@ -71,13 +70,13 @@ do
 
     for container in ${containers[@]}
     do 
-        
+
         blobs=$(az storage blob list -c $container --connection-string $connectionString --query "[?properties.blobType=='PageBlob' && ends_with(name,'.vhd')].[name]" -o tsv)
-        
+
         for blob in ${blobs[@]}
         do
             leaseStatus=$(az storage blob show -n $blob -c $container --connection-string $connectionString --query "properties.lease.status" -o tsv)
-            
+
             if [ "$leaseStatus" == "unlocked" ]
             then 
 
@@ -97,7 +96,6 @@ do
         done
     done
 done 
-
 ```
 
 ## Next steps

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
- 
+
 ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
@@ -36,5 +36,8 @@ The `Dismount-CloudDrive` command unmounts an Azure file share from the current 
 
 ## Next steps
 [Quickstart for PowerShell](quickstart-powershell.md) <br>
+
 [Learn about Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+

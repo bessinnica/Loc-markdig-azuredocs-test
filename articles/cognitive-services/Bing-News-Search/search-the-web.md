@@ -43,7 +43,7 @@ Host: api.cognitive.microsoft.com
 If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
 
 To get news from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1  
 ```
@@ -140,7 +140,7 @@ The response is the same as top news except that the articles are all the specif
 ## Headline news
 
 To request headline news articles and get articles from all news categories, send the following GET request to Bing: 
- 
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news?mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -156,14 +156,14 @@ Do not include the [category](https://docs.microsoft.com/rest/api/cognitiveservi
 The response is the same as top news response. If the article is a headline article, its `headline` field is set to **true**.
 
 By default, the response includes up to 12 headline articles. To change the number of headline articles to return, specify the [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headlinecount) query parameter. The response also includes up to four non-headline articles per news category. 
-  
+
 The response counts clusters as one article. Because a cluster may contain multiple articles, the response may include more than 12 headline articles and more than four non-headline articles per category.  
 
 
 ## Trending news
 
 To get news topics that are trending on social networks, send the following GET request to Bing:  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics?mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -221,7 +221,7 @@ The following is the response to the preceding request. Each trending news topic
 ```
 
 ## Clustered news article
-  
+
 If there are other articles that are related to a news article, the news article may include the [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle-clusteredarticles) field. The following shows an article with clustered articles.
 
 ```
@@ -260,7 +260,6 @@ If there are other articles that are related to a news article, the news article
 ## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
-
 
 ## Next steps
 

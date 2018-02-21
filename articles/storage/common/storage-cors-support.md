@@ -128,12 +128,13 @@ The following example shows a partial request body for an operation to set CORS 
 
 Next, consider the following CORS requests:
 
-| Request |  |  | Response |  |
-| --- | --- | --- | --- | --- |
-| **Method** |**Origin** |**Request Headers** |**Rule Match** |**Result** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |First rule |Success |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Second rule |Success |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Second rule |Failure |
+
+|         Request         |                         |                                  |          Response           |                         |
+|-------------------------|-------------------------|----------------------------------|-----------------------------|-------------------------|
+| <strong>Method</strong> | <strong>Origin</strong> | <strong>Request Headers</strong> | <strong>Rule Match</strong> | <strong>Result</strong> |
+|  <strong>PUT</strong>   | http://www.contoso.com  |      x-ms-blob-content-type      |         First rule          |         Success         |
+|  <strong>GET</strong>   | http://www.contoso.com  |      x-ms-blob-content-type      |         Second rule         |         Success         |
+|  <strong>GET</strong>   | http://www.contoso.com  |      x-ms-client-request-id      |         Second rule         |         Failure         |
 
 The first request matches the first rule – the origin domain matches the allowed origins, the method matches the allowed methods, and the header matches the allowed headers – and so succeeds.
 

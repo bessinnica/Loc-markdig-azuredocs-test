@@ -1,6 +1,6 @@
 ---
 title: Azure Advisor Documentation - Tutorials | Microsoft Docs
-description:	
+description:    
 services: advisor
 author: czeumault
 manager: carolz
@@ -77,18 +77,20 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 ---
 
 <h2>Reference</h2>
+
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST API</h3>
-                        <p><a href="/rest/api/advisor">REST API Reference</a></p>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST API</h3>
+                        <p><a href="/rest/api/advisor">REST API Reference</a></p>
                         <h3>CLI</h3>
-                        <p><a href="/cli/azure/advisor">CLI Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="/cli/azure/advisor">CLI Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
+

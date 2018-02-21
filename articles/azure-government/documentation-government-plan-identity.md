@@ -47,8 +47,8 @@ Based on this decision there are different considerations when building in Azure
 #### Choosing your identity authority
 Azure Government applications can use Azure AD Government identities, but can you use Azure AD Public identities to authenticate to an application hosted in Azure Government?  Yes!  Since you can use either identity authority, you need to choose which to use:
 
--	**Azure AD Public** – Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
--	**Azure AD Government** - Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or are creating a new tenant in Azure AD Government.
+-   **Azure AD Public** – Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
+-   **Azure AD Government** - Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or are creating a new tenant in Azure AD Government.
 
 Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant. Otherwise, if you perform the app registration in the directory the subscription trusts (Azure Government) the intended set of users cannot authenticate.
 
@@ -58,8 +58,8 @@ Once decided, the special consideration is where you perform your app registrati
 
 The other consideration is the identity authority URL.  You need the correct URL based on your chosen authority:
 
--	**Azure AD Public** = login.microsoftonline.com
--	**Azure AD Government** = login.microsoftonline.us
+-   **Azure AD Public** = login.microsoftonline.com
+-   **Azure AD Government** = login.microsoftonline.us
 
 ### Applications using legacy authentication protocols (Kerberos/NTLM)
 Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. The aim is to support logins for line-of-business application and other apps that require Windows Integrated authentication. Adding Active Directory domain controllers as virtual machines in Azure IaaS is the typical method to support these types of apps, shown in the following figure: 
@@ -82,13 +82,13 @@ The type of domain controller to place in Azure is also a consideration based on
 
 We have documentation covering the guidelines for deploying AD Domain Controllers and ADFS (AD Federation Services) at these links:
 
- - [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
-   -  Answers questions such as:
+- [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
+  - Answers questions such as:
     -   Is it safe to virtualize Windows Server Active Directory Domain Controllers?
     -   Why deploy AD to Azure Virtual Machines?
     -   Can you deploy ADFS to Azure Virtual Machines?
- - [Deploying Active Directory Federation Services in Azure](..\active-directory\connect\active-directory-aadconnect-azure-adfs.md)
-   -   Provides guidance on how to deploy ADFS in Azure.
+- [Deploying Active Directory Federation Services in Azure](..\active-directory\connect\active-directory-aadconnect-azure-adfs.md)
+  -   Provides guidance on how to deploy ADFS in Azure.
 
 ## Identity scenarios for subscription administration in Azure Government
 First, see [Managing and connecting to your subscription in Azure Government](.\documentation-government-manage-subscriptions.md), for instructions on accessing Azure Government management portals.
@@ -165,22 +165,22 @@ The first Office 365 US Government environment, Government Community Cloud (GCC)
 **How do I identify an Azure Government tenant?**  
 Here’s a way to find out using your browser of choice:
 
-   - Obtain your tenant name (**for example**, contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (**for example**, contoso.gov).  
-   - Navigate to https://login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
-     - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
-     - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-   - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
+- Obtain your tenant name (**for example**, contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (**for example**, contoso.gov).  
+- Navigate to https://login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
+  - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
+  - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+- The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
 
-     ```
-     {
-       "authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize",
-       "tenant_region_scope":"USG"
-     }
-     ```
+  ```
+  {
+    "authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize",
+    "tenant_region_scope":"USG"
+  }
+  ```
      
-   - If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
-     - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
-     - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
+- If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
+  - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
+  - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
 
 **If I’m an Office 365 GCC customer and want to build solutions in Azure Government do I need to have two tenants?**  
 Yes, the Azure AD Government tenant is required for your Azure Government Subscription administration.

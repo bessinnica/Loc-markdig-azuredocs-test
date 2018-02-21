@@ -58,30 +58,30 @@ In this procedure, you first create an event hub namespace, and then you add an 
     
  
 7. Click **Create**.
-### Grant access to the event hub and get a connection string
+   ### Grant access to the event hub and get a connection string
 
 Before a process can send data to an event hub, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1.	In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
+1.  In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
 
-2.	In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
+2.  In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
 
     >[!NOTE]
     >Make sure you're working with the event hub, not the event hub namespace.
 
-3.	Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
+3.  Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
 
     ![Blade for creating a new event hub access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
  
-4.	Click **Create**.
+4.  Click **Create**.
 
-5.	After the policy has been deployed, click it in the list of shared access policies.
+5.  After the policy has been deployed, click it in the list of shared access policies.
 
-6.	Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
+6.  Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
     
     ![Copying the primary connection string key from the access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
  
-7.	Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
+7.  Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
     The connection string looks like this:
 
@@ -95,11 +95,11 @@ Before you start the TelcoGenerator app, you configure it so that it will send c
 
 ### Configure the TelcoGeneratorapp
 
-1.	In the editor where you copied the connection string, make a note of the `EntityPath` value, and then remove the `EntityPath` pair (don't forget to remove the semicolon that precedes it). 
+1.  In the editor where you copied the connection string, make a note of the `EntityPath` value, and then remove the `EntityPath` pair (don't forget to remove the semicolon that precedes it). 
 
-2.	In the folder where you unzipped the TelcoGenerator.zip file, open the telcodatagen.exe.config file in an editor. (There is more than one .config file, so be sure that you open the right one.)
+2.  In the folder where you unzipped the TelcoGenerator.zip file, open the telcodatagen.exe.config file in an editor. (There is more than one .config file, so be sure that you open the right one.)
 
-3.	In the `<appSettings>` element:
+3.  In the `<appSettings>` element:
 
     * Set the value of the `EventHubName` key to the event hub name (that is, to the value of the entity path).
     * Set the value of the `Microsoft.ServiceBus.ConnectionString` key to the connection string. 
@@ -108,11 +108,11 @@ Before you start the TelcoGenerator app, you configure it so that it will send c
 
     ![TelcoGenerator app configuration file showing the event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.	Save the file. 
+4.  Save the file. 
 
 ### Start the app
-1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.
-2.	Enter the following command:
+1.  Open a command window and change to the folder where the TelcoGenerator app is unzipped.
+2.  Enter the following command:
 
         telcodatagen.exe 1000 .2 2
 
@@ -163,15 +163,15 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
  
 3. Click **+&nbsp;Add** and then fill out the pane with these values:
 
-    * **Input alias**: Use the name `CallStream`. If you use a different name, make a note of it because you'll need it later.
-    * **Source type**: Select **Data stream**. (**Reference data** refers to static lookup data, which you won't use in this tutorial.)
-    * **Source**: Select **Event hub**.
-    * **Import option**: Select **Use event hub from current subscription**. 
-    * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-eh-ns-demo`).
-    * **Event hub**: Select the event hub that you created earlier (`sa-eh-frauddetection-demo`).
-    * **Event hub policy name**: Select the access policy that you created earlier (`sa-policy-manage-demo`).
+   * **Input alias**: Use the name `CallStream`. If you use a different name, make a note of it because you'll need it later.
+   * **Source type**: Select **Data stream**. (**Reference data** refers to static lookup data, which you won't use in this tutorial.)
+   * **Source**: Select **Event hub**.
+   * **Import option**: Select **Use event hub from current subscription**. 
+   * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-eh-ns-demo`).
+   * **Event hub**: Select the event hub that you created earlier (`sa-eh-frauddetection-demo`).
+   * **Event hub policy name**: Select the access policy that you created earlier (`sa-policy-manage-demo`).
 
-    ![Create new input for Streaming Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
+     ![Create new input for Streaming Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
 4. Click **Create**.
 
@@ -318,17 +318,17 @@ If you have an existing blob storage account, you can use that. For this tutoria
 2. In the **Job Topology** section, click the **Output** box. 
 3. In the **Outputs** pane, click **+&nbsp;Add** and then fill out the pane with these values:
 
-    * **Output alias**: Use the name `CallStream-FraudulentCalls`. 
-    * **Sink**: Select **Blob storage**.
-    * **Import options**: Select **Use blob storage from current subscription**.
-    * **Storage account**. Select **Create new storage account.**
-    * **Storage account** (second box). Enter `YOURNAMEsademo`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
-    * **Container**. Enter `sa-fraudulentcalls-demo`.
-    The storage account name and container name are used together to provide a URI for the blob storage, like this: 
+   * **Output alias**: Use the name `CallStream-FraudulentCalls`. 
+   * **Sink**: Select **Blob storage**.
+   * **Import options**: Select **Use blob storage from current subscription**.
+   * **Storage account**. Select **Create new storage account.**
+   * **Storage account** (second box). Enter `YOURNAMEsademo`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
+   * **Container**. Enter `sa-fraudulentcalls-demo`.
+     The storage account name and container name are used together to provide a URI for the blob storage, like this: 
 
-    `http://yournamesademo.blob.core.windows.net/sa-fraudulentcalls-demo/...`
+     `http://yournamesademo.blob.core.windows.net/sa-fraudulentcalls-demo/...`
     
-    !["New output" pane for Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
+     !["New output" pane for Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
     
 4. Click **Create**. 
 

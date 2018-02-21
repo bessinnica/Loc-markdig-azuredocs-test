@@ -122,11 +122,11 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Create a file (to contain your playbook) named `nginx.yml` as follows:
 
-  ```azurecli-interactive
-  vi nginx.yml
-  ```
+   ```azurecli-interactive
+   vi nginx.yml
+   ```
 
-1. Insert the following code into the newly created `nginx.yml` file:
+2. Insert the following code into the newly created `nginx.yml` file:
 
     ```yml
     - name: Install and start Nginx on an Azure virtual machine
@@ -143,13 +143,13 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
         service: name=nginx state=started
     ```
 
-1. Run the `nginx.yml` playbook:
+3. Run the `nginx.yml` playbook:
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+   ```azurecli-interactive
+   ansible-playbook -i azure_rm.py nginx.yml
+   ```
 
-1. Once you run the playbook, you see results similar to the following output:
+4. Once you run the playbook, you see results similar to the following output:
 
     ```Output
     PLAY [Install and start Nginx on an Azure virtual machine] **********

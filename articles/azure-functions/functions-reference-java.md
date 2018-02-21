@@ -17,7 +17,7 @@ ms.author: routlaw
 
 # Azure Functions Java developer guide
 > [!div class="op_single_selector"]
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
+> [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 ## Programming model 
 
@@ -93,7 +93,6 @@ with the corresponding `function.json`:
     }
   ]
 }
-
 ```
 
 ## Data Types

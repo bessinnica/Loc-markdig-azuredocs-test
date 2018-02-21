@@ -21,6 +21,7 @@ ms.author: renash
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (also known as Common Internet File System or CIFS). Azure File shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure File shares can be cached on Windows Servers with Azure File Sync (preview) for fast access near where the data is being used.
 
 ## Videos
+
 | Introducing Azure File Sync (2 m) | Azure Files with Sync (Ignite 2017) (85 m)  |
 |-|-|
 | [![Screencast of the Introducing Azure File Sync video - click to play!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - click to play!](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |

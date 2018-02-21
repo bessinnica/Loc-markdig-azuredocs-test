@@ -29,6 +29,7 @@ The `Microsoft.Azure.Services.AppAuthentication` library manages authentication 
 The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure App Services or an Azure Virtual Machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
 
 <a name="asal"></a>
+
 ## Using the library
 
 For .NET applications, the simplest way to work with a Managed Service Identity (MSI) is through the `Microsoft.Azure.Services.AppAuthentication` package. Here's how to get started:
@@ -59,6 +60,7 @@ The `GetAccessTokenAsync` method requires a resource identifier. To learn more, 
 
 
 <a name="samples"></a>
+
 ## Samples
 
 The following samples show the `Microsoft.Azure.Services.AppAuthentication` library in action:
@@ -71,6 +73,7 @@ The following samples show the `Microsoft.Azure.Services.AppAuthentication` libr
 
 
 <a name="local"></a>
+
 ## Local development authentication
 
 For local development, there are two primary authentication scenarios:
@@ -94,7 +97,7 @@ To use Visual Studio, verify:
 1. You've installed [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) or later.
 
 2. The [App Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) is installed.
- 
+
 3. You signed in to Visual Studio and have selected an account to use for local development. Use **Tools**&nbsp;>&nbsp;**Options**&nbsp;>&nbsp;**Azure Service Authentication** to choose a local development account. 
 
 If you run into problems using Visual Studio, such as errors regarding the token provider file, carefully review these steps. 
@@ -160,20 +163,22 @@ Once you've signed in to Azure, `AzureServiceTokenProvider` uses the service pri
 This applies only to local development. When your solution is deployed to Azure, the library switches to MSI authentication.
 
 <a name="msi"></a>
+
 ## Running the application using a Managed Service Identity 
 
 When you run your code on an Azure App Service or an Azure VM with MSI enabled, the library automatically uses Managed Service Identity. No code changes are required. 
 
 
 <a name="sp"></a>
+
 ## Running the application using a Service Principal 
 
 It may be necessary to create an Azure AD Client credential to authenticate. Common examples include:
 
 1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses the [NetworkService account](/azure/service-fabric/service-fabric-application-secret-management) for local development.
- 
+
 2. Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity. 
- 
+
 3. Your code is running on an Azure compute resource that does not yet support Managed Service Identity, such as Azure Batch.
 
 To use a certificate to sign into Azure AD:
@@ -188,7 +193,7 @@ To use a certificate to sign into Azure AD:
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
           CertificateStoreLocation={LocalMachine or CurrentUser}.
     ```
- 
+
     Replace _{AppId}_, _{TenantId}_, and _{Thumbprint}_ with values generated in Step 1.
 
     **CertificateStoreLocation** must be either _CurrentUser_ or _LocalMachine_, based on your deployment plan.
@@ -212,6 +217,7 @@ To sign in using an Azure AD shared secret credential:
 Once everything's set up correctly, no further code changes are necessary.  `AzureServiceTokenProvider` uses the environment variable and the certificate to authenticate to Azure AD. 
 
 <a name="connectionstrings"></a>
+
 ## Connection String Support
 
 By default, `AzureServiceTokenProvider` uses multiple methods to retrieve a token. 
@@ -222,11 +228,11 @@ The following options are supported:
 
 | Connection&nbsp;string&nbsp;option | Scenario | Comments|
 |:--------------------------------|:------------------------|:----------------------------|
-| `RunAs=Developer; DeveloperTool=AzureCli`	| Local development | AzureServiceTokenProvider uses AzureCli to get token. |
-| `RunAs=Developer; DeveloperTool=VisualStudio`	| Local development | AzureServiceTokenProvider uses Visual Studio to get token. |
+| `RunAs=Developer; DeveloperTool=AzureCli` | Local development | AzureServiceTokenProvider uses AzureCli to get token. |
+| `RunAs=Developer; DeveloperTool=VisualStudio` | Local development | AzureServiceTokenProvider uses Visual Studio to get token. |
 | `RunAs=CurrentUser;` | Local development | AzureServiceTokenProvider uses Azure AD Integrated Authentication to get token. |
 | `RunAs=App;` | Managed Service Identity | AzureServiceTokenProvider uses Managed Service Identity to get token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`	| Service principal	| `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal |`AzureServiceTokenProvider` uses secret to get token from Azure AD. |
 

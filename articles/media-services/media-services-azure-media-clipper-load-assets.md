@@ -42,23 +42,23 @@ var assets = [
     {
       /* Required: represents the Azure Media Services asset Id when "type" === "asset"; otherwise, represents the dynamic manifest asset filter Id ("type" === "filter")  */
       "id": "my-asset-or-dynamic-manifest-asset-filter-id",
-    
+
       /* Required: represents the asset name as shown in the Clipper interface */
       "name": "My Asset or Dynamic Manifest Asset Filter Name",
-    
+
       /* Required: must be one of the following values: "asset" or "filter" */
       /* NOTE: "asset" type represents a rendered asset; "filter" type represents a dynamic manifest asset filter */
       "type": "asset",
-    
+
       /* Required */
       "source": {
-    
+
         /* Required: represents the asset streaming locator, the base Smooth Streaming URL */
         "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
-    
+
         /* Optional: default value "application/vnd.ms-sstr+xml" */
         "type": "application/vnd.ms-sstr+xml",
-    
+
         /* Required: If the asset has content protection applied, then you must include an array with the different protection types along with the token to request the license/key; otherwise, provide an empty array */
         "protectionInfo": [{
             "type": "AES",
@@ -79,7 +79,7 @@ var assets = [
           }
         ]
       },
-    
+
       /* Optional: array containing thumbnail URLs for the video. */
       /* NOTE: For the thumbnail URLs to work as expected in the Clipper timeline they must be evenly distributed across the video (based on the duration) and in chronological order within the array. */
       "thumbnails": [
@@ -100,7 +100,6 @@ var subclipper = new subclipper({
 subclipper.ready(function () {
     subclipper.load(assets);
 });
-
 ```
 
 > [!NOTE]
@@ -161,7 +160,7 @@ Alternatively, you can load assets dynamically via a callback. In scenarios wher
                     reject(Error("error details"));
                 });
         });
-    
+
         return promise;
     };
 

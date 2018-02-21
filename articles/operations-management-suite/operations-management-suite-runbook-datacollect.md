@@ -80,49 +80,49 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 3. For the runbook name, type **Collect-Automation-jobs**.  For the runbook type, select **PowerShell**.
 4. Click **Create** to create the runbook and start the editor.
 5. Copy and paste the following code into the runbook.  Refer to the comments in the script for explanation of the code.
-	
-		# Get information required for the automation account from parameter values when the runbook is started.
-		Param
-		(
-		    [Parameter(Mandatory = $True)]
-		    [string]$resourceGroupName,
-		    [Parameter(Mandatory = $True)]
-		    [string]$automationAccountName
-		)
-		
-		# Authenticate to the Automation account using the Azure connection created when the Automation account was created.
-		# Code copied from the runbook AzureAutomationTutorial.
-		$connectionName = "AzureRunAsConnection"
-		$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-		Add-AzureRmAccount `
-		    -ServicePrincipal `
-		    -TenantId $servicePrincipalConnection.TenantId `
-		    -ApplicationId $servicePrincipalConnection.ApplicationId `
-		    -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-		
-		# Set the $VerbosePreference variable so that we get verbose output in test environment.
-		$VerbosePreference = "Continue"
-		
-		# Get information required for Log Analytics workspace from Automation variables.
-		$customerId = Get-AutomationVariable -Name 'WorkspaceID'
-		$sharedKey = Get-AutomationVariable -Name 'WorkspaceKey'
-		
-		# Set the name of the record type.
-		$logType = "AutomationJob"
-		
-		# Get the jobs from the past hour.
-		$jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
-		
-		if ($jobs -ne $null) {
-		    # Convert the job data to json
-		    $body = $jobs | ConvertTo-Json
-		
-		    # Write the body to verbose output so we can inspect it if verbose logging is on for the runbook.
-		    Write-Verbose $body
-		
-		    # Send the data to Log Analytics.
-		    Send-OMSAPIIngestionFile -customerId $customerId -sharedKey $sharedKey -body $body -logType $logType -TimeStampField CreationTime
-		}
+    
+        # Get information required for the automation account from parameter values when the runbook is started.
+        Param
+        (
+            [Parameter(Mandatory = $True)]
+            [string]$resourceGroupName,
+            [Parameter(Mandatory = $True)]
+            [string]$automationAccountName
+        )
+        
+        # Authenticate to the Automation account using the Azure connection created when the Automation account was created.
+        # Code copied from the runbook AzureAutomationTutorial.
+        $connectionName = "AzureRunAsConnection"
+        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+        Add-AzureRmAccount `
+            -ServicePrincipal `
+            -TenantId $servicePrincipalConnection.TenantId `
+            -ApplicationId $servicePrincipalConnection.ApplicationId `
+            -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+        
+        # Set the $VerbosePreference variable so that we get verbose output in test environment.
+        $VerbosePreference = "Continue"
+        
+        # Get information required for Log Analytics workspace from Automation variables.
+        $customerId = Get-AutomationVariable -Name 'WorkspaceID'
+        $sharedKey = Get-AutomationVariable -Name 'WorkspaceKey'
+        
+        # Set the name of the record type.
+        $logType = "AutomationJob"
+        
+        # Get the jobs from the past hour.
+        $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+        
+        if ($jobs -ne $null) {
+            # Convert the job data to json
+            $body = $jobs | ConvertTo-Json
+        
+            # Write the body to verbose output so we can inspect it if verbose logging is on for the runbook.
+            Write-Verbose $body
+        
+            # Send the data to Log Analytics.
+            Send-OMSAPIIngestionFile -customerId $customerId -sharedKey $sharedKey -body $body -logType $logType -TimeStampField CreationTime
+        }
 
 
 ## 4. Test runbook
@@ -138,7 +138,7 @@ Azure Automation includes an environment to [test your runbook](../automation/au
 3. The runbook should display verbose output with the jobs collected in json format.  If no jobs are listed, then there may have been no jobs created in the automation account in the last hour.  Try starting any runbook in the automation account and then perform the test again.
 4. Ensure that the output doesn't show any errors in the post command to Log Analytics.  You should have a message similar to the following.
 
-	![Post output](media/operations-management-suite-runbook-datacollect/post-output.png)
+    ![Post output](media/operations-management-suite-runbook-datacollect/post-output.png)
 
 ## 5. Verify records in Log Analytics
 Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../log-analytics/log-analytics-log-searches.md).

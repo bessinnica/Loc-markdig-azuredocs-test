@@ -1,6 +1,6 @@
-﻿---
-title: Azure PowerShell Script Sample - Monitor a web app with web server logs | Microsoft Docs
-description: Azure PowerShell Script Sample - Monitor a web app with web server logs
+---
+title: Azure PowerShell Script Sample - Monitor a web app with web server logs | Microsoft Docs
+description: Azure PowerShell Script Sample - Monitor a web app with web server logs
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -19,7 +19,7 @@ ms.author: cfowler
 ms.custom: mvc
 ---
 
-# Monitor a web app with web server logs
+# Monitor a web app with web server logs
 
 In this scenario you will create a resource group, app service plan, web app and configure the web app to enable web server logs. You will then download the log files for review.
 
@@ -27,7 +27,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
+[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
 
 ## Clean up deployment 
 

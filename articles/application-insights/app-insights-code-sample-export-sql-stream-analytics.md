@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 services: application-insights
@@ -32,7 +32,7 @@ In this example, we will be using the page view data, but the same pattern can e
 To get started:
 
 1. [Set up Application Insights for your web pages](app-insights-javascript.md). 
-   
+
     (In this example, we'll focus on processing page view data from the client browsers, but you could also set up Application Insights for the server side of your [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md) app and process request, dependency and other server telemetry.)
 2. Publish your app, and watch telemetry data appearing in your Application Insights resource.
 
@@ -40,23 +40,23 @@ To get started:
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
 1. Create a storage account in your subscription in the [Azure portal][portal].
-   
+
     ![In Azure portal, choose New, Data, Storage. Select Classic, choose Create. Provide a Storage name.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 2. Create a container
-   
+
     ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 3. Copy the storage access key
-   
+
     You'll need it soon to set up the input to the stream analytics service.
-   
+
     ![In the storage, open Settings, Keys, and take a copy of the Primary Access Key](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
 ## Start continuous export to Azure storage
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
-   
+
     ![Choose Browse, Application Insights, your application](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
 2. Create a continuous export.
-   
+
     ![Choose Settings, Continuous Export, Add](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
 
     Select the storage account you created earlier:
@@ -69,12 +69,12 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
 
 1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
-   
+
     And also, the data will export to your storage. 
 2. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
-   
+
     ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
-   
+
     Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database. That will make it easy to run lots of interesting queries.
@@ -130,7 +130,6 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 (
     [eventTime] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
-
 ```
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
@@ -179,8 +178,8 @@ To get the name and iKey of your Application Insights resource, open Essentials 
 > Use the Sample function to check that you have set the input path correctly. If it fails: Check that there is data in the storage for the sample time range you chose. Edit the input definition and check you set the storage account, path prefix and date format correctly.
 > 
 > 
-## Set query
-Open the query section:
+> ## Set query
+> Open the query section:
 
 Replace the default query with:
 
@@ -216,8 +215,6 @@ Replace the default query with:
       AIOutput
     FROM AIinput A
     CROSS APPLY GetElements(A.[view]) as flat
-
-
 ```
 
 Notice that the first few properties are specific to page view data. Exports of other telemetry types will have different properties. See the [detailed data model reference for the property types and values.](app-insights-export-data-model.md)

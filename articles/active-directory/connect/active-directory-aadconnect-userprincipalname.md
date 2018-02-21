@@ -81,10 +81,10 @@ The following are example scenarios of how the UPN is calculated based on the gi
 ### Scenario 1: Non-verified UPN suffix – initial synchronization
 
 On-Premises user object:
-- mailNickName		: &lt;not set&gt;
-- proxyAddresses		: {SMTP:us1@contoso.com}
-- mail			: us2@contoso.com
-- userPrincipalName	: us3@contoso.com`
+- mailNickName      : &lt;not set&gt;
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
+- userPrincipalName : us3@contoso.com`
 
 Synchronized the user object to Azure AD Tenant for the first time
 - Set Azure AD MailNickName attribute to primary SMTP address prefix.
@@ -92,33 +92,33 @@ Synchronized the user object to Azure AD Tenant for the first time
 - Set Azure AD UserPrincipalName attribute to MOERA.
 
 Azure AD Tenant user object:
-- MailNickName		: us1			
-- UserPrincipalName	: us1@contoso.onmicrosoft.com
+- MailNickName      : us1           
+- UserPrincipalName : us1@contoso.onmicrosoft.com
 
 
 ### Scenario 2: Non-verified UPN suffix – set on-premises mailNickName attribute
 
 On-Premises user object:
-- mailNickName		: us4
-- proxyAddresses		: {SMTP:us1@contoso.com}
-- mail			: us2@contoso.com
-- userPrincipalName	: us3@contoso.com
+- mailNickName      : us4
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
+- userPrincipalName : us3@contoso.com
 
 Synchronize update on on-premises mailNickName attribute to Azure AD Tenant
 - Update Azure AD MailNickName attribute with on-premises mailNickName attribute.
 - Because there is no update to the on-premises userPrincipalName attribute, there is no change to the Azure AD UserPrincipalName attribute.
 
 Azure AD Tenant user object:
-- MailNickName		: us4
-- UserPrincipalName	: us1@contoso.onmicrosoft.com
+- MailNickName      : us4
+- UserPrincipalName : us1@contoso.onmicrosoft.com
 
 ### Scenario 3: Non-verified UPN suffix – update on-premises userPrincipalName attribute
 
 On-Premises user object:
-- mailNickName		: us4
-- proxyAddresses		: {SMTP:us1@contoso.com}
-- mail			: us2@contoso.com
-- userPrincipalName	: us5@contoso.com
+- mailNickName      : us4
+- proxyAddresses        : {SMTP:us1@contoso.com}
+- mail          : us2@contoso.com
+- userPrincipalName : us5@contoso.com
 
 Synchronize update on on-premises userPrincipalName attribute to Azure AD Tenant
 - Update on on-premises userPrincipalName attribute triggers recalculation of MOERA and Azure AD UserPrincipalName attribute.
@@ -126,39 +126,39 @@ Synchronize update on on-premises userPrincipalName attribute to Azure AD Tenant
 - Set Azure AD UserPrincipalName attribute to MOERA.
 
 Azure AD Tenant user object:
-- MailNickName		: us4
-- UserPrincipalName	: us4@contoso.onmicrosoft.com
+- MailNickName      : us4
+- UserPrincipalName : us4@contoso.onmicrosoft.com
 
 ### Scenario 4: Non-verified UPN suffix – update primary SMTP address and on-premises mail attribute
 
 On-Premises user object:
-- mailNickName		: us4
-- proxyAddresses		: {SMTP:us6@contoso.com}
-- mail			: us7@contoso.com
-- userPrincipalName	: us5@contoso.com
+- mailNickName      : us4
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
+- userPrincipalName : us5@contoso.com
 
 Synchronize update on on-premises mail attribute and primary SMTP address to Azure AD Tenant
 - After the initial synchronization of the user object, updates to the on-premises mail attribute and primary SMTP address will not affect neither the Azure AD MailNickName nor UserPrincipalName attribute.
 
 Azure AD Tenant user object:
-- MailNickName		: us4
-- UserPrincipalName	: us4@contoso.onmicrosoft.com
+- MailNickName      : us4
+- UserPrincipalName : us4@contoso.onmicrosoft.com
 
 ### Scenario 5: Verified UPN suffix – update on-premises userPrincipalName attribute suffix
 
 On-Premises user object:
-- mailNickName		: us4
-- proxyAddresses		: {SMTP:us6@contoso.com}
-- mail			: us7@contoso.com
-- serPrincipalName	: us5@verified.contoso.com
+- mailNickName      : us4
+- proxyAddresses        : {SMTP:us6@contoso.com}
+- mail          : us7@contoso.com
+- serPrincipalName  : us5@verified.contoso.com
 
 Synchronize update on on-premises userPrincipalName attribute to the Azure AD Tenant
 - Update on on-premises userPrincipalName attribute triggers recalculation of Azure AD UserPrincipalName attribute.
 - Set Azure AD UserPrincipalName attribute to on-premises userPrincipalName attribute as the UPN suffix is verified with the Azure AD Tenant.
 
 Azure AD Tenant user object:
-- MailNickName		: us4	  
-- UserPrincipalName	: us5@verified.contoso.com
+- MailNickName      : us4     
+- UserPrincipalName : us5@verified.contoso.com
 
 ## Next Steps
 - [Integrate your on-premises directories with Azure Active Directory](active-directory-aadconnect.md)

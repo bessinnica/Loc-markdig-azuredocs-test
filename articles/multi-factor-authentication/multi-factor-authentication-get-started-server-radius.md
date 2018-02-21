@@ -37,9 +37,9 @@ To configure RADIUS authentication, install the Azure Multi-Factor Authenticatio
 4. Click **Add**.
 5. Enter the IP address of the appliance/server that will authenticate to the Azure Multi-Factor Authentication Server, an application name (optional), and a shared secret.
 
-  The application name appears in reports and may be displayed within SMS or mobile app authentication messages.
+   The application name appears in reports and may be displayed within SMS or mobile app authentication messages.
 
-  The shared secret needs to be the same on both the Azure Multi-Factor Authentication Server and appliance/server.
+   The shared secret needs to be the same on both the Azure Multi-Factor Authentication Server and appliance/server.
 
 6. Check the **Require Multi-Factor Authentication user match** box if all users have been imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server or are exempt from two-step verification, leave the box unchecked.
 7. Check the **Enable fallback OATH token** box if you want to use OATH passcodes from mobile verification apps as a backup method.
@@ -53,13 +53,13 @@ Repeat steps 4 through 8 to add as many additional RADIUS clients as you need.
 2. If the Azure MFA Server is installed on a domain-joined server in an Active Directory environment, select Windows domain.
 3. If users should be authenticated against an LDAP directory, select **LDAP bind**.
 
-  Select the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory. Instructions for configuring LDAP can be found in the [LDAP Proxy configuration guide](multi-factor-authentication-get-started-server-ldap.md).
+   Select the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory. Instructions for configuring LDAP can be found in the [LDAP Proxy configuration guide](multi-factor-authentication-get-started-server-ldap.md).
 
 4. If users should be authenticated against another RADIUS server, select RADIUS server(s).
 5. Click **Add** to configure the server to which the Azure MFA Server will proxy the RADIUS requests.
 6. In the Add RADIUS Server dialog box, enter the IP address of the RADIUS server and a shared secret.
 
-  The shared secret needs to be the same on both the Azure Multi-Factor Authentication Server and RADIUS server. Change the Authentication port and Accounting port if different ports are used by the RADIUS server.
+   The shared secret needs to be the same on both the Azure Multi-Factor Authentication Server and RADIUS server. Change the Authentication port and Accounting port if different ports are used by the RADIUS server.
 
 7. Click **OK**.
 8. Add the Azure MFA Server as a RADIUS client in the other RADIUS server so that it can process access requests sent to it from the Azure MFA Server. Use the same shared secret configured in the Azure Multi-Factor Authentication Server.

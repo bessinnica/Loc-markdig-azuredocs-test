@@ -255,16 +255,16 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On Self-hosted Integration Runtime machine:**
 
-1.	Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
+1.  Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
 
     The machine must be configured as a member of a workgroup since a Kerberos realm is different from a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* with your own respective realm as needed.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
-	**Restart** the machine after executing these 2 commands.
+    **Restart** the machine after executing these 2 commands.
 
-2.	Verify the configuration with **Ksetup** command. The output should be like:
+2.  Verify the configuration with **Ksetup** command. The output should be like:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -279,8 +279,8 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 #### Requirements
 
-*	The Self-hosted Integration Runtime machine must join a Windows domain.
-*	You need permission to update the domain controller's settings.
+*   The Self-hosted Integration Runtime machine must join a Windows domain.
+*   You need permission to update the domain controller's settings.
 
 #### How to configure
 
@@ -289,62 +289,62 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On KDC server:**
 
-1.	Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
+1. Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
 
-            [logging]
-             default = FILE:/var/log/krb5libs.log
-             kdc = FILE:/var/log/krb5kdc.log
-             admin_server = FILE:/var/log/kadmind.log
+           [logging]
+            default = FILE:/var/log/krb5libs.log
+            kdc = FILE:/var/log/krb5kdc.log
+            admin_server = FILE:/var/log/kadmind.log
 
-            [libdefaults]
-             default_realm = REALM.COM
-             dns_lookup_realm = false
-             dns_lookup_kdc = false
-             ticket_lifetime = 24h
-             renew_lifetime = 7d
-             forwardable = true
+           [libdefaults]
+            default_realm = REALM.COM
+            dns_lookup_realm = false
+            dns_lookup_kdc = false
+            ticket_lifetime = 24h
+            renew_lifetime = 7d
+            forwardable = true
 
-            [realms]
-             REALM.COM = {
-              kdc = node.REALM.COM
-              admin_server = node.REALM.COM
-             }
+           [realms]
+            REALM.COM = {
+             kdc = node.REALM.COM
+             admin_server = node.REALM.COM
+            }
+           AD.COM = {
+            kdc = windc.ad.com
+            admin_server = windc.ad.com
+           }
+
+           [domain_realm]
+            .REALM.COM = REALM.COM
+            REALM.COM = REALM.COM
+            .ad.com = AD.COM
+            ad.com = AD.COM
+
+           [capaths]
             AD.COM = {
-             kdc = windc.ad.com
-             admin_server = windc.ad.com
+             REALM.COM = .
             }
 
-            [domain_realm]
-             .REALM.COM = REALM.COM
-             REALM.COM = REALM.COM
-             .ad.com = AD.COM
-             ad.com = AD.COM
+   **Restart** the KDC service after configuration.
 
-            [capaths]
-             AD.COM = {
-              REALM.COM = .
-             }
+2. Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
 
-  **Restart** the KDC service after configuration.
+           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-2.	Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
-
-            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
-
-3.	In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3. In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **On domain controller:**
 
-1.	Run the following **Ksetup** commands to add a realm entry:
+1.  Run the following **Ksetup** commands to add a realm entry:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM@AD.COM**.
+2.  Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.	Select encryption algorithm used in Kerberos.
+3.  Select encryption algorithm used in Kerberos.
 
     1. Go to Server Manager > Group Policy Management > Domain > Group Policy Objects > Default or Active Domain Policy, and Edit.
 
@@ -358,7 +358,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.	Create the mapping between the domain account and Kerberos principal, in order to use Kerberos principal in Windows Domain.
+4.  Create the mapping between the domain account and Kerberos principal, in order to use Kerberos principal in Windows Domain.
 
     1. Start the Administrative tools > **Active Directory Users and Computers**.
 

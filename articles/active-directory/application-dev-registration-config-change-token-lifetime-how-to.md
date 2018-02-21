@@ -34,5 +34,6 @@ Azure AD Premium allows app developers and tenant admins to configure the lifeti
 ## Next steps
 [Configuring Token Lifetime](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
+
 [Azure AD Token Reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

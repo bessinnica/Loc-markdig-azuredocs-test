@@ -50,6 +50,7 @@ Most of the technical content that is available currently assumes that applicati
 For supplemental information and updates, please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 
+
 If you are interested in learning more and about Azure Government please use some of the links below.
 
 * **[Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)**

@@ -55,15 +55,15 @@ This part of the script does the following:
 3. If the namespace is not found, it creates the namespace and then retrieves the newly created namespace.
    
     ``` powershell
-	# Query to see if the namespace currently exists
+    # Query to see if the namespace currently exists
     $CurrentNamespace = Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
    
     # Check if the namespace already exists or needs to be created
     if ($CurrentNamespace)
     {
         Write-Host "The namespace $Namespace already exists in the $Location region:"
-		# Report what was found
-		Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
+        # Report what was found
+        Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
     }
     else
     {

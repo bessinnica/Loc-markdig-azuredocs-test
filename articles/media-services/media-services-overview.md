@@ -39,7 +39,7 @@ To start using Azure Media Services, you should have the following:
 * An Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
 * (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md).
 
-	Also, learn how to [connect  programmatically to AMS API](media-services-use-aad-auth-to-access-ams-api.md).
+    Also, learn how to [connect  programmatically to AMS API](media-services-use-aad-auth-to-access-ams-api.md).
 * A standard or premium streaming endpoint in started state.  For more information, see [Managing streaming endpoints](media-services-portal-manage-streaming-endpoints.md)
 
 ## SDKs and tools
@@ -48,13 +48,13 @@ To build Media Services solutions, you can use:
 
 * [Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * One of the available client SDKs:
-	* [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
-	* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
-	* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
-	* [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
+    * [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
+    * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
+    * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+    * [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
 * Existing tools:
-	* [Azure portal](https://portal.azure.com/)
-	* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
+    * [Azure portal](https://portal.azure.com/)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
 
 > [!NOTE]
 > To get the latest version of Java SDK and get started developing with Java, see [Get started with the Java client SDK for Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
@@ -91,3 +91,4 @@ For information about availability in datacenters, see the [Availability](scenar
 ## Provide feedback
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

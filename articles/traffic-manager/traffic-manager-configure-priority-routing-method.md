@@ -40,9 +40,9 @@ A common pattern for service failover is to send traffic to a primary service an
 8. Click **Save** to save change the endpoint settings.
 9. After you complete your configuration changes, click **Save** at the bottom of the page.
 10. Test the changes in your configuration as follows:
-    1.	In the portal’s search bar, search for the Traffic Manager profile name and click the Traffic Manager profile in the results that the displayed.
-    2.	In the **Traffic Manager** profile blade, click **Overview**.
-    3.	The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (for example, by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type. In this case all requests are routed to the first endpoint and if Traffic Manager detects it be unhealthy, the traffic automatically fails over to the next endpoint.
+    1.  In the portal’s search bar, search for the Traffic Manager profile name and click the Traffic Manager profile in the results that the displayed.
+    2.  In the **Traffic Manager** profile blade, click **Overview**.
+    3.  The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (for example, by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type. In this case all requests are routed to the first endpoint and if Traffic Manager detects it be unhealthy, the traffic automatically fails over to the next endpoint.
 11. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
 
 ![Configuring priority traffic routing method using Traffic Manager][1]

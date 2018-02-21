@@ -133,8 +133,8 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
 
   </WadCfg>  
 
-  <StorageAccount>diagstorageaccount</StorageAccount>
-  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  
@@ -356,7 +356,6 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
         ]
     }
 }
-
 ```
 
 ## Reading this page  
@@ -397,7 +396,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 ## WadCFG Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
- 
+
  Identifies and configures the telemetry data to be collected.  
 
 
@@ -412,6 +411,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|  
 
 <br /> <br />
+
 
 |Child Elements|Description|  
 |--------------------|-----------------|  

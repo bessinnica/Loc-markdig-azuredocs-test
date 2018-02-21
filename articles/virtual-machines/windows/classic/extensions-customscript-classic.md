@@ -21,7 +21,7 @@ ms.author: danis
 
 # Custom Script Extension for Windows using the classic deployment model
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
@@ -49,23 +49,23 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 
 ```json
 {
-	"name": "config-app",
-	"type": "Microsoft.ClassicCompute/virtualMachines/extensions",
-	"location": "[resourceGroup().location]",
-	"apiVersion": "2015-06-01",
-	"properties": {
-		"publisher": "Microsoft.Compute",
-		"extension": "CustomScriptExtension",
-		"version": "1.8",
-		"parameters": {
-			"public": {
-				"fileUris": "[myScriptLocation]"
-			},
-			"private": {
-				"commandToExecute": "[myExecutionString]"
-			}
-		}
-	}
+    "name": "config-app",
+    "type": "Microsoft.ClassicCompute/virtualMachines/extensions",
+    "location": "[resourceGroup().location]",
+    "apiVersion": "2015-06-01",
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "extension": "CustomScriptExtension",
+        "version": "1.8",
+        "parameters": {
+            "public": {
+                "fileUris": "[myScriptLocation]"
+            },
+            "private": {
+                "commandToExecute": "[myExecutionString]"
+            }
+        }
+    }
 }
 ```
 

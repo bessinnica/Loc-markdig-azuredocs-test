@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - **VMware**: The VMs that you plan to migrate must be managed by a vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM. 
- 
+
 > [!NOTE]
 > Support for Hyper-V is in our roadmap and will be enabled soon. 
 
@@ -46,7 +46,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 5. Specify the location in which to create the project, then click **Create**. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can still plan your migration for any target Azure location. The location specified for the project is only used to store the metadata gathered from on-premises VMs. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
-    
+
 
 
 ## Download the collector appliance
@@ -68,8 +68,9 @@ Check that the .OVA file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings.
-    
+
     For OVA version 1.0.8.49
+
     **Algorithm** | **Hash value**
     --- | ---
     MD5 | cefd96394198b92870d650c975dbf3b8 
@@ -107,15 +108,15 @@ will be hosted.
 2. Provide the language, time zone and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
 4. In the Azure Migrate Collector, open **Set up prerequisites**.
-    - Accept the license terms, and read the third-party information.
-    - The collector checks that the VM has internet access.
-    - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
+   - Accept the license terms, and read the third-party information.
+   - The collector checks that the VM has internet access.
+   - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
 
-    > [!NOTE]
-    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported.
+     > [!NOTE]
+     > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported.
 
-    - The collector checks that the collectorservice is running. The service is installed by default on the collector VM.
-    - Download and install the VMware PowerCLI.
+   - The collector checks that the collectorservice is running. The service is installed by default on the collector VM.
+   - Download and install the VMware PowerCLI.
 
 5. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.

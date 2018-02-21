@@ -73,7 +73,7 @@ az batch account login \
 ## Create a pool of compute nodes
 
 Now that you have a Batch account, create a sample pool of Linux compute nodes using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. The following example creates a pool named *mypool* of 2 size *Standard_A1_v2* nodes running Ubuntu 16.04 LTS. The suggested node size offers a good balance of performance versus cost for this quick example.
- 
+
 ```azurecli-interactive
 az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
@@ -153,7 +153,6 @@ stdout.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 certs       https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/certs       True
 wd          https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/wd          True
 stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/stderr.txt  False                     0
-
 ```
 
 To download one of the output files to a local directory, use the [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download) command. In this example, task output is in `stdout.txt`. 

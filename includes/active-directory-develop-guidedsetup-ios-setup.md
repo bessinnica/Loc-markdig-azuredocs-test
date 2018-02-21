@@ -12,17 +12,17 @@ Carthage package manager is used during the preview period of MSAL – it integr
 
 ## Creating your application
 
-1.	Open Xcode and select `Create a new Xcode project`
-2.	Select `iOS` > `Single view Application` and click *Next*
-3.	Give a product name and click *Next*
-4.	Select a folder to create your app and click *Create*
+1.  Open Xcode and select `Create a new Xcode project`
+2.  Select `iOS` > `Single view Application` and click *Next*
+3.  Give a product name and click *Next*
+4.  Select a folder to create your app and click *Create*
 
 ## Build the MSAL Framework
 
 Follow the instructions below to pull and then build the latest version of MSAL libraries using Carthage:
 
-1.	Open the bash terminal and go to the App’s root folder
-2.	Copy the below and paste in the bash terminal to create a ‘Cartfile’ file:
+1.  Open the bash terminal and go to the App’s root folder
+2.  Copy the below and paste in the bash terminal to create a ‘Cartfile’ file:
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -41,12 +41,12 @@ carthage update
 > The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by the Azure Active Directory v2.
 
 ## Add the MSAL framework to your application
-1.	In Xcode, open the `General` tab
-2.	Go to the `Linked Frameworks and Libraries` section and click `+`
-3.	Select `Add other…`
-4.	Select: `Carthage` > `Build` > `iOS` > `MSAL.framework` and click *Open*. You should see `MSAL.framework` added to the list.
-5.	Go to `Build Phases` tab, and click `+` icon, choose `New Run Script Phase`
-6.	Add the following contents to the *script area*:
+1.  In Xcode, open the `General` tab
+2.  Go to the `Linked Frameworks and Libraries` section and click `+`
+3.  Select `Add other…`
+4.  Select: `Carthage` > `Build` > `iOS` > `MSAL.framework` and click *Open*. You should see `MSAL.framework` added to the list.
+5.  Go to `Build Phases` tab, and click `+` icon, choose `New Run Script Phase`
+6.  Add the following contents to the *script area*:
 
 ```text
 /usr/local/bin/carthage copy-frameworks
@@ -66,8 +66,8 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## Creating your application’s UI
 A Main.storyboard file should automatically be created as a part of your project template. Follow the instructions below to create the app UI:
 
-1.	Control+click `Main.storyboard` to bring up the contextual menu, and then click: `Open As` > `Source Code`
-2.	Replace the `<scenes>` node with the code below:
+1.  Control+click `Main.storyboard` to bring up the contextual menu, and then click: `Open As` > `Source Code`
+2.  Replace the `<scenes>` node with the code below:
 
 ```xml
  <scenes>

@@ -54,22 +54,24 @@ For data models that connect to a cloud data source such as Azure SQL Database, 
 The following datasource providers are supported for in-memory or DirectQuery data models when connecting to data sources in the cloud or on-premises:
 
 ### Cloud
-| **Datasource** | **In-memory** | **DirectQuery** |
-|  --- | --- | --- |
-| Azure SQL Data Warehouse |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server |
-| Azure SQL Database |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
+
+| <strong>Datasource</strong> |         <strong>In-memory</strong>          |        <strong>DirectQuery</strong>         |
+|-----------------------------|---------------------------------------------|---------------------------------------------|
+|  Azure SQL Data Warehouse   | .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+|     Azure SQL Database      | .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 
 ### On-premises (via Gateway)
-|**Datasource** | **In-memory** | **DirectQuery** |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |.NET Framework Data Provider for SQL Server |
-| SQL Server |Microsoft OLE DB Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
-| SQL Server |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
-| Oracle |Microsoft OLE DB Provider for Oracle |Oracle Data Provider for .NET | |
-| Oracle |Oracle Data Provider for .NET |Oracle Data Provider for .NET | |
-| Teradata |OLE DB Provider for Teradata |Teradata Data Provider for .NET | |
-| Teradata |Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
-| Analytics Platform System |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
+
+| <strong>Datasource</strong> |         <strong>In-memory</strong>          |        <strong>DirectQuery</strong>         |
+|-----------------------------|---------------------------------------------|---------------------------------------------|
+|         SQL Server          |        SQL Server Native Client 11.0        | .NET Framework Data Provider for SQL Server |
+|         SQL Server          |  Microsoft OLE DB Provider for SQL Server   | .NET Framework Data Provider for SQL Server |
+|         SQL Server          | .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+|           Oracle            |    Microsoft OLE DB Provider for Oracle     |        Oracle Data Provider for .NET        |
+|           Oracle            |        Oracle Data Provider for .NET        |        Oracle Data Provider for .NET        |
+|          Teradata           |        OLE DB Provider for Teradata         |       Teradata Data Provider for .NET       |
+|          Teradata           |       Teradata Data Provider for .NET       |       Teradata Data Provider for .NET       |
+|  Analytics Platform System  | .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 
 > [!NOTE]
 > Ensure 64-bit providers are installed when using On-premises gateway.

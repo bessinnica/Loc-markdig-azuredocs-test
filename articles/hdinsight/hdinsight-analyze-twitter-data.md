@@ -82,11 +82,14 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 2. Click **Create New App**.
 3. Enter **Name**, **Description**, **Website**. You can make up a URL for the **Website** field. The following table shows some sample values to use:
 
-   | Field | Value |
-   | --- | --- |
-   |  Name |MyHDInsightApp |
-   |  Description |MyHDInsightApp |
-   |  Website |http://www.myhdinsightapp.com |
+
+   |    Field    |             Value             |
+   |-------------|-------------------------------|
+   |    Name     |        MyHDInsightApp         |
+   | Description |        MyHDInsightApp         |
+   |   Website   | http://www.myhdinsightapp.com |
+
+
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial.
 6. Click the **Keys and Access Tokens** tab.

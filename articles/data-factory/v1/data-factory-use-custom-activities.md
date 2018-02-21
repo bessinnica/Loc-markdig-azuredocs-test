@@ -52,9 +52,9 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
 
 1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
 2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
-	1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://<region>.batch.azure.com`.
-	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
-	3. To use an existing pool, click **Pools** on the menu, and note down the **ID** of the pool. If you don't have an existing pool, move to the next step.     
+    1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://<region>.batch.azure.com`.
+    2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
+    3. To use an existing pool, click **Pools** on the menu, and note down the **ID** of the pool. If you don't have an existing pool, move to the next step.     
 2. Create an **Azure Batch pool**.
 
    1. In the [Azure portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**.
@@ -109,255 +109,255 @@ The method returns a dictionary that can be used to chain custom activities toge
      <li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
      <li>Click <b>OK</b> to create the project.</li>
    </ol>
-   
+
 2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
 
 3. In the Package Manager Console, execute the following command to import **Microsoft.Azure.Management.DataFactories**.
 
-	```PowerShell
-	Install-Package Microsoft.Azure.Management.DataFactories
-	```
+    ```PowerShell
+    Install-Package Microsoft.Azure.Management.DataFactories
+    ```
 4. Import the **Azure Storage** NuGet package in to the project.
 
-	```PowerShell
-	Install-Package WindowsAzure.Storage -Version 4.3.0
-	```
+    ```PowerShell
+    Install-Package WindowsAzure.Storage -Version 4.3.0
+    ```
 
-	> [!IMPORTANT]
-	> Data Factory service launcher requires the 4.3 version of WindowsAzure.Storage. If you add a reference to a later version of Azure Storage assembly in your custom activity project, you see an error when the activity executes. To resolve the error, see [Appdomain isolation](#appdomain-isolation) section. 
+    > [!IMPORTANT]
+    > Data Factory service launcher requires the 4.3 version of WindowsAzure.Storage. If you add a reference to a later version of Azure Storage assembly in your custom activity project, you see an error when the activity executes. To resolve the error, see [Appdomain isolation](#appdomain-isolation) section. 
 5. Add the following **using** statements to the source file in the project.
 
-	```csharp
+    ```csharp
 
-	// Comment these lines if using VS 2017
-	using System.IO;
-	using System.Globalization;
-	using System.Diagnostics;
-	using System.Linq;
-	// --------------------
+    // Comment these lines if using VS 2017
+    using System.IO;
+    using System.Globalization;
+    using System.Diagnostics;
+    using System.Linq;
+    // --------------------
 
-	// Comment these lines if using <= VS 2015
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
-	// ---------------------
+    // Comment these lines if using <= VS 2015
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    // ---------------------
 
-	using Microsoft.Azure.Management.DataFactories.Models;
-	using Microsoft.Azure.Management.DataFactories.Runtime;
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Runtime;
 
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Blob;
-	```
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+    ```
 6. Change the name of the **namespace** to **MyDotNetActivityNS**.
 
-	```csharp
-	namespace MyDotNetActivityNS
-	```
+    ```csharp
+    namespace MyDotNetActivityNS
+    ```
 7. Change the name of the class to **MyDotNetActivity** and derive it from the **IDotNetActivity** interface as shown in the following code snippet:
 
-	```csharp
-	public class MyDotNetActivity : IDotNetActivity
-	```
+    ```csharp
+    public class MyDotNetActivity : IDotNetActivity
+    ```
 8. Implement (Add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class and copy the following sample code to the method.
 
     The following sample counts the number of occurrences of the search term (“Microsoft”) in each blob associated with a data slice.
 
-	```csharp
-	/// <summary>
-	/// Execute method is the only method of IDotNetActivity interface you must implement.
-	/// In this sample, the method invokes the Calculate method to perform the core logic.  
-	/// </summary>
-	
-	public IDictionary<string, string> Execute(
-	    IEnumerable<LinkedService> linkedServices,
-	    IEnumerable<Dataset> datasets,
-	    Activity activity,
-	    IActivityLogger logger)
-	{
-	    // get extended properties defined in activity JSON definition
-		// (for example: SliceStart)
-	    DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
-	    string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
-	
-	    // to log information, use the logger object
-		// log all extended properties            
-	    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
-	    logger.Write("Logging extended properties if any...");
-	    foreach (KeyValuePair<string, string> entry in extendedProperties)
-	    {
-	        logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
-	    }
-	
-	    // linked service for input and output data stores
-		// in this example, same storage is used for both input/output
-	    AzureStorageLinkedService inputLinkedService;
+    ```csharp
+    /// <summary>
+    /// Execute method is the only method of IDotNetActivity interface you must implement.
+    /// In this sample, the method invokes the Calculate method to perform the core logic.  
+    /// </summary>
 
-		// get the input dataset
-	    Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-	
-	    // declare variables to hold type properties of input/output datasets
-	    AzureBlobDataset inputTypeProperties, outputTypeProperties;
-	    
-		// get type properties from the dataset object
-	    inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
-	
-		// log linked services passed in linkedServices parameter
-		// you will see two linked services of type: AzureStorage
-		// one for input dataset and the other for output dataset 
-	    foreach (LinkedService ls in linkedServices)
-	        logger.Write("linkedService.Name {0}", ls.Name);
-	
-		// get the first Azure Storate linked service from linkedServices object
-	    // using First method instead of Single since we are using the same
-	    // Azure Storage linked service for input and output.
-	    inputLinkedService = linkedServices.First(
-	        linkedService =>
-	        linkedService.Name ==
-	        inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
-	        as AzureStorageLinkedService;
-	
-		// get the connection string in the linked service
-	    string connectionString = inputLinkedService.ConnectionString;
-	
-		// get the folder path from the input dataset definition
-	    string folderPath = GetFolderPath(inputDataset);
-	    string output = string.Empty; // for use later.
-	
-	    // create storage client for input. Pass the connection string.
-	    CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
-	    CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
-	
-	    // initialize the continuation token before using it in the do-while loop.
-	    BlobContinuationToken continuationToken = null;
-	    do
-	    {   // get the list of input blobs from the input storage client object.
-	        BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-	                                 true,
-	                                 BlobListingDetails.Metadata,
-	                                 null,
-	                                 continuationToken,
-	                                 null,
-	                                 null);
-	
-	        // Calculate method returns the number of occurrences of
-	        // the search term (“Microsoft”) in each blob associated
-	           // with the data slice. definition of the method is shown in the next step.
-	
-	        output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-	
-	    } while (continuationToken != null);
-	
-	    // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
-	    Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    public IDictionary<string, string> Execute(
+        IEnumerable<LinkedService> linkedServices,
+        IEnumerable<Dataset> datasets,
+        Activity activity,
+        IActivityLogger logger)
+    {
+        // get extended properties defined in activity JSON definition
+        // (for example: SliceStart)
+        DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+        string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
 
-	    // get type properties for the output dataset
-	    outputTypeProperties = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-	
-		// get the folder path from the output dataset definition
-	    folderPath = GetFolderPath(outputDataset);
+        // to log information, use the logger object
+        // log all extended properties            
+        IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+        logger.Write("Logging extended properties if any...");
+        foreach (KeyValuePair<string, string> entry in extendedProperties)
+        {
+            logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+        }
 
-		// log the output folder path	
-	    logger.Write("Writing blob to the folder: {0}", folderPath);
-	
-	    // create a storage object for the output blob.
-	    CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-	    // write the name of the file.
-	    Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-	
-		// log the output file name
-	    logger.Write("output blob URI: {0}", outputBlobUri.ToString());
+        // linked service for input and output data stores
+        // in this example, same storage is used for both input/output
+        AzureStorageLinkedService inputLinkedService;
 
-	    // create a blob and upload the output text.
-	    CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-	    logger.Write("Writing {0} to the output blob", output);
-	    outputBlob.UploadText(output);
-	
-	    // The dictionary can be used to chain custom activities together in the future.
-	    // This feature is not implemented yet, so just return an empty dictionary.  
-	
-	    return new Dictionary<string, string>();
-	}
-	```
+        // get the input dataset
+        Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
+
+        // declare variables to hold type properties of input/output datasets
+        AzureBlobDataset inputTypeProperties, outputTypeProperties;
+
+        // get type properties from the dataset object
+        inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
+
+        // log linked services passed in linkedServices parameter
+        // you will see two linked services of type: AzureStorage
+        // one for input dataset and the other for output dataset 
+        foreach (LinkedService ls in linkedServices)
+            logger.Write("linkedService.Name {0}", ls.Name);
+
+        // get the first Azure Storate linked service from linkedServices object
+        // using First method instead of Single since we are using the same
+        // Azure Storage linked service for input and output.
+        inputLinkedService = linkedServices.First(
+            linkedService =>
+            linkedService.Name ==
+            inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
+            as AzureStorageLinkedService;
+
+        // get the connection string in the linked service
+        string connectionString = inputLinkedService.ConnectionString;
+
+        // get the folder path from the input dataset definition
+        string folderPath = GetFolderPath(inputDataset);
+        string output = string.Empty; // for use later.
+
+        // create storage client for input. Pass the connection string.
+        CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
+        CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
+
+        // initialize the continuation token before using it in the do-while loop.
+        BlobContinuationToken continuationToken = null;
+        do
+        {   // get the list of input blobs from the input storage client object.
+            BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+                                     true,
+                                     BlobListingDetails.Metadata,
+                                     null,
+                                     continuationToken,
+                                     null,
+                                     null);
+
+            // Calculate method returns the number of occurrences of
+            // the search term (“Microsoft”) in each blob associated
+               // with the data slice. definition of the method is shown in the next step.
+
+            output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
+
+        } while (continuationToken != null);
+
+        // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
+        Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+
+        // get type properties for the output dataset
+        outputTypeProperties = outputDataset.Properties.TypeProperties as AzureBlobDataset;
+
+        // get the folder path from the output dataset definition
+        folderPath = GetFolderPath(outputDataset);
+
+        // log the output folder path   
+        logger.Write("Writing blob to the folder: {0}", folderPath);
+
+        // create a storage object for the output blob.
+        CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
+        // write the name of the file.
+        Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+
+        // log the output file name
+        logger.Write("output blob URI: {0}", outputBlobUri.ToString());
+
+        // create a blob and upload the output text.
+        CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+        logger.Write("Writing {0} to the output blob", output);
+        outputBlob.UploadText(output);
+
+        // The dictionary can be used to chain custom activities together in the future.
+        // This feature is not implemented yet, so just return an empty dictionary.  
+
+        return new Dictionary<string, string>();
+    }
+    ```
 9. Add the following helper methods: 
 
-	```csharp
-	/// <summary>
-	/// Gets the folderPath value from the input/output dataset.
-	/// </summary>
-	
-	private static string GetFolderPath(Dataset dataArtifact)
-	{
-	    if (dataArtifact == null || dataArtifact.Properties == null)
-	    {
-	        return null;
-	    }
+    ```csharp
+    /// <summary>
+    /// Gets the folderPath value from the input/output dataset.
+    /// </summary>
 
-		// get type properties of the dataset	
-	    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-	    if (blobDataset == null)
-	    {
-	        return null;
-	    }
-	
-		// return the folder path found in the type properties
-	    return blobDataset.FolderPath;
-	}
-	
-	/// <summary>
-	/// Gets the fileName value from the input/output dataset.   
-	/// </summary>
-	
-	private static string GetFileName(Dataset dataArtifact)
-	{
-	    if (dataArtifact == null || dataArtifact.Properties == null)
-	    {
-	        return null;
-	    }
-	
-		// get type properties of the dataset
-	    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-	    if (blobDataset == null)
-	    {
-	        return null;
-	    }
-	
-		// return the blob/file name in the type properties
-	    return blobDataset.FileName;
-	}
-	
-	/// <summary>
-	/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
-	/// and prepares the output text that is written to the output blob.
-	/// </summary>
-	
-	public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
-	{
-	    string output = string.Empty;
-	    logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
-	    foreach (IListBlobItem listBlobItem in Bresult.Results)
-	    {
-	        CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
-	        if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
-	        {
-	            string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
-	            logger.Write("input blob text: {0}", blobText);
-	            string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
-	            var matchQuery = from word in source
-	                             where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
-	                             select word;
-	            int wordCount = matchQuery.Count();
-	            output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-	        }
-	    }
-	    return output;
-	}
-	```
+    private static string GetFolderPath(Dataset dataArtifact)
+    {
+        if (dataArtifact == null || dataArtifact.Properties == null)
+        {
+            return null;
+        }
+
+        // get type properties of the dataset   
+        AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+        if (blobDataset == null)
+        {
+            return null;
+        }
+
+        // return the folder path found in the type properties
+        return blobDataset.FolderPath;
+    }
+
+    /// <summary>
+    /// Gets the fileName value from the input/output dataset.   
+    /// </summary>
+
+    private static string GetFileName(Dataset dataArtifact)
+    {
+        if (dataArtifact == null || dataArtifact.Properties == null)
+        {
+            return null;
+        }
+
+        // get type properties of the dataset
+        AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+        if (blobDataset == null)
+        {
+            return null;
+        }
+
+        // return the blob/file name in the type properties
+        return blobDataset.FileName;
+    }
+
+    /// <summary>
+    /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+    /// and prepares the output text that is written to the output blob.
+    /// </summary>
+
+    public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
+    {
+        string output = string.Empty;
+        logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
+        foreach (IListBlobItem listBlobItem in Bresult.Results)
+        {
+            CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
+            if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
+            {
+                string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
+                logger.Write("input blob text: {0}", blobText);
+                string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var matchQuery = from word in source
+                                 where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
+                                 select word;
+                int wordCount = matchQuery.Count();
+                output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+            }
+        }
+        return output;
+    }
+    ```
 
     The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to. If you havefolderPath defines using variables such as {Year}, {Month}, {Day} etc., the method returns the string as it is without replacing them with runtime values. See [Access extended properties](#access-extended-properties) section for details on accessing SliceStart, SliceEnd, etc.    
 
-	```JSON
+    ```JSON
     "name": "InputDataset",
     "properties": {
         "type": "AzureBlob",
@@ -365,7 +365,7 @@ The method returns a dictionary that can be used to chain custom activities toge
         "typeProperties": {
             "fileName": "file.txt",
             "folderPath": "adftutorial/inputfolder/",
-	```
+    ```
 
     The Calculate method calculates the number of instances of keyword Microsoft in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
@@ -376,11 +376,11 @@ The method returns a dictionary that can be used to chain custom activities toge
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending on the type of build.
 12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the <project folder>\bin\Debug folder. Include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue if there was a failure. 
 
-	> [!IMPORTANT]
-	> All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
+    > [!IMPORTANT]
+    > All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
     ![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
-14. Create a blob container named **customactivitycontainer** if it does not already exist.	
+14. Create a blob container named **customactivitycontainer** if it does not already exist. 
 15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hot/cool Blob storage) that is referred by AzureStorageLinkedService.  
 
 > [!IMPORTANT]
@@ -421,18 +421,18 @@ Here are the steps you perform in this section:
    1. Click **NEW** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
-   
-	![New Azure Data Factory menu](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+
+      ![New Azure Data Factory menu](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “CustomActivityFactory” is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
 
-	![New Azure Data Factory blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
+    ![New Azure Data Factory blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Click **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
 4. Verify that you are using the correct **subscription** and **region** where you want the data factory to be created.
 5. Click **Create** on the **New data factory** blade.
 6. You see the data factory being created in the **Dashboard** of the Azure portal.
 7. After the data factory has been created successfully, you see the Data Factory blade, which shows you the contents of the data factory.
-	
-	![Data Factory blade](media/data-factory-use-custom-activities/data-factory-blade.png)
+
+    ![Data Factory blade](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### Step 2: Create linked services
 Linked services link data stores or compute services to an Azure data factory. In this step, you link your Azure Storage account and Azure Batch account to your data factory.
@@ -440,17 +440,17 @@ Linked services link data stores or compute services to an Azure data factory. I
 #### Create Azure Storage linked service
 1. Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
-	
-	![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
+
+    ![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-	![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
+    ![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Click **Deploy** on the command bar to deploy the linked service.
 
 #### Create Azure Batch linked service
 1. In the Data Factory Editor, click **... More** on the command bar, click **New compute**, and then select **Azure Batch** from the menu.
 
-	![New compute - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    ![New compute - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Make the following changes to the JSON script:
 
    1. Specify Azure Batch account name for the **accountName** property. The **URL** from the **Azure Batch account blade** is in the following format: `http://accountname.region.batch.azure.com`. For the **batchUri** property in the JSON, you need to remove `accountname.` from the URL and use the `accountname` for the `accountName` JSON property.
@@ -459,25 +459,25 @@ Linked services link data stores or compute services to an Azure data factory. I
    4. Specify Azure Batch URI for the **batchUri** property. Example: `https://westus.batch.azure.com`.  
    5. Specify the **AzureStorageLinkedService** for the **linkedServiceName** property.
 
-		```json
-		{
-		 "name": "AzureBatchLinkedService",
-		 "properties": {
-		   "type": "AzureBatch",
-		   "typeProperties": {
-		     "accountName": "myazurebatchaccount",
-		     "batchUri": "https://westus.batch.azure.com",
-		     "accessKey": "<yourbatchaccountkey>",
-		     "poolName": "myazurebatchpool",
-		     "linkedServiceName": "AzureStorageLinkedService"
-		   }
-		 }
-		}
-		```
+        ```json
+        {
+         "name": "AzureBatchLinkedService",
+         "properties": {
+           "type": "AzureBatch",
+           "typeProperties": {
+             "accountName": "myazurebatchaccount",
+             "batchUri": "https://westus.batch.azure.com",
+             "accessKey": "<yourbatchaccountkey>",
+             "poolName": "myazurebatchpool",
+             "linkedServiceName": "AzureStorageLinkedService"
+           }
+         }
+        }
+        ```
 
        For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool.
 
-    
+
 
 ### Step 3: Create datasets
 In this step, you create datasets to represent input and output data.
@@ -486,27 +486,27 @@ In this step, you create datasets to represent input and output data.
 1. In the **Editor** for the Data Factory, click **... More** on the command bar, click **New dataset**, and then select **Azure Blob storage** from the drop-down menu.
 2. Replace the JSON in the right pane with the following JSON snippet:
 
-	```json
-	{
-	 "name": "InputDataset",
-	 "properties": {
-	     "type": "AzureBlob",
-	     "linkedServiceName": "AzureStorageLinkedService",
-	     "typeProperties": {
-	         "folderPath": "adftutorial/customactivityinput/",
-	         "format": {
-	             "type": "TextFormat"
-	         }
-	     },
-	     "availability": {
-	         "frequency": "Hour",
-	         "interval": 1
-	     },
-	     "external": true,
-	     "policy": {}
-	 }
-	}
-	```
+    ```json
+    {
+     "name": "InputDataset",
+     "properties": {
+         "type": "AzureBlob",
+         "linkedServiceName": "AzureStorageLinkedService",
+         "typeProperties": {
+             "folderPath": "adftutorial/customactivityinput/",
+             "format": {
+                 "type": "TextFormat"
+             }
+         },
+         "availability": {
+             "frequency": "Hour",
+             "interval": 1
+         },
+         "external": true,
+         "policy": {}
+     }
+    }
+    ```
 
    You create a pipeline later in this walkthrough with start time: 2016-11-16T00:00:00Z and end time: 2016-11-16T05:00:00Z. It is scheduled to produce data hourly, so there are five input/output slices (between **00**:00:00 -> **05**:00:00).
 
@@ -519,33 +519,33 @@ In this step, you create datasets to represent input and output data.
 1. In the **Data Factory editor**, click **... More** on the command bar, click **New dataset**, and then select **Azure Blob storage**.
 2. Replace the JSON script in the right pane with the following JSON script:
 
-	```JSON
-	{
-	    "name": "OutputDataset",
-	    "properties": {
-	        "type": "AzureBlob",
-	        "linkedServiceName": "AzureStorageLinkedService",
-	        "typeProperties": {
-	            "fileName": "{slice}.txt",
-	            "folderPath": "adftutorial/customactivityoutput/",
-	            "partitionedBy": [
-	                {
-	                    "name": "slice",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "yyyy-MM-dd-HH"
-	                    }
-	                }
-	            ]
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        }
-	    }
-	}
-	```
+    ```JSON
+    {
+        "name": "OutputDataset",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+                "fileName": "{slice}.txt",
+                "folderPath": "adftutorial/customactivityoutput/",
+                "partitionedBy": [
+                    {
+                        "name": "slice",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "yyyy-MM-dd-HH"
+                        }
+                    }
+                ]
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
+    ```
 
      Output location is **adftutorial/customactivityoutput/** and output file name is yyyy-MM-dd-HH.txt where yyyy-MM-dd-HH is the year, month, date, and hour of the slice being produced. See [Developer Reference][adf-developer-reference] for details.
 
@@ -566,50 +566,50 @@ In this step, you create datasets to represent input and output data.
 1. In the Data Factory Editor, click **... More**, and then select **New pipeline** on the command bar. 
 2. Replace the JSON in the right pane with the following JSON script:
 
-	```JSON
-	{
-	  "name": "ADFTutorialPipelineCustom",
-	  "properties": {
-	    "description": "Use custom activity",
-	    "activities": [
-	      {
-	        "Name": "MyDotNetActivity",
-	        "Type": "DotNetActivity",
-	        "Inputs": [
-	          {
-	            "Name": "InputDataset"
-	          }
-	        ],
-	        "Outputs": [
-	          {
-	            "Name": "OutputDataset"
-	          }
-	        ],
-	        "LinkedServiceName": "AzureBatchLinkedService",
-	        "typeProperties": {
-	          "AssemblyName": "MyDotNetActivity.dll",
-	          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-	          "PackageLinkedService": "AzureStorageLinkedService",
-	          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-	          "extendedProperties": {
-	            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-	          }
-	        },
-	        "Policy": {
-	          "Concurrency": 2,
-	          "ExecutionPriorityOrder": "OldestFirst",
-	          "Retry": 3,
-	          "Timeout": "00:30:00",
-	          "Delay": "00:00:00"
-	        }
-	      }
-	    ],
-	    "start": "2016-11-16T00:00:00Z",
-	    "end": "2016-11-16T05:00:00Z",
-	    "isPaused": false
-	  }
-	}
-	```
+    ```JSON
+    {
+      "name": "ADFTutorialPipelineCustom",
+      "properties": {
+        "description": "Use custom activity",
+        "activities": [
+          {
+            "Name": "MyDotNetActivity",
+            "Type": "DotNetActivity",
+            "Inputs": [
+              {
+                "Name": "InputDataset"
+              }
+            ],
+            "Outputs": [
+              {
+                "Name": "OutputDataset"
+              }
+            ],
+            "LinkedServiceName": "AzureBatchLinkedService",
+            "typeProperties": {
+              "AssemblyName": "MyDotNetActivity.dll",
+              "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+              "PackageLinkedService": "AzureStorageLinkedService",
+              "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+              "extendedProperties": {
+                "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
+              }
+            },
+            "Policy": {
+              "Concurrency": 2,
+              "ExecutionPriorityOrder": "OldestFirst",
+              "Retry": 3,
+              "Timeout": "00:30:00",
+              "Delay": "00:00:00"
+            }
+          }
+        ],
+        "start": "2016-11-16T00:00:00Z",
+        "end": "2016-11-16T05:00:00Z",
+        "isPaused": false
+      }
+    }
+    ```
 
     Note the following points:
 
@@ -640,9 +640,9 @@ In this step, you create datasets to represent input and output data.
    ![output from custom activity][image-data-factory-ouput-from-custom-activity]
 5. If you open the output file, you should see the output similar to the following output:
 
-	```
+    ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
-	```
+    ```
 6. Use the [Azure portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
 
    ![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
@@ -653,14 +653,14 @@ See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for
 You can create and publish Data Factory entities by using Visual Studio instead of using Azure portal. For detailed information about creating and publishing Data Factory entities by using Visual Studio, See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles.
 
 Do the following additional steps if you are creating Data Factory project in Visual Studio:
- 
+
 1. Add the Data Factory project to the Visual Studio solution that contains the custom activity project. 
 2. Add a reference to the .NET activity project from the Data Factory project. Right-click Data Factory project, point to **Add**, and then click **Reference**. 
 3. In the **Add Reference** dialog box, select the **MyDotNetActivity** project, and click **OK**.
 4. Build and publish the solution.
 
-	> [!IMPORTANT]
-	> When you publish Data Factory entities, a zip file is automatically created for you and is uploaded to the blob container: customactivitycontainer. If the blob container does not exist, it is automatically created too.  
+    > [!IMPORTANT]
+    > When you publish Data Factory entities, a zip file is automatically created for you and is uploaded to the blob container: customactivitycontainer. If the blob container does not exist, it is automatically created too.  
 
 
 ## Data Factory and Batch integration
@@ -680,15 +680,15 @@ The following diagram illustrates the relationship between Azure Data Factory an
 Troubleshooting consists of a few basic techniques:
 
 1. If you see the following error, you may be using a Hot/Cool blob storage instead of using a general-purpose Azure blob storage. Upload the zip file to a **general-purpose Azure Storage Account**. 
- 
-	```
-	Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
-	``` 
+
+    ```
+    Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
+    ``` 
 2. If you see the following error, confirm that the name of the class in the CS file matches the name you specified for the **EntryPoint** property in the pipeline JSON. In the walkthrough, name of the class is: MyDotNetActivity, and the EntryPoint in the JSON is: MyDotNetActivityNS.**MyDotNetActivity**.
 
-	```
-	MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
-	```
+    ```
+    MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
+    ```
 
    If the names do match, confirm that all the binaries are in the **root folder** of the zip file. That is, when you open the zip file, you should see all the files in the root folder, not in any sub folders.   
 3. If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders.
@@ -707,17 +707,17 @@ Troubleshooting consists of a few basic techniques:
 7. If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**.
 8. If you see the following error, you are using the Azure Storage package of version > 4.3.0. Data Factory service launcher requires the 4.3 version of WindowsAzure.Storage. See [Appdomain isolation](#appdomain-isolation) section for a work-around if you must use the later version of Azure Storage assembly. 
 
-	```
-	Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, 
-	```
+    ```
+    Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, 
+    ```
 
-	If you can use the 4.3.0 version of Azure Storage package, remove the existing reference to Azure Storage package of version > 4.3.0. Then, run the following command from NuGet Package Manager Console. 
+    If you can use the 4.3.0 version of Azure Storage package, remove the existing reference to Azure Storage package of version > 4.3.0. Then, run the following command from NuGet Package Manager Console. 
 
-	```PowerShell
-	Install-Package WindowsAzure.Storage -Version 4.3.0
-	```
+    ```PowerShell
+    Install-Package WindowsAzure.Storage -Version 4.3.0
+    ```
 
-	Build the project. Delete Azure.Storage assembly of version > 4.3.0 from the bin\Debug folder. Create a zip file with binaries and the PDB file. Replace the old zip file with this one in the blob container (customactivitycontainer). Rerun the slices that failed (right-click slice, and click Run).   
+    Build the project. Delete Azure.Storage assembly of version > 4.3.0 from the bin\Debug folder. Create a zip file with binaries and the PDB file. Replace the old zip file with this one in the blob container (customactivitycontainer). Rerun the slices that failed (right-click slice, and click Run).   
 8. The custom activity does not use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it does not work at runtime. The best practice when using Azure Batch is to hold any secrets in an **Azure KeyVault**, use a certificate-based service principal to protect the **keyvault**, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This solution is a generic solution and can scale to any type of secret, not just connection string.
 
    There is an easier workaround (but not a best practice): you can create an **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code.  
@@ -809,10 +809,10 @@ namespace DataFactoryAPITestApp
         {
             // create data factory management client
 
-			// TODO: replace ADFTutorialResourceGroup with the name of your resource group.
+            // TODO: replace ADFTutorialResourceGroup with the name of your resource group.
             string resourceGroupName = "ADFTutorialResourceGroup";
 
-			// TODO: replace APITutorialFactory with a name that is globally unique. For example: APITutorialFactory04212017
+            // TODO: replace APITutorialFactory with a name that is globally unique. For example: APITutorialFactory04212017
             string dataFactoryName = "APITutorialFactory";
 
             TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
@@ -846,7 +846,7 @@ namespace DataFactoryAPITestApp
                         Name = "AzureStorageLinkedService",
                         Properties = new LinkedServiceProperties
                         (
-							// TODO: Replace <accountname> and <accountkey> with name and key of your Azure Storage account.
+                            // TODO: Replace <accountname> and <accountkey> with name and key of your Azure Storage account.
                             new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>")
                         )
                     }
@@ -863,7 +863,7 @@ namespace DataFactoryAPITestApp
                         Name = "AzureBatchLinkedService",
                         Properties = new LinkedServiceProperties
                         (
-							// TODO: replace <batchaccountname> and <yourbatchaccountkey> with name and key of your Azure Batch account
+                            // TODO: replace <batchaccountname> and <yourbatchaccountkey> with name and key of your Azure Batch account
                             new AzureBatchLinkedService("<batchaccountname>", "https://westus.batch.azure.com", "<yourbatchaccountkey>", "myazurebatchpool", "AzureStorageLinkedService")
                         )
                     }
@@ -1028,6 +1028,7 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 
 
 ## Sample custom activities on GitHub
+
 | Sample | What custom activity does |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory. |

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Select Windows VM images in Azure | Microsoft Docs
 description: Learn how to use Azure PowerSHell to determine the publisher, offer, SKU, and version for Marketplace VM images.
 services: virtual-machines-windows
@@ -27,6 +27,7 @@ Make sure that you installed and configured the latest [Azure PowerShell module]
 
 
 ## Table of commonly used Windows images
+
 | PublisherName | Offer | Sku |
 |:--- |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter |

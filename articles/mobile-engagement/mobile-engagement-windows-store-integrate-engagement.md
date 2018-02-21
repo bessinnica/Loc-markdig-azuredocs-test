@@ -54,8 +54,8 @@ NuGet automatically deploys the SDK resources in the `Resources` folder at the r
 NuGet does not automatically deploy the SDK resources in your UWP application yet. You have to do it manually until resources deployment is reintroduced in NuGet:
 
 1. Open your File Explorer.
-2. Navigate to the following location (**x.x.x** is the version of Engagement you are installing):
-   *%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
+2. Navigate to the following location (<strong>x.x.x</strong> is the version of Engagement you are installing):
+   <em>%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\</em><em>x.x.x</em><em>\\content\win81</em>
 3. Drag and drop the **Resources** folder from the file explorer to the root of your project in Visual Studio.
 4. In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer**.
 5. Some files are not included in the project. To import them at once right click on the **Resources** folder, **Exclude from project** then another right click on the **Resources** folder, **Include in project** to re-include the whole folder. All files from the **Resources** folder are now included in your project.

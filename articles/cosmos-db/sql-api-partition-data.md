@@ -37,8 +37,11 @@ To get started with code, download the project from [Azure Cosmos DB Performance
 
 <!-- placeholder until we have a permanent solution-->
 <a name="partition-keys"></a>
+
 <a name="single-partition-and-partitioned-collections"></a>
+
 <a name="migrating-from-single-partition"></a>
+
 
 ## Partition keys
 
@@ -176,7 +179,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     UriFactory.CreateDocumentCollectionUri("db", "coll"))
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
-    
+
 The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. Note that you have to specify the EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` in the REST API) to have the SDK to execute a query across partitions.
 
 ```csharp
@@ -200,7 +203,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
     .OrderBy(m => m.MetricValue);
 ```
-    
+
 You can manage parallel query execution by tuning the following parameters:
 
 * By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the container's partitions. If you set this to -1, the degree of parallelism is managed by the SDK. If the `MaxDegreeOfParallelism` is not specified or set to 0, which is the default value, there will be a single network connection to the container's partitions.
@@ -217,7 +220,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
     "XMS-001-FE24C");
 ```
-   
+
 In the next section, we look at how you can move to partitioned containers from single-partition containers.
 
 ## Next steps

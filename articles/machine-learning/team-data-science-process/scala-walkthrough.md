@@ -45,8 +45,6 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 ![HDInsight cluster type configuration](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
 > [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
-> 
-> 
 
 For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md).  
 

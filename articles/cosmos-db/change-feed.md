@@ -39,9 +39,9 @@ Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB 
 
 You can read the change feed in three different ways, as discussed later in this article:
 
-1.	[Using Azure Functions](#azure-functions)
-2.	[Using the Azure Cosmos DB SDK](#rest-apis)
-3.	[Using the Azure Cosmos DB Change Feed Processor library](#change-feed-processor)
+1.  [Using Azure Functions](#azure-functions)
+2.  [Using the Azure Cosmos DB SDK](#rest-apis)
+3.  [Using the Azure Cosmos DB Change Feed Processor library](#change-feed-processor)
 
 The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing as shown in the following image.
 
@@ -79,13 +79,15 @@ The following image shows how lambda pipelines that both ingest and query using 
 Also, within your [serverless](http://azure.com/serverless) web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](#azure-functions). If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
 <a id="azure-functions"></a>
-## Using Azure Functions 
+
+## Using Azure Functions 
 
 If you're using Azure Functions, the simplest way to connect to an Azure Cosmos DB change feed is to add an Azure Cosmos DB trigger to your Azure Functions app. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to, and the function is triggered whenever a change to the collection is made. 
 
 Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
 
 <a id="rest-apis"></a>
+
 ## Using the SDK
 
 The [SQL SDK](sql-api-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibilities, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
@@ -116,9 +118,9 @@ This section walks through how to use the SQL SDK to work with a change feed.
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri,
-        new FeedOptions
-            {RequestContinuation = pkRangesResponseContinuation });
-     
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
@@ -127,29 +129,29 @@ This section walks through how to use the SQL SDK to work with a change feed.
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collectionUri,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = -1,
-                // Set reading time: only show change feed results modified since StartTime
-                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
-            });
-        while (query.HasMoreResults)
-            {
-                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
-    
-                foreach (dynamic changedDocument in readChangesResponse)
-                    {
-                         Console.WriteLine("document: {0}", changedDocument);
-                    }
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-            }
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
     }
     ```
 
@@ -162,13 +164,14 @@ In the code in step 4 above, the **ResponseContinuation** in the last line has t
 So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, start time, etc. the simpler option is to use the Change Feed Processor Library.
 
 <a id="change-feed-processor"></a>
-## Using the Change Feed Processor library 
+
+## Using the Change Feed Processor library 
 
 The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
 
 The main benefit of Change Feed Processor library is that you don’t have to manage each partition and continuation token and you don’t have to poll each collection manually.
 
-The Change Feed Processor library simplifies reading changes across partitions and multiple threads working in parallel.  It automatically manages reading changes across partitions using a lease mechanism. As you can see in the following image, if you start two clients that are using the Change Feed Processor library, they divide the work among themselves. As you continue to increase the clients, they keep dividing the work among themselves.
+The Change Feed Processor library simplifies reading changes across partitions and multiple threads working in parallel.  It automatically manages reading changes across partitions using a lease mechanism. As you can see in the following image, if you start two clients that are using the Change Feed Processor library, they divide the work among themselves. As you continue to increase the clients, they keep dividing the work among themselves.
 
 ![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/change-feed-output.png)
 
@@ -177,6 +180,7 @@ The left client was started first and it started monitoring all the partitions, 
 Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
 
 <a id="understand-cf"></a>
+
 ### Understanding the Change Feed Processor library
 
 There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 
@@ -197,9 +201,9 @@ The lease collection coordinates processing the change feed across multiple work
 
 **Processor Host:**
 Each host determines how many partitions to process based on how many other instances of hosts have active leases. 
-1.	When a host starts up, it acquires leases to balance the workload across all hosts. A host periodically renews leases, so leases remain active. 
-2.	A host checkpoints the last continuation token to its lease for each read. To ensure concurrency safety, a host checks the ETag for each lease update. Other checkpoint strategies are also supported.  
-3.	Upon shutdown, a host releases all leases but keeps the continuation information, so it can resume reading from the stored checkpoint later. 
+1.  When a host starts up, it acquires leases to balance the workload across all hosts. A host periodically renews leases, so leases remain active. 
+2.  A host checkpoints the last continuation token to its lease for each read. To ensure concurrency safety, a host checks the ETag for each lease update. Other checkpoint strategies are also supported.  
+3.  Upon shutdown, a host releases all leases but keeps the continuation information, so it can resume reading from the stored checkpoint later. 
 
 At this time the number of hosts cannot be greater than the number of partitions (leases).
 
@@ -230,8 +234,8 @@ To implement the Change Feed Processor library you have to do following:
     ```
     public IChangeFeedObserver CreateObserver()
     {
-              DocumentFeedObserver newObserver = new DocumentFeedObserver(this.client, this.collectionInfo);
-              return newObserver;
+              DocumentFeedObserver newObserver = new DocumentFeedObserver(this.client, this.collectionInfo);
+              return newObserver;
     }
     ```
 
@@ -257,17 +261,17 @@ ChangeFeedOptions feedOptions = new ChangeFeedOptions();
 feedOptions.StartFromBeginning = true;
 
 ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
- 
+
 // Customizing lease renewal interval to 15 seconds.
 // Can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay
 feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
- 
+
 using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
 {
-        DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
-        ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
-        await host.RegisterObserverFactoryAsync(docObserverFactory);
-        await host.UnregisterObserversAsync();
+        DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
+        ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
+        await host.RegisterObserverFactoryAsync(docObserverFactory);
+        await host.UnregisterObserversAsync();
 }
 ```
 

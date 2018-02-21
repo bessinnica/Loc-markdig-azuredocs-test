@@ -51,13 +51,13 @@ The following table lists the minimum hardware, software, and network requiremen
 
 1. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
-  ![Set up source](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
+   ![Set up source](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
-4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
+3. Download the Site Recovery Unified Setup installation file.
+4. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
-	![Set up source](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
-6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
+    ![Set up source](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
+5. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 #### Run Azure Site Recovery Unified Setup
 
@@ -73,7 +73,6 @@ The following table lists the minimum hardware, software, and network requiremen
 ## Common issues
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
 
 ## Next steps
 

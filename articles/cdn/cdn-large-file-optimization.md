@@ -34,7 +34,7 @@ You can configure your CDN endpoint to optimize delivery for large files via the
 
 1. To add a new endpoint, on the **CDN profile** page, select **Endpoint**.
 
-    ![New endpoint](./media/cdn-large-file-optimization/01_Adding.png)	
+    ![New endpoint](./media/cdn-large-file-optimization/01_Adding.png)  
  
 2. In the **Optimized for** drop-down list, select **Large file download**.
 

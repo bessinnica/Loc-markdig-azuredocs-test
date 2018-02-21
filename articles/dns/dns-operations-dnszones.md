@@ -29,7 +29,6 @@ This article shows you how to manage your DNS zones by using Azure PowerShell. Y
 
 [!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)]
 
-
 ## Create a DNS zone
 
 A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet.
@@ -144,7 +143,6 @@ The zone object can also be piped instead of being passed as a parameter:
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsZone
-
 ```
 
 As with `Set-AzureRmDnsZone`, specifying the zone using a `$zone` object enables Etag checks to ensure concurrent changes are not deleted. Use the `-Overwrite` switch to suppress these checks.

@@ -43,7 +43,7 @@ Using the script action described in this article, you can modify the OS patchin
 
 When using this script requires the following information:
 1. The script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
- 	HDInsight uses this URI to find and run the script on all the virtual machines in the cluster.
+    HDInsight uses this URI to find and run the script on all the virtual machines in the cluster.
   
 2. The cluster node types that the script is applied to: headnode, workernode, zookeeper. This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
 
@@ -59,7 +59,7 @@ When using this script requires the following information:
 
 > [!NOTE]
 > You must mark this script as persisted when applying to an existing cluster. Otherwise, any new nodes created through scaling      operations will use the default patching schedule.
- 	If you apply the script as part of the cluster creation process, it is persisted automatically.
+    If you apply the script as part of the cluster creation process, it is persisted automatically.
 >
 
 ## Next steps

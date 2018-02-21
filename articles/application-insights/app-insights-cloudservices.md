@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Insights for Azure Cloud Services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
 services: application-insights
@@ -104,10 +104,10 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 1. **Web roles**: Right-click the project and choose **Configure Application Insights** or **Add > Application Insights telemetry**.
 
 2. **Worker roles**: 
- * Right-click the project and select **Manage Nuget Packages**.
- * Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+   * Right-click the project and select **Manage Nuget Packages**.
+   * Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-    ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
+     ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configure the SDK to send data to the Application Insights resource.
 

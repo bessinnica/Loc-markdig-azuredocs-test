@@ -55,33 +55,34 @@ independently in each partition.
 - **scalar_expression**
 
   The scalar expression over which the anomaly detection would be performed. It is
-an expression of float or bigint type that returns a single (scalar) value. The
-wildcard expression **\*** is not allowed. **scalar_expression** cannot contain other
-analytic functions or external functions.
+  an expression of float or bigint type that returns a single (scalar) value. The
+  wildcard expression <strong>\</strong>* is not allowed. <strong>scalar_expression</strong> cannot contain other
+  analytic functions or external functions.
+
 
 - **OVER ( [ partition_by_clause ] limit_duration_clause [when_clause])**
 
-- **partition_by_clause** 
+- **partition_by_clause** 
 
   The `PARTITION BY <partition key>` clause divides the
-learning and training across separate partitions. In other words, a separate
-model would be used per value of `<partition key>` and only events with that
-value would be used for learning and training in that model. For example,
+  learning and training across separate partitions. In other words, a separate
+  model would be used per value of `<partition key>` and only events with that
+  value would be used for learning and training in that model. For example,
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
   will train and score a reading against other readings of the same sensor only.
 
-- **limit_duration clause** DURATION(\<unit\>, \<length\>)
+- **limit_duration clause** DURATION(\<unit\>, \<length\>)
 
   Specifies how much of the history from the current event is considered in the
-**ANOMALYDETECTION** computation. See DATEDIFF for a detailed description of
-supported units and their abbreviations.
+  **ANOMALYDETECTION** computation. See DATEDIFF for a detailed description of
+  supported units and their abbreviations.
 
-- **when_clause** 
+- **when_clause** 
 
   Specifies a Boolean condition for the events considered in the
-**ANOMALYDETECTION** computation.
+  **ANOMALYDETECTION** computation.
 
 ## Return Types
 

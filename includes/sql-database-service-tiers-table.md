@@ -5,6 +5,7 @@ sql-database-single-database-resources.md
 -->
 
 ### Basic service tier
+
 | **Performance level** | **Basic** |
 | :--- | --: |
 | Max DTUs | 5 |
@@ -17,6 +18,7 @@ sql-database-single-database-resources.md
 |||
 
 ### Standard service tier
+
 | **Performance level** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
 | Max DTUs** | 10 | 20 | 50 | 100 |
@@ -29,6 +31,7 @@ sql-database-single-database-resources.md
 ||||||
 
 ### Standard service tier (continued)
+
 | **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
 | Max DTUs** | 200 | 400 | 800 | 1600 | 3000 |
@@ -41,6 +44,7 @@ sql-database-single-database-resources.md
 |||||||
 
 ### Premium service tier 
+
 | **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | :--- |---:|---:|---:|---:|---:|---:|
 | Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
@@ -53,16 +57,17 @@ sql-database-single-database-resources.md
 |||||||
 
 ### Premium RS service tier 
-| **Performance level** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
-| :--- |---:|---:|---:|---:|---:|---:|
-| Max DTUs | 125 | 250 | 500 | 1000 |
-| Included storage (GB) | 500 | 500 | 500 | 500 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 |
-| Max concurrent logins | 200 | 400 | 800 | 1600 |
-| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 |
-|||||||
+
+| <strong>Performance level</strong> | <strong>PRS1</strong> | <strong>PRS2</strong> | <strong>PRS4</strong> | <strong>PRS6</strong> |
+|:-----------------------------------|----------------------:|----------------------:|----------------------:|----------------------:|
+| Max DTUs                           |                   125 |                   250 |                   500 |                  1000 |
+| Included storage (GB)              |                   500 |                   500 |                   500 |                   500 |
+| Max storage choices (GB)*          |        500, 750, 1024 |        500, 750, 1024 |        500, 750, 1024 |        500, 750, 1024 |
+| Max in-memory OLTP storage (GB)    |                     1 |                     2 |                     4 |                     8 |
+| Max concurrent workers (requests)  |                   200 |                   400 |                   800 |                  1600 |
+| Max concurrent logins              |                   200 |                   400 |                   800 |                  1600 |
+| Max concurrent sessions            |                 30000 |                 30000 |                 30000 |                 30000 |
+|                                    |                       |                       |                       |                       |
 
 > [!IMPORTANT]
 > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 

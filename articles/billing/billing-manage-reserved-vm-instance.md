@@ -64,11 +64,11 @@ You can delegate management of a reservation by adding people to roles on the re
 You can manage access to reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reservation's scope, that doesn't give them rights to manage the reservation.
  
 To delegate access management for a reservation: 
-1.	Log in to the [Azure portal](https://portal.azure.com).
-2.	Select **More Services** > **Reservation** to list reservations that you have access to.
-3.	Select the reservation that you want to delegate access to other users.
-4.	Select **Access Control (IAM)** in the menu.
-5.	Select **Add** > **Role** > **Owner** (or a different role if you want to give limited access). 
+1.  Log in to the [Azure portal](https://portal.azure.com).
+2.  Select **More Services** > **Reservation** to list reservations that you have access to.
+3.  Select the reservation that you want to delegate access to other users.
+4.  Select **Access Control (IAM)** in the menu.
+5.  Select **Add** > **Role** > **Owner** (or a different role if you want to give limited access). 
 6. Type the email address of the user you want to add as Owner. 
 7. Select the user, and then select **Save**.
 

@@ -58,30 +58,30 @@ To add a standalone hosting server that is already provisioned, follow these ste
 
 2. Click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers**.
 
-  ![](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-  The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
+   The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-  ![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
 3. Fill the form with the connection details of your SQL Server instance.
 
-  ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     You can optionally include an instance name, and a port number can be provided if the instance is not assigned to the default port of 1433.
 
-  > [!NOTE]
-  > As long as the SQL instance can be accessed by the user and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
+   > [!NOTE]
+   > As long as the SQL instance can be accessed by the user and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
 
 4. As you add servers, you must assign them to a new or existing SKU to differentiate service offerings. For example, you can have a SQL Enterprise instance providing:
-  - database capacity
-  - automatic backup
-  - reserve high-performance servers for individual departments
-  - and so on.
+   - database capacity
+   - automatic backup
+   - reserve high-performance servers for individual departments
+   - and so on.
 
-  The SKU name should reflect the properties so that users can place their databases appropriately. All hosting servers in a SKU should have the same capabilities.
+   The SKU name should reflect the properties so that users can place their databases appropriately. All hosting servers in a SKU should have the same capabilities.
 
-	An example:
+    An example:
 
 ![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -109,7 +109,6 @@ On secondary instances
 ```
 ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
 GO
-
 ```
 
 
@@ -120,14 +119,14 @@ To add SQL Always On hosting servers, follow these steps:
 
 2. Click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers** &gt; **+Add**.
 
-	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
+    The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
 
 3. Fill the form with the connection details of your SQL Server instance, being sure to use the FQDN or IPv4 address of the Always On Listener (and optional port number). Provide the account information for the account you configured with system admin privileges.
 
 4. Check this box to enable support for SQL Always On Availability Group instances.
 
-	![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+    ![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Add the SQL Always On instance to a SKU. You cannot mix standalone servers with Always On instances in the same SKU. That will be determined when adding the first hosting server. Attempting to mix types afterwards will result in an error.
 

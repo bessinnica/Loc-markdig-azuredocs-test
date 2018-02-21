@@ -37,7 +37,7 @@ For VMware and physical machines, and for Hyper-V (without System Center Virtual
 
 3. Under **Network properties**, choose a virtual network from the list of available network interfaces.
 
-	![Network settings](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
+    ![Network settings](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
 
 Modifying the target network affects all network interfaces for that specific virtual machine.
 
@@ -63,7 +63,7 @@ You can modify the subnet and IP address for a replicated item's network interfa
 
 3. Enter the desired IP address (as required).
 
-	![Network interface settings](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
+    ![Network interface settings](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
 
 4. Select **OK** to finish editing and return to the **Compute and Network** pane.
 

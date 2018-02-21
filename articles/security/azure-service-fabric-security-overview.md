@@ -23,21 +23,21 @@ ms.author: tomsh
 
 This Azure Service Fabric Security overview article focuses on the following areas:
 
--	Securing your cluster
--	Understanding monitoring and diagnostics
--	Creating more secure environments by using certificates
--	Using Role-Based Access Control (RBAC)
--	Securing clusters by using Windows security
--	Configuring application security in Service Fabric
--	Securing communication for services in Azure Service Fabric 
+-   Securing your cluster
+-   Understanding monitoring and diagnostics
+-   Creating more secure environments by using certificates
+-   Using Role-Based Access Control (RBAC)
+-   Securing clusters by using Windows security
+-   Configuring application security in Service Fabric
+-   Securing communication for services in Azure Service Fabric 
 
 ## Secure your cluster
 Azure Service Fabric orchestrates services across a cluster of machines. Clusters must be secured to prevent unauthorized users from connecting to them, especially when they are running production workloads. Although it's possible to create an unsecured cluster, this might allow anonymous users to connect to it (if it exposes management endpoints to the public internet).
 
 This section provides an overview of the security scenarios for clusters that are running either standalone or on Azure. It also describes the various technologies that are used to implement those scenarios. The cluster security scenarios are:
 
--	Node-to-node security
--	Client-to-node security
+-   Node-to-node security
+-   Client-to-node security
 
 ### Node-to-node security
 Node-to-node security secures communication between the VMs or machines in a cluster. With node-to-node security, only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster.
@@ -53,13 +53,13 @@ You configure certificate security when you create the cluster, either through t
 ### Client-to-node security
 You configure client-to-node security by using client identities. To establish trust between a client and a cluster, you must configure the cluster to know which client identities it can trust. This can be done in two different ways:
 
--	Specify the domain group users that can connect. 
--	Specify the domain node users that can connect.
+-   Specify the domain group users that can connect. 
+-   Specify the domain node users that can connect.
 
 Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster:
 
--	Administrator
--	User
+-   Administrator
+-   User
 
 By using access control, cluster administrators can limit access to certain types of cluster operations. This makes the cluster more secure.
 
@@ -92,17 +92,17 @@ For standalone Windows Server clusters with Windows Server 2012 R2 and Active Di
 
 From a security perspective, the main goals of monitoring and diagnostics are:
 
--	Detect and diagnose hardware and infrastructure issues that might be caused by a security event.
--	Detect software and app issues that could be an indicator of compromise (IoC).
--	Understand resource consumption to help prevent inadvertent denial of service.
+-   Detect and diagnose hardware and infrastructure issues that might be caused by a security event.
+-   Detect software and app issues that could be an indicator of compromise (IoC).
+-   Understand resource consumption to help prevent inadvertent denial of service.
 
 The overall workflow of monitoring and diagnostics consists of three steps:
 
--	**Event generation:** Event generation includes events (logs, traces, custom events) at both the infrastructure (cluster) and application/service level. Read more about [infrastructure-level events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) and [application-level events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) to understand what is provided and how to add further instrumentation.
+-   **Event generation:** Event generation includes events (logs, traces, custom events) at both the infrastructure (cluster) and application/service level. Read more about [infrastructure-level events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) and [application-level events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) to understand what is provided and how to add further instrumentation.
 
--	**Event aggregation:** Generated events need to be collected and aggregated before they can be displayed. We typically recommend using [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similar to agent-based log collection) or [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (in-process log collection).
+-   **Event aggregation:** Generated events need to be collected and aggregated before they can be displayed. We typically recommend using [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similar to agent-based log collection) or [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (in-process log collection).
 
--	**Analysis:** Events need to be visualized and accessible in some format, to allow for analysis and display. There are several platforms for the analysis and visualization of monitoring and diagnostics data. The two that we recommend are [Operations Management Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) and [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) due to their good integration with Service Fabric.
+-   **Analysis:** Events need to be visualized and accessible in some format, to allow for analysis and display. There are several platforms for the analysis and visualization of monitoring and diagnostics data. The two that we recommend are [Operations Management Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) and [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) due to their good integration with Service Fabric.
 
 You can also use [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) to monitor many of the Azure resources on which a Service Fabric cluster is built.
 
@@ -120,11 +120,11 @@ The following table lists the certificates that you need on your cluster setup:
 
 |Certificate information setting |Description|
 |-------------------------------|-----------|
-|ClusterCertificate|	This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates: a primary certificate, and a secondary for upgrade.|
-|ServerCertificate|	This certificate is presented to the client when it tries to connect to this cluster. You can use two different server certificates: a primary certificate, and a secondary for upgrade.|
-|ClientCertificateThumbprints|	This is a set of certificates to install on the authenticated clients.|
-|ClientCertificateCommonNames|	This is the common name of the first client certificate for CertificateCommonName. CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate.|
-|ReverseProxyCertificate|	This is an optional certificate that can be specified to secure your [reverse proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy).|
+|ClusterCertificate|    This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates: a primary certificate, and a secondary for upgrade.|
+|ServerCertificate| This certificate is presented to the client when it tries to connect to this cluster. You can use two different server certificates: a primary certificate, and a secondary for upgrade.|
+|ClientCertificateThumbprints|  This is a set of certificates to install on the authenticated clients.|
+|ClientCertificateCommonNames|  This is the common name of the first client certificate for CertificateCommonName. CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate.|
+|ReverseProxyCertificate|   This is an optional certificate that can be specified to secure your [reverse proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy).|
 
 For more information about securing certificates, see [Secure a standalone cluster on Windows using X.509 certificates](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security).
 
@@ -153,8 +153,8 @@ If you want to use a machine group within an Active Directory domain, you config
 
 You configure client-to-node security by using ClientIdentities. To establish trust between a client and the cluster, you must configure the cluster to recognize the client identities that the cluster can trust. You can establish trust in two different ways:
 
--	Specify the domain group users that can connect.
--	Specify the domain node users that can connect.
+-   Specify the domain group users that can connect.
+-   Specify the domain node users that can connect.
 
 ## Configure application security in Service Fabric
 ### Manage secrets in Service Fabric applications
@@ -162,10 +162,10 @@ This method helps manage secrets in a Service Fabric application. Secrets can be
 
 This approach uses [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) to manage keys and secrets. However, using secrets in an application is cloud platform-agnostic. This means that applications can be deployed to a cluster that's hosted anywhere. There are four main steps in this flow:
 
--	Obtain a data encipherment certificate.
--	Install the certificate on your cluster.
--	Encrypt secret values when deploying an application with the certificate and inject them into a service's Settings.xml configuration file.
--	Read encrypted values out of Settings.xml by decrypting them with the same encipherment certificate.
+-   Obtain a data encipherment certificate.
+-   Install the certificate on your cluster.
+-   Encrypt secret values when deploying an application with the certificate and inject them into a service's Settings.xml configuration file.
+-   Read encrypted values out of Settings.xml by decrypting them with the same encipherment certificate.
 
 >[!NOTE]
 >Learn more about [managing secrets in Service Fabric applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).
@@ -175,17 +175,17 @@ By using Azure Service Fabric security, you can help secure applications that ar
 
 The steps include:
 
--	Configuring the policy for a service setup entry point.
--	Starting PowerShell commands from a setup entry point.
--	Using console redirection for local debugging.
--	Configuring a policy for service code packages.
--	Assigning a security access policy for HTTP and HTTPS endpoints.
+-   Configuring the policy for a service setup entry point.
+-   Starting PowerShell commands from a setup entry point.
+-   Using console redirection for local debugging.
+-   Configuring a policy for service code packages.
+-   Assigning a security access policy for HTTP and HTTPS endpoints.
 
 ## Secure communication for services in Azure Service Fabric security
 Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that can be used to improve security.
 
--	[Help secure a service when you're using service remoting](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication)
--	[Help secure a service when you're using a WCF-based communication stack](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication#help-secure-a-service-when-youre-using-a-wcf-based-communication-stack)
+-   [Help secure a service when you're using service remoting](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication)
+-   [Help secure a service when you're using a WCF-based communication stack](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication#help-secure-a-service-when-youre-using-a-wcf-based-communication-stack)
 
 ## Next steps
 - For conceptual information about cluster security, see [Create a Service Fabric cluster by using Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) and [Azure portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).

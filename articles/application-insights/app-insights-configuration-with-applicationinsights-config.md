@@ -1,4 +1,4 @@
-﻿---
+---
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
 services: application-insights
@@ -154,7 +154,6 @@ This is enabled by default. If your app sends a lot of telemetry, this processor
         <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
       </Add>
     </TelemetryProcessors>
-
 ```
 
 The parameter provides the target that the algorithm tries to achieve. Each instance of the SDK works independently, so if your server is a cluster of several machines, the actual volume of telemetry will be multiplied accordingly.
@@ -174,7 +173,6 @@ There is also a standard [sampling telemetry processor](app-insights-api-filteri
      <SamplingPercentage>10</SamplingPercentage>
      </Add>
    </TelemetryProcessors>
-
 ```
 
 
@@ -264,7 +262,6 @@ If you just want to send a specific set of events to a different resource, you c
     tc.Context.InstrumentationKey = "----- my key ----";
     tc.TrackEvent("myEvent");
     // ...
-
 ```
 
 To get a new key, [create a new resource in the Application Insights portal][new].

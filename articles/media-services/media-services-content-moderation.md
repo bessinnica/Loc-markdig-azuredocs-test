@@ -87,13 +87,13 @@ The following .NET code sample uses the Media Services .NET SDK to run a Content
 See the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md) for the full source code and the Visual Studio project.
 
 
-	/// <summary>
+    /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
     /// <param name="asset"></param>
     static void RunContentModeratorJob(IAsset asset)
     {
-    	// Grab the presets
+        // Grab the presets
         string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
 
         // grab instance of Azure Media Content Moderator MP
@@ -104,11 +104,11 @@ See the [Content Moderator video quickstart](../cognitive-services/Content-Moder
                 asset.AssetFiles.First() + "_" + Guid.NewGuid()));
 
         ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
-        		mp, configuration,
+                mp, configuration,
                 TaskOptions.None);
         contentModeratorTask.InputAssets.Add(asset);
         contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
-    	    AssetCreationOptions.None);
+            AssetCreationOptions.None);
 
         job.Submit();
 
@@ -116,13 +116,13 @@ See the [Content Moderator video quickstart](../cognitive-services/Content-Moder
         // Create progress printing and querying tasks
         Task progressPrintTask = new Task(() =>
         {
-        	IJob jobQuery = null;
+            IJob jobQuery = null;
             do
             {
-            	var progressContext = _context;
+                var progressContext = _context;
                 jobQuery = progressContext.Jobs
                 .Where(j => j.Id == job.Id)
-                	.First();
+                    .First();
                     Console.WriteLine(string.Format("{0}\t{1}",
                     DateTime.Now,
                     jobQuery.State));
@@ -131,7 +131,7 @@ See the [Content Moderator video quickstart](../cognitive-services/Content-Moder
              while (jobQuery.State != JobState.Finished &&
              jobQuery.State != JobState.Error &&
              jobQuery.State != JobState.Canceled);
-		});
+        });
         progressPrintTask.Start();
 
         Task progressJobTask = job.GetExecutionProgressTask(
@@ -143,14 +143,14 @@ See the [Content Moderator video quickstart](../cognitive-services/Content-Moder
         // for error state and exit if needed.
         if (job.State == JobState.Error)
         {
-        	ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
             Console.WriteLine(string.Format("Error: {0}. {1}",
             error.Code,
             error.Message));
         }
 
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
-	}
+    }
 
 For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 

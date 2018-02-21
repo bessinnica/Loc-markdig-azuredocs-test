@@ -46,10 +46,10 @@ Here are some of the features of Premium Storage:
 * **Premium storage account**
 
     To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the type to **Premium_LRS** in one of the following locations:
-    * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
-    * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
-    * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (version 0.8.10 or a later version)
+  * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
+  * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
+  * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
+  * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (version 0.8.10 or a later version)
 
     To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
@@ -127,11 +127,11 @@ If you are using premium storage accounts for unmanaged disks and your applicati
 ### Premium Storage disk limits
 When you provision a premium storage disk, the size of the disk determines the maximum IOPS and throughput (bandwidth). Azure offers seven types of premium storage disks: P4(Managed Disks only), P6(Managed Disks only), P10, P20, P30, P40, and P50. Each premium storage disk type has specific limits for IOPS and throughput. Limits for the disk types are described in the following table:
 
-| Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+| Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Disk size           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
+| Disk size           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
+| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
 
 > [!NOTE]
 > Make sure sufficient bandwidth is available on your VM to drive disk traffic, as described in [Premium Storage-supported VMs](#premium-storage-supported-vms). Otherwise, your disk throughput and IOPS is constrained to lower values. Maximum throughput and IOPS are based on the VM limits, not on the disk limits described in the preceding table.  

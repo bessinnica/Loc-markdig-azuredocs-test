@@ -59,18 +59,18 @@ you find **Azure Logic Apps Tools for Visual Studio**.
 
 ## Browse for logic apps in Cloud Explorer
 
-1.	To open Cloud Explorer, on the **View** menu, choose **Cloud Explorer**.
-2.	Browse for your logic app, either by resource group or by resource type. 
+1.  To open Cloud Explorer, on the **View** menu, choose **Cloud Explorer**.
+2.  Browse for your logic app, either by resource group or by resource type. 
 
-	* If you browse by resource type, select your Azure subscription, 
-	expand the **Logic Apps** section, and select your logic app. 
-	* If you browse by resource group, expand the resource group 
-	that has your logic app, and select your logic app.
+    * If you browse by resource type, select your Azure subscription, 
+    expand the **Logic Apps** section, and select your logic app. 
+    * If you browse by resource group, expand the resource group 
+    that has your logic app, and select your logic app.
 
-	To view commands for your logic app, either right-click your logic app, 
-	or at the bottom of Cloud Explorer, choose from the **Actions** menu.
+    To view commands for your logic app, either right-click your logic app, 
+    or at the bottom of Cloud Explorer, choose from the **Actions** menu.
 
-	![Browse for your logic app](./media/logic-apps-manage-from-vs/browse.png)
+    ![Browse for your logic app](./media/logic-apps-manage-from-vs/browse.png)
 
 ## Edit your logic app with Logic Apps Designer
 

@@ -58,23 +58,23 @@ To configure the integration of SAML SSO for Confluence by resolution GmbH into 
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **SAML SSO for Confluence by resolution GmbH**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_search.png)
 
 5. In the results panel, select **SAML SSO for Confluence by resolution GmbH**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 
@@ -100,96 +100,96 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **SAML SSO for Confluence by resolution GmbH** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_samlbase.png)
 
 3. On the **SAML SSO for Confluence by resolution GmbH Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_1.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
 
 4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_2.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SAML SSO for Confluence by resolution GmbH Client support team](https://www.resolution.de/go/support) to get these values. 
+     
+    > [!NOTE] 
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SAML SSO for Confluence by resolution GmbH Client support team](https://www.resolution.de/go/support) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_certificate.png) 
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)	
-	
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
+    
 7. In a different web browser window, log in to your **SAML SSO for Confluence by resolution GmbH admin portal** as an administrator.
 
 8. Hover on cog and click the **Add-ons**.
     
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon1.png)
 
 9. You are redirected to Administrator Access page. Enter the password and click **Confirm** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon2.png)
 
 10. Under **ATLASSIAN MARKETPLACE** tab, click **Find new add-ons**. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon.png)
 
 11. Search **SAML Single Sign On (SSO) for Confluence** and click **Install** button to install the new SAML plugin.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon7.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon7.png)
 
 12. The plugin installation will start. Click **Close**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon8.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon8.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.	Click **Manage**.
+13. Click **Manage**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
 14. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon11.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon11.png)
 
 15. This new plugin can also be found under **USERS & SECURITY** tab.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
 16. On **SAML SingleSignOn Plugin Configuration** page, click **Add new IdP** button to configure the settings of Identity Provider.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
 17. On **Choose your SAML Identity Provider** page, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-	a. Set **Azure AD** as the IdP type.
-	
-	b. Add **Name** of the Identity Provider (e.g Azure AD).
-	
-	c. Add **Description** of the Identity Provider (e.g Azure AD).
-	
-	d. Click **Next**.
-	
+    a. Set **Azure AD** as the IdP type.
+    
+    b. Add **Name** of the Identity Provider (e.g Azure AD).
+    
+    c. Add **Description** of the Identity Provider (e.g Azure AD).
+    
+    d. Click **Next**.
+    
 18. On **Identity provider configuration** page, click **Next** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
 19. On **Import SAML IdP Metadata** page, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
     a. Click **Load File** button and pick Metadata XML file you downloaded in Step 5.
 
@@ -201,19 +201,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 20. On **User ID attribute and transformation** page, click **Next** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
-	
-21. On **User creation and update** page, click **Save & Next** to save settings.	
-	
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
-	
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+    
+21. On **User creation and update** page, click **Save & Next** to save settings.   
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+    
 22. On **Test your settings** page, click **Skip test & configure manually** to skip the user test for now. This will be performed in the next section and requires some settings in Azure portal. 
-	
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
-	
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+    
 23. In the apprearing dialog reading **Skipping the test means...**, click **OK**.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -227,25 +227,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -264,19 +264,19 @@ In SAML SSO for Confluence by resolution GmbH, provisioning is a manual task.
 
 3. Under Users section, click **Add users** tab. On the **“Add a User”** dialog page, perform the following steps:
 
-	![Add Employee](./media/active-directory-saas-samlssoconfluence-tutorial/user2.png) 
+    ![Add Employee](./media/active-directory-saas-samlssoconfluence-tutorial/user2.png) 
 
-	a. In the **Username** textbox, type the email of user like Britta Simon.
+    a. In the **Username** textbox, type the email of user like Britta Simon.
 
-	b. In the **Full Name** textbox, type the full name of user like Britta Simon.
+    b. In the **Full Name** textbox, type the full name of user like Britta Simon.
 
-	c. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
+    c. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
 
-	d. In the **Password** textbox, type the password for Britta Simon.
+    d. In the **Password** textbox, type the password for Britta Simon.
 
-	e. Click **Confirm Password** reenter the password.
-	
-	f. Click **Add** button.	
+    e. Click **Confirm Password** reenter the password.
+    
+    f. Click **Add** button.    
 
 ### Assigning the Azure AD test user
 
@@ -288,32 +288,32 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **SAML SSO for Confluence by resolution GmbH**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the SAML SSO for Confluence by resolution GmbH tile in the Access Panel, you should get automatically signed-on to your SAML SSO for Confluence by resolution GmbH application.
-For more information about the Access Panel, see [introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

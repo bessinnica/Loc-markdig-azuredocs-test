@@ -119,22 +119,25 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 4. We use Postman for the next few steps.
 
-    1. Open **Postman** (or get it [here](https://www.getpostman.com/)).
-    2. Import these two files:
-        1. [Postman Collection](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/Facebook%20Permanant%20Page%20Access%20Token.postman_collection.json)
-        2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
-    3. Update these environment variables:
-    
-    | Key | Value   | 
-    | -------------------- |-------------|
-    | appId   | Insert your Facebook App Identifier here  | 
-    | appSecret | Insert your Facebook App's secret here | 
-    | short_lived_token | Insert the short lived user access token you generated in the previous step |
-    4. Now run the 3 APIs listed in the collection: 
-        1. Select **Generate Long-Lived Access Token** and click **Send**.
-        2. Select **Get User ID** and click **Send**.
-        3. Select **Get Permanent Page Access Token** and click **Send**.
-    5. Copy the **access_token** value from the response and assign it to the App setting, **fb:PageAccessToken**.
+   1. Open **Postman** (or get it [here](https://www.getpostman.com/)).
+   2. Import these two files:
+       1. [Postman Collection](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/Facebook%20Permanant%20Page%20Access%20Token.postman_collection.json)
+       2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
+   3. Update these environment variables:
+
+
+      |        Key        |                                    Value                                    |
+      |-------------------|-----------------------------------------------------------------------------|
+      |       appId       |                  Insert your Facebook App Identifier here                   |
+      |     appSecret     |                   Insert your Facebook App's secret here                    |
+      | short_lived_token | Insert the short lived user access token you generated in the previous step |
+
+
+   4. Now run the 3 APIs listed in the collection: 
+       1. Select **Generate Long-Lived Access Token** and click **Send**.
+       2. Select **Get User ID** and click **Send**.
+       3. Select **Get Permanent Page Access Token** and click **Send**.
+   5. Copy the **access_token** value from the response and assign it to the App setting, **fb:PageAccessToken**.
 
 That's it!
 

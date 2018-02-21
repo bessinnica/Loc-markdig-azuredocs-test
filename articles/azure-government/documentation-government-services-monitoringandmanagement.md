@@ -44,7 +44,7 @@ The following Site Recovery features are not currently available in Azure Govern
 
 | Site Recovery | Classic | Resource Manager |
 | --- | --- | --- |
-| VMWare/Physical  | GA | GA |
+| VMWare/Physical  | GA | GA |
 | Hyper-V | GA | GA |
 | Site to Site | GA | GA |
 
@@ -53,7 +53,7 @@ The following URLs for Site Recovery are different in Azure Government:
 | Azure Public | Azure Government | Notes |
 | --- | --- | --- |
 | \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
-| \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
+| \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
 | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
@@ -73,8 +73,7 @@ Activity Log Alerts are generally available in Azure Government with no differen
 
 #### Autoscale
 <aside class="warning">
-Autoscale via the portal is not currently available. This feature is coming soon.  
-</aside>
+Autoscale via the portal is not currently available. This feature is coming soon.<br/></aside>
 
 In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia or USGov Iowa. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
 
@@ -109,8 +108,8 @@ Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in
 In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
 
 ```PowerShell
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken 
+$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
+$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken 
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
 ```
 
@@ -158,7 +157,7 @@ The following Log Analytics features behave differently in Azure Government:
     2. Unzip the file that you downloaded.
     3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/library/hh212691.aspx).
     4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
-  
+
 * To use [computer groups from System Center Configuration Manager 2016](../log-analytics/log-analytics-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
 
 ### Frequently asked questions

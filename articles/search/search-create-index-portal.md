@@ -43,7 +43,7 @@ This article assumes an [Azure subscription](https://azure.microsoft.com/pricing
    * Use only lowercase letters, digits, or dashes ("-").
    * Limit the name to 60 characters.
 
-  The index name becomes part of the endpoint URL used on connections to the index and for sending HTTP requests in the Azure Search REST API.
+   The index name becomes part of the endpoint URL used on connections to the index and for sending HTTP requests in the Azure Search REST API.
 
 ## Define the fields of your index
 
@@ -68,6 +68,7 @@ Creating an index in the portal is keyboard intensive. Minimize steps by followi
 2. Next, use the check boxes at the top of each attribute to bulk enable the setting for all fields, and then selectively clear boxes for the few fields that don't require it. For example, string fields are typically searchable. As such, you might click **Retrievable** and **Searchable** to both return the values of the field in search results, as well as allow full text search on the field. 
 
 <a name="design"></a>
+
 ## Design guidance for setting attributes
 
 Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.

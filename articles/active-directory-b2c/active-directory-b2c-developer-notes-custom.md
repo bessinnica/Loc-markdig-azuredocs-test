@@ -25,24 +25,25 @@ Today, this feature set requires developers to configure the Identity Experience
 ## Features included in this public preview
 With the new features introduced in the public preview, developers can perform the following tasks:<br>
 
-* Author and upload custom authentication user journeys by using custom policies. 
+
+* Author and upload custom authentication user journeys by using custom policies. 
    * Describe user journeys step-by-step as exchanges between claims providers. 
    * Define conditional branching in user journeys. 
-* Integrate REST API-enabled services in your custom authentication user journeys.  
+* Integrate REST API-enabled services in your custom authentication user journeys.  
 * Add federation with identity providers that are compliant with the OpenIDConnect standard. <br>
 * Add federation with identity providers that adhere to the SAML 2.0 protocol. 
 
 ## Terms of the public preview
 
-* We encourage you to use the new features for evaluation purposes only.<br>
-* The new features are not intended for use in a production environment.<br>
-* Service level agreements (SLAs) do not apply to the new features. <br>
-* Support requests can be filed through regular support channels. <br>
-* There is no promised date for general availability.<br>
-* At our discretion, and for any reason, Microsoft can flag and reject or restrict scenarios and user journeys that exceed the scope of the Azure AD B2C product charter to serve as a customer identity and access management (CIAM) platform.
+* We encourage you to use the new features for evaluation purposes only.<br>
+* The new features are not intended for use in a production environment.<br>
+* Service level agreements (SLAs) do not apply to the new features. <br>
+* Support requests can be filed through regular support channels. <br>
+* There is no promised date for general availability.<br>
+* At our discretion, and for any reason, Microsoft can flag and reject or restrict scenarios and user journeys that exceed the scope of the Azure AD B2C product charter to serve as a customer identity and access management (CIAM) platform.
 
 ## Responsibilities of custom policy feature-set developers
-Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, fully customizable trust framework. The possible permutations of custom identity providers, trust relationships, integrations with external services, and step-by-step workflows place greater demands on the advanced developers consuming them.
+Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, fully customizable trust framework. The possible permutations of custom identity providers, trust relationships, integrations with external services, and step-by-step workflows place greater demands on the advanced developers consuming them.
 
 To fully benefit from the public preview, we suggest that developers consuming the custom policy feature set adhere to the following guidelines:
 * Become familiar with the configuration language of the Identity Experience Framework and key/secrets management.
@@ -52,7 +53,7 @@ To fully benefit from the public preview, we suggest that developers consuming t
 * Stay informed about new developments from the identity providers and services you integrate with. For example, keep track of changes in secrets and of scheduled and unscheduled changes to the service.
 * Set up active monitoring, and monitor the responsiveness of production environments.
 * Keep contact email addresses current in the Azure subscription, and stay responsive to the Microsoft live-site team emails.
-* Take timely action when advised to do so by the Microsoft live-site team. 
+* Take timely action when advised to do so by the Microsoft live-site team. 
 
 ## Features by stage and known issues
 Custom Policy/Identity Experience Framework capabilities are under constant and rapid development.  This table is an index of features/component availability.
@@ -106,6 +107,7 @@ Interfaces with external components and applications
 
 
 ### App-IEF integration
+
 | Feature | Development | Preview | GA | Notes |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Query string parameter id_token_hint | x |  |  |  |
@@ -125,6 +127,7 @@ Interfaces with external components and applications
 
 
 ### Security
+
 | Feature | Development | Preview | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Policy Keys- Generate, Manual, Upload |  | x |  |  |
@@ -132,6 +135,7 @@ Interfaces with external components and applications
 
 
 ### Developer interface
+
 | Feature | Development | Preview | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Azure Portal-IEF UX |  | x |  |  |

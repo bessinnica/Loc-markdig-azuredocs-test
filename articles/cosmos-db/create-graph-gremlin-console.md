@@ -114,14 +114,12 @@ Input (Mary Kay):
 
 ```
 :> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
-
 ```
 
 Output:
 
 ```
 ==>[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e,label:person,type:vertex,properties:[firstName:[[id:ea0604f8-14ee-4513-a48a-1734a1f28dc0,value:Mary Kay]],lastName:[[id:86d3bba5-fd60-4856-9396-c195ef7d7f4b,value:Andersen]],age:[[id:bc81b78d-30c4-4e03-8f40-50f72eb5f6da,value:39]],userid:[[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e|userid,value:2]]]]
-
 ```
 
 Input (Robin):
@@ -140,7 +138,6 @@ Input (Ben):
 
 ```
 :> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
-
 ```
 
 Output:

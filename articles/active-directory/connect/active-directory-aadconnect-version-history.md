@@ -1,5 +1,3 @@
-
-
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync
@@ -52,9 +50,9 @@ An improvement has been added to Azure AD Connect version 1.1.654.0 (and after) 
 #### <a name="lock"></a> Lock down access to the AD DS account
 Lock down access to the AD DS account by implementing the following permission changes in the on-premises AD:  
 
-*	Disable inheritance on the specified object
-*	Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
-*	Assign these specific permissions:
+*   Disable inheritance on the specified object
+*   Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
+*   Assign these specific permissions:
 
 Type     | Name                          | Access               | Applies To
 ---------|-------------------------------|----------------------|--------------|
@@ -127,9 +125,9 @@ Status: October 19 2017
   * The issue occurs when you have an existing Azure AD Connect deployment with Password Synchronization **enabled**, and you are trying to set the user sign-in method as *Pass-through Authentication*. Before the change is applied, the wizard incorrectly shows the "*Disable Password Synchronization*" prompt. However, Password Synchronization remains enabled after the change is applied. With this fix, the wizard no longer shows the prompt.
 
   * By design, the wizard does not disable Password Synchronization when you update the user sign-in method using the *Change user sign-in* task. This is to avoid disruption to customers who want to keep Password Synchronization, even though they are enabling Pass-through Authentication or federation as their primary user sign-in method.
-  
+
   * If you wish to disable Password Synchronization after updating the user sign-in method, you must execute the *Customize Synchronization Configuration* task in the wizard. When you navigate to the *Optional features* page, uncheck the *Password Synchronization* option.
-  
+
   * Note that the same issue also occurs if you try to enable/disable Seamless Single Sign-On. Specifically, you have an existing Azure AD Connect deployment with Password Synchronization enabled and the user sign-in method is already configured as *Pass-through Authentication*. Using the *Change user sign-in* task, you try to check/uncheck the *Enable Seamless Single Sign-On* option while the user sign-in method remains configured as "Pass-through Authentication". Before the change is applied, the wizard incorrectly shows the "*Disable Password Synchronization*" prompt. However, Password Synchronization remains enabled after the change is applied. With this fix, the wizard no longer shows the prompt.
 
 * Fixed an issue with the *Change user sign-in* task in Azure AD Connect wizard:
@@ -137,7 +135,7 @@ Status: October 19 2017
    * The issue occurs when you have an existing Azure AD Connect deployment with Password Synchronization **disabled**, and you are trying to set the user sign-in method as *Pass-through Authentication*. When the change is applied, the wizard enables both Pass-through Authentication and Password Synchronization. With this fix, the wizard no longer enables Password Synchronization.
 
   * Previously, Password Synchronization was a pre-requisite for enabling Pass-through Authentication. When you set the user sign-in method as *Pass-through Authentication*, the wizard would enable both Pass-through Authentication and Password Synchronization. Recently, Password Synchronization was removed as a pre-requisite. As part of Azure AD Connect version 1.1.557.0, a change was made to Azure AD Connect to not enable Password Synchronization when you set the user sign-in method as *Pass-through Authentication*. However, the change was only applied to Azure AD Connect installation. With this fix, the same change is also applied to the *Change user sign-in* task.
-  
+
   * Note that the same issue also occurs if you try to enable/disable Seamless Single Sign-On. Specifically, you have an existing Azure AD Connect deployment with Password Synchronization disabled and the user sign-in method is already configured as *Pass-through Authentication*. Using the *Change user sign-in* task, you try to check/uncheck the *Enable Seamless Single Sign-On* option while the user sign-in method remains configured as "Pass-through Authentication". When the change is applied, the wizard enables Password Synchronization. With this fix, the wizard no longer enables Password Synchronization. 
 
 * Fixed an issue that caused Azure AD Connect upgrade to fail with error "*Unable to upgrade the Synchronization Service*". Further, the Synchronization Service can no longer start with event error "*The service was unable to start because the version of the database is newer than the version of the binaries installed*". The issue occurs when the administrator performing the upgrade does not have sysadmin privilege to the SQL server that is being used by Azure AD Connect. With this fix, Azure AD Connect only requires the administrator to have db_owner privilege to the ADSync database during upgrade.
@@ -155,8 +153,8 @@ Status: October 19 2017
 * Added logic to simplify the steps required to set up Azure AD Connect with Microsoft Germany Cloud. Previously, you are required to update specific registry keys on the Azure AD Connect server for it to work correctly with Microsoft Germany Cloud, as described in this article. Now, Azure AD Connect can automatically detect if your tenant is in Microsoft Germany Cloud based on the global administrator credentials provided during setup.
 
 ### Azure AD Connect Sync
->[!NOTE]
-> Note: The Synchronization Service has a WMI interface that lets you develop your own custom scheduler. This interface is now deprecated and will be removed from future versions of Azure AD Connect shipped after June 30, 2018. Customers who want to customize synchronization schedule should use the [built-in scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> [!NOTE]
+> Note: The Synchronization Service has a WMI interface that lets you develop your own custom scheduler. This interface is now deprecated and will be removed from future versions of Azure AD Connect shipped after June 30, 2018. Customers who want to customize synchronization schedule should use the [built-in scheduler (<https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler>).
 
 #### Fixed issues
 * When Azure AD Connect wizard creates the AD Connector account required to synchronize changes from on-premises Active Directory, it does not correctly assign the account the permission required to read PublicFolder objects. This issue affects both Express installation and Custom installation. This change fixes the issue.
@@ -170,7 +168,7 @@ Status: October 19 2017
 
 ### AD FS Management
 #### Fixed issue
-* Fixed an issue related to the use of [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature. This issue affects customers who have configured *Federation with AD FS* as the user sign-in method. When you execute *Configure Source Anchor* task in the wizard, Azure AD Connect switches to using *ms-DS-ConsistencyGuid as source attribute for immutableId. As part of this change, Azure AD Connect attempts to update the claim rules for ImmutableId in AD FS. However, this step failed because Azure AD Connect did not have the administrator credentials required to configure AD FS. With this fix, Azure AD Connect now prompts you to enter the administrator credentials for AD FS when you execute the *Configure Source Anchor* task.
+* Fixed an issue related to the use of [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature. This issue affects customers who have configured <em>Federation with AD FS</em> as the user sign-in method. When you execute <em>Configure Source Anchor</em> task in the wizard, Azure AD Connect switches to using <em>ms-DS-ConsistencyGuid as source attribute for immutableId. As part of this change, Azure AD Connect attempts to update the claim rules for ImmutableId in AD FS. However, this step failed because Azure AD Connect did not have the administrator credentials required to configure AD FS. With this fix, Azure AD Connect now prompts you to enter the administrator credentials for AD FS when you execute the *Configure Source Anchor</em> task.
 
 
 
@@ -234,20 +232,20 @@ Status: July 23 2017
 * Fixed an issue that caused the out-of-box synchronization rule “Out to AD - User ImmutableId” to be removed:
 
   * The issue occurs when Azure AD Connect is upgraded, or when the task option *Update Synchronization Configuration* in the Azure AD Connect wizard is used to update Azure AD Connect synchronization configuration.
-  
+
   * This synchronization rule is applicable to customers who have enabled the [msDS-ConsistencyGuid as Source Anchor feature](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). This feature was introduced in version 1.1.524.0 and after. When the synchronization rule is removed, Azure AD Connect can no longer populate on-premises AD ms-DS-ConsistencyGuid attribute with the ObjectGuid attribute value. It does not prevent new users from being provisioned into Azure AD.
-  
+
   * The fix ensures that the synchronization rule will no longer be removed during upgrade, or during configuration change, as long as the feature is enabled. For existing customers who have been affected by this issue, the fix also ensures that the synchronization rule is added back after upgrading to this version of Azure AD Connect.
 
 * Fixed an issue that causes out-of-box synchronization rules to have precedence value that is less than 100:
 
   * In general, precedence values 0 - 99 are reserved for custom synchronization rules. During upgrade, the precedence values for out-of-box synchronization rules are updated to accommodate sync rule changes. Due to this issue, out-of-box synchronization rules may be assigned precedence value that is less than 100.
-  
+
   * The fix prevents the issue from occurring during upgrade. However, it does not restore the precedence values for existing customers who have been affected by the issue. A separate fix will be provided in the future to help with the restoration.
 
 * Fixed an issue where the [Domain and OU Filtering screen](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard is showing *Sync all domains and OUs* option as selected, even though OU-based filtering is enabled.
 
-*	Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
+*   Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
 
 #### New features and improvements
 
@@ -260,7 +258,7 @@ Status: July 23 2017
   * The AD Connector account is not the default MSOL_ account anymore.
   * The server is set to be in staging mode.
   * You have enabled the user writeback feature.
-  
+
   >[!NOTE]
   >The scope expansion of the Automatic Upgrade feature affects customers with Azure AD Connect build 1.1.105.0 and after. If you do not want your Azure AD Connect server to be automatically upgraded, you must run following cmdlet on your Azure AD Connect server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. For more information about enabling/disabling Automatic Upgrade, refer to article [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md).
 
@@ -275,7 +273,7 @@ Status: Will not be released. Changes in this build are included in version 1.1.
 
 * Fixed an issue where the [Domain and OU Filtering screen](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the Azure AD Connect wizard is showing *Sync all domains and OUs* option as selected, even though OU-based filtering is enabled.
 
-*	Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
+*   Fixed an issue that caused the [Configure Directory Partitions screen](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) in the Synchronization Service Manager to return an error if the *Refresh* button is clicked. The error message is *“An error was encountered while refreshing domains: Unable to cast object of type ‘System.Collections.ArrayList’ to type ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject.”* The error occurs when new AD domain has been added to an existing AD forest and you are trying to update Azure AD Connect using the Refresh button.
 
 #### New features and improvements
 
@@ -288,7 +286,7 @@ Status: Will not be released. Changes in this build are included in version 1.1.
   * The AD Connector account is not the default MSOL_ account anymore.
   * The server is set to be in staging mode.
   * You have enabled the user writeback feature.
-  
+
   >[!NOTE]
   >The scope expansion of the Automatic Upgrade feature affects customers with Azure AD Connect build 1.1.105.0 and after. If you do not want your Azure AD Connect server to be automatically upgraded, you must run following cmdlet on your Azure AD Connect server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. For more information about enabling/disabling Automatic Upgrade, refer to article [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md).
 
@@ -361,10 +359,10 @@ The issue that arises is that the **Sync all domains and OUs option** is always 
 
 * Azure AD Connect now supports writeback of Exchange Online **cloudPublicDelegates** attribute to on-premises AD **publicDelegates** attribute. This enables the scenario where an Exchange Online mailbox can be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. To support this feature, a new out-of-box sync rule “Out to AD – User Exchange Hybrid PublicDelegates writeback” has been added. This sync rule is only added to Azure AD Connect when Exchange Hybrid feature is enabled.
 
-*	Azure AD Connect now supports synchronizing the **altRecipient** attribute from Azure AD. To support this change, following out-of-box sync rules have been updated to include the required attribute flow:
+* Azure AD Connect now supports synchronizing the **altRecipient** attribute from Azure AD. To support this change, following out-of-box sync rules have been updated to include the required attribute flow:
   * In from AD – User Exchange
   * Out to AAD – User ExchangeOnline
-  
+
 * The **cloudSOAExchMailbox** attribute in the Metaverse indicates whether a given user has Exchange Online mailbox or not. Its definition has been updated to include additional Exchange Online RecipientDisplayTypes as such Equipment and Conference Room mailboxes. To enable this change, the definition of the cloudSOAExchMailbox attribute, which is found under out-of-box sync rule “In from AAD – User Exchange Hybrid”, has been updated from:
 
 ```
@@ -386,7 +384,6 @@ CBool(
                   IIF([cloudMSExchRecipientDisplayType]=18,True,(
                     IIF([cloudMSExchRecipientDisplayType]=1073741824,True,(
                        IF([cloudMSExchRecipientDisplayType]=1073741840,True,False)))))))))))))))))))),False))
-
 ```
 
 * Added the following set of X509Certificate2-compatible functions for creating synchronization rule expressions to handle certificate values in the userCertificate attribute:
@@ -422,7 +419,7 @@ CBool(
   * AzureChinaCloud
   * AzureGermanyCloud
   * USGovernment
- 
+
 * Updated Sync Rule Editor to use Join (instead of Provision) as the default value of link type during sync rule creation.
 
 ### AD FS management
@@ -434,7 +431,7 @@ CBool(
   * https://stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
-  
+
 * Fixed an issue that caused AD FS to generate incorrect claim value for IssuerID. The issue occurs if there are multiple verified domains in the Azure AD tenant and the domain suffix of the userPrincipalName attribute used to generate the IssuerID claim is at least 3-levels deep (for example, johndoe@us.contoso.com). The issue is resolved by updating the regex used by the claim rules.
 
 #### New features and improvements
@@ -720,8 +717,8 @@ Released: February 2016
 
 * [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
 * Support for the global admin by using Azure Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
-  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
-  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
+  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
+  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.
 * Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 * [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built in to the sync engine.
@@ -905,9 +902,9 @@ Released: October 2014
 
 If you already have Azure AD Sync installed, there is one additional step you have to take in case you have changed any of the out-of-box synchronization rules. After you have upgraded to the 1.0.470.1023 release, the synchronization rules you have modified are duplicated. For each modified sync rule, do the following:
 
-1.  Locate the sync rule you have modified and take a note of the changes.
-* Delete the sync rule.
-* Locate the new sync rule that is created by Azure AD Sync and then reapply the changes.
+1. Locate the sync rule you have modified and take a note of the changes.
+2. Delete the sync rule.
+3. Locate the new sync rule that is created by Azure AD Sync and then reapply the changes.
 
 **Permissions for the Active Directory account**
 

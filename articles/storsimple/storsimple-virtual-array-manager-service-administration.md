@@ -47,6 +47,7 @@ The following table shows a summary of all the common management tasks and compl
 For more information about each workflow, click the appropriate procedure in the table.
 
 #### StorSimple Device Manager workflows
+
 | If you want to do this ... | Use this procedure |
 | --- | --- | --- |
 | Create a service</br>Delete a service</br>Get the service registration key</br>Regenerate the service registration key |[Deploy the StorSimple Device Manager service](storsimple-virtual-array-manage-service.md) |

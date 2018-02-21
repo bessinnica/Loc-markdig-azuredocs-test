@@ -27,14 +27,14 @@ Here are some data movement tools we have provided on the DSVM.
 
 ## AdlCopy
 
-|    |           |
-| ------------- | ------------- |
-| What is it?   | A tool to copy data from Azure storage blobs into Azure Data Lake Store. It can also copy data between two Azure Data Lake Store accounts.      |
-| Supported DSVM Versions      | Windows      |
-| Typical Uses      | Importing multiple blobs from Azure storage into Azure Data Lake Store.      |
-|  How to use / run it?    |   Open a command prompt, then type `adlcopy` to get help.    |
-| Links to Samples      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
-| Related Tools on the DSVM      | AzCopy, Azure Command Line     |
+|                           |                                                                                                                                            |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+|        What is it?        | A tool to copy data from Azure storage blobs into Azure Data Lake Store. It can also copy data between two Azure Data Lake Store accounts. |
+|  Supported DSVM Versions  |                                                                  Windows                                                                   |
+|       Typical Uses        |                                  Importing multiple blobs from Azure storage into Azure Data Lake Store.                                   |
+|   How to use / run it?    |                                          Open a command prompt, then type `adlcopy` to get help.                                           |
+|     Links to Samples      |              [Using AdlCopy]<https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob>)               |
+| Related Tools on the DSVM |                                                         AzCopy, Azure Command Line                                                         |
 
 ## Azure Command Line
 
@@ -86,11 +86,12 @@ Here are some data movement tools we have provided on the DSVM.
 
 ## Microsoft Data Management Gateway
 
-|    |           |
-| ------------- | ------------- |
-| What is it?   | A tool to connect on-premises data sources to cloud services for consumption.      |
-| Supported DSVM Versions      | Windows      |
-| Typical Uses      | Connecting a VM to an on-premises data source.      |
-|  How to use / run it?    |   Start "Microsoft Data Management Gateway" from the Start Menu.    |
-| Links to Samples      | [Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)      |
-| Related Tools on the DSVM      | AzCopy, AdlCopy, bcp    |
+|                           |                                                                               |
+|---------------------------|-------------------------------------------------------------------------------|
+|        What is it?        | A tool to connect on-premises data sources to cloud services for consumption. |
+|  Supported DSVM Versions  |                                    Windows                                    |
+|       Typical Uses        |                Connecting a VM to an on-premises data source.                 |
+|   How to use / run it?    |        Start "Microsoft Data Management Gateway" from the Start Menu.         |
+|     Links to Samples      |  [Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)  |
+| Related Tools on the DSVM |                             AzCopy, AdlCopy, bcp                              |
+

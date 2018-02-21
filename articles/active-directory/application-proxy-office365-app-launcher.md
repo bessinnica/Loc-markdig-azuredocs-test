@@ -58,7 +58,7 @@ Before you set the home page URL, keep in mind the following requirements:
 
 ### Install the Azure AD PowerShell module
 
-Before you define a custom home page URL by using PowerShell, install the Azure AD PowerShell module. You can download the package from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), which uses the Graph API endpoint. 
+Before you define a custom home page URL by using PowerShell, install the Azure AD PowerShell module. You can download the package from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), which uses the Graph API endpoint. 
 
 To install the package, follow these steps:
 
@@ -68,7 +68,7 @@ To install the package, follow these steps:
      Install-Module -Name AzureAD
     ```
     If you're running the command as a non-admin, use the `-scope currentuser` option.
-2. During the installation, select **Y** to install two packages from Nuget.org. Both packages are required. 
+2. During the installation, select **Y** to install two packages from Nuget.org. Both packages are required. 
 
 ### Find the ObjectID of the app
 
@@ -94,8 +94,8 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
 
     ```
     DisplayName : SharePoint
-    Homepage    : https://sharepoint-iddemo.msappproxy.net/
-    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Homepage    : https://sharepoint-iddemo.msappproxy.net/
+    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 ### Update the home page URL
@@ -108,7 +108,7 @@ Create the home page URL, and update your application with that value. Continue 
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Now that you've confirmed the app, you're ready to update the home page, as follows.
+   Now that you've confirmed the app, you're ready to update the home page, as follows.
 
 2. Create a blank application object to hold the changes that you want to make. This variable holds the values that you want to update. Nothing is created in this step.
 
@@ -116,7 +116,7 @@ Create the home page URL, and update your application with that value. Continue 
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Set the home page URL to the value that you want. The value must be a subdomain path of the published app. For example, if you change the home page URL from *https://sharepoint-iddemo.msappproxy.net/* to *https://sharepoint-iddemo.msappproxy.net/hybrid/*, app users go directly to the custom home page.
+3. Set the home page URL to the value that you want. The value must be a subdomain path of the published app. For example, if you change the home page URL from *https://sharepoint-iddemo.msappproxy.net/* to *https://sharepoint-iddemo.msappproxy.net/hybrid/*, app users go directly to the custom home page.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”

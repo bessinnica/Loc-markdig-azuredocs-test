@@ -45,7 +45,7 @@ that's already defined in your integration account
 so you must add a trigger for starting your logic app, like a Request trigger. 
 In the Logic App Designer, add a trigger, and then add an action to your logic app.
 
-3.	In the search box, enter "x12" for your filter. 
+3.  In the search box, enter "x12" for your filter. 
 Select either **X12 - Encode to X12 message by agreement name** 
 or **X12 - Encode to X12 message by identities**.
    
@@ -57,21 +57,21 @@ and select the integration account that you want to connect.
    
     ![integration account connection](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png)
 
-	Properties with an asterisk are required.
+    Properties with an asterisk are required.
 
-	| Property | Details |
-	| --- | --- |
-	| Connection Name * |Enter any name for your connection. |
-	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+    | Property | Details |
+    | --- | --- |
+    | Connection Name * |Enter any name for your connection. |
+    | Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-5.	When you're done, your connection details should look similar to this example. 
+5.  When you're done, your connection details should look similar to this example. 
 To finish creating your connection, choose **Create**.
 
     ![integration account connection created](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
 
-	Your connection is now created.
+    Your connection is now created.
 
-	![integration account connection details](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
+    ![integration account connection details](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
 
 #### Encode X12 messages by agreement name
 

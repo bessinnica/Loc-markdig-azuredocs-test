@@ -279,7 +279,7 @@ Azure API Management provides you the ability to customize the content of develo
                 <a href="#" class="btn-link" id="regenerateSecondary_{{subscription.id}}" data-bind="click: regenerateKey, text: regenerateKeyLabel">{% localized "SubscriptionListStrings|WebDevelopersRegenerateLink" %}</a>  
               </div>  
             </div>  
-            <div class="clearfix"> </div>  
+            <div class="clearfix"> </div>  
           </div>  
           <!-- /ko -->  
           {% endif %}  

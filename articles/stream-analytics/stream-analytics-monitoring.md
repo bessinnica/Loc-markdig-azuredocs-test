@@ -30,6 +30,7 @@ The window will appear as shown:
 ![Monitoring job Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## Metrics available for Stream Analytics
+
 | Metric                 | Definition                               |
 | ---------------------- | ---------------------------------------- |
 | SU % Utilization       | The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |

@@ -21,10 +21,10 @@ ms.author: juliako
 ## Overview
 
 This article shows how to create an encoding task that generates fragmented MP4 (fMP4) chunks instead of ISO MP4 files. To generate fMP4 chunks, use the **Media Encoder Standard** or **Media Encoder Premium Workflow** encoder to create an encoding task and also specify **AssetFormatOption.AdaptiveStreaming** option, as shown in this code snippet:  
-	
-	task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
-			options: AssetCreationOptions.None, 
-			formatOption: AssetFormatOption.AdaptiveStreaming);
+    
+    task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
+            options: AssetCreationOptions.None, 
+            formatOption: AssetFormatOption.AdaptiveStreaming);
 
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK

@@ -1,5 +1,3 @@
-
-
 ---
 title: Azure AD v2.0 OAuth Authorization Code Flow | Microsoft Docs
 description: Building web applications using Azure AD's implementation of the OAuth 2.0 authentication protocol.
@@ -161,14 +159,16 @@ A successful token response will look like:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| Parameter | Description |
-| --- | --- |
-| access_token |The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API. |
-| token_type |Indicates the token type value. The only type that Azure AD supports is Bearer |
-| expires_in |How long the access token is valid (in seconds). |
-| scope |The scopes that the access_token is valid for. |
-| refresh_token |An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `offline_access` scope was requested. |
-| id_token |An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+
+|   Parameter   |                                                                                                                                                                                                                              Description                                                                                                                                                                                                                              |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| access_token  |                                                                                                                                                                          The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API.                                                                                                                                                                          |
+|  token_type   |                                                                                                                                                                                            Indicates the token type value. The only type that Azure AD supports is Bearer                                                                                                                                                                                             |
+|  expires_in   |                                                                                                                                                                                                           How long the access token is valid (in seconds).                                                                                                                                                                                                            |
+|     scope     |                                                                                                                                                                                                            The scopes that the access_token is valid for.                                                                                                                                                                                                             |
+| refresh_token |                         An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md). <br> <strong>Note:</strong> Only provided if `offline_access` scope was requested.                         |
+|   id_token    | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). <br> <strong>Note:</strong> Only provided if `openid` scope was requested. |
+
 #### Error response
 Error responses will look like:
 
@@ -195,6 +195,7 @@ Error responses will look like:
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
 #### Error codes for token endpoint errors
+
 | Error Code | Description | Client Action |
 | --- | --- | --- |
 | invalid_request |Protocol error, such as a missing required parameter. |Fix and resubmit the request |
@@ -268,6 +269,7 @@ A successful token response will look like:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
+
 | Parameter | Description |
 | --- | --- |
 | access_token |The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API. |

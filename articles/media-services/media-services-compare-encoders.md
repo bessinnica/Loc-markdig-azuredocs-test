@@ -1,4 +1,4 @@
-﻿---
+---
 title: Comparison of Azure on demand media encoders | Microsoft Docs
 description: This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 services: media-services
@@ -40,12 +40,14 @@ The following table compares the functionality between Media Encoder Standard (M
 |Multiple audio language tracks|Limited|[Yes](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 
 ## <a id="billing"></a>Billing meter used by each encoder
+
 | Media Processor Name | Applicable Pricing | Notes |
 | --- | --- | --- |
 | **Media Encoder Standard** |ENCODER |Encoding Tasks will be charged based on the total duration, in minutes, of all the media files produced as output, at the rate specified [here][1], under the ENCODER column. |
 | **Media Encoder Premium Workflow** |PREMIUM ENCODER |Encoding Tasks will be charged based on the total duration, in minutes, of all the media files produced as output, at the rate specified [here][1], under the PREMIUM ENCODER column. |
 
 ## Input container/file formats
+
 | Input Container/File Formats | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Yes |Yes |
@@ -63,6 +65,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | QuickTime (.mov) |Yes |No |
 
 ## Input video codecs
+
 | Input Video Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |Yes |
@@ -83,6 +86,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | Apple ProRes 4444 XQ |Yes |No |
 
 ## Input audio codecs
+
 | Input Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AES (SMPTE 331M and 302M, AES3-2003) |No |Yes |
@@ -99,6 +103,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Yes |No |
 
 ## Output container/file formats
+
 | Output Container/File Formats | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | Adobe® Flash® F4V |No |Yes |
@@ -112,6 +117,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | Smooth Streaming File Format (PIFF 1.3) |No |Yes |
 
 ## Output video codecs
+
 | Output Video Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra) |Only 8 bit 4:2:0 |Yes |
@@ -125,6 +131,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | BMP thumbnail creation |Yes |No |
 
 ## Output audio codecs
+
 | Output Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AES (SMPTE 331M and 302M, AES3-2003) |No |Yes |

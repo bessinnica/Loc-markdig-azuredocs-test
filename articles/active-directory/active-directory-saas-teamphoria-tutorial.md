@@ -65,23 +65,23 @@ To configure the integration of Teamphoria into Azure AD, you need to add Teamph
 
 1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+    ![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
-	
+    ![Applications][2]
+    
 3. Click **Add** button on the top of the dialog.
 
-	![Applications][3]
+    ![Applications][3]
 
 4. In the search box, type **Teamphoria**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_search.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_search.png)
 
 5. In the results panel, select **Teamphoria**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_addfromgallery.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Teamphoria based on a test user called "Britta Simon".
@@ -106,56 +106,56 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 1. In the Azure Management portal, on the **Teamphoria** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
 
 3. On the **Teamphoria Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_url.png)
 
-    a. In the **Sign-on URL** textbox, type the URL using the following pattern: `https://<sub-domain>.teamphoria.com/login`	
+    a. In the **Sign-on URL** textbox, type the URL using the following pattern: `https://<sub-domain>.teamphoria.com/login`    
 
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign-On URL. Contact [Teamphoria Client support team](https://www.teamphoria.com/) to get the Sign-on URL. 
+    > [!NOTE] 
+    > Please note that these are not the real values. You have to update these values with the actual Sign-On URL. Contact [Teamphoria Client support team](https://www.teamphoria.com/) to get the Sign-on URL. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_general_400.png)
 
 6. On the **Teamphoria Configuration** section, click **Configure Teamphoria** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_configure.png) 
 
 7. To configure single sign-on on **Teamphoria** side, Login to your Teamphoria application as an administrator.
 
 8. Go to **ADMIN SETTINGS** option in the left toolbar and under the the Configure Tab click on **SINGLE SIGN-ON** to open the SSO configuration window.
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/admin_sso_configure.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/admin_sso_configure.png)
 
 9. Click on **ADD NEW IDENTITY PROVIDER** option in the top right corner to open the form for adding the settings for SSO.
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/add_new_identity_provider.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/add_new_identity_provider.png)
 
 10. Enter the details in the fields as described below-
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/Teamphoria_sso_save.png)
 
-	a. **DISPLAY NAME** : Enter the display name of the plugin on the admin page.
+    a. **DISPLAY NAME** : Enter the display name of the plugin on the admin page.
 
-	b. **BUTTON NAME** : The name of the tab which will display on the login page for logging in via SSO.
+    b. **BUTTON NAME** : The name of the tab which will display on the login page for logging in via SSO.
 
-	c. **CERTIFICATE** : Open the Certificate downloaded earlier from the Azure portal in notepad, copy the contents of the same and paste it here in the box.
+    c. **CERTIFICATE** : Open the Certificate downloaded earlier from the Azure portal in notepad, copy the contents of the same and paste it here in the box.
 
-	d. **ENTRY POINT** : Paste the **SAML Single Sign-On Service URL** copied earlier form the Azure portal.
+    d. **ENTRY POINT** : Paste the **SAML Single Sign-On Service URL** copied earlier form the Azure portal.
 
-	e. Switch the option to **ON** and click on **SAVE**.	
+    e. Switch the option to **ON** and click on **SAVE**.   
 
 <!--### Next steps
 
@@ -179,25 +179,25 @@ The objective of this section is to create a test user in the Azure Management p
 
 1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_01.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_01.png) 
 
 2. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_02.png) 
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_02.png) 
 
 3. At the top of the dialog click **Add** to open the **User** dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
  
@@ -215,17 +215,17 @@ In order to enable Azure AD users to log into Teamphoria, they must be provision
 
 3. Click on the **MANUAL INVITE** option.
 
-	![Invite People](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)	
+    ![Invite People](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. On this page, perform following action. 
-	
-	![Invite People](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)	
+    
+    ![Invite People](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     a. In the **EMAIL ADDRESS** textbox, the **email address** of BrittaSimon.
 
     b. In the **FIRST NAME** textbox, type **Britta**.
 
-	c. In the **LAST NAME** textbox, type **Simon**.
+    c. In the **LAST NAME** textbox, type **Simon**.
 
     d. Click **INVITE 1 USER**. User needs to accept the invite to get created in the system.
 
@@ -239,31 +239,31 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+    ![Assign User][201] 
 
 2. In the applications list, select **Teamphoria**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+    ![Assign User][202] 
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+    
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
 
 ## Additional resources
 

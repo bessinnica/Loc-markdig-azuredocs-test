@@ -98,51 +98,51 @@ First, the inputs are cleaned up. Epoch time is converted to datetime via **DATE
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
         /* clean up invalid data points */
-    	SELECT * FROM typeconvertedquotes
-    	WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
+        SELECT * FROM typeconvertedquotes
+        WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
 Next, we use the **LAG** function to get values from the last tick. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, it's safe to assume that you can find the previous tick by looking back one hour.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
-    	SELECT
-    		symbol,
-    		(bidPrice + askPrice)/2 AS midPrice,
-    		bidPrice,
-    		bidSize,
-    		askPrice,
-    		askSize,
-    		LAG(bidPrice) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS bidPricePrev,
-    		LAG(bidSize) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS bidSizePrev,
-    		LAG(askPrice) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS askPricePrev,
-    		LAG(askSize) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS askSizePrev
-    	FROM timefilteredquotes
+        SELECT
+            symbol,
+            (bidPrice + askPrice)/2 AS midPrice,
+            bidPrice,
+            bidSize,
+            askPrice,
+            askSize,
+            LAG(bidPrice) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS bidPricePrev,
+            LAG(bidSize) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS bidSizePrev,
+            LAG(askPrice) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS askPricePrev,
+            LAG(askSize) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS askSizePrev
+        FROM timefilteredquotes
     ),
 
 We can then compute VOI value. We filter out the null values if the previous tick doesn't exist, just in case.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
-    	SELECT
-    		symbol,
-    		midPrice,
-    		(CASE WHEN (bidPrice < bidPricePrev) THEN 0
+        SELECT
+            symbol,
+            midPrice,
+            (CASE WHEN (bidPrice < bidPricePrev) THEN 0
                 ELSE (CASE WHEN (bidPrice = bidPricePrev) THEN (bidSize - bidSizePrev) ELSE bidSize END)
              END) -
             (CASE WHEN (askPrice < askPricePrev) THEN askSize
                 ELSE (CASE WHEN (askPrice = askPricePrev) THEN (askSize - askSizePrev) ELSE 0 END)
              END) AS VOI
-    	FROM shiftedquotes
-    	WHERE
-    		bidPrice IS NOT NULL AND
-    		bidSize IS NOT NULL AND
-    		askPrice IS NOT NULL AND
-    		askSize IS NOT NULL AND
-    		bidPricePrev IS NOT NULL AND
-    		bidSizePrev IS NOT NULL AND
-    		askPricePrev IS NOT NULL AND
-    		askSizePrev IS NOT NULL
+        FROM shiftedquotes
+        WHERE
+            bidPrice IS NOT NULL AND
+            bidSize IS NOT NULL AND
+            askPrice IS NOT NULL AND
+            askSize IS NOT NULL AND
+            bidPricePrev IS NOT NULL AND
+            bidSizePrev IS NOT NULL AND
+            askPricePrev IS NOT NULL AND
+            askSizePrev IS NOT NULL
     ),
 
 Now, we use **LAG** again to create a sequence with 2 consecutive VOI values, followed by 10 consecutive mid-price values.
@@ -150,47 +150,47 @@ Now, we use **LAG** again to create a sequence with 2 consecutive VOI values, fo
     shiftedPriceAndShiftedVOI AS (
         /* get 10 future prices and 2 previous VOIs */
         SELECT
-    		symbol,
-    		midPrice AS midPrice10,
-    		LAG(midPrice, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice9,
-    		LAG(midPrice, 2) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice8,
-    		LAG(midPrice, 3) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice7,
-    		LAG(midPrice, 4) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice6,
-    		LAG(midPrice, 5) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice5,
-    		LAG(midPrice, 6) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice4,
-    		LAG(midPrice, 7) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice3,
-    		LAG(midPrice, 8) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice2,
-    		LAG(midPrice, 9) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice1,
-    		LAG(midPrice, 10) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice,
-    		LAG(VOI, 10) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS VOI1,
-    		LAG(VOI, 11) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS VOI2
-    	FROM currentPriceAndVOI
+            symbol,
+            midPrice AS midPrice10,
+            LAG(midPrice, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice9,
+            LAG(midPrice, 2) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice8,
+            LAG(midPrice, 3) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice7,
+            LAG(midPrice, 4) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice6,
+            LAG(midPrice, 5) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice5,
+            LAG(midPrice, 6) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice4,
+            LAG(midPrice, 7) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice3,
+            LAG(midPrice, 8) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice2,
+            LAG(midPrice, 9) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice1,
+            LAG(midPrice, 10) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS midPrice,
+            LAG(VOI, 10) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS VOI1,
+            LAG(VOI, 11) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS VOI2
+        FROM currentPriceAndVOI
     ),
 
 We then reshape the data into inputs for a two-variable linear model. Again, we filter out the events where we don't have all the data.
 
     modelInput AS (
         /* create feature vector, x being VOI, y being delta price */
-    	SELECT
-    		symbol,
-    		(midPrice1 + midPrice2 + midPrice3 + midPrice4 + midPrice5 + midPrice6 + midPrice7 + midPrice8 + midPrice9 + midPrice10)/10.0 - midPrice AS y,
-    		VOI1 AS x1,
-    		VOI2 AS x2
-    	FROM shiftedPriceAndShiftedVOI
-    	WHERE
-    		midPrice1 IS NOT NULL AND
-    		midPrice2 IS NOT NULL AND
-    		midPrice3 IS NOT NULL AND
-    		midPrice4 IS NOT NULL AND
-    		midPrice5 IS NOT NULL AND
-    		midPrice6 IS NOT NULL AND
-    		midPrice7 IS NOT NULL AND
-    		midPrice8 IS NOT NULL AND
-    		midPrice9 IS NOT NULL AND
-    		midPrice10 IS NOT NULL AND
-    		midPrice IS NOT NULL AND
-    		VOI1 IS NOT NULL AND
-    		VOI2 IS NOT NULL
+        SELECT
+            symbol,
+            (midPrice1 + midPrice2 + midPrice3 + midPrice4 + midPrice5 + midPrice6 + midPrice7 + midPrice8 + midPrice9 + midPrice10)/10.0 - midPrice AS y,
+            VOI1 AS x1,
+            VOI2 AS x2
+        FROM shiftedPriceAndShiftedVOI
+        WHERE
+            midPrice1 IS NOT NULL AND
+            midPrice2 IS NOT NULL AND
+            midPrice3 IS NOT NULL AND
+            midPrice4 IS NOT NULL AND
+            midPrice5 IS NOT NULL AND
+            midPrice6 IS NOT NULL AND
+            midPrice7 IS NOT NULL AND
+            midPrice8 IS NOT NULL AND
+            midPrice9 IS NOT NULL AND
+            midPrice10 IS NOT NULL AND
+            midPrice IS NOT NULL AND
+            VOI1 IS NOT NULL AND
+            VOI2 IS NOT NULL
     ),
 
 Because Azure Stream Analytics doesn't have a built-in linear regression function, we use **SUM** and **AVG** aggregates to compute the coefficients for the linear model.
@@ -200,115 +200,115 @@ Because Azure Stream Analytics doesn't have a built-in linear regression functio
     modelagg AS (
         /* get aggregates for linear regression calculation,
          http://faculty.cas.usf.edu/mbrannick/regression/Reg2IV.html */
-    	SELECT
-    		symbol,
-    		SUM(x1 * x1) AS x1x1,
-    		SUM(x2 * x2) AS x2x2,
-    		SUM(x1 * y) AS x1y,
-    		SUM(x2 * y) AS x2y,
-    		SUM(x1 * x2) AS x1x2,
-    		AVG(y) AS avgy,
-    		AVG(x1) AS avgx1,
-    		AVG(x2) AS avgx2
-    	FROM modelInput
-    	GROUP BY symbol, TumblingWindow(hour, 24, -4)
+        SELECT
+            symbol,
+            SUM(x1 * x1) AS x1x1,
+            SUM(x2 * x2) AS x2x2,
+            SUM(x1 * y) AS x1y,
+            SUM(x2 * y) AS x2y,
+            SUM(x1 * x2) AS x1x2,
+            AVG(y) AS avgy,
+            AVG(x1) AS avgx1,
+            AVG(x2) AS avgx2
+        FROM modelInput
+        GROUP BY symbol, TumblingWindow(hour, 24, -4)
     ),
     modelparambs AS (
         /* calculate b1 and b2 for the linear model */
-    	SELECT
-    		symbol,
-    		(x2x2 * x1y - x1x2 * x2y)/(x1x1 * x2x2 - x1x2 * x1x2) AS b1,
-    		(x1x1 * x2y - x1x2 * x1y)/(x1x1 * x2x2 - x1x2 * x1x2) AS b2,
-    		avgy,
-    		avgx1,
-    		avgx2
-    	FROM modelagg
+        SELECT
+            symbol,
+            (x2x2 * x1y - x1x2 * x2y)/(x1x1 * x2x2 - x1x2 * x1x2) AS b1,
+            (x1x1 * x2y - x1x2 * x1y)/(x1x1 * x2x2 - x1x2 * x1x2) AS b2,
+            avgy,
+            avgx1,
+            avgx2
+        FROM modelagg
     ),
     model AS (
         /* calculate a for the linear model */
-    	SELECT
-    		symbol,
-    		avgy - b1 * avgx1 - b2 * avgx2 AS a,
-    		b1,
-    		b2
-    	FROM modelparambs
+        SELECT
+            symbol,
+            avgy - b1 * avgx1 - b2 * avgx2 AS a,
+            b1,
+            b2
+        FROM modelparambs
     ),
 
 To use the previous day's model for current event's scoring, we want to join the quotes with the model. But instead of using **JOIN**, we **UNION** the model events and quote events. Then we use **LAG** to pair the events with previous day's model, so we can get exactly one match. Because of the weekend, we have to look back three days. If we used a straightforward **JOIN**, we would get three models for every quote event.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
-    	SELECT
-    		symbol,
-    		midPrice,
-    		VOI AS VOI1,		
-    		LAG(VOI, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS VOI2
-    	FROM currentPriceAndVOI
+        SELECT
+            symbol,
+            midPrice,
+            VOI AS VOI1,        
+            LAG(VOI, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 1)) AS VOI2
+        FROM currentPriceAndVOI
     ),
     VOIAndModel AS (
         /* combine VOIs and models */
-    	SELECT
-    		'voi' AS type,
-    		symbol,
-    		midPrice,
-    		VOI1,
-    		VOI2,
+        SELECT
+            'voi' AS type,
+            symbol,
+            midPrice,
+            VOI1,
+            VOI2,
             0.0 AS a,
             0.0 AS b1,
             0.0 AS b2
-    	FROM shiftedVOI
-    	UNION
-    	SELECT
-    		'model' AS type,
-    		symbol,
+        FROM shiftedVOI
+        UNION
+        SELECT
+            'model' AS type,
+            symbol,
             0.0 AS midPrice,
             0 AS VOI1,
             0 AS VOI2,
-    		a,
-    		b1,
-    		b2
-    	FROM model
+            a,
+            b1,
+            b2
+        FROM model
     ),
     VOIANDModelJoined AS (
         /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
-    	SELECT
-    		symbol,
-    		midPrice,
-    		VOI1 as x1,
-    		VOI2 as x2,
-    		LAG(a, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 72) WHEN type = 'model') AS a,
-    		LAG(b1, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 72) WHEN type = 'model') AS b1,
-    		LAG(b2, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 72) WHEN type = 'model') AS b2
-    	FROM VOIAndModel
-    	WHERE type = 'voi'
+        SELECT
+            symbol,
+            midPrice,
+            VOI1 as x1,
+            VOI2 as x2,
+            LAG(a, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 72) WHEN type = 'model') AS a,
+            LAG(b1, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 72) WHEN type = 'model') AS b1,
+            LAG(b2, 1) OVER (PARTITION BY symbol LIMIT DURATION(hour, 72) WHEN type = 'model') AS b2
+        FROM VOIAndModel
+        WHERE type = 'voi'
     ),
 
 Now, we can make predictions and generate buy/sell signals based on the model, with a 0.02 threshold value. A trade value of 10 is buy. A trade value of -10 is sell.
 
     prediction AS (
         /* make prediction if there is a model */
-    	SELECT
-    		symbol,
-    		midPrice,
-    		a + b1 * x1 + b2 * x2 AS efpc
-    	FROM VOIANDModelJoined
-    	WHERE
-    		a IS NOT NULL AND
-    		b1 IS NOT NULL AND
-    		b2 IS NOT NULL AND
+        SELECT
+            symbol,
+            midPrice,
+            a + b1 * x1 + b2 * x2 AS efpc
+        FROM VOIANDModelJoined
+        WHERE
+            a IS NOT NULL AND
+            b1 IS NOT NULL AND
+            b2 IS NOT NULL AND
             x1 IS NOT NULL AND
             x2 IS NOT NULL
     ),
     tradeSignal AS (
         /* generate buy/sell signals */
-    	SELECT
+        SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
-    		symbol,		
-    		midPrice,
+            symbol,     
+            midPrice,
             efpc,
-    		CASE WHEN (efpc > 0.02) THEN 10 ELSE (CASE WHEN (efpc < -0.02) THEN -10 ELSE 0 END) END AS trade,
-    		DATETIMEFROMPARTS(DATEPART(year, System.Timestamp), DATEPART(month, System.Timestamp), DATEPART(day, System.Timestamp), 0, 0, 0, 0) as date
-    	FROM prediction
+            CASE WHEN (efpc > 0.02) THEN 10 ELSE (CASE WHEN (efpc < -0.02) THEN -10 ELSE 0 END) END AS trade,
+            DATETIMEFROMPARTS(DATEPART(year, System.Timestamp), DATEPART(month, System.Timestamp), DATEPART(day, System.Timestamp), 0, 0, 0, 0) as date
+        FROM prediction
     ),
 
 ### Trading simulation
@@ -319,14 +319,14 @@ We achieve this test by using a UDA, with a hopping window, hopping every one mi
     simulation AS
     (
         /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
-    	SELECT
+        SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
-    		symbol,
-    		date,
-    		uda.TradeSimulation(tradeSignal) AS s
-    	FROM tradeSignal
-    	GROUP BY HoppingWindow(minute, 420, 1), symbol, date
-    	Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
+            symbol,
+            date,
+            uda.TradeSimulation(tradeSignal) AS s
+        FROM tradeSignal
+        GROUP BY HoppingWindow(minute, 420, 1), symbol, date
+        Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
 The JavaScript UDA initializes all accumulators in the `init` function, computes the state transition with every event added to the window, and returns the simulation results at the end of the window. The general trading process is to:
@@ -339,88 +339,88 @@ If there's a short position, and a buy signal is received, we buy to cover. We n
 
 
     function main() {
-    	var TRADE_COST = 8.0;
-    	var SHARES = 10;
+        var TRADE_COST = 8.0;
+        var SHARES = 10;
 
-    	this.init = function () {
-    		this.own = false;
-    		this.pos = 0;
-    		this.pnl = 0.0;
-    		this.tradeCosts = 0.0;
-    		this.buyPrice = 0.0;
-    		this.sellPrice = 0.0;
-    		this.buySize = 0;
-    		this.sellSize = 0;
-    		this.buyTotal = 0.0;
-    		this.sellTotal = 0.0;
-    	}
+        this.init = function () {
+            this.own = false;
+            this.pos = 0;
+            this.pnl = 0.0;
+            this.tradeCosts = 0.0;
+            this.buyPrice = 0.0;
+            this.sellPrice = 0.0;
+            this.buySize = 0;
+            this.sellSize = 0;
+            this.buyTotal = 0.0;
+            this.sellTotal = 0.0;
+        }
 
-    	this.accumulate = function (tradeSignal, timestamp) {
+        this.accumulate = function (tradeSignal, timestamp) {
 
-    		if(!this.own && tradeSignal.trade == 10) {
-    		  // Buy to open
-    		  this.own = true;
-    		  this.pos = 1;
-    		  this.buyPrice = tradeSignal.midprice;
-    		  this.tradeCosts += TRADE_COST;
-    		  this.buySize += SHARES;
-    		  this.buyTotal += SHARES * tradeSignal.midprice;
-    		} else if(!this.own && tradeSignal.trade == -10) {
-    		  // Sell to open
-    		  this.own = true;
-    		  this.pos = -1
-    		  this.sellPrice = tradeSignal.midprice;
-    		  this.tradeCosts += TRADE_COST;
-    		  this.sellSize += SHARES;
-    		  this.sellTotal += SHARES * tradeSignal.midprice;
-    		} else if(this.own && this.pos == 1 && tradeSignal.trade == -10) {
-    		  // Sell to close
-    		  this.own = false;
-    		  this.pos = 0;
-    		  this.sellPrice = tradeSignal.midprice;
-    		  this.tradeCosts += TRADE_COST;
-    		  this.pnl += (this.sellPrice - this.buyPrice)*SHARES - 2*TRADE_COST;
-    		  this.sellSize += SHARES;
-    		  this.sellTotal += SHARES * tradeSignal.midprice;
+            if(!this.own && tradeSignal.trade == 10) {
+              // Buy to open
+              this.own = true;
+              this.pos = 1;
+              this.buyPrice = tradeSignal.midprice;
+              this.tradeCosts += TRADE_COST;
+              this.buySize += SHARES;
+              this.buyTotal += SHARES * tradeSignal.midprice;
+            } else if(!this.own && tradeSignal.trade == -10) {
+              // Sell to open
+              this.own = true;
+              this.pos = -1
+              this.sellPrice = tradeSignal.midprice;
+              this.tradeCosts += TRADE_COST;
+              this.sellSize += SHARES;
+              this.sellTotal += SHARES * tradeSignal.midprice;
+            } else if(this.own && this.pos == 1 && tradeSignal.trade == -10) {
+              // Sell to close
+              this.own = false;
+              this.pos = 0;
+              this.sellPrice = tradeSignal.midprice;
+              this.tradeCosts += TRADE_COST;
+              this.pnl += (this.sellPrice - this.buyPrice)*SHARES - 2*TRADE_COST;
+              this.sellSize += SHARES;
+              this.sellTotal += SHARES * tradeSignal.midprice;
 
-    		  // Sell to open
-    		  this.own = true;
-    		  this.pos = -1;
-    		  this.sellPrice = tradeSignal.midprice;
-    		  this.tradeCosts += TRADE_COST;
-    		  this.sellSize += SHARES;		  
-    		  this.sellTotal += SHARES * tradeSignal.midprice;
-    		} else if(this.own && this.pos == -1 && tradeSignal.trade == 10) {
-    		  // Buy to close
-    		  this.own = false;
-    		  this.pos = 0;
-    		  this.buyPrice = tradeSignal.midprice;
-    		  this.tradeCosts += TRADE_COST;
-    		  this.pnl += (this.sellPrice - this.buyPrice)*SHARES - 2*TRADE_COST;
-    		  this.buySize += SHARES;
-    		  this.buyTotal += SHARES * tradeSignal.midprice;
+              // Sell to open
+              this.own = true;
+              this.pos = -1;
+              this.sellPrice = tradeSignal.midprice;
+              this.tradeCosts += TRADE_COST;
+              this.sellSize += SHARES;        
+              this.sellTotal += SHARES * tradeSignal.midprice;
+            } else if(this.own && this.pos == -1 && tradeSignal.trade == 10) {
+              // Buy to close
+              this.own = false;
+              this.pos = 0;
+              this.buyPrice = tradeSignal.midprice;
+              this.tradeCosts += TRADE_COST;
+              this.pnl += (this.sellPrice - this.buyPrice)*SHARES - 2*TRADE_COST;
+              this.buySize += SHARES;
+              this.buyTotal += SHARES * tradeSignal.midprice;
 
-    		  // Buy to open
-    		  this.own = true;
-    		  this.pos = 1;
-    		  this.buyPrice = tradeSignal.midprice;
-    		  this.tradeCosts += TRADE_COST;
-    		  this.buySize += SHARES;		  
-    		  this.buyTotal += SHARES * tradeSignal.midprice;
-    		}
-    	}
+              // Buy to open
+              this.own = true;
+              this.pos = 1;
+              this.buyPrice = tradeSignal.midprice;
+              this.tradeCosts += TRADE_COST;
+              this.buySize += SHARES;         
+              this.buyTotal += SHARES * tradeSignal.midprice;
+            }
+        }
 
-    	this.computeResult = function () {
-    		var result = {
-    			"pnl": this.pnl,
-    			"buySize": this.buySize,
-    			"sellSize": this.sellSize,
-    			"buyTotal": this.buyTotal,
-    			"sellTotal": this.sellTotal,
-    			"tradeCost": this.tradeCost
-    			};
-    		return result;
-    	}
+        this.computeResult = function () {
+            var result = {
+                "pnl": this.pnl,
+                "buySize": this.buySize,
+                "sellSize": this.sellSize,
+                "buyTotal": this.buyTotal,
+                "sellTotal": this.sellTotal,
+                "tradeCost": this.tradeCost
+                };
+            return result;
+        }
     }
 
 Finally, we output to the Power BI dashboard for visualization.

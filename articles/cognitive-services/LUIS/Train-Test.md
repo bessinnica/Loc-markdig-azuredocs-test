@@ -41,8 +41,11 @@ To start the iterative process of training, you first need to train your LUIS ap
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
+
 <a name="access-the-test-page"></a>
+
 <a name="interactive-testing"></a>
+
 ## Test an utterance
 
 1. Access your app by selecting its name on the **My Apps** page. 
@@ -62,7 +65,7 @@ To close the **Test** panel, select the **Test** button again.
 
 ## Inspect score
 You inspect details of the test result in the **Inspect** panel. 
- 
+
 1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
     ![Inspect button](./media/luis-how-to-train-test/inspect.png)
@@ -70,7 +73,7 @@ You inspect details of the test result in the **Inspect** panel.
 2. The **Inspection panel** appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
     ![Inspect button](./media/luis-how-to-train-test/inspect-panel.png)
- 
+
 ## Compare with published version
 You can test the active version of your app with the published endpoint version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
@@ -89,8 +92,9 @@ You submit a batch file of utterances, known as a *dataset*. The dataset is JSON
 You import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
 
 You can test 10 dataset files in a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
- 
+
 <a name="batch-testing"></a>
+
 ## Import a dataset file for batch testing
 
 1. Select **Test** in the top bar, and then select **Batch testing panel**.
@@ -123,7 +127,7 @@ To run the test, select the dataset name. When the test completes, this row disp
 **Successful predictions** are utterances where the intent in the batch file is the same intent predicted in the test.
 
 In the preceding screenshot:
- 
+
  - **State** includes ready to run, erroring results, or successful results. 
  - **Size** is the total number of utterances included in the dataset file.
  - **Last Run** is the date of the latest test run for this dataset. 
@@ -147,10 +151,10 @@ The filtering panel on the right side of the screen displays a list of all inten
 
 ![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
 
-  
+
 ## Filter chart results by intent or entity
 To filter the view by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. All items in the filtered section also display in more detail below the chart. 
- 
+
 ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
 ## Investigate false sections
@@ -167,6 +171,7 @@ In the chart, hover over a data point to see the certainty score of its predicti
 
 
 <a name="relabel-utterances-and-retrain"></a>
+
 ## False test results
 In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list of incorrect predictions. 
 

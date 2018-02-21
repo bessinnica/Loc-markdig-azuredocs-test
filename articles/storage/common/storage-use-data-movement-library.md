@@ -62,14 +62,14 @@ Modify `<project-name>.csproj`:
 
     <Project Sdk="Microsoft.NET.Sdk">
 
-		<PropertyGroup>
-			<OutputType>Exe</OutputType>
-			<TargetFramework>netcoreapp2.0</TargetFramework>
-		</PropertyGroup>
-		<ItemGroup>
-			<PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="0.6.2" />
-			</ItemGroup>
-		</Project>
+        <PropertyGroup>
+            <OutputType>Exe</OutputType>
+            <TargetFramework>netcoreapp2.0</TargetFramework>
+        </PropertyGroup>
+        <ItemGroup>
+            <PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="0.6.2" />
+            </ItemGroup>
+        </Project>
 
 ## Set up the skeleton of your application
 The first thing we do is set up the "skeleton" code of our application. This code prompts us for a Storage account name and account key and uses those credentials to create a `CloudStorageAccount` object. This object is used to interact with our Storage account in all transfer scenarios. The code also prompts us to choose the type of transfer operation we would like to execute. 
@@ -128,12 +128,12 @@ namespace DMLibSample
 
         public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
         { 
-            
+
         }
 
         public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorageAccount account)
         { 
-            
+
         }
 
         public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
@@ -273,7 +273,7 @@ public static SingleTransferContext GetSingleTransferContext(TransferCheckpoint 
     {
         Console.Write("\rBytes transferred: {0}", progress.BytesTransferred );
     });
-    
+
     return context;
 }
 
@@ -285,7 +285,7 @@ public static DirectoryTransferContext GetDirectoryTransferContext(TransferCheck
     {
         Console.Write("\rBytes transferred: {0}", progress.BytesTransferred );
     });
-    
+
     return context;
 }
 ```
@@ -566,7 +566,4 @@ Our data movement application is now complete. [The full code sample is availabl
 In this getting started, we created an application that interacts with Azure Storage and runs on Windows, Linux, and macOS. This getting started focused on Blob Storage. However, this same knowledge can be applied to File Storage. To learn more, check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-
-
 

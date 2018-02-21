@@ -41,6 +41,7 @@ If you are planning to run JavaScript functions on an App Service plan, you shou
 
 <a name="storage-account-requirements"></a>
 
+
 ## Storage account requirements
 
 When creating a function app in App Service, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally, Functions uses Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These accounts are filtered out of from the Storage Account blade when creating a function app.
@@ -53,6 +54,4 @@ To learn more about storage account types, see [Introducing the Azure Storage Se
 ## Next steps
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
-
 

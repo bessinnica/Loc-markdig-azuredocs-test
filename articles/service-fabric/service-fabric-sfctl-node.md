@@ -59,13 +59,13 @@ Deactivate a Service Fabric cluster node with the specified deactivation intent.
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug            | Increase logging verbosity to show all debug logs.|
-| --help -h          | Show this help message and exit.|
-| --output -o        | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query            | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose          | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.       |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl node enable
 Activate a Service Fabric cluster node which is currently deactivated.
@@ -83,13 +83,13 @@ Activates a Service Fabric cluster node which is currently deactivated. Once act
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug            | Increase logging verbosity to show all debug logs.|
-| --help -h          | Show this help message and exit.|
-| --output -o        | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query            | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose          | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.       |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl node health
 Gets the health of a Service Fabric node.
@@ -131,13 +131,13 @@ Gets the information about a specific node in the Service Fabric cluster. The re
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug            | Increase logging verbosity to show all debug logs.|
-| --help -h          | Show this help message and exit.|
-| --output -o        | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query            | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose          | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.       |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl node list
 Gets the list of nodes in the Service Fabric cluster.
@@ -155,13 +155,13 @@ The Nodes endpoint returns information about the nodes in the Service Fabric Clu
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug          | Increase logging verbosity to show all debug logs.|
-| --help -h        | Show this help message and exit.|
-| --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query          | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.       |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl node load
 Gets the load information of a Service Fabric node.
@@ -177,13 +177,13 @@ Gets the load information of a Service Fabric node.
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug            | Increase logging verbosity to show all debug logs.|
-| --help -h          | Show this help message and exit.|
-| --output -o        | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query            | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose          | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.       |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl node restart
 Restarts a Service Fabric cluster node.
@@ -201,13 +201,13 @@ Restarts a Service Fabric cluster node that is already started.
 
 ### Global Arguments
 
-|Argument|Description|
-| --- | --- |
-| --debug            | Increase logging verbosity to show all debug logs.|
-| --help -h          | Show this help message and exit.|
-| --output -o        | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query            | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose          | Increase logging verbosity. Use --debug for full debug logs.|
+|  Argument   |                                     Description                                     |
+|-------------|-------------------------------------------------------------------------------------|
+|   --debug   |                 Increase logging verbosity to show all debug logs.                  |
+|  --help -h  |                          Show this help message and exit.                           |
+| --output -o |      Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.       |
+|   --query   | JMESPath query string. For more information and examples, see http://jmespath.org/. |
+|  --verbose  |            Increase logging verbosity. Use --debug for full debug logs.             |
 
 ## sfctl node transition
 Starts or stops a cluster node.

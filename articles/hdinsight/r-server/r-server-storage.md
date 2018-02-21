@@ -47,11 +47,11 @@ If you specified more than one storage account when creating your R Server clust
 
 1. Using an SSH client, connect to the edge node of your cluster as remoteuser.  
 
-  + In Azure portal > HDI cluster service page > Overview, click **Secure Shell (SSH)**.
-  + In Hostname, select the edge node (it includes *ed-ssh.azurehdinsight.net* in the name).
-  + Copy the host name.
-  + Open an SSH client like PutTY or SmartTY and enter the host name.
-  + Enter remoteuser for the user name, followed by the cluster password.
+   + In Azure portal > HDI cluster service page > Overview, click **Secure Shell (SSH)**.
+   + In Hostname, select the edge node (it includes *ed-ssh.azurehdinsight.net* in the name).
+   + Copy the host name.
+   + Open an SSH client like PutTY or SmartTY and enter the host name.
+   + Enter remoteuser for the user name, followed by the cluster password.
   
 2. Copy the mycsv.csv file to the /share directory. 
 
@@ -63,19 +63,19 @@ If you specified more than one storage account when creating your R Server clust
         myNameNode <- "default"
         myPort <- 0
 
-    	#Location of the data:  
+        #Location of the data:  
         bigDataDirRoot <- "/share"  
 
-    	#Define Spark compute context:
+        #Define Spark compute context:
         mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
-    	#Set compute context:
+        #Set compute context:
         rxSetComputeContext(mySparkCluster)
 
-    	#Define the Hadoop Distributed File System (HDFS) file system:
+        #Define the Hadoop Distributed File System (HDFS) file system:
         hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
-    	#Specify the input file to analyze in HDFS:
+        #Specify the input file to analyze in HDFS:
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
 All the directory and file references point to the storage account wasb://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
@@ -85,32 +85,32 @@ Now, suppose you want to process a file called mySpecial.csv that's located in t
 In your R code, point the name node reference to the **storage2** storage account.
 
 
-	myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
-	myPort <- 0
+    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
+    myPort <- 0
 
-	#Location of the data:
-	bigDataDirRoot <- "/private"
+    #Location of the data:
+    bigDataDirRoot <- "/private"
 
-	#Define Spark compute context:
-	mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
+    #Define Spark compute context:
+    mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
-	#Set compute context:
-	rxSetComputeContext(mySparkCluster)
+    #Set compute context:
+    rxSetComputeContext(mySparkCluster)
 
-	#Define HDFS file system:
-	hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
+    #Define HDFS file system:
+    hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
-	#Specify the input file to analyze in HDFS:
-	inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
+    #Specify the input file to analyze in HDFS:
+    inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
 All of the directory and file references now point to the storage account wasb://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
 
 You have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
 
 
-	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
-	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
-	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 
 
@@ -138,50 +138,50 @@ It’s also possible to add cluster access to one or more Data Lake stores follo
 Once you’ve given access to a Data Lake store, you can use the store in R Server on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
 
 
-	# Point to the ADL store (e.g. ADLtest)
-	myNameNode <- "adl://rkadl1.azuredatalakestore.net"
-	myPort <- 0
+    # Point to the ADL store (e.g. ADLtest)
+    myNameNode <- "adl://rkadl1.azuredatalakestore.net"
+    myPort <- 0
 
-	# Location of the data (assumes a /share directory on the ADL account)
-	bigDataDirRoot <- "/share"  
+    # Location of the data (assumes a /share directory on the ADL account)
+    bigDataDirRoot <- "/share"  
 
-	# Define Spark compute context
-	mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
+    # Define Spark compute context
+    mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
-	# Set compute context
-	rxSetComputeContext(mySparkCluster)
+    # Set compute context
+    rxSetComputeContext(mySparkCluster)
 
-	# Define HDFS file system
-	hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
+    # Define HDFS file system
+    hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
-	# Specify the input file in HDFS to analyze
-	inputFile <-file.path(bigDataDirRoot,"AirlineDemoSmall.csv")
+    # Specify the input file in HDFS to analyze
+    inputFile <-file.path(bigDataDirRoot,"AirlineDemoSmall.csv")
 
-	# Create factors for days of the week
-	colInfo <- list(DayOfWeek = list(type = "factor",
+    # Create factors for days of the week
+    colInfo <- list(DayOfWeek = list(type = "factor",
                levels = c("Monday", "Tuesday", "Wednesday", "Thursday",
                           "Friday", "Saturday", "Sunday")))
 
-	# Define the data source
-	airDS <- RxTextData(file = inputFile, missingValueString = "M",
+    # Define the data source
+    airDS <- RxTextData(file = inputFile, missingValueString = "M",
                     colInfo  = colInfo, fileSystem = hdfsFS)
 
-	# Run a linear regression
-	model <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS)
+    # Run a linear regression
+    model <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS)
 
 
 The following commands are used to configure the Data Lake storage account with the RevoShare directory and add the sample .csv file from the previous example:
 
 
-	hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user
-	hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare
-	hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare/<user>
+    hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user
+    hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare
+    hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare/<user>
 
-	hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/share
+    hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/share
 
-	hadoop fs -copyFromLocal /usr/lib64/R Server-7.4.1/library/RevoScaleR/SampleData/AirlineDemoSmall.csv adl://rkadl1.azuredatalakestore.net/share
+    hadoop fs -copyFromLocal /usr/lib64/R Server-7.4.1/library/RevoScaleR/SampleData/AirlineDemoSmall.csv adl://rkadl1.azuredatalakestore.net/share
 
-	hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
+    hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 
 ## Use Azure File storage with R Server

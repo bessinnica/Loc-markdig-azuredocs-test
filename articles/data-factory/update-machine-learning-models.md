@@ -109,17 +109,17 @@ Here is a sample linked service definition:
         "type": "AzureML",
         "description": "The linked service for AML web service.",
         "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000	000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000  000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": {
             "type": "SecureString",
             "value": "APIKeyOfEndpoint1"
-        	},
+            },
             "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. ",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
             "type": "SecureString",
             "value": "servicePrincipalKey"
-        	},
+            },
             "tenant": "mycompany.com"
         }
     }

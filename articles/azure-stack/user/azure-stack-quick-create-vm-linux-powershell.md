@@ -98,7 +98,6 @@ $pip = New-AzureRmPublicIpAddress `
   -AllocationMethod Static `
   -IdleTimeoutInMinutes 4 `
   -Name "mypublicdns$(Get-Random)"
-
 ```
 
 ### Create a network security group and a network security group rule

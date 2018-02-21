@@ -52,11 +52,10 @@ If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>
-
 ```
 
 > [!NOTE]
-If the VM has multiple NICs and IP forwarding is enabled on any of the NICs, then the NIC parameter (-i nic-id) must be specified. Otherwise it is optional.
+> If the VM has multiple NICs and IP forwarding is enabled on any of the NICs, then the NIC parameter (-i nic-id) must be specified. Otherwise it is optional.
 
 ## Review results
 

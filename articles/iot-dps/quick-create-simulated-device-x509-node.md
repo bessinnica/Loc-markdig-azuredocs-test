@@ -52,83 +52,83 @@ If you are creating your own X.509 test certificates, refer to [Security concept
     git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive
     ```
 
-1. Navigate to the certificate generator script and build the project. 
+2. Navigate to the certificate generator script and build the project. 
 
     ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
     npm install
     ```
 
-1. Create the enrollment information in either of the following ways, as per your setup:
+3. Create the enrollment information in either of the following ways, as per your setup:
 
-    - **Individual enrollment**:
+   - **Individual enrollment**:
 
-        1. Create the _leaf_ certificate by running the script using your own _certificate-name_. Note that the leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
+     1. Create the _leaf_ certificate by running the script using your own _certificate-name_. Note that the leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
 
         ```cmd/sh
         node create_test_cert.js device {certificate-name}
         ```
          
-        1. In the **Azure** portal, open the **Device Provisioning Service** summary blade. Select **Manage enrollments**, then the **Individual Enrollments** tab, and click the **Add** button at the top. 
+     2. In the **Azure** portal, open the **Device Provisioning Service** summary blade. Select **Manage enrollments**, then the **Individual Enrollments** tab, and click the **Add** button at the top. 
 
-        1. Under the **Add enrollment list entry**, enter the following information:
-            - Select **X.509** as the identity attestation *Mechanism*.
-            - Under the *Certificate .pem or .cer file*, select the certificate file **_{certificate-name}\_cert.pem_** created in the previous steps using the *File Explorer* widget.
-            - Optionally, you may provide the following information:
-                - Select an IoT hub linked with your provisioning service.
-                - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-                - Update the **Initial device twin state** with the desired initial configuration for the device.
-            - Once complete, click the **Save** button. 
+     3. Under the **Add enrollment list entry**, enter the following information:
+         - Select **X.509** as the identity attestation *Mechanism*.
+         - Under the *Certificate .pem or .cer file*, select the certificate file **_{certificate-name}\_cert.pem_** created in the previous steps using the *File Explorer* widget.
+         - Optionally, you may provide the following information:
+             - Select an IoT hub linked with your provisioning service.
+             - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+             - Update the **Initial device twin state** with the desired initial configuration for the device.
+         - Once complete, click the **Save** button. 
 
         ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509-node/enter-device-enrollment.png)  
 
-    On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
+     On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
 
-    - **Enrollment groups**: 
+   - **Enrollment groups**: 
 
-        1. Create the _root_ certificate by running the script using your own _root-name_.
+     1. Create the _root_ certificate by running the script using your own _root-name_.
 
         ```cmd/sh
         node create_test_cert.js root {root-name}
         ```
 
-        1. In the **Azure** portal, open the **Device Provisioning Service** summary blade. Select **Certificates** and click the **Add** button at the top.
+     2. In the **Azure** portal, open the **Device Provisioning Service** summary blade. Select **Certificates** and click the **Add** button at the top.
 
-        1. Under the **Add Certificate**, enter the following information:
-            - Enter a unique certificate name.
-            - Select the **_{root-name}\_cert.pem_** file you created previously.
-            - Once complete, click the **Save** button.
+     3. Under the **Add Certificate**, enter the following information:
+         - Enter a unique certificate name.
+         - Select the **_{root-name}\_cert.pem_** file you created previously.
+         - Once complete, click the **Save** button.
 
         ![Add certificate](./media/quick-create-simulated-device-x509-node/add-certificate.png)
 
-        1. Select the newly created certificate:
-            - Click **Generate Verification Code**. Copy the code generated.
-            - Create the _verification_ certificate. Enter the _verification code_ or right-click to paste in your running Node script window with the following command:
+     4. Select the newly created certificate:
+        - Click **Generate Verification Code**. Copy the code generated.
+        - Create the _verification_ certificate. Enter the _verification code_ or right-click to paste in your running Node script window with the following command:
 
-                ```cmd/sh
-                node create_test_cert.js verification {rootname_cert} {verification code}
-                ```
+            ```cmd/sh
+            node create_test_cert.js verification {rootname_cert} {verification code}
+            ```
 
-            - Under the *Verification certificate .pem or .cer file*, select the certificate file **_verification_cert.pem_** created in the previous steps using the *File Explorer* widget. Click **Verify**.
+        - Under the *Verification certificate .pem or .cer file*, select the certificate file **_verification_cert.pem_** created in the previous steps using the *File Explorer* widget. Click **Verify**.
 
-            ![Validate certificate](./media/quick-create-simulated-device-x509-node/validate-certificate.png)
+          ![Validate certificate](./media/quick-create-simulated-device-x509-node/validate-certificate.png)
 
-        1. Select **Manage enrollments**. Select **Enrollment Groups** tab and click the **Add** button at the top.
-            - Enter a unique group name.
-            - Select the unique certificate name created previously
-            - Optionally, you may provide the following information:
-                - Select an IoT hub linked with your provisioning service.
-                - Update the **Initial device twin state** with the desired initial configuration for the device.
+     5. Select **Manage enrollments**. Select **Enrollment Groups** tab and click the **Add** button at the top.
+         - Enter a unique group name.
+         - Select the unique certificate name created previously
+         - Optionally, you may provide the following information:
+             - Select an IoT hub linked with your provisioning service.
+             - Update the **Initial device twin state** with the desired initial configuration for the device.
 
         ![Enter X.509 group enrollment information in the portal blade](./media/quick-create-simulated-device-x509-node/enter-group-enrollment.png)
 
         On successful enrollment, your X.509 device group appears under the *Group Name* column in the *Enrollment Groups* tab. Note this value for later.
 
-        1. Create the _leaf_ certificate by running the script using your own _certficate-name_ followed by the _root-name_ used previously. The leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
+     6. Create the _leaf_ certificate by running the script using your own _certficate-name_ followed by the _root-name_ used previously. The leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
 
-            ```cmd/sh
-            node create_test_cert.js device {certificate-name} {root-name}
-            ```
+         ```cmd/sh
+         node create_test_cert.js device {certificate-name} {root-name}
+         ```
 
         > [!NOTE]
         > You can also create _intermediate_ certificates using `node create_test_cert.js intermediate {certificate-name} {parent-name}`. Just be sure to create the _leaf_ certificate as the last step using the last _intermediate_ as its root/parent. For more information, see [Controlling device access](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#controlling-device-access-to-the-provisioning-service-with-x509-certificates).

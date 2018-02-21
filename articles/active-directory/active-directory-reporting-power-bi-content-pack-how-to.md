@@ -37,30 +37,30 @@ This topic provides you with step-by-step instructions on how to install and use
    
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/02.png)
 
-4.	Search for **Azure Active Directory**.
+4.  Search for **Azure Active Directory**.
 
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/03.png)
  
-5.	When prompted, type your Azure AD Tenant ID, and then click **Next**.
+5.  When prompted, type your Azure AD Tenant ID, and then click **Next**.
 
     > [!TIP] 
     > A quick way to get the Tenant ID for your Office 365 / Azure AD tenant is to sign in to the Azure AD portal, drill down to the directory, and copy the **Directory ID** from the [**Properties** page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 
-6.	Click **Sign-in**. 
+6.  Click **Sign-in**. 
  
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/05.png) 
 
 
 
-7.	Enter your username and password, and then click **Sign in**.
+7.  Enter your username and password, and then click **Sign in**.
  
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/06.png) 
 
-8.	On the app consent dialog, click **Accept**.
+8.  On the app consent dialog, click **Accept**.
  
-9.	When your Azure Active Directory Activity logs dashboard has been created, click it.
+9.  When your Azure Active Directory Activity logs dashboard has been created, click it.
  
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 

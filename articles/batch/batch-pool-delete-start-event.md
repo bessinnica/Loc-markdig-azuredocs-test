@@ -23,10 +23,12 @@ ms.author: tamram
 
 ```
 {
-	"id": "myPool1"
+    "id": "myPool1"
 }
 ```
 
-|Element|Type|Notes|
-|-------------|----------|-----------|
-|id|String|The id of the pool.|
+
+| Element |  Type  |        Notes        |
+|---------|--------|---------------------|
+|   id    | String | The id of the pool. |
+

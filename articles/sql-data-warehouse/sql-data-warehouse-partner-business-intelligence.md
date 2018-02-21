@@ -22,6 +22,7 @@ ms.author: kevin;barbkess
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools.  This article highlights Microsoft partner companies with business intelligence (BI) solutions supporting Azure SQL Data Warehouse.
 
 ## Our business intelligence partners
+
 | Partner | Description | Links | Videos |
 | --- | --- | --- | --- |
 | ![Birst][1] |**Birst**<br>Birst is a global leader in Cloud BI and Analytics. Enterprises can create a trusted source of data within the context of each key business user. Then, business users throughout the organization can report and analyze information with world-class BI tools. |[Marketplace][birst_marketplace]<br>[Website][birst_website]<br>[Twitter][birst_twitter]<br>[YouTube][birst_youtube] | |

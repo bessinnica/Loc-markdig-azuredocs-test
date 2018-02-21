@@ -186,17 +186,17 @@ To create an Automation account and OMS workspace by using the **Automation & Co
 3. Search for **Automation**. In the search results, select **Automation & Control**.<br><br> ![Search for and select Automation & Control in the Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 4. Review the description for the offering, and then select **Create**.  
 5. Under **Automation & Control**, select **OMS Workspace**. Under **OMS Workspaces**, select an OMS workspace that's linked to the Azure subscription that the Automation account is in. If you don't have an OMS workspace, select **Create New Workspace**. Under **OMS Workspace**: 
-  1. For **OMS Workspace**, enter a name for the new workspace.
-  2. For **Subscription**, select a subscription to link to. If the default selection isn't the subscription that you want to use, select the subscription from the drop-down list.
-  3. For **Resource Group**, you can create a resource group, or select an existing resource group.  
-  4. For **Location**, select a region. For more information, see [which regions Azure Automation is available in](https://azure.microsoft.com/regions/services/). Solutions are offered in two tiers: free and per node (OMS) tier. The free tier has a limit on the amount of data that's collected daily, retention period, and runbook job runtime minutes. The per node (OMS) tier doesn't have a limit on the amount of data collected daily.  
-  5. Select **Automation Account**.  If you create a new OMS workspace, you must also create an Automation account that's associated with the new OMS workspace. Include your Azure subscription, resource group, and region. 
-    1. Select **Create an Automation account**.
-    2. Under **Automation Account**, in the **Name** field, enter the name of the Automation account.
-    All other options are automatically populated based on the OMS workspace selected. You can't modify these options. 
-    3. An Azure Run As account is the default authentication method for the offering. After you select **OK**, the configuration options are validated and the Automation account is created. To track its progress, on the menu, select **Notifications**. 
-    4. Otherwise, select an existing Automation Run As account. The account you select cannot already be linked to another OMS workspace. If it is, a notification message appears. If the account is already linked to an OMS workspace, select a different Automation Run As account or create one.
-    5. After you enter or select the required information, select **Create**. The information is verified, and the Automation Account and Run As accounts are created. You are automatically returned to the **OMS workspace** pane.  
+   1. For **OMS Workspace**, enter a name for the new workspace.
+   2. For **Subscription**, select a subscription to link to. If the default selection isn't the subscription that you want to use, select the subscription from the drop-down list.
+   3. For **Resource Group**, you can create a resource group, or select an existing resource group.  
+   4. For **Location**, select a region. For more information, see [which regions Azure Automation is available in](https://azure.microsoft.com/regions/services/). Solutions are offered in two tiers: free and per node (OMS) tier. The free tier has a limit on the amount of data that's collected daily, retention period, and runbook job runtime minutes. The per node (OMS) tier doesn't have a limit on the amount of data collected daily.  
+   5. Select **Automation Account**.  If you create a new OMS workspace, you must also create an Automation account that's associated with the new OMS workspace. Include your Azure subscription, resource group, and region. 
+      1. Select **Create an Automation account**.
+      2. Under **Automation Account**, in the **Name** field, enter the name of the Automation account.
+      All other options are automatically populated based on the OMS workspace selected. You can't modify these options. 
+      3. An Azure Run As account is the default authentication method for the offering. After you select **OK**, the configuration options are validated and the Automation account is created. To track its progress, on the menu, select **Notifications**. 
+      4. Otherwise, select an existing Automation Run As account. The account you select cannot already be linked to another OMS workspace. If it is, a notification message appears. If the account is already linked to an OMS workspace, select a different Automation Run As account or create one.
+      5. After you enter or select the required information, select **Create**. The information is verified, and the Automation Account and Run As accounts are created. You are automatically returned to the **OMS workspace** pane.  
 6. After you enter or select the required information on the **OMS Workspace** pane, select **Create**.  The information is verified and the workspace is created. To track its progress, on the menu, select **Notifications**. You are returned to the **Add Solution** pane.  
 7. Under **Automation & Control** settings, confirm that you want to install the recommended preselected solutions. If you change any of the default options, you can install the solutions individually later.  
 8. To proceed with onboarding Automation and an OMS workspace, select **Create**. All settings are validated, and then Azure attempts to deploy the offering in your subscription. This process might take several seconds. To track its progress, in the menu, select **Notifications**. 

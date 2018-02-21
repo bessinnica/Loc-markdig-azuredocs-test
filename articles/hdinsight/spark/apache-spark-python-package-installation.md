@@ -72,14 +72,14 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 
     Code to copy:
 
-	    import tensorflow as tf
-	    hello = tf.constant('Hello, TensorFlow!')
-	    sess = tf.Session()
-	    print(sess.run(hello))
+        import tensorflow as tf
+        hello = tf.constant('Hello, TensorFlow!')
+        sess = tf.Session()
+        print(sess.run(hello))
 
-	The result will look like this:
-	
-	![TensorFlow code execution](./media/apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
+    The result will look like this:
+    
+    ![TensorFlow code execution](./media/apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)

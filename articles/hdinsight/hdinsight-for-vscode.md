@@ -83,7 +83,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need conne
     **Azure:**
     ![HDInsight Tools for Visual Studio Code login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
 
-    After you're connected, your Azure account name is shown on the status bar at the bottom left of the VS Code window. 
+    After you're connected, your Azure account name is shown on the status bar at the bottom left of the VS Code window. 
 
     > [!NOTE]
     > Because of a known Azure authentication issue, you need to open a browser in private mode or incognito mode. 

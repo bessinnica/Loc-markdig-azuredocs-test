@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add entities in LUIS apps | Microsoft Docs
 titleSuffix: Azure
 description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.

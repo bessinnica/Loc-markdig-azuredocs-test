@@ -55,10 +55,10 @@ PM> Install-Package Microsoft.Identity.Client -ProjectName TodoListClient -Inclu
 ```
 
 * In the TodoListClient project, open `app.config`.  Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the app registration portal.  Your code will reference these values whenever it uses MSAL.
-  
+
   * The `ida:ClientId` is the **Application Id** of your app you copied from the portal.
 * In the TodoList-Service project, open `web.config` in the root of the project.  
-  
+
   * Replace the `ida:Audience` value with the same **Application Id** from the portal.
 
 ## Use MSAL to get tokens
@@ -111,7 +111,6 @@ catch (MsalException ex)
         MessageBox.Show(message);
     }
 }
-
 ```
 
 * If the user is not signed in and they click the "Sign In" button, we want to invoke a login UI and have the user enter their credentials.  Implement the Sign-In button handler:
@@ -215,7 +214,6 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
-
 ```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {

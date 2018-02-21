@@ -54,15 +54,15 @@ Open restriction means the system delivers the key to anyone who makes a key req
 
 The following example creates an open authorization policy and adds it to the content key:
 
-	static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
-	{
-		// Create ContentKeyAuthorizationPolicy with Open restrictions
-		// and create authorization policy
-		IContentKeyAuthorizationPolicy policy = _context.
-		ContentKeyAuthorizationPolicies.
-		CreateAsync("Open Authorization Policy").Result;
-		
-		List<ContentKeyAuthorizationPolicyRestriction> restrictions =
+    static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
+    {
+        // Create ContentKeyAuthorizationPolicy with Open restrictions
+        // and create authorization policy
+        IContentKeyAuthorizationPolicy policy = _context.
+        ContentKeyAuthorizationPolicies.
+        CreateAsync("Open Authorization Policy").Result;
+        
+        List<ContentKeyAuthorizationPolicyRestriction> restrictions =
             new List<ContentKeyAuthorizationPolicyRestriction>();
 
         ContentKeyAuthorizationPolicyRestriction restriction =

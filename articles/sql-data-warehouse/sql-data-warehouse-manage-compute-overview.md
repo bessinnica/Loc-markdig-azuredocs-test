@@ -64,11 +64,9 @@ Each of these operations may take several minutes to complete. If you are scalin
 
 Checking the database state through various endpoints will allow you to correctly implement automation of such operations. The portal will provide notification upon completion of an operation and the databases current state but does not allow for programmatic checking of state. 
 
->  [!NOTE]
->
+> [!NOTE]
+> 
 >  Compute management functionality does not exist across all endpoints.
->
->  
 
 |              | Pause/Resume | Scale | Check database state |
 | ------------ | ------------ | ----- | -------------------- |
@@ -80,6 +78,7 @@ Checking the database state through various endpoints will allow you to correctl
 
 
 <a name="scale-compute-bk"></a>
+
 
 ## Scale compute
 
@@ -128,6 +127,7 @@ Recommendations for when to scale DWUs:
 
 <a name="pause-compute-bk"></a>
 
+
 ## Pause compute
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -139,6 +139,7 @@ To pause a database, use any of these individual methods.
 
 <a name="resume-compute-bk"></a>
 
+
 ## Resume compute
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
@@ -149,6 +150,7 @@ To resume a database, use any of these individual methods.
 * [Resume compute with REST APIs][Resume compute with REST APIs]
 
 <a name="check-compute-bk"></a>
+
 
 ## Check database state 
 
@@ -163,6 +165,7 @@ To resume a database, use any of these individual methods.
 Scaling the database requires the permissions described in [ALTER DATABASE][ALTER DATABASE].  Pause and Resume require the [SQL DB Contributor][SQL DB Contributor] permission, specifically Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
+
 
 ## Next steps
 Refer to the following articles to help you understand some additional key performance concepts:

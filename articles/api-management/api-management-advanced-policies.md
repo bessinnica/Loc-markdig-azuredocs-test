@@ -678,11 +678,11 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 
 ### Attributes  
   
-|Attribute|Description|Required|Default|  
-|---------------|-----------------|--------------|-------------|  
-|url="string"|Proxy URL in the form of http://host:port.|Yes|N/A|  
-|username="string"|Username to be used for authentication with the proxy.|No|N/A|  
-|password="string"|Password to be used for authentication with the proxy.|No|N/A|  
+|     Attribute     |                      Description                       | Required | Default |
+|-------------------|--------------------------------------------------------|----------|---------|
+|   url="string"    |       Proxy URL in the form of http://host:port.       |   Yes    |   N/A   |
+| username="string" | Username to be used for authentication with the proxy. |    No    |   N/A   |
+| password="string" | Password to be used for authentication with the proxy. |    No    |   N/A   |
 
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -964,4 +964,4 @@ For more information working with policies, see:
 + [Policies in API Management](api-management-howto-policies.md) 
 + [Policy expressions](api-management-policy-expressions.md)
 + [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)	
++ [Policy samples](policy-samples.md)   

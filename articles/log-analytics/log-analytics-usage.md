@@ -106,11 +106,13 @@ These two charts show all data. Some data is billable, and other data is free. T
 
 Look at the *Data volume over time* chart. To see the solutions and data types that are sending the most data for a specific computer, click on the name of the computer. Click on the name of the first computer in the list.
 
-In the following screenshot, the *Log Management / Perf* data type is sending the most data for the computer.<br><br> ![data volume for a computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
+In the following screenshot, the <em>Log Management / Perf</em> data type is sending the most data for the computer.<br><br> ![data volume for a computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
+
 
 Next, go back to the *Usage* dashboard and look at the *Data volume by solution* chart. To see the computers sending the most data for a solution, click on the name of the solution in the list. Click on the name of the first solution in the list. 
 
-In the following screenshot, it confirms that the *acmetomcat* computer is sending the most data for the Log Management solution.<br><br> ![data volume for a solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+In the following screenshot, it confirms that the <em>acmetomcat</em> computer is sending the most data for the Log Management solution.<br><br> ![data volume for a solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+
 
 If needed, perform additional analysis to identify large volumes within a solution or data type. Example queries include:
 
@@ -142,7 +144,8 @@ Use the following steps to reduce the volume of logs collected:
 | Solution data from computers that don't need the solution | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers. |
 
 ### Check if there are more nodes than expected
-If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+If you are on the <em>per node (OMS)</em> pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the <em>offerings</em> section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+
 
 Click on **See all...** to view the full list of computers sending data for the selected offer.
 

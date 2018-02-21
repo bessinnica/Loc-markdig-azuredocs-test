@@ -25,7 +25,6 @@ You can get started by creating a Logic app now, see [Create a logic app](../log
 
 ## Create a connection to RSS
 > [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
-> 
 
 ## Connector-specific details
 

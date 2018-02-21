@@ -23,8 +23,6 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
-
-
 ## Other sizes
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)

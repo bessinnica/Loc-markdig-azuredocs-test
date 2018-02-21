@@ -53,7 +53,7 @@ Each occurrence of the {deviceid} pattern is automatically replaced by the ident
 * **Android + iOS actions**
   * Open a web page
   * http://\[web-site-domain\] 
-  * Example:http://www.azure.com
+  * Example:<http://www.azure.com>
   * Send an e-mail
   * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
@@ -63,6 +63,7 @@ Each occurrence of the {deviceid} pattern is automatically replaced by the ident
   * Dial a phone number
   * tel:\[phone-number\] 
   * Example:tel:2125551212
+
 * **Android only actions**
   * Download an application on the Play Store
   * market://details?id=\[app package\] 
@@ -73,11 +74,11 @@ Each occurrence of the {deviceid} pattern is automatically replaced by the ident
 * **iOS only actions**
   * Download an application on the App Store
   * http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
-  * Example:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * Example:<http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8>
   * Windows Actions
   * Open a web page
   * http://\[web-site-domain\] 
-  * Example:http://www.azure.com
+  * Example:<http://www.azure.com>
   * Send an e-mail
   * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!

@@ -59,5 +59,8 @@ Azure China 21Vianet provides world-class security and the <a href="https://www.
 </ul>
 
 <h3>Azure China 21Vianet (in Chinese)</h3>
-    <a href="https://school.azure.cn/">Azure School</a><br>
-    <a href="https://docs.azure.cn/zh-cn/">Azure Docs</a>
+    
+<a href="https://school.azure.cn/">Azure School</a><br>
+    
+<a href="https://docs.azure.cn/zh-cn/">Azure Docs</a>
+

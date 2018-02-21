@@ -130,7 +130,7 @@ Follow these steps to deploy the template:
 
 1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal
    The database template only creates the load-balancing rules for a database whereas the converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver based system and you also want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
-1. Enter the following parameters
+2. Enter the following parameters
     1. Sap System ID  
        Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
     1. Stack Type (only applicable if you use the converged template)  
@@ -155,245 +155,238 @@ Follow these steps to deploy the template:
 The following items are prefixed with either [A] - applicable to all nodes, [1] - only applicable to node 1 or [2] - only applicable to node 2.
 
 1. [A] SLES for SAP BYOS only - Register SLES to be able to use the repositories
-1. [A] SLES for SAP BYOS only - Add public-cloud module
-1. [A] Update SLES
+2. [A] SLES for SAP BYOS only - Add public-cloud module
+3. [A] Update SLES
     ```bash
     sudo zypper update
-
     ```
 
-1. [1] Enable ssh access
+4. [1] Enable ssh access
     ```bash
     sudo ssh-keygen -tdsa
-    
+
     # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     # Enter passphrase (empty for no passphrase): -> ENTER
     # Enter same passphrase again: -> ENTER
-    
+
     # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
     ```
 
-2. [2] Enable ssh access
+5. [2] Enable ssh access
     ```bash
     sudo ssh-keygen -tdsa
 
     # insert the public key you copied in the last step into the authorized keys file on the second server
     sudo vi /root/.ssh/authorized_keys
-    
+
     # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     # Enter passphrase (empty for no passphrase): -> ENTER
     # Enter same passphrase again: -> ENTER
-    
+
     # copy the public key    
     sudo cat /root/.ssh/id_dsa.pub
     ```
 
-1. [1] Enable ssh access
+6. [1] Enable ssh access
     ```bash
     # insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
-    
     ```
 
-1. [A] Install HA extension
+7. [A] Install HA extension
     ```bash
     sudo zypper install sle-ha-release fence-agents
-    
     ```
 
-1. [A] Setup disk layout
-    1. LVM  
-    We generally recommend using LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
-        * Create physical volumes for all disks that you want to use.
-    <pre><code>
-    sudo pvcreate /dev/sdc
-    sudo pvcreate /dev/sdd
-    sudo pvcreate /dev/sde
-    sudo pvcreate /dev/sdf
-    </code></pre>
-        * Create a volume group for the data files, one volume group for the log files and one for the shared directory of SAP HANA
-    <pre><code>
-    sudo vgcreate vg_hana_data /dev/sdc /dev/sdd
-    sudo vgcreate vg_hana_log /dev/sde
-    sudo vgcreate vg_hana_shared /dev/sdf
-    </code></pre>
-        * Create the logical volumes
-    <pre><code>
-    sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
-    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
-    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared
-    sudo mkfs.xfs /dev/vg_hana_data/hana_data
-    sudo mkfs.xfs /dev/vg_hana_log/hana_log
-    sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
-    </code></pre>
-        * Create the mount directories and copy the UUID of all logical volumes
-    <pre><code>
-    sudo mkdir -p /hana/data
-    sudo mkdir -p /hana/log
-    sudo mkdir -p /hana/shared
-    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
-    sudo blkid
-    </code></pre>
-        * Create fstab entries for the three logical volumes
-    <pre><code>
-    sudo vi /etc/fstab
-    </code></pre>
-    Insert this line to /etc/fstab
-    <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
-    </code></pre>
-        * Mount the new volumes
-    <pre><code>
-    sudo mount -a
-    </code></pre>
-    1. Plain Disks  
-       For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
-    ```bash
-    sudo fdisk /dev/sdc
-    sudo mkfs.xfs /dev/sdc1
-    
-    # write down the ID of /dev/sdc1
-    sudo /sbin/blkid
-    sudo vi /etc/fstab
-    ```
+8. [A] Setup disk layout
+   1. LVM  
+      We generally recommend using LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
+      * Create physical volumes for all disks that you want to use.
+        <pre><code>
+        sudo pvcreate /dev/sdc
+        sudo pvcreate /dev/sdd
+        sudo pvcreate /dev/sde
+        sudo pvcreate /dev/sdf
+        </code></pre>
+      * Create a volume group for the data files, one volume group for the log files and one for the shared directory of SAP HANA
+        <pre><code>
+        sudo vgcreate vg_hana_data /dev/sdc /dev/sdd
+        sudo vgcreate vg_hana_log /dev/sde
+        sudo vgcreate vg_hana_shared /dev/sdf
+        </code></pre>
+      * Create the logical volumes
+        <pre><code>
+        sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
+        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
+        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared
+        sudo mkfs.xfs /dev/vg_hana_data/hana_data
+        sudo mkfs.xfs /dev/vg_hana_log/hana_log
+        sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
+        </code></pre>
+      * Create the mount directories and copy the UUID of all logical volumes
+        <pre><code>
+        sudo mkdir -p /hana/data
+        sudo mkdir -p /hana/log
+        sudo mkdir -p /hana/shared
+        # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+        sudo blkid
+        </code></pre>
+      * Create fstab entries for the three logical volumes
+        <pre><code>
+        sudo vi /etc/fstab
+        </code></pre>
+        Insert this line to /etc/fstab
+        <pre><code>
+        /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
+        /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
+        /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
+        </code></pre>
+      * Mount the new volumes
+        <pre><code>
+        sudo mount -a
+        </code></pre>
+   2. Plain Disks  
+      For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
+      ```bash
+      sudo fdisk /dev/sdc
+      sudo mkfs.xfs /dev/sdc1
 
-    Insert this line to /etc/fstab
-    <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
-    </code></pre>
+      # write down the ID of /dev/sdc1
+      sudo /sbin/blkid
+      sudo vi /etc/fstab
+      ```
 
-    Create the target directory and mount the disk.
+      Insert this line to /etc/fstab
+      <pre><code>
+      /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
+      </code></pre>
 
-    ```bash
-    sudo mkdir /hana
-    sudo mount -a
-    ```
+      Create the target directory and mount the disk.
 
-1. [A] Setup host name resolution for all hosts  
+      ```bash
+      sudo mkdir /hana
+      sudo mount -a
+      ```
+
+9. [A] Setup host name resolution for all hosts  
     You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
     Replace the IP address and the hostname in the following commands
     ```bash
     sudo vi /etc/hosts
     ```
     Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
-    
+
     <pre><code>
     <b>&lt;IP address of host 1&gt; &lt;hostname of host 1&gt;</b>
     <b>&lt;IP address of host 2&gt; &lt;hostname of host 2&gt;</b>
     </code></pre>
 
-1. [1] Install Cluster
-    ```bash
-    sudo ha-cluster-init
-    
-    # Do you want to continue anyway? [y/N] -> y
-    # Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
-    # Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
-    # Multicast port [5405] -> ENTER
-    # Do you wish to use SBD? [y/N] -> N
-    # Do you wish to configure an administration IP? [y/N] -> N
-    ```
-        
-1. [2] Add node to cluster
-    ```bash
-    sudo ha-cluster-join
-        
-    # WARNING: NTP is not configured to start at system boot.
-    # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-    # Do you want to continue anyway? [y/N] -> y
-    # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
-    # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-    ```
+10. [1] Install Cluster
+     ```bash
+     sudo ha-cluster-init
 
-1. [A] Change hacluster password to the same password
-    ```bash
-    sudo passwd hacluster
-    
-    ```
+     # Do you want to continue anyway? [y/N] -> y
+     # Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
+     # Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
+     # Multicast port [5405] -> ENTER
+     # Do you wish to use SBD? [y/N] -> N
+     # Do you wish to configure an administration IP? [y/N] -> N
+     ```
 
-1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
-    ```bash
-    sudo vi /etc/corosync/corosync.conf    
-    
-    ```
+11. [2] Add node to cluster
+     ```bash
+     sudo ha-cluster-join
 
-    Add the following bold content to the file.
-    
-    <pre><code> 
-    [...]
-      interface { 
-          [...] 
-      }
-      <b>transport:      udpu</b>
-    } 
-    <b>nodelist {
-      node {
-        ring0_addr:     < ip address of node 1 >
-      }
-      node {
-        ring0_addr:     < ip address of node 2 > 
-      } 
-    }</b>
-    logging {
-      [...]
-    </code></pre>
+     # WARNING: NTP is not configured to start at system boot.
+     # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
+     # Do you want to continue anyway? [y/N] -> y
+     # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
+     # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
+     ```
 
-    Then restart the corosync service
+12. [A] Change hacluster password to the same password
+     ```bash
+     sudo passwd hacluster
+     ```
 
-    ```bash
-    sudo service corosync restart
-    
-    ```
+13. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
+     ```bash
+     sudo vi /etc/corosync/corosync.conf    
+     ```
 
-1. [A] Install HANA HA packages  
-    ```bash
-    sudo zypper install SAPHanaSR
-    
-    ```
+     Add the following bold content to the file.
+
+     <pre><code> 
+     [...]
+       interface { 
+           [...] 
+       }
+       <b>transport:      udpu</b>
+     } 
+     <b>nodelist {
+       node {
+         ring0_addr:     < ip address of node 1 >
+       }
+       node {
+         ring0_addr:     < ip address of node 2 > 
+       } 
+     }</b>
+     logging {
+       [...]
+     </code></pre>
+
+     Then restart the corosync service
+
+     ```bash
+     sudo service corosync restart
+     ```
+
+14. [A] Install HANA HA packages  
+     ```bash
+     sudo zypper install SAPHanaSR
+     ```
 
 ## Installing SAP HANA
 
 Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide] to install SAP HANA System Replication.
 
 1. [A] Run hdblcm from the HANA DVD
-    * Choose installation -> 1
-    * Select additional components for installation -> 1
-    * Enter Installation Path [/hana/shared]: -> ENTER
-    * Enter Local Host Name [..]: -> ENTER
-    * Do you want to add additional hosts to the system? (y/n) [n]: -> ENTER
-    * Enter SAP HANA System ID: <SID of HANA e.g. HDB>
-    * Enter Instance Number [00]:   
-  HANA Instance number. Use 03 if you used the Azure Template or followed the example above
-    * Select Database Mode / Enter Index [1]: -> ENTER
-    * Select System Usage / Enter Index [4]:  
-  Select the system Usage
-    * Enter Location of Data Volumes [/hana/data/HDB]: -> ENTER
-    * Enter Location of Log Volumes [/hana/log/HDB]: -> ENTER
-    * Restrict maximum memory allocation? [n]: -> ENTER
-    * Enter Certificate Host Name For Host '...' [...]: -> ENTER
-    * Enter SAP Host Agent User (sapadm) Password:
-    * Confirm SAP Host Agent User (sapadm) Password:
-    * Enter System Administrator (hdbadm) Password:
-    * Confirm System Administrator (hdbadm) Password:
-    * Enter System Administrator Home Directory [/usr/sap/HDB/home]: -> ENTER
-    * Enter System Administrator Login Shell [/bin/sh]: -> ENTER
-    * Enter System Administrator User ID [1001]: -> ENTER
-    * Enter ID of User Group (sapsys) [79]: -> ENTER
-    * Enter Database User (SYSTEM) Password:
-    * Confirm Database User (SYSTEM) Password:
-    * Restart system after machine reboot? [n]: -> ENTER
-    * Do you want to continue? (y/n):  
-  Validate the summary and enter y to continue
-1. [A] Upgrade SAP Host Agent  
-  Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
+   * Choose installation -> 1
+   * Select additional components for installation -> 1
+   * Enter Installation Path [/hana/shared]: -> ENTER
+   * Enter Local Host Name [..]: -> ENTER
+   * Do you want to add additional hosts to the system? (y/n) [n]: -> ENTER
+   * Enter SAP HANA System ID: <SID of HANA e.g. HDB>
+   * Enter Instance Number [00]:   
+     HANA Instance number. Use 03 if you used the Azure Template or followed the example above
+   * Select Database Mode / Enter Index [1]: -> ENTER
+   * Select System Usage / Enter Index [4]:  
+     Select the system Usage
+   * Enter Location of Data Volumes [/hana/data/HDB]: -> ENTER
+   * Enter Location of Log Volumes [/hana/log/HDB]: -> ENTER
+   * Restrict maximum memory allocation? [n]: -> ENTER
+   * Enter Certificate Host Name For Host '...' [...]: -> ENTER
+   * Enter SAP Host Agent User (sapadm) Password:
+   * Confirm SAP Host Agent User (sapadm) Password:
+   * Enter System Administrator (hdbadm) Password:
+   * Confirm System Administrator (hdbadm) Password:
+   * Enter System Administrator Home Directory [/usr/sap/HDB/home]: -> ENTER
+   * Enter System Administrator Login Shell [/bin/sh]: -> ENTER
+   * Enter System Administrator User ID [1001]: -> ENTER
+   * Enter ID of User Group (sapsys) [79]: -> ENTER
+   * Enter Database User (SYSTEM) Password:
+   * Confirm Database User (SYSTEM) Password:
+   * Restart system after machine reboot? [n]: -> ENTER
+   * Do you want to continue? (y/n):  
+     Validate the summary and enter y to continue
+2. [A] Upgrade SAP Host Agent  
+   Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
     ```bash
     sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
     ```
 
-1. [1] Create HANA replication (as root)  
+3. [1] Create HANA replication (as root)  
     Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 03) with the values of your SAP HANA installation.
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
@@ -402,22 +395,22 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. [A] Create keystore entry (as root)
+4. [A] Create keystore entry (as root)
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] Backup database (as root)
+5. [1] Backup database (as root)
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </code></pre>
-1. [1] Switch to the sapsid user (for example hdbadm) and create the primary site.
+6. [1] Switch to the sapsid user (for example hdbadm) and create the primary site.
     <pre><code>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
-1. [2] Switch to the sapsid user (for example hdbadm) and create the secondary site.
+7. [2] Switch to the sapsid user (for example hdbadm) and create the secondary site.
     <pre><code>
     su - <b>hdb</b>adm
     sapcontrol -nr <b>03</b> -function StopWait 600 10
@@ -545,7 +538,7 @@ primitive rsc_nc_<b>HDB</b>_HDB<b>03</b> anything \
     params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
     op monitor timeout=20s interval=10 depth=0 
 group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
- 
+
 colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
     msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
 order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 

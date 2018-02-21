@@ -59,6 +59,7 @@ In the following examples, replace example parameter names with your own values.
 
 <a id="prepimage"> </a>
 
+
 ## Prepare the VM
 
 Azure supports various Linux distributions (see [Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
@@ -91,7 +92,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 ```azurecli
 az group create \
     --name myResourceGroup \
-	--location eastus
+    --location eastus
 ```
 
 ### Create a storage account
@@ -103,10 +104,10 @@ The following example creates a storage account named *mystorageaccount* in the 
 ```azurecli
 az storage account create \
     --resource-group myResourceGroup \
-	--location eastus \
-	--name mystorageaccount \
-	--kind Storage \
-	--sku Standard_LRS
+    --location eastus \
+    --name mystorageaccount \
+    --kind Storage \
+    --sku Standard_LRS
 ```
 
 ### List storage account keys
@@ -117,7 +118,7 @@ View the access keys for the storage account you created:
 ```azurecli
 az storage account keys list \
     --resource-group myResourceGroup \
-	--account-name mystorageaccount
+    --account-name mystorageaccount
 ```
 
 The output is similar to:
@@ -152,10 +153,10 @@ Specify your access key, the container you created in the previous step, and the
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
     --account-key key1 \
-	--container-name mydisks \
-	--type page \
+    --container-name mydisks \
+    --type page \
     --file /path/to/disk/mydisk.vhd \
-	--name myDisk.vhd
+    --name myDisk.vhd
 ```
 Uploading the VHD may take a while.
 
@@ -167,7 +168,7 @@ Create a managed disk from the VHD using [az disk create](/cli/azure/disk#az_dis
 ```azurecli
 az disk create \
     --resource-group myResourceGroup \
-	--name myManagedDisk \
+    --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 ## Option 2: Copy an existing VM
@@ -182,8 +183,8 @@ This example creates a snapshot of a VM named *myVM* in resource group *myResour
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 az snapshot create \
     -g myResourceGroup \
-	--source "$osDiskId" \
-	--name osDiskSnapshot
+    --source "$osDiskId" \
+    --name osDiskSnapshot
 ```
 ###  Create the managed disk
 
@@ -200,10 +201,10 @@ Create the managed disk. In this example, we will create a managed disk named *m
 ```azure-cli
 az disk create \
     --resource-group myResourceGroup \
-	--name myManagedDisk \
-	--sku Standard_LRS \
-	--size-gb 128 \
-	--source $snapshotId
+    --name myManagedDisk \
+    --sku Standard_LRS \
+    --size-gb 128 \
+    --source $snapshotId
 ```
 
 ## Create the VM
@@ -215,7 +216,7 @@ az vm create \
     --resource-group myResourceGroup \
     --location eastus \
     --name myNewVM \
-	--os-type linux \
+    --os-type linux \
     --attach-os-disk myManagedDisk
 ```
 

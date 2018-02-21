@@ -41,7 +41,7 @@ $location            = 'local'
 
 # Password for the application. If not specified, this script will generate a random password during app creation.
 $applicationPassword = '' 
-                         
+
 # Function to generate a random password for the application.
 Function GenerateSymmetricKey()
 {
@@ -73,12 +73,12 @@ $TenantID = Get-AzsDirectoryTenantId `
 Login-AzureRmAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
-  
+
 $now = [System.DateTime]::Now
 $oneYearFromNow = $now.AddYears(1)
 
 $applicationPassword = GenerateSymmetricKey
-	
+
 # Create a new Azure AD application.
 $identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().ToString("N"))
 $homePage = "http://contoso.com"
@@ -119,7 +119,6 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ``` 
 
 The following screenshot shows the output of the previous script:
@@ -135,7 +134,7 @@ Download the key vault sample from the Azure [Key Vault client samples](https://
 Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
 
 ![App settings](media/azure-stack-kv-sample-app/appconfig.png)
- 
+
 The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
 
 

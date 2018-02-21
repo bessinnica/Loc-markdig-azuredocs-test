@@ -17,7 +17,7 @@ ms.date: 09/19/2017
 ms.author: renash
 ---
 # Create a file share in Azure Files
-You can create Azure File shares using [Azure portal](https://portal.azure.com/), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. In this tutorial, you will learn:
+You can create Azure File shares using [Azure portal](https://portal.azure.com/), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. In this tutorial, you will learn:
 * [How to create an Azure File share using the Azure portal](#Create file share through the Portal)
 * [How to create an Azure File share using Powershell](#Create file share using PowerShell)
 * [How to create an Azure File share using CLI](#create-file-share-using-command-line-interface-cli)
@@ -46,13 +46,13 @@ To create an Azure File share, you can use a Storage Account that already exists
 
 
 ## Create file share through PowerShell
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) for the install point and installation instructions.
 
 > [!Note]  
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
 1. **Create a context for your storage account and key**
-    The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com/), see [View and copy storage access keys](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+    The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com/), see [View and copy storage access keys](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -65,14 +65,14 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
     ```
 
 > [!Note]  
-> The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ## Create file share through Command Line Interface (CLI)
 1. **To prepare to use a Command Line Interface (CLI), download and install the Azure CLI.**  
-    See [Install Azure CLI 2.0](/cli/azure/install-az-cli2.md) and [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md).
+    See [Install Azure CLI 2.0](/cli/azure/install-az-cli2.md) and [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md).
 
 2. **Create a connection string to the storage account where you want to create the share.**  
-    Replace ```<storage-account>``` and ```<resource_group>``` with your storage account name and resource group in the following example:
+    Replace ```<storage-account>``` and ```<resource_group>``` with your storage account name and resource group in the following example:
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
